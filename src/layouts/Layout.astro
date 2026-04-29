@@ -14,6 +14,9 @@ const socialTitle = ogTitle ?? title ?? SITE_NAME;
 const socialDescription = ogDescription ?? description;
 const canonicalURL = new URL(Astro.url.pathname, Astro.site).toString();
 const currentYear = new Date().getFullYear();
+
+const whatsappHref =
+  'https://wa.me/447395549408?text=Hi%2C%20I%20have%20a%20UK%20mortgage%20enquiry';
 ---
 
 <!doctype html>
@@ -37,48 +40,109 @@ const currentYear = new Date().getFullYear();
     <meta name="twitter:card" content="summary" />
     <meta name="twitter:title" content={socialTitle} />
     {socialDescription && <meta name="twitter:description" content={socialDescription} />}
+
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,500;9..144,600;9..144,700&family=Inter:wght@400;500;600&display=swap"
+    />
   </head>
   <body>
     <a class="skip-link" href="#main">Skip to content</a>
 
     <header class="site-header">
-      <div class="container header-inner">
-        <a class="brand" href="/">{SITE_NAME}</a>
+      <div class="header-inner">
+        <a class="brand" href="/">
+          <span class="brand-mark" aria-hidden="true"></span>
+          <span class="brand-name">UK Mortgages Worldwide</span>
+        </a>
         <nav class="site-nav" aria-label="Primary">
-          <a href="/">Home</a>
-          <a href="/expat-mortgages">Expats</a>
-          <a href="/seafarer-mortgages">Seafarers</a>
+          <a href="#">Mortgages</a>
+          <a href="#">Calculators</a>
+          <a href="#">Guides</a>
+          <a href="#">About</a>
+          <a class="nav-cta" href="#contact-form">Contact</a>
         </nav>
       </div>
     </header>
 
-    <main id="main" class="container">
+    <main id="main">
       <slot />
     </main>
 
     <footer class="site-footer">
-      <div class="container">
-        <p class="disclosure">
-          This website is an introducer service. Enquiries are referred to
-          FCA-authorised mortgage brokers. Not regulated by the Financial
-          Conduct Authority.
-        </p>
-        <p class="copyright">&copy; {currentYear} {SITE_NAME}. All rights reserved.</p>
+      <div class="footer-inner">
+        <div class="footer-top">
+          <div class="footer-brand">
+            <span class="brand-name">UK Mortgages Worldwide</span>
+            <p class="footer-tag">
+              UK mortgages for people who live, work or earn outside the UK.
+            </p>
+          </div>
+          <div class="footer-disclosure">
+            <p>
+              We do not provide regulated mortgage advice. We pass enquiries to
+              FCA-authorised mortgage brokers.
+            </p>
+          </div>
+        </div>
+        <div class="footer-bottom">
+          <p class="copyright">&copy; {currentYear} UK Mortgages Worldwide.</p>
+        </div>
       </div>
     </footer>
 
+    <a
+      class="whatsapp-pill"
+      href={whatsappHref}
+      target="_blank"
+      rel="noopener noreferrer"
+      aria-label="Message us on WhatsApp"
+    >
+      <svg
+        class="whatsapp-icon"
+        viewBox="0 0 32 32"
+        aria-hidden="true"
+        focusable="false"
+      >
+        <path
+          fill="currentColor"
+          d="M16.003 3C9.374 3 4 8.374 4 15.003c0 2.378.69 4.591 1.876 6.456L4 28l6.71-1.834a11.95 11.95 0 0 0 5.293 1.244h.005C22.637 27.41 28 22.034 28 15.405 28 12.193 26.751 9.18 24.48 6.91A11.967 11.967 0 0 0 16.003 3Zm0 21.853h-.004a9.91 9.91 0 0 1-5.04-1.379l-.36-.215-3.978 1.087 1.062-3.876-.235-.398a9.913 9.913 0 0 1-1.516-5.27c0-5.473 4.456-9.927 9.928-9.927 2.65 0 5.143 1.034 7.018 2.91a9.86 9.86 0 0 1 2.906 7.022c0 5.472-4.453 9.928-9.929 9.928Zm5.452-7.43c-.298-.149-1.766-.872-2.04-.972-.273-.099-.473-.149-.673.149-.198.298-.77.972-.944 1.171-.174.198-.348.224-.645.075-.298-.149-1.26-.464-2.4-1.48-.887-.79-1.486-1.768-1.66-2.066-.174-.298-.018-.46.131-.608.135-.135.298-.348.447-.522.149-.174.198-.298.298-.497.099-.198.05-.372-.025-.522-.075-.149-.673-1.62-.922-2.218-.243-.583-.49-.504-.673-.514l-.572-.01a1.1 1.1 0 0 0-.795.372c-.273.298-1.043 1.018-1.043 2.481 0 1.464 1.068 2.879 1.217 3.077.149.198 2.103 3.213 5.094 4.504.712.307 1.268.49 1.7.628.714.227 1.364.195 1.879.118.573-.085 1.766-.722 2.014-1.42.249-.697.249-1.295.174-1.42-.074-.124-.273-.198-.572-.347Z"
+        />
+      </svg>
+      <span class="whatsapp-label">WhatsApp</span>
+    </a>
+
     <style is:global>
       :root {
-        --accent: #0a3d62;
-        --accent-hover: #0c4d7a;
-        --text: #1a1a1a;
-        --muted: #5a6470;
         --bg: #ffffff;
-        --bg-alt: #f6f8fa;
-        --border: #e4e8ec;
-        --max-width: 760px;
-        --font-stack: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto,
-          Oxygen, Ubuntu, Cantarell, 'Helvetica Neue', Arial, sans-serif;
+        --bg-soft: #faf8f3;
+        --bg-alt: #faf8f3;
+        --bg-warm: #f4f1e9;
+        --text: #15171a;
+        --text-soft: #2a2d33;
+        --muted: #5e6470;
+        --muted-soft: #8a8f99;
+        --border: #ece8de;
+        --border-strong: #d9d4c5;
+        --accent: #15453b;
+        --accent-hover: #0e3328;
+        --accent-soft: rgba(21, 69, 59, 0.08);
+        --whatsapp: #1a8e47;
+        --whatsapp-hover: #146e37;
+        --shadow-sm: 0 1px 2px rgba(15, 19, 22, 0.04);
+        --shadow-md: 0 8px 24px rgba(15, 19, 22, 0.08);
+        --shadow-lg: 0 20px 60px rgba(15, 19, 22, 0.12);
+        --radius-sm: 6px;
+        --radius-md: 10px;
+        --radius-lg: 16px;
+        --radius-pill: 999px;
+        --content-width: 720px;
+        --wide-width: 1120px;
+        --font-serif: 'Fraunces', 'Newsreader', Georgia, 'Times New Roman', serif;
+        --font-sans: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI',
+          Roboto, 'Helvetica Neue', Arial, sans-serif;
       }
 
       *,
@@ -88,10 +152,20 @@ const currentYear = new Date().getFullYear();
       }
 
       html {
-        font-family: var(--font-stack);
-        line-height: 1.6;
+        font-family: var(--font-sans);
+        font-size: 17px;
+        line-height: 1.65;
         color: var(--text);
         background: var(--bg);
+        -webkit-font-smoothing: antialiased;
+        -moz-osx-font-smoothing: grayscale;
+        text-rendering: optimizeLegibility;
+      }
+
+      @media (min-width: 768px) {
+        html {
+          font-size: 18px;
+        }
       }
 
       body {
@@ -104,34 +178,85 @@ const currentYear = new Date().getFullYear();
 
       main {
         flex: 1;
-        padding: 2.5rem 1.25rem 4rem;
-      }
-
-      .container {
-        max-width: var(--max-width);
-        margin: 0 auto;
-        width: 100%;
-      }
-
-      a {
-        color: var(--accent);
       }
 
       h1,
       h2,
-      h3 {
-        color: var(--accent);
-        line-height: 1.25;
+      h3,
+      h4 {
+        font-family: var(--font-serif);
+        font-weight: 500;
+        color: var(--text);
+        letter-spacing: -0.015em;
+        line-height: 1.18;
+        font-variation-settings: 'opsz' 96, 'SOFT' 30;
+        margin: 0;
       }
 
       h1 {
-        font-size: clamp(2rem, 4vw, 2.75rem);
-        margin: 0 0 1rem;
+        font-size: clamp(2.25rem, 5.2vw, 3.75rem);
+        font-weight: 500;
+        letter-spacing: -0.025em;
       }
 
       h2 {
-        font-size: 1.5rem;
-        margin: 2.5rem 0 0.75rem;
+        font-size: clamp(1.5rem, 2.6vw, 2rem);
+        font-variation-settings: 'opsz' 48, 'SOFT' 30;
+        letter-spacing: -0.018em;
+      }
+
+      h3 {
+        font-size: 1.2rem;
+        font-weight: 500;
+        font-variation-settings: 'opsz' 24, 'SOFT' 30;
+        letter-spacing: -0.005em;
+      }
+
+      p {
+        margin: 0 0 1.1em;
+      }
+
+      a {
+        color: var(--accent);
+        text-decoration-thickness: 1px;
+        text-underline-offset: 0.2em;
+      }
+
+      a:hover {
+        color: var(--accent-hover);
+      }
+
+      strong {
+        font-weight: 600;
+        color: var(--text);
+      }
+
+      hr {
+        border: none;
+        border-top: 1px solid var(--border);
+        margin: 3rem 0;
+      }
+
+      ul,
+      ol {
+        padding-left: 1.25rem;
+        margin: 0 0 1.25em;
+      }
+
+      ul li,
+      ol li {
+        margin-bottom: 0.5rem;
+      }
+
+      blockquote {
+        margin: 1.5em 0;
+        padding-left: 1.25rem;
+        border-left: 2px solid var(--accent);
+        font-family: var(--font-serif);
+        font-size: 1.15rem;
+        color: var(--text-soft);
+        font-style: normal;
+        line-height: 1.5;
       }
 
       .skip-link {
@@ -146,83 +271,247 @@ const currentYear = new Date().getFullYear();
         top: 1rem;
         background: var(--accent);
         color: #fff;
-        padding: 0.5rem 0.75rem;
-        z-index: 100;
-        border-radius: 4px;
+        padding: 0.5rem 0.875rem;
+        z-index: 200;
+        border-radius: var(--radius-sm);
+        text-decoration: none;
       }
 
       .site-header {
         border-bottom: 1px solid var(--border);
-        background: var(--bg);
+        background: rgba(255, 255, 255, 0.92);
+        position: sticky;
+        top: 0;
+        z-index: 50;
+        backdrop-filter: saturate(180%) blur(12px);
       }
 
       .header-inner {
+        max-width: var(--wide-width);
+        margin: 0 auto;
         display: flex;
         align-items: center;
         justify-content: space-between;
-        gap: 1rem;
-        padding: 1rem 1.25rem;
-        flex-wrap: wrap;
+        gap: 1.5rem;
+        padding: 1.05rem 1.5rem;
       }
 
       .brand {
-        font-weight: 600;
+        display: inline-flex;
+        align-items: center;
+        gap: 0.625rem;
         text-decoration: none;
-        color: var(--accent);
+        color: var(--text);
+        font-family: var(--font-serif);
         font-size: 1.0625rem;
+        font-weight: 500;
+        letter-spacing: -0.01em;
+        font-variation-settings: 'opsz' 18, 'SOFT' 30;
+      }
+
+      .brand-mark {
+        display: inline-block;
+        width: 10px;
+        height: 10px;
+        border-radius: 50%;
+        background: var(--accent);
       }
 
       .site-nav {
         display: flex;
-        gap: 1.25rem;
-        flex-wrap: wrap;
+        align-items: center;
+        gap: 1.75rem;
       }
 
       .site-nav a {
         text-decoration: none;
-        color: var(--text);
+        color: var(--text-soft);
         font-size: 0.9375rem;
+        font-weight: 500;
+        letter-spacing: -0.005em;
       }
 
       .site-nav a:hover {
         color: var(--accent);
       }
 
+      .site-nav .nav-cta {
+        background: var(--text);
+        color: #fff;
+        padding: 0.5rem 0.95rem;
+        border-radius: var(--radius-pill);
+        font-size: 0.875rem;
+      }
+
+      .site-nav .nav-cta:hover {
+        background: var(--accent);
+        color: #fff;
+      }
+
+      @media (max-width: 720px) {
+        .header-inner {
+          padding: 0.95rem 1.25rem;
+          gap: 0.75rem;
+        }
+
+        .site-nav {
+          gap: 1rem;
+        }
+
+        .site-nav a:not(.nav-cta) {
+          display: none;
+        }
+      }
+
       .site-footer {
         border-top: 1px solid var(--border);
-        background: var(--bg-alt);
-        padding: 1.75rem 1.25rem;
-        font-size: 0.875rem;
+        background: var(--bg-soft);
+        padding: 4rem 1.5rem 2.5rem;
+        margin-top: 6rem;
+      }
+
+      .footer-inner {
+        max-width: var(--wide-width);
+        margin: 0 auto;
+      }
+
+      .footer-top {
+        display: grid;
+        gap: 2.5rem;
+        grid-template-columns: 1fr;
+        padding-bottom: 2.5rem;
+        border-bottom: 1px solid var(--border);
+      }
+
+      @media (min-width: 768px) {
+        .footer-top {
+          grid-template-columns: 1fr 1fr;
+          gap: 4rem;
+        }
+      }
+
+      .footer-brand .brand-name {
+        font-family: var(--font-serif);
+        font-size: 1.125rem;
+        font-weight: 500;
+        font-variation-settings: 'opsz' 18, 'SOFT' 30;
+        display: block;
+        margin-bottom: 0.625rem;
+      }
+
+      .footer-tag {
         color: var(--muted);
-      }
-
-      .site-footer .disclosure {
-        margin: 0 0 0.5rem;
-      }
-
-      .site-footer .copyright {
+        font-size: 0.9375rem;
+        max-width: 36ch;
         margin: 0;
       }
 
+      .footer-disclosure p {
+        margin: 0;
+        font-size: 0.9375rem;
+        color: var(--muted);
+        max-width: 52ch;
+      }
+
+      .footer-bottom {
+        padding-top: 1.75rem;
+      }
+
+      .footer-bottom .copyright {
+        margin: 0;
+        font-size: 0.875rem;
+        color: var(--muted-soft);
+      }
+
+      .whatsapp-pill {
+        position: fixed;
+        bottom: 1.25rem;
+        right: 1.25rem;
+        z-index: 60;
+        display: inline-flex;
+        align-items: center;
+        gap: 0.55rem;
+        padding: 0.7rem 1.1rem 0.7rem 0.9rem;
+        background: var(--whatsapp);
+        color: #fff;
+        text-decoration: none;
+        border-radius: var(--radius-pill);
+        font-size: 0.9375rem;
+        font-weight: 500;
+        letter-spacing: -0.005em;
+        box-shadow: var(--shadow-md);
+        transition: transform 0.18s ease, background 0.18s ease,
+          box-shadow 0.18s ease;
+      }
+
+      .whatsapp-pill:hover {
+        background: var(--whatsapp-hover);
+        color: #fff;
+        transform: translateY(-1px);
+        box-shadow: var(--shadow-lg);
+      }
+
+      .whatsapp-icon {
+        width: 20px;
+        height: 20px;
+        flex-shrink: 0;
+      }
+
+      @media (max-width: 540px) {
+        .whatsapp-pill {
+          bottom: 1rem;
+          right: 1rem;
+          padding: 0.7rem 0.8rem;
+        }
+
+        .whatsapp-label {
+          display: none;
+        }
+      }
+
+      .container {
+        max-width: var(--content-width);
+        margin: 0 auto;
+        padding: 0 1.5rem;
+      }
+
+      .container-wide {
+        max-width: var(--wide-width);
+        margin: 0 auto;
+        padding: 0 1.5rem;
+      }
+
       .btn {
-        display: inline-block;
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        gap: 0.5rem;
+        font-family: var(--font-sans);
+        font-size: 0.9375rem;
+        font-weight: 500;
+        line-height: 1;
+        padding: 0.85rem 1.35rem;
+        border-radius: var(--radius-pill);
+        text-decoration: none;
+        border: 1px solid transparent;
         background: var(--accent);
         color: #fff;
-        padding: 0.75rem 1.25rem;
-        border-radius: 6px;
-        text-decoration: none;
-        font-weight: 500;
-        transition: background 0.15s ease;
+        cursor: pointer;
+        transition: background 0.15s ease, color 0.15s ease,
+          transform 0.15s ease, box-shadow 0.15s ease, border-color 0.15s ease;
       }
 
       .btn:hover {
         background: var(--accent-hover);
+        color: #fff;
+        transform: translateY(-1px);
+        box-shadow: var(--shadow-md);
       }
 
       .btn-secondary {
         background: transparent;
         color: var(--accent);
-        border: 1px solid var(--accent);
+        border-color: var(--accent);
       }
 
       .btn-secondary:hover {

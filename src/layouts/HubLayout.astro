@@ -1,0 +1,356 @@
+---
+import Layout from './Layout.astro';
+
+interface Props {
+  title: string;
+  description?: string;
+  h1: string;
+  subheadline: string;
+  eyebrow?: string;
+  ctaHeading?: string;
+  ctaLeadIn?: string;
+}
+
+const {
+  title,
+  description,
+  h1,
+  subheadline,
+  eyebrow = 'Hub',
+  ctaHeading = 'Speak to a specialist',
+  ctaLeadIn = 'Contact us here. A mortgage broker will usually respond immediately.',
+} = Astro.props;
+---
+
+<Layout title={title} description={description}>
+  <article class="hub">
+    <header class="hub-hero">
+      <div class="hub-hero-inner">
+        <p class="eyebrow">{eyebrow}</p>
+        <h1>{h1}</h1>
+        <p class="subheadline">{subheadline}</p>
+        <div class="hero-actions">
+          <a class="btn" href="#contact-form">Send an enquiry</a>
+          <span class="hero-meta">
+            A mortgage broker will usually respond immediately.
+          </span>
+        </div>
+      </div>
+    </header>
+
+    <div class="hub-body">
+      <slot />
+    </div>
+
+    <section class="hub-cta" id="contact-form" aria-labelledby="cta-heading">
+      <div class="hub-cta-inner">
+        <div class="cta-copy">
+          <p class="eyebrow">Enquire</p>
+          <h2 id="cta-heading">{ctaHeading}</h2>
+          <p class="cta-lead">{ctaLeadIn}</p>
+        </div>
+
+        <form
+          class="enquiry-form"
+          action="https://formsubmit.co/mbmoffat@gmail.com"
+          method="POST"
+        >
+          <input
+            type="hidden"
+            name="_subject"
+            value="New enquiry from UK Mortgages Worldwide"
+          />
+          <input type="hidden" name="_captcha" value="false" />
+          <input type="hidden" name="_template" value="table" />
+          <input type="text" name="_honey" tabindex="-1" autocomplete="off" class="honeypot" />
+
+          <div class="field">
+            <label for="name">Your name</label>
+            <input id="name" type="text" name="name" autocomplete="name" required />
+          </div>
+
+          <div class="field">
+            <label for="email">Email</label>
+            <input
+              id="email"
+              type="email"
+              name="email"
+              autocomplete="email"
+              required
+            />
+          </div>
+
+          <div class="field">
+            <label for="message">What can we help with?</label>
+            <textarea id="message" name="message" rows="5" required></textarea>
+          </div>
+
+          <button type="submit" class="btn btn-block">
+            Send enquiry
+          </button>
+
+          <p class="form-note">
+            We will pass your enquiry to a specialist mortgage broker. We do not
+            provide regulated advice on this site.
+          </p>
+        </form>
+      </div>
+    </section>
+  </article>
+</Layout>
+
+<style is:global>
+  .hub {
+    width: 100%;
+  }
+
+  .hub-hero {
+    padding: 4rem 1.5rem 3rem;
+    background: var(--bg);
+  }
+
+  @media (min-width: 768px) {
+    .hub-hero {
+      padding: 6rem 1.5rem 4.5rem;
+    }
+  }
+
+  .hub-hero-inner {
+    max-width: var(--content-width);
+    margin: 0 auto;
+  }
+
+  .eyebrow {
+    text-transform: uppercase;
+    letter-spacing: 0.14em;
+    font-size: 0.75rem;
+    font-weight: 600;
+    color: var(--accent);
+    margin: 0 0 1.25rem;
+  }
+
+  .hub-hero h1 {
+    margin: 0 0 1.25rem;
+    max-width: 18ch;
+  }
+
+  .subheadline {
+    font-family: var(--font-serif);
+    font-weight: 400;
+    font-variation-settings: 'opsz' 36, 'SOFT' 50;
+    font-size: clamp(1.125rem, 2vw, 1.4rem);
+    color: var(--text-soft);
+    line-height: 1.45;
+    margin: 0 0 2.25rem;
+    max-width: 50ch;
+  }
+
+  .hero-actions {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 1rem 1.25rem;
+    margin-top: 1.75rem;
+  }
+
+  .hero-meta {
+    font-size: 0.9375rem;
+    color: var(--muted);
+  }
+
+  .btn-block {
+    width: 100%;
+    padding: 1rem 1.35rem;
+  }
+
+  .hub-body {
+    max-width: var(--content-width);
+    margin: 0 auto;
+    padding: 1rem 1.5rem 4rem;
+  }
+
+  .hub-body > h2 {
+    margin: 3.5rem 0 1.25rem;
+    scroll-margin-top: 6rem;
+  }
+
+  .hub-body > h2:first-child {
+    margin-top: 1rem;
+  }
+
+  .hub-body > h3 {
+    margin: 2rem 0 0.75rem;
+    color: var(--text);
+  }
+
+  .hub-body p {
+    color: var(--text-soft);
+  }
+
+  .hub-body p.lead {
+    font-family: var(--font-serif);
+    font-weight: 400;
+    font-variation-settings: 'opsz' 36, 'SOFT' 50;
+    font-size: 1.25rem;
+    line-height: 1.5;
+    color: var(--text);
+    margin-bottom: 1.5em;
+  }
+
+  .hub-body ul,
+  .hub-body ol {
+    color: var(--text-soft);
+  }
+
+  .hub-body ul li::marker {
+    color: var(--accent);
+  }
+
+  .hub-body .callout {
+    background: var(--bg-soft);
+    border: 1px solid var(--border);
+    border-radius: var(--radius-md);
+    padding: 1.5rem 1.5rem;
+    margin: 2rem 0;
+  }
+
+  .hub-body .callout > :last-child {
+    margin-bottom: 0;
+  }
+
+  .hub-body .faq {
+    margin-top: 1rem;
+  }
+
+  .hub-body .faq h3 {
+    font-family: var(--font-serif);
+    font-weight: 500;
+    font-size: 1.15rem;
+    margin: 2rem 0 0.5rem;
+  }
+
+  .hub-body .faq h3:first-child {
+    margin-top: 0.5rem;
+  }
+
+  .hub-body .closer {
+    margin-top: 3rem;
+    padding-top: 2.5rem;
+    border-top: 1px solid var(--border);
+  }
+
+  .hub-body .closer p:last-child {
+    font-family: var(--font-serif);
+    font-size: 1.2rem;
+    color: var(--text);
+    margin-top: 1rem;
+  }
+
+  .hub-cta {
+    background: var(--bg-soft);
+    border-top: 1px solid var(--border);
+    padding: 4.5rem 1.5rem 5rem;
+  }
+
+  @media (min-width: 768px) {
+    .hub-cta {
+      padding: 6rem 1.5rem 6.5rem;
+    }
+  }
+
+  .hub-cta-inner {
+    max-width: 920px;
+    margin: 0 auto;
+    display: grid;
+    gap: 2.5rem;
+    grid-template-columns: 1fr;
+    align-items: start;
+  }
+
+  @media (min-width: 880px) {
+    .hub-cta-inner {
+      grid-template-columns: 1fr 1fr;
+      gap: 4rem;
+    }
+  }
+
+  .cta-copy h2 {
+    margin: 0 0 1rem;
+    max-width: 16ch;
+  }
+
+  .cta-copy .cta-lead {
+    color: var(--text-soft);
+    font-size: 1.0625rem;
+    max-width: 38ch;
+    margin: 0;
+  }
+
+  .enquiry-form {
+    background: var(--bg);
+    border: 1px solid var(--border);
+    border-radius: var(--radius-lg);
+    padding: 1.75rem;
+    box-shadow: var(--shadow-sm);
+  }
+
+  @media (min-width: 600px) {
+    .enquiry-form {
+      padding: 2rem;
+    }
+  }
+
+  .field {
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 1.1rem;
+  }
+
+  .field label {
+    font-size: 0.875rem;
+    font-weight: 500;
+    color: var(--text);
+    margin-bottom: 0.4rem;
+  }
+
+  .field input,
+  .field textarea {
+    font-family: var(--font-sans);
+    font-size: 1rem;
+    color: var(--text);
+    background: var(--bg);
+    border: 1px solid var(--border-strong);
+    border-radius: var(--radius-sm);
+    padding: 0.75rem 0.85rem;
+    width: 100%;
+    transition: border-color 0.15s ease, box-shadow 0.15s ease;
+  }
+
+  .field textarea {
+    resize: vertical;
+    min-height: 120px;
+    line-height: 1.5;
+  }
+
+  .field input:focus,
+  .field textarea:focus {
+    outline: none;
+    border-color: var(--accent);
+    box-shadow: 0 0 0 3px var(--accent-soft);
+  }
+
+  .honeypot {
+    position: absolute;
+    left: -9999px;
+    width: 1px;
+    height: 1px;
+    opacity: 0;
+  }
+
+  .form-note {
+    font-size: 0.8125rem;
+    color: var(--muted);
+    margin: 1rem 0 0;
+    line-height: 1.5;
+  }
+</style>
