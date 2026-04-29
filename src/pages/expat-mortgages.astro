@@ -1,0 +1,137 @@
+---
+import Layout from '../layouts/Layout.astro';
+
+const title = 'UK Mortgages for British Expats';
+const description =
+  'UK mortgage enquiries for British expats living and working abroad. We refer enquiries to FCA-authorised brokers who specialise in expat cases.';
+
+const situations = [
+  { name: 'Residential', href: '/expat-mortgages/residential' },
+  { name: 'Buy to let', href: '/expat-mortgages/buy-to-let' },
+  { name: 'Remortgage', href: '/expat-mortgages/remortgage' },
+  { name: 'Returning to the UK', href: '/expat-mortgages/returning-to-uk' },
+  { name: 'First time buyer', href: '/expat-mortgages/first-time-buyer' },
+  { name: 'Let to buy', href: '/expat-mortgages/let-to-buy' },
+  { name: 'Interest only', href: '/expat-mortgages/interest-only' },
+  { name: 'Large mortgages', href: '/expat-mortgages/large-mortgages' },
+];
+---
+
+<Layout title={title} description={description}>
+  <h1>UK mortgages for British expats</h1>
+
+  <p class="intro">
+    {/* PLACEHOLDER COPY: refine before launch */}
+    UK mortgage enquiries for British citizens living and working overseas. We
+    pass your details to FCA-authorised UK mortgage brokers who handle expat
+    applications, including cases with foreign currency income, non-UK
+    residency, and limited recent UK credit history.
+  </p>
+
+  <section aria-labelledby="situations-heading">
+    <h2 id="situations-heading">Common situations we help with</h2>
+    <p>
+      {/* PLACEHOLDER COPY */}
+      Whatever stage you are at, the brokers in our network deal with a wide
+      range of expat scenarios:
+    </p>
+    <ul class="situations">
+      {situations.map((s) => (
+        <li><a href={s.href}>{s.name}</a></li>
+      ))}
+    </ul>
+    <p class="note">
+      {/* PLACEHOLDER COPY */}
+      Individual category pages will be published as the site grows.
+    </p>
+  </section>
+
+  <section aria-labelledby="how-heading">
+    <h2 id="how-heading">How it works</h2>
+    <ol class="steps">
+      <li>
+        <strong>You tell us about your situation.</strong> Country of
+        residence, income type and currency, property plans, and timing.
+      </li>
+      <li>
+        <strong>We match your enquiry to a suitable broker.</strong> We do not
+        give mortgage advice on this site. Your details are passed to an
+        FCA-authorised UK mortgage broker whose lender panel and experience
+        suits your case.
+      </li>
+      <li>
+        <strong>The broker contacts you.</strong> They handle the regulated
+        advice, lender selection, and application from there.
+      </li>
+    </ol>
+    <p class="note">
+      {/* PLACEHOLDER COPY: confirm referral mechanics with broker partners */}
+      This site is an introducer service only. We do not arrange mortgages or
+      provide advice.
+    </p>
+  </section>
+
+  <section class="cta-section" aria-labelledby="cta-heading">
+    <h2 id="cta-heading">Start your enquiry</h2>
+    <p>
+      {/* PLACEHOLDER COPY */}
+      Send us a few details and we will refer you to a broker who handles
+      cases like yours.
+    </p>
+    <a class="btn" href="/enquire">Start my enquiry</a>
+  </section>
+
+  <style>
+    .intro {
+      font-size: 1.125rem;
+      color: var(--muted);
+      margin: 0 0 1.5rem;
+    }
+
+    .situations {
+      list-style: none;
+      padding: 0;
+      margin: 0.75rem 0 0;
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
+      gap: 0.5rem 1rem;
+    }
+
+    .situations li {
+      padding: 0.5rem 0;
+      border-bottom: 1px solid var(--border);
+    }
+
+    .situations a {
+      text-decoration: none;
+    }
+
+    .situations a:hover {
+      text-decoration: underline;
+    }
+
+    .steps {
+      padding-left: 1.25rem;
+    }
+
+    .steps li {
+      margin-bottom: 0.75rem;
+    }
+
+    .note {
+      font-size: 0.9375rem;
+      color: var(--muted);
+    }
+
+    .cta-section {
+      margin-top: 2.5rem;
+      padding: 1.5rem;
+      background: var(--bg-alt);
+      border-radius: 8px;
+    }
+
+    .cta-section h2 {
+      margin-top: 0;
+    }
+  </style>
+</Layout>

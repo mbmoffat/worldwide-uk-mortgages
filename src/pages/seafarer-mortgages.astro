@@ -1,0 +1,140 @@
+---
+import Layout from '../layouts/Layout.astro';
+
+const title = 'UK Mortgages for Seafarers and Offshore Workers';
+const description =
+  'UK mortgage enquiries for seafarers and offshore workers, including SED claimants. Referred to FCA-authorised brokers who handle seafarer cases.';
+
+const situations = [
+  { name: 'Merchant navy', href: '/seafarer-mortgages/merchant-navy' },
+  { name: 'Yacht crew', href: '/seafarer-mortgages/yacht-crew' },
+  { name: 'Offshore oil and gas', href: '/seafarer-mortgages/offshore-oil-and-gas' },
+  { name: 'Cruise ship crew', href: '/seafarer-mortgages/cruise-ship-crew' },
+  { name: 'Royal Navy', href: '/seafarer-mortgages/royal-navy' },
+  {
+    name: "Seafarers' Earnings Deduction",
+    href: '/seafarer-mortgages/sed-mortgage',
+  },
+];
+---
+
+<Layout title={title} description={description}>
+  <h1>UK mortgages for seafarers and offshore workers</h1>
+
+  <p class="intro">
+    {/* PLACEHOLDER COPY: refine before launch */}
+    UK mortgage enquiries for people whose income comes from work at sea or
+    offshore. We pass your details to FCA-authorised UK mortgage brokers who
+    are familiar with seafarer pay structures, rotation contracts, and
+    Seafarers' Earnings Deduction.
+  </p>
+
+  <section aria-labelledby="situations-heading">
+    <h2 id="situations-heading">Common situations we help with</h2>
+    <p>
+      {/* PLACEHOLDER COPY */}
+      The brokers in our network handle a range of seafarer and offshore
+      worker profiles:
+    </p>
+    <ul class="situations">
+      {situations.map((s) => (
+        <li><a href={s.href}>{s.name}</a></li>
+      ))}
+    </ul>
+    <p class="note">
+      {/* PLACEHOLDER COPY */}
+      Individual category pages will be published as the site grows. If you
+      claim Seafarers' Earnings Deduction, that page covers how lenders treat
+      SED-claimed income for affordability.
+    </p>
+  </section>
+
+  <section aria-labelledby="how-heading">
+    <h2 id="how-heading">How it works</h2>
+    <ol class="steps">
+      <li>
+        <strong>You tell us about your situation.</strong> Role, employer,
+        rotation pattern, income currency, SED status, and property plans.
+      </li>
+      <li>
+        <strong>We match your enquiry to a suitable broker.</strong> We do not
+        give mortgage advice on this site. Your details are passed to an
+        FCA-authorised UK mortgage broker whose lender panel and experience
+        suits seafarer cases.
+      </li>
+      <li>
+        <strong>The broker contacts you.</strong> They handle the regulated
+        advice, lender selection, and application from there.
+      </li>
+    </ol>
+    <p class="note">
+      {/* PLACEHOLDER COPY: confirm referral mechanics with broker partners */}
+      This site is an introducer service only. We do not arrange mortgages or
+      provide advice.
+    </p>
+  </section>
+
+  <section class="cta-section" aria-labelledby="cta-heading">
+    <h2 id="cta-heading">Start your enquiry</h2>
+    <p>
+      {/* PLACEHOLDER COPY */}
+      Send us a few details and we will refer you to a broker who handles
+      cases like yours.
+    </p>
+    <a class="btn" href="/enquire">Start my enquiry</a>
+  </section>
+
+  <style>
+    .intro {
+      font-size: 1.125rem;
+      color: var(--muted);
+      margin: 0 0 1.5rem;
+    }
+
+    .situations {
+      list-style: none;
+      padding: 0;
+      margin: 0.75rem 0 0;
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+      gap: 0.5rem 1rem;
+    }
+
+    .situations li {
+      padding: 0.5rem 0;
+      border-bottom: 1px solid var(--border);
+    }
+
+    .situations a {
+      text-decoration: none;
+    }
+
+    .situations a:hover {
+      text-decoration: underline;
+    }
+
+    .steps {
+      padding-left: 1.25rem;
+    }
+
+    .steps li {
+      margin-bottom: 0.75rem;
+    }
+
+    .note {
+      font-size: 0.9375rem;
+      color: var(--muted);
+    }
+
+    .cta-section {
+      margin-top: 2.5rem;
+      padding: 1.5rem;
+      background: var(--bg-alt);
+      border-radius: 8px;
+    }
+
+    .cta-section h2 {
+      margin-top: 0;
+    }
+  </style>
+</Layout>

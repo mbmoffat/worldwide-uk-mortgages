@@ -1,66 +1,53 @@
 ---
 import Layout from '../layouts/Layout.astro';
+
+const description =
+  'A UK mortgage enquiry service for British expats and people working at sea. Enquiries referred to FCA-authorised UK mortgage brokers.';
 ---
 
-<Layout description="UK mortgage enquiries for expats, seafarers, and residential buyers.">
-  <main>
-    <p class="eyebrow">Phase 1 scaffold</p>
-    <h1>Worldwide UK Mortgages</h1>
-    <p class="tagline">
-      UK mortgage enquiries for expats, seafarers, and residential buyers.
-    </p>
+<Layout
+  title="UK Mortgages for Expats and Seafarers"
+  description={description}
+>
+  <h1>UK mortgages for expats and seafarers</h1>
 
-    <section class="status" aria-labelledby="status-heading">
-      <h2 id="status-heading">Status</h2>
-      <p>
-        This site is in early development. The public site, enquiry form, and
-        content will be added in upcoming phases.
-      </p>
-      <ul>
-        <li><strong>Phase 1:</strong> scaffold and hosting (in progress)</li>
-        <li><strong>Phase 2:</strong> homepage content and enquiry form</li>
-        <li><strong>Phase 3:</strong> service pages and SEO foundations</li>
-      </ul>
-    </section>
-  </main>
+  <p class="intro">
+    {/* PLACEHOLDER COPY: refine before launch */}
+    We connect British expats and people working at sea with FCA-authorised UK
+    mortgage brokers who specialise in cross-border and offshore income cases.
+    Tell us about your situation and we will pass your enquiry to a broker who
+    handles applications like yours.
+  </p>
+
+  <div class="cta-row">
+    <a class="btn" href="/expat-mortgages">UK Mortgages for Expats</a>
+    <a class="btn btn-secondary" href="/seafarer-mortgages">UK Mortgages for Seafarers</a>
+  </div>
+
+  <section aria-labelledby="who-heading">
+    <h2 id="who-heading">Who this site is for</h2>
+    <p>
+      {/* PLACEHOLDER COPY */}
+      British citizens living or working overseas, and UK residents whose
+      income comes from work at sea or offshore. Standard UK lenders often
+      decline these applications because of foreign currency, residency, or
+      employment patterns. The brokers we refer to deal with these cases every
+      day.
+    </p>
+  </section>
 
   <style>
-    .eyebrow {
-      text-transform: uppercase;
-      letter-spacing: 0.08em;
-      font-size: 0.8125rem;
-      font-weight: 600;
-      color: var(--muted);
-      margin: 0 0 0.5rem;
-    }
-
-    h1 {
-      font-size: clamp(2rem, 4vw, 2.75rem);
-      margin: 0 0 1rem;
-    }
-
-    .tagline {
+    .intro {
       font-size: 1.125rem;
       color: var(--muted);
+      margin: 0 0 2rem;
+    }
+
+    .cta-row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.75rem;
       margin: 0 0 2.5rem;
-    }
-
-    .status {
-      border-top: 1px solid var(--border);
-      padding-top: 1.75rem;
-    }
-
-    .status h2 {
-      font-size: 1.25rem;
-      margin: 0 0 0.75rem;
-    }
-
-    .status ul {
-      padding-left: 1.25rem;
-    }
-
-    .status li {
-      margin-bottom: 0.35rem;
     }
   </style>
 </Layout>
