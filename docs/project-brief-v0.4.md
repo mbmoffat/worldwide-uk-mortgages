@@ -1,6 +1,6 @@
 # Lead Generation Site – Project Brief
 
-**Version:** 0.3
+**Version:** 0.4
 **Status:** Living document. Update at the end of every working session.
 **Last updated:** 29 April 2026
 
@@ -11,6 +11,8 @@
 A standalone, unregulated mortgage lead generation website. Distinct brand identity. No FCA authorisation, no advice given on the site, no public association with any other entity Matt is connected to.
 
 Operates as an introducer. The site captures enquiries from long-tail organic search traffic and passes them to FCA-authorised brokers for the regulated conversation.
+
+Brand name: **UK Mortgages Worldwide**. Live at https://ukmortgagesworldwide.com.
 
 ---
 
@@ -40,8 +42,11 @@ Operates as an introducer. The site captures enquiries from long-tail organic se
 
 - Site framework: Astro v5 (static site generator)
 - Hosting: Vercel (Hobby plan)
-- Source control: GitHub, repo `mbmoffat/worldwide-uk-mortgages`
-- DNS and edge: Cloudflare (idle until domain registered)
+- Source control: GitHub, repo `mbmoffat/worldwide-uk-mortgages` (repo name predates brand decision, kept as-is, not externally visible)
+- Domain registrar: Squarespace Domains
+- DNS: Squarespace (A and CNAME records pointing at Vercel)
+- SSL: Vercel automatic (Let's Encrypt)
+- Cloudflare account exists but is idle. Can be brought in later if CDN/edge features needed.
 - Form capture: TBD (Vercel native or Formspree, decided in Phase 2)
 - Analytics: Google Search Console + GA4 (Phase 4+)
 - Keyword research: Ahrefs (Lite plan, MCP-enabled)
@@ -51,8 +56,10 @@ Operates as an introducer. The site captures enquiries from long-tail organic se
 
 ## 5. Live environments
 
+- Live site: https://ukmortgagesworldwide.com
 - GitHub repo: https://github.com/mbmoffat/worldwide-uk-mortgages
-- Vercel preview URL: https://worldwide-uk-mortgages-tue4.vercel.app/
+- Vercel project: `worldwide-uk-mortgages` (Hobby plan)
+- Vercel preview URL: https://worldwide-uk-mortgages.vercel.app/
 - Local working folder: `~/Projects/worldwide-uk-mortgages`
 - Repo visibility: Public (temporary, flip to private once write-permissions issue is no longer a factor)
 
@@ -157,11 +164,12 @@ Live working layer of the project.
 
 | ID | What | Why needed | Raised | Status |
 |---|---|---|---|---|
-| R001 | Real brand name and `.com` domain | Replace working name "Worldwide UK Mortgages" before launch | 29 Apr 2026 | Open. Constraint added: avoid heavily expat-led names that would undermine ownership of the non-resident vocabulary. |
+| R001 | Real brand name and `.com` domain | Replace working name before launch | 29 Apr 2026 | **Resolved 29 Apr 2026.** Brand is UK Mortgages Worldwide. Domain ukmortgagesworldwide.com registered. |
 | R002 | Form submission service decision (Vercel native vs Formspree) | Phase 2 build trigger | 29 Apr 2026 | Open |
 | R003 | Tone-of-voice references (existing copy Matt likes the feel of) | Inform homepage and hub page copy | 29 Apr 2026 | Open |
 | R004 | Visual brand direction (mood, photographic style) | Phase 1 template design | 29 Apr 2026 | Open |
 | R005 | Niche page priorities (which expat / seafarer angle first) | Phase 1 page map | 29 Apr 2026 | Resolved (see `/docs/keyword-universe-v1.0.md`) |
+| R006 | Clean up duplicate Vercel project | Two projects exist (`worldwide-uk-mortgages` and `worldwide-uk-mortgages-tue4`). Only the first is in active use. | 29 Apr 2026 | Open. Low priority. Delete the `tue4` project when convenient. |
 
 ### 9.2 Decisions Made
 
@@ -169,13 +177,16 @@ Live working layer of the project.
 |---|---|---|---|
 | D001 | Niche: UK expats, seafarers, UK residential | 29 Apr 2026 | Defined by Matt at session 1 |
 | D002 | Stack: Astro + Vercel + GitHub + Cloudflare | 29 Apr 2026 | Performance, programmatic page generation, low running cost, branch-preview workflow |
-| D003 | Working name: Worldwide UK Mortgages | 29 Apr 2026 | Anchor Mortgages name was already in commercial use. Placeholder for development; real brand TBD |
-| D004 | Form submission destination: `mbmoffat@gmail.com` | 29 Apr 2026 | Clean separation from existing inboxes during dev. Will swap to `enquiries@[realdomain]` post-launch |
+| D003 | Working name: Worldwide UK Mortgages | 29 Apr 2026 | Anchor Mortgages name was already in commercial use. **Superseded by D010.** |
+| D004 | Form submission destination: `mbmoffat@gmail.com` | 29 Apr 2026 | Clean separation from existing inboxes during dev. Will swap to `enquiries@ukmortgagesworldwide.com` post-launch |
 | D005 | Build interface: Claude Code on iMac (not Claude.ai custom MCP) | 29 Apr 2026 | Custom MCP for GitHub on Claude.ai is read-only. Claude Code provides full local read/write via system git/gh, no token management |
 | D006 | Ahrefs Lite annual subscription, $99/month | 29 Apr 2026 | Unlocks MCP-driven keyword research for this project plus ongoing SEO work for Mortgage One. Single tool covering both. |
 | D007 | Lead niche is UK expats AND non-UK residents (dual anchor). Seafarer is specialism page only, not lead. | 29 Apr 2026 | Ahrefs data: seafarer cluster under 200 monthly searches total. Expat plus non-resident clusters together carry 3,500+ monthly searches of qualified intent. |
 | D008 | Architecture uses two primary anchors with separate URL roots: `/expat-mortgages` and `/non-uk-resident-mortgages` | 29 Apr 2026 | Different searcher vocabularies, same audience. Both must be owned. Most competitors only target the first. |
 | D009 | Strategy and architecture documents live in `/docs` inside the repo. Google Drive used for loose working material only. | 29 Apr 2026 | `/docs` travels with the build, version-controlled by git, accessible to Claude Code. |
+| D010 | Brand name: **UK Mortgages Worldwide**. Supersedes D003. | 29 Apr 2026 | Lead gen utility brand, descriptive, SEO-friendly, geographically neutral on the expat-vs-non-resident split. Personality brands (Albion etc.) considered but rejected as more appropriate for broker firms than lead gen sites. |
+| D011 | Domain registered: ukmortgagesworldwide.com via Squarespace Domains. Two-year registration with auto-renew on. | 29 Apr 2026 | .com chosen over .co.uk because audience is global. .uk and .co.uk variants not registered, can be added defensively later if needed. |
+| D012 | DNS managed at Squarespace, not Cloudflare. A record (@ → 216.198.79.1) and CNAME (www → vercel-dns) point at Vercel. | 29 Apr 2026 | Simplest to keep DNS where the domain was bought. Cloudflare account remains idle and can be introduced later for CDN/edge features if needed. |
 
 ### 9.3 Resources Provided
 
@@ -190,49 +201,54 @@ Live working layer of the project.
 | RP007 | Vercel and Cloudflare MCP connected to Claude.ai | Settings > Connectors | 29 Apr 2026 |
 | RP008 | Ahrefs Lite subscription | Annual billing, MCP-enabled | 29 Apr 2026 |
 | RP009 | Keyword universe v1.0 | `/docs/keyword-universe-v1.0.md` in repo | 29 Apr 2026 |
+| RP010 | Page map v1.0 | `/docs/page-map-v1.0.md` in repo | 29 Apr 2026 |
+| RP011 | Domain registered | ukmortgagesworldwide.com (Squarespace, 2 years, auto-renew on) | 29 Apr 2026 |
+| RP012 | Live site on real domain | https://ukmortgagesworldwide.com (SSL active) | 29 Apr 2026 |
 
 ### 9.4 Parked
 
 | ID | Item | Why parked | Review when |
 |---|---|---|---|
 | P001 | Compliance consultant engagement and FCA perimeter confirmation | Deferred per Matt | Before any data capture goes live |
-| P002 | Switch form destination from `mbmoffat@gmail.com` to `enquiries@[realdomain]` | Pending real domain registration | Phase 4 launch prep |
+| P002 | Switch form destination from `mbmoffat@gmail.com` to `enquiries@ukmortgagesworldwide.com` | Pending email setup at the new domain | When email service is configured |
 | P003 | Flip repo from public back to private | Pending verification that workflow doesn't depend on public access | After 2-3 successful Claude Code sessions |
+| P004 | Email setup at ukmortgagesworldwide.com (enquiries@, etc.) | Not blocking development. Decision needed: Google Workspace, Squarespace email, Fastmail, or other. | Phase 4 launch prep |
+| P005 | Register defensive domain variants (.co.uk, .uk) | Holding off until clear someone else is unlikely to squat on them. £8 each at Squarespace if needed. | If competitor activity emerges |
 
 ### 9.5 Likely future request categories
 
-- Brand naming brief and final selection (with constraint: avoid heavily expat-led names that would undermine ownership of the non-resident vocabulary)
 - Tone-of-voice references
 - Visual brand direction
 - Commercial structure (entity, lead handover, fee terms)
 - Compliance sign-off on introducer position
-- Domain registration
 - Imagery licensing
 - Policy documents (privacy, cookies, terms, introducer disclosure)
 - Calculator scope and inputs
 - Schema markup decisions per template
 - Competitor SERP audit and backlink analysis (to refine Phase 2 build order)
 - Country-specific keyword sweeps for Cluster G (Phase 3 country pages)
+- Email setup at the new domain
 
 ---
 
 ## 10. Phase plan
 
-Phase 0 – Foundation. COMPLETE. Stack confirmed. Niche defined. Working name in place. Build pipeline live (GitHub > Vercel auto-deploy). Claude Code wired up. Compliance parked.
+Phase 0 – Foundation. COMPLETE. Stack confirmed. Niche defined. Brand and domain set. Build pipeline live (GitHub > Vercel auto-deploy). Claude Code wired up. Compliance parked.
 
-Phase 1 – Architecture. CURRENT. Site spec written. Page map drafted. Keyword universe mapped (via Ahrefs). Template designs agreed. Brand direction set.
+Phase 1 – Architecture. CURRENT. Site spec written. Page map drafted. Keyword universe mapped (via Ahrefs). Brand and domain locked in. Templates and visual direction TBD.
 - Keyword universe: complete (v1.0)
 - Niche priorities: resolved
-- Page map proper: not started
-- Brand direction: not started
+- Page map: complete (v1.0)
+- Brand name and domain: complete
 - Tone-of-voice: not started
+- Visual direction: not started
 - Competitor SERP audit: not started
 
-Phase 2 – Build. Templates coded. Calculators built. Homepage, hub pages, and core niche landing pages live on staging.
+Phase 2 – Build. Templates coded. Calculators built. Homepage, hub pages, and core niche landing pages live on the real domain.
 
 Phase 3 – Content scale. Long-tail landing page network generated. Content hub articles published.
 
-Phase 4 – Launch. Real domain registered. Brand finalised. Compliance signed off. Search Console and GA4 wired. Forms tested end-to-end.
+Phase 4 – Launch. Compliance signed off. ICO registration confirmed. Email setup at real domain. Search Console and GA4 wired. Forms tested end-to-end. Marketing soft launch.
 
 Phase 5 – Maintain and grow. Ongoing content. Performance optimisation. New niche expansions.
 
@@ -242,5 +258,10 @@ Phase 5 – Maintain and grow. Ongoing content. Performance optimisation. New ni
 
 | Date | Session focus | Outcome | Next |
 |---|---|---|---|
-| 29 Apr 2026 | Foundation. Stack confirm, niche set, accounts created, Claude Code installed, scaffold pushed, first Vercel deploy | Phase 0 complete. Live preview URL active | Phase 1 architecture: page map, keyword universe, brand direction |
-| 29 Apr 2026 (PM) | Phase 1 keyword research | Ahrefs Lite subscribed. Full keyword universe research completed via MCP across nine seed sweeps. Four-vocabulary architecture identified (expat, non-UK resident, mortgage abroad, foreign income). Document v1.0 produced, committed to `/docs`, supersedes v0.1. R005 resolved. | Brand naming brief, page map proper, competitor SERP audit |
+| 29 Apr 2026 (AM) | Foundation. Stack confirm, niche set, accounts created, Claude Code installed, scaffold pushed, first Vercel deploy | Phase 0 complete. Live preview URL active | Phase 1 architecture: page map, keyword universe, brand direction |
+| 29 Apr 2026 (PM1) | Phase 1 keyword research | Ahrefs Lite subscribed. Full keyword universe research completed via MCP across nine seed sweeps. Four-vocabulary architecture identified (expat, non-UK resident, mortgage abroad, foreign income). Document v1.0 produced, committed to `/docs`, supersedes v0.1. R005 resolved. | Brand naming, page map proper, competitor SERP audit |
+| 29 Apr 2026 (PM2) | Phase 1 architecture: page map, brand, domain, DNS | Page map v1.0 drafted and committed to `/docs/page-map-v1.0.md`. Brand locked in as UK Mortgages Worldwide. Domain ukmortgagesworldwide.com registered via Squarespace (2-year, auto-renew). DNS records added at Squarespace pointing at Vercel. SSL active. Live site at https://ukmortgagesworldwide.com. R001 closed. | Competitor SERP audit, then visual direction and tone of voice |
+
+---
+
+*Document ends. Status: ratified working v0.4. Supersedes v0.3.*
