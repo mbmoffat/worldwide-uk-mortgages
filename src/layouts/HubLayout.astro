@@ -24,8 +24,8 @@ const {
 
 <Layout title={title} description={description}>
   <article class="hub">
-    <header class="hub-hero">
-      <div class="hub-hero-inner">
+    <section class="hub-hero">
+      <div class="hub-section-inner">
         <p class="eyebrow">{eyebrow}</p>
         <h1>{h1}</h1>
         <p class="subheadline">{subheadline}</p>
@@ -36,14 +36,14 @@ const {
           </span>
         </div>
       </div>
-    </header>
+    </section>
 
     <div class="hub-body">
       <slot />
     </div>
 
     <section class="hub-cta" id="contact-form" aria-labelledby="cta-heading">
-      <div class="hub-cta-inner">
+      <div class="hub-section-inner hub-cta-grid">
         <div class="cta-copy">
           <p class="eyebrow">Enquire</p>
           <h2 id="cta-heading">{ctaHeading}</h2>
@@ -85,9 +85,7 @@ const {
             <textarea id="message" name="message" rows="5" required></textarea>
           </div>
 
-          <button type="submit" class="btn btn-block">
-            Send enquiry
-          </button>
+          <button type="submit" class="btn btn-block">Send enquiry</button>
 
           <p class="form-note">
             We will pass your enquiry to a specialist mortgage broker. We do not
@@ -104,29 +102,51 @@ const {
     width: 100%;
   }
 
-  .hub-hero {
-    padding: 4rem 1.5rem 3rem;
+  .hub-section,
+  .hub-hero,
+  .hub-cta {
+    padding: 3.5rem 1.5rem;
     background: var(--bg);
   }
 
   @media (min-width: 768px) {
-    .hub-hero {
-      padding: 6rem 1.5rem 4.5rem;
+    .hub-section,
+    .hub-hero,
+    .hub-cta {
+      padding: 5rem 2rem;
     }
   }
 
-  .hub-hero-inner {
+  @media (min-width: 1024px) {
+    .hub-section,
+    .hub-hero,
+    .hub-cta {
+      padding: 5rem 3rem;
+    }
+  }
+
+  .hub-section-inner {
     max-width: var(--content-width);
     margin: 0 auto;
   }
 
+  .hub-body > .hub-section:nth-of-type(even) {
+    background: var(--surface);
+  }
+
+  .hub-cta {
+    background: var(--surface);
+    border-top: 1px solid var(--border);
+  }
+
   .eyebrow {
     text-transform: uppercase;
-    letter-spacing: 0.14em;
-    font-size: 0.75rem;
-    font-weight: 600;
-    color: var(--accent);
-    margin: 0 0 1.25rem;
+    letter-spacing: 0.08em;
+    font-size: 0.8125rem;
+    font-weight: 500;
+    color: var(--muted);
+    font-family: var(--font-sans);
+    margin: 0 0 1.5rem;
   }
 
   .hub-hero h1 {
@@ -138,15 +158,15 @@ const {
     font-family: var(--font-sans);
     font-weight: 400;
     font-size: 1.125rem;
-    color: var(--text-soft);
+    color: var(--muted);
     line-height: 1.5;
-    margin: 0 0 2.25rem;
+    margin: 0 0 2rem;
     max-width: 52ch;
   }
 
   @media (min-width: 768px) {
     .subheadline {
-      font-size: 1.375rem;
+      font-size: 1.25rem;
     }
   }
 
@@ -159,116 +179,44 @@ const {
   }
 
   .hero-meta {
+    font-family: var(--font-sans);
     font-size: 0.9375rem;
     color: var(--muted);
   }
 
-  .btn-block {
-    width: 100%;
-    padding: 1rem 1.35rem;
-  }
-
-  .hub-body {
-    max-width: var(--content-width);
-    margin: 0 auto;
-    padding: 1rem 1.5rem 4rem;
-  }
-
-  .hub-body > h2 {
-    margin: 3.5rem 0 1.25rem;
+  .hub-section h2 {
+    margin: 0 0 1.5rem;
     scroll-margin-top: 6rem;
   }
 
-  .hub-body > h2:first-child {
-    margin-top: 1rem;
-  }
-
-  .hub-body > h3 {
+  .hub-section h3 {
     margin: 2rem 0 0.75rem;
+  }
+
+  .hub-section h3:first-child {
+    margin-top: 0;
+  }
+
+  .hub-section p,
+  .hub-section ul,
+  .hub-section ol {
     color: var(--text);
+    font-family: var(--font-sans);
   }
 
-  .hub-body p {
-    color: var(--text-soft);
-  }
-
-  .hub-body p.lead {
-    font-family: var(--font-serif);
-    font-weight: 400;
-    font-size: 1.5rem;
-    line-height: 1.35;
-    color: var(--text);
-    margin-bottom: 1.5em;
-  }
-
-  @media (min-width: 768px) {
-    .hub-body p.lead {
-      font-size: 1.75rem;
-    }
-  }
-
-  .hub-body ul,
-  .hub-body ol {
-    color: var(--text-soft);
-  }
-
-  .hub-body ul li::marker {
+  .hub-section ul li::marker {
     color: var(--accent);
   }
 
-  .hub-body .callout {
-    background: var(--bg-soft);
-    border: 1px solid var(--border);
-    border-radius: var(--radius-md);
-    padding: 1.5rem 1.5rem;
-    margin: 2rem 0;
-  }
-
-  .hub-body .callout > :last-child {
-    margin-bottom: 0;
-  }
-
-  .hub-body .faq {
-    margin-top: 1rem;
-  }
-
-  .hub-body .faq h3 {
+  .hub-section .faq h3 {
     margin: 2rem 0 0.5rem;
   }
 
-  .hub-body .faq h3:first-child {
+  .hub-section .faq h3:first-child {
     margin-top: 0.5rem;
   }
 
-  .hub-body .closer {
-    margin-top: 3rem;
-    padding-top: 2.5rem;
-    border-top: 1px solid var(--border);
-  }
-
-  .hub-body .closer p:last-child {
-    font-family: var(--font-serif);
-    font-size: 1.5rem;
-    line-height: 1.35;
-    color: var(--text);
-    margin-top: 1rem;
-  }
-
-  .hub-cta {
-    background: var(--bg-soft);
-    border-top: 1px solid var(--border);
-    padding: 4.5rem 1.5rem 5rem;
-  }
-
-  @media (min-width: 768px) {
-    .hub-cta {
-      padding: 6rem 1.5rem 6.5rem;
-    }
-  }
-
-  .hub-cta-inner {
-    max-width: 920px;
-    margin: 0 auto;
+  .hub-cta-grid {
     display: grid;
     gap: 2.5rem;
     grid-template-columns: 1fr;
@@ -276,7 +224,7 @@ const {
   }
 
   @media (min-width: 880px) {
-    .hub-cta-inner {
+    .hub-cta-grid {
       grid-template-columns: 1fr 1fr;
       gap: 4rem;
     }
@@ -288,7 +236,8 @@ const {
   }
 
   .cta-copy .cta-lead {
-    color: var(--text-soft);
+    color: var(--muted);
+    font-family: var(--font-sans);
     font-size: 1.0625rem;
     max-width: 38ch;
     margin: 0;
@@ -315,6 +264,7 @@ const {
   }
 
   .field label {
+    font-family: var(--font-sans);
     font-size: 0.875rem;
     font-weight: 500;
     color: var(--text);
@@ -326,8 +276,8 @@ const {
     font-family: var(--font-sans);
     font-size: 1rem;
     color: var(--text);
-    background: var(--bg);
-    border: 1px solid var(--border-strong);
+    background: #FFFFFF;
+    border: 1px solid var(--border);
     border-radius: var(--radius-sm);
     padding: 0.75rem 0.85rem;
     width: 100%;
@@ -360,5 +310,10 @@ const {
     color: var(--muted);
     margin: 1rem 0 0;
     line-height: 1.5;
+  }
+
+  .btn-block {
+    width: 100%;
+    padding: 1rem 1.75rem;
   }
 </style>
