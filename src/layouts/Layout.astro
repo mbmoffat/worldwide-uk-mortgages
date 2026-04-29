@@ -45,7 +45,7 @@ const whatsappHref =
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
       rel="stylesheet"
-      href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,500;9..144,600;9..144,700&family=Inter:wght@400;500;600&display=swap"
+      href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Inter:wght@400;500;600&display=swap"
     />
   </head>
   <body>
@@ -98,7 +98,7 @@ const whatsappHref =
       href={whatsappHref}
       target="_blank"
       rel="noopener noreferrer"
-      aria-label="Message us on WhatsApp"
+      aria-label="WhatsApp a mortgage broker directly"
     >
       <svg
         class="whatsapp-icon"
@@ -111,7 +111,10 @@ const whatsappHref =
           d="M16.003 3C9.374 3 4 8.374 4 15.003c0 2.378.69 4.591 1.876 6.456L4 28l6.71-1.834a11.95 11.95 0 0 0 5.293 1.244h.005C22.637 27.41 28 22.034 28 15.405 28 12.193 26.751 9.18 24.48 6.91A11.967 11.967 0 0 0 16.003 3Zm0 21.853h-.004a9.91 9.91 0 0 1-5.04-1.379l-.36-.215-3.978 1.087 1.062-3.876-.235-.398a9.913 9.913 0 0 1-1.516-5.27c0-5.473 4.456-9.927 9.928-9.927 2.65 0 5.143 1.034 7.018 2.91a9.86 9.86 0 0 1 2.906 7.022c0 5.472-4.453 9.928-9.929 9.928Zm5.452-7.43c-.298-.149-1.766-.872-2.04-.972-.273-.099-.473-.149-.673.149-.198.298-.77.972-.944 1.171-.174.198-.348.224-.645.075-.298-.149-1.26-.464-2.4-1.48-.887-.79-1.486-1.768-1.66-2.066-.174-.298-.018-.46.131-.608.135-.135.298-.348.447-.522.149-.174.198-.298.298-.497.099-.198.05-.372-.025-.522-.075-.149-.673-1.62-.922-2.218-.243-.583-.49-.504-.673-.514l-.572-.01a1.1 1.1 0 0 0-.795.372c-.273.298-1.043 1.018-1.043 2.481 0 1.464 1.068 2.879 1.217 3.077.149.198 2.103 3.213 5.094 4.504.712.307 1.268.49 1.7.628.714.227 1.364.195 1.879.118.573-.085 1.766-.722 2.014-1.42.249-.697.249-1.295.174-1.42-.074-.124-.273-.198-.572-.347Z"
         />
       </svg>
-      <span class="whatsapp-label">WhatsApp</span>
+      <span class="whatsapp-label whatsapp-label-full"
+        >WhatsApp a Mortgage Broker directly</span
+      >
+      <span class="whatsapp-label whatsapp-label-short">WhatsApp</span>
     </a>
 
     <style is:global>
@@ -140,7 +143,8 @@ const whatsappHref =
         --radius-pill: 999px;
         --content-width: 720px;
         --wide-width: 1120px;
-        --font-serif: 'Fraunces', 'Newsreader', Georgia, 'Times New Roman', serif;
+        --font-serif: 'Instrument Serif', 'Newsreader', Georgia,
+          'Times New Roman', serif;
         --font-sans: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI',
           Roboto, 'Helvetica Neue', Arial, sans-serif;
       }
@@ -153,19 +157,13 @@ const whatsappHref =
 
       html {
         font-family: var(--font-sans);
-        font-size: 17px;
-        line-height: 1.65;
+        font-size: 16px;
+        line-height: 1.6;
         color: var(--text);
         background: var(--bg);
         -webkit-font-smoothing: antialiased;
         -moz-osx-font-smoothing: grayscale;
         text-rendering: optimizeLegibility;
-      }
-
-      @media (min-width: 768px) {
-        html {
-          font-size: 18px;
-        }
       }
 
       body {
@@ -174,6 +172,13 @@ const whatsappHref =
         display: flex;
         flex-direction: column;
         min-height: 100vh;
+        font-size: 1rem;
+      }
+
+      @media (min-width: 768px) {
+        body {
+          font-size: 1.0625rem;
+        }
       }
 
       main {
@@ -185,31 +190,39 @@ const whatsappHref =
       h3,
       h4 {
         font-family: var(--font-serif);
-        font-weight: 500;
+        font-weight: 400;
         color: var(--text);
-        letter-spacing: -0.015em;
-        line-height: 1.18;
-        font-variation-settings: 'opsz' 96, 'SOFT' 30;
+        letter-spacing: -0.01em;
+        line-height: 1.1;
         margin: 0;
       }
 
       h1 {
-        font-size: clamp(2.25rem, 5.2vw, 3.75rem);
-        font-weight: 500;
-        letter-spacing: -0.025em;
+        font-size: 2.5rem;
+        letter-spacing: -0.02em;
       }
 
       h2 {
-        font-size: clamp(1.5rem, 2.6vw, 2rem);
-        font-variation-settings: 'opsz' 48, 'SOFT' 30;
-        letter-spacing: -0.018em;
+        font-size: 1.75rem;
       }
 
       h3 {
-        font-size: 1.2rem;
-        font-weight: 500;
-        font-variation-settings: 'opsz' 24, 'SOFT' 30;
+        font-size: 1.25rem;
         letter-spacing: -0.005em;
+      }
+
+      @media (min-width: 768px) {
+        h1 {
+          font-size: 4.5rem;
+        }
+
+        h2 {
+          font-size: 2.25rem;
+        }
+
+        h3 {
+          font-size: 1.5rem;
+        }
       }
 
       p {
@@ -303,10 +316,9 @@ const whatsappHref =
         text-decoration: none;
         color: var(--text);
         font-family: var(--font-serif);
-        font-size: 1.0625rem;
-        font-weight: 500;
-        letter-spacing: -0.01em;
-        font-variation-settings: 'opsz' 18, 'SOFT' 30;
+        font-size: 1.125rem;
+        font-weight: 400;
+        letter-spacing: -0.005em;
       }
 
       .brand-mark {
@@ -392,9 +404,8 @@ const whatsappHref =
 
       .footer-brand .brand-name {
         font-family: var(--font-serif);
-        font-size: 1.125rem;
-        font-weight: 500;
-        font-variation-settings: 'opsz' 18, 'SOFT' 30;
+        font-size: 1.25rem;
+        font-weight: 400;
         display: block;
         margin-bottom: 0.625rem;
       }
@@ -432,7 +443,7 @@ const whatsappHref =
         align-items: center;
         gap: 0.55rem;
         padding: 0.7rem 1.1rem 0.7rem 0.9rem;
-        background: var(--whatsapp);
+        background: #25D366;
         color: #fff;
         text-decoration: none;
         border-radius: var(--radius-pill);
@@ -445,7 +456,7 @@ const whatsappHref =
       }
 
       .whatsapp-pill:hover {
-        background: var(--whatsapp-hover);
+        background: #1FAE54;
         color: #fff;
         transform: translateY(-1px);
         box-shadow: var(--shadow-lg);
@@ -457,14 +468,32 @@ const whatsappHref =
         flex-shrink: 0;
       }
 
-      @media (max-width: 540px) {
+      .whatsapp-label-full {
+        display: inline;
+      }
+
+      .whatsapp-label-short {
+        display: none;
+      }
+
+      @media (max-width: 720px) {
+        .whatsapp-label-full {
+          display: none;
+        }
+
+        .whatsapp-label-short {
+          display: inline;
+        }
+      }
+
+      @media (max-width: 420px) {
         .whatsapp-pill {
           bottom: 1rem;
           right: 1rem;
           padding: 0.7rem 0.8rem;
         }
 
-        .whatsapp-label {
+        .whatsapp-label-short {
           display: none;
         }
       }
