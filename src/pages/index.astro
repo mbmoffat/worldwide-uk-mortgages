@@ -1,0 +1,66 @@
+---
+import Layout from '../layouts/Layout.astro';
+---
+
+<Layout description="UK mortgage enquiries for expats, seafarers, and residential buyers.">
+  <main>
+    <p class="eyebrow">Phase 1 scaffold</p>
+    <h1>Worldwide UK Mortgages</h1>
+    <p class="tagline">
+      UK mortgage enquiries for expats, seafarers, and residential buyers.
+    </p>
+
+    <section class="status" aria-labelledby="status-heading">
+      <h2 id="status-heading">Status</h2>
+      <p>
+        This site is in early development. The public site, enquiry form, and
+        content will be added in upcoming phases.
+      </p>
+      <ul>
+        <li><strong>Phase 1:</strong> scaffold and hosting (in progress)</li>
+        <li><strong>Phase 2:</strong> homepage content and enquiry form</li>
+        <li><strong>Phase 3:</strong> service pages and SEO foundations</li>
+      </ul>
+    </section>
+  </main>
+
+  <style>
+    .eyebrow {
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      font-size: 0.8125rem;
+      font-weight: 600;
+      color: var(--muted);
+      margin: 0 0 0.5rem;
+    }
+
+    h1 {
+      font-size: clamp(2rem, 4vw, 2.75rem);
+      margin: 0 0 1rem;
+    }
+
+    .tagline {
+      font-size: 1.125rem;
+      color: var(--muted);
+      margin: 0 0 2.5rem;
+    }
+
+    .status {
+      border-top: 1px solid var(--border);
+      padding-top: 1.75rem;
+    }
+
+    .status h2 {
+      font-size: 1.25rem;
+      margin: 0 0 0.75rem;
+    }
+
+    .status ul {
+      padding-left: 1.25rem;
+    }
+
+    .status li {
+      margin-bottom: 0.35rem;
+    }
+  </style>
+</Layout>
