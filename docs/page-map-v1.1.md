@@ -1,11 +1,17 @@
-# Page Map v1.0
+# Page Map v1.1
 
-**Project:** Worldwide UK Mortgages (working name)
+**Project:** UK Mortgages Worldwide
 **Phase:** 1 (Architecture)
-**Version:** 1.0
+**Version:** 1.1
 **Date:** 29 April 2026
-**Status:** Draft. To be ratified and committed to `/docs/page-map-v1.0.md`.
-**Companion document:** `/docs/keyword-universe-v1.0.md`
+**Status:** Ratified. Supersedes v1.0.
+**Companion documents:** `/docs/keyword-universe-v1.0.md`, `/docs/competitor-serp-audit-v1.0.md`
+
+**Changelog from v1.0:**
+- Phase 2 build order updated. `/uk-mortgage-foreign-income` promoted from position 4 to position 2 based on SERP audit finding that Cluster D is essentially uncontested.
+- `/uk-mortgage-living-abroad` re-targeted. The head term "uk mortgage for property abroad" is dropped. Page now targets only the Cluster C question variants. SERP analysis showed the head term is owned by overseas-property content, which is the audience the keyword universe explicitly excludes.
+- Brand name resolved (UK Mortgages Worldwide). Section 13 updated.
+- Form destination email updated from `[realdomain]` placeholder to `ukmortgagesworldwide.com`.
 
 ---
 
@@ -13,7 +19,7 @@
 
 This document is the working architecture of the site at maturity. It defines every page that will exist, the template each page uses, how pages link to each other, what schema each carries, and the order in which they get built.
 
-It is the second of three foundational architecture documents. Keyword universe was first. Brand and tone come third. Build work in Phase 2 will reference this document directly. When the page map changes, this document changes and the version increments.
+It is the second of four foundational architecture documents. Keyword universe was first. Competitor SERP audit was third. Brand and tone is fourth, still to be drafted. Build work in Phase 2 will reference this document directly. When the page map changes, this document changes and the version increments.
 
 ## 2. Architecture principles
 
@@ -153,6 +159,8 @@ The whole site runs on seven templates. Adding an eighth requires a deliberate d
 
 **T7: Operational.** About, Contact, Enquiry, Privacy, Cookies, Terms, Introducer Disclosure. Lighter editorial pages with operational purpose. Word count target varies by page.
 
+**Mandatory across T2, T3, T4 and T6:** FAQ schema and AI Overview structuring. Per the SERP audit, AI Overviews appear in every anchor SERP and are taking click share. Pages must be structured so that key answers are scannable in 2-3 sentences and ready to be cited. This is non-negotiable.
+
 ## 6. Page inventory by template
 
 Phase numbers indicate build order, not importance.
@@ -165,15 +173,37 @@ Phase numbers indicate build order, not importance.
 
 ### T2: Hub
 
+Build priority updated in v1.1 based on competitor SERP audit findings.
+
 | URL | Cluster | Phase | Build priority |
 |---|---|---|---|
-| `/non-uk-resident-mortgages` | B | 2 | First. Lowest difficulty, biggest opportunity |
-| `/uk-mortgage-living-abroad` | C | 2 | Second. Builds topical authority |
-| `/expat-mortgages` | A | 2 | Third. Brand-recognised anchor |
-| `/uk-mortgage-foreign-income` | D | 2 | Fourth. Highest conversion intent |
-| `/expat-mortgages/buy-to-let` | F | 2 | Fifth. Highest lead value |
-| `/seafarer-mortgages` | H | 2 | Sixth. Specialism signal |
-| `/uk-mortgage-for-foreign-nationals` | E | 2 | Seventh |
+| `/non-uk-resident-mortgages` | B | 2 | First. Lowest difficulty, biggest opportunity. SERP audit confirms HSBC/Skipton dominate but article-format competitors rank with thin content, suggesting quality content can compete. |
+| `/uk-mortgage-foreign-income` | D | 2 | Second (promoted from 4 in v1.0). SERP audit identified Cluster D as the easiest substantive win. Two top-ten competitors at DR 5 or below. Comprehensive page can rank in months. Pulls topical authority across the site. |
+| `/expat-mortgages` | A | 2 | Third. Brand-recognised anchor. Tougher SERP than originally expected, slow burn for head term, quick wins on long tail. |
+| `/uk-mortgage-living-abroad` | C | 2 | Fourth (demoted from 2 in v1.0). **Targets Cluster C question variants only**, not "uk mortgage for property abroad". The head term is owned by overseas-property content, the wrong audience for this site. See section 6.5 for target keyword detail. |
+| `/expat-mortgages/buy-to-let` | F | 2 | Fifth. Highest lead value. Quality matters more than ranking speed. |
+| `/seafarer-mortgages` | H | 2 | Sixth. Specialism signal. |
+| `/uk-mortgage-for-foreign-nationals` | E | 2 | Seventh. |
+
+### 6.5: Target keyword detail for `/uk-mortgage-living-abroad`
+
+Following the SERP audit finding that "uk mortgage for property abroad" is owned by content about UK residents buying property overseas (the wrong audience), the `/uk-mortgage-living-abroad` page targets the following question variants only:
+
+**Primary targets:**
+- can I get a uk mortgage if I live abroad
+- can you get a uk mortgage if working abroad
+- uk mortgage living abroad
+- can you get a uk mortgage if you work abroad
+- can you get a uk mortgage if living abroad
+- uk mortgage for abroad
+- can you have a uk mortgage if you live abroad
+
+**Explicitly NOT targeting:**
+- uk mortgage for property abroad (overseas-property audience)
+- mortgage for overseas property (overseas-property audience)
+- overseas mortgage (overseas-property audience)
+
+The page intent is "UK national living abroad, wanting UK property". The page intent is explicitly NOT "UK national wanting overseas property". On-page copy and meta tags must reflect this.
 
 ### T3: Situation
 
@@ -365,20 +395,22 @@ Schema is applied at template level, not per page, except where a page-specific 
 | Template | Schema types |
 |---|---|
 | T1 Home | `Organization`, `WebSite`, `WebPage`, `BreadcrumbList` (single root crumb) |
-| T2 Hub | `Service`, `WebPage`, `BreadcrumbList`, `FAQPage` (where FAQs are present) |
-| T3 Situation | `Service`, `WebPage`, `BreadcrumbList`, `FAQPage` (where present) |
-| T4 Programmatic | `Service`, `WebPage`, `BreadcrumbList`, `FAQPage` |
+| T2 Hub | `Service`, `WebPage`, `BreadcrumbList`, `FAQPage` (mandatory) |
+| T3 Situation | `Service`, `WebPage`, `BreadcrumbList`, `FAQPage` (mandatory) |
+| T4 Programmatic | `Service`, `WebPage`, `BreadcrumbList`, `FAQPage` (mandatory) |
 | T5 Calculator | `WebApplication`, `WebPage`, `BreadcrumbList` |
-| T6 Article | `Article`, `WebPage`, `BreadcrumbList`, `FAQPage` (where present) |
+| T6 Article | `Article`, `WebPage`, `BreadcrumbList`, `FAQPage` (mandatory) |
 | T7 Operational | `WebPage`, `BreadcrumbList`, `AboutPage` for `/about`, `ContactPage` for `/contact` |
 
 `Organization` schema is rendered once on the home template only. `WebSite` schema with `SearchAction` is rendered once on the home template only. Both are referenced by ID from every other page so that the relationship is explicit.
+
+`FAQPage` schema is now mandatory across T2, T3, T4 and T6 (upgraded from optional in v1.0). The SERP audit found AI Overviews and People Also Ask features on every anchor SERP. FAQ schema is the cheapest way to be cited.
 
 ## 10. Conversion architecture
 
 Conversion is the reason the site exists. The architecture below is defined now so it does not get retrofitted later.
 
-**Inline forms** appear on every hub page (T2), every situation page (T3), every programmatic page (T4), and every article (T6). Three fields: name, email, message. The form copy varies by page context so that the question matches the page intent. Submission destination: `mbmoffat@gmail.com` during development, swapping to `enquiries@[realdomain]` post-launch (parked under P002).
+**Inline forms** appear on every hub page (T2), every situation page (T3), every programmatic page (T4), and every article (T6). Three fields: name, email, message. The form copy varies by page context so that the question matches the page intent. Submission destination: `mbmoffat@gmail.com` during development, swapping to `enquiries@ukmortgagesworldwide.com` post-launch (parked under P002 pending email setup).
 
 **Calculator forms** appear at the bottom of every calculator (T5). Triggered by a "Get help with your numbers" CTA. Pre-populates with the calculator inputs so the broker receiving the enquiry sees the figures the visitor was working with.
 
@@ -392,13 +424,13 @@ Conversion is the reason the site exists. The architecture below is defined now 
 
 ## 11. Phase 2 build sequence
 
-Strict order. Each item must be complete and live on the preview URL before the next begins. Dependencies noted.
+Strict order. Each item must be complete and live on the preview URL before the next begins. Updated in v1.1 to reflect SERP audit recommendations.
 
 1. **Templates first.** T2 hub template, T3 situation template, T7 operational template. Built once, populated many times.
 2. **`/non-uk-resident-mortgages`** (T2). First content page. Easiest cluster, biggest opportunity.
-3. **`/uk-mortgage-living-abroad`** (T2). Second. Builds topical authority.
+3. **`/uk-mortgage-foreign-income`** (T2). Second. Promoted from position 5 in v1.0. Open goal per SERP audit.
 4. **`/expat-mortgages`** (T2). Third. Brand-recognised anchor.
-5. **`/uk-mortgage-foreign-income`** (T2). Fourth. Conversion intent.
+5. **`/uk-mortgage-living-abroad`** (T2). Fourth. Demoted from position 3 in v1.0. Re-targeted to question variants only, see section 6.5.
 6. **`/expat-mortgages/buy-to-let`** (T2). Fifth. Highest lead value.
 7. **`/tools/expat-mortgage-calculator`** (T5). Conversion magnet. Slots in here so it has hub pages to link from.
 8. **Phase 2 article batch.** Seven articles in `/guides/`. Topical authority for the hubs.
@@ -413,7 +445,7 @@ Strict order. Each item must be complete and live on the preview URL before the 
 17. **Sitemap, robots.txt, schema validation, internal-link audit.**
 18. **Pre-launch review.** Compliance sign-off. ICO registration confirmed live. Forms tested end-to-end.
 
-Phase 2 deliverable: 25 pages live on preview URL. Real domain registration and launch is Phase 4, after compliance sign-off.
+Phase 2 deliverable: 25 pages live on the real domain.
 
 ## 12. Phase 3 build sequence outline
 
@@ -431,9 +463,9 @@ Phase 3 is content scale. Order is less prescriptive because pages can be built 
 
 ## 13. Decisions still open
 
-The page map cannot fully resolve until the following are decided.
+Updated in v1.1.
 
-**Brand and domain.** Some architectural choices flex with the brand. A heavily expat-led brand name biases the anchor weighting toward Cluster A and weakens the "non UK resident" positioning. Recommend holding final architecture sign-off until brand is set. Page map structure remains valid in either case, the on-page emphasis and homepage hero copy do not.
+**Brand and domain. RESOLVED.** Brand is UK Mortgages Worldwide. Domain ukmortgagesworldwide.com registered and live.
 
 **Form submission service.** Vercel native or Formspree. Phase 2 trigger. Open as R002.
 
@@ -445,17 +477,23 @@ The page map cannot fully resolve until the following are decided.
 
 **SEO title and meta description templates per page type.** Not in this document. Will be drafted alongside the brand and tone work, then populated against the page inventory above.
 
+**Tone of voice.** Not yet drafted. Required before any hub-page copy is written.
+
+**Backlink gap analysis.** Recommended in the SERP audit as a follow-up. Not blocking but worth running before Phase 2 build starts.
+
 ## 14. Document control
 
-This document is committed to `/docs/page-map-v1.0.md` once ratified. Changes increment the version. Major changes (new template, restructured URL roots) trigger a new minor version. Page additions and reordering within phase do not.
+This document is committed to `/docs/page-map-v1.1.md`. Changes increment the version. Major changes (new template, restructured URL roots) trigger a new minor version. Page additions and reordering within phase do not.
 
 Companion documents:
 
 - `/docs/keyword-universe-v1.0.md` (ratified)
-- `/docs/page-map-v1.0.md` (this document)
+- `/docs/page-map-v1.0.md` (superseded by v1.1)
+- `/docs/page-map-v1.1.md` (this document)
+- `/docs/competitor-serp-audit-v1.0.md` (ratified)
 - `/docs/brand-and-tone-v1.0.md` (not yet drafted)
 - `/docs/template-specs-v1.0.md` (not yet drafted, drafts in Phase 2)
 
 ---
 
-*Document ends. Status: draft v1.0 awaiting ratification.*
+*Document ends. Status: ratified working v1.1. Supersedes v1.0.*
