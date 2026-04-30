@@ -88,7 +88,7 @@ const faqSchema = {
   eyebrow="Hub · Non-resident mortgages"
   ctaHeading="Speak to a specialist mortgage broker"
   relatedPages={relatedPages}
-  articleClass="font-test-bitter"
+  articleClass="font-test-spectral"
 >
   <section class="hub-section">
     <div class="hub-section-inner">
@@ -416,22 +416,21 @@ const faqSchema = {
 </HubLayout>
 
 <style is:global>
-  /* Page-scoped Bitter body-font test. The .font-test-bitter marker is
-     set only on this page via HubLayout's articleClass prop, so these
+  /* Page-scoped Spectral body-font test. The .font-test-spectral marker
+     is set only on this page via HubLayout's articleClass prop, so these
      rules cannot leak to other pages. Loads 400 + 700 so <strong>
      renders with a real bold rather than faux-bold. */
-  @import url('https://fonts.googleapis.com/css2?family=Bitter:wght@400;700&display=swap');
+  @import url('https://fonts.googleapis.com/css2?family=Spectral:wght@400;700&display=swap');
 
-  .font-test-bitter .hub-hero .subheadline,
-  .font-test-bitter .hub-body .hub-section p,
-  .font-test-bitter .hub-body .hub-section li {
-    font-family: 'Bitter', serif;
+  .font-test-spectral .hub-hero .subheadline,
+  .font-test-spectral .hub-body .hub-section p,
+  .font-test-spectral .hub-body .hub-section li {
+    font-family: 'Spectral', serif;
     font-weight: 400;
-    line-height: 1.5;
-    letter-spacing: 0;
+    line-height: 1.7;
   }
 
-  .font-test-bitter .hub-body .hub-section strong {
-    font-family: 'Bitter', serif;
+  .font-test-spectral .hub-body .hub-section strong {
+    font-family: 'Spectral', serif;
   }
 </style>
