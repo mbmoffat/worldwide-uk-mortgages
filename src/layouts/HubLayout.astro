@@ -1,11 +1,6 @@
 ---
 import Layout from './Layout.astro';
 
-interface JumpLink {
-  id: string;
-  label: string;
-}
-
 interface RelatedPage {
   eyebrow: string;
   title: string;
@@ -21,8 +16,6 @@ interface Props {
   eyebrow?: string;
   ctaHeading?: string;
   ctaLeadIn?: string;
-  jumpLinks?: JumpLink[];
-  jumpLinksHeading?: string;
   relatedPages?: RelatedPage[];
   relatedPagesHeading?: string;
 }
@@ -35,11 +28,17 @@ const {
   eyebrow = 'Hub',
   ctaHeading = 'Speak to a specialist',
   ctaLeadIn = 'Contact us here. A mortgage broker will usually respond immediately.',
-  jumpLinks = [],
-  jumpLinksHeading = 'What this page covers',
   relatedPages = [],
   relatedPagesHeading = 'Related pages',
 } = Astro.props;
+
+const slotHtml = await Astro.slots.render('default');
+const sectionCount = (slotHtml.match(/<h2\b/gi) || []).length;
+const wordCount = slotHtml
+  .replace(/<[^>]+>/g, ' ')
+  .split(/\s+/)
+  .filter(Boolean).length;
+const readMinutes = Math.max(1, Math.round(wordCount / 200));
 ---
 
 <Layout title={title} description={description}>
@@ -56,21 +55,7 @@ const {
           </span>
         </div>
 
-        {jumpLinks.length > 0 && (
-          <nav class="jump-nav" aria-label="On this page">
-            <h3 class="jump-nav-heading">{jumpLinksHeading}</h3>
-            <ul class="jump-nav-list">
-              {jumpLinks.map((link) => (
-                <li>
-                  <a href={`#${link.id}`}>
-                    <span class="jump-nav-arrow" aria-hidden="true">›</span>
-                    <span>{link.label}</span>
-                  </a>
-                </li>
-              ))}
-            </ul>
-          </nav>
-        )}
+        <p class="hero-read-meta">{readMinutes} min read · {sectionCount} sections</p>
       </div>
     </section>
 
@@ -385,67 +370,13 @@ const {
     padding: 1rem 1.75rem;
   }
 
-  html {
-    scroll-behavior: smooth;
-  }
-
-  /* Jump-link nav block (in hero) */
-  .jump-nav {
-    margin-top: 2.5rem;
-    background: #F4ECDD;
-    border-radius: 4px;
-    padding: 1.75rem;
-  }
-
-  .jump-nav-heading {
-    font-family: var(--font-serif);
-    font-weight: 700;
-    font-size: 1.25rem;
-    color: #1A1612;
-    margin: 0 0 1rem;
-    line-height: 1.3;
-  }
-
-  .jump-nav-list {
-    list-style: none;
-    padding: 0;
-    margin: 0;
-    display: grid;
-    grid-template-columns: 1fr;
-    gap: 0.5rem 1.5rem;
-  }
-
-  @media (min-width: 768px) {
-    .jump-nav-list {
-      grid-template-columns: 1fr 1fr;
-    }
-  }
-
-  .jump-nav-list li {
-    margin: 0;
-  }
-
-  .jump-nav-list a {
-    display: inline-flex;
-    align-items: baseline;
-    gap: 0.5rem;
+  .hero-read-meta {
     font-family: var(--font-sans);
-    font-weight: 500;
-    font-size: 0.9375rem;
-    color: #1A1612;
-    text-decoration: none;
+    font-size: 0.875rem;
+    font-weight: 400;
+    color: #6B6358;
     line-height: 1.5;
-    transition: color 0.15s ease;
-  }
-
-  .jump-nav-list a:hover {
-    color: var(--accent);
-  }
-
-  .jump-nav-arrow {
-    color: var(--accent);
-    font-weight: 700;
-    flex-shrink: 0;
+    margin: 1.5rem 0 0;
   }
 
   /* Pull quote */
