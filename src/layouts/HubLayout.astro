@@ -27,7 +27,7 @@ const {
     <section class="hub-hero">
       <div class="hub-section-inner">
         <p class="eyebrow">{eyebrow}</p>
-        <h1>{h1}</h1>
+        <h1 set:html={h1} />
         <p class="subheadline">{subheadline}</p>
         <div class="hero-actions">
           <a class="btn" href="#contact-form">Send an enquiry</a>
@@ -100,20 +100,29 @@ const {
 <style is:global>
   .hub {
     width: 100%;
+    background: var(--bg);
   }
 
   .hub-section,
   .hub-hero,
   .hub-cta {
-    padding: 3.5rem 1.5rem;
+    padding: 2rem 1.5rem;
     background: var(--bg);
+  }
+
+  .hub-hero {
+    padding-top: 3rem;
   }
 
   @media (min-width: 768px) {
     .hub-section,
     .hub-hero,
     .hub-cta {
-      padding: 5rem 2rem;
+      padding: 2.5rem 2rem;
+    }
+
+    .hub-hero {
+      padding-top: 4rem;
     }
   }
 
@@ -121,22 +130,17 @@ const {
     .hub-section,
     .hub-hero,
     .hub-cta {
-      padding: 5rem 3rem;
+      padding: 2.5rem 3rem;
+    }
+
+    .hub-hero {
+      padding-top: 4.5rem;
     }
   }
 
   .hub-section-inner {
     max-width: var(--content-width);
     margin: 0 auto;
-  }
-
-  .hub-body > .hub-section:nth-of-type(even) {
-    background: var(--surface);
-  }
-
-  .hub-cta {
-    background: var(--surface);
-    border-top: 1px solid var(--border);
   }
 
   .eyebrow {
@@ -150,24 +154,18 @@ const {
   }
 
   .hub-hero h1 {
-    margin: 0 0 1.5rem;
+    margin: 0 0 1.25rem;
     max-width: 22ch;
   }
 
   .subheadline {
     font-family: var(--font-sans);
     font-weight: 400;
-    font-size: 1.125rem;
-    color: var(--muted);
-    line-height: 1.5;
+    font-size: 1.0625rem;
+    color: var(--text);
+    line-height: 1.7;
     margin: 0 0 2rem;
-    max-width: 52ch;
-  }
-
-  @media (min-width: 768px) {
-    .subheadline {
-      font-size: 1.25rem;
-    }
+    max-width: 60ch;
   }
 
   .hero-actions {
@@ -180,8 +178,10 @@ const {
 
   .hero-meta {
     font-family: var(--font-sans);
-    font-size: 0.9375rem;
-    color: var(--muted);
+    font-size: 1.0625rem;
+    font-weight: 400;
+    color: var(--text);
+    line-height: 1.7;
   }
 
   .hub-section h2 {
@@ -202,10 +202,22 @@ const {
   .hub-section ol {
     color: var(--text);
     font-family: var(--font-sans);
+    font-size: 1.0625rem;
+    font-weight: 400;
+    line-height: 1.7;
   }
 
   .hub-section ul li::marker {
     color: var(--accent);
+  }
+
+  .hub-section a {
+    color: var(--accent);
+    text-decoration: underline;
+  }
+
+  .hub-section a:hover {
+    color: var(--accent-hover);
   }
 
   .hub-section .faq h3 {
@@ -236,15 +248,17 @@ const {
   }
 
   .cta-copy .cta-lead {
-    color: var(--muted);
+    color: var(--text);
     font-family: var(--font-sans);
     font-size: 1.0625rem;
+    font-weight: 400;
+    line-height: 1.7;
     max-width: 38ch;
     margin: 0;
   }
 
   .enquiry-form {
-    background: var(--bg);
+    background: var(--surface);
     border: 1px solid var(--border);
     border-radius: var(--radius-lg);
     padding: 1.75rem;
