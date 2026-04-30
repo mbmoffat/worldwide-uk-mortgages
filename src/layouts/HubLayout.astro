@@ -1,5 +1,6 @@
 ---
 import Layout from './Layout.astro';
+import MidPageCta from '../components/MidPageCta.astro';
 
 interface RelatedPage {
   eyebrow: string;
@@ -48,12 +49,8 @@ const readMinutes = Math.max(1, Math.round(wordCount / 200));
         <p class="eyebrow">{eyebrow}</p>
         <h1 set:html={h1} />
         <p class="subheadline">{subheadline}</p>
-        <div class="hero-actions">
-          <a class="btn" href="#contact-form">Send an enquiry</a>
-          <span class="hero-meta">
-            A mortgage broker will usually respond immediately.
-          </span>
-        </div>
+
+        <MidPageCta variant="hero" />
 
         <p class="hero-read-meta">{readMinutes} min read · {sectionCount} sections</p>
       </div>
@@ -207,20 +204,10 @@ const readMinutes = Math.max(1, Math.round(wordCount / 200));
     max-width: 60ch;
   }
 
-  .hero-actions {
-    display: flex;
-    flex-wrap: wrap;
-    align-items: center;
-    gap: 1rem 1.25rem;
-    margin-top: 1.75rem;
-  }
-
-  .hero-meta {
-    font-family: var(--font-sans);
-    font-size: 1.0625rem;
-    font-weight: 400;
-    color: var(--text);
-    line-height: 1.7;
+  .hero-cta-block {
+    max-width: 600px;
+    margin: 2.5rem auto 0;
+    text-align: center;
   }
 
   .hub-section h2 {
@@ -377,6 +364,7 @@ const readMinutes = Math.max(1, Math.round(wordCount / 200));
     color: #6B6358;
     line-height: 1.5;
     margin: 1.5rem 0 0;
+    text-align: center;
   }
 
   /* Pull quote */

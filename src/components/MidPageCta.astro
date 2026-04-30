@@ -5,6 +5,7 @@ interface Props {
   ctaLabel?: string;
   ctaHref?: string;
   ctaNote?: string;
+  variant?: 'hero' | 'section';
 }
 
 const {
@@ -13,14 +14,24 @@ const {
   ctaLabel = 'Send an enquiry',
   ctaHref = '#contact-form',
   ctaNote = 'A mortgage broker will usually respond immediately.',
+  variant = 'section',
 } = Astro.props;
 ---
 
-<section class="mid-cta">
-  <div class="mid-cta-inner">
+{variant === 'section' ? (
+  <section class="mid-cta">
+    <div class="mid-cta-inner">
+      <h3 class="mid-cta-heading">{heading}</h3>
+      <p class="mid-cta-body">{body}</p>
+      <a class="btn mid-cta-btn" href={ctaHref}>{ctaLabel}</a>
+      <p class="mid-cta-note">{ctaNote}</p>
+    </div>
+  </section>
+) : (
+  <div class="hero-cta-block">
     <h3 class="mid-cta-heading">{heading}</h3>
     <p class="mid-cta-body">{body}</p>
     <a class="btn mid-cta-btn" href={ctaHref}>{ctaLabel}</a>
     <p class="mid-cta-note">{ctaNote}</p>
   </div>
-</section>
+)}
