@@ -1,0 +1,377 @@
+---
+import HubLayout from '../../layouts/HubLayout.astro';
+import PullQuote from '../../components/PullQuote.astro';
+import MidPageCta from '../../components/MidPageCta.astro';
+
+const title = 'UK Mortgages for Returning Expats';
+const description =
+  'Buying or remortgaging UK property when you are returning to the UK after time abroad. Timing the application, evidence of return, and how a specialist broker handles the transition.';
+const h1 = 'UK Mortgages for Returning Expats';
+const subheadline =
+  'Buying or remortgaging UK property when you are returning to the UK after time abroad. Timing the application, evidence of return, and how a specialist broker handles the transition.';
+
+const relatedPages = [
+  {
+    eyebrow: 'Hub',
+    title: 'UK Mortgages for Expats',
+    description:
+      'British nationals living abroad. Country-by-country lender appetite, currency haircuts, and timelines.',
+    href: '/expat-mortgages',
+  },
+  {
+    eyebrow: 'Hub',
+    title: 'UK Mortgages with Foreign Income',
+    description:
+      'How lenders treat non-sterling income. The 20% standard haircut and direct access to no-haircut lenders.',
+    href: '/uk-mortgage-foreign-income',
+  },
+  {
+    eyebrow: 'Hub',
+    title: 'UK Mortgages for Non-UK Residents',
+    description:
+      'Foreign nationals or British expats wanting a UK mortgage on UK property. The lender pool, deposits, and rates explained.',
+    href: '/non-uk-resident-mortgages',
+  },
+];
+
+const faqs = [
+  {
+    q: 'Can I apply for a UK mortgage before I return to the UK?',
+    a: 'Yes. Most returning expat applications are made while the applicant is still abroad, with the return planned. Lenders accept this when the return evidence is clear.',
+  },
+  {
+    q: 'Do I need a UK address before I can apply?',
+    a: 'Helpful but not essential at application stage. Lenders accept a planned UK address (a property under purchase, a confirmed rental address, or a family member's address). The mortgage offer will be issued in your name with the new UK address.',
+  },
+  {
+    q: 'Will my foreign income still be relevant after I move back?',
+    a: 'Possibly. If your foreign job continues after a UK return, the income is treated as UK-earned foreign currency income, which most lenders are comfortable with. If your foreign job ends, the application is structured around your new UK income.',
+  },
+  {
+    q: 'Can I remortgage to a UK-resident product after I return?',
+    a: 'Yes. Once you have been back in the UK long enough to qualify as a UK resident for the lender, you can remortgage to a standard UK-resident product. This typically saves on rate and unlocks the wider lender pool. Some lenders treat the residency transition automatically at fix-end. Others require a fresh application.',
+  },
+  {
+    q: 'What if my return plans change?',
+    a: 'Tell the broker. Mortgage offers issued to returning expats are usually conditional on the return happening within the planned timeframe. If plans shift materially, the offer may need restructuring or reissuing.',
+  },
+  {
+    q: 'Do I pay the 2% non-resident SDLT surcharge if I am returning?',
+    a: 'Often yes, at completion, with the option to claim back if you become resident within 12 months. Timing the completion can sometimes avoid the surcharge entirely. A broker can map this out.',
+  },
+];
+
+const faqSchema = {
+  '@context': 'https://schema.org',
+  '@type': 'FAQPage',
+  mainEntity: faqs.map((f) => ({
+    '@type': 'Question',
+    name: f.q,
+    acceptedAnswer: { '@type': 'Answer', text: f.a },
+  })),
+};
+---
+
+<HubLayout
+  title={title}
+  description={description}
+  h1={h1}
+  subheadline={subheadline}
+  eyebrow="Situation · Returning Expats"
+  relatedPages={relatedPages}
+>
+  <section class="hub-section">
+    <div class="hub-section-inner">
+      <h2 id="the-situation">The situation</h2>
+      <p>
+        You have been living abroad. You are returning to the UK in the next
+        few months, or you have just returned. You want to buy or remortgage
+        UK property and you are not sure whether to apply now as an expat or
+        wait until you are back as a UK resident.
+      </p>
+      <p>
+        This page explains how lenders treat returning expats, when to start
+        the application, and what evidence the lender will want.
+      </p>
+    </div>
+  </section>
+
+  <section class="hub-section">
+    <div class="hub-section-inner">
+      <h2 id="when-to-apply">When to apply: now or after the move</h2>
+      <p>Both work. The right answer depends on three things.</p>
+      <p>
+        <strong>How firm the return plan is.</strong> A signed UK employment
+        contract, a return date set within six to nine months, and a clear
+        move plan all support an application now. A vague intention to return
+        at some point in the future does not.
+      </p>
+      <p>
+        <strong>Whether you have a property in mind.</strong> Returning expats
+        often want to buy in advance of the move so they have somewhere to
+        land. That works. The application is structured around the return.
+      </p>
+      <p>
+        <strong>Where your income will come from.</strong> If your foreign job
+        continues after a UK return, the application is foreign income with a
+        UK address. If your foreign job ends and a UK job begins on return,
+        the application is structured around the new UK income, with the
+        existing foreign income supporting the transition.
+      </p>
+    </div>
+  </section>
+
+  <section class="hub-section">
+    <div class="hub-section-inner">
+      <h2 id="three-patterns">Three patterns lenders see</h2>
+      <p>Returning expat cases generally fall into one of three patterns.</p>
+      <p>
+        <strong>Pattern 1: Return date set, foreign income continuing during
+        transition.</strong> You are returning to the UK on a known date but
+        your current foreign job continues for a period after return (perhaps
+        remotely or with a notice period). The application uses your current
+        foreign income, with the return date and post-return situation
+        evidenced.
+      </p>
+      <p>
+        <strong>Pattern 2: Return date set, UK job lined up.</strong> You have
+        signed a UK employment contract starting on or near your return date.
+        The application uses the new UK income, with the lender wanting to see
+        the signed contract and start date.
+      </p>
+      <p>
+        <strong>Pattern 3: Already returned, in transition.</strong> You are
+        physically back in the UK but your full UK income is not yet
+        established (between contracts, in a probationary period, or recently
+        started). The application has to bridge the gap between the foreign
+        income that finished and the UK income that is starting.
+      </p>
+      <p>
+        Each pattern has lenders that are comfortable with it and lenders that
+        are not. Pattern 2 is usually the easiest. Pattern 3 is sometimes the
+        hardest because lenders often want to see at least three months of UK
+        income flowing before they will lend.
+      </p>
+    </div>
+  </section>
+
+  <PullQuote>
+    Six to nine months before the planned return is often the sweet spot.
+    Earlier and the lender may not accept the return date as firm. Later and
+    the runway is tight if anything goes wrong.
+  </PullQuote>
+
+  <section class="hub-section">
+    <div class="hub-section-inner">
+      <h2 id="timing">Timing the application</h2>
+      <p>
+        Six to nine months before the planned return is often the sweet spot.
+        Earlier than that, the lender may not accept the return date as firm
+        enough. Later than that, the runway is tight if anything goes wrong
+        with the application or the property purchase.
+      </p>
+      <p>A typical timeline:</p>
+      <ul>
+        <li>
+          <strong>9 months before return:</strong> Initial conversation with
+          broker. Identify lender route. Start documentation gathering.
+        </li>
+        <li>
+          <strong>6 months before return:</strong> Decision in principle.
+          House hunting if not already underway.
+        </li>
+        <li>
+          <strong>3 to 4 months before return:</strong> Property under offer,
+          full application submitted.
+        </li>
+        <li>
+          <strong>1 to 2 months before return:</strong> Mortgage offer
+          received. Conveyancing in progress.
+        </li>
+        <li>
+          <strong>Around return date or shortly before:</strong> Completion.
+          You have UK property to land in.
+        </li>
+      </ul>
+      <p>
+        Compressing this timeline is possible but reduces the margin for
+        unexpected delays.
+      </p>
+    </div>
+  </section>
+
+  <section class="hub-section">
+    <div class="hub-section-inner">
+      <h2 id="lender-evidence">What lenders want to see</h2>
+      <p>
+        For pattern 1 and 2 cases (return planned but not yet happened),
+        lenders want clear evidence that the return is real.
+      </p>
+
+      <h3>For pattern 1 (foreign income continuing)</h3>
+      <ul>
+        <li>
+          Evidence of the planned return (lease ending, family relocation
+          booked, school places confirmed).
+        </li>
+        <li>
+          Continuing foreign income evidence (payslips, employer letter
+          confirming employment continues post-return).
+        </li>
+        <li>
+          Source of UK address proof during the transition (often a relative's
+          address or a property under purchase).
+        </li>
+      </ul>
+
+      <h3>For pattern 2 (UK job lined up)</h3>
+      <ul>
+        <li>Signed UK employment contract with confirmed start date.</li>
+        <li>The contract should ideally start within three to six months of completion.</li>
+        <li>Evidence of current foreign income to support affordability during the gap.</li>
+      </ul>
+
+      <h3>For pattern 3 (already returned, in transition)</h3>
+      <ul>
+        <li>New UK income evidence (the more months, the better).</li>
+        <li>
+          For applicants in probationary periods, the employment contract
+          showing probation terms.
+        </li>
+        <li>
+          Sometimes a continuation of the previous foreign income alongside
+          the new UK income.
+        </li>
+      </ul>
+
+      <p>
+        A specialist broker working with returning expat cases will know which
+        lenders are comfortable with each pattern.
+      </p>
+    </div>
+  </section>
+
+  <section class="hub-section">
+    <div class="hub-section-inner">
+      <h2 id="whats-different">What is different from a standard expat mortgage</h2>
+      <p>
+        Returning expat cases are usually treated as expat mortgages until the
+        borrower is physically resident in the UK. That means:
+      </p>
+      <ul>
+        <li>
+          The 2% non-resident stamp duty surcharge applies if you have been
+          outside the UK for the 12 months before completion. Returning expats
+          often complete just before the 12-month window closes, paying the
+          surcharge. Some plan completion to fall after the window closes,
+          avoiding it. The maths is worth checking case by case.
+        </li>
+        <li>
+          Expat mortgage rates and deposits apply during the application,
+          even if you are returning to the UK. Once back, you can usually
+          remortgage to a UK-resident product when the fix ends, accessing
+          better rates.
+        </li>
+        <li>
+          Lender pool is the expat pool plus a small number of additional
+          lenders that specifically work with returning expat cases.
+        </li>
+      </ul>
+    </div>
+  </section>
+
+  <section class="hub-section">
+    <div class="hub-section-inner">
+      <h2 id="stamp-duty">Stamp duty considerations</h2>
+      <p>
+        Returning expats often hit the 12-month rule for the 2% non-resident
+        surcharge.
+      </p>
+      <p>
+        The rule: you are treated as a non-UK resident for SDLT purposes if
+        you have been in the UK for fewer than 183 days during the 12 months
+        before the day of completion.
+      </p>
+      <p>Practical implications:</p>
+      <ul>
+        <li>
+          If you complete before having spent 183 days back in the UK in the
+          previous 12 months, the 2% surcharge applies.
+        </li>
+        <li>
+          If you complete after passing the 183-day threshold, the surcharge
+          does not apply.
+        </li>
+        <li>
+          For purchases planned around a return, the timing of completion can
+          save 2% of the property value.
+        </li>
+      </ul>
+      <p>
+        There is also a refund mechanism: if you are non-resident at
+        completion but become resident within 12 months after completion, you
+        can claim back the 2% surcharge. This requires the application to
+        HMRC within two years of completion.
+      </p>
+      <p>
+        Use our <a href="/tools/stamp-duty-calculator">stamp duty calculator</a>
+        for an exact figure on your situation.
+      </p>
+    </div>
+  </section>
+
+  <PullQuote>
+    For purchases planned around a return, the timing of completion can save
+    2% of the property value.
+  </PullQuote>
+
+  <section class="hub-section">
+    <div class="hub-section-inner">
+      <h2 id="how-broker-helps">How a specialist broker helps</h2>
+      <p>Returning expat cases benefit specifically from broker placement because:</p>
+      <p>
+        <strong>Lender approach varies.</strong> Some lenders treat returning
+        expats as a standard expat case and worry only about the income at
+        the time of application. Others want to see firm evidence of the
+        return and structure the application around the post-return income.
+        Knowing which lender to approach for which pattern is the broker's
+        value.
+      </p>
+      <p>
+        <strong>Timing has compounding effects.</strong> A returning expat
+        case has more variables in motion than a standard application:
+        foreign income winding down, UK income starting, return date
+        confirmed, property purchased. A broker who has run dozens of these
+        cases knows where the pinch points are and structures the application
+        accordingly.
+      </p>
+      <p>
+        <strong>Stamp duty timing.</strong> A broker can map out the SDLT
+        implications of different completion dates and help you decide
+        whether to push for completion before or after the 12-month threshold.
+      </p>
+    </div>
+  </section>
+
+  <MidPageCta />
+
+  <section class="hub-section">
+    <div class="hub-section-inner">
+      <h2 id="faqs">Common questions</h2>
+      <div class="faq">
+        {faqs.map((f) => (
+          <>
+            <h3>{f.q}</h3>
+            <p>{f.a}</p>
+          </>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <script
+    type="application/ld+json"
+    is:inline
+    set:html={JSON.stringify(faqSchema)}
+  />
+</HubLayout>
