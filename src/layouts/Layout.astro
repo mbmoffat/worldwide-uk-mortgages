@@ -53,7 +53,6 @@ const currentYear = new Date().getFullYear();
     <header class="site-header">
       <div class="header-inner">
         <a class="brand" href="/">
-          <img class="logo-mark" src="/logo-mark.svg" alt="" width="32" height="32" />
           <span class="logo-wordmark">UK Mortgages Worldwide</span>
         </a>
         <nav class="site-nav" aria-label="Primary">
@@ -294,9 +293,6 @@ const currentYear = new Date().getFullYear();
       }
 
       .brand {
-        display: inline-flex;
-        align-items: center;
-        gap: 0.6rem;
         text-decoration: none;
         color: var(--text);
         line-height: 1;
@@ -307,13 +303,8 @@ const currentYear = new Date().getFullYear();
         text-decoration: none;
       }
 
-      .logo-mark {
-        display: block;
-        flex-shrink: 0;
-      }
-
       .logo-wordmark {
-        font-family: 'Lora', serif;
+        font-family: 'Playfair Display', serif;
         font-weight: 700;
         font-size: 1.35rem;
         letter-spacing: -0.01em;
@@ -330,9 +321,9 @@ const currentYear = new Date().getFullYear();
       .site-nav a {
         text-decoration: none;
         color: var(--text);
-        font-family: var(--font-sans);
+        font-family: 'Playfair Display', serif;
         font-size: 0.9375rem;
-        font-weight: 400;
+        font-weight: 700;
         letter-spacing: 0;
       }
 
