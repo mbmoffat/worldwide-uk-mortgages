@@ -3,6 +3,7 @@ import Layout from '../layouts/Layout.astro';
 import MidPageCta from '../components/MidPageCta.astro';
 import PullQuote from '../components/PullQuote.astro';
 import RelatedCard from '../components/RelatedCard.astro';
+import ContactForm from '../components/ContactForm.astro';
 
 const title = 'UK Mortgages, Wherever You Live';
 const description =
@@ -102,7 +103,6 @@ const faqSchema = {
           variant="hero"
           heading="Tell us about your situation"
           body="Tell us where you live, what you earn, and what you want to buy. A broker will tell you what is possible."
-          ctaHref="/non-uk-resident-mortgages#contact-form"
         />
       </div>
     </section>
@@ -188,7 +188,7 @@ const faqSchema = {
       </div>
     </section>
 
-    <MidPageCta ctaHref="/non-uk-resident-mortgages#contact-form" />
+    <MidPageCta />
 
     <section class="hub-section">
       <div class="hub-section-inner">
@@ -203,6 +203,8 @@ const faqSchema = {
         </div>
       </div>
     </section>
+
+    <ContactForm />
 
     <script
       type="application/ld+json"
