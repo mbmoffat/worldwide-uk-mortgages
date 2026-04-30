@@ -1,0 +1,584 @@
+---
+import Layout from '../../layouts/Layout.astro';
+
+const title = 'Stamp Duty Calculator';
+const description =
+  'Calculate UK stamp duty (SDLT) for residents and non-residents. Includes the 2% non-resident surcharge and 5% additional dwelling surcharge.';
+---
+
+<Layout title={title} description={description}>
+  <article class="sdlt">
+    <section class="sdlt-hero">
+      <div class="sdlt-inner">
+        <p class="eyebrow">Tool · SDLT</p>
+        <h1>Stamp Duty Calculator</h1>
+        <p class="sdlt-lead">
+          Calculate UK stamp duty (SDLT) for residents and non-residents.
+          Includes the 2% non-resident surcharge and 5% additional dwelling
+          surcharge.
+        </p>
+      </div>
+    </section>
+
+    <section class="sdlt-panel-section">
+      <div class="sdlt-inner">
+        <div class="sdlt-panel">
+          <form class="sdlt-form" id="sdlt-form" autocomplete="off">
+            <div class="sdlt-field">
+              <label for="sdlt-price">Property price</label>
+              <div class="sdlt-price-wrap">
+                <span class="sdlt-prefix" aria-hidden="true">£</span>
+                <input
+                  id="sdlt-price"
+                  type="number"
+                  inputmode="numeric"
+                  min="0"
+                  step="1000"
+                  placeholder="500000"
+                  value="500000"
+                />
+              </div>
+            </div>
+
+            <fieldset class="sdlt-field">
+              <legend>Buyer type</legend>
+              <label class="sdlt-radio">
+                <input type="radio" name="buyer" value="uk-ftb" />
+                <span>UK resident first-time buyer</span>
+              </label>
+              <label class="sdlt-radio">
+                <input type="radio" name="buyer" value="uk-replacing" checked />
+                <span>UK resident replacing main home</span>
+              </label>
+              <label class="sdlt-radio">
+                <input type="radio" name="buyer" value="uk-additional" />
+                <span>UK resident additional property</span>
+              </label>
+              <label class="sdlt-radio">
+                <input type="radio" name="buyer" value="nr-additional" />
+                <span>Non-UK resident additional property</span>
+              </label>
+              <label class="sdlt-radio">
+                <input type="radio" name="buyer" value="nr-main" />
+                <span>Non-UK resident main home</span>
+              </label>
+            </fieldset>
+
+            <fieldset class="sdlt-field">
+              <legend>Property type</legend>
+              <label class="sdlt-radio">
+                <input type="radio" name="property" value="residential" checked />
+                <span>Residential</span>
+              </label>
+              <label class="sdlt-radio">
+                <input type="radio" name="property" value="btl" />
+                <span>Buy-to-let</span>
+              </label>
+            </fieldset>
+          </form>
+
+          <div class="sdlt-results" aria-live="polite">
+            <p class="sdlt-result-label">Total stamp duty</p>
+            <p class="sdlt-result-total" id="sdlt-total">£0</p>
+            <p class="sdlt-result-rate">
+              Effective rate: <strong id="sdlt-rate">0.00%</strong>
+            </p>
+
+            <div class="sdlt-breakdown">
+              <h2>Breakdown by band</h2>
+              <table class="sdlt-table">
+                <thead>
+                  <tr>
+                    <th scope="col">Band</th>
+                    <th scope="col">Rate</th>
+                    <th scope="col" class="sdlt-table-amount">Tax</th>
+                  </tr>
+                </thead>
+                <tbody id="sdlt-breakdown-body"></tbody>
+              </table>
+              <p class="sdlt-empty" id="sdlt-empty" hidden>
+                Enter a property price to see the breakdown.
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="sdlt-explainer">
+      <div class="sdlt-inner sdlt-inner--narrow">
+        <h2 id="surcharges">About the surcharges</h2>
+        <p>
+          Stamp Duty Land Tax (SDLT) applies to property purchases in England
+          and Northern Ireland. The base rates are tiered: each portion of
+          the price falling in a band is taxed at that band's rate. Two
+          surcharges sit on top, and one relief sits below.
+        </p>
+
+        <h3>First-time buyer relief</h3>
+        <p>
+          If you have never owned a property anywhere in the world, the
+          first-time buyer relief lifts the 0% threshold to £300,000 and
+          taxes the £300,001 to £500,000 portion at 5%. The relief is only
+          available on properties priced at £500,000 or less. Above that, the
+          standard rates apply with no relief.
+        </p>
+
+        <h3>5% additional dwelling surcharge</h3>
+        <p>
+          If you already own a property and are not replacing your main
+          home, you pay an extra 5% on top of every band. This catches
+          second homes, holiday homes, and buy-to-let purchases. The
+          surcharge applies to the 0% band as well as the higher bands, so
+          a small additional purchase still attracts SDLT.
+        </p>
+
+        <h3>2% non-UK resident surcharge</h3>
+        <p>
+          If you have spent fewer than 183 days in the UK during the 12
+          months before completion, you are a non-UK resident for SDLT
+          purposes. A 2% surcharge applies on top of every band, including
+          the 0% band. The 2% surcharge stacks with the 5% additional
+          dwelling surcharge, so a non-resident buy-to-let purchase carries
+          both.
+        </p>
+        <p>
+          If you become UK-resident within 12 months of completion, you can
+          claim back the 2% portion from HMRC, with the application made
+          within two years of completion.
+        </p>
+
+        <h3>Buy-to-let purchases</h3>
+        <p>
+          A buy-to-let purchase is treated as an additional dwelling for
+          SDLT purposes, so the 5% surcharge applies regardless of whether
+          you already own other property. Limited company purchases follow
+          the same surcharge rules.
+        </p>
+
+        <p class="sdlt-disclaimer">
+          This calculator is for guidance only. Final SDLT depends on the
+          full facts of the transaction. HMRC's own
+          <a href="https://www.tax.service.gov.uk/calculate-stamp-duty-land-tax/" rel="nofollow noopener" target="_blank">
+            SDLT calculator
+          </a>
+          is the authoritative source. For complex cases, take advice from a
+          conveyancer.
+        </p>
+      </div>
+    </section>
+  </article>
+</Layout>
+
+<script is:inline>
+  (function () {
+    var form = document.getElementById('sdlt-form');
+    var totalEl = document.getElementById('sdlt-total');
+    var rateEl = document.getElementById('sdlt-rate');
+    var bodyEl = document.getElementById('sdlt-breakdown-body');
+    var emptyEl = document.getElementById('sdlt-empty');
+    var priceEl = document.getElementById('sdlt-price');
+    if (!form || !totalEl || !rateEl || !bodyEl || !priceEl) return;
+
+    var STANDARD_BANDS = [
+      { from: 0, to: 125000, rate: 0 },
+      { from: 125000, to: 250000, rate: 2 },
+      { from: 250000, to: 925000, rate: 5 },
+      { from: 925000, to: 1500000, rate: 10 },
+      { from: 1500000, to: Infinity, rate: 12 },
+    ];
+
+    var FTB_BANDS = [
+      { from: 0, to: 300000, rate: 0 },
+      { from: 300000, to: 500000, rate: 5 },
+    ];
+
+    function fmtMoney(n) {
+      return '£' + Math.round(n).toLocaleString('en-GB');
+    }
+
+    function fmtBandRange(from, to) {
+      if (to === Infinity) return 'Above ' + fmtMoney(from);
+      return fmtMoney(from) + ' – ' + fmtMoney(to);
+    }
+
+    function calc(price, buyer, propertyType) {
+      var isFTB = buyer === 'uk-ftb' && propertyType === 'residential';
+      var isAdditional =
+        buyer === 'uk-additional' ||
+        buyer === 'nr-additional' ||
+        propertyType === 'btl';
+      var isNonResident = buyer === 'nr-additional' || buyer === 'nr-main';
+
+      var bands;
+      if (isFTB && price <= 500000) {
+        bands = FTB_BANDS;
+      } else {
+        bands = STANDARD_BANDS;
+      }
+
+      var surcharge = (isAdditional ? 5 : 0) + (isNonResident ? 2 : 0);
+
+      var total = 0;
+      var breakdown = [];
+      for (var i = 0; i < bands.length; i++) {
+        var band = bands[i];
+        if (price <= band.from) break;
+        var top = Math.min(price, band.to);
+        var taxable = top - band.from;
+        var rate = band.rate + surcharge;
+        var tax = (taxable * rate) / 100;
+        total += tax;
+        breakdown.push({
+          from: band.from,
+          to: top,
+          rate: rate,
+          tax: tax,
+        });
+      }
+
+      return {
+        total: total,
+        effectiveRate: price > 0 ? (total / price) * 100 : 0,
+        breakdown: breakdown,
+      };
+    }
+
+    function getSelected(name) {
+      var el = form.querySelector('input[name="' + name + '"]:checked');
+      return el ? el.value : null;
+    }
+
+    function render() {
+      var price = parseFloat(priceEl.value);
+      if (!isFinite(price) || price < 0) price = 0;
+
+      var buyer = getSelected('buyer') || 'uk-replacing';
+      var propertyType = getSelected('property') || 'residential';
+
+      var result = calc(price, buyer, propertyType);
+      totalEl.textContent = fmtMoney(result.total);
+      rateEl.textContent = result.effectiveRate.toFixed(2) + '%';
+
+      bodyEl.innerHTML = '';
+      if (price <= 0 || result.breakdown.length === 0) {
+        emptyEl.hidden = false;
+      } else {
+        emptyEl.hidden = true;
+        result.breakdown.forEach(function (b) {
+          var tr = document.createElement('tr');
+          var rangeCell = document.createElement('td');
+          rangeCell.textContent = fmtBandRange(b.from, b.to);
+          var rateCell = document.createElement('td');
+          rateCell.textContent = b.rate + '%';
+          var taxCell = document.createElement('td');
+          taxCell.className = 'sdlt-table-amount';
+          taxCell.textContent = fmtMoney(b.tax);
+          tr.appendChild(rangeCell);
+          tr.appendChild(rateCell);
+          tr.appendChild(taxCell);
+          bodyEl.appendChild(tr);
+        });
+      }
+    }
+
+    form.addEventListener('input', render);
+    form.addEventListener('change', render);
+    render();
+  })();
+</script>
+
+<style is:global>
+  .sdlt {
+    background: var(--bg);
+  }
+
+  .sdlt-hero {
+    padding: 3rem 1.5rem 2rem;
+  }
+
+  @media (min-width: 768px) {
+    .sdlt-hero {
+      padding: 4rem 2rem 2rem;
+    }
+  }
+
+  @media (min-width: 1024px) {
+    .sdlt-hero {
+      padding: 4.5rem 3rem 2.5rem;
+    }
+  }
+
+  .sdlt-inner {
+    max-width: var(--wide-width);
+    margin: 0 auto;
+  }
+
+  .sdlt-inner--narrow {
+    max-width: var(--content-width);
+  }
+
+  .sdlt-hero h1 {
+    margin: 0 0 1.25rem;
+  }
+
+  .sdlt-lead {
+    font-family: var(--font-sans);
+    font-size: 1.0625rem;
+    color: var(--text);
+    line-height: 1.7;
+    margin: 0;
+    max-width: 60ch;
+  }
+
+  .sdlt-panel-section {
+    padding: 1.5rem 1.5rem 3rem;
+  }
+
+  @media (min-width: 768px) {
+    .sdlt-panel-section {
+      padding: 1.5rem 2rem 4rem;
+    }
+  }
+
+  @media (min-width: 1024px) {
+    .sdlt-panel-section {
+      padding: 1.5rem 3rem 4rem;
+    }
+  }
+
+  .sdlt-panel {
+    display: grid;
+    gap: 1.5rem;
+    grid-template-columns: 1fr;
+    background: #FFFFFF;
+    border: 1px solid #E8E0D5;
+    border-radius: var(--radius-lg);
+    padding: 1.75rem;
+  }
+
+  @media (min-width: 900px) {
+    .sdlt-panel {
+      grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+      gap: 2.5rem;
+      padding: 2.5rem;
+    }
+  }
+
+  .sdlt-form {
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+  }
+
+  .sdlt-field {
+    display: flex;
+    flex-direction: column;
+    border: none;
+    padding: 0;
+    margin: 0;
+  }
+
+  .sdlt-field legend,
+  .sdlt-field label {
+    font-family: var(--font-sans);
+    font-size: 0.875rem;
+    font-weight: 500;
+    color: var(--text);
+    margin-bottom: 0.5rem;
+    padding: 0;
+  }
+
+  .sdlt-price-wrap {
+    position: relative;
+    display: flex;
+    align-items: center;
+  }
+
+  .sdlt-prefix {
+    position: absolute;
+    left: 0.875rem;
+    font-family: var(--font-sans);
+    color: var(--muted);
+    pointer-events: none;
+  }
+
+  .sdlt-form input[type='number'] {
+    font-family: var(--font-sans);
+    font-size: 1rem;
+    color: var(--text);
+    background: #FFFFFF;
+    border: 1px solid #E8E0D5;
+    border-radius: 4px;
+    padding: 0.875rem 0.875rem 0.875rem 1.75rem;
+    width: 100%;
+    transition: border-color 0.15s ease, box-shadow 0.15s ease;
+  }
+
+  .sdlt-form input[type='number']:focus {
+    outline: none;
+    border-color: var(--accent);
+    box-shadow: 0 0 0 3px var(--accent-soft);
+  }
+
+  .sdlt-radio {
+    display: flex;
+    align-items: center;
+    gap: 0.625rem;
+    font-family: var(--font-sans);
+    font-size: 0.9375rem;
+    font-weight: 400;
+    color: var(--text);
+    margin: 0 0 0.5rem;
+    cursor: pointer;
+    line-height: 1.4;
+  }
+
+  .sdlt-radio:last-child {
+    margin-bottom: 0;
+  }
+
+  .sdlt-radio input[type='radio'] {
+    accent-color: var(--accent);
+    flex-shrink: 0;
+  }
+
+  .sdlt-results {
+    background: var(--bg);
+    border-radius: var(--radius-md);
+    padding: 1.75rem;
+    align-self: start;
+  }
+
+  @media (min-width: 900px) {
+    .sdlt-results {
+      padding: 2rem;
+    }
+  }
+
+  .sdlt-result-label {
+    font-family: var(--font-sans);
+    font-size: 0.8125rem;
+    font-weight: 500;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    color: var(--muted);
+    margin: 0 0 0.5rem;
+  }
+
+  .sdlt-result-total {
+    font-family: var(--font-serif);
+    font-weight: 700;
+    font-size: 2.5rem;
+    color: var(--accent);
+    line-height: 1.1;
+    margin: 0 0 0.75rem;
+  }
+
+  @media (min-width: 768px) {
+    .sdlt-result-total {
+      font-size: 3rem;
+    }
+  }
+
+  .sdlt-result-rate {
+    font-family: var(--font-sans);
+    font-size: 0.9375rem;
+    color: var(--muted);
+    margin: 0 0 1.5rem;
+  }
+
+  .sdlt-result-rate strong {
+    color: var(--text);
+  }
+
+  .sdlt-breakdown h2 {
+    font-family: var(--font-serif);
+    font-size: 1.125rem;
+    font-weight: 700;
+    margin: 0 0 0.75rem;
+  }
+
+  .sdlt-table {
+    width: 100%;
+    border-collapse: collapse;
+    font-family: var(--font-sans);
+    font-size: 0.9375rem;
+  }
+
+  .sdlt-table th,
+  .sdlt-table td {
+    text-align: left;
+    padding: 0.625rem 0.5rem;
+    border-bottom: 1px solid var(--border);
+  }
+
+  .sdlt-table th {
+    font-weight: 500;
+    font-size: 0.8125rem;
+    text-transform: uppercase;
+    letter-spacing: 0.06em;
+    color: var(--muted);
+  }
+
+  .sdlt-table-amount {
+    text-align: right !important;
+  }
+
+  .sdlt-empty {
+    font-family: var(--font-sans);
+    font-size: 0.9375rem;
+    color: var(--muted);
+    margin: 0.75rem 0 0;
+  }
+
+  .sdlt-explainer {
+    padding: 2rem 1.5rem 4rem;
+    background: var(--bg);
+  }
+
+  @media (min-width: 768px) {
+    .sdlt-explainer {
+      padding: 3rem 2rem 5rem;
+    }
+  }
+
+  @media (min-width: 1024px) {
+    .sdlt-explainer {
+      padding: 3rem 3rem 5rem;
+    }
+  }
+
+  .sdlt-explainer h2 {
+    margin: 0 0 1rem;
+  }
+
+  .sdlt-explainer h3 {
+    margin: 2rem 0 0.5rem;
+  }
+
+  .sdlt-explainer p {
+    font-family: var(--font-sans);
+    font-size: 1.0625rem;
+    line-height: 1.7;
+    color: var(--text);
+    margin: 0 0 1.25rem;
+  }
+
+  .sdlt-explainer a {
+    color: var(--accent);
+    text-decoration: underline;
+  }
+
+  .sdlt-explainer a:hover {
+    color: var(--accent-hover);
+  }
+
+  .sdlt-disclaimer {
+    font-size: 0.9375rem !important;
+    color: var(--muted) !important;
+    margin-top: 2.5rem !important;
+    padding-top: 1.5rem;
+    border-top: 1px solid var(--border);
+  }
+</style>
