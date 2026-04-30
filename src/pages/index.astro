@@ -1,53 +1,263 @@
 ---
 import Layout from '../layouts/Layout.astro';
+import MidPageCta from '../components/MidPageCta.astro';
+import PullQuote from '../components/PullQuote.astro';
+import RelatedCard from '../components/RelatedCard.astro';
+import ContactForm from '../components/ContactForm.astro';
 
+const title = 'UK Mortgages, Wherever You Live';
 const description =
-  'A UK mortgage enquiry service for British expats and people working at sea. Enquiries referred to FCA-authorised UK mortgage brokers.';
+  'Specialist UK mortgages for British nationals abroad, foreign nationals, and people with non-sterling income. Enquiries are passed to FCA-authorised brokers who place these cases daily.';
+
+const hubs = [
+  {
+    eyebrow: 'Hub',
+    title: 'UK Mortgages for Non-UK Residents',
+    description:
+      'Foreign nationals or British expats wanting a UK mortgage on UK property. The lender pool, deposits, and rates explained.',
+    href: '/non-uk-resident-mortgages',
+  },
+  {
+    eyebrow: 'Hub',
+    title: 'UK Mortgages for Expats',
+    description:
+      'British nationals living abroad. Country-by-country lender appetite, currency haircuts, and timelines.',
+    href: '/expat-mortgages',
+  },
+  {
+    eyebrow: 'Hub',
+    title: 'UK Mortgages with Foreign Income',
+    description:
+      'How lenders treat non-sterling income. The 20% standard haircut and direct access to no-haircut lenders.',
+    href: '/uk-mortgage-foreign-income',
+  },
+  {
+    eyebrow: 'Hub',
+    title: 'UK Mortgages for Foreign Nationals',
+    description:
+      'Foreign nationals living in the UK. How visa status affects which lenders consider you.',
+    href: '/uk-mortgage-for-foreign-nationals',
+  },
+  {
+    eyebrow: 'Hub',
+    title: 'Seafarer Mortgages',
+    description:
+      'Merchant navy, offshore, and superyacht crew. Rotation patterns, SED, and how lenders assess seafarer income.',
+    href: '/seafarer-mortgages',
+  },
+  {
+    eyebrow: 'Hub',
+    title: 'Expat Buy-to-Let Mortgages',
+    description:
+      'Building or expanding a UK rental portfolio from abroad. ICR, lender appetite, and limited company structures.',
+    href: '/expat-mortgages/buy-to-let',
+  },
+];
+
+const faqs = [
+  {
+    q: 'Can a non-UK resident buy UK property with a mortgage?',
+    a: 'Yes. Around 15 to 20 UK lenders consider non-resident applications routinely. Deposits are usually 25% to 40%.',
+  },
+  {
+    q: 'Can a UK expat get a UK mortgage?',
+    a: 'Yes. UK nationals living abroad are well-served by a specialist segment of the UK market. Around 15 to 20 lenders are active.',
+  },
+  {
+    q: 'Do you charge for an enquiry?',
+    a: 'No. There is no charge for sending an enquiry. The broker who picks up your case will explain their fees upfront before any work begins.',
+  },
+  {
+    q: 'Are you regulated by the FCA?',
+    a: 'We are not a mortgage adviser. We are an introducer that passes enquiries to FCA-authorised brokers. The regulated advice happens between you and the broker.',
+  },
+  {
+    q: 'How fast will I hear back?',
+    a: 'Usually within one working day. Often the same hour during UK working hours.',
+  },
+];
+
+const faqSchema = {
+  '@context': 'https://schema.org',
+  '@type': 'FAQPage',
+  mainEntity: faqs.map((f) => ({
+    '@type': 'Question',
+    name: f.q,
+    acceptedAnswer: { '@type': 'Answer', text: f.a },
+  })),
+};
 ---
 
-<Layout
-  title="UK Mortgages for Expats and Seafarers"
-  description={description}
->
-  <h1>UK mortgages for expats and seafarers</h1>
+<Layout title={title} description={description}>
+  <article class="hub">
+    <section class="hub-hero">
+      <div class="hub-section-inner">
+        <h1>UK Mortgages, Wherever You Live.</h1>
+        <p class="subheadline">
+          Specialist UK mortgages for British nationals abroad, foreign
+          nationals, and people with non-sterling income. We pass your
+          enquiry to FCA-authorised brokers who place these cases daily.
+        </p>
 
-  <p class="intro">
-    {/* PLACEHOLDER COPY: refine before launch */}
-    We connect British expats and people working at sea with FCA-authorised UK
-    mortgage brokers who specialise in cross-border and offshore income cases.
-    Tell us about your situation and we will pass your enquiry to a broker who
-    handles applications like yours.
-  </p>
+        <MidPageCta
+          variant="hero"
+          heading="Tell us about your situation"
+          body="Tell us where you live, what you earn, and what you want to buy. A broker will tell you what is possible and what it will cost."
+        />
+      </div>
+    </section>
 
-  <div class="cta-row">
-    <a class="btn" href="/expat-mortgages">UK Mortgages for Expats</a>
-    <a class="btn btn-secondary" href="/seafarer-mortgages">UK Mortgages for Seafarers</a>
-  </div>
+    <section class="related-pages-section" aria-labelledby="what-we-cover-heading">
+      <div class="hub-section-inner">
+        <h2 id="what-we-cover-heading">What we cover</h2>
+        <div class="related-pages-grid">
+          {hubs.map((h) => (
+            <RelatedCard
+              eyebrow={h.eyebrow}
+              title={h.title}
+              description={h.description}
+              href={h.href}
+            />
+          ))}
+        </div>
+      </div>
+    </section>
 
-  <section aria-labelledby="who-heading">
-    <h2 id="who-heading">Who this site is for</h2>
-    <p>
-      {/* PLACEHOLDER COPY */}
-      British citizens living or working overseas, and UK residents whose
-      income comes from work at sea or offshore. Standard UK lenders often
-      decline these applications because of foreign currency, residency, or
-      employment patterns. The brokers we refer to deal with these cases every
-      day.
-    </p>
-  </section>
+    <section class="hub-section">
+      <div class="hub-section-inner">
+        <h2>How it works</h2>
+        <ol class="steps-grid">
+          <li class="step">
+            <span class="step-num" aria-hidden="true">01</span>
+            <h3 class="step-heading">Tell us your situation</h3>
+            <p class="step-body">
+              A short message with where you live, what you earn, and what
+              you want to buy. WhatsApp or the form on this page.
+            </p>
+          </li>
+          <li class="step">
+            <span class="step-num" aria-hidden="true">02</span>
+            <h3 class="step-heading">We pass it to the right broker</h3>
+            <p class="step-body">
+              We work with FCA-authorised brokers who place expat,
+              non-resident, and foreign-income cases daily. We match your
+              enquiry to the broker most likely to find the right lender
+              quickly.
+            </p>
+          </li>
+          <li class="step">
+            <span class="step-num" aria-hidden="true">03</span>
+            <h3 class="step-heading">A broker takes it from there</h3>
+            <p class="step-body">
+              The broker will tell you within one conversation what is
+              possible. From there, the regulated mortgage advice and
+              application happens between you and them, not us.
+            </p>
+          </li>
+        </ol>
+      </div>
+    </section>
 
-  <style>
-    .intro {
-      font-size: 1.125rem;
-      color: var(--muted);
-      margin: 0 0 2rem;
-    }
+    <PullQuote>
+      Most non-resident and expat cases come together cleanly when the right
+      lender is approached first. The right broker is the difference.
+    </PullQuote>
 
-    .cta-row {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 0.75rem;
-      margin: 0 0 2.5rem;
-    }
-  </style>
+    <section class="hub-section">
+      <div class="hub-section-inner">
+        <h2>Why use us</h2>
+        <h3>We focus on a market most generalists avoid</h3>
+        <p>
+          UK lenders for expats, non-residents, and foreign-income earners
+          are a specialist corner of the market. There are around 15 to 20
+          active lenders. The brokers we pass enquiries to place these cases
+          every week.
+        </p>
+        <h3>Direct access to no-haircut lenders for foreign income</h3>
+        <p>
+          The standard currency haircut at most lenders is 20%. A handful of
+          specialist lenders apply no haircut at all. The brokers we work
+          with have direct access to several of them, which often makes a
+          meaningful difference to borrowing power.
+        </p>
+        <h3>We are introducers, not advisers</h3>
+        <p>
+          We do not give regulated mortgage advice. We pass enquiries to
+          FCA-authorised brokers who do. This page is informational only.
+        </p>
+      </div>
+    </section>
+
+    <MidPageCta />
+
+    <section class="hub-section">
+      <div class="hub-section-inner">
+        <h2>Common questions</h2>
+        <div class="faq">
+          {faqs.map((f) => (
+            <>
+              <h3>{f.q}</h3>
+              <p>{f.a}</p>
+            </>
+          ))}
+        </div>
+      </div>
+    </section>
+
+    <MidPageCta
+      heading="Ready to talk?"
+      body="Tell us where you live, what you earn, and what you want to buy. We will pass it to a broker who works in this market every day."
+    />
+
+    <ContactForm />
+
+    <script
+      type="application/ld+json"
+      is:inline
+      set:html={JSON.stringify(faqSchema)}
+    />
+  </article>
 </Layout>
+
+<style is:global>
+  /* "How it works" steps */
+  .steps-grid {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: grid;
+    gap: 2rem;
+    grid-template-columns: 1fr;
+  }
+
+  @media (min-width: 768px) {
+    .steps-grid {
+      grid-template-columns: repeat(3, 1fr);
+      gap: 2.5rem;
+    }
+  }
+
+  .step {
+    margin: 0;
+  }
+
+  .step-num {
+    display: block;
+    font-family: var(--font-serif);
+    font-size: 1.5rem;
+    font-weight: 700;
+    color: var(--accent);
+    margin-bottom: 0.5rem;
+    line-height: 1;
+  }
+
+  .hub-section .step-heading {
+    margin: 0 0 0.5rem;
+    font-size: 1.25rem;
+    line-height: 1.3;
+  }
+
+  .hub-section .step-body {
+    margin: 0;
+  }
+</style>

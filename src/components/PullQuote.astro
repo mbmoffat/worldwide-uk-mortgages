@@ -6,3 +6,40 @@
     <slot />
   </blockquote>
 </aside>
+
+<style is:global>
+  .pull-quote-wrap {
+    padding: 0 1.5rem;
+    background: var(--bg);
+  }
+
+  @media (min-width: 768px) {
+    .pull-quote-wrap {
+      padding: 0 2rem;
+    }
+  }
+
+  @media (min-width: 1024px) {
+    .pull-quote-wrap {
+      padding: 0 3rem;
+    }
+  }
+
+  .pull-quote {
+    max-width: var(--content-width);
+    margin: 3.5rem auto;
+    padding: 0 0 0 1.5rem;
+    border-left: 3px solid var(--accent);
+    font-family: var(--font-serif);
+    font-weight: 700;
+    font-size: 1.5rem;
+    line-height: 1.3;
+    color: #1A1612;
+  }
+
+  @media (min-width: 768px) {
+    .pull-quote {
+      font-size: 1.875rem;
+    }
+  }
+</style>

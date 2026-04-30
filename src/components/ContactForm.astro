@@ -1,0 +1,165 @@
+---
+// FormSubmit (formsubmit.co) is used as the no-account, no-setup
+// submission backend. The first submission to a new email address
+// triggers a one-time confirmation email; once confirmed, all
+// subsequent submissions are emailed through. Pick Formspree later
+// if/when an account is set up — same shape, swap the action URL.
+---
+
+<section class="contact" id="contact-form" aria-labelledby="contact-form-heading">
+  <div class="contact-inner">
+    <h2 id="contact-form-heading">Send an enquiry</h2>
+    <p class="contact-lead">Fill in a few details. A broker will be in touch.</p>
+
+    <form
+      class="contact-form"
+      action="https://formsubmit.co/mbmoffat@gmail.com"
+      method="POST"
+    >
+      <input type="hidden" name="_subject" value="New enquiry from UK Mortgages Worldwide" />
+      <input type="hidden" name="_captcha" value="false" />
+      <input type="hidden" name="_template" value="table" />
+      <input type="text" name="_honey" tabindex="-1" autocomplete="off" class="contact-honeypot" />
+
+      <div class="contact-field">
+        <label for="cf-name">Name <span class="contact-required" aria-hidden="true">*</span></label>
+        <input id="cf-name" type="text" name="name" autocomplete="name" required />
+      </div>
+
+      <div class="contact-field">
+        <label for="cf-email">Email <span class="contact-required" aria-hidden="true">*</span></label>
+        <input id="cf-email" type="email" name="email" autocomplete="email" required />
+      </div>
+
+      <div class="contact-field">
+        <label for="cf-phone">WhatsApp or phone number</label>
+        <input id="cf-phone" type="tel" name="phone" autocomplete="tel" />
+      </div>
+
+      <div class="contact-field">
+        <label for="cf-location">Where do you live?</label>
+        <input id="cf-location" type="text" name="location" />
+      </div>
+
+      <div class="contact-field">
+        <label for="cf-message">Tell us about your situation <span class="contact-required" aria-hidden="true">*</span></label>
+        <textarea id="cf-message" name="message" rows="4" required></textarea>
+      </div>
+
+      <button type="submit" class="btn contact-submit">Send</button>
+
+      <p class="contact-note">
+        We will pass your enquiry to a specialist mortgage broker. We do not
+        provide regulated advice.
+      </p>
+    </form>
+  </div>
+</section>
+
+<style is:global>
+  .contact {
+    padding: 4rem 1.5rem;
+    background: var(--bg);
+  }
+
+  @media (min-width: 768px) {
+    .contact {
+      padding: 5rem 2rem;
+    }
+  }
+
+  @media (min-width: 1024px) {
+    .contact {
+      padding: 5rem 3rem;
+    }
+  }
+
+  .contact-inner {
+    max-width: 560px;
+    margin: 0 auto;
+  }
+
+  .contact h2 {
+    margin: 0 0 0.75rem;
+  }
+
+  .contact-lead {
+    font-family: var(--font-sans);
+    font-size: 1.0625rem;
+    font-weight: 400;
+    color: var(--text);
+    line-height: 1.7;
+    margin: 0 0 2rem;
+  }
+
+  .contact-form {
+    display: block;
+  }
+
+  .contact-field {
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 1.25rem;
+  }
+
+  .contact-field label {
+    font-family: var(--font-sans);
+    font-size: 0.875rem;
+    font-weight: 500;
+    color: var(--text);
+    margin-bottom: 0.5rem;
+  }
+
+  .contact-required {
+    color: var(--accent);
+    margin-left: 0.15em;
+  }
+
+  .contact-field input,
+  .contact-field textarea {
+    font-family: var(--font-sans);
+    font-size: 1rem;
+    color: var(--text);
+    background: #FFFFFF;
+    border: 1px solid #E8E0D5;
+    border-radius: 4px;
+    padding: 1rem;
+    width: 100%;
+    transition: border-color 0.15s ease, box-shadow 0.15s ease;
+  }
+
+  .contact-field textarea {
+    resize: vertical;
+    min-height: 110px;
+    line-height: 1.6;
+  }
+
+  .contact-field input:focus,
+  .contact-field textarea:focus {
+    outline: none;
+    border-color: var(--accent);
+    box-shadow: 0 0 0 3px var(--accent-soft);
+  }
+
+  .contact-honeypot {
+    position: absolute;
+    left: -9999px;
+    width: 1px;
+    height: 1px;
+    opacity: 0;
+  }
+
+  .contact-submit {
+    width: 100%;
+    padding: 1rem 1.75rem;
+    margin-top: 0.5rem;
+  }
+
+  .contact-note {
+    font-family: var(--font-sans);
+    font-size: 0.8125rem;
+    color: var(--muted);
+    margin: 1rem 0 0;
+    line-height: 1.5;
+  }
+</style>

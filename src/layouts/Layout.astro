@@ -448,6 +448,167 @@ const currentYear = new Date().getFullYear();
         background: var(--accent);
         color: #FFFFFF;
       }
+
+      /* Page article wrapper, shared by HubLayout and the homepage */
+      .hub {
+        width: 100%;
+        background: var(--bg);
+      }
+
+      .hub-section,
+      .hub-hero {
+        padding: 2rem 1.5rem;
+        background: var(--bg);
+      }
+
+      .hub-hero {
+        padding-top: 3rem;
+      }
+
+      @media (min-width: 768px) {
+        .hub-section,
+        .hub-hero {
+          padding: 2.5rem 2rem;
+        }
+
+        .hub-hero {
+          padding-top: 4rem;
+        }
+      }
+
+      @media (min-width: 1024px) {
+        .hub-section,
+        .hub-hero {
+          padding: 2.5rem 3rem;
+        }
+
+        .hub-hero {
+          padding-top: 4.5rem;
+        }
+      }
+
+      .hub-section-inner {
+        max-width: var(--content-width);
+        margin: 0 auto;
+      }
+
+      .eyebrow {
+        text-transform: uppercase;
+        letter-spacing: 0.08em;
+        font-size: 0.8125rem;
+        font-weight: 500;
+        color: var(--muted);
+        font-family: var(--font-sans);
+        margin: 0 0 1.5rem;
+      }
+
+      .hub-hero h1 {
+        margin: 0 0 1.25rem;
+        max-width: 22ch;
+      }
+
+      .subheadline {
+        font-family: var(--font-sans);
+        font-weight: 400;
+        font-size: 1.0625rem;
+        color: var(--text);
+        line-height: 1.7;
+        margin: 0 0 2rem;
+        max-width: 60ch;
+      }
+
+      .hub-section h2 {
+        margin: 0 0 1.5rem;
+        scroll-margin-top: 6rem;
+      }
+
+      .hub-section h3 {
+        margin: 2rem 0 0.75rem;
+      }
+
+      .hub-section h3:first-child {
+        margin-top: 0;
+      }
+
+      .hub-section p,
+      .hub-section ul,
+      .hub-section ol {
+        color: var(--text);
+        font-family: var(--font-sans);
+        font-size: 1.0625rem;
+        font-weight: 400;
+        line-height: 1.7;
+      }
+
+      .hub-section ul li::marker {
+        color: var(--accent);
+      }
+
+      .hub-section a {
+        color: var(--accent);
+        text-decoration: underline;
+      }
+
+      .hub-section a:hover {
+        color: var(--accent-hover);
+      }
+
+      .hub-section .faq h3 {
+        margin: 2rem 0 0.5rem;
+      }
+
+      .hub-section .faq h3:first-child {
+        margin-top: 0.5rem;
+      }
+
+      .hero-read-meta {
+        font-family: var(--font-sans);
+        font-size: 0.875rem;
+        font-weight: 400;
+        color: #6B6358;
+        line-height: 1.5;
+        margin: 0 0 2rem;
+      }
+
+      /* Related-pages / What-we-cover grid wrapper.
+         Cards themselves live in the RelatedCard component. */
+      .related-pages-section {
+        padding: 2rem 1.5rem;
+        background: var(--bg);
+      }
+
+      @media (min-width: 768px) {
+        .related-pages-section {
+          padding: 2.5rem 2rem;
+        }
+      }
+
+      @media (min-width: 1024px) {
+        .related-pages-section {
+          padding: 2.5rem 3rem;
+        }
+      }
+
+      .related-pages-section .hub-section-inner {
+        max-width: var(--wide-width);
+      }
+
+      .related-pages-section h2 {
+        margin: 0 0 2rem;
+      }
+
+      .related-pages-grid {
+        display: grid;
+        gap: 1.25rem;
+        grid-template-columns: 1fr;
+      }
+
+      @media (min-width: 768px) {
+        .related-pages-grid {
+          grid-template-columns: repeat(3, 1fr);
+          gap: 1.5rem;
+        }
+      }
     </style>
 
     <style>
