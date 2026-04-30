@@ -50,9 +50,9 @@ const readMinutes = Math.max(1, Math.round(wordCount / 200));
         <h1 set:html={h1} />
         <p class="subheadline">{subheadline}</p>
 
-        <MidPageCta variant="hero" />
-
         <p class="hero-read-meta">{readMinutes} min read · {sectionCount} sections</p>
+
+        <MidPageCta variant="hero" />
       </div>
     </section>
 
@@ -206,7 +206,10 @@ const readMinutes = Math.max(1, Math.round(wordCount / 200));
 
   .hero-cta-block {
     max-width: 600px;
-    margin: 2.5rem auto 0;
+    margin: 0 auto;
+    padding: 3rem 0;
+    border-top: 1px solid #E8E0D5;
+    border-bottom: 1px solid #E8E0D5;
     text-align: center;
   }
 
@@ -363,8 +366,7 @@ const readMinutes = Math.max(1, Math.round(wordCount / 200));
     font-weight: 400;
     color: #6B6358;
     line-height: 1.5;
-    margin: 1.5rem 0 0;
-    text-align: center;
+    margin: 0 0 2rem;
   }
 
   /* Pull quote */
