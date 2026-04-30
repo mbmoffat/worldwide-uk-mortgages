@@ -431,6 +431,13 @@ const faqSchema = {
     line-height: 1.5;
   }
 
+  /* Lead paragraph: drop the 60ch cap so it wraps at the same content
+     width as the body paragraphs below. The hero CTA underneath is a
+     separate element and is unaffected. */
+  .font-test-spectral .hub-hero .subheadline {
+    max-width: none;
+  }
+
   .font-test-spectral .hub-body .hub-section strong {
     font-family: 'Spectral', serif;
   }
