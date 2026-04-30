@@ -80,13 +80,6 @@ const faqSchema = {
 };
 ---
 
-<link rel="preconnect" href="https://fonts.googleapis.com" />
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-<link
-  rel="stylesheet"
-  href="https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,400;0,600;1,400&family=Bitter:ital,wght@0,400;0,600;1,400&family=Source+Serif+4:ital,wght@0,400;0,600;1,400&family=Newsreader:ital,wght@0,400;0,600;1,400&display=swap"
-/>
-
 <HubLayout
   title={title}
   description={description}
@@ -95,7 +88,6 @@ const faqSchema = {
   eyebrow="Hub · Non-resident mortgages"
   ctaHeading="Speak to a specialist mortgage broker"
   relatedPages={relatedPages}
-  articleClass="font-test-spectral"
 >
   <section class="hub-section">
     <div class="hub-section-inner">
@@ -114,14 +106,12 @@ const faqSchema = {
           or refinance UK property from their new country.
         </li>
       </ul>
-      <div class="font-test-label">FONT: LORA</div>
-      <p class="font-test-sample" style="font-family: 'Lora', serif;">
+      <p>
         Both groups are technically non-UK residents in the eyes of UK lenders.
         The criteria, lender appetite, and process are similar but not
         identical. Where it matters, this page calls out the difference.
       </p>
-      <div class="font-test-label">FONT: BITTER</div>
-      <p class="font-test-sample" style="font-family: 'Bitter', serif;">
+      <p>
         If you are a UK national living abroad, you may also be searching for
         'expat mortgage'. The two terms describe the same audience from
         different angles. We cover the expat-specific angle in detail on our
@@ -133,14 +123,12 @@ const faqSchema = {
   <section class="hub-section">
     <div class="hub-section-inner">
       <h2 id="can-non-resident-get-uk-mortgage">Can a non-UK resident get a UK mortgage?</h2>
-      <div class="font-test-label">FONT: SPECTRAL</div>
-      <p class="font-test-sample" style="font-family: 'Spectral', serif;">
+      <p>
         Yes. Most non-UK residents can get a UK mortgage. The pool of lenders
         willing to lend is smaller than for a UK-resident borrower, but it is
         real and active.
       </p>
-      <div class="font-test-label">FONT: SOURCE SERIF 4</div>
-      <p class="font-test-sample" style="font-family: 'Source Serif 4', serif;">
+      <p>
         There is no general rule against non-residents owning or financing UK
         property. There are around 15 to 20 UK lenders who routinely consider
         non-resident applications, ranging from international arms of major UK
@@ -161,8 +149,7 @@ const faqSchema = {
           addresses, UK tax history)
         </li>
       </ul>
-      <div class="font-test-label">FONT: NEWSREADER</div>
-      <p class="font-test-sample" style="font-family: 'Newsreader', serif;">
+      <p>
         You will not work all this out alone. The market is fragmented and
         lender criteria changes regularly. A specialist mortgage broker who
         works in this space daily will know within a phone call which lenders
@@ -426,47 +413,3 @@ const faqSchema = {
     set:html={JSON.stringify(faqSchema)}
   />
 </HubLayout>
-
-<style is:global>
-  /* Page-scoped Spectral body-font test. The .font-test-spectral marker
-     is set only on this page via HubLayout's articleClass prop, so these
-     rules cannot leak to other pages. Loads 400 + 700 so <strong>
-     renders with a real bold rather than faux-bold. */
-  @import url('https://fonts.googleapis.com/css2?family=Spectral:wght@400;700&display=swap');
-
-  .font-test-spectral .hub-hero .subheadline,
-  .font-test-spectral .hub-body .hub-section p,
-  .font-test-spectral .hub-body .hub-section li {
-    font-family: 'Spectral', serif;
-    font-weight: 400;
-    font-size: 1.1875rem;
-    line-height: 1.5;
-  }
-
-  /* Lead paragraph: drop the 60ch cap so it wraps at the same content
-     width as the body paragraphs below. The hero CTA underneath is a
-     separate element and is unaffected. */
-  .font-test-spectral .hub-hero .subheadline {
-    max-width: none;
-  }
-
-  .font-test-spectral .hub-body .hub-section strong {
-    font-family: 'Spectral', serif;
-  }
-
-  /* 5-font body comparison test. Labels and per-paragraph
-     letter-spacing for the marked sample paragraphs. font-family is set
-     inline on each paragraph and overrides the global Spectral rule. */
-  .font-test-label {
-    font-family: 'Inter', sans-serif;
-    font-size: 0.7rem;
-    text-transform: uppercase;
-    letter-spacing: 0.08em;
-    color: #6B6358;
-    margin-bottom: 0.4rem;
-  }
-
-  .font-test-sample {
-    letter-spacing: -0.01em;
-  }
-</style>
