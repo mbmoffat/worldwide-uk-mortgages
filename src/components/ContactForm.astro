@@ -1,8 +1,9 @@
 ---
-// Submits to /api/enquiry, a Vercel edge function that forwards to
-// formsubmit.co (zero-config). On API failure, the form falls back to
-// a mailto: link pre-populated with the user's input.
-const MAILTO = 'mbmoffat@gmail.com';
+// FormSubmit (formsubmit.co) is used as the no-account, no-setup
+// submission backend. The first submission to a new email address
+// triggers a one-time confirmation email; once confirmed, all
+// subsequent submissions are emailed through. Pick Formspree later
+// if/when an account is set up — same shape, swap the action URL.
 ---
 
 <section class="contact" id="contact-form" aria-labelledby="contact-form-heading">
@@ -12,11 +13,12 @@ const MAILTO = 'mbmoffat@gmail.com';
 
     <form
       class="contact-form"
-      action="/api/enquiry"
+      action="https://formsubmit.co/mbmoffat@gmail.com"
       method="POST"
-      data-mailto={MAILTO}
-      novalidate
     >
+      <input type="hidden" name="_subject" value="New enquiry from UK Mortgages Worldwide" />
+      <input type="hidden" name="_captcha" value="false" />
+      <input type="hidden" name="_template" value="table" />
       <input type="text" name="_honey" tabindex="-1" autocomplete="off" class="contact-honeypot" />
 
       <div class="contact-field">
@@ -48,87 +50,11 @@ const MAILTO = 'mbmoffat@gmail.com';
 
       <p class="contact-note">
         We will pass your enquiry to a specialist mortgage broker. We do not
-        provide regulated mortgage advice.
-      </p>
-
-      <p class="contact-status contact-status--success" role="status" hidden>
-        Thanks. Your enquiry is on its way to a broker. Expect a reply within
-        one working day.
-      </p>
-      <p class="contact-status contact-status--error" role="alert" hidden>
-        Something went wrong sending your enquiry.
-        <a class="contact-mailto" href={`mailto:${MAILTO}`}>Email us instead</a>
-        and we will pick it up.
+        provide regulated advice.
       </p>
     </form>
   </div>
 </section>
-
-<script is:inline>
-  (function () {
-    var forms = document.querySelectorAll('form.contact-form');
-    forms.forEach(function (form) {
-      var btn = form.querySelector('.contact-submit');
-      var ok = form.querySelector('.contact-status--success');
-      var err = form.querySelector('.contact-status--error');
-      var mailto = form.getAttribute('data-mailto') || '';
-
-      function buildMailto() {
-        var fd = new FormData(form);
-        var lines = [
-          'Name: ' + (fd.get('name') || ''),
-          'Email: ' + (fd.get('email') || ''),
-          'Phone: ' + (fd.get('phone') || ''),
-          'Location: ' + (fd.get('location') || ''),
-          '',
-          'Message:',
-          String(fd.get('message') || ''),
-        ];
-        var subject = 'Enquiry from UK Mortgages Worldwide';
-        return (
-          'mailto:' + mailto +
-          '?subject=' + encodeURIComponent(subject) +
-          '&body=' + encodeURIComponent(lines.join('\n'))
-        );
-      }
-
-      form.addEventListener('submit', function (e) {
-        e.preventDefault();
-        if (!form.reportValidity()) return;
-
-        ok.hidden = true;
-        err.hidden = true;
-        btn.disabled = true;
-        var original = btn.textContent;
-        btn.textContent = 'Sending...';
-
-        var fd = new FormData(form);
-
-        fetch(form.action, { method: 'POST', body: fd, headers: { Accept: 'application/json' } })
-          .then(function (r) {
-            return r.json().then(function (data) { return { status: r.status, data: data }; });
-          })
-          .then(function (out) {
-            if (out.status >= 200 && out.status < 300 && out.data && out.data.ok) {
-              ok.hidden = false;
-              form.reset();
-            } else {
-              throw new Error((out.data && out.data.error) || 'Request failed');
-            }
-          })
-          .catch(function () {
-            var link = err.querySelector('.contact-mailto');
-            if (link) link.setAttribute('href', buildMailto());
-            err.hidden = false;
-          })
-          .finally(function () {
-            btn.disabled = false;
-            btn.textContent = original;
-          });
-      });
-    });
-  })();
-</script>
 
 <style is:global>
   .contact {
@@ -197,7 +123,7 @@ const MAILTO = 'mbmoffat@gmail.com';
     background: #FFFFFF;
     border: 1px solid #E8E0D5;
     border-radius: 4px;
-    padding: 0.875rem;
+    padding: 1rem;
     width: 100%;
     transition: border-color 0.15s ease, box-shadow 0.15s ease;
   }
@@ -229,42 +155,11 @@ const MAILTO = 'mbmoffat@gmail.com';
     margin-top: 0.5rem;
   }
 
-  .contact-submit[disabled] {
-    opacity: 0.7;
-    cursor: progress;
-  }
-
   .contact-note {
     font-family: var(--font-sans);
     font-size: 0.8125rem;
     color: var(--muted);
     margin: 1rem 0 0;
     line-height: 1.5;
-  }
-
-  .contact-status {
-    font-family: var(--font-sans);
-    font-size: 0.9375rem;
-    line-height: 1.6;
-    margin: 1rem 0 0;
-    padding: 0.875rem 1rem;
-    border-radius: 6px;
-  }
-
-  .contact-status--success {
-    background: rgba(76, 132, 84, 0.1);
-    border: 1px solid rgba(76, 132, 84, 0.3);
-    color: #2F5A36;
-  }
-
-  .contact-status--error {
-    background: var(--accent-soft);
-    border: 1px solid rgba(139, 35, 49, 0.3);
-    color: var(--accent);
-  }
-
-  .contact-mailto {
-    color: var(--accent);
-    font-weight: 500;
   }
 </style>
