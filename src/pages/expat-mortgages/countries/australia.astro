@@ -1,0 +1,362 @@
+---
+import HubLayout from '../../../layouts/HubLayout.astro';
+import PullQuote from '../../../components/PullQuote.astro';
+import MidPageCta from '../../../components/MidPageCta.astro';
+
+const title = 'UK Mortgages for British Expats in Australia';
+const description =
+  'UK mortgages for UK nationals living in Australia. How AUD income is treated, which Australian residency profiles work best, and how a specialist broker handles the application.';
+const h1 = 'UK Mortgages for British Expats in Australia';
+const subheadline =
+  'UK mortgages for UK nationals living in Australia. How AUD income is treated, which Australian residency profiles work best, and how a specialist broker handles the application.';
+
+const relatedPages = [
+  {
+    eyebrow: 'Hub',
+    title: 'UK Mortgages for Expats',
+    description:
+      'British nationals living abroad. Country-by-country lender appetite, currency haircuts, and timelines.',
+    href: '/expat-mortgages',
+  },
+  {
+    eyebrow: 'Hub',
+    title: 'UK Mortgages with Foreign Income',
+    description:
+      'How lenders treat non-sterling income. The 20% standard haircut and direct access to no-haircut lenders.',
+    href: '/uk-mortgage-foreign-income',
+  },
+  {
+    eyebrow: 'Hub',
+    title: 'UK Mortgages for Non-UK Residents',
+    description:
+      'Foreign nationals or British expats wanting a UK mortgage on UK property. The lender pool, deposits, and rates explained.',
+    href: '/non-uk-resident-mortgages',
+  },
+];
+
+const faqs = [
+  {
+    q: 'Is a UK mortgage available to a UK national living in Australia?',
+    a: 'Yes. Australia-resident UK nationals are among the best-served expat audiences. Around 15 to 18 lenders work in this market.',
+  },
+  {
+    q: 'What deposit do I need from Australia?',
+    a: 'Usually 25% to 40%. A 30% deposit is a common middle ground. Specialist lenders may accept 25% for stronger applicants.',
+  },
+  {
+    q: 'Are AUD-paid expats treated differently from USD-paid expats?',
+    a: 'Slightly. AUD is a major currency widely accepted by expat-friendly UK lenders. The haircut treatment is typically the same as USD. The no-haircut lender access available through specialist brokers covers AUD income for applicants with the right profile.',
+  },
+  {
+    q: 'Can I use Australian superannuation as income?',
+    a: 'Usually no. Superannuation is treated as a long-term asset rather than current income. Some lenders factor it into the wider asset picture, but it does not contribute to the affordability calculation as income.',
+  },
+  {
+    q: 'Can I buy UK buy-to-let from Australia?',
+    a: 'Yes. Australian-resident expat BTL is well-supported. The lender pool is around 12 to 15 active lenders. ICR rules apply as for any expat BTL case.',
+  },
+  {
+    q: 'Do I need to fly to the UK to apply?',
+    a: 'In most cases, no. Most Australia-resident expat applications complete entirely remotely, with documents certified by an Australian notary or solicitor. A few lenders require a UK branch visit. Your broker will tell you upfront if the chosen lender has that requirement.',
+  },
+  {
+    q: 'What if I am on a 482 (TSS) visa rather than permanent residency?',
+    a: 'Still workable. Visa status in Australia is not usually a primary factor in UK lender decisions. What matters is your UK passport, your time in current employment, and your overall financial picture.',
+  },
+  {
+    q: 'Can I remortgage my UK property from Australia?',
+    a: 'Yes. If you bought UK property as a UK resident and have since moved to Australia, you can remortgage with an expat product when your fixed rate ends. Your existing UK lender may or may not retain you as an expat, so the broker will usually approach the wider expat market in any case.',
+  },
+  {
+    q: 'What about returning to the UK from Australia?',
+    a: 'Returning expat cases from Australia work the same as from any other country. Six to nine months ahead of the planned return is a good time to start the application. See our returning expat mortgages page.',
+  },
+  {
+    q: 'Are interest rates the same as for UK residents?',
+    a: 'No, slightly higher. Expat rates from Australia are typically 0.3% to 0.7% above the equivalent UK-resident product at the same loan-to-value. The premium narrows for stronger applicants with larger deposits.',
+  },
+];
+
+const faqSchema = {
+  '@context': 'https://schema.org',
+  '@type': 'FAQPage',
+  mainEntity: faqs.map((f) => ({
+    '@type': 'Question',
+    name: f.q,
+    acceptedAnswer: { '@type': 'Answer', text: f.a },
+  })),
+};
+---
+
+<HubLayout
+  title={title}
+  description={description}
+  h1={h1}
+  subheadline={subheadline}
+  eyebrow="Country · Australia"
+  relatedPages={relatedPages}
+>
+  <section class="hub-section">
+    <div class="hub-section-inner">
+      <h2 id="why-this-page">Why a dedicated page for Australia</h2>
+      <p>
+        Australia is one of the largest destinations for UK expats globally.
+        The UK-Australia connection is well-established, and Australian-resident
+        UK nationals make up a meaningful portion of the UK expat mortgage
+        market.
+      </p>
+      <p>
+        The good news for British expats in Australia is that the UK lender
+        pool for Australia-resident applicants is among the widest available.
+        Australia has strong financial reference systems, AUD is a major
+        reserve currency accepted by most expat-friendly UK lenders, and the
+        time zone (mostly), legal system, and language are all friction-free
+        for UK underwriters.
+      </p>
+      <p>
+        If you live in Australia and want a UK mortgage, the answer is almost
+        certainly yes.
+      </p>
+    </div>
+  </section>
+
+  <section class="hub-section">
+    <div class="hub-section-inner">
+      <h2 id="who-this-is-for">Who this page is for</h2>
+      <ul>
+        <li>A UK national working in Australia on a multi-year posting.</li>
+        <li>A UK national permanently resident in Australia, holding Australian permanent residency or citizenship.</li>
+        <li>A UK national in Australia on a 482 (TSS) or other long-term work visa.</li>
+        <li>A UK national returning to the UK from Australia within the next 18 months.</li>
+        <li>A UK national living in Australia who already owns UK property and wants to remortgage or buy more.</li>
+      </ul>
+      <p>If you fall into one of these situations, the rest of this page is for you.</p>
+    </div>
+  </section>
+
+  <PullQuote>
+    If you live in Australia and want a UK mortgage, the answer is almost
+    certainly yes.
+  </PullQuote>
+
+  <section class="hub-section">
+    <div class="hub-section-inner">
+      <h2 id="lender-pool">Australian-resident lender pool</h2>
+      <p>
+        Around 15 to 18 UK lenders consider applications from UK nationals
+        living in Australia. The pool includes:
+      </p>
+      <ul>
+        <li>International arms of major UK banks (HSBC Expat being the most visible).</li>
+        <li>Specialist building societies with active expat books.</li>
+        <li>Private banks with international UK property lending.</li>
+        <li>A handful of broker-only specialist lenders.</li>
+      </ul>
+      <p>
+        The Australia-resident pool is wider than for expats in many other
+        countries. The reason is straightforward: Australia is regulatory-easy
+        from a UK lender's point of view (English-speaking, strong rule of
+        law, established credit reference data, UK-aligned banking standards).
+      </p>
+    </div>
+  </section>
+
+  <section class="hub-section">
+    <div class="hub-section-inner">
+      <h2 id="aud-income">How AUD income is treated</h2>
+      <p>Most expat-friendly UK lenders accept AUD income. The treatment varies.</p>
+      <p>
+        <strong>Standard 20% haircut.</strong> Most lenders apply a haircut of
+        around 20% to AUD income to allow for currency risk. The exchange
+        rate used for sterling conversion is usually a recent average rather
+        than a spot rate, smoothing out short-term volatility.
+      </p>
+      <p>
+        <strong>No-haircut access.</strong> A handful of specialist lenders
+        apply no haircut at all. The brokers we work with have direct access
+        to several of these lenders. For a strong applicant, the difference
+        between a 20% haircut and no haircut on AUD income is meaningful in
+        borrowing power.
+      </p>
+      <p>
+        <strong>Worked example.</strong> Take an applicant earning AUD
+        200,000, which converts to roughly £100,000 sterling-equivalent at
+        illustrative rates.
+      </p>
+      <ul>
+        <li>Standard 20% haircut: £80,000 adjusted income, supporting £320,000 to £360,000 borrowing at 4 to 4.5x.</li>
+        <li>No haircut: £100,000 adjusted income, supporting £400,000 to £450,000 borrowing.</li>
+      </ul>
+      <p>
+        The difference is around £80,000 to £90,000 of borrowing capacity,
+        which can be the difference between buying the property you want and
+        settling for something smaller.
+      </p>
+    </div>
+  </section>
+
+  <PullQuote>
+    The difference between a 20% haircut and no haircut on AUD income can be
+    £80,000 to £90,000 of borrowing capacity.
+  </PullQuote>
+
+  <section class="hub-section">
+    <div class="hub-section-inner">
+      <h2 id="whats-different">What is different about Australian-resident applications</h2>
+      <p>
+        Australia-resident expat applications are usually straightforward, but
+        four points are worth knowing.
+      </p>
+      <p>
+        <strong>Time zone matters for documentation flow.</strong> UK
+        underwriters work UK hours. Australian time is 9 to 11 hours ahead of
+        the UK. Practical documentation gathering takes a day longer per
+        round-trip than it would for an expat in the EU or Middle East. Build
+        this into the timeline.
+      </p>
+      <p>
+        <strong>Australian credit reports are well-accepted.</strong> A clean
+        Australian credit record (from Equifax Australia or illion) is widely
+        accepted by UK lenders as supporting evidence, particularly where the
+        UK file is thin.
+      </p>
+      <p>
+        <strong>Superannuation is not usually counted as income.</strong>
+        Australian superannuation contributions form part of total
+        compensation but are not usually treated as accessible income for UK
+        affordability calculations. Lenders look at base salary and bonuses
+        rather than super.
+      </p>
+      <p>
+        <strong>Australian property ownership can complicate the picture.</strong>
+        If you own Australian property with a mortgage, that mortgage is part
+        of your wider financial position from the UK lender's perspective.
+        Disclose it. Some lenders factor Australian mortgage commitments into
+        UK affordability. Some only consider unsecured commitments. The
+        treatment varies.
+      </p>
+    </div>
+  </section>
+
+  <section class="hub-section">
+    <div class="hub-section-inner">
+      <h2 id="what-you-need">What you will usually need</h2>
+      <p>Standard expat documentation pack with Australia-specific additions.</p>
+
+      <h3>Identity</h3>
+      <ul>
+        <li>UK passport.</li>
+        <li>Australian passport, BRP, or visa documentation as appropriate.</li>
+        <li>Proof of Australian address (utility bills, bank statements, council tax equivalent).</li>
+      </ul>
+
+      <h3>Income</h3>
+      <ul>
+        <li>Three to twelve months of payslips (the lender's specific requirement varies).</li>
+        <li>Two years of Australian Tax Office (ATO) statements or PAYG payment summaries.</li>
+        <li>Three to six months of Australian bank statements showing salary deposits.</li>
+        <li>Employer reference letter confirming role, salary, contract type.</li>
+        <li>For self-employed: two to three years of accounts plus accountant reference.</li>
+      </ul>
+
+      <h3>Australian financial picture</h3>
+      <ul>
+        <li>Australian credit report (helpful, often requested).</li>
+        <li>Documentation of any Australian property and mortgages.</li>
+        <li>Superannuation balance statement (sometimes requested as part of asset picture, even if not used for income).</li>
+      </ul>
+
+      <h3>Standard mortgage pack</h3>
+      <ul>
+        <li>Memorandum of sale for the UK property.</li>
+        <li>Deposit source documentation.</li>
+        <li>Solicitor details.</li>
+        <li>UK passport, address history if applicable, UK credit footprint where it exists.</li>
+      </ul>
+    </div>
+  </section>
+
+  <section class="hub-section">
+    <div class="hub-section-inner">
+      <h2 id="how-the-process-works">How the application process works</h2>
+      <p>
+        <strong>Step 1: Initial conversation.</strong> You speak with a
+        broker about your situation. Australian residency type, income,
+        currency, deposit, target UK property. 30 to 45 minutes.
+      </p>
+      <p>
+        <strong>Step 2: Decision in principle.</strong> The broker approaches
+        a lender. Returned within 24 to 72 hours.
+      </p>
+      <p>
+        <strong>Step 3: Documentation gathering.</strong> Australia-resident
+        cases usually take two to four weeks to gather documents because of
+        the time zone overhead and the need for certified copies of any
+        Australian-only documents.
+      </p>
+      <p>
+        <strong>Step 4: Full application.</strong> Submitted to the lender.
+        Survey instructed.
+      </p>
+      <p>
+        <strong>Step 5: Underwriting.</strong> Two to four weeks for
+        Australia-resident cases.
+      </p>
+      <p>
+        <strong>Step 6: Mortgage offer.</strong> Valid three to six months.
+      </p>
+      <p>
+        <strong>Step 7: Completion.</strong> Solicitor handles legal exchange
+        and completion.
+      </p>
+      <p>A typical timeline is 10 to 14 weeks for an Australia-resident expat case.</p>
+    </div>
+  </section>
+
+  <section class="hub-section">
+    <div class="hub-section-inner">
+      <h2 id="stamp-duty">Stamp duty considerations</h2>
+      <p>
+        If you have been outside the UK for the 12 months before completion
+        (which is the case for most permanent Australian residents), you pay
+        the 2% non-resident SDLT surcharge on UK residential property
+        purchases.
+      </p>
+      <p>
+        For UK nationals on shorter Australian postings who plan to return to
+        the UK, the timing of completion matters. If you complete after
+        spending 183 or more days in the UK during the previous 12 months,
+        you avoid the surcharge. If not, you can claim it back if you become
+        UK-resident within 12 months of completion.
+      </p>
+      <p>
+        Use our <a href="/tools/stamp-duty-calculator">stamp duty calculator</a>
+        for the exact figure on your situation. See also our
+        <a href="/expat-mortgages/returning-to-uk">returning expat mortgages</a>
+        page if a UK return is on the horizon.
+      </p>
+    </div>
+  </section>
+
+  <MidPageCta />
+
+  <section class="hub-section">
+    <div class="hub-section-inner">
+      <h2 id="faqs">Common questions</h2>
+      <div class="faq">
+        {faqs.map((f) => (
+          <>
+            <h3>{f.q}</h3>
+            <p>{f.a}</p>
+          </>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <script
+    type="application/ld+json"
+    is:inline
+    set:html={JSON.stringify(faqSchema)}
+  />
+</HubLayout>
