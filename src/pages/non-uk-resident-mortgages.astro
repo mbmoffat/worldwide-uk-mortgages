@@ -1,5 +1,7 @@
 ---
 import HubLayout from '../layouts/HubLayout.astro';
+import PullQuote from '../components/PullQuote.astro';
+import MidPageCta from '../components/MidPageCta.astro';
 
 const title = 'UK Mortgages for Non-UK Residents';
 const description =
@@ -7,6 +9,41 @@ const description =
 const h1 = 'UK Mortgages for <span class="nobr">Non-UK</span> Residents';
 const subheadline =
   'A clear guide to how UK mortgages work when you live outside the UK, what to expect on deposit and rates, and how a specialist broker finds you the right lender.';
+
+const jumpLinks = [
+  { id: 'who-this-is-for', label: 'Who this page is for' },
+  { id: 'can-non-resident-get-uk-mortgage', label: 'Can a non-UK resident get a UK mortgage?' },
+  { id: 'whats-different', label: 'What is different from a standard UK mortgage' },
+  { id: 'what-you-need', label: 'What you will usually need' },
+  { id: 'how-the-process-works', label: 'How the application process works' },
+  { id: 'why-broker-matters', label: 'Why a specialist broker matters' },
+  { id: 'buy-to-let', label: 'Buy-to-let for non-UK residents' },
+  { id: 'faqs', label: 'Common questions' },
+];
+
+const relatedPages = [
+  {
+    eyebrow: 'Hub',
+    title: 'UK Mortgages for Expats',
+    description:
+      'British nationals living abroad. What lenders look for and how a broker handles country and currency.',
+    href: '/expat-mortgages',
+  },
+  {
+    eyebrow: 'Hub',
+    title: 'UK Mortgages with Foreign Income',
+    description:
+      'How lenders treat non-sterling income. The 20% haircut and no-haircut lender access.',
+    href: '/uk-mortgage-foreign-income',
+  },
+  {
+    eyebrow: 'Hub',
+    title: 'UK Mortgages for Foreign Nationals',
+    description:
+      'Foreign nationals living in the UK. How visa status affects which lenders consider you.',
+    href: '/uk-mortgage-for-foreign-nationals',
+  },
+];
 
 const faqs = [
   {
@@ -61,10 +98,12 @@ const faqSchema = {
   subheadline={subheadline}
   eyebrow="Hub · Non-resident mortgages"
   ctaHeading="Speak to a specialist mortgage broker"
+  jumpLinks={jumpLinks}
+  relatedPages={relatedPages}
 >
   <section class="hub-section">
     <div class="hub-section-inner">
-      <h2>Who this page is for</h2>
+      <h2 id="who-this-is-for">Who this page is for</h2>
       <p>
         If you live outside the UK and want a mortgage on UK property, this page
         is for you. That covers two main groups:
@@ -95,7 +134,7 @@ const faqSchema = {
 
   <section class="hub-section">
     <div class="hub-section-inner">
-      <h2>Can a non-UK resident get a UK mortgage?</h2>
+      <h2 id="can-non-resident-get-uk-mortgage">Can a non-UK resident get a UK mortgage?</h2>
       <p>
         Yes. Most non-UK residents can get a UK mortgage. The pool of lenders
         willing to lend is smaller than for a UK-resident borrower, but it is
@@ -133,7 +172,7 @@ const faqSchema = {
 
   <section class="hub-section">
     <div class="hub-section-inner">
-      <h2>What is different from a standard UK mortgage</h2>
+      <h2 id="whats-different">What is different from a standard UK mortgage</h2>
       <p>Five things are typically different when you apply as a non-UK resident.</p>
       <p>
         <strong>Deposit is higher.</strong> A UK resident first-time buyer might
@@ -174,9 +213,14 @@ const faqSchema = {
     </div>
   </section>
 
+  <PullQuote>
+    The standard currency haircut is 20%. With direct access to no-haircut
+    lenders, the difference can be £80,000 to £100,000 of borrowing power.
+  </PullQuote>
+
   <section class="hub-section">
     <div class="hub-section-inner">
-      <h2>What you will usually need</h2>
+      <h2 id="what-you-need">What you will usually need</h2>
       <p>
         The exact requirements vary by lender. The following list covers what
         most lenders will ask for at some point in the process.
@@ -245,7 +289,7 @@ const faqSchema = {
 
   <section class="hub-section">
     <div class="hub-section-inner">
-      <h2>How the application process works</h2>
+      <h2 id="how-the-process-works">How the application process works</h2>
       <p>Step by step, with realistic timing.</p>
       <p>
         <strong>Step 1: Initial conversation.</strong> You speak with a mortgage
@@ -293,7 +337,7 @@ const faqSchema = {
 
   <section class="hub-section">
     <div class="hub-section-inner">
-      <h2>Why a specialist broker matters here</h2>
+      <h2 id="why-broker-matters">Why a specialist broker matters here</h2>
       <p>
         You can apply directly to a lender. Some non-resident applicants do,
         particularly with international arms of HSBC, Barclays, and similar.
@@ -324,9 +368,14 @@ const faqSchema = {
     </div>
   </section>
 
+  <PullQuote>
+    Around 15 to 20 UK lenders work in this market. Most do not advertise to
+    retail customers.
+  </PullQuote>
+
   <section class="hub-section">
     <div class="hub-section-inner">
-      <h2>Buy-to-let mortgages for non-UK residents</h2>
+      <h2 id="buy-to-let">Buy-to-let mortgages for non-UK residents</h2>
       <p>
         If you are buying UK property as a rental investment rather than a
         home, you fall into the buy-to-let market. The lender pool for
@@ -350,9 +399,11 @@ const faqSchema = {
     </div>
   </section>
 
+  <MidPageCta />
+
   <section class="hub-section">
     <div class="hub-section-inner">
-      <h2>Common questions</h2>
+      <h2 id="faqs">Common questions</h2>
       <div class="faq">
         {faqs.map((f) => (
           <>
@@ -363,6 +414,10 @@ const faqSchema = {
       </div>
     </div>
   </section>
+
+  <PullQuote>
+    Most cases come together cleanly when the right lender is approached first.
+  </PullQuote>
 
   <section class="hub-section">
     <div class="hub-section-inner">

@@ -1,0 +1,26 @@
+---
+interface Props {
+  heading?: string;
+  body?: string;
+  ctaLabel?: string;
+  ctaHref?: string;
+  ctaNote?: string;
+}
+
+const {
+  heading = 'Talk to a broker about your situation',
+  body = 'A specialist will tell you within one conversation which lenders are likely to lend to you, what deposit you will need, and what rate range to expect.',
+  ctaLabel = 'Send an enquiry',
+  ctaHref = '#contact-form',
+  ctaNote = 'A mortgage broker will usually respond immediately.',
+} = Astro.props;
+---
+
+<section class="mid-cta">
+  <div class="mid-cta-inner">
+    <h3 class="mid-cta-heading">{heading}</h3>
+    <p class="mid-cta-body">{body}</p>
+    <a class="btn mid-cta-btn" href={ctaHref}>{ctaLabel}</a>
+    <p class="mid-cta-note">{ctaNote}</p>
+  </div>
+</section>

@@ -1,6 +1,18 @@
 ---
 import Layout from './Layout.astro';
 
+interface JumpLink {
+  id: string;
+  label: string;
+}
+
+interface RelatedPage {
+  eyebrow: string;
+  title: string;
+  description: string;
+  href: string;
+}
+
 interface Props {
   title: string;
   description?: string;
@@ -9,6 +21,10 @@ interface Props {
   eyebrow?: string;
   ctaHeading?: string;
   ctaLeadIn?: string;
+  jumpLinks?: JumpLink[];
+  jumpLinksHeading?: string;
+  relatedPages?: RelatedPage[];
+  relatedPagesHeading?: string;
 }
 
 const {
@@ -19,6 +35,10 @@ const {
   eyebrow = 'Hub',
   ctaHeading = 'Speak to a specialist',
   ctaLeadIn = 'Contact us here. A mortgage broker will usually respond immediately.',
+  jumpLinks = [],
+  jumpLinksHeading = 'What this page covers',
+  relatedPages = [],
+  relatedPagesHeading = 'Related pages',
 } = Astro.props;
 ---
 
@@ -35,12 +55,46 @@ const {
             A mortgage broker will usually respond immediately.
           </span>
         </div>
+
+        {jumpLinks.length > 0 && (
+          <nav class="jump-nav" aria-label="On this page">
+            <h3 class="jump-nav-heading">{jumpLinksHeading}</h3>
+            <ul class="jump-nav-list">
+              {jumpLinks.map((link) => (
+                <li>
+                  <a href={`#${link.id}`}>
+                    <span class="jump-nav-arrow" aria-hidden="true">›</span>
+                    <span>{link.label}</span>
+                  </a>
+                </li>
+              ))}
+            </ul>
+          </nav>
+        )}
       </div>
     </section>
 
     <div class="hub-body">
       <slot />
     </div>
+
+    {relatedPages.length > 0 && (
+      <section class="related-pages-section" aria-labelledby="related-pages-heading">
+        <div class="hub-section-inner">
+          <h2 id="related-pages-heading">{relatedPagesHeading}</h2>
+          <div class="related-pages-grid">
+            {relatedPages.map((p) => (
+              <a class="related-card" href={p.href}>
+                <span class="related-card-eyebrow">{p.eyebrow}</span>
+                <h3 class="related-card-title">{p.title}</h3>
+                <p class="related-card-desc">{p.description}</p>
+                <span class="related-card-arrow" aria-hidden="true">→</span>
+              </a>
+            ))}
+          </div>
+        </div>
+      </section>
+    )}
 
     <section class="hub-cta" id="contact-form" aria-labelledby="cta-heading">
       <div class="hub-section-inner hub-cta-grid">
@@ -329,5 +383,256 @@ const {
   .btn-block {
     width: 100%;
     padding: 1rem 1.75rem;
+  }
+
+  html {
+    scroll-behavior: smooth;
+  }
+
+  /* Jump-link nav block (in hero) */
+  .jump-nav {
+    margin-top: 2.5rem;
+    background: #F4ECDD;
+    border-radius: 4px;
+    padding: 1.75rem;
+  }
+
+  .jump-nav-heading {
+    font-family: var(--font-serif);
+    font-weight: 700;
+    font-size: 1.25rem;
+    color: #1A1612;
+    margin: 0 0 1rem;
+    line-height: 1.3;
+  }
+
+  .jump-nav-list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 0.5rem 1.5rem;
+  }
+
+  @media (min-width: 768px) {
+    .jump-nav-list {
+      grid-template-columns: 1fr 1fr;
+    }
+  }
+
+  .jump-nav-list li {
+    margin: 0;
+  }
+
+  .jump-nav-list a {
+    display: inline-flex;
+    align-items: baseline;
+    gap: 0.5rem;
+    font-family: var(--font-sans);
+    font-weight: 500;
+    font-size: 0.9375rem;
+    color: #1A1612;
+    text-decoration: none;
+    line-height: 1.5;
+    transition: color 0.15s ease;
+  }
+
+  .jump-nav-list a:hover {
+    color: var(--accent);
+  }
+
+  .jump-nav-arrow {
+    color: var(--accent);
+    font-weight: 700;
+    flex-shrink: 0;
+  }
+
+  /* Pull quote */
+  .pull-quote-wrap {
+    padding: 0 1.5rem;
+    background: var(--bg);
+  }
+
+  @media (min-width: 768px) {
+    .pull-quote-wrap {
+      padding: 0 2rem;
+    }
+  }
+
+  @media (min-width: 1024px) {
+    .pull-quote-wrap {
+      padding: 0 3rem;
+    }
+  }
+
+  .pull-quote {
+    max-width: var(--content-width);
+    margin: 3.5rem auto;
+    padding: 0 0 0 1.5rem;
+    border-left: 3px solid var(--accent);
+    font-family: var(--font-serif);
+    font-weight: 700;
+    font-size: 1.5rem;
+    line-height: 1.3;
+    color: #1A1612;
+  }
+
+  @media (min-width: 768px) {
+    .pull-quote {
+      font-size: 1.875rem;
+    }
+  }
+
+  /* Mid-page CTA */
+  .mid-cta {
+    background: #FBF6EF;
+    border-top: 1px solid #E8E0D5;
+    border-bottom: 1px solid #E8E0D5;
+    padding: 3rem 1.5rem;
+    text-align: center;
+  }
+
+  @media (min-width: 768px) {
+    .mid-cta {
+      padding: 3rem 2rem;
+    }
+  }
+
+  .mid-cta-inner {
+    max-width: 600px;
+    margin: 0 auto;
+  }
+
+  .mid-cta-heading {
+    font-family: var(--font-serif);
+    font-weight: 700;
+    font-size: 1.5rem;
+    line-height: 1.3;
+    color: #1A1612;
+    margin: 0 0 1rem;
+  }
+
+  .mid-cta-body {
+    font-family: var(--font-sans);
+    font-weight: 400;
+    font-size: 1.0625rem;
+    color: #1A1612;
+    line-height: 1.7;
+    margin: 0;
+  }
+
+  .mid-cta-btn {
+    margin-top: 1.5rem;
+  }
+
+  .mid-cta-note {
+    font-family: var(--font-sans);
+    font-size: 0.9375rem;
+    color: #6B6358;
+    margin: 0.75rem 0 0;
+    line-height: 1.5;
+  }
+
+  /* Related pages */
+  .related-pages-section {
+    padding: 2rem 1.5rem;
+    background: var(--bg);
+  }
+
+  @media (min-width: 768px) {
+    .related-pages-section {
+      padding: 2.5rem 2rem;
+    }
+  }
+
+  @media (min-width: 1024px) {
+    .related-pages-section {
+      padding: 2.5rem 3rem;
+    }
+  }
+
+  .related-pages-section .hub-section-inner {
+    max-width: var(--wide-width);
+  }
+
+  .related-pages-section h2 {
+    margin: 0 0 2rem;
+  }
+
+  .related-pages-grid {
+    display: grid;
+    gap: 1.25rem;
+    grid-template-columns: 1fr;
+  }
+
+  @media (min-width: 768px) {
+    .related-pages-grid {
+      grid-template-columns: repeat(3, 1fr);
+      gap: 1.5rem;
+    }
+  }
+
+  .related-card {
+    display: flex;
+    flex-direction: column;
+    background: #FFFFFF;
+    border: 1px solid #E8E0D5;
+    border-radius: 4px;
+    padding: 1.75rem;
+    text-decoration: none;
+    color: #1A1612;
+    transition: transform 0.18s ease, border-color 0.18s ease,
+      box-shadow 0.18s ease;
+  }
+
+  .related-card:hover {
+    transform: translateY(-2px);
+    border-color: var(--accent);
+    box-shadow: var(--shadow-md);
+    color: #1A1612;
+  }
+
+  .related-card-eyebrow {
+    font-family: var(--font-sans);
+    font-size: 0.75rem;
+    font-weight: 500;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    color: #6B6358;
+    margin: 0 0 0.5rem;
+  }
+
+  .related-card-title {
+    font-family: var(--font-serif);
+    font-size: 1.25rem;
+    font-weight: 700;
+    color: #1A1612;
+    line-height: 1.3;
+    margin: 0 0 0.625rem;
+  }
+
+  .related-card-desc {
+    font-family: var(--font-sans);
+    font-size: 0.9375rem;
+    color: #6B6358;
+    line-height: 1.5;
+    margin: 0;
+    display: -webkit-box;
+    -webkit-line-clamp: 2;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+  }
+
+  .related-card-arrow {
+    color: var(--accent);
+    font-size: 1.125rem;
+    margin-top: 1rem;
+    display: inline-block;
+    transition: transform 0.18s ease;
+  }
+
+  .related-card:hover .related-card-arrow {
+    transform: translateX(2px);
   }
 </style>
