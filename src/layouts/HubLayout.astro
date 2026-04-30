@@ -21,6 +21,7 @@ interface Props {
   ctaLeadIn?: string;
   relatedPages?: RelatedPage[];
   relatedPagesHeading?: string;
+  articleClass?: string;
 }
 
 const {
@@ -31,6 +32,7 @@ const {
   eyebrow = 'Hub',
   relatedPages = [],
   relatedPagesHeading = 'Related pages',
+  articleClass,
 } = Astro.props;
 
 const slotHtml = await Astro.slots.render('default');
@@ -43,7 +45,7 @@ const readMinutes = Math.max(1, Math.round(wordCount / 200));
 ---
 
 <Layout title={title} description={description}>
-  <article class="hub">
+  <article class:list={["hub", articleClass]}>
     <section class="hub-hero">
       <div class="hub-section-inner">
         <p class="eyebrow">{eyebrow}</p>

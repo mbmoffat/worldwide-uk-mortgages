@@ -88,6 +88,7 @@ const faqSchema = {
   eyebrow="Hub · Non-resident mortgages"
   ctaHeading="Speak to a specialist mortgage broker"
   relatedPages={relatedPages}
+  articleClass="font-test-spectral"
 >
   <section class="hub-section">
     <div class="hub-section-inner">
@@ -413,3 +414,22 @@ const faqSchema = {
     set:html={JSON.stringify(faqSchema)}
   />
 </HubLayout>
+
+<style is:global>
+  /* Page-scoped Spectral body-font test. The .font-test-spectral marker
+     is set only on this page via HubLayout's articleClass prop, so these
+     rules cannot leak to other pages. */
+  @import url('https://fonts.googleapis.com/css2?family=Spectral:wght@400;500&display=swap');
+
+  .font-test-spectral .hub-hero .subheadline,
+  .font-test-spectral .hub-body .hub-section p,
+  .font-test-spectral .hub-body .hub-section li {
+    font-family: 'Spectral', Georgia, 'Times New Roman', serif;
+    font-weight: 400;
+  }
+
+  .font-test-spectral .hub-body .hub-section strong {
+    font-family: 'Spectral', Georgia, 'Times New Roman', serif;
+    font-weight: 500;
+  }
+</style>
