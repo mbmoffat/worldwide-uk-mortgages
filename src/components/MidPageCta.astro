@@ -19,19 +19,21 @@ const {
 ---
 
 {variant === 'section' ? (
-  <section class="mid-cta">
-    <div class="mid-cta-inner">
-      <h3 class="mid-cta-heading">{heading}</h3>
-      <p class="mid-cta-body">{body}</p>
-      <a class="btn mid-cta-btn" href={ctaHref}>{ctaLabel}</a>
-      <p class="mid-cta-note">{ctaNote}</p>
+  <section class="cta-block">
+    <div class="cta-block-inner">
+      <h3 class="cta-block-heading">{heading}</h3>
+      <p class="cta-block-body">{body}</p>
+      <a class="btn cta-block-btn" href={ctaHref}>{ctaLabel}</a>
+      <p class="cta-block-note">{ctaNote}</p>
     </div>
   </section>
 ) : (
-  <div class="hero-cta-block">
-    <h3 class="mid-cta-heading">{heading}</h3>
-    <p class="mid-cta-body">{body}</p>
-    <a class="btn mid-cta-btn" href={ctaHref}>{ctaLabel}</a>
-    <p class="mid-cta-note">{ctaNote}</p>
+  <div class="cta-block cta-block--hero">
+    <div class="cta-block-inner">
+      <h3 class="cta-block-heading">{heading}</h3>
+      <p class="cta-block-body">{body}</p>
+      <a class="btn cta-block-btn" href={ctaHref}>{ctaLabel}</a>
+      <p class="cta-block-note">{ctaNote}</p>
+    </div>
   </div>
 )}
