@@ -1,140 +1,495 @@
 ---
-import Layout from '../layouts/Layout.astro';
+import HubLayout from '../layouts/HubLayout.astro';
+import PullQuote from '../components/PullQuote.astro';
+import MidPageCta from '../components/MidPageCta.astro';
 
-const title = 'UK Mortgages for Seafarers and Offshore Workers';
+const title = 'UK Mortgages for Seafarers';
 const description =
-  'UK mortgage enquiries for seafarers and offshore workers, including SED claimants. Referred to FCA-authorised brokers who handle seafarer cases.';
+  'UK mortgages for merchant navy, offshore, and superyacht crew. How lenders treat seafarer income, how the Seafarers Earnings Deduction works, and how a specialist broker handles the application.';
+const h1 = 'UK Mortgages for Seafarers';
+const subheadline =
+  'UK mortgages for merchant navy, offshore, and superyacht crew. How lenders treat seafarer income, how the Seafarers Earnings Deduction works, and how a specialist broker handles the application.';
 
-const situations = [
-  { name: 'Merchant navy', href: '/seafarer-mortgages/merchant-navy' },
-  { name: 'Yacht crew', href: '/seafarer-mortgages/yacht-crew' },
-  { name: 'Offshore oil and gas', href: '/seafarer-mortgages/offshore-oil-and-gas' },
-  { name: 'Cruise ship crew', href: '/seafarer-mortgages/cruise-ship-crew' },
-  { name: 'Royal Navy', href: '/seafarer-mortgages/royal-navy' },
+const relatedPages = [
   {
-    name: "Seafarers' Earnings Deduction",
-    href: '/seafarer-mortgages/sed-mortgage',
+    eyebrow: 'Hub',
+    title: 'UK Mortgages for Expats',
+    description:
+      'British nationals living abroad. What lenders look for and how a broker handles country and currency.',
+    href: '/expat-mortgages',
+  },
+  {
+    eyebrow: 'Hub',
+    title: 'UK Mortgages with Foreign Income',
+    description:
+      'How lenders treat non-sterling income. The 20% haircut and no-haircut lender access.',
+    href: '/uk-mortgage-foreign-income',
+  },
+  {
+    eyebrow: 'Hub',
+    title: 'UK Mortgages for Non-UK Residents',
+    description:
+      'Foreign nationals living abroad. Smaller lender pool, larger deposits, and a broker-led process.',
+    href: '/non-uk-resident-mortgages',
   },
 ];
+
+const faqs = [
+  {
+    q: 'Can a merchant navy officer get a UK mortgage?',
+    a: 'Yes. Merchant navy officers are well-served by the seafarer mortgage market. The income pattern is well understood by specialist lenders.',
+  },
+  {
+    q: 'Can a yacht crew member get a UK mortgage?',
+    a: 'Yes. Yacht crew (particularly superyacht crew) often have foreign-currency income through offshore employment arrangements. Several lenders are comfortable with this. Documentation requirements are slightly higher than for merchant navy, particularly around employer reference letters.',
+  },
+  {
+    q: 'Can an offshore oil and gas worker get a UK mortgage?',
+    a: 'Yes. Offshore oil and gas income is well-understood by UK lenders. Rotation patterns, day rates, and contractor income are all workable. UK-resident offshore workers often claim SED if they qualify.',
+  },
+  {
+    q: 'Can an offshore wind worker get a UK mortgage?',
+    a: 'Yes. Offshore wind is a newer market than oil and gas, and some lenders are still calibrating to it. The fundamentals are similar to other offshore work. Brokers who work in the offshore space will know which lenders are comfortable with offshore wind specifically.',
+  },
+  {
+    q: 'How do lenders treat the Seafarers Earnings Deduction?',
+    a: 'Most lenders that work with seafarers treat SED-eligible income as the gross income shown on payslips, and assess affordability on that gross figure. Some lenders gross up SED income further to reflect the tax-free nature. The treatment varies, and the difference can be material.',
+  },
+  {
+    q: 'Can I get a UK mortgage if I work on a non-UK-flagged vessel?',
+    a: 'Yes. The vessel flag does not directly affect mortgage eligibility. What matters is your tax position and how your income is structured.',
+  },
+  {
+    q: 'Can I claim SED and get a UK mortgage?',
+    a: 'Yes. Many UK lenders are comfortable with SED claimers. Your self-assessment returns will be needed to evidence the income.',
+  },
+  {
+    q: 'What deposit do I need as a seafarer?',
+    a: 'For UK-resident seafarers with sterling income: 5% to 15% is possible, similar to a standard UK borrower. For non-resident seafarers or those with foreign-currency income: 25% to 40%, similar to other expat or non-resident cases.',
+  },
+  {
+    q: 'Can I get a buy-to-let mortgage as a seafarer?',
+    a: 'Yes. Seafarer BTL works similarly to expat BTL, with the same ICR rules and lender pool considerations.',
+  },
+];
+
+const faqSchema = {
+  '@context': 'https://schema.org',
+  '@type': 'FAQPage',
+  mainEntity: faqs.map((f) => ({
+    '@type': 'Question',
+    name: f.q,
+    acceptedAnswer: { '@type': 'Answer', text: f.a },
+  })),
+};
 ---
 
-<Layout title={title} description={description}>
-  <h1>UK mortgages for seafarers and offshore workers</h1>
-
-  <p class="intro">
-    {/* PLACEHOLDER COPY: refine before launch */}
-    UK mortgage enquiries for people whose income comes from work at sea or
-    offshore. We pass your details to FCA-authorised UK mortgage brokers who
-    are familiar with seafarer pay structures, rotation contracts, and
-    Seafarers' Earnings Deduction.
-  </p>
-
-  <section aria-labelledby="situations-heading">
-    <h2 id="situations-heading">Common situations we help with</h2>
-    <p>
-      {/* PLACEHOLDER COPY */}
-      The brokers in our network handle a range of seafarer and offshore
-      worker profiles:
-    </p>
-    <ul class="situations">
-      {situations.map((s) => (
-        <li><a href={s.href}>{s.name}</a></li>
-      ))}
-    </ul>
-    <p class="note">
-      {/* PLACEHOLDER COPY */}
-      Individual category pages will be published as the site grows. If you
-      claim Seafarers' Earnings Deduction, that page covers how lenders treat
-      SED-claimed income for affordability.
-    </p>
+<HubLayout
+  title={title}
+  description={description}
+  h1={h1}
+  subheadline={subheadline}
+  eyebrow="Hub · Seafarer mortgages"
+  ctaHeading="Speak to a specialist mortgage broker"
+  relatedPages={relatedPages}
+>
+  <section class="hub-section">
+    <div class="hub-section-inner">
+      <h2 id="who-this-is-for">Who this page is for</h2>
+      <p>
+        If you work at sea or offshore and you want a UK mortgage, this page
+        is for you. The audience covers a range of roles:
+      </p>
+      <ul>
+        <li>Merchant navy crew (officers, engineers, ratings).</li>
+        <li>
+          Offshore oil and gas workers (drilling, production, marine support).
+        </li>
+        <li>
+          Offshore wind workers (installation, operations, maintenance).
+        </li>
+        <li>
+          Superyacht crew (captains, mates, engineers, interior, deck).
+        </li>
+        <li>Cruise ship crew (officers, engineers, hospitality).</li>
+        <li>Commercial fishermen.</li>
+        <li>Maritime contractors.</li>
+      </ul>
+      <p>
+        Each role has slightly different income patterns, contract
+        structures, and tax positions. Lender appetite varies. The
+        fundamentals of how UK lenders look at seafarer income are similar
+        across the group, and that is what this page covers.
+      </p>
+    </div>
   </section>
 
-  <section aria-labelledby="how-heading">
-    <h2 id="how-heading">How it works</h2>
-    <ol class="steps">
-      <li>
-        <strong>You tell us about your situation.</strong> Role, employer,
-        rotation pattern, income currency, SED status, and property plans.
-      </li>
-      <li>
-        <strong>We match your enquiry to a suitable broker.</strong> We do not
-        give mortgage advice on this site. Your details are passed to an
-        FCA-authorised UK mortgage broker whose lender panel and experience
-        suits seafarer cases.
-      </li>
-      <li>
-        <strong>The broker contacts you.</strong> They handle the regulated
-        advice, lender selection, and application from there.
-      </li>
-    </ol>
-    <p class="note">
-      {/* PLACEHOLDER COPY: confirm referral mechanics with broker partners */}
-      This site is an introducer service only. We do not arrange mortgages or
-      provide advice.
-    </p>
+  <section class="hub-section">
+    <div class="hub-section-inner">
+      <h2 id="can-seafarer-get-mortgage">Can a seafarer get a UK mortgage?</h2>
+      <p>
+        Yes. UK lenders consider seafarer applications routinely. The lender
+        pool for seafarers is somewhat narrower than for a standard PAYE
+        applicant, perhaps 15 to 20 active lenders, but the market is well
+        established.
+      </p>
+      <p>The two things lenders need to understand for a seafarer case are:</p>
+      <ul>
+        <li>
+          How your income is structured (employment, self-employment,
+          rotation patterns, paid in what currency).
+        </li>
+        <li>
+          How you are taxed (UK PAYE, Seafarers Earnings Deduction, country
+          of residence tax, or some combination).
+        </li>
+      </ul>
+      <p>Most seafarers fall into one of three patterns. Each is workable.</p>
+      <p>
+        <strong>Pattern 1: UK-resident seafarer claiming Seafarers Earnings
+        Deduction.</strong> UK tax resident, working on qualifying voyages,
+        earning income that qualifies for SED. Tax-efficient but creates
+        documentation complexity for lenders that do not see this pattern
+        often.
+      </p>
+      <p>
+        <strong>Pattern 2: Non-UK resident seafarer paid in foreign
+        currency.</strong> Living abroad, working internationally, paid in
+        USD or another major currency. Treated as a non-resident foreign
+        income case with seafarer-specific income evidence.
+      </p>
+      <p>
+        <strong>Pattern 3: UK-resident seafarer paid through a UK employer
+        or agency.</strong> Standard UK PAYE income with seafarer-pattern
+        bank statements. Simplest case from a lender perspective.
+      </p>
+      <p>
+        A specialist broker working with seafarer cases will know which
+        lenders are comfortable with which pattern, and which to avoid.
+      </p>
+    </div>
   </section>
 
-  <section class="cta-section" aria-labelledby="cta-heading">
-    <h2 id="cta-heading">Start your enquiry</h2>
-    <p>
-      {/* PLACEHOLDER COPY */}
-      Send us a few details and we will refer you to a broker who handles
-      cases like yours.
-    </p>
-    <a class="btn" href="/enquire">Start my enquiry</a>
+  <section class="hub-section">
+    <div class="hub-section-inner">
+      <h2 id="how-lenders-treat-seafarer-income">
+        How UK lenders treat seafarer income
+      </h2>
+      <p>
+        Seafarer income comes with three features that need explaining to
+        lenders. Specialists handle this routinely. Generalists often do
+        not.
+      </p>
+      <p>
+        <strong>Rotation patterns.</strong> Many seafarers work a rotation
+        (28 days on / 28 days off, 6 weeks on / 6 weeks off, 4 months on /
+        2 months off). The bank statements show large salary deposits at
+        irregular intervals rather than a predictable monthly pattern.
+        Lenders who know seafarers expect this. Lenders who do not
+        sometimes flag it as inconsistent income.
+      </p>
+      <p>
+        <strong>Foreign currency payment.</strong> Many international
+        seafarers are paid in USD, often through an offshore arrangement.
+        This makes the case a foreign income case, with the standard 20%
+        haircut at most lenders, no haircut at a handful of specialists.
+      </p>
+      <p>
+        <strong>Tax structure.</strong> The Seafarers Earnings Deduction
+        makes UK-resident qualifying voyages effectively tax-free, which
+        means the gross income shown on payslips translates differently to
+        net affordability than a standard UK PAYE income. Lenders need to
+        understand this to underwrite correctly.
+      </p>
+      <p>
+        A broker who works with seafarer cases regularly packages the
+        application so the underwriter sees the income in the way the
+        lender's criteria allows. This is the single biggest reason
+        seafarer cases benefit from specialist broker placement.
+      </p>
+    </div>
   </section>
 
-  <style>
-    .intro {
-      font-size: 1.125rem;
-      color: var(--muted);
-      margin: 0 0 1.5rem;
-    }
+  <PullQuote>
+    A broker who works with seafarer cases regularly packages the
+    application so the underwriter sees the income in the way the lender's
+    criteria allows.
+  </PullQuote>
 
-    .situations {
-      list-style: none;
-      padding: 0;
-      margin: 0.75rem 0 0;
-      display: grid;
-      grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
-      gap: 0.5rem 1rem;
-    }
+  <section class="hub-section">
+    <div class="hub-section-inner">
+      <h2 id="sed">The Seafarers Earnings Deduction explained briefly</h2>
+      <p>
+        Seafarers Earnings Deduction (SED) is a UK tax provision that allows
+        UK tax-resident seafarers to claim 100% deduction of earnings from
+        qualifying voyages. In practice, this means the income is
+        effectively tax-free if the qualifying conditions are met.
+      </p>
+      <p>Key conditions for SED:</p>
+      <ul>
+        <li>You must be a UK tax resident.</li>
+        <li>
+          You must work on a ship (not a fixed offshore installation,
+          though some flotels qualify).
+        </li>
+        <li>
+          The work must be on qualifying voyages outside UK territorial
+          waters.
+        </li>
+        <li>
+          You must spend at least 365 days outside the UK in an "eligible
+          period" (this is the half-day rule, calculated against arrival
+          and departure days).
+        </li>
+        <li>You must claim SED through self-assessment.</li>
+      </ul>
+      <p>
+        For mortgage purposes, the implication is that gross seafarer income
+        after SED translates to higher disposable income than the equivalent
+        standard UK PAYE salary. Some lenders gross up SED-eligible income
+        for affordability assessment. Some treat it as standard gross
+        income. The treatment varies.
+      </p>
+      <p>
+        A dedicated guide on SED and how to claim it while keeping mortgage
+        eligibility is on our
+        <a href="/seafarer-mortgages/seafarers-earnings-deduction">SED guide page</a>.
+      </p>
+    </div>
+  </section>
 
-    .situations li {
-      padding: 0.5rem 0;
-      border-bottom: 1px solid var(--border);
-    }
+  <section class="hub-section">
+    <div class="hub-section-inner">
+      <h2 id="whats-different">What is different from a standard UK mortgage</h2>
+      <p>
+        Five things, on top of the country and currency factors that apply
+        to any non-resident or foreign income case.
+      </p>
+      <p>
+        <strong>Income evidence is more involved.</strong> Lenders typically
+        want six to twelve months of payslips for seafarer cases, sometimes
+        more, to establish the rotation pattern. An employer reference
+        letter is almost always required, confirming employment terms,
+        gross income, contract type, and rotation.
+      </p>
+      <p>
+        <strong>Tax records matter.</strong> UK-resident SED claimers
+        should provide self-assessment returns showing the SED claim.
+        Non-residents should provide country-of-residence tax records or
+        the equivalent.
+      </p>
+      <p>
+        <strong>Bank statements are read carefully.</strong> Lenders will
+        look for the rotation pattern in bank statements. Inconsistent
+        deposits should match the contract pattern. Any non-salary deposits
+        will need explaining.
+      </p>
+      <p>
+        <strong>Time at sea factors in.</strong> Lenders prefer seafarers
+        with at least 12 to 24 months of employment history at sea. Newer
+        entrants may face a smaller lender pool.
+      </p>
+      <p>
+        <strong>Some lenders simply will not lend to seafarers.</strong>
+        A handful of mainstream lenders avoid seafarer cases because of
+        the documentation complexity. The broker's job is to skip those
+        lenders rather than approach and be declined.
+      </p>
+    </div>
+  </section>
 
-    .situations a {
-      text-decoration: none;
-    }
+  <PullQuote>
+    A handful of mainstream lenders avoid seafarer cases because of the
+    documentation complexity. The broker's job is to skip those lenders
+    rather than approach and be declined.
+  </PullQuote>
 
-    .situations a:hover {
-      text-decoration: underline;
-    }
+  <section class="hub-section">
+    <div class="hub-section-inner">
+      <h2 id="what-you-need">What you will usually need</h2>
+      <p>
+        Specific to seafarer cases, on top of the standard documentation
+        pack.
+      </p>
 
-    .steps {
-      padding-left: 1.25rem;
-    }
+      <h3>Employment evidence</h3>
+      <ul>
+        <li>Six to twelve months of payslips.</li>
+        <li>
+          An employer reference letter confirming role, salary, contract
+          type, and rotation pattern.
+        </li>
+        <li>
+          Discharge book or equivalent record of voyages, where applicable.
+        </li>
+        <li>Seafarer's identity document (if you have one).</li>
+      </ul>
 
-    .steps li {
-      margin-bottom: 0.75rem;
-    }
+      <h3>Tax evidence</h3>
+      <ul>
+        <li>
+          Self-assessment returns for the last two to three years if
+          claiming SED.
+        </li>
+        <li>HMRC SA302 documents showing income declared.</li>
+        <li>Country-of-residence tax statements if non-UK resident.</li>
+      </ul>
 
-    .note {
-      font-size: 0.9375rem;
-      color: var(--muted);
-    }
+      <h3>Income flow</h3>
+      <ul>
+        <li>
+          Six months of bank statements showing salary deposits, including
+          the rotation pattern.
+        </li>
+      </ul>
 
-    .cta-section {
-      margin-top: 2.5rem;
-      padding: 1.5rem;
-      background: var(--bg-alt);
-      border-radius: 8px;
-    }
+      <h3>Standard mortgage pack</h3>
+      <ul>
+        <li>
+          Passport, proof of address, deposit source documentation,
+          memorandum of sale, solicitor details.
+        </li>
+      </ul>
 
-    .cta-section h2 {
-      margin-top: 0;
-    }
-  </style>
-</Layout>
+      <p>
+        A specialist broker will give you the specific list for the lender
+        being approached. Generalist brokers often do not know what to ask
+        for.
+      </p>
+    </div>
+  </section>
+
+  <section class="hub-section">
+    <div class="hub-section-inner">
+      <h2 id="how-the-process-works">How the application process works</h2>
+      <p>
+        <strong>Step 1: Initial conversation.</strong> You speak with a
+        broker about your role, your contract, your tax position, the
+        property, and your deposit. 30 to 45 minutes.
+      </p>
+      <p>
+        <strong>Step 2: Decision in principle.</strong> The broker
+        approaches a lender. Returned within 24 to 72 hours.
+      </p>
+      <p>
+        <strong>Step 3: Documentation gathering.</strong> The broker tells
+        you exactly what to pull together for the chosen lender. For
+        seafarer cases this often takes a few weeks because of employer
+        references and tax records.
+      </p>
+      <p>
+        <strong>Step 4: Full application.</strong> Submitted to the lender.
+        Survey instructed.
+      </p>
+      <p>
+        <strong>Step 5: Underwriting.</strong> Seafarer cases usually take
+        two to six weeks at this stage. Some lenders are faster than
+        others.
+      </p>
+      <p>
+        <strong>Step 6: Mortgage offer.</strong> Valid three to six months.
+      </p>
+      <p>
+        <strong>Step 7: Completion.</strong> Solicitor handles legal
+        exchange and completion.
+      </p>
+      <p>
+        A typical timeline is 10 to 14 weeks for a straightforward
+        seafarer case.
+      </p>
+    </div>
+  </section>
+
+  <section class="hub-section">
+    <div class="hub-section-inner">
+      <h2 id="why-broker-matters">Why a specialist broker matters here</h2>
+      <p>
+        Seafarer cases are one of the strongest examples of where
+        specialist broker placement makes a meaningful difference.
+      </p>
+      <p>
+        <strong>Lender knowledge.</strong> A handful of lenders are
+        genuinely seafarer-friendly. Others are workable with the right
+        packaging. Some will simply decline. The broker's job is to know
+        which is which today.
+      </p>
+      <p>
+        <strong>Documentation knowledge.</strong> Putting together a
+        seafarer application without knowing what the lender wants leads
+        to back-and-forth and delays. A broker who works with seafarers
+        daily knows exactly what to ask for upfront.
+      </p>
+      <p>
+        <strong>SED expertise.</strong> Underwriters who do not see SED
+        often will sometimes question the claim. A broker who has placed
+        dozens of SED cases will know how to present the claim so it
+        underwrites cleanly.
+      </p>
+      <p>
+        <strong>Foreign-currency income access.</strong> Seafarers paid
+        in USD or other foreign currencies benefit from access to
+        no-haircut lenders. The brokers we work with have direct access
+        to several of those lenders.
+      </p>
+      <p>
+        The broker's fee is usually folded into the lender's procuration
+        fee.
+      </p>
+    </div>
+  </section>
+
+  <section class="hub-section">
+    <div class="hub-section-inner">
+      <h2 id="roles">Roles we cover</h2>
+      <p>
+        The seafarer market includes a number of distinct roles. We cover
+        guides for several of these specifically:
+      </p>
+      <ul>
+        <li><a href="/seafarer-mortgages/captain">Captain mortgages</a>.</li>
+        <li><a href="/seafarer-mortgages/deck-officer">Deck officer mortgages</a>.</li>
+        <li>
+          <a href="/seafarer-mortgages/chief-engineer">Chief engineer mortgages</a>.
+        </li>
+        <li>
+          <a href="/seafarer-mortgages/superyacht-crew">Superyacht crew mortgages</a>.
+        </li>
+        <li>
+          <a href="/seafarer-mortgages/offshore-wind">Offshore wind worker mortgages</a>.
+        </li>
+      </ul>
+      <p>
+        If your role is not covered above, the general principles on this
+        page apply. A broker can advise on lender appetite for your
+        specific situation.
+      </p>
+    </div>
+  </section>
+
+  <MidPageCta />
+
+  <section class="hub-section">
+    <div class="hub-section-inner">
+      <h2 id="faqs">Common questions</h2>
+      <div class="faq">
+        {faqs.map((f) => (
+          <>
+            <h3>{f.q}</h3>
+            <p>{f.a}</p>
+          </>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <PullQuote>
+    Seafarer cases are one of the strongest examples of where specialist
+    broker placement makes a meaningful difference.
+  </PullQuote>
+
+  <script
+    type="application/ld+json"
+    is:inline
+    set:html={JSON.stringify(faqSchema)}
+  />
+</HubLayout>

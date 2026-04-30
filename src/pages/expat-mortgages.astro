@@ -1,137 +1,496 @@
 ---
-import Layout from '../layouts/Layout.astro';
+import HubLayout from '../layouts/HubLayout.astro';
+import PullQuote from '../components/PullQuote.astro';
+import MidPageCta from '../components/MidPageCta.astro';
 
-const title = 'UK Mortgages for British Expats';
+const title = 'UK Mortgages for Expats';
 const description =
-  'UK mortgage enquiries for British expats living and working abroad. We refer enquiries to FCA-authorised brokers who specialise in expat cases.';
+  'A clear guide to UK mortgages for British nationals living abroad. What you can borrow, what you will need, and how a specialist broker finds the right lender for your country and currency.';
+const h1 = 'UK Mortgages for Expats';
+const subheadline =
+  'A clear guide to UK mortgages for British nationals living abroad. What you can borrow, what you will need, and how a specialist broker finds the right lender for your country and currency.';
 
-const situations = [
-  { name: 'Residential', href: '/expat-mortgages/residential' },
-  { name: 'Buy to let', href: '/expat-mortgages/buy-to-let' },
-  { name: 'Remortgage', href: '/expat-mortgages/remortgage' },
-  { name: 'Returning to the UK', href: '/expat-mortgages/returning-to-uk' },
-  { name: 'First time buyer', href: '/expat-mortgages/first-time-buyer' },
-  { name: 'Let to buy', href: '/expat-mortgages/let-to-buy' },
-  { name: 'Interest only', href: '/expat-mortgages/interest-only' },
-  { name: 'Large mortgages', href: '/expat-mortgages/large-mortgages' },
+const relatedPages = [
+  {
+    eyebrow: 'Hub',
+    title: 'UK Mortgages for Non-UK Residents',
+    description:
+      'Foreign nationals living abroad. Smaller lender pool, larger deposits, and a broker-led process.',
+    href: '/non-uk-resident-mortgages',
+  },
+  {
+    eyebrow: 'Hub',
+    title: 'UK Mortgages with Foreign Income',
+    description:
+      'How lenders treat non-sterling income. The 20% haircut and no-haircut lender access.',
+    href: '/uk-mortgage-foreign-income',
+  },
+  {
+    eyebrow: 'Hub',
+    title: 'Expat Buy-to-Let Mortgages',
+    description:
+      'UK BTL for expats. ICR rules, portfolio cases, and personal vs limited-company structure.',
+    href: '/expat-mortgages/buy-to-let',
+  },
 ];
+
+const faqs = [
+  {
+    q: 'Can I apply for a UK mortgage from abroad without coming to the UK?',
+    a: 'In most cases, yes. Many expat applications complete entirely remotely, with documents certified by a notary or solicitor in your country of residence. Some lenders require a physical visit to a UK branch at some point. Your broker will tell you upfront if the lender being considered has that requirement.',
+  },
+  {
+    q: 'Do I need a UK bank account?',
+    a: 'Helpful, often essential. Most lenders require a UK current account into which the mortgage payments will be made. Opening a UK account as a non-resident is usually possible with most challenger banks and some traditional UK banks, though the process varies.',
+  },
+  {
+    q: 'Do I need to be earning in sterling?',
+    a: 'No. Foreign income is routinely accepted. Lenders apply a haircut of typically 20% to allow for currency risk. A handful of specialist lenders apply no haircut at all. The exact treatment depends on which currency you earn in.',
+  },
+  {
+    q: 'How much can I borrow?',
+    a: "Borrowing power is calculated similarly to a UK resident. Foreign income gets the haircut, then standard income multiples (usually 4 to 4.5 times) apply. Affordability also factors in your other commitments, the property type, and the lender's specific calculation.",
+  },
+  {
+    q: 'What rates can I expect?',
+    a: 'Expat rates are typically 0.3% to 0.7% above the equivalent UK-resident product at the same loan-to-value. Rate competitiveness improves with deposit size: a 40% deposit usually accesses meaningfully better rates than a 25% deposit.',
+  },
+  {
+    q: 'Can I get an expat mortgage if I have no recent UK credit history?',
+    a: 'Yes, in many cases. Lenders who specialise in expat applications expect a thinner UK credit file, particularly for applicants who have been abroad for several years. They underwrite to the wider picture: income, employment history, employer credibility, deposit, and country of residence. A clean credit record where you currently live helps.',
+  },
+  {
+    q: 'How long does it take?',
+    a: 'Typically 10 to 14 weeks from first conversation to completion. Foreign income cases or unusual country of residence can run longer. Documentation gathering is usually the slowest part.',
+  },
+  {
+    q: 'Can I remortgage from abroad when my UK fix ends?',
+    a: 'Yes. If you bought UK property as a UK resident and have since moved abroad, you can remortgage with an expat product when your fixed rate ends. Your existing lender may or may not retain you as an expat, so the broker will usually approach the wider expat market in any case.',
+  },
+  {
+    q: 'Are stamp duty rules different for expats?',
+    a: 'If you have been outside the UK for the 12 months before completion, you are treated as a non-UK resident for Stamp Duty Land Tax purposes. That means a 2% surcharge on UK residential property purchases, on top of the standard rates and any second-home or buy-to-let surcharge.',
+  },
+  {
+    q: 'Do I have to declare worldwide income to UK lenders?',
+    a: 'You must declare all the income you want the lender to consider for affordability. Lenders cross-reference declared income against payslips and tax records. Misrepresenting income on a mortgage application is mortgage fraud, and lenders share data with each other and with credit reference agencies.',
+  },
+];
+
+const faqSchema = {
+  '@context': 'https://schema.org',
+  '@type': 'FAQPage',
+  mainEntity: faqs.map((f) => ({
+    '@type': 'Question',
+    name: f.q,
+    acceptedAnswer: { '@type': 'Answer', text: f.a },
+  })),
+};
 ---
 
-<Layout title={title} description={description}>
-  <h1>UK mortgages for British expats</h1>
-
-  <p class="intro">
-    {/* PLACEHOLDER COPY: refine before launch */}
-    UK mortgage enquiries for British citizens living and working overseas. We
-    pass your details to FCA-authorised UK mortgage brokers who handle expat
-    applications, including cases with foreign currency income, non-UK
-    residency, and limited recent UK credit history.
-  </p>
-
-  <section aria-labelledby="situations-heading">
-    <h2 id="situations-heading">Common situations we help with</h2>
-    <p>
-      {/* PLACEHOLDER COPY */}
-      Whatever stage you are at, the brokers in our network deal with a wide
-      range of expat scenarios:
-    </p>
-    <ul class="situations">
-      {situations.map((s) => (
-        <li><a href={s.href}>{s.name}</a></li>
-      ))}
-    </ul>
-    <p class="note">
-      {/* PLACEHOLDER COPY */}
-      Individual category pages will be published as the site grows.
-    </p>
+<HubLayout
+  title={title}
+  description={description}
+  h1={h1}
+  subheadline={subheadline}
+  eyebrow="Hub · Expat mortgages"
+  ctaHeading="Speak to a specialist mortgage broker"
+  relatedPages={relatedPages}
+>
+  <section class="hub-section">
+    <div class="hub-section-inner">
+      <h2 id="who-this-is-for">Who this page is for</h2>
+      <p>
+        If you are a UK national living and working abroad and you want a UK
+        mortgage, this page is for you. Common situations include:
+      </p>
+      <ul>
+        <li>A UK national posted overseas by a multinational employer.</li>
+        <li>A UK national who has emigrated permanently to live and work abroad.</li>
+        <li>
+          A UK national working abroad on contract, often in oil and gas,
+          finance, technology, or aviation.
+        </li>
+        <li>
+          A UK national married to a foreign national and living in their
+          partner's country.
+        </li>
+        <li>
+          A UK national returning to the UK after a posting and wanting to buy
+          or remortgage in advance of the move.
+        </li>
+      </ul>
+      <p>
+        Lenders use the term "expat" specifically for UK nationals living
+        abroad. If you are a foreign national living abroad and want to buy UK
+        property, you fall under
+        <a href="/non-uk-resident-mortgages">non-UK resident mortgages</a>
+        instead. The two audiences overlap in some ways but the lender pool
+        and criteria differ.
+      </p>
+      <p>
+        If you are paid in a currency other than sterling, the
+        <a href="/uk-mortgage-foreign-income">foreign income angle</a>
+        applies to you alongside everything on this page.
+      </p>
+    </div>
   </section>
 
-  <section aria-labelledby="how-heading">
-    <h2 id="how-heading">How it works</h2>
-    <ol class="steps">
-      <li>
-        <strong>You tell us about your situation.</strong> Country of
-        residence, income type and currency, property plans, and timing.
-      </li>
-      <li>
-        <strong>We match your enquiry to a suitable broker.</strong> We do not
-        give mortgage advice on this site. Your details are passed to an
-        FCA-authorised UK mortgage broker whose lender panel and experience
-        suits your case.
-      </li>
-      <li>
-        <strong>The broker contacts you.</strong> They handle the regulated
-        advice, lender selection, and application from there.
-      </li>
-    </ol>
-    <p class="note">
-      {/* PLACEHOLDER COPY: confirm referral mechanics with broker partners */}
-      This site is an introducer service only. We do not arrange mortgages or
-      provide advice.
-    </p>
+  <section class="hub-section">
+    <div class="hub-section-inner">
+      <h2 id="can-uk-expat-get-mortgage">Can a UK expat get a UK mortgage?</h2>
+      <p>
+        Yes. UK nationals living abroad can get UK mortgages routinely. The
+        lender pool is smaller than for a UK-resident borrower but the market
+        is active and there are around 15 to 20 lenders who consider expat
+        applications regularly.
+      </p>
+      <p>Whether a specific lender will lend to you depends on:</p>
+      <ul>
+        <li>Where you live now (your country of residence)</li>
+        <li>What currency you earn in</li>
+        <li>Who your employer is</li>
+        <li>Whether you have a current UK address or recent UK address history</li>
+        <li>Your overall financial position</li>
+        <li>The type of property you are buying (residential, buy-to-let, second home)</li>
+      </ul>
+      <p>
+        Most expat applicants pass these checks without issue. Where
+        applications get more complex is when several factors stack: residence
+        in a country some lenders will not lend to, income in a less-common
+        currency, a self-employed income structure, and limited UK credit
+        footprint. In those cases, the broker's knowledge of which lenders fit
+        the profile becomes the deciding factor.
+      </p>
+    </div>
   </section>
 
-  <section class="cta-section" aria-labelledby="cta-heading">
-    <h2 id="cta-heading">Start your enquiry</h2>
-    <p>
-      {/* PLACEHOLDER COPY */}
-      Send us a few details and we will refer you to a broker who handles
-      cases like yours.
-    </p>
-    <a class="btn" href="/enquire">Start my enquiry</a>
+  <section class="hub-section">
+    <div class="hub-section-inner">
+      <h2 id="whats-different">What is different from a UK resident mortgage</h2>
+      <p>Five things are usually different.</p>
+      <p>
+        <strong>Deposit is higher.</strong> UK expats typically put down 25% to
+        40% of the property value, against 5% to 15% for a UK resident
+        first-time buyer. The exact deposit depends on the lender, your country
+        of residence, and the property type. Stronger applicants in standard
+        situations often access the lower end of that range.
+      </p>
+      <p>
+        <strong>Rates are slightly higher.</strong> Expat mortgage rates are
+        usually 0.3% to 0.7% above the equivalent UK-resident product. The
+        premium narrows for stronger applicants with larger deposits.
+      </p>
+      <p>
+        <strong>The lender pool is smaller.</strong> Around 15 to 20 lenders
+        work in this space, against roughly 80 lenders who lend to UK
+        residents. Most high street banks do not lend to expats directly. Some
+        operate through their international banking arm (HSBC Expat is the
+        most visible). Several specialist building societies and private banks
+        make up the rest of the pool.
+      </p>
+      <p>
+        <strong>Foreign income is treated with a haircut.</strong> If you earn
+        in a currency other than sterling, lenders apply a haircut of typically
+        20% to your stated income to allow for currency risk. A handful of
+        specialist lenders apply no haircut at all. The brokers we work with
+        have direct access to several of those no-haircut lenders, which often
+        increases borrowing power materially.
+      </p>
+      <p>
+        <strong>Documentation is more involved.</strong> Expect to provide more
+        proof of identity, income, and employment than a UK resident applicant
+        would. Documents may need to be certified by a notary or solicitor in
+        your country of residence. Foreign-language documents may need to be
+        translated and certified. The application takes longer because of this.
+      </p>
+    </div>
   </section>
 
-  <style>
-    .intro {
-      font-size: 1.125rem;
-      color: var(--muted);
-      margin: 0 0 1.5rem;
-    }
+  <PullQuote>
+    Around 15 to 20 lenders work in this space, against roughly 80 who lend to
+    UK residents.
+  </PullQuote>
 
-    .situations {
-      list-style: none;
-      padding: 0;
-      margin: 0.75rem 0 0;
-      display: grid;
-      grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
-      gap: 0.5rem 1rem;
-    }
+  <section class="hub-section">
+    <div class="hub-section-inner">
+      <h2 id="what-you-need">What you will usually need</h2>
+      <p>
+        The exact requirements vary by lender. The list below covers what most
+        lenders will ask for.
+      </p>
 
-    .situations li {
-      padding: 0.5rem 0;
-      border-bottom: 1px solid var(--border);
-    }
+      <h3>Identity and residency</h3>
+      <ul>
+        <li>UK passport.</li>
+        <li>
+          Proof of current address abroad: utility bills, bank statements, or a
+          residency document, usually two recent items.
+        </li>
+        <li>
+          Visa or residency permit for your country of residence, where
+          applicable.
+        </li>
+        <li>Tax residency confirmation.</li>
+      </ul>
 
-    .situations a {
-      text-decoration: none;
-    }
+      <h3>Employment and income</h3>
+      <ul>
+        <li>Three to twelve months of payslips, depending on lender.</li>
+        <li>
+          Two years of P60s, country-equivalent annual tax statements, or
+          self-assessment returns.
+        </li>
+        <li>Three to six months of bank statements showing salary deposits.</li>
+        <li>
+          An employer reference letter for many cases, confirming employment
+          status, salary, and contract type.
+        </li>
+        <li>
+          For self-employed: two to three years of accounts plus an accountant
+          reference.
+        </li>
+        <li>
+          For company directors: company accounts, dividend records, and
+          personal tax position.
+        </li>
+      </ul>
 
-    .situations a:hover {
-      text-decoration: underline;
-    }
+      <h3>UK financial footprint</h3>
+      <ul>
+        <li>UK bank statements if you hold a UK account.</li>
+        <li>Previous UK address history.</li>
+        <li>UK credit report.</li>
+        <li>Existing UK property ownership and any current mortgage details.</li>
+      </ul>
 
-    .steps {
-      padding-left: 1.25rem;
-    }
+      <h3>Property and deposit</h3>
+      <ul>
+        <li>Memorandum of sale from the estate agent.</li>
+        <li>Deposit source documentation.</li>
+        <li>Solicitor details for the UK conveyancing.</li>
+      </ul>
 
-    .steps li {
-      margin-bottom: 0.75rem;
-    }
+      <p>
+        A specialist broker will go through this in detail and pull together
+        the exact pack the chosen lender wants. The list above is what to be
+        ready to produce, not a literal checklist for any single lender.
+      </p>
+    </div>
+  </section>
 
-    .note {
-      font-size: 0.9375rem;
-      color: var(--muted);
-    }
+  <section class="hub-section">
+    <div class="hub-section-inner">
+      <h2 id="how-the-process-works">How the application process works</h2>
+      <p>Step by step, with realistic timing.</p>
+      <p>
+        <strong>Step 1: Initial conversation.</strong> You speak with a
+        mortgage broker about your situation. Country of residence, employer,
+        currency, deposit, target property. The broker identifies which
+        lenders are likely to consider you. Usually 30 to 45 minutes.
+      </p>
+      <p>
+        <strong>Step 2: Decision in principle.</strong> The broker approaches
+        a lender (or shortlist) for a decision in principle. This comes back
+        within 24 to 72 hours.
+      </p>
+      <p>
+        <strong>Step 3: Documentation gathering.</strong> The broker tells you
+        exactly what to pull together for the chosen lender. For expat
+        applications this is the most time-consuming part of the process,
+        often taking a few weeks because of certified document requirements
+        and employer references.
+      </p>
+      <p>
+        <strong>Step 4: Full application.</strong> Once you have a property
+        under offer, the broker submits the full application. Survey is
+        instructed at this stage.
+      </p>
+      <p>
+        <strong>Step 5: Underwriting.</strong> The lender's underwriter
+        reviews everything. Expat applications usually take longer at this
+        stage than UK resident applications, typically two to six weeks.
+      </p>
+      <p>
+        <strong>Step 6: Mortgage offer.</strong> The lender issues a formal
+        offer. Valid for three to six months.
+      </p>
+      <p>
+        <strong>Step 7: Completion.</strong> Solicitor handles legal exchange
+        and completion. Funds are released. You become the owner.
+      </p>
+      <p>
+        A typical timeline from first conversation to completion is 10 to 14
+        weeks for a straightforward expat case.
+      </p>
+    </div>
+  </section>
 
-    .cta-section {
-      margin-top: 2.5rem;
-      padding: 1.5rem;
-      background: var(--bg-alt);
-      border-radius: 8px;
-    }
+  <section class="hub-section">
+    <div class="hub-section-inner">
+      <h2 id="why-broker-matters">Why a specialist broker matters here</h2>
+      <p>
+        You can apply directly to some lenders, particularly the international
+        arms of major UK banks. The reason most expats use a broker anyway is
+        that the lender pool extends well beyond the few names you can find
+        on Google.
+      </p>
+      <p>
+        Several of the strongest lenders in this space do not market to retail
+        customers and only accept applications through brokers. Some are
+        mutuals or specialist building societies whose criteria are not
+        published online. Some operate via private banking arrangements that
+        have a relationship-driven entry point. A handful apply no haircut to
+        foreign income, accessed only through brokers with direct
+        relationships in the space.
+      </p>
+      <p>A specialist broker who works with expat cases regularly knows:</p>
+      <ul>
+        <li>Which lenders are saying yes this quarter and which are tightening.</li>
+        <li>
+          Which lenders fit your specific country of residence, currency, and
+          employer profile.
+        </li>
+        <li>
+          How to structure the application so it underwrites cleanly the first
+          time.
+        </li>
+        <li>
+          Which lenders apply no haircut to foreign income and whether you
+          qualify.
+        </li>
+      </ul>
+      <p>
+        The broker's fee is usually folded into the lender's procuration fee,
+        with a clear fee disclosure on the engagement letter. Reputable
+        brokers explain fees upfront before doing any work.
+      </p>
+    </div>
+  </section>
 
-    .cta-section h2 {
-      margin-top: 0;
-    }
-  </style>
-</Layout>
+  <PullQuote>
+    A handful of specialist lenders apply no haircut at all to foreign income,
+    accessed only through brokers with direct relationships in the space.
+  </PullQuote>
+
+  <section class="hub-section">
+    <div class="hub-section-inner">
+      <h2 id="country-considerations">Country-specific considerations</h2>
+      <p>
+        Where you live affects which lenders will lend to you. Most lenders
+        work to a list of approved countries. Some patterns:
+      </p>
+      <p>
+        <strong>Generally well-served:</strong> Australia, USA, Canada, New
+        Zealand, UAE (Dubai, Abu Dhabi), Singapore, Hong Kong, Switzerland,
+        Germany, Netherlands, Norway, Saudi Arabia, Qatar, Bahrain, Oman,
+        France, Spain, Ireland.
+      </p>
+      <p>
+        <strong>Restricted or limited lender pool:</strong> Countries on UK
+        or international sanctions lists. Countries with FATF high-risk
+        status. Some lenders restrict applications from countries with weaker
+        AML regulation regardless of the applicant's individual profile.
+      </p>
+      <p>
+        <strong>Variable:</strong> Several countries sit in a middle band
+        where some lenders will lend and others will not. Examples include
+        parts of Africa, parts of South America, and a handful of Asian
+        countries.
+      </p>
+      <p>
+        If you live somewhere unusual, the application is still likely
+        possible. The lender pool is smaller and the broker's role becomes
+        more important.
+      </p>
+    </div>
+  </section>
+
+  <section class="hub-section">
+    <div class="hub-section-inner">
+      <h2 id="returning-expats">Returning expats</h2>
+      <p>
+        If you are planning to return to the UK and want to buy or remortgage
+        before or shortly after the move, this is a recognised situation
+        called a returning expat case. It needs careful handling because the
+        lender wants to see what your situation will look like after you
+        return, not before.
+      </p>
+      <p>Key points:</p>
+      <ul>
+        <li>
+          Some lenders will lend to a returning expat using current foreign
+          income, with a return date in mind, but will need evidence of the
+          planned return (an employment contract for a UK role, or evidence
+          of family relocation).
+        </li>
+        <li>
+          Some lenders will only lend once you are physically back in the UK
+          with a UK income source.
+        </li>
+        <li>
+          Timing matters. Starting the application six months before the
+          planned return often works better than waiting until you arrive.
+        </li>
+      </ul>
+      <p>
+        We cover this in detail on our
+        <a href="/expat-mortgages/returning-to-uk">returning expat mortgages</a>
+        page.
+      </p>
+    </div>
+  </section>
+
+  <section class="hub-section">
+    <div class="hub-section-inner">
+      <h2 id="buy-to-let">Buy-to-let mortgages for expats</h2>
+      <p>
+        If you are buying UK property as a rental investment rather than a
+        home, you fall into the expat buy-to-let market. The lender pool is
+        similar to expat residential, perhaps slightly smaller, with around
+        12 to 15 active lenders. Deposits are usually 25% to 35%. Rates are
+        slightly higher than residential equivalents, as they are for any UK
+        BTL.
+      </p>
+      <p>
+        Buy-to-let lenders assess the application against the rental income
+        the property will generate, using an interest cover ratio (ICR)
+        calculation. For expat applicants, the ICR is usually stricter than
+        for a UK resident, requiring rental cover of around 145% or more of
+        the mortgage interest at a stressed rate.
+      </p>
+      <p>
+        For a deeper look, see our
+        <a href="/expat-mortgages/buy-to-let">expat buy-to-let mortgages</a>
+        page.
+      </p>
+    </div>
+  </section>
+
+  <MidPageCta />
+
+  <section class="hub-section">
+    <div class="hub-section-inner">
+      <h2 id="faqs">Common questions</h2>
+      <div class="faq">
+        {faqs.map((f) => (
+          <>
+            <h3>{f.q}</h3>
+            <p>{f.a}</p>
+          </>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <PullQuote>
+    Most expat mortgage cases come together cleanly when the right lender is
+    approached first.
+  </PullQuote>
+
+  <script
+    type="application/ld+json"
+    is:inline
+    set:html={JSON.stringify(faqSchema)}
+  />
+</HubLayout>

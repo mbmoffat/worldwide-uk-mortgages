@@ -1,0 +1,490 @@
+---
+import HubLayout from '../layouts/HubLayout.astro';
+import PullQuote from '../components/PullQuote.astro';
+import MidPageCta from '../components/MidPageCta.astro';
+
+const title = 'UK Mortgages with Foreign Income';
+const description =
+  'How UK lenders treat foreign income, what to expect on the haircut, the currencies that are accepted, and how a specialist broker finds the right lender for your situation.';
+const h1 = 'UK Mortgages with Foreign Income';
+const subheadline =
+  'Whether you earn in dollars, euros, dirhams, or any other foreign currency, UK lenders will consider you. Here is how foreign income is assessed, what to expect on the haircut, and how a broker finds the right lender for your currency.';
+
+const relatedPages = [
+  {
+    eyebrow: 'Hub',
+    title: 'UK Mortgages for Expats',
+    description:
+      'British nationals living abroad. What lenders look for and how a broker handles country and currency.',
+    href: '/expat-mortgages',
+  },
+  {
+    eyebrow: 'Hub',
+    title: 'UK Mortgages for Non-UK Residents',
+    description:
+      'Foreign nationals living abroad. Smaller lender pool, larger deposits, and a broker-led process.',
+    href: '/non-uk-resident-mortgages',
+  },
+  {
+    eyebrow: 'Hub',
+    title: 'UK Mortgages for Seafarers',
+    description:
+      'Merchant navy, offshore, and superyacht crew. Rotation patterns, foreign currency, and SED.',
+    href: '/seafarer-mortgages',
+  },
+];
+
+const faqs = [
+  {
+    q: 'Which UK lenders accept foreign income?',
+    a: 'Around 25 to 30 lenders accept some form of foreign income. The list includes major UK banks (through their international arms), large building societies, specialist non-resident lenders, and private banks. The full list of which lenders accept which currencies on what terms is not published centrally. A broker who works with foreign income cases knows the current state.',
+  },
+  {
+    q: 'Will I get a worse rate because my income is foreign?',
+    a: 'Slightly, in most cases. Foreign income mortgages typically price 0.3% to 0.7% above the equivalent UK-income product at the same loan-to-value. The premium is smaller for stronger applicants with major currencies and larger deposits. For some specialist private bank arrangements, the rate is competitive with UK-income equivalents.',
+  },
+  {
+    q: 'What is the haircut on my income?',
+    a: 'The standard haircut at most lenders is 20%. Some lenders apply 25% or 30%. A handful of specialist lenders apply no haircut at all. The brokers we work with have direct access to several of those no-haircut lenders, which is often the difference between an underwhelming borrowing capacity and one that fits the property you are buying.',
+  },
+  {
+    q: 'Can I use foreign income alongside UK income?',
+    a: "Yes. If you are partly paid in sterling and partly in a foreign currency, lenders will assess each component on its own terms. The sterling income typically has no haircut. The foreign income has the lender's standard haircut. Both contribute to the affordability calculation.",
+  },
+  {
+    q: 'My partner has UK income. Does that help?',
+    a: "Yes, materially. A joint application where one applicant has UK income often opens up lenders that would not consider a foreign-income-only case. The UK income provides a sterling base for affordability and reduces the lender's exposure to currency risk.",
+  },
+  {
+    q: 'I was declined by my high street bank for foreign income. What now?',
+    a: 'A decline by one lender does not mean a decline by all. Lender criteria varies widely and a case that fails at a major bank might pass cleanly at a specialist or building society. Speak to a broker who works in this space and bring the decline letter. The broker can usually identify quickly which other lenders are likely to lend.',
+  },
+  {
+    q: 'Do I need to have UK assets or savings?',
+    a: 'Helpful but not always essential. Some lenders ask for evidence of liquid assets in addition to your income. Others do not. A broker will know which lenders care about asset evidence and which only assess income.',
+  },
+  {
+    q: 'How does Brexit affect EU citizens with euro income?',
+    a: 'EU citizens with euro income are still routinely accepted by UK lenders. The post-Brexit changes to immigration affect visa status more than they affect mortgage criteria. EU citizens who are UK residents under the EU Settlement Scheme are treated as UK residents for mortgage purposes. EU citizens living abroad and earning in euros are treated as non-UK residents with foreign income, which most lenders consider routinely.',
+  },
+];
+
+const faqSchema = {
+  '@context': 'https://schema.org',
+  '@type': 'FAQPage',
+  mainEntity: faqs.map((f) => ({
+    '@type': 'Question',
+    name: f.q,
+    acceptedAnswer: { '@type': 'Answer', text: f.a },
+  })),
+};
+---
+
+<HubLayout
+  title={title}
+  description={description}
+  h1={h1}
+  subheadline={subheadline}
+  eyebrow="Hub · Foreign income"
+  ctaHeading="Speak to a specialist mortgage broker"
+  relatedPages={relatedPages}
+>
+  <section class="hub-section">
+    <div class="hub-section-inner">
+      <h2 id="who-this-is-for">Who this page is for</h2>
+      <p>
+        If your income is paid in a currency other than sterling and you want
+        a UK mortgage, this page is for you. That covers a wide range of
+        situations:
+      </p>
+      <ul>
+        <li>A UK national working abroad and paid in the local currency.</li>
+        <li>A foreign national living abroad and paid in their home currency.</li>
+        <li>A UK resident paid in a foreign currency by an overseas employer.</li>
+        <li>
+          A self-employed worker invoicing international clients in foreign
+          currencies.
+        </li>
+        <li>
+          A seafarer, contractor, or expat employee paid through an offshore
+          arrangement.
+        </li>
+      </ul>
+      <p>
+        UK lenders treat all of these as "foreign income" cases. The criteria,
+        the haircut, and the lender pool are similar across the group, with
+        some lender-specific exceptions.
+      </p>
+      <p>
+        If you are also a non-UK resident, the foreign income angle is one
+        factor among several. See our
+        <a href="/non-uk-resident-mortgages">non-UK resident mortgages</a> page
+        for the wider picture.
+      </p>
+    </div>
+  </section>
+
+  <section class="hub-section">
+    <div class="hub-section-inner">
+      <h2 id="can-i-get-uk-mortgage-foreign-income">
+        Can I get a UK mortgage with foreign income?
+      </h2>
+      <p>
+        Yes. UK lenders regularly consider applications based on foreign
+        income. The right answer for your situation depends on three things:
+        which currency you earn in, who your employer is, and how stable your
+        income looks on paper.
+      </p>
+      <p>
+        About 25 to 30 UK lenders accept some form of foreign income. The
+        number of lenders willing to lend in any specific currency varies.
+        Major currencies (USD, EUR, AED, SGD, HKD, CHF) are accepted by a
+        wide pool of lenders. Less common currencies are accepted by fewer.
+        Some currencies are accepted by only a handful of specialist lenders.
+        Some are not accepted at all.
+      </p>
+      <p>The right lender for you depends on:</p>
+      <ul>
+        <li>The currency of your income</li>
+        <li>
+          Whether you are also a non-UK resident or whether you are UK resident
+          with foreign income
+        </li>
+        <li>Whether you are employed, self-employed, or a company director</li>
+        <li>
+          Your overall financial profile, including UK assets and any UK income
+        </li>
+      </ul>
+      <p>
+        You will not work this out alone. The list of which lenders accept
+        which currencies, on what terms, is not published anywhere centrally.
+        A specialist mortgage broker who works with foreign income cases knows
+        where to place your application based on your specific currency and
+        situation.
+      </p>
+    </div>
+  </section>
+
+  <section class="hub-section">
+    <div class="hub-section-inner">
+      <h2 id="how-lenders-treat-foreign-income">
+        How UK lenders treat foreign income
+      </h2>
+      <p>Two things are different from a standard sterling-income mortgage.</p>
+      <p>
+        <strong>The currency haircut.</strong> UK lenders apply a "haircut"
+        to foreign income to allow for exchange rate movement. The standard
+        haircut at most lenders is 20%, meaning a lender will treat foreign
+        income equivalent to £100,000 as £80,000 for affordability purposes.
+        Some lenders apply 25%. Some apply 30%. A handful of specialist
+        lenders apply no haircut at all. Those no-haircut lenders typically
+        do not market to retail customers and are accessed only through
+        brokers with established relationships in the space. The brokers we
+        work with have direct access to several of them, which can materially
+        increase borrowing power for the right applicant.
+      </p>
+      <p>
+        <strong>The accepted currency list.</strong> Each lender publishes a
+        list of currencies it will lend on. The list is not the same across
+        lenders. A currency that one lender treats as routine might be
+        off-limits at another. The major reserve currencies (USD, EUR, GBP
+        for non-residents earning in sterling, JPY, CHF) are widely accepted.
+        Asian currencies (SGD, HKD), Middle Eastern currencies (AED, SAR,
+        QAR, KWD), and Australasian currencies (AUD, NZD) are accepted by
+        many specialists. Currencies of countries on certain risk lists are
+        restricted or not accepted.
+      </p>
+      <p>
+        How the haircut affects your borrowing power, with a worked example.
+        Take an applicant whose foreign income converts to roughly £150,000
+        sterling equivalent.
+      </p>
+      <ul>
+        <li>Sterling-equivalent income: £150,000</li>
+        <li>Standard 20% haircut: £120,000 adjusted income</li>
+        <li>
+          Income multiple of 4 to 4.5x: indicative borrowing of £480,000 to
+          £540,000
+        </li>
+      </ul>
+      <p>If a no-haircut lender is available for that applicant:</p>
+      <ul>
+        <li>Sterling-equivalent income: £150,000</li>
+        <li>No haircut applied: £150,000 adjusted income</li>
+        <li>
+          Income multiple of 4 to 4.5x: indicative borrowing of £600,000 to
+          £675,000
+        </li>
+      </ul>
+      <p>
+        The difference in borrowing power between a 20% haircut and no
+        haircut on this profile is around £120,000 to £135,000. That
+        difference is the reason brokers with direct access to no-haircut
+        lenders are valuable.
+      </p>
+      <p>
+        This is illustrative only. Real borrowing depends on the affordability
+        assessment, your other commitments, the property type, and the
+        lender's specific calculation.
+      </p>
+    </div>
+  </section>
+
+  <PullQuote>
+    The difference in borrowing power between a 20% haircut and no haircut on
+    this profile is around £120,000 to £135,000.
+  </PullQuote>
+
+  <section class="hub-section">
+    <div class="hub-section-inner">
+      <h2 id="accepted-currencies">Currencies UK lenders accept</h2>
+      <p>
+        A non-exhaustive view, based on typical lender behaviour rather than
+        any single lender's list.
+      </p>
+
+      <h3>Widely accepted (multiple lenders, including some high street)</h3>
+      <ul>
+        <li>USD (US Dollar)</li>
+        <li>EUR (Euro)</li>
+        <li>AED (UAE Dirham)</li>
+        <li>HKD (Hong Kong Dollar)</li>
+        <li>SGD (Singapore Dollar)</li>
+        <li>CHF (Swiss Franc)</li>
+        <li>JPY (Japanese Yen)</li>
+      </ul>
+
+      <h3>Accepted by specialist lenders</h3>
+      <ul>
+        <li>AUD (Australian Dollar)</li>
+        <li>CAD (Canadian Dollar)</li>
+        <li>NZD (New Zealand Dollar)</li>
+        <li>NOK (Norwegian Krone)</li>
+        <li>SEK (Swedish Krona)</li>
+        <li>DKK (Danish Krone)</li>
+        <li>SAR (Saudi Riyal)</li>
+        <li>QAR (Qatari Riyal)</li>
+        <li>KWD (Kuwaiti Dinar)</li>
+        <li>BHD (Bahraini Dinar)</li>
+        <li>OMR (Omani Rial)</li>
+      </ul>
+
+      <h3>Restricted or not generally accepted</h3>
+      <ul>
+        <li>Currencies of countries on UK and EU sanctions lists.</li>
+        <li>
+          Currencies of countries on the FATF high-risk list, where additional
+          anti-money-laundering checks would be required at a level most
+          retail lenders do not undertake.
+        </li>
+        <li>
+          Less liquid emerging market currencies, where exchange rate
+          volatility makes affordability difficult to assess.
+        </li>
+      </ul>
+      <p>
+        If your currency is not on the widely accepted list, the application
+        is still likely possible, but the lender pool is smaller and the
+        broker's job becomes more important.
+      </p>
+    </div>
+  </section>
+
+  <section class="hub-section">
+    <div class="hub-section-inner">
+      <h2 id="what-lenders-look-for">
+        What lenders look for in a foreign income application
+      </h2>
+      <p>
+        The mortgage application itself follows the standard UK process. The
+        areas where foreign income applications get extra scrutiny are
+        predictable.
+      </p>
+      <p>
+        <strong>Income evidence depth.</strong> UK lenders typically want six
+        to twelve months of payslips for foreign income, sometimes more,
+        against three months for a UK income. The reason is that they want to
+        see consistency across exchange rate cycles. Some lenders also ask
+        for an employer reference letter confirming employment status,
+        salary, and any non-base components.
+      </p>
+      <p>
+        <strong>Employer credibility.</strong> Lenders look at who your
+        employer is. Multinationals, government bodies, and well-known
+        international firms pass quickly. Smaller foreign employers might
+        trigger additional checks, including a Companies House equivalent
+        search in the relevant country.
+      </p>
+      <p>
+        <strong>Tax residency clarity.</strong> Lenders want to know where
+        you pay tax and that your tax position is consistent with your stated
+        employment and country of residence. A clean tax residency situation
+        passes without comment. A complex tax situation (split year, dual
+        residency, recent moves) might require additional explanation.
+      </p>
+      <p>
+        <strong>Bank statements showing salary deposits.</strong> Three to
+        six months of statements showing the salary actually arriving in the
+        stated currency, in the stated amount, on the stated dates. Lenders
+        cross-reference this against payslips.
+      </p>
+      <p>
+        <strong>Documentation translation.</strong> Documents in a language
+        other than English usually need to be translated by a recognised
+        translator and certified. Some lenders accept the translation done
+        by the applicant. Most prefer it independent.
+      </p>
+    </div>
+  </section>
+
+  <section class="hub-section">
+    <div class="hub-section-inner">
+      <h2 id="self-employed">Self-employed and company director cases</h2>
+      <p>
+        If you are self-employed or a company director earning in foreign
+        currency, the application is more complex but still routinely
+        possible. Expect lenders to ask for:
+      </p>
+      <ul>
+        <li>Two to three years of accounts.</li>
+        <li>
+          Two to three years of personal tax returns (UK or country of
+          residence).
+        </li>
+        <li>
+          An accountant reference confirming income from the trade or company.
+        </li>
+        <li>
+          For directors: company accounts, dividend records, and salary
+          records.
+        </li>
+        <li>
+          A clear explanation of how the income flows from work to personal
+          account, especially if there are intermediate corporate structures.
+        </li>
+      </ul>
+      <p>
+        Self-employed foreign income cases often have lower lender pools than
+        employed cases. The broker's role becomes more important here,
+        because some lenders will simply decline self-employed foreign income
+        while others actively want this business.
+      </p>
+    </div>
+  </section>
+
+  <section class="hub-section">
+    <div class="hub-section-inner">
+      <h2 id="lender-branded">Lender-branded searches</h2>
+      <p>
+        Many people land on this page after searching for "Halifax mortgage
+        foreign income", "Santander mortgage foreign income", or similar. If
+        that is you, here is the honest answer.
+      </p>
+      <p>
+        The named lender you have searched for may or may not lend on your
+        specific situation. Each lender's foreign income criteria is its own,
+        and changes over time. Halifax, Santander, NatWest, HSBC, Barclays,
+        Nationwide, and others all have foreign income propositions, but each
+        has rules about which currencies, which countries of residence, and
+        which employment types it will accept.
+      </p>
+      <p>
+        The mistake people make is assuming that because a major lender has
+        a foreign income policy, that lender will lend to them specifically.
+        The lender's marketing page rarely tells you the full criteria. You
+        can apply directly and find out, but a faster route is to speak to
+        a broker who already knows whether your specific situation passes
+        that lender's current criteria.
+      </p>
+      <p>
+        If your initial application has been declined, this is particularly
+        relevant. Lender criteria changes regularly and a decline last
+        quarter does not necessarily mean a decline this quarter, especially
+        if you bring a different broker who knows the current state of the
+        market.
+      </p>
+    </div>
+  </section>
+
+  <PullQuote>
+    Lender criteria changes regularly. A decline last quarter does not
+    necessarily mean a decline this quarter.
+  </PullQuote>
+
+  <section class="hub-section">
+    <div class="hub-section-inner">
+      <h2 id="how-the-process-works">How the application process works</h2>
+      <p>Step by step.</p>
+      <p>
+        <strong>Step 1: Initial conversation.</strong> You speak with a
+        broker about your situation. Currency, country of residence,
+        employment type, deposit, target property. The broker identifies
+        which lenders are likely to consider you. Usually 30 to 45 minutes.
+      </p>
+      <p>
+        <strong>Step 2: Documentation gathering.</strong> The broker tells
+        you exactly what documents you need to pull together for the lender
+        being targeted. This is the most time-consuming part of the process
+        for foreign income applicants and often takes a few weeks because
+        of certified translation, employer references, and accountant
+        letters.
+      </p>
+      <p>
+        <strong>Step 3: Decision in principle.</strong> The broker submits
+        a decision in principle to the chosen lender. Returned within 24 to
+        72 hours.
+      </p>
+      <p>
+        <strong>Step 4: Full application.</strong> Once you have a property
+        under offer, the broker submits the full application. Survey is
+        instructed at this stage.
+      </p>
+      <p>
+        <strong>Step 5: Underwriting.</strong> The lender's underwriter
+        reviews everything. Foreign income cases usually take longer at this
+        stage than UK income cases, typically two to six weeks.
+      </p>
+      <p>
+        <strong>Step 6: Mortgage offer.</strong> The lender issues a formal
+        offer, valid for three to six months.
+      </p>
+      <p>
+        <strong>Step 7: Completion.</strong> Solicitor handles legal
+        exchange and completion.
+      </p>
+      <p>
+        A typical timeline from first conversation to completion is 10 to
+        16 weeks for a foreign income case, slightly longer than a domestic
+        UK case because of the documentation depth.
+      </p>
+    </div>
+  </section>
+
+  <MidPageCta />
+
+  <section class="hub-section">
+    <div class="hub-section-inner">
+      <h2 id="faqs">Common questions</h2>
+      <div class="faq">
+        {faqs.map((f) => (
+          <>
+            <h3>{f.q}</h3>
+            <p>{f.a}</p>
+          </>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <PullQuote>
+    Foreign income mortgages need a broker who works in the space regularly.
+    Generic mortgage brokers often do not know the lender map well enough to
+    place these cases efficiently.
+  </PullQuote>
+
+  <script
+    type="application/ld+json"
+    is:inline
+    set:html={JSON.stringify(faqSchema)}
+  />
+</HubLayout>

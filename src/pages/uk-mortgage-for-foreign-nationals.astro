@@ -1,0 +1,478 @@
+---
+import HubLayout from '../layouts/HubLayout.astro';
+import PullQuote from '../components/PullQuote.astro';
+import MidPageCta from '../components/MidPageCta.astro';
+
+const title = 'UK Mortgages for Foreign Nationals';
+const description =
+  'A clear guide to UK mortgages for foreign nationals living in the UK. What lenders look for, how visa status is treated, and how a specialist broker finds the right fit.';
+const h1 = 'UK Mortgages for Foreign Nationals';
+const subheadline =
+  'A clear guide to UK mortgages for foreign nationals living in the UK. What lenders look for, how visa status is treated, and how a specialist broker finds the right fit.';
+
+const relatedPages = [
+  {
+    eyebrow: 'Hub',
+    title: 'UK Mortgages for Non-UK Residents',
+    description:
+      'Foreign nationals living abroad. Smaller lender pool, larger deposits, and a broker-led process.',
+    href: '/non-uk-resident-mortgages',
+  },
+  {
+    eyebrow: 'Hub',
+    title: 'UK Mortgages with Foreign Income',
+    description:
+      'How lenders treat non-sterling income. The 20% haircut and no-haircut lender access.',
+    href: '/uk-mortgage-foreign-income',
+  },
+  {
+    eyebrow: 'Hub',
+    title: 'UK Mortgages for Expats',
+    description:
+      'British nationals living abroad. What lenders look for and how a broker handles country and currency.',
+    href: '/expat-mortgages',
+  },
+];
+
+const faqs = [
+  {
+    q: 'Can I get a UK mortgage on a Skilled Worker visa?',
+    a: 'Yes. Around 30 to 50 lenders consider Skilled Worker visa applicants. The exact pool depends on time remaining on the visa, time in the UK, deposit, and employer.',
+  },
+  {
+    q: 'How long do I need to have been in the UK to get a mortgage?',
+    a: 'There is no fixed minimum but most lenders prefer at least one year of UK residence and credit history. Some lenders accept less, particularly with strong income, large deposit, or a UK-citizen co-applicant.',
+  },
+  {
+    q: 'Do I need ILR to get a UK mortgage?',
+    a: 'No. ILR is the widest lender pool but many lenders accept long-term visas. The smaller the unexpired visa term, the smaller the lender pool.',
+  },
+  {
+    q: 'Can I get a UK mortgage on a Graduate visa?',
+    a: 'Yes, with some lenders. The Graduate visa lender pool is smaller than for Skilled Worker. A UK-citizen co-applicant widens the pool considerably.',
+  },
+  {
+    q: 'What deposit do I need as a foreign national?',
+    a: 'Depends on visa status. ILR or settled: 5% to 15% in many cases. Long-term work visa with two-plus years remaining: often 10% to 15%. Shorter visas: 15% to 25% commonly. Investor or Innovator visas: variable, often higher LTVs available with specialist lenders.',
+  },
+  {
+    q: 'Can my UK partner help if I am a foreign national?',
+    a: 'Yes, materially. A joint application with a UK citizen or settled UK partner widens the lender pool significantly and often improves rates and deposit treatment.',
+  },
+  {
+    q: 'Will Brexit affect EU citizens applying for UK mortgages?',
+    a: 'EU citizens with settled status under the EU Settlement Scheme are treated as UK residents for mortgage purposes. EU citizens with pre-settled status are treated similarly to long-term visa holders. Both are well-supported across the lender pool. EU citizens who arrived after 31 December 2020 and do not have settlement scheme status fall under post-Brexit visa categories (mostly Skilled Worker).',
+  },
+  {
+    q: 'What rates can I expect?',
+    a: 'ILR or settled-status applicants usually access standard rates with no premium. Visa applicants typically pay a small premium of 0.1% to 0.3% above the equivalent standard product, depending on lender and visa type.',
+  },
+  {
+    q: 'Are stamp duty rules different for foreign nationals?',
+    a: 'Foreign nationals living in the UK who have spent the majority of the last 12 months in the UK pay UK-resident stamp duty rates. The 2% non-resident surcharge applies only to applicants who have been outside the UK for the majority of the 12 months before completion.',
+  },
+];
+
+const faqSchema = {
+  '@context': 'https://schema.org',
+  '@type': 'FAQPage',
+  mainEntity: faqs.map((f) => ({
+    '@type': 'Question',
+    name: f.q,
+    acceptedAnswer: { '@type': 'Answer', text: f.a },
+  })),
+};
+---
+
+<HubLayout
+  title={title}
+  description={description}
+  h1={h1}
+  subheadline={subheadline}
+  eyebrow="Hub · Foreign nationals"
+  ctaHeading="Speak to a specialist mortgage broker"
+  relatedPages={relatedPages}
+>
+  <section class="hub-section">
+    <div class="hub-section-inner">
+      <h2 id="who-this-is-for">Who this page is for</h2>
+      <p>
+        If you are a foreign national living in the UK and you want a UK
+        mortgage, this page is for you. Common situations:
+      </p>
+      <ul>
+        <li>
+          A foreign national on a Skilled Worker visa, settled and working
+          with a UK employer.
+        </li>
+        <li>
+          A foreign national married to a British or settled UK partner,
+          applying jointly.
+        </li>
+        <li>
+          A foreign national with Indefinite Leave to Remain (ILR), planning
+          to stay long term.
+        </li>
+        <li>
+          A foreign national on an Investor visa or other longer-term visa,
+          looking to buy property.
+        </li>
+        <li>
+          A foreign national who has recently arrived in the UK and is
+          looking to buy soon.
+        </li>
+      </ul>
+      <p>
+        This is a different audience from non-UK residents. You live and pay
+        tax in the UK. Your income is usually in sterling. You have or are
+        building a UK credit history. The mortgage market available to you
+        is wider than for someone living abroad, but visa status does change
+        which lenders consider you.
+      </p>
+      <p>
+        If you live abroad rather than in the UK, see
+        <a href="/non-uk-resident-mortgages">non-UK resident mortgages</a>
+        instead.
+      </p>
+    </div>
+  </section>
+
+  <section class="hub-section">
+    <div class="hub-section-inner">
+      <h2 id="can-foreign-national-get-mortgage">
+        Can a foreign national in the UK get a UK mortgage?
+      </h2>
+      <p>
+        Yes. UK lenders consider mortgages for foreign nationals living in
+        the UK routinely. The lender pool depends mainly on your visa
+        status.
+      </p>
+      <p>Visa status drives lender appetite. The general pattern:</p>
+      <p>
+        <strong>Indefinite Leave to Remain (ILR) or settled status.</strong>
+        The widest lender pool. Most UK lenders will treat you similarly to
+        a British citizen. You can usually access standard high-street
+        products with standard deposits.
+      </p>
+      <p>
+        <strong>EU citizens with EU Settlement Scheme status.</strong>
+        Treated similarly to ILR holders by most lenders. Wide lender pool.
+      </p>
+      <p>
+        <strong>Skilled Worker visa, Health and Care Worker visa, Global
+        Talent visa, and similar long-term work visas.</strong> A good
+        lender pool, perhaps 30 to 50 lenders depending on time remaining
+        on the visa. Some lenders prefer two or more years remaining on
+        the visa. Some will lend with as little as six months remaining.
+      </p>
+      <p>
+        <strong>Investor, Innovator, and Entrepreneur visas.</strong>
+        Specialist lender territory. Smaller pool but well-established
+        lenders.
+      </p>
+      <p>
+        <strong>Student visa, Graduate visa, short-term work visas.</strong>
+        A smaller lender pool. Some lenders will lend, particularly when
+        the applicant has a UK partner with settled status, or strong UK
+        income, or significant deposit.
+      </p>
+      <p>
+        <strong>Visitor visa, no current visa, or expired visa.</strong>
+        Very limited or no lender pool. UK regulated lenders need a clear
+        right to remain in the UK to underwrite a residential mortgage.
+      </p>
+    </div>
+  </section>
+
+  <section class="hub-section">
+    <div class="hub-section-inner">
+      <h2 id="whats-different">What is different from a UK citizen mortgage</h2>
+      <p>Three things are usually different.</p>
+      <p>
+        <strong>Visa documentation needed.</strong> Lenders need to see a
+        valid visa with sufficient unexpired term. The exact term required
+        varies. Some lenders want two years or more. Some will lend with
+        six months remaining. Some are visa-status specific. The broker's
+        job is to know the current visa requirements at each lender.
+      </p>
+      <p>
+        <strong>UK credit history depth matters more.</strong> UK lenders
+        rely heavily on UK credit reference data. Foreign nationals who
+        have been in the UK for less than three years often have a thin
+        file. This is workable but the lender pool narrows. Lenders who
+        specialise in foreign national applications expect a thinner file
+        and assess differently.
+      </p>
+      <p>
+        <strong>Some lenders apply higher deposit requirements.</strong>
+        A foreign national with full ILR status often gets the same
+        deposit treatment as a British citizen. A foreign national on a
+        shorter visa may need 15% to 25% rather than 5% to 10%.
+      </p>
+      <p>
+        Beyond these three, the mortgage process is the same as for a UK
+        citizen.
+      </p>
+    </div>
+  </section>
+
+  <section class="hub-section">
+    <div class="hub-section-inner">
+      <h2 id="visa-types">Visa types and lender appetite</h2>
+      <p>A summary of how the main visa categories are typically treated.</p>
+
+      <h3>Indefinite Leave to Remain (ILR) and settled status</h3>
+      <p>
+        Treated very similarly to British citizens. Standard lender pool,
+        standard deposits, standard rates. The main difference is
+        identification documentation, which uses the BRP card or
+        equivalent rather than a UK passport.
+      </p>
+
+      <h3>Skilled Worker visa</h3>
+      <p>
+        Around 30 to 50 lenders consider Skilled Worker visa applicants.
+        The exact pool depends on:
+      </p>
+      <ul>
+        <li>
+          Time remaining on the visa (two years remaining is a common
+          minimum, some lenders accept less).
+        </li>
+        <li>Time spent in the UK so far (one year is a common minimum).</li>
+        <li>Employer credibility.</li>
+        <li>
+          Salary level (lenders expect income consistent with the visa
+          requirements).
+        </li>
+        <li>
+          Deposit size (15% to 25% is common, some lenders accept 5% to
+          10% with sufficient time on the visa).
+        </li>
+      </ul>
+      <p>
+        The Skilled Worker visa is the most common visa pattern for
+        foreign national mortgages.
+      </p>
+
+      <h3>Health and Care Worker visa</h3>
+      <p>
+        Treated similarly to Skilled Worker visa for mortgage purposes.
+        NHS and care sector employment is generally well-regarded by
+        lenders.
+      </p>
+
+      <h3>Global Talent visa</h3>
+      <p>
+        Strong applicant profile from a lender perspective. Wide lender
+        pool. Standard deposit and rate treatment.
+      </p>
+
+      <h3>Investor visa</h3>
+      <p>
+        Specialist lender territory but well-supported. Some private
+        banks specialise in this market. Larger deposits and larger loan
+        sizes are typical.
+      </p>
+
+      <h3>Innovator and Entrepreneur visas</h3>
+      <p>
+        Smaller lender pool. Specialist lenders are familiar with these
+        visas. Income evidence is more involved because of the
+        self-employment angle.
+      </p>
+
+      <h3>Student visa and Graduate visa</h3>
+      <p>
+        Smaller lender pool. Often workable with a UK-citizen or settled
+        co-applicant. Some lenders have specific Graduate visa products.
+      </p>
+
+      <h3>EU citizens with Settled or Pre-Settled status</h3>
+      <p>
+        EU Settlement Scheme settled status is treated similarly to ILR.
+        Pre-settled status is treated similarly to a long-term visa.
+        Both are well-supported across the lender pool.
+      </p>
+    </div>
+  </section>
+
+  <PullQuote>
+    Around 30 to 50 lenders consider Skilled Worker visa applicants. The
+    exact pool depends on time remaining on the visa, time in the UK,
+    deposit, and employer.
+  </PullQuote>
+
+  <section class="hub-section">
+    <div class="hub-section-inner">
+      <h2 id="what-you-need">What you will usually need</h2>
+      <p>
+        The exact requirements vary by lender. Most foreign national
+        applications need the following.
+      </p>
+
+      <h3>Identity and visa</h3>
+      <ul>
+        <li>Passport.</li>
+        <li>
+          Biometric Residence Permit (BRP) or equivalent visa
+          documentation.
+        </li>
+        <li>
+          For EU Settlement Scheme: settled or pre-settled status
+          confirmation (digital).
+        </li>
+        <li>Right to rent / right to work documentation.</li>
+      </ul>
+
+      <h3>UK address and credit history</h3>
+      <ul>
+        <li>Three years of UK address history if available.</li>
+        <li>UK credit report.</li>
+        <li>
+          Council tax records or tenancy agreements covering address
+          history.
+        </li>
+      </ul>
+
+      <h3>Employment and income</h3>
+      <ul>
+        <li>Three months of payslips for employed applicants.</li>
+        <li>Two years of P60s.</li>
+        <li>Three months of UK bank statements showing salary deposits.</li>
+        <li>
+          For self-employed: two to three years of UK accounts plus
+          accountant reference.
+        </li>
+      </ul>
+
+      <h3>Foreign income evidence (if relevant)</h3>
+      <ul>
+        <li>
+          For applicants with overseas income alongside UK income,
+          evidence of the foreign component.
+        </li>
+        <li>
+          For applicants newly arrived with limited UK income history,
+          evidence of pre-UK income to support the affordability picture.
+        </li>
+      </ul>
+
+      <h3>Property and deposit</h3>
+      <ul>
+        <li>Memorandum of sale.</li>
+        <li>Deposit source documentation.</li>
+        <li>Solicitor details.</li>
+      </ul>
+    </div>
+  </section>
+
+  <section class="hub-section">
+    <div class="hub-section-inner">
+      <h2 id="how-the-process-works">How the application process works</h2>
+      <p>
+        <strong>Step 1: Initial conversation.</strong> You speak with a
+        broker about your visa, your time in the UK, your employer, your
+        deposit, and the property. 30 to 45 minutes.
+      </p>
+      <p>
+        <strong>Step 2: Decision in principle.</strong> The broker
+        approaches a lender. Returned within 24 to 72 hours.
+      </p>
+      <p>
+        <strong>Step 3: Documentation gathering.</strong> Lighter than a
+        non-resident application, because most documents are UK-based.
+        Usually a week or two.
+      </p>
+      <p>
+        <strong>Step 4: Full application.</strong> Submitted to the
+        lender. Survey instructed.
+      </p>
+      <p>
+        <strong>Step 5: Underwriting.</strong> Two to four weeks for
+        foreign national cases, similar to a standard UK application.
+      </p>
+      <p>
+        <strong>Step 6: Mortgage offer.</strong> Valid three to six
+        months.
+      </p>
+      <p>
+        <strong>Step 7: Completion.</strong> Solicitor handles legal
+        exchange and completion.
+      </p>
+      <p>
+        A typical timeline is 8 to 12 weeks for a straightforward foreign
+        national case.
+      </p>
+    </div>
+  </section>
+
+  <section class="hub-section">
+    <div class="hub-section-inner">
+      <h2 id="why-broker-helps">Why a specialist broker helps</h2>
+      <p>
+        Foreign national cases sit somewhere between a standard UK citizen
+        application and a non-resident application. The lender pool is
+        wider than for non-residents but the visa-specific rules narrow it
+        for many applicants.
+      </p>
+      <p>A specialist broker brings:</p>
+      <p>
+        <strong>Visa-by-visa lender knowledge.</strong> Which lenders
+        accept which visa types this quarter, and on what unexpired-term
+        requirements.
+      </p>
+      <p>
+        <strong>Credit history pragmatism.</strong> Which lenders are
+        flexible with thin UK credit files and which want a deeper history.
+      </p>
+      <p>
+        <strong>Deposit and LTV mapping.</strong> Which lenders accept
+        lower deposits for which visa types.
+      </p>
+      <p>
+        <strong>Joint application strategy.</strong> Where one applicant
+        is a UK citizen or settled and the other is on a working visa,
+        several lenders treat the application as standard. The broker
+        knows which lenders apply that approach.
+      </p>
+      <p>
+        The broker's fee is usually folded into the lender's procuration
+        fee.
+      </p>
+    </div>
+  </section>
+
+  <PullQuote>
+    A joint application with a UK citizen or settled UK partner widens
+    the lender pool significantly and often improves rates and deposit
+    treatment.
+  </PullQuote>
+
+  <MidPageCta />
+
+  <section class="hub-section">
+    <div class="hub-section-inner">
+      <h2 id="faqs">Common questions</h2>
+      <div class="faq">
+        {faqs.map((f) => (
+          <>
+            <h3>{f.q}</h3>
+            <p>{f.a}</p>
+          </>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <PullQuote>
+    Foreign national mortgages need a broker who knows the visa-by-visa
+    lender map and can place your case efficiently.
+  </PullQuote>
+
+  <script
+    type="application/ld+json"
+    is:inline
+    set:html={JSON.stringify(faqSchema)}
+  />
+</HubLayout>

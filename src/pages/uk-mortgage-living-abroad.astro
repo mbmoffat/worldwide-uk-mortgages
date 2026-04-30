@@ -1,0 +1,299 @@
+---
+import HubLayout from '../layouts/HubLayout.astro';
+import PullQuote from '../components/PullQuote.astro';
+import MidPageCta from '../components/MidPageCta.astro';
+
+const title = 'Can You Get a UK Mortgage if You Live Abroad?';
+const description =
+  'Yes, in most cases. UK lenders consider applications from people living abroad regularly. Common questions, what to expect, and how a specialist broker finds the right lender for your situation.';
+const h1 = 'Can You Get a UK Mortgage if You Live Abroad?';
+const subheadline =
+  'Yes, in most cases. UK lenders consider applications from people living abroad regularly. This page covers the common questions, what to expect, and how a specialist broker finds the right lender for your situation.';
+
+const relatedPages = [
+  {
+    eyebrow: 'Hub',
+    title: 'UK Mortgages for Expats',
+    description:
+      'British nationals living abroad. What lenders look for and how a broker handles country and currency.',
+    href: '/expat-mortgages',
+  },
+  {
+    eyebrow: 'Hub',
+    title: 'UK Mortgages for Non-UK Residents',
+    description:
+      'Foreign nationals living abroad. Smaller lender pool, larger deposits, and a broker-led process.',
+    href: '/non-uk-resident-mortgages',
+  },
+  {
+    eyebrow: 'Hub',
+    title: 'UK Mortgages with Foreign Income',
+    description:
+      'How lenders treat non-sterling income. The 20% haircut and no-haircut lender access.',
+    href: '/uk-mortgage-foreign-income',
+  },
+];
+
+const faqs = [
+  {
+    q: 'Can you get a UK mortgage if you work abroad?',
+    a: 'Yes. Working abroad is fine for UK mortgage purposes. Around 15 to 20 lenders will consider applications from applicants employed abroad. They will look at your employer, your contract type, the country you work in, and the currency you are paid in. Multinationals, government bodies, and well-known international firms pass quickly. Smaller foreign employers may trigger additional checks.',
+  },
+  {
+    q: 'Can you get a UK mortgage if you live abroad?',
+    a: 'Yes. Living abroad does not disqualify you from a UK mortgage. Lenders will assess your situation against their criteria, which typically include the country you live in, your income source, your deposit, and any UK credit history you have.',
+  },
+  {
+    q: 'Can you have a UK mortgage if you live abroad?',
+    a: 'Yes, this often comes up from people who already have a UK mortgage and have since moved abroad. Your existing lender may or may not be willing to keep you on as a non-resident at remortgage time. Some lenders allow you to remain. Others require you to remortgage to a non-resident or expat product. A broker can usually identify quickly what your options are when your fixed rate ends.',
+  },
+  {
+    q: 'Can a non-UK resident buy property in the UK?',
+    a: 'Yes. There are no UK rules preventing non-residents from owning UK property. Buying with a mortgage as a non-resident requires more deposit than a UK resident purchase (typically 25% to 40%) and uses a smaller pool of specialist lenders, but it is straightforward in most cases.',
+  },
+  {
+    q: 'Can I get a UK mortgage with foreign income?',
+    a: 'Yes. Most UK lenders that work with non-resident or expat applicants accept some form of foreign income. Lenders typically apply a haircut of around 20% to allow for currency risk, although a handful of specialist lenders apply no haircut at all. The brokers we work with have direct access to several of those no-haircut lenders, which can materially increase borrowing power for the right applicant.',
+  },
+  {
+    q: 'Can I get a UK mortgage if I have no UK credit history?',
+    a: 'Yes, in many cases. Specialist lenders who work with non-residents and expats expect a thinner UK credit file. They underwrite to the wider picture: income, employer credibility, deposit, country of residence, and any clean credit record where you currently live.',
+  },
+  {
+    q: 'Do I need to come to the UK to apply?',
+    a: 'In most cases, no. Many applications complete entirely remotely, with documents certified by a notary or solicitor in your country of residence. Some lenders require a physical visit to a UK branch at some point. Your broker will tell you upfront if the lender being considered has that requirement.',
+  },
+  {
+    q: 'Do I need a UK bank account?',
+    a: 'Helpful, often essential. Most lenders require a UK current account for mortgage payments. Opening a UK account as a non-resident is usually possible with most challenger banks and some traditional UK banks.',
+  },
+];
+
+const faqSchema = {
+  '@context': 'https://schema.org',
+  '@type': 'FAQPage',
+  mainEntity: faqs.map((f) => ({
+    '@type': 'Question',
+    name: f.q,
+    acceptedAnswer: { '@type': 'Answer', text: f.a },
+  })),
+};
+---
+
+<HubLayout
+  title={title}
+  description={description}
+  h1={h1}
+  subheadline={subheadline}
+  eyebrow="Hub · Living abroad"
+  ctaHeading="Speak to a specialist mortgage broker"
+  relatedPages={relatedPages}
+>
+  <section class="hub-section">
+    <div class="hub-section-inner">
+      <h2 id="short-answer">The short answer</h2>
+      <p>
+        If you live abroad and want a UK mortgage on UK property, the answer
+        in most cases is yes.
+      </p>
+      <p>
+        Around 15 to 20 UK lenders work with applicants who live abroad. Some
+        are international arms of major UK banks, some are specialist
+        building societies, some are private banks. Whether a particular
+        lender will lend to you depends on where you live, what currency you
+        earn in, who you work for, and the type of property you want to buy.
+      </p>
+      <p>
+        What this page does not cover: a UK mortgage to buy property abroad.
+        That is a different product, available only from a small number of
+        lenders, and we do not work in that market. If you are a UK resident
+        wanting to buy a holiday home or investment property in another
+        country, you would need an international mortgage from a specialist
+        provider, which sits outside our scope.
+      </p>
+      <p>
+        What this page covers: UK mortgages on UK property, when the
+        borrower lives outside the UK. Whether the borrower is a British
+        national abroad (an expat) or a foreign national living abroad (a
+        non-UK resident), the answer is usually yes.
+      </p>
+    </div>
+  </section>
+
+  <section class="hub-section">
+    <div class="hub-section-inner">
+      <h2 id="who-this-is-for">Who this page is for</h2>
+      <p>
+        This page answers the natural-language questions that come up when
+        someone living abroad wonders whether a UK mortgage is even possible.
+        The audience is broad:
+      </p>
+      <ul>
+        <li>
+          A UK national posted abroad by their employer, wanting to remortgage
+          their existing UK home or buy a new one.
+        </li>
+        <li>
+          A UK national who has emigrated and wants to keep a foothold in the
+          UK property market.
+        </li>
+        <li>
+          A foreign national living abroad who wants to buy UK property as an
+          investment or future home.
+        </li>
+        <li>
+          A UK national returning to the UK in the next 6 to 18 months who
+          wants to start the mortgage process now.
+        </li>
+      </ul>
+      <p>
+        If you fall into one of those situations, the rest of this page is
+        for you. If you want a deeper product-specific page, see our
+        <a href="/expat-mortgages">expat mortgages</a> hub or our
+        <a href="/non-uk-resident-mortgages">non-UK resident mortgages</a>
+        hub.
+      </p>
+    </div>
+  </section>
+
+  <PullQuote>
+    Around 15 to 20 UK lenders work with applicants who live abroad.
+  </PullQuote>
+
+  <section class="hub-section">
+    <div class="hub-section-inner">
+      <h2 id="common-questions">Common questions answered</h2>
+      <div class="faq">
+        {faqs.map((f) => (
+          <>
+            <h3>{f.q}</h3>
+            <p>{f.a}</p>
+          </>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <section class="hub-section">
+    <div class="hub-section-inner">
+      <h2 id="whats-different">What's different about applying from abroad</h2>
+      <p>Five things are usually different from a standard UK-resident mortgage.</p>
+      <p>
+        <strong>Higher deposit.</strong> Typically 25% to 40% of the property
+        value, against 5% to 15% for a UK resident first-time buyer. The
+        exact figure depends on the lender, your country of residence, and
+        the property type.
+      </p>
+      <p>
+        <strong>Slightly higher rates.</strong> Usually 0.3% to 0.7% above
+        the equivalent UK-resident product at the same loan-to-value. The
+        premium narrows for stronger applicants with larger deposits.
+      </p>
+      <p>
+        <strong>Smaller lender pool.</strong> Around 15 to 20 lenders work
+        with applicants living abroad, against roughly 80 lenders for UK
+        residents.
+      </p>
+      <p>
+        <strong>Foreign income haircut.</strong> A 20% haircut is typical,
+        with some specialist lenders applying no haircut at all.
+      </p>
+      <p>
+        <strong>Heavier documentation.</strong> More proof of identity,
+        income, and employment than a UK resident. Documents may need
+        notary certification. Foreign-language documents may need certified
+        translation. The application takes longer because of this.
+      </p>
+    </div>
+  </section>
+
+  <PullQuote>
+    A 20% haircut is typical, with some specialist lenders applying no
+    haircut at all.
+  </PullQuote>
+
+  <section class="hub-section">
+    <div class="hub-section-inner">
+      <h2 id="how-long">How long does it take?</h2>
+      <p>
+        A typical timeline from first conversation to completion is 10 to 14
+        weeks. Foreign income cases or unusual country of residence can run
+        to 16 weeks. The slowest part is usually documentation gathering,
+        particularly when certified translation or employer references are
+        needed.
+      </p>
+    </div>
+  </section>
+
+  <section class="hub-section">
+    <div class="hub-section-inner">
+      <h2 id="what-you-need">What you will need</h2>
+      <p>
+        A summary of typical requirements. Your broker will give you the
+        exact list for the lender being approached.
+      </p>
+      <ul>
+        <li>Passport.</li>
+        <li>Proof of current address abroad.</li>
+        <li>Visa or residency permit, where applicable.</li>
+        <li>Three to twelve months of payslips.</li>
+        <li>Two years of P60s or country-equivalent tax returns.</li>
+        <li>Bank statements showing salary deposits.</li>
+        <li>An employer reference letter for many cases.</li>
+        <li>
+          For self-employed: two to three years of accounts plus accountant
+          reference.
+        </li>
+        <li>Memorandum of sale for the UK property.</li>
+        <li>Deposit source documentation.</li>
+      </ul>
+    </div>
+  </section>
+
+  <section class="hub-section">
+    <div class="hub-section-inner">
+      <h2 id="how-broker-helps">How a specialist broker helps</h2>
+      <p>
+        A broker who works regularly with expat and non-resident applications
+        knows three things you cannot easily find out yourself:
+      </p>
+      <p>
+        <strong>Which lenders are saying yes this quarter.</strong> Lender
+        criteria changes regularly. A broker placing cases weekly knows
+        which lenders are tightening, which are loosening, and which fit
+        your specific profile.
+      </p>
+      <p>
+        <strong>The lender pool beyond Google.</strong> Several of the
+        strongest lenders in this space do not market to retail customers.
+        They only accept applications through brokers. Some operate via
+        private banking arrangements that need a relationship-driven entry.
+      </p>
+      <p>
+        <strong>Which lenders apply no haircut to foreign income.</strong>
+        A handful of specialist lenders apply no haircut at all. The brokers
+        we work with have direct access to several of them. The borrowing
+        power difference between a 20% haircut and no haircut is meaningful.
+      </p>
+      <p>
+        The broker's fee is usually folded into the lender's procuration
+        fee, with fee disclosure on the engagement letter. Reputable brokers
+        explain fees upfront.
+      </p>
+    </div>
+  </section>
+
+  <MidPageCta />
+
+  <PullQuote>
+    Within the first conversation, you should know which lenders are likely
+    to consider you, what deposit you will need, and what rate range to
+    expect.
+  </PullQuote>
+
+  <script
+    type="application/ld+json"
+    is:inline
+    set:html={JSON.stringify(faqSchema)}
+  />
+</HubLayout>
