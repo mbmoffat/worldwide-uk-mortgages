@@ -3,7 +3,6 @@ import Layout from '../layouts/Layout.astro';
 import MidPageCta from '../components/MidPageCta.astro';
 import PullQuote from '../components/PullQuote.astro';
 import RelatedCard from '../components/RelatedCard.astro';
-import ContactForm from '../components/ContactForm.astro';
 
 const title = 'UK Mortgages, Wherever You Live';
 const description =
@@ -42,14 +41,14 @@ const hubs = [
     eyebrow: 'Hub',
     title: 'Seafarer Mortgages',
     description:
-      'Merchant navy, offshore, and superyacht crew. Rotation patterns, SED, and how lenders assess seafarer income.',
+      'Merchant navy, offshore, and superyacht crew. Rotation patterns and how lenders assess seafarer income.',
     href: '/seafarer-mortgages',
   },
   {
     eyebrow: 'Hub',
     title: 'Expat Buy-to-Let Mortgages',
     description:
-      'Building or expanding a UK rental portfolio from abroad. ICR, lender appetite, and limited company structures.',
+      'Building a UK rental portfolio from abroad. ICR, lender appetite, and limited company structures.',
     href: '/expat-mortgages/buy-to-let',
   },
 ];
@@ -102,7 +101,7 @@ const faqSchema = {
         <MidPageCta
           variant="hero"
           heading="Tell us about your situation"
-          body="Tell us where you live, what you earn, and what you want to buy. A broker will tell you what is possible and what it will cost."
+          body="Tell us where you live, what you earn, and what you want to buy. A broker will tell you what is possible."
         />
       </div>
     </section>
@@ -150,8 +149,8 @@ const faqSchema = {
             <h3 class="step-heading">A broker takes it from there</h3>
             <p class="step-body">
               The broker will tell you within one conversation what is
-              possible. From there, the regulated mortgage advice and
-              application happens between you and them, not us.
+              possible. The regulated mortgage advice and application
+              happens between you and them, not us.
             </p>
           </li>
         </ol>
@@ -203,13 +202,6 @@ const faqSchema = {
         </div>
       </div>
     </section>
-
-    <MidPageCta
-      heading="Ready to talk?"
-      body="Tell us where you live, what you earn, and what you want to buy. We will pass it to a broker who works in this market every day."
-    />
-
-    <ContactForm />
 
     <script
       type="application/ld+json"
