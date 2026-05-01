@@ -568,7 +568,7 @@ const currentYear = new Date().getFullYear();
       }
 
       .hub-section h2 {
-        margin: 0 0 1.5rem;
+        margin: 3rem 0 1rem;
         scroll-margin-top: 6rem;
       }
 
@@ -589,6 +589,20 @@ const currentYear = new Date().getFullYear();
         font-weight: 400;
         line-height: 1.5;
         letter-spacing: -0.01em;
+      }
+
+      .hub-section p {
+        margin: 0 0 1rem;
+      }
+
+      .hub-section ul,
+      .hub-section ol {
+        margin: 0.5rem 0 1.5rem;
+      }
+
+      .hub-section ul li,
+      .hub-section ol li {
+        margin-bottom: 0.5rem;
       }
 
       .hub-section ul li::marker {
@@ -612,13 +626,24 @@ const currentYear = new Date().getFullYear();
         margin-top: 0.5rem;
       }
 
-      .hero-read-meta {
+      .hub-hero-meta {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: flex-start;
+        align-items: baseline;
+        gap: 1rem;
         font-family: var(--font-sans);
-        font-size: 0.875rem;
-        font-weight: 400;
-        color: #6B6358;
-        line-height: 1.5;
-        margin: 0 0 2rem;
+        font-size: 0.8125rem;
+        font-weight: 500;
+        text-transform: uppercase;
+        letter-spacing: 0.08em;
+        color: var(--muted);
+        margin: 0 0 1.5rem;
+      }
+
+      .hub-hero-meta-dot {
+        color: var(--muted);
+        user-select: none;
       }
 
       /* Related-pages / What-we-cover grid wrapper.

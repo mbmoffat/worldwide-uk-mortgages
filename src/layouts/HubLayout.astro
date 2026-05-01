@@ -47,11 +47,13 @@ const readMinutes = Math.max(1, Math.round(wordCount / 200));
   <article class:list={["hub", articleClass]}>
     <section class="hub-hero">
       <div class="hub-section-inner">
-        <p class="eyebrow">{eyebrow}</p>
+        <div class="hub-hero-meta">
+          <span>{eyebrow}</span>
+          <span class="hub-hero-meta-dot" aria-hidden="true">·</span>
+          <span>{readMinutes} min read · {sectionCount} sections</span>
+        </div>
         <h1 set:html={h1} />
         <p class="subheadline">{subheadline}</p>
-
-        <p class="hero-read-meta">{readMinutes} min read · {sectionCount} sections</p>
       </div>
     </section>
 
