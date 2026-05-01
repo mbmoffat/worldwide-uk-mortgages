@@ -226,13 +226,14 @@ const currencies = [
     }
 
     .calc-button {
+      display: block;
       width: 100%;
-      margin-top: 0.5rem;
+      margin: 0.5rem auto 0;
     }
 
     @media (min-width: 600px) {
       .calc-button {
-        width: auto;
+        width: 220px;
       }
     }
 
@@ -246,6 +247,15 @@ const currencies = [
 
     .calc-results {
       margin-top: 2.5rem;
+      scroll-margin-top: 20px;
+    }
+
+    /* The CTA button sits inside .hub-section, where .hub-section a (1,1)
+       beats .btn (1,0) and would tint the link burgundy. Restore white. */
+    .calc-results .cta-block-btn,
+    .calc-results .cta-block-btn:hover {
+      color: #FFFFFF;
+      text-decoration: none;
     }
 
     .calc-cards {
@@ -393,7 +403,9 @@ const currencies = [
           fmt.format(bNone - b25) +
           ' more borrowing capacity on the same income.';
         resultsEl.hidden = false;
-        resultsEl.scrollIntoView({ behavior: 'smooth', block: 'start' });
+        requestAnimationFrame(function () {
+          resultsEl.scrollIntoView({ behavior: 'smooth', block: 'start' });
+        });
       }
 
       calcButton.addEventListener('click', calculate);
