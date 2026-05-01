@@ -1,0 +1,408 @@
+---
+import HubLayout from '../../layouts/HubLayout.astro';
+import MidPageCta from '../../components/MidPageCta.astro';
+import { breadcrumbSchema } from '../../lib/schema';
+
+const title = 'Expat Mortgage Calculator: Borrowing Capacity';
+const description =
+  'Calculate how much you can borrow as a UK expat. Compare 20 percent, 25 percent, and no-haircut scenarios on your foreign income.';
+const h1 = 'How Much Can You Borrow as a UK Expat?';
+const subheadline =
+  'Most UK lenders apply a 20 to 25 percent haircut to your foreign-currency income before calculating affordability. A specialist broker can access lenders that take your full gross income, which materially increases what you can borrow on the same salary. Use this calculator to see the difference for your situation.';
+
+const relatedPages = [
+  {
+    eyebrow: 'Hub',
+    title: 'UK Mortgages for Expats',
+    description:
+      'British nationals living abroad. Country-by-country lender appetite, currency haircuts, and timelines.',
+    href: '/expat-mortgages',
+  },
+  {
+    eyebrow: 'Guide',
+    title: 'Expat Mortgage Rates',
+    description:
+      'Why expat rates differ, what to expect by profile, and how lender choice moves the rate you pay.',
+    href: '/expat-mortgages/rates',
+  },
+  {
+    eyebrow: 'Guide',
+    title: 'Expat Mortgage Deposit Requirements',
+    description:
+      'How much deposit you need, what counts as deposit money, and how thresholds shift the rate you pay.',
+    href: '/expat-mortgages/deposit',
+  },
+  {
+    eyebrow: 'Hub',
+    title: 'UK Mortgages with Foreign Income',
+    description:
+      'How lenders treat non-sterling income. The 20% standard haircut and direct access to no-haircut lenders.',
+    href: '/uk-mortgage-foreign-income',
+  },
+];
+
+const schemas = [
+  breadcrumbSchema([
+    { name: 'Home', path: '/' },
+    { name: 'Calculators' },
+    { name: 'Expat Mortgage Calculator' },
+  ]),
+  {
+    '@context': 'https://schema.org',
+    '@type': 'WebApplication',
+    name: 'Expat Mortgage Borrowing Capacity Calculator',
+    applicationCategory: 'FinanceApplication',
+    operatingSystem: 'Any',
+    url: 'https://ukmortgagesworldwide.com/tools/expat-mortgage-calculator',
+    description:
+      'Calculate how much you can borrow as a UK expat. Compare haircut scenarios across 14 currencies.',
+  },
+];
+
+const currencies = [
+  { code: 'USD', name: 'US Dollar' },
+  { code: 'EUR', name: 'Euro' },
+  { code: 'AED', name: 'UAE Dirham' },
+  { code: 'HKD', name: 'Hong Kong Dollar' },
+  { code: 'SGD', name: 'Singapore Dollar' },
+  { code: 'AUD', name: 'Australian Dollar' },
+  { code: 'CHF', name: 'Swiss Franc' },
+  { code: 'CAD', name: 'Canadian Dollar' },
+  { code: 'QAR', name: 'Qatari Riyal' },
+  { code: 'SAR', name: 'Saudi Riyal' },
+  { code: 'NZD', name: 'New Zealand Dollar' },
+  { code: 'NOK', name: 'Norwegian Krone' },
+  { code: 'ZAR', name: 'South African Rand' },
+  { code: 'GBP', name: 'British Pound (UK-based foreign income)' },
+];
+---
+
+<HubLayout
+  title={title}
+  description={description}
+  h1={h1}
+  subheadline={subheadline}
+  eyebrow="CALCULATOR · EXPAT MORTGAGE BORROWING CAPACITY"
+  schemas={schemas}
+  relatedPages={relatedPages}
+>
+  <section class="hub-section">
+    <div class="hub-section-inner">
+      <h2 id="who-this-is-for">Who this page is for</h2>
+      <p>
+        This calculator gives a working estimate using a 4.5x income
+        multiplier, which is the conservative base most expat lenders use.
+        Specialist lenders may stretch to 5x or 5.5x for stronger profiles,
+        so the figures here are a starting point, not a guaranteed offer.
+      </p>
+    </div>
+  </section>
+
+  <section class="hub-section">
+    <div class="hub-section-inner calc-inner">
+      <div class="calc-card">
+        <div class="calc-field">
+          <label for="calc-income">Your annual income</label>
+          <input
+            id="calc-income"
+            type="text"
+            inputmode="numeric"
+            autocomplete="off"
+            placeholder="100,000"
+          />
+        </div>
+        <div class="calc-field">
+          <label for="calc-currency">Currency</label>
+          <select id="calc-currency">
+            {currencies.map((c) => (
+              <option value={c.code}>{c.code} - {c.name}</option>
+            ))}
+          </select>
+        </div>
+        <button type="button" id="calc-button" class="btn calc-button">
+          Calculate
+        </button>
+        <p class="calc-note">
+          Exchange rates are approximate and refreshed periodically. A
+          broker will use live rates for an actual application.
+        </p>
+      </div>
+
+      <div
+        id="calc-results"
+        class="calc-results"
+        aria-live="polite"
+        hidden
+      >
+        <div class="calc-cards">
+          <div class="calc-result-card">
+            <h3>Worst case &mdash; 25% haircut</h3>
+            <p class="calc-amount" id="calc-result-25"></p>
+            <p class="calc-detail">
+              Some lenders apply a 25 percent haircut, especially on
+              volatile currencies.
+            </p>
+          </div>
+          <div class="calc-result-card">
+            <h3>Typical &mdash; 20% haircut</h3>
+            <p class="calc-amount" id="calc-result-20"></p>
+            <p class="calc-detail">
+              Most mainstream expat lenders apply a 20 percent haircut.
+            </p>
+          </div>
+          <div class="calc-result-card calc-result-card--highlight">
+            <h3>Specialist lenders &mdash; no haircut</h3>
+            <p class="calc-amount" id="calc-result-none"></p>
+            <p class="calc-detail">
+              A small group of specialist lenders take your gross income at
+              the prevailing rate.
+            </p>
+          </div>
+        </div>
+        <p class="calc-difference" id="calc-difference"></p>
+
+        <MidPageCta heading="See if a no-haircut lender is right for you" />
+      </div>
+    </div>
+  </section>
+
+  <style is:global>
+    .calc-inner {
+      max-width: 760px;
+    }
+
+    .calc-card {
+      background: var(--bg);
+      border-top: 3px solid var(--accent);
+      border-radius: var(--radius-md);
+      box-shadow: var(--shadow-sm);
+      padding: 2rem 1.5rem;
+      max-width: 700px;
+      margin: 0 auto;
+    }
+
+    @media (min-width: 768px) {
+      .calc-card {
+        padding: 2.5rem;
+      }
+    }
+
+    .calc-field {
+      margin-bottom: 1.25rem;
+    }
+
+    .calc-field label {
+      display: block;
+      font-family: var(--font-sans);
+      font-size: 0.8125rem;
+      font-weight: 500;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      color: var(--muted);
+      margin-bottom: 0.5rem;
+    }
+
+    .calc-field input,
+    .calc-field select {
+      width: 100%;
+      box-sizing: border-box;
+      font-family: var(--font-body);
+      font-size: 1.25rem;
+      font-weight: 400;
+      letter-spacing: -0.01em;
+      color: var(--text);
+      background: #FFFFFF;
+      border: 1px solid var(--border);
+      border-radius: var(--radius-sm);
+      padding: 0.75rem 0.875rem;
+      line-height: 1.4;
+    }
+
+    .calc-field input:focus,
+    .calc-field select:focus {
+      outline: 2px solid var(--accent);
+      outline-offset: 2px;
+      border-color: var(--accent);
+    }
+
+    .calc-button {
+      width: 100%;
+      margin-top: 0.5rem;
+    }
+
+    @media (min-width: 600px) {
+      .calc-button {
+        width: auto;
+      }
+    }
+
+    .calc-note {
+      font-family: var(--font-body);
+      font-size: 0.875rem;
+      color: var(--muted);
+      margin: 1.25rem 0 0;
+      line-height: 1.5;
+    }
+
+    .calc-results {
+      margin-top: 2.5rem;
+    }
+
+    .calc-cards {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 1rem;
+    }
+
+    @media (min-width: 768px) {
+      .calc-cards {
+        grid-template-columns: repeat(3, 1fr);
+        gap: 1.25rem;
+      }
+    }
+
+    .calc-result-card {
+      background: #FFFFFF;
+      border: 1px solid var(--border);
+      border-radius: var(--radius-md);
+      padding: 1.5rem 1.25rem;
+      box-shadow: var(--shadow-sm);
+    }
+
+    .calc-result-card--highlight {
+      background: #F5EBDA;
+      border-left: 3px solid var(--accent);
+    }
+
+    .calc-result-card h3 {
+      font-family: var(--font-sans);
+      font-size: 0.8125rem;
+      font-weight: 500;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      color: var(--muted);
+      margin: 0 0 0.5rem;
+    }
+
+    .calc-amount {
+      font-family: var(--font-serif);
+      font-weight: 700;
+      font-size: 2rem;
+      line-height: 1.1;
+      color: var(--text);
+      margin: 0 0 0.75rem;
+    }
+
+    @media (min-width: 768px) {
+      .calc-amount {
+        font-size: 2.25rem;
+      }
+    }
+
+    .calc-result-card--highlight .calc-amount {
+      color: var(--accent);
+    }
+
+    .calc-detail {
+      font-family: var(--font-body);
+      font-size: 0.9375rem;
+      color: var(--muted);
+      line-height: 1.5;
+      margin: 0;
+    }
+
+    .calc-difference {
+      font-family: var(--font-body);
+      font-size: 1.25rem;
+      font-weight: 400;
+      color: var(--text);
+      text-align: center;
+      margin: 2rem auto 0;
+      max-width: 600px;
+      line-height: 1.5;
+    }
+  </style>
+
+  <script is:inline>
+    (function () {
+      const RATES = {
+        USD: 0.79,
+        EUR: 0.85,
+        AED: 0.215,
+        HKD: 0.10,
+        SGD: 0.59,
+        AUD: 0.52,
+        CHF: 0.89,
+        CAD: 0.58,
+        QAR: 0.215,
+        SAR: 0.21,
+        NZD: 0.48,
+        NOK: 0.075,
+        ZAR: 0.043,
+        GBP: 1.0,
+      };
+
+      const incomeInput = document.getElementById('calc-income');
+      const currencySelect = document.getElementById('calc-currency');
+      const calcButton = document.getElementById('calc-button');
+      const resultsEl = document.getElementById('calc-results');
+      const r25 = document.getElementById('calc-result-25');
+      const r20 = document.getElementById('calc-result-20');
+      const rNone = document.getElementById('calc-result-none');
+      const diff = document.getElementById('calc-difference');
+
+      if (!incomeInput || !currencySelect || !calcButton) return;
+
+      const fmt = new Intl.NumberFormat('en-GB');
+
+      function rawDigits(v) {
+        return v.replace(/[^0-9]/g, '');
+      }
+
+      incomeInput.addEventListener('input', function () {
+        const raw = rawDigits(incomeInput.value);
+        if (!raw) {
+          incomeInput.value = '';
+          return;
+        }
+        incomeInput.value = fmt.format(parseInt(raw, 10));
+      });
+
+      function roundToK(n) {
+        return Math.round(n / 1000) * 1000;
+      }
+
+      function calculate() {
+        const raw = rawDigits(incomeInput.value);
+        if (!raw) {
+          incomeInput.focus();
+          return;
+        }
+        const income = parseInt(raw, 10);
+        const ccy = currencySelect.value;
+        const rate = RATES[ccy] || 1;
+        const gbp = income * rate;
+        const b25 = roundToK(gbp * 0.75 * 4.5);
+        const b20 = roundToK(gbp * 0.8 * 4.5);
+        const bNone = roundToK(gbp * 1.0 * 4.5);
+        r25.textContent = '£' + fmt.format(b25);
+        r20.textContent = '£' + fmt.format(b20);
+        rNone.textContent = '£' + fmt.format(bNone);
+        diff.textContent =
+          "That's up to £" +
+          fmt.format(bNone - b25) +
+          ' more borrowing capacity on the same income.';
+        resultsEl.hidden = false;
+        resultsEl.scrollIntoView({ behavior: 'smooth', block: 'start' });
+      }
+
+      calcButton.addEventListener('click', calculate);
+      incomeInput.addEventListener('keydown', function (e) {
+        if (e.key === 'Enter') {
+          e.preventDefault();
+          calculate();
+        }
+      });
+    })();
+  </script>
+</HubLayout>
