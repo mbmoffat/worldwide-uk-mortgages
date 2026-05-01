@@ -14,6 +14,42 @@ const socialTitle = ogTitle ?? title ?? SITE_NAME;
 const socialDescription = ogDescription ?? description;
 const canonicalURL = new URL(Astro.url.pathname, Astro.site).toString();
 const currentYear = new Date().getFullYear();
+
+const mortgageHubs = [
+  { label: 'UK Mortgages for Expats', href: '/expat-mortgages' },
+  { label: 'UK Mortgages for Non-UK Residents', href: '/non-uk-resident-mortgages' },
+  { label: 'UK Mortgages with Foreign Income', href: '/uk-mortgage-foreign-income' },
+  { label: 'UK Mortgages Living Abroad', href: '/uk-mortgage-living-abroad' },
+  { label: 'Foreign Nationals in UK', href: '/uk-mortgage-for-foreign-nationals' },
+  { label: 'Seafarer Mortgages', href: '/seafarer-mortgages' },
+  { label: 'Expat Buy-to-Let', href: '/expat-mortgages/buy-to-let' },
+];
+
+const mortgageSituations = [
+  { label: 'Returning to the UK', href: '/expat-mortgages/returning-to-uk' },
+  { label: 'No UK Credit History', href: '/expat-mortgages/no-uk-credit-history' },
+];
+
+const mortgageCountries = [
+  { label: 'Australia', href: '/expat-mortgages/countries/australia' },
+  { label: 'Canada', href: '/expat-mortgages/countries/canada' },
+  { label: 'Dubai', href: '/expat-mortgages/countries/dubai' },
+  { label: 'Germany', href: '/expat-mortgages/countries/germany' },
+  { label: 'Hong Kong', href: '/expat-mortgages/countries/hong-kong' },
+  { label: 'Netherlands', href: '/expat-mortgages/countries/netherlands' },
+  { label: 'New Zealand', href: '/expat-mortgages/countries/new-zealand' },
+  { label: 'Norway', href: '/expat-mortgages/countries/norway' },
+  { label: 'Qatar', href: '/expat-mortgages/countries/qatar' },
+  { label: 'Saudi Arabia', href: '/expat-mortgages/countries/saudi-arabia' },
+  { label: 'Singapore', href: '/expat-mortgages/countries/singapore' },
+  { label: 'South Africa', href: '/expat-mortgages/countries/south-africa' },
+  { label: 'Switzerland', href: '/expat-mortgages/countries/switzerland' },
+  { label: 'USA', href: '/expat-mortgages/countries/usa' },
+];
+
+const calculators = [
+  { label: 'Stamp Duty Calculator', href: '/tools/stamp-duty-calculator' },
+];
 ---
 
 <!doctype html>
@@ -57,8 +93,50 @@ const currentYear = new Date().getFullYear();
           <span class="logo-wordmark">UK Mortgages Worldwide</span>
         </a>
         <nav class="site-nav" aria-label="Primary">
-          <a href="#">Mortgages</a>
-          <a href="#">Calculators</a>
+          <div class="nav-dropdown">
+            <button
+              type="button"
+              class="nav-dropdown-trigger"
+              aria-haspopup="true"
+              aria-expanded="false"
+              aria-controls="nav-mortgages-menu"
+            >
+              Mortgages
+              <span class="nav-dropdown-caret" aria-hidden="true">▾</span>
+            </button>
+            <div class="nav-dropdown-menu" id="nav-mortgages-menu" role="menu">
+              {mortgageHubs.map((item) => (
+                <a href={item.href} role="menuitem">{item.label}</a>
+              ))}
+              <p class="nav-dropdown-heading">Situations</p>
+              {mortgageSituations.map((item) => (
+                <a href={item.href} role="menuitem">{item.label}</a>
+              ))}
+              <p class="nav-dropdown-heading">Countries</p>
+              {mortgageCountries.map((item) => (
+                <a href={item.href} role="menuitem">{item.label}</a>
+              ))}
+            </div>
+          </div>
+
+          <div class="nav-dropdown">
+            <button
+              type="button"
+              class="nav-dropdown-trigger"
+              aria-haspopup="true"
+              aria-expanded="false"
+              aria-controls="nav-calculators-menu"
+            >
+              Calculators
+              <span class="nav-dropdown-caret" aria-hidden="true">▾</span>
+            </button>
+            <div class="nav-dropdown-menu" id="nav-calculators-menu" role="menu">
+              {calculators.map((item) => (
+                <a href={item.href} role="menuitem">{item.label}</a>
+              ))}
+            </div>
+          </div>
+
           <a href="#">Guides</a>
           <a href="#">About</a>
           <a class="nav-cta" href="#contact-form">Contact</a>
@@ -91,6 +169,7 @@ const currentYear = new Date().getFullYear();
               <li><a href="/privacy">Privacy</a></li>
               <li><a href="/cookies">Cookies</a></li>
               <li><a href="/terms">Terms</a></li>
+              <li><a href="/sitemap">Sitemap</a></li>
             </ul>
           </div>
         </div>
@@ -351,13 +430,134 @@ const currentYear = new Date().getFullYear();
         color: #FFFFFF;
       }
 
+      /* Header mega-menu dropdowns. Desktop: hover-open with absolute
+         positioning. Mobile: tap-to-toggle with inline expansion. JS
+         toggles data-open on the wrapper for keyboard / tap support. */
+      .nav-dropdown {
+        position: relative;
+      }
+
+      .nav-dropdown-trigger {
+        background: transparent;
+        border: 0;
+        padding: 0;
+        cursor: pointer;
+        font-family: 'Lora', serif;
+        font-size: 0.9375rem;
+        font-weight: 700;
+        color: var(--text);
+        letter-spacing: 0;
+        line-height: 1;
+        display: inline-flex;
+        align-items: center;
+        gap: 0.3rem;
+      }
+
+      .nav-dropdown-trigger:hover,
+      .nav-dropdown-trigger:focus-visible {
+        color: var(--accent);
+      }
+
+      .nav-dropdown-caret {
+        font-size: 0.7rem;
+        transition: transform 0.15s ease;
+      }
+
+      .nav-dropdown[data-open="true"] .nav-dropdown-caret {
+        transform: rotate(180deg);
+      }
+
+      .nav-dropdown-menu {
+        display: none;
+        position: absolute;
+        top: 100%;
+        right: 0;
+        margin-top: 0.5rem;
+        background: #FBF6EF;
+        border: 1px solid var(--border);
+        border-radius: var(--radius-sm);
+        box-shadow: var(--shadow-md);
+        min-width: 280px;
+        padding: 0.5rem 0;
+        z-index: 100;
+      }
+
+      @media (hover: hover) {
+        .nav-dropdown:hover > .nav-dropdown-menu {
+          display: block;
+        }
+      }
+
+      .nav-dropdown[data-open="true"] > .nav-dropdown-menu {
+        display: block;
+      }
+
+      .nav-dropdown-menu a {
+        display: block;
+        padding: 0.6rem 1rem;
+        text-decoration: none;
+        color: var(--text);
+        font-family: 'Lora', serif;
+        font-size: 0.9375rem;
+        font-weight: 700;
+        letter-spacing: 0;
+        white-space: nowrap;
+      }
+
+      .nav-dropdown-menu a:hover,
+      .nav-dropdown-menu a:focus-visible {
+        background: var(--accent-soft);
+        color: var(--accent);
+        outline: none;
+      }
+
+      .nav-dropdown-heading {
+        font-family: var(--font-sans);
+        font-size: 0.6875rem;
+        font-weight: 500;
+        text-transform: uppercase;
+        letter-spacing: 0.08em;
+        color: var(--muted);
+        padding: 0.6rem 1rem 0.25rem;
+        margin: 0.75rem 0 0;
+      }
+
+      .nav-dropdown-menu > .nav-dropdown-heading:first-child {
+        margin-top: 0;
+      }
+
       @media (max-width: 720px) {
-        .site-nav {
-          gap: 0.75rem;
+        .header-inner {
+          flex-wrap: wrap;
+          row-gap: 0.75rem;
         }
 
-        .site-nav a:not(.nav-cta) {
-          display: none;
+        .site-nav {
+          order: 2;
+          width: 100%;
+          flex-wrap: wrap;
+          gap: 0.75rem 1.25rem;
+          align-items: center;
+        }
+
+        .nav-dropdown-menu {
+          position: static;
+          margin-top: 0.5rem;
+          background: transparent;
+          border: none;
+          box-shadow: none;
+          padding: 0;
+          min-width: 0;
+          width: 100%;
+        }
+
+        .nav-dropdown-menu a {
+          padding: 0.5rem 0 0.5rem 1rem;
+          white-space: normal;
+        }
+
+        .nav-dropdown-heading {
+          padding: 0.5rem 0 0.25rem 1rem;
         }
       }
 
@@ -757,6 +957,88 @@ const currentYear = new Date().getFullYear();
           }
         })
         .catch(function(){});
+    </script>
+
+    <script is:inline>
+      (function () {
+        var dropdowns = Array.prototype.slice.call(
+          document.querySelectorAll('.nav-dropdown')
+        );
+        if (!dropdowns.length) return;
+
+        function close(dd) {
+          dd.dataset.open = 'false';
+          var t = dd.querySelector('.nav-dropdown-trigger');
+          if (t) t.setAttribute('aria-expanded', 'false');
+        }
+
+        function open(dd) {
+          dd.dataset.open = 'true';
+          var t = dd.querySelector('.nav-dropdown-trigger');
+          if (t) t.setAttribute('aria-expanded', 'true');
+        }
+
+        function closeOthers(except) {
+          dropdowns.forEach(function (dd) {
+            if (dd !== except) close(dd);
+          });
+        }
+
+        dropdowns.forEach(function (dd) {
+          var trigger = dd.querySelector('.nav-dropdown-trigger');
+          var items = Array.prototype.slice.call(
+            dd.querySelectorAll('.nav-dropdown-menu a')
+          );
+
+          trigger.addEventListener('click', function (e) {
+            e.stopPropagation();
+            var isOpen = dd.dataset.open === 'true';
+            closeOthers(dd);
+            if (isOpen) close(dd);
+            else open(dd);
+          });
+
+          trigger.addEventListener('keydown', function (e) {
+            if (e.key === 'ArrowDown') {
+              e.preventDefault();
+              open(dd);
+              if (items[0]) items[0].focus();
+            } else if (e.key === 'Escape') {
+              close(dd);
+            }
+          });
+
+          items.forEach(function (item, i) {
+            item.addEventListener('keydown', function (e) {
+              if (e.key === 'ArrowDown') {
+                e.preventDefault();
+                var next = items[(i + 1) % items.length];
+                if (next) next.focus();
+              } else if (e.key === 'ArrowUp') {
+                e.preventDefault();
+                var prev = items[(i - 1 + items.length) % items.length];
+                if (prev) prev.focus();
+              } else if (e.key === 'Escape') {
+                e.preventDefault();
+                close(dd);
+                trigger.focus();
+              }
+            });
+          });
+        });
+
+        document.addEventListener('click', function (e) {
+          dropdowns.forEach(function (dd) {
+            if (!dd.contains(e.target)) close(dd);
+          });
+        });
+
+        document.addEventListener('keydown', function (e) {
+          if (e.key === 'Escape') {
+            dropdowns.forEach(close);
+          }
+        });
+      })();
     </script>
   </body>
 </html>

@@ -1,0 +1,118 @@
+---
+import T7Layout from '../layouts/T7Layout.astro';
+
+const title = 'Sitemap';
+const description =
+  'Every live page on UK Mortgages Worldwide, grouped by section.';
+
+const groups = [
+  {
+    heading: 'Main pages',
+    links: [
+      { label: 'Home', href: '/' },
+      { label: 'About', href: '/about' },
+      { label: 'Contact', href: '/contact' },
+    ],
+  },
+  {
+    heading: 'Mortgages',
+    links: [
+      { label: 'UK Mortgages for Expats', href: '/expat-mortgages' },
+      { label: 'UK Mortgages for Non-UK Residents', href: '/non-uk-resident-mortgages' },
+      { label: 'UK Mortgages with Foreign Income', href: '/uk-mortgage-foreign-income' },
+      { label: 'UK Mortgages Living Abroad', href: '/uk-mortgage-living-abroad' },
+      { label: 'Foreign Nationals in UK', href: '/uk-mortgage-for-foreign-nationals' },
+      { label: 'Seafarer Mortgages', href: '/seafarer-mortgages' },
+      { label: 'Expat Buy-to-Let', href: '/expat-mortgages/buy-to-let' },
+    ],
+  },
+  {
+    heading: 'Situations',
+    links: [
+      { label: 'Returning to the UK', href: '/expat-mortgages/returning-to-uk' },
+      { label: 'No UK Credit History', href: '/expat-mortgages/no-uk-credit-history' },
+    ],
+  },
+  {
+    heading: 'Countries',
+    links: [
+      { label: 'Australia', href: '/expat-mortgages/countries/australia' },
+      { label: 'Canada', href: '/expat-mortgages/countries/canada' },
+      { label: 'Dubai', href: '/expat-mortgages/countries/dubai' },
+      { label: 'Germany', href: '/expat-mortgages/countries/germany' },
+      { label: 'Hong Kong', href: '/expat-mortgages/countries/hong-kong' },
+      { label: 'Netherlands', href: '/expat-mortgages/countries/netherlands' },
+      { label: 'New Zealand', href: '/expat-mortgages/countries/new-zealand' },
+      { label: 'Norway', href: '/expat-mortgages/countries/norway' },
+      { label: 'Qatar', href: '/expat-mortgages/countries/qatar' },
+      { label: 'Saudi Arabia', href: '/expat-mortgages/countries/saudi-arabia' },
+      { label: 'Singapore', href: '/expat-mortgages/countries/singapore' },
+      { label: 'South Africa', href: '/expat-mortgages/countries/south-africa' },
+      { label: 'Switzerland', href: '/expat-mortgages/countries/switzerland' },
+      { label: 'USA', href: '/expat-mortgages/countries/usa' },
+    ],
+  },
+  {
+    heading: 'Calculators',
+    links: [
+      { label: 'Stamp Duty Calculator', href: '/tools/stamp-duty-calculator' },
+    ],
+  },
+  {
+    heading: 'Information',
+    links: [
+      { label: 'Privacy Policy', href: '/privacy' },
+      { label: 'Cookies Policy', href: '/cookies' },
+      { label: 'Terms', href: '/terms' },
+      { label: 'Introducer Disclosure', href: '/introducer-disclosure' },
+    ],
+  },
+];
+---
+
+<T7Layout title={title} description={description} h1="Sitemap">
+  {groups.map((group) => (
+    <section class="sitemap-group">
+      <h2>{group.heading}</h2>
+      <ul class="sitemap-list">
+        {group.links.map((link) => (
+          <li><a href={link.href}>{link.label}</a></li>
+        ))}
+      </ul>
+    </section>
+  ))}
+</T7Layout>
+
+<style is:global>
+  .sitemap-group {
+    margin: 0 0 2rem;
+  }
+
+  .sitemap-group h2 {
+    margin: 0 0 0.75rem;
+  }
+
+  .sitemap-list {
+    list-style: none;
+    padding-left: 0;
+    margin: 0;
+  }
+
+  .sitemap-list li {
+    margin: 0 0 0.25rem;
+  }
+
+  .sitemap-list a {
+    font-family: var(--font-body);
+    font-size: 1.1875rem;
+    line-height: 1.5;
+    letter-spacing: -0.01em;
+    color: var(--accent);
+    text-decoration: underline;
+    text-underline-offset: 0.2em;
+  }
+
+  .sitemap-list a:hover {
+    color: var(--accent-hover);
+  }
+</style>
