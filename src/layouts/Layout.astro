@@ -572,6 +572,32 @@ const currentYear = new Date().getFullYear();
         scroll-margin-top: 6rem;
       }
 
+      /* Collapse the boundary between hero and first body section so the
+         total visible gap is just the subheadline's margin-bottom (2rem).
+         The :has() guard exempts the homepage hero, which contains a CTA
+         inside .hub-hero and needs to keep its bottom padding. */
+      .hub-hero:not(:has(.cta-block)) {
+        padding-bottom: 0;
+      }
+
+      .hub-hero + .hub-section {
+        padding-top: 0;
+      }
+
+      .hub-hero + .hub-section h2 {
+        margin-top: 0;
+      }
+
+      /* Tighten the section-before-CTA bottom padding and remove the
+         section-after-CTA top padding so the CTA hugs both neighbours. */
+      .hub-section:has(+ .cta-block) {
+        padding-bottom: 1.5rem;
+      }
+
+      .cta-block + .hub-section {
+        padding-top: 0;
+      }
+
       .hub-section h3 {
         margin: 2rem 0 0.75rem;
       }
