@@ -15,7 +15,7 @@ const socialDescription = ogDescription ?? description;
 const canonicalURL = new URL(Astro.url.pathname, Astro.site).toString();
 const currentYear = new Date().getFullYear();
 
-const mortgageHubs = [
+const mortgages = [
   { label: 'UK Mortgages for Expats', href: '/expat-mortgages' },
   { label: 'UK Mortgages for Non-UK Residents', href: '/non-uk-resident-mortgages' },
   { label: 'UK Mortgages with Foreign Income', href: '/uk-mortgage-foreign-income' },
@@ -25,12 +25,7 @@ const mortgageHubs = [
   { label: 'Expat Buy-to-Let', href: '/expat-mortgages/buy-to-let' },
 ];
 
-const mortgageSituations = [
-  { label: 'Returning to the UK', href: '/expat-mortgages/returning-to-uk' },
-  { label: 'No UK Credit History', href: '/expat-mortgages/no-uk-credit-history' },
-];
-
-const mortgageCountries = [
+const countries = [
   { label: 'Australia', href: '/expat-mortgages/countries/australia' },
   { label: 'Canada', href: '/expat-mortgages/countries/canada' },
   { label: 'Dubai', href: '/expat-mortgages/countries/dubai' },
@@ -49,6 +44,11 @@ const mortgageCountries = [
 
 const calculators = [
   { label: 'Stamp Duty Calculator', href: '/tools/stamp-duty-calculator' },
+];
+
+const guides = [
+  { label: 'Returning to the UK', href: '/expat-mortgages/returning-to-uk' },
+  { label: 'No UK Credit History', href: '/expat-mortgages/no-uk-credit-history' },
 ];
 ---
 
@@ -105,15 +105,25 @@ const calculators = [
               <span class="nav-dropdown-caret" aria-hidden="true">▾</span>
             </button>
             <div class="nav-dropdown-menu" id="nav-mortgages-menu" role="menu">
-              {mortgageHubs.map((item) => (
+              {mortgages.map((item) => (
                 <a href={item.href} role="menuitem">{item.label}</a>
               ))}
-              <p class="nav-dropdown-heading">Situations</p>
-              {mortgageSituations.map((item) => (
-                <a href={item.href} role="menuitem">{item.label}</a>
-              ))}
-              <p class="nav-dropdown-heading">Countries</p>
-              {mortgageCountries.map((item) => (
+            </div>
+          </div>
+
+          <div class="nav-dropdown">
+            <button
+              type="button"
+              class="nav-dropdown-trigger"
+              aria-haspopup="true"
+              aria-expanded="false"
+              aria-controls="nav-countries-menu"
+            >
+              Countries
+              <span class="nav-dropdown-caret" aria-hidden="true">▾</span>
+            </button>
+            <div class="nav-dropdown-menu" id="nav-countries-menu" role="menu">
+              {countries.map((item) => (
                 <a href={item.href} role="menuitem">{item.label}</a>
               ))}
             </div>
@@ -137,8 +147,25 @@ const calculators = [
             </div>
           </div>
 
-          <a href="#">Guides</a>
-          <a href="#">About</a>
+          <div class="nav-dropdown">
+            <button
+              type="button"
+              class="nav-dropdown-trigger"
+              aria-haspopup="true"
+              aria-expanded="false"
+              aria-controls="nav-guides-menu"
+            >
+              Guides
+              <span class="nav-dropdown-caret" aria-hidden="true">▾</span>
+            </button>
+            <div class="nav-dropdown-menu" id="nav-guides-menu" role="menu">
+              {guides.map((item) => (
+                <a href={item.href} role="menuitem">{item.label}</a>
+              ))}
+            </div>
+          </div>
+
+          <a href="/about">About</a>
           <a class="nav-cta" href="#contact-form">Contact</a>
         </nav>
       </div>
