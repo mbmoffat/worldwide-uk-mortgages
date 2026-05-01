@@ -1,0 +1,297 @@
+---
+import HubLayout from '../../../layouts/HubLayout.astro';
+import PullQuote from '../../../components/PullQuote.astro';
+import MidPageCta from '../../../components/MidPageCta.astro';
+
+const title = 'UK Mortgages for British Expats in Canada';
+const description =
+  'A clear guide to UK mortgages when you live and work in Canada. What you can borrow, how lenders treat Canadian dollar income, what deposit you need.';
+const h1 = 'UK Mortgages for British Expats in Canada';
+const subheadline =
+  'A clear guide to UK mortgages when you live and work in Canada. What you can borrow, how lenders treat Canadian dollar income, what deposit you will need, and how a specialist broker finds the right lender for your situation.';
+
+const relatedPages = [
+  {
+    eyebrow: 'Hub',
+    title: 'UK Mortgages for Expats',
+    description:
+      'British nationals living abroad. Country-by-country lender appetite, currency haircuts, and timelines.',
+    href: '/expat-mortgages',
+  },
+  {
+    eyebrow: 'Hub',
+    title: 'UK Mortgages for Non-UK Residents',
+    description:
+      'Foreign nationals or British expats wanting a UK mortgage on UK property. The lender pool, deposits, and rates explained.',
+    href: '/non-uk-resident-mortgages',
+  },
+  {
+    eyebrow: 'Hub',
+    title: 'UK Mortgages with Foreign Income',
+    description:
+      'How lenders treat non-sterling income. The 20% standard haircut and direct access to no-haircut lenders.',
+    href: '/uk-mortgage-foreign-income',
+  },
+  {
+    eyebrow: 'Hub',
+    title: 'Expat Buy-to-Let Mortgages',
+    description:
+      'Building a UK rental portfolio from abroad. ICR, lender appetite, and limited company structures.',
+    href: '/expat-mortgages/buy-to-let',
+  },
+];
+
+const faqs = [
+  {
+    q: "Can I borrow as much from Canada as I could in the UK?",
+    a: "Often less, because of the haircut. With a no-haircut lender, sometimes the same.",
+  },
+  {
+    q: "Do I need UK income to apply?",
+    a: "No. Canadian income alone is accepted.",
+  },
+  {
+    q: "Will my bonus count?",
+    a: "Often, but treatment varies between lenders.",
+  },
+  {
+    q: "How big a deposit do I need?",
+    a: "25 percent is the working assumption for residential, 25 to 30 percent for buy-to-let.",
+  },
+  {
+    q: "Does my Canadian status matter?",
+    a: "Most expat lenders accept PR card holders and work permit holders alike.",
+  },
+  {
+    q: "Can I use a Canadian bank statement?",
+    a: "Yes. Accepted directly.",
+  },
+  {
+    q: "Is RSU income counted?",
+    a: "Sometimes. Specialist lenders include vested equity.",
+  },
+  {
+    q: "What if I am paid through my own corporation?",
+    a: "T1 personal returns and T2 corporate returns are usually both required. Two years of each is standard.",
+  },
+  {
+    q: "Can I remortgage from Canada?",
+    a: "Yes. Common as a fix end approaches.",
+  },
+  {
+    q: "How long does it take?",
+    a: "Six to ten weeks from application to offer.",
+  },
+  {
+    q: "Do I need to come back to the UK to sign?",
+    a: "No. Canadian notary or commissioner documents are accepted, as is notarisation through the British High Commission.",
+  },
+];
+
+const faqSchema = {
+  '@context': 'https://schema.org',
+  '@type': 'FAQPage',
+  mainEntity: faqs.map((f) => ({
+    '@type': 'Question',
+    name: f.q,
+    acceptedAnswer: { '@type': 'Answer', text: f.a },
+  })),
+};
+---
+
+<HubLayout
+  title={title}
+  description={description}
+  h1={h1}
+  subheadline={subheadline}
+  eyebrow="Hub · Canada expat mortgages"
+  relatedPages={relatedPages}
+>
+  <section class="hub-section">
+    <div class="hub-section-inner">
+      <h2 id="who-this-is-for">Who this page is for</h2>
+      <p>
+        If you are a British national living in Canada and you want a
+        mortgage on UK property, this page is for you.
+      </p>
+      <p>
+        That includes buying a UK home while you are still based in
+        Toronto, Vancouver, Calgary, Montreal, or elsewhere, building a UK
+        buy-to-let portfolio remotely, remortgaging an existing UK property
+        as your fix ends, and planning a return to the UK in the next year
+        or two.
+      </p>
+      <p>
+        It also covers joint applications where one of you is in Canada and
+        the other is in the UK, and applicants on Permanent Resident or
+        work permit status who plan to stay in Canada long-term.
+      </p>
+    </div>
+  </section>
+
+  <section class="hub-section">
+    <div class="hub-section-inner">
+      <h2 id="currency-picture">The currency picture</h2>
+      <p>
+        You earn in Canadian dollars. UK lenders convert CAD income to
+        sterling for affordability. Most apply a haircut of around 20
+        percent, which means a 150,000 CAD package is treated as roughly
+        120,000 CAD before the rate kicks in.
+      </p>
+      <p>
+        A smaller group of specialist lenders, accessed through brokers with
+        the right relationships, do not apply a haircut at all. This is the
+        most important variable on what you can borrow from Canada.
+      </p>
+      <p>
+        The CAD moves against sterling and is broadly correlated with
+        commodity prices. Lenders are generally comfortable with CAD income,
+        though slightly less so than USD or EUR.
+      </p>
+    </div>
+  </section>
+
+  <PullQuote>
+    Canada is well regarded by UK expat lenders.
+  </PullQuote>
+
+  <section class="hub-section">
+    <div class="hub-section-inner">
+      <h2 id="common-situations">Common situations</h2>
+      <p>British expats applying from Canada usually fall into one of these:</p>
+      <ul>
+        <li>
+          <strong>Banking and finance</strong> in Toronto, including the big
+          five Canadian banks and the international firms with Canadian
+          operations.
+        </li>
+        <li>
+          <strong>Tech and product roles</strong> in Toronto, Vancouver, and
+          Montreal at the Canadian offices of US tech firms and the strong
+          domestic ecosystem.
+        </li>
+        <li>
+          <strong>Oil and gas</strong> in Calgary, including operators,
+          service companies, and energy trading.
+        </li>
+        <li>
+          <strong>Healthcare and pharma</strong> in Toronto, Montreal, and
+          the broader life sciences cluster.
+        </li>
+        <li>
+          <strong>Aerospace and engineering</strong> at Bombardier, CAE, and
+          the Quebec aerospace cluster.
+        </li>
+        <li>
+          <strong>Academic and research</strong> at the major universities
+          and research institutes.
+        </li>
+      </ul>
+    </div>
+  </section>
+
+  <section class="hub-section">
+    <div class="hub-section-inner">
+      <h2 id="lender-requirements">What lenders want to see</h2>
+      <p>The standard pack from a Canada-based applicant:</p>
+      <ul>
+        <li>Three months of Canadian bank statements showing salary credits.</li>
+        <li>Three months of pay stubs.</li>
+        <li>The most recent two years of T1 General tax returns and Notice of Assessment from CRA.</li>
+        <li>Most recent T4 employment income summary.</li>
+        <li>Employment contract or letter from your employer.</li>
+        <li>Evidence of Canadian residency status (PR card or work permit).</li>
+        <li>Proof of UK address history and any UK property already owned.</li>
+      </ul>
+      <p>
+        The CRA Notice of Assessment is a clean, summary document that UK
+        lenders accept. T4s are the equivalent of UK P60s and are similarly
+        easy to read.
+      </p>
+    </div>
+  </section>
+
+  <section class="hub-section">
+    <div class="hub-section-inner">
+      <h2 id="how-lenders-view">How lenders view Canada-based applicants</h2>
+      <p>
+        Canada is well regarded by UK expat lenders. The economy is stable,
+        the legal and banking systems are familiar, and tax documentation
+        is reliable.
+      </p>
+      <p>
+        The complexities tend to be at the higher end of the income
+        spectrum. Senior banker bonuses, equity compensation at tech firms,
+        and carried interest in private equity all need careful packaging.
+        The right lender includes vested equity and recent bonuses, the
+        wrong one strips them out.
+      </p>
+      <p>
+        Self-employed applicants and those operating through a Canadian
+        incorporated company need extra documentation. T2 corporate tax
+        returns and director's salary summaries are both relevant, and
+        lenders look at them in different ways.
+      </p>
+    </div>
+  </section>
+
+  <PullQuote>
+    The right lender includes vested equity and recent bonuses, the wrong
+    one strips them out.
+  </PullQuote>
+
+  <section class="hub-section">
+    <div class="hub-section-inner">
+      <h2 id="pitfalls">Common pitfalls</h2>
+      <p>A few things trip up Canada-based applications more than they should:</p>
+      <ul>
+        <li>
+          <strong>Tax optimisation reduces apparent income.</strong>
+          Canadians who are paid through their own corporation often draw
+          modest salaries and take dividends. Some lenders use only the
+          salary, others combine salary and dividends.
+        </li>
+        <li>
+          <strong>Bonus and equity inconsistently handled.</strong> Tech
+          RSUs, banker bonuses, and partnership distributions are treated
+          very differently between lenders.
+        </li>
+        <li>
+          <strong>Provincial tax confusion.</strong> Quebec has separate
+          provincial tax filings. Make sure both federal and provincial
+          documentation is included.
+        </li>
+        <li>
+          <strong>PR vs work permit.</strong> Some lenders prefer PR. Most
+          expat lenders accept either.
+        </li>
+        <li>
+          <strong>Dual currency on deposit.</strong> Funds moving between
+          CAD and GBP or USD need a clear paper trail.
+        </li>
+      </ul>
+    </div>
+  </section>
+
+  <MidPageCta />
+
+  <section class="hub-section">
+    <div class="hub-section-inner">
+      <h2 id="faqs">Common questions</h2>
+      <div class="faq">
+        {faqs.map((f) => (
+          <>
+            <h3>{f.q}</h3>
+            <p>{f.a}</p>
+          </>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <script
+    type="application/ld+json"
+    is:inline
+    set:html={JSON.stringify(faqSchema)}
+  />
+</HubLayout>

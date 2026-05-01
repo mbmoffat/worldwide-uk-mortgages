@@ -1,0 +1,306 @@
+---
+import HubLayout from '../../../layouts/HubLayout.astro';
+import PullQuote from '../../../components/PullQuote.astro';
+import MidPageCta from '../../../components/MidPageCta.astro';
+
+const title = 'UK Mortgages for British Expats in Qatar';
+const description =
+  'A clear guide to UK mortgages when you live and work in Qatar. What you can borrow, how lenders treat Qatari riyal income, what deposit you will need.';
+const h1 = 'UK Mortgages for British Expats in Qatar';
+const subheadline =
+  'A clear guide to UK mortgages when you live and work in Qatar. What you can borrow, how lenders treat Qatari riyal income, what deposit you will need, and how a specialist broker finds the right lender for your situation.';
+
+const relatedPages = [
+  {
+    eyebrow: 'Hub',
+    title: 'UK Mortgages for Expats',
+    description:
+      'British nationals living abroad. Country-by-country lender appetite, currency haircuts, and timelines.',
+    href: '/expat-mortgages',
+  },
+  {
+    eyebrow: 'Hub',
+    title: 'UK Mortgages for Non-UK Residents',
+    description:
+      'Foreign nationals or British expats wanting a UK mortgage on UK property. The lender pool, deposits, and rates explained.',
+    href: '/non-uk-resident-mortgages',
+  },
+  {
+    eyebrow: 'Hub',
+    title: 'UK Mortgages with Foreign Income',
+    description:
+      'How lenders treat non-sterling income. The 20% standard haircut and direct access to no-haircut lenders.',
+    href: '/uk-mortgage-foreign-income',
+  },
+  {
+    eyebrow: 'Hub',
+    title: 'Expat Buy-to-Let Mortgages',
+    description:
+      'Building a UK rental portfolio from abroad. ICR, lender appetite, and limited company structures.',
+    href: '/expat-mortgages/buy-to-let',
+  },
+];
+
+const faqs = [
+  {
+    q: "Can I borrow as much from Qatar as I could in the UK?",
+    a: "Often less, because of the haircut. With a no-haircut lender, sometimes the same.",
+  },
+  {
+    q: "Do I need UK income to apply?",
+    a: "No. Qatari income alone is accepted.",
+  },
+  {
+    q: "Will my tax-free salary count?",
+    a: "Yes. Lenders take the gross figure as paid.",
+  },
+  {
+    q: "How big a deposit do I need?",
+    a: "25 percent is the working assumption for residential, 25 to 30 percent for buy-to-let.",
+  },
+  {
+    q: "Are housing or transport allowances counted?",
+    a: "Sometimes. The right lender includes them, the wrong one does not.",
+  },
+  {
+    q: "Does QatarEnergy or Qatar Airways employment help?",
+    a: "Yes. Both are well regarded for income strength and documentation.",
+  },
+  {
+    q: "Can I use a Qatari bank statement?",
+    a: "Yes. Accepted directly.",
+  },
+  {
+    q: "Is end-of-service gratuity counted as income?",
+    a: "No. It is a one-off and is treated as deposit, not income.",
+  },
+  {
+    q: "Can I remortgage from Qatar?",
+    a: "Yes. Common as fix terms end.",
+  },
+  {
+    q: "How long does it take?",
+    a: "Six to ten weeks from application to offer.",
+  },
+  {
+    q: "Do I need to come back to the UK to sign?",
+    a: "No. Notarised documents through a Qatari notary or the British Embassy are accepted.",
+  },
+];
+
+const faqSchema = {
+  '@context': 'https://schema.org',
+  '@type': 'FAQPage',
+  mainEntity: faqs.map((f) => ({
+    '@type': 'Question',
+    name: f.q,
+    acceptedAnswer: { '@type': 'Answer', text: f.a },
+  })),
+};
+---
+
+<HubLayout
+  title={title}
+  description={description}
+  h1={h1}
+  subheadline={subheadline}
+  eyebrow="Hub · Qatar expat mortgages"
+  relatedPages={relatedPages}
+>
+  <section class="hub-section">
+    <div class="hub-section-inner">
+      <h2 id="who-this-is-for">Who this page is for</h2>
+      <p>
+        If you are a British national living in Qatar and you want a
+        mortgage on UK property, this page is for you.
+      </p>
+      <p>
+        That includes buying a UK home while you are still in Doha, building
+        a UK buy-to-let portfolio remotely, remortgaging an existing UK
+        property as your fix ends, and planning a return to the UK in the
+        next year or two.
+      </p>
+      <p>
+        Many British expats in Qatar work in oil and gas, aviation,
+        infrastructure, healthcare, or education. Each profile sits slightly
+        differently with UK lenders, but the core income evidence and
+        currency mechanics are similar.
+      </p>
+    </div>
+  </section>
+
+  <section class="hub-section">
+    <div class="hub-section-inner">
+      <h2 id="currency-picture">The currency picture</h2>
+      <p>
+        You earn in Qatari riyals. UK lenders convert riyal income to
+        sterling for affordability. Most apply a haircut of around 20
+        percent, which means a 600,000 QAR package is treated as roughly
+        480,000 QAR before the rate kicks in.
+      </p>
+      <p>
+        A smaller group of specialist lenders, accessed through brokers with
+        the right relationships, do not apply a haircut at all. This is the
+        most important variable on what you can borrow from Qatar.
+      </p>
+      <p>
+        The Qatari riyal is pegged to the US dollar at a fixed rate, so
+        movement against sterling tracks GBP-USD. Lenders are familiar with
+        the riyal and treat it predictably.
+      </p>
+    </div>
+  </section>
+
+  <PullQuote>
+    QatarEnergy and Qatar Airways employees are well regarded for the
+    strength and predictability of their income.
+  </PullQuote>
+
+  <section class="hub-section">
+    <div class="hub-section-inner">
+      <h2 id="common-situations">Common situations</h2>
+      <p>British expats applying from Qatar usually fall into one of these:</p>
+      <ul>
+        <li>
+          <strong>Oil and gas professionals</strong> at QatarEnergy, North
+          Field projects, or contractor companies serving the gas sector.
+          Generally strong, well-documented income with long contract tenure.
+        </li>
+        <li>
+          <strong>Aviation crew and management</strong> at Qatar Airways. Pay
+          includes base, flight allowances, and per-diems, treated
+          differently to standard salary.
+        </li>
+        <li>
+          <strong>Infrastructure and engineering</strong> on projects
+          continuing from the World Cup legacy and ongoing development.
+          Contract-based with clear documentation.
+        </li>
+        <li>
+          <strong>Healthcare and education</strong> at Hamad Medical
+          Corporation, Sidra Medical, and international schools. Stable,
+          long-term contracts.
+        </li>
+        <li>
+          <strong>Banking, finance, and professional services</strong> at the
+          QFC and international firms in Doha.
+        </li>
+        <li>
+          <strong>Hospitality and retail leadership</strong> at hotel groups
+          and consumer companies, often including housing and transport
+          allowances.
+        </li>
+      </ul>
+    </div>
+  </section>
+
+  <section class="hub-section">
+    <div class="hub-section-inner">
+      <h2 id="lender-requirements">What lenders want to see</h2>
+      <p>The standard pack from a Qatar-based applicant:</p>
+      <ul>
+        <li>Three months of Qatari bank statements showing salary credits.</li>
+        <li>Three months of payslips.</li>
+        <li>Employment contract or letter from your employer.</li>
+        <li>QID (Qatar ID) and passport.</li>
+        <li>Proof of UK address history and any UK property already owned.</li>
+        <li>Evidence of any rental income from existing UK property.</li>
+        <li>Two years of audited accounts if you are self-employed or run a business.</li>
+      </ul>
+      <p>
+        Qatar has a stable banking system and clear residency documentation.
+        Income paid into a Qatari bank from a Qatar-registered employer is
+        the cleanest path. Money routed through third-country accounts adds
+        underwriting complexity.
+      </p>
+      <p>
+        End-of-service gratuity is treated as a one-off and not counted as
+        recurring income. It is useful as deposit if already paid out.
+      </p>
+    </div>
+  </section>
+
+  <section class="hub-section">
+    <div class="hub-section-inner">
+      <h2 id="how-lenders-view">How lenders view Qatar-based applicants</h2>
+      <p>
+        UK expat lenders are comfortable with Qatar. The country has a
+        stable government, transparent employment documentation, and a long
+        history of British professionals working there, particularly in
+        energy and aviation.
+      </p>
+      <p>
+        QatarEnergy and Qatar Airways employees are well regarded for the
+        strength and predictability of their income. Sub-contractors and
+        project-based roles are also accepted but may face slightly more
+        documentation scrutiny.
+      </p>
+      <p>
+        Bonus, housing, and transport allowances are sometimes added to base
+        income for affordability. Treatment varies by lender and by how
+        clearly the allowance is set out in the employment contract.
+      </p>
+    </div>
+  </section>
+
+  <PullQuote>
+    Income paid into a Qatari bank from a Qatar-registered employer is the
+    cleanest path.
+  </PullQuote>
+
+  <section class="hub-section">
+    <div class="hub-section-inner">
+      <h2 id="pitfalls">Common pitfalls</h2>
+      <p>A few things trip up Qatar-based applications more than they should:</p>
+      <ul>
+        <li>
+          <strong>Allowances ignored.</strong> Housing and transport
+          allowances can add 30 to 40 percent to base. Some lenders include
+          them in affordability, others do not.
+        </li>
+        <li>
+          <strong>End-of-service treated as income.</strong> Gratuity is a
+          one-off and should be deposited as such, not used to inflate
+          income.
+        </li>
+        <li>
+          <strong>Source of deposit on offshore funds.</strong> Money held
+          in third-country accounts before being moved to the UK needs a
+          clear paper trail.
+        </li>
+        <li>
+          <strong>Contract length misread.</strong> Some lenders treat
+          fixed-term contracts as less stable than open-ended employment,
+          even when renewal is routine.
+        </li>
+        <li>
+          <strong>AML on transfers.</strong> Funds moved across multiple
+          jurisdictions need explanation, especially when the route is
+          non-obvious.
+        </li>
+      </ul>
+    </div>
+  </section>
+
+  <MidPageCta />
+
+  <section class="hub-section">
+    <div class="hub-section-inner">
+      <h2 id="faqs">Common questions</h2>
+      <div class="faq">
+        {faqs.map((f) => (
+          <>
+            <h3>{f.q}</h3>
+            <p>{f.a}</p>
+          </>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <script
+    type="application/ld+json"
+    is:inline
+    set:html={JSON.stringify(faqSchema)}
+  />
+</HubLayout>

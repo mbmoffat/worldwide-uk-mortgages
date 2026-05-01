@@ -1,0 +1,299 @@
+---
+import HubLayout from '../../../layouts/HubLayout.astro';
+import PullQuote from '../../../components/PullQuote.astro';
+import MidPageCta from '../../../components/MidPageCta.astro';
+
+const title = 'UK Mortgages for British Expats in the USA';
+const description =
+  'A clear guide to UK mortgages when you live and work in the United States. What you can borrow, how lenders treat US dollar income, what deposit you need.';
+const h1 = 'UK Mortgages for British Expats in the USA';
+const subheadline =
+  'A clear guide to UK mortgages when you live and work in the United States. What you can borrow, how lenders treat US dollar income, what deposit you will need, and how a specialist broker finds the right lender for your situation.';
+
+const relatedPages = [
+  {
+    eyebrow: 'Hub',
+    title: 'UK Mortgages for Expats',
+    description:
+      'British nationals living abroad. Country-by-country lender appetite, currency haircuts, and timelines.',
+    href: '/expat-mortgages',
+  },
+  {
+    eyebrow: 'Hub',
+    title: 'UK Mortgages for Non-UK Residents',
+    description:
+      'Foreign nationals or British expats wanting a UK mortgage on UK property. The lender pool, deposits, and rates explained.',
+    href: '/non-uk-resident-mortgages',
+  },
+  {
+    eyebrow: 'Hub',
+    title: 'UK Mortgages with Foreign Income',
+    description:
+      'How lenders treat non-sterling income. The 20% standard haircut and direct access to no-haircut lenders.',
+    href: '/uk-mortgage-foreign-income',
+  },
+  {
+    eyebrow: 'Hub',
+    title: 'Expat Buy-to-Let Mortgages',
+    description:
+      'Building a UK rental portfolio from abroad. ICR, lender appetite, and limited company structures.',
+    href: '/expat-mortgages/buy-to-let',
+  },
+];
+
+const faqs = [
+  {
+    q: "Can I borrow as much from the US as I could in the UK?",
+    a: "Often less, because of the currency haircut and how US tax returns are read. With a no-haircut lender and clean W-2 income, sometimes the same.",
+  },
+  {
+    q: "Do I need to be a US citizen?",
+    a: "No. Most lenders will work with green card holders, work visa holders, and British citizens on assignment.",
+  },
+  {
+    q: "Will my US tax return be requested?",
+    a: "Yes. Two years is standard for US-based applicants.",
+  },
+  {
+    q: "How is RSU and bonus income treated?",
+    a: "Varies by lender. Some count vested equity as income, others ignore it. A broker will know who counts what.",
+  },
+  {
+    q: "How big a deposit do I need?",
+    a: "25 percent is the working assumption for residential, 25 to 30 percent for buy-to-let.",
+  },
+  {
+    q: "Does FATCA affect my application?",
+    a: "It adds documentation, but it does not stop you from borrowing. Some lenders are more comfortable with US persons than others.",
+  },
+  {
+    q: "Can I use US bank statements?",
+    a: "Yes. US bank statements are accepted directly.",
+  },
+  {
+    q: "Can I remortgage from the US?",
+    a: "Yes. Remortgaging from the States is one of the most common reasons US-based expats contact a specialist broker.",
+  },
+  {
+    q: "How long does it take?",
+    a: "Six to ten weeks from application to offer. Slightly longer than a UK-resident application.",
+  },
+  {
+    q: "Do I need to come back to the UK to sign?",
+    a: "No. Most lenders accept signing through a UK solicitor with notarised documents from a US notary public.",
+  },
+];
+
+const faqSchema = {
+  '@context': 'https://schema.org',
+  '@type': 'FAQPage',
+  mainEntity: faqs.map((f) => ({
+    '@type': 'Question',
+    name: f.q,
+    acceptedAnswer: { '@type': 'Answer', text: f.a },
+  })),
+};
+---
+
+<HubLayout
+  title={title}
+  description={description}
+  h1={h1}
+  subheadline={subheadline}
+  eyebrow="Hub · USA expat mortgages"
+  relatedPages={relatedPages}
+>
+  <section class="hub-section">
+    <div class="hub-section-inner">
+      <h2 id="who-this-is-for">Who this page is for</h2>
+      <p>
+        If you are a British national living in the USA and you want a
+        mortgage on UK property, this page is for you.
+      </p>
+      <p>
+        That includes buying a UK home while you are still based in the
+        States, building a UK buy-to-let portfolio remotely, remortgaging an
+        existing UK property as your fix ends, or planning a return to the
+        UK in the next year or two.
+      </p>
+      <p>
+        It also covers joint applications where one of you is in the US and
+        the other is in the UK, and the situation many British expats face
+        where their US partner is a US citizen, which has tax and lender
+        implications.
+      </p>
+    </div>
+  </section>
+
+  <section class="hub-section">
+    <div class="hub-section-inner">
+      <h2 id="currency-picture">The currency picture</h2>
+      <p>
+        You earn in US dollars. UK lenders convert dollar income to sterling
+        to assess affordability. Most apply a haircut of around 20 percent,
+        which means a 200,000 USD salary is treated as roughly 160,000 USD
+        before the rate kicks in.
+      </p>
+      <p>
+        A smaller group of specialist lenders, accessed through brokers with
+        the right relationships, do not apply a haircut at all. The single
+        largest variable on what you can borrow from the US is which lender
+        sees the income.
+      </p>
+      <p>
+        The dollar moves against sterling, sometimes significantly. This is
+        the lender's concern more than yours, and it is the reason haircuts
+        exist.
+      </p>
+    </div>
+  </section>
+
+  <PullQuote>
+    The single largest variable on what you can borrow from the US is which
+    lender sees the income.
+  </PullQuote>
+
+  <section class="hub-section">
+    <div class="hub-section-inner">
+      <h2 id="common-situations">Common situations</h2>
+      <p>British expats applying from the US usually fall into one of these:</p>
+      <ul>
+        <li>
+          <strong>Finance professionals in NYC, Boston, or Chicago</strong>
+          earning W-2 income with a base salary, bonus, and often deferred
+          stock or RSUs. Bonus and equity treatment varies sharply between
+          lenders.
+        </li>
+        <li>
+          <strong>Tech employees in San Francisco, Seattle, Austin, or NYC</strong>
+          with significant equity components. RSUs that have vested are
+          treated differently to RSUs still on a vesting schedule.
+        </li>
+        <li>
+          <strong>Healthcare and academic professionals</strong> with
+          structured pay and often public-sector pension entitlements.
+          Generally well received.
+        </li>
+        <li>
+          <strong>Self-employed and 1099 contractors.</strong> Two years of
+          US tax returns are usually required, and the figure used is net of
+          business expenses.
+        </li>
+        <li>
+          <strong>British expats married to US citizens</strong> where the
+          US spouse's income forms part of the application. FATCA reporting
+          and tax filings affect documentation but not eligibility.
+        </li>
+      </ul>
+    </div>
+  </section>
+
+  <section class="hub-section">
+    <div class="hub-section-inner">
+      <h2 id="lender-requirements">What lenders want to see</h2>
+      <p>The standard pack from a US-based applicant:</p>
+      <ul>
+        <li>Three months of US bank statements showing salary credits.</li>
+        <li>Three months of pay stubs.</li>
+        <li>Most recent W-2 form, or two years of 1099 returns if self-employed.</li>
+        <li>The most recent two years of US federal tax returns, including all schedules.</li>
+        <li>Employment contract or offer letter.</li>
+        <li>Evidence of US visa status if you are not a US citizen (green card or relevant work visa).</li>
+        <li>Proof of UK address history and any UK property already owned.</li>
+      </ul>
+      <p>
+        US tax returns are more detailed than UK ones. Lenders use them to
+        confirm both income and any deductions or business expenses that
+        affect the net figure.
+      </p>
+    </div>
+  </section>
+
+  <section class="hub-section">
+    <div class="hub-section-inner">
+      <h2 id="how-lenders-view">How lenders view US-based applicants</h2>
+      <p>
+        Most expat lenders are comfortable with US income, but they treat it
+        more cautiously than UAE or Singapore income for two reasons. First,
+        US tax returns can show large deductions that reduce the income
+        figure used for affordability. Second, FATCA reporting means US
+        persons (citizens and green card holders) carry tax disclosure
+        obligations that some smaller lenders prefer to avoid.
+      </p>
+      <p>
+        The right lender for a US-based applicant is usually one with
+        experience of FATCA documentation and US W-2 or tax return analysis.
+        The wrong lender will either decline or apply such a heavy haircut
+        that the loan size becomes uneconomic.
+      </p>
+      <p>
+        Bonus and equity income require careful packaging. RSUs are
+        sometimes treated as income, sometimes as a one-off, sometimes
+        ignored entirely. The same applicant can borrow very different
+        amounts depending on which lender sees the case.
+      </p>
+    </div>
+  </section>
+
+  <PullQuote>
+    Vested RSUs that have been paid out are real income, but only some
+    lenders count them.
+  </PullQuote>
+
+  <section class="hub-section">
+    <div class="hub-section-inner">
+      <h2 id="pitfalls">Common pitfalls</h2>
+      <p>A few things trip up US-based applications more than they should:</p>
+      <ul>
+        <li>
+          <strong>Self-employment income misread.</strong> Lenders use the
+          net figure on the tax return, after deductions. People who deduct
+          heavily for tax purposes often look poorer on paper than they are
+          in reality.
+        </li>
+        <li>
+          <strong>Equity and stock comp ignored.</strong> Vested RSUs that
+          have been paid out are real income, but only some lenders count
+          them. Worth asking before you assume.
+        </li>
+        <li>
+          <strong>FATCA-shy lenders.</strong> Some lenders quietly avoid US
+          persons. A specialist broker will know which ones.
+        </li>
+        <li>
+          <strong>AML on deposit funds.</strong> Money moved between US
+          accounts, brokerage accounts, and UK accounts needs a clear paper
+          trail.
+        </li>
+        <li>
+          <strong>Currency timing on remortgages.</strong> If you are
+          remortgaging from the US and your existing UK fix ends in three
+          months, start the conversation now. Lender turnaround for US cases
+          is six to ten weeks at best.
+        </li>
+      </ul>
+    </div>
+  </section>
+
+  <MidPageCta />
+
+  <section class="hub-section">
+    <div class="hub-section-inner">
+      <h2 id="faqs">Common questions</h2>
+      <div class="faq">
+        {faqs.map((f) => (
+          <>
+            <h3>{f.q}</h3>
+            <p>{f.a}</p>
+          </>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <script
+    type="application/ld+json"
+    is:inline
+    set:html={JSON.stringify(faqSchema)}
+  />
+</HubLayout>

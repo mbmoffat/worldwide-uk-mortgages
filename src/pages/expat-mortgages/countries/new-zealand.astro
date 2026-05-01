@@ -1,0 +1,301 @@
+---
+import HubLayout from '../../../layouts/HubLayout.astro';
+import PullQuote from '../../../components/PullQuote.astro';
+import MidPageCta from '../../../components/MidPageCta.astro';
+
+const title = 'UK Mortgages for British Expats in New Zealand';
+const description =
+  'A clear guide to UK mortgages when you live and work in New Zealand. What you can borrow, how lenders treat New Zealand dollar income, what deposit you need.';
+const h1 = 'UK Mortgages for British Expats in New Zealand';
+const subheadline =
+  'A clear guide to UK mortgages when you live and work in New Zealand. What you can borrow, how lenders treat New Zealand dollar income, what deposit you will need, and how a specialist broker finds the right lender for your situation.';
+
+const relatedPages = [
+  {
+    eyebrow: 'Hub',
+    title: 'UK Mortgages for Expats',
+    description:
+      'British nationals living abroad. Country-by-country lender appetite, currency haircuts, and timelines.',
+    href: '/expat-mortgages',
+  },
+  {
+    eyebrow: 'Hub',
+    title: 'UK Mortgages for Non-UK Residents',
+    description:
+      'Foreign nationals or British expats wanting a UK mortgage on UK property. The lender pool, deposits, and rates explained.',
+    href: '/non-uk-resident-mortgages',
+  },
+  {
+    eyebrow: 'Hub',
+    title: 'UK Mortgages with Foreign Income',
+    description:
+      'How lenders treat non-sterling income. The 20% standard haircut and direct access to no-haircut lenders.',
+    href: '/uk-mortgage-foreign-income',
+  },
+  {
+    eyebrow: 'Hub',
+    title: 'Expat Buy-to-Let Mortgages',
+    description:
+      'Building a UK rental portfolio from abroad. ICR, lender appetite, and limited company structures.',
+    href: '/expat-mortgages/buy-to-let',
+  },
+];
+
+const faqs = [
+  {
+    q: "Can I borrow as much from New Zealand as I could in the UK?",
+    a: "Often less, because of the haircut. With a no-haircut lender, sometimes the same.",
+  },
+  {
+    q: "Do I need UK income to apply?",
+    a: "No. New Zealand income alone is accepted.",
+  },
+  {
+    q: "Will my bonus count?",
+    a: "Often, but treatment varies between lenders.",
+  },
+  {
+    q: "How big a deposit do I need?",
+    a: "25 percent is the working assumption for residential, 25 to 30 percent for buy-to-let.",
+  },
+  {
+    q: "Does my visa or residency status matter?",
+    a: "Resident visa and citizenship are most flexible. Work visa holders are accepted by most expat lenders.",
+  },
+  {
+    q: "Can I use a New Zealand bank statement?",
+    a: "Yes. Accepted directly.",
+  },
+  {
+    q: "Is RSU income counted?",
+    a: "Sometimes. Specialist lenders include vested equity.",
+  },
+  {
+    q: "What if I am self-employed via a NZ company?",
+    a: "Two years of personal tax summaries and company financials is standard.",
+  },
+  {
+    q: "Can I remortgage from New Zealand?",
+    a: "Yes. Common as a fix end approaches.",
+  },
+  {
+    q: "How long does it take?",
+    a: "Six to ten weeks from application to offer.",
+  },
+  {
+    q: "Do I need to come back to the UK to sign?",
+    a: "No. NZ Justice of the Peace or notary documents are accepted, as is notarisation through the British High Commission.",
+  },
+];
+
+const faqSchema = {
+  '@context': 'https://schema.org',
+  '@type': 'FAQPage',
+  mainEntity: faqs.map((f) => ({
+    '@type': 'Question',
+    name: f.q,
+    acceptedAnswer: { '@type': 'Answer', text: f.a },
+  })),
+};
+---
+
+<HubLayout
+  title={title}
+  description={description}
+  h1={h1}
+  subheadline={subheadline}
+  eyebrow="Hub · New Zealand expat mortgages"
+  relatedPages={relatedPages}
+>
+  <section class="hub-section">
+    <div class="hub-section-inner">
+      <h2 id="who-this-is-for">Who this page is for</h2>
+      <p>
+        If you are a British national living in New Zealand and you want a
+        mortgage on UK property, this page is for you.
+      </p>
+      <p>
+        That includes buying a UK home while you are still based in
+        Auckland, Wellington, Christchurch, or elsewhere, building a UK
+        buy-to-let portfolio remotely, remortgaging an existing UK property
+        as your fix ends, and planning a return to the UK in the next year
+        or two.
+      </p>
+      <p>
+        The number of British expats in New Zealand is smaller than in some
+        other markets, but those who do contact a UK broker are typically
+        well-documented and well-paid, and the lender appetite is generally
+        good.
+      </p>
+    </div>
+  </section>
+
+  <section class="hub-section">
+    <div class="hub-section-inner">
+      <h2 id="currency-picture">The currency picture</h2>
+      <p>
+        You earn in New Zealand dollars. UK lenders convert NZD income to
+        sterling for affordability. Most apply a haircut of around 20
+        percent, which means a 150,000 NZD package is treated as roughly
+        120,000 NZD before the rate kicks in.
+      </p>
+      <p>
+        A smaller group of specialist lenders, accessed through brokers with
+        the right relationships, do not apply a haircut at all. This is the
+        most important variable on what you can borrow from New Zealand.
+      </p>
+      <p>
+        The NZD moves against sterling and is broadly correlated with
+        commodity prices and the wider Asia-Pacific economy. UK lenders are
+        familiar with NZD income.
+      </p>
+    </div>
+  </section>
+
+  <PullQuote>
+    UK expat lenders that work with the Asia-Pacific region are comfortable
+    with New Zealand.
+  </PullQuote>
+
+  <section class="hub-section">
+    <div class="hub-section-inner">
+      <h2 id="common-situations">Common situations</h2>
+      <p>British expats applying from New Zealand usually fall into one of these:</p>
+      <ul>
+        <li>
+          <strong>Banking, finance, and professional services</strong> in
+          Auckland and Wellington at the Australian-owned banks,
+          international firms, and government roles.
+        </li>
+        <li>
+          <strong>Tech and product roles</strong> at Xero, Rocket Lab, and
+          the broader New Zealand tech ecosystem.
+        </li>
+        <li>
+          <strong>Healthcare and education</strong> at universities,
+          hospitals, and research institutes.
+        </li>
+        <li>
+          <strong>Engineering and construction</strong> in the
+          post-earthquake Christchurch rebuild and ongoing infrastructure
+          projects.
+        </li>
+        <li>
+          <strong>Agriculture, food, and dairy</strong> at Fonterra and the
+          broader sector.
+        </li>
+        <li>
+          <strong>Tourism and hospitality</strong> management at the lodge
+          groups and broader sector.
+        </li>
+      </ul>
+    </div>
+  </section>
+
+  <section class="hub-section">
+    <div class="hub-section-inner">
+      <h2 id="lender-requirements">What lenders want to see</h2>
+      <p>The standard pack from a New Zealand-based applicant:</p>
+      <ul>
+        <li>Three months of New Zealand bank statements showing salary credits.</li>
+        <li>Three months of payslips.</li>
+        <li>The most recent two years of IRD income tax records and summaries.</li>
+        <li>Employment contract or letter from your employer.</li>
+        <li>Evidence of New Zealand residency (Resident Visa or work visa documentation).</li>
+        <li>Proof of UK address history and any UK property already owned.</li>
+        <li>Two years of audited accounts if you are self-employed or run a business.</li>
+      </ul>
+      <p>
+        New Zealand has clean, English-language documentation that UK
+        lenders find easy to interpret. Banking is transparent and tax
+        records are reliable.
+      </p>
+    </div>
+  </section>
+
+  <section class="hub-section">
+    <div class="hub-section-inner">
+      <h2 id="how-lenders-view">How lenders view New Zealand-based applicants</h2>
+      <p>
+        UK expat lenders that work with the Asia-Pacific region are
+        comfortable with New Zealand. The economy is stable, the
+        documentation is straightforward, and the legal and banking systems
+        share roots with the UK.
+      </p>
+      <p>
+        The complexities are usually around variable comp and
+        self-employment rather than country risk. Bonus, performance pay,
+        and equity are treated differently across lenders. Self-employed
+        applicants paid through a Look-Through Company or Limited Liability
+        Company need both personal and corporate tax records.
+      </p>
+      <p>
+        Resident visa holders and citizens are generally treated the same.
+        Work visa holders are also accepted by most expat lenders, though
+        some prefer to see at least two years of NZ tax history before
+        lending.
+      </p>
+    </div>
+  </section>
+
+  <PullQuote>
+    The no-haircut option matters more at the lower end of the income range.
+  </PullQuote>
+
+  <section class="hub-section">
+    <div class="hub-section-inner">
+      <h2 id="pitfalls">Common pitfalls</h2>
+      <p>A few things trip up New Zealand-based applications more than they should:</p>
+      <ul>
+        <li>
+          <strong>Bonus and equity inconsistently handled.</strong> RSUs at
+          the international tech offices and bonus structures at the
+          Australian-owned banks are treated very differently between
+          lenders.
+        </li>
+        <li>
+          <strong>Self-employment via NZ company structures.</strong>
+          Personal salary plus shareholder dividends needs both sets of tax
+          records.
+        </li>
+        <li>
+          <strong>Currency volatility on smaller incomes.</strong> A 20
+          percent haircut on a modest salary can drop borrowing capacity
+          meaningfully. The no-haircut option matters more at the lower end
+          of the income range.
+        </li>
+        <li>
+          <strong>Visa-based residency.</strong> Some lenders are cautious
+          with applicants on time-limited work visas. A specialist broker
+          will know which.
+        </li>
+        <li>
+          <strong>Source of deposit on cross-border funds.</strong> Money
+          moving between NZD, AUD, and GBP needs a clear paper trail.
+        </li>
+      </ul>
+    </div>
+  </section>
+
+  <MidPageCta />
+
+  <section class="hub-section">
+    <div class="hub-section-inner">
+      <h2 id="faqs">Common questions</h2>
+      <div class="faq">
+        {faqs.map((f) => (
+          <>
+            <h3>{f.q}</h3>
+            <p>{f.a}</p>
+          </>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <script
+    type="application/ld+json"
+    is:inline
+    set:html={JSON.stringify(faqSchema)}
+  />
+</HubLayout>

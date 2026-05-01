@@ -1,0 +1,307 @@
+---
+import HubLayout from '../../../layouts/HubLayout.astro';
+import PullQuote from '../../../components/PullQuote.astro';
+import MidPageCta from '../../../components/MidPageCta.astro';
+
+const title = 'UK Mortgages for British Expats in Saudi Arabia';
+const description =
+  'A clear guide to UK mortgages when you live and work in Saudi Arabia. What you can borrow, how lenders treat Saudi riyal income, what deposit you need.';
+const h1 = 'UK Mortgages for British Expats in Saudi Arabia';
+const subheadline =
+  'A clear guide to UK mortgages when you live and work in Saudi Arabia. What you can borrow, how lenders treat Saudi riyal income, what deposit you will need, and how a specialist broker finds the right lender for your situation.';
+
+const relatedPages = [
+  {
+    eyebrow: 'Hub',
+    title: 'UK Mortgages for Expats',
+    description:
+      'British nationals living abroad. Country-by-country lender appetite, currency haircuts, and timelines.',
+    href: '/expat-mortgages',
+  },
+  {
+    eyebrow: 'Hub',
+    title: 'UK Mortgages for Non-UK Residents',
+    description:
+      'Foreign nationals or British expats wanting a UK mortgage on UK property. The lender pool, deposits, and rates explained.',
+    href: '/non-uk-resident-mortgages',
+  },
+  {
+    eyebrow: 'Hub',
+    title: 'UK Mortgages with Foreign Income',
+    description:
+      'How lenders treat non-sterling income. The 20% standard haircut and direct access to no-haircut lenders.',
+    href: '/uk-mortgage-foreign-income',
+  },
+  {
+    eyebrow: 'Hub',
+    title: 'Expat Buy-to-Let Mortgages',
+    description:
+      'Building a UK rental portfolio from abroad. ICR, lender appetite, and limited company structures.',
+    href: '/expat-mortgages/buy-to-let',
+  },
+];
+
+const faqs = [
+  {
+    q: "Can I borrow as much from Saudi as I could in the UK?",
+    a: "Often less, because of the haircut. With a no-haircut lender, sometimes the same.",
+  },
+  {
+    q: "Do I need UK income to apply?",
+    a: "No. Saudi income alone is accepted.",
+  },
+  {
+    q: "Will my tax-free salary count?",
+    a: "Yes. Lenders take the gross figure as paid.",
+  },
+  {
+    q: "How big a deposit do I need?",
+    a: "25 percent is the working assumption for residential, 25 to 30 percent for buy-to-let.",
+  },
+  {
+    q: "Are housing or transport allowances counted?",
+    a: "Sometimes. Some lenders include them, others do not.",
+  },
+  {
+    q: "Does Aramco employment help?",
+    a: "Yes. Aramco is well regarded by UK expat lenders for its documentation and stability.",
+  },
+  {
+    q: "Can I use a Saudi bank statement?",
+    a: "Yes. Saudi bank statements are accepted directly.",
+  },
+  {
+    q: "Is bonus or end-of-service counted?",
+    a: "Bonus sometimes, end-of-service no. End-of-service is a one-off and is treated as deposit, not income.",
+  },
+  {
+    q: "Can I remortgage from Saudi?",
+    a: "Yes. Common as fix terms end.",
+  },
+  {
+    q: "How long does it take?",
+    a: "Six to ten weeks from application to offer.",
+  },
+  {
+    q: "Do I need to come back to the UK to sign?",
+    a: "No. Notarised documents through a Saudi notary or the British Embassy are accepted.",
+  },
+];
+
+const faqSchema = {
+  '@context': 'https://schema.org',
+  '@type': 'FAQPage',
+  mainEntity: faqs.map((f) => ({
+    '@type': 'Question',
+    name: f.q,
+    acceptedAnswer: { '@type': 'Answer', text: f.a },
+  })),
+};
+---
+
+<HubLayout
+  title={title}
+  description={description}
+  h1={h1}
+  subheadline={subheadline}
+  eyebrow="Hub · Saudi Arabia expat mortgages"
+  relatedPages={relatedPages}
+>
+  <section class="hub-section">
+    <div class="hub-section-inner">
+      <h2 id="who-this-is-for">Who this page is for</h2>
+      <p>
+        If you are a British national living in Saudi Arabia and you want a
+        mortgage on UK property, this page is for you.
+      </p>
+      <p>
+        That includes buying a UK home while you are still in Saudi,
+        building a UK buy-to-let portfolio remotely, remortgaging an
+        existing UK property as your fix ends, and planning a return to the
+        UK in the next year or two.
+      </p>
+      <p>
+        Many British professionals in Saudi Arabia are on long-term
+        contracts at Aramco, healthcare providers, education and training
+        projects, or NEOM and Vision 2030 infrastructure programmes. Each
+        profile sits slightly differently with UK lenders.
+      </p>
+    </div>
+  </section>
+
+  <section class="hub-section">
+    <div class="hub-section-inner">
+      <h2 id="currency-picture">The currency picture</h2>
+      <p>
+        You earn in Saudi riyals. UK lenders convert riyal income to
+        sterling for affordability. Most apply a haircut of around 20
+        percent, which means a 500,000 SAR salary is treated as roughly
+        400,000 SAR before the rate is set.
+      </p>
+      <p>
+        A smaller group of specialist lenders, accessed through brokers with
+        the right relationships, do not apply a haircut at all. This is the
+        most important variable on what you can borrow from Saudi.
+      </p>
+      <p>
+        The Saudi riyal is pegged to the US dollar at a fixed rate, so
+        currency volatility against sterling tracks GBP-USD. Lenders are
+        familiar with the riyal and treat it predictably.
+      </p>
+    </div>
+  </section>
+
+  <PullQuote>
+    Aramco employees are well regarded because the documentation is strong
+    and the employment is stable.
+  </PullQuote>
+
+  <section class="hub-section">
+    <div class="hub-section-inner">
+      <h2 id="common-situations">Common situations</h2>
+      <p>British expats applying from Saudi Arabia usually fall into one of these:</p>
+      <ul>
+        <li>
+          <strong>Aramco employees</strong> in Dhahran, Jubail, or Yanbu.
+          Often the cleanest profile for UK lenders given Aramco's
+          documentation standards and long-term contracts.
+        </li>
+        <li>
+          <strong>Aviation roles</strong> at Saudia, flynas, and contracted
+          maintenance providers. Pay structure includes flight allowances
+          treated differently to base.
+        </li>
+        <li>
+          <strong>Healthcare professionals</strong> at hospitals and medical
+          groups across Riyadh, Jeddah, and the Eastern Province. Stable
+          contracts, long tenure typical.
+        </li>
+        <li>
+          <strong>Education and training</strong> at international schools,
+          universities, and government training programmes. Generally well
+          received by lenders.
+        </li>
+        <li>
+          <strong>Defence, infrastructure, and engineering</strong> roles,
+          including NEOM and Vision 2030 projects. Contract-based, sometimes
+          paid through third-country structures.
+        </li>
+        <li>
+          <strong>Hospitality, retail, and consumer leadership</strong> at
+          Saudi-based groups. Often includes housing and transport
+          allowances.
+        </li>
+      </ul>
+    </div>
+  </section>
+
+  <section class="hub-section">
+    <div class="hub-section-inner">
+      <h2 id="lender-requirements">What lenders want to see</h2>
+      <p>The standard pack from a Saudi-based applicant:</p>
+      <ul>
+        <li>Three months of Saudi bank statements showing salary credits.</li>
+        <li>Three months of payslips.</li>
+        <li>Employment contract or letter from your employer.</li>
+        <li>Iqama (Saudi residence permit) and passport.</li>
+        <li>Proof of UK address history and any UK property already owned.</li>
+        <li>Evidence of any rental income from existing UK property.</li>
+        <li>Two years of audited accounts if you are self-employed or run a business.</li>
+      </ul>
+      <p>
+        Income paid into a Saudi bank account from a Saudi employer is the
+        cleanest path. Income routed through other countries before reaching
+        the applicant adds underwriting complexity.
+      </p>
+      <p>
+        End-of-service award is treated as a one-off and not counted as
+        recurring income. It is useful as deposit if already paid out.
+      </p>
+    </div>
+  </section>
+
+  <section class="hub-section">
+    <div class="hub-section-inner">
+      <h2 id="how-lenders-view">How lenders view Saudi-based applicants</h2>
+      <p>
+        UK expat lenders that are active in the Gulf are comfortable with
+        Saudi Arabia. Aramco employees in particular are well regarded
+        because the documentation is strong and the employment is stable.
+      </p>
+      <p>
+        Where the picture becomes more nuanced is on AML and source of
+        funds. Saudi sits in a higher-scrutiny category for some lenders,
+        which means slightly more documentation around deposit funds,
+        transfers, and any onward payments. This is procedural rather than
+        a deal-breaker. A specialist broker will know which lenders deal
+        with Saudi cases efficiently and which add layers of extra checking.
+      </p>
+      <p>
+        Bonus, allowances, and end-of-service entitlements are treated with
+        care. Lenders generally take base salary as the headline figure and
+        consider housing or transport allowances on top only when properly
+        documented.
+      </p>
+    </div>
+  </section>
+
+  <PullQuote>
+    Income paid into a Saudi bank account from a Saudi employer is the
+    cleanest path.
+  </PullQuote>
+
+  <section class="hub-section">
+    <div class="hub-section-inner">
+      <h2 id="pitfalls">Common pitfalls</h2>
+      <p>A few things trip up Saudi-based applications more than they should:</p>
+      <ul>
+        <li>
+          <strong>AML documentation under-prepared.</strong> Source of
+          deposit funds needs a clean paper trail. Money that has moved
+          through multiple accounts and currencies needs explanation.
+        </li>
+        <li>
+          <strong>Allowances ignored.</strong> Housing and transport
+          allowances are real income, but only some lenders count them.
+          Worth knowing in advance.
+        </li>
+        <li>
+          <strong>Project-based contracts misread.</strong> A two-year
+          project contract is sometimes treated as less stable than
+          open-ended employment, even when renewal is routine.
+        </li>
+        <li>
+          <strong>Gratuity counted as income.</strong> End-of-service
+          gratuity is a one-off and should be treated as deposit, not income.
+        </li>
+        <li>
+          <strong>Bank account location.</strong> Some lenders prefer to see
+          income paid directly into a Saudi bank rather than routed through
+          a third-country account.
+        </li>
+      </ul>
+    </div>
+  </section>
+
+  <MidPageCta />
+
+  <section class="hub-section">
+    <div class="hub-section-inner">
+      <h2 id="faqs">Common questions</h2>
+      <div class="faq">
+        {faqs.map((f) => (
+          <>
+            <h3>{f.q}</h3>
+            <p>{f.a}</p>
+          </>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <script
+    type="application/ld+json"
+    is:inline
+    set:html={JSON.stringify(faqSchema)}
+  />
+</HubLayout>

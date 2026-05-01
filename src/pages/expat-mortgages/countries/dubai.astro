@@ -1,0 +1,298 @@
+---
+import HubLayout from '../../../layouts/HubLayout.astro';
+import PullQuote from '../../../components/PullQuote.astro';
+import MidPageCta from '../../../components/MidPageCta.astro';
+
+const title = 'UK Mortgages for British Expats in Dubai';
+const description =
+  'A clear guide to UK mortgages when you live and work in Dubai. What you can borrow, how lenders treat dirham income, what deposit you will need.';
+const h1 = 'UK Mortgages for British Expats in Dubai';
+const subheadline =
+  'A clear guide to UK mortgages when you live and work in Dubai. What you can borrow, how lenders treat dirham income, what deposit you will need, and how a specialist broker finds the right lender for your situation.';
+
+const relatedPages = [
+  {
+    eyebrow: 'Hub',
+    title: 'UK Mortgages for Expats',
+    description:
+      'British nationals living abroad. Country-by-country lender appetite, currency haircuts, and timelines.',
+    href: '/expat-mortgages',
+  },
+  {
+    eyebrow: 'Hub',
+    title: 'UK Mortgages for Non-UK Residents',
+    description:
+      'Foreign nationals or British expats wanting a UK mortgage on UK property. The lender pool, deposits, and rates explained.',
+    href: '/non-uk-resident-mortgages',
+  },
+  {
+    eyebrow: 'Hub',
+    title: 'UK Mortgages with Foreign Income',
+    description:
+      'How lenders treat non-sterling income. The 20% standard haircut and direct access to no-haircut lenders.',
+    href: '/uk-mortgage-foreign-income',
+  },
+  {
+    eyebrow: 'Hub',
+    title: 'Expat Buy-to-Let Mortgages',
+    description:
+      'Building a UK rental portfolio from abroad. ICR, lender appetite, and limited company structures.',
+    href: '/expat-mortgages/buy-to-let',
+  },
+];
+
+const faqs = [
+  {
+    q: "Can I borrow as much from Dubai as I could in the UK?",
+    a: "Often less, because of the currency haircut. With a no-haircut lender and a strong income, sometimes the same.",
+  },
+  {
+    q: "Do I need UK income to apply?",
+    a: "No. Most expat lenders are happy with UAE income only.",
+  },
+  {
+    q: "Will my tax-free salary count?",
+    a: "Yes. Lenders take the gross figure as paid.",
+  },
+  {
+    q: "How big a deposit do I need?",
+    a: "25 percent is the working assumption for residential, 25 to 30 percent for buy-to-let. Some lenders go to 20 percent on residential for stronger profiles.",
+  },
+  {
+    q: "Can I use a UAE bank statement?",
+    a: "Yes. Most lenders accept UAE bank statements directly.",
+  },
+  {
+    q: "Is bonus income accepted?",
+    a: "Often, but the lender's treatment varies. Some take 100 percent of recent bonuses, others take 50 percent of an average.",
+  },
+  {
+    q: "What about end-of-service gratuity?",
+    a: "Treated as a one-off, not regular income. Useful for deposit if already paid.",
+  },
+  {
+    q: "Can I remortgage from Dubai?",
+    a: "Yes. Remortgaging from abroad is one of the most common reasons people contact a specialist broker.",
+  },
+  {
+    q: "How long does it take?",
+    a: "Six to ten weeks from application to offer is normal. Slightly longer than a UK-resident application because of additional document checks.",
+  },
+  {
+    q: "Do I need to come back to the UK to sign?",
+    a: "No. Most lenders accept signing through a UK solicitor with notarised documents from a UAE notary or the British Embassy.",
+  },
+];
+
+const faqSchema = {
+  '@context': 'https://schema.org',
+  '@type': 'FAQPage',
+  mainEntity: faqs.map((f) => ({
+    '@type': 'Question',
+    name: f.q,
+    acceptedAnswer: { '@type': 'Answer', text: f.a },
+  })),
+};
+---
+
+<HubLayout
+  title={title}
+  description={description}
+  h1={h1}
+  subheadline={subheadline}
+  eyebrow="Hub · Dubai expat mortgages"
+  relatedPages={relatedPages}
+>
+  <section class="hub-section">
+    <div class="hub-section-inner">
+      <h2 id="who-this-is-for">Who this page is for</h2>
+      <p>
+        If you are a British national living in Dubai, or anywhere in the
+        UAE, and you want a mortgage on UK property, this page is for you.
+      </p>
+      <p>
+        That includes buying a home in the UK while you are still working
+        out here, building a UK buy-to-let portfolio from Dubai, remortgaging
+        an existing UK property as your fix ends, or planning a move back to
+        the UK in the next year or two.
+      </p>
+      <p>
+        It also includes joint applications where one of you is in Dubai and
+        the other is in the UK, which lenders treat differently to a sole
+        expat application.
+      </p>
+    </div>
+  </section>
+
+  <section class="hub-section">
+    <div class="hub-section-inner">
+      <h2 id="currency-picture">The currency picture</h2>
+      <p>
+        You earn in dirhams. UK lenders convert that income to sterling to
+        assess affordability. Most apply a haircut of around 20 percent,
+        which means a 100,000 AED salary is treated as roughly 80,000 AED
+        for affordability purposes before the rate is even applied.
+      </p>
+      <p>
+        A smaller group of specialist lenders, accessed through brokers with
+        the right relationships, do not apply a haircut at all. They take
+        your gross income at the prevailing rate. This is the single biggest
+        variable on what you can borrow from Dubai. The same income can
+        produce two materially different mortgage offers depending on which
+        lender sees it.
+      </p>
+      <p>
+        The dirham is pegged to the US dollar at a fixed rate, so currency
+        volatility against sterling tracks GBP-USD movement. Lenders are
+        familiar with this and most are comfortable with AED income.
+      </p>
+    </div>
+  </section>
+
+  <PullQuote>
+    The same income can produce two materially different mortgage offers
+    depending on which lender sees it.
+  </PullQuote>
+
+  <section class="hub-section">
+    <div class="hub-section-inner">
+      <h2 id="common-situations">Common situations</h2>
+      <p>British expats applying from Dubai usually fall into one of these:</p>
+      <ul>
+        <li>
+          <strong>DIFC and Dubai-based finance professionals</strong> earning
+          a base salary plus bonus or commission. Most banks pay tax-free in
+          Dubai, so the gross figure is the figure.
+        </li>
+        <li>
+          <strong>Aviation and airline crew</strong> based at Emirates,
+          Etihad, or third-party operators. Pay structure includes flight
+          allowances and per diems which lenders treat differently to base
+          salary.
+        </li>
+        <li>
+          <strong>Construction, oil and gas, and infrastructure roles</strong>
+          with project-based contracts. Income evidence sometimes needs more
+          work to package correctly.
+        </li>
+        <li>
+          <strong>Hospitality and retail leadership</strong> at Dubai-based
+          groups. Often includes housing and transport allowances which can
+          be added back on the right lender.
+        </li>
+        <li>
+          <strong>Healthcare and education</strong> professionals on
+          long-term residency contracts. Stable income, generally well
+          received.
+        </li>
+      </ul>
+    </div>
+  </section>
+
+  <section class="hub-section">
+    <div class="hub-section-inner">
+      <h2 id="lender-requirements">What lenders want to see</h2>
+      <p>The standard pack from a Dubai-based applicant:</p>
+      <ul>
+        <li>Three months of UAE bank statements showing salary credits.</li>
+        <li>Three months of payslips.</li>
+        <li>Employment contract or letter from your employer.</li>
+        <li>A copy of your UAE residence visa.</li>
+        <li>Proof of your UK address history if you still own UK property or have UK bank accounts.</li>
+        <li>Two years of audited accounts or tax returns if you are self-employed or run your own business.</li>
+        <li>Evidence of any rental income from existing UK property.</li>
+      </ul>
+      <p>
+        Income paid in cash, or where the audit trail is unclear, is harder.
+        Income paid into a UAE bank account from a UAE employer is the
+        cleanest path.
+      </p>
+    </div>
+  </section>
+
+  <section class="hub-section">
+    <div class="hub-section-inner">
+      <h2 id="how-lenders-view">How lenders view Dubai-based applicants</h2>
+      <p>
+        Most UK lenders that lend to expats are comfortable with Dubai. The
+        UAE has a stable banking system, clear residency documentation, and
+        a long history of British professionals working there. The lender
+        concerns are usually around income evidence and currency haircut,
+        not country risk.
+      </p>
+      <p>
+        Where it is more complex is bonus-heavy income, or income paid
+        through a holding structure rather than direct employment. A
+        specialist broker will know which lenders accept what.
+      </p>
+      <p>
+        End-of-service gratuity is treated as a one-off lump sum and is not
+        usually counted as income for affordability. It can be useful as
+        deposit if it has already been paid out and is sitting in your
+        account.
+      </p>
+    </div>
+  </section>
+
+  <PullQuote>
+    Income paid into a UAE bank account from a UAE employer is the cleanest
+    path.
+  </PullQuote>
+
+  <section class="hub-section">
+    <div class="hub-section-inner">
+      <h2 id="pitfalls">Common pitfalls</h2>
+      <p>A few things trip up Dubai-based applications more than they should:</p>
+      <ul>
+        <li>
+          <strong>Applying to a high-street lender directly and being declined</strong>,
+          then trying again elsewhere with the same case. Each application
+          leaves a footprint. Better to start with the right lender first.
+        </li>
+        <li>
+          <strong>Underestimating deposit.</strong> Most expat lenders want
+          at least 25 percent for residential and 25 to 30 percent for
+          buy-to-let from a non-UK-resident applicant.
+        </li>
+        <li>
+          <strong>Missing the no-haircut option.</strong> People assume the
+          20 percent haircut is universal. It is not. Worth asking
+          specifically.
+        </li>
+        <li>
+          <strong>AML documentation.</strong> Source of deposit needs to be
+          evidenced clearly. Funds that have moved through several accounts
+          in different currencies need a paper trail.
+        </li>
+        <li>
+          <strong>Buy-to-let stress tests.</strong> The interest cover ratio
+          applied to expat BTL is usually higher than a UK-resident applicant
+          gets. This affects the maximum loan size before you have even
+          looked at lenders.
+        </li>
+      </ul>
+    </div>
+  </section>
+
+  <MidPageCta />
+
+  <section class="hub-section">
+    <div class="hub-section-inner">
+      <h2 id="faqs">Common questions</h2>
+      <div class="faq">
+        {faqs.map((f) => (
+          <>
+            <h3>{f.q}</h3>
+            <p>{f.a}</p>
+          </>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <script
+    type="application/ld+json"
+    is:inline
+    set:html={JSON.stringify(faqSchema)}
+  />
+</HubLayout>

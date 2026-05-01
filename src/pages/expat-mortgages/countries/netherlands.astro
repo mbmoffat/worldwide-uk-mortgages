@@ -1,0 +1,319 @@
+---
+import HubLayout from '../../../layouts/HubLayout.astro';
+import PullQuote from '../../../components/PullQuote.astro';
+import MidPageCta from '../../../components/MidPageCta.astro';
+
+const title = 'UK Mortgages for British Expats in the Netherlands';
+const description =
+  'A clear guide to UK mortgages when you live and work in the Netherlands. What you can borrow, how lenders treat euro income, what deposit you need.';
+const h1 = 'UK Mortgages for British Expats in the Netherlands';
+const subheadline =
+  'A clear guide to UK mortgages when you live and work in the Netherlands. What you can borrow, how lenders treat euro income, what deposit you will need, and how a specialist broker finds the right lender for your situation.';
+
+const relatedPages = [
+  {
+    eyebrow: 'Hub',
+    title: 'UK Mortgages for Expats',
+    description:
+      'British nationals living abroad. Country-by-country lender appetite, currency haircuts, and timelines.',
+    href: '/expat-mortgages',
+  },
+  {
+    eyebrow: 'Hub',
+    title: 'UK Mortgages for Non-UK Residents',
+    description:
+      'Foreign nationals or British expats wanting a UK mortgage on UK property. The lender pool, deposits, and rates explained.',
+    href: '/non-uk-resident-mortgages',
+  },
+  {
+    eyebrow: 'Hub',
+    title: 'UK Mortgages with Foreign Income',
+    description:
+      'How lenders treat non-sterling income. The 20% standard haircut and direct access to no-haircut lenders.',
+    href: '/uk-mortgage-foreign-income',
+  },
+  {
+    eyebrow: 'Hub',
+    title: 'Expat Buy-to-Let Mortgages',
+    description:
+      'Building a UK rental portfolio from abroad. ICR, lender appetite, and limited company structures.',
+    href: '/expat-mortgages/buy-to-let',
+  },
+];
+
+const faqs = [
+  {
+    q: "Can I borrow as much from the Netherlands as I could in the UK?",
+    a: "Often less, because of the haircut. With a no-haircut lender and proper 30 percent ruling treatment, sometimes more.",
+  },
+  {
+    q: "Do I need UK income to apply?",
+    a: "No. Dutch income alone is accepted.",
+  },
+  {
+    q: "Will my 30 percent ruling salary count?",
+    a: "Yes, if the lender uses the contract gross figure. Some do, some do not.",
+  },
+  {
+    q: "How big a deposit do I need?",
+    a: "25 percent is the working assumption for residential, 25 to 30 percent for buy-to-let.",
+  },
+  {
+    q: "Does my Dutch residency status matter?",
+    a: "Most expat lenders accept any valid Dutch residency.",
+  },
+  {
+    q: "Can I use a Dutch bank statement?",
+    a: "Yes. Accepted directly.",
+  },
+  {
+    q: "Is RSU income counted?",
+    a: "Sometimes. Specialist lenders include vested equity.",
+  },
+  {
+    q: "What if I am self-employed in the Netherlands?",
+    a: "Two years of tax assessments (aanslag) is standard. The figure used is net taxable income.",
+  },
+  {
+    q: "Can I remortgage from the Netherlands?",
+    a: "Yes. Common as a fix end approaches.",
+  },
+  {
+    q: "How long does it take?",
+    a: "Six to ten weeks from application to offer.",
+  },
+  {
+    q: "Do I need to come back to the UK to sign?",
+    a: "No. Dutch notary documents are accepted, as is notarisation through the British Embassy.",
+  },
+];
+
+const faqSchema = {
+  '@context': 'https://schema.org',
+  '@type': 'FAQPage',
+  mainEntity: faqs.map((f) => ({
+    '@type': 'Question',
+    name: f.q,
+    acceptedAnswer: { '@type': 'Answer', text: f.a },
+  })),
+};
+---
+
+<HubLayout
+  title={title}
+  description={description}
+  h1={h1}
+  subheadline={subheadline}
+  eyebrow="Hub · Netherlands expat mortgages"
+  relatedPages={relatedPages}
+>
+  <section class="hub-section">
+    <div class="hub-section-inner">
+      <h2 id="who-this-is-for">Who this page is for</h2>
+      <p>
+        If you are a British national living in the Netherlands and you
+        want a mortgage on UK property, this page is for you.
+      </p>
+      <p>
+        That includes buying a UK home while you are still based in
+        Amsterdam, Rotterdam, The Hague, Eindhoven, or Utrecht, building a
+        UK buy-to-let portfolio remotely, remortgaging an existing UK
+        property as your fix ends, and planning a return to the UK in the
+        next year or two.
+      </p>
+      <p>
+        The Netherlands is a popular destination for British professionals
+        in finance, tech, energy, and shipping, and the 30 percent ruling
+        adds a specific layer to expat tax and income that lenders treat in
+        different ways.
+      </p>
+    </div>
+  </section>
+
+  <section class="hub-section">
+    <div class="hub-section-inner">
+      <h2 id="currency-picture">The currency picture</h2>
+      <p>
+        You earn in euros. UK lenders convert euro income to sterling for
+        affordability. Most apply a haircut of around 20 percent, which
+        means a 100,000 EUR package is treated as roughly 80,000 EUR before
+        the rate kicks in.
+      </p>
+      <p>
+        A smaller group of specialist lenders, accessed through brokers with
+        the right relationships, do not apply a haircut at all. This is the
+        most important variable on what you can borrow from the Netherlands.
+      </p>
+      <p>
+        The euro is well understood by all UK expat lenders, and Dutch
+        banking is transparent and easy to verify.
+      </p>
+    </div>
+  </section>
+
+  <PullQuote>
+    The right lender for a 30 percent ruling beneficiary is one that takes
+    the gross.
+  </PullQuote>
+
+  <section class="hub-section">
+    <div class="hub-section-inner">
+      <h2 id="thirty-percent-ruling">The 30 percent ruling</h2>
+      <p>
+        The 30 percent ruling allows qualifying expat employees to receive
+        30 percent of their salary tax-free for up to five years. For
+        affordability purposes this matters because the gross salary on the
+        contract may differ from what the lender sees on payslips.
+      </p>
+      <p>
+        Some lenders use the contract gross figure on the basis that this
+        is the agreed remuneration. Others use the figure shown on the
+        payslip, which strips out the 30 percent free element. The
+        difference can be significant, and the right lender for a 30
+        percent ruling beneficiary is one that takes the gross.
+      </p>
+      <p>
+        A specialist broker will know which lenders treat the ruling
+        correctly.
+      </p>
+    </div>
+  </section>
+
+  <section class="hub-section">
+    <div class="hub-section-inner">
+      <h2 id="common-situations">Common situations</h2>
+      <p>British expats applying from the Netherlands usually fall into one of these:</p>
+      <ul>
+        <li>
+          <strong>Finance and asset management</strong> in Amsterdam at
+          international banks, custody businesses, and pension funds.
+          Stable, well-documented income.
+        </li>
+        <li>
+          <strong>Tech and product roles</strong> at the European
+          headquarters of Booking, Adyen, Uber, Netflix, and the broader
+          Dutch tech ecosystem. Equity components common.
+        </li>
+        <li>
+          <strong>Energy and trading</strong> at Shell, BP Trading, and the
+          Rotterdam commodities cluster.
+        </li>
+        <li>
+          <strong>Shipping and maritime</strong> at Rotterdam port operators,
+          classification societies, and offshore engineering.
+        </li>
+        <li>
+          <strong>Legal and professional services</strong> at the
+          international firms.
+        </li>
+        <li>
+          <strong>Pharma and life sciences</strong> at Leiden, Utrecht, and
+          the broader cluster.
+        </li>
+      </ul>
+    </div>
+  </section>
+
+  <section class="hub-section">
+    <div class="hub-section-inner">
+      <h2 id="lender-requirements">What lenders want to see</h2>
+      <p>The standard pack from a Netherlands-based applicant:</p>
+      <ul>
+        <li>Three months of Dutch bank statements showing salary credits.</li>
+        <li>Three months of payslips (loonstrook).</li>
+        <li>Two most recent annual income statements (jaaropgave) and tax assessments (aanslag).</li>
+        <li>Employment contract or letter from your employer.</li>
+        <li>Evidence of Dutch residency (BSN registration and any required residence permit).</li>
+        <li>Proof of UK address history and any UK property already owned.</li>
+        <li>Documentation of the 30 percent ruling if you benefit from it.</li>
+      </ul>
+      <p>
+        The Netherlands has clean, internationally readable documentation.
+        The jaaropgave is a one-page annual income statement that lenders
+        find easy to interpret.
+      </p>
+    </div>
+  </section>
+
+  <section class="hub-section">
+    <div class="hub-section-inner">
+      <h2 id="how-lenders-view">How lenders view Netherlands-based applicants</h2>
+      <p>
+        The Netherlands is well regarded by UK expat lenders. The economy
+        is stable, the currency is mainstream, employment documentation is
+        excellent, and the country sits within the European banking
+        framework that lenders are familiar with.
+      </p>
+      <p>
+        The complexities are usually around the 30 percent ruling and around
+        variable comp. Tech employees often have RSU and bonus components
+        treated inconsistently between lenders. Trading roles in Rotterdam
+        can have partnership-style distributions that need careful
+        packaging.
+      </p>
+      <p>
+        Self-employed applicants are well documented through the Dutch tax
+        system, but again the figure used is post-deduction net taxable
+        income.
+      </p>
+    </div>
+  </section>
+
+  <PullQuote>
+    RSUs at the European tech offices are real income but mainstream lenders
+    often strip them out.
+  </PullQuote>
+
+  <section class="hub-section">
+    <div class="hub-section-inner">
+      <h2 id="pitfalls">Common pitfalls</h2>
+      <p>A few things trip up Netherlands-based applications more than they should:</p>
+      <ul>
+        <li>
+          <strong>30 percent ruling misread.</strong> Lender uses the wrong
+          gross figure and the borrowing capacity drops by 30 percent for no
+          good reason.
+        </li>
+        <li>
+          <strong>Equity ignored.</strong> RSUs at the European tech offices
+          are real income but mainstream lenders often strip them out.
+        </li>
+        <li>
+          <strong>Bonus discounted heavily.</strong> Senior banker bonuses
+          are treated very differently between lenders.
+        </li>
+        <li>
+          <strong>AML on funds.</strong> Money moving between sterling,
+          euro, and other currencies needs a clean paper trail.
+        </li>
+        <li>
+          <strong>Self-employed deductions.</strong> People who optimise
+          for tax look poorer on paper than they are in reality. The lender
+          uses the net figure.
+        </li>
+      </ul>
+    </div>
+  </section>
+
+  <MidPageCta />
+
+  <section class="hub-section">
+    <div class="hub-section-inner">
+      <h2 id="faqs">Common questions</h2>
+      <div class="faq">
+        {faqs.map((f) => (
+          <>
+            <h3>{f.q}</h3>
+            <p>{f.a}</p>
+          </>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <script
+    type="application/ld+json"
+    is:inline
+    set:html={JSON.stringify(faqSchema)}
+  />
+</HubLayout>

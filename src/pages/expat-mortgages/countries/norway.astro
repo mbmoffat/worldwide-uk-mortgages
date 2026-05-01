@@ -1,0 +1,313 @@
+---
+import HubLayout from '../../../layouts/HubLayout.astro';
+import PullQuote from '../../../components/PullQuote.astro';
+import MidPageCta from '../../../components/MidPageCta.astro';
+
+const title = 'UK Mortgages for British Expats in Norway';
+const description =
+  'A clear guide to UK mortgages when you live and work in Norway. What you can borrow, how lenders treat Norwegian krone income, what deposit you need.';
+const h1 = 'UK Mortgages for British Expats in Norway';
+const subheadline =
+  'A clear guide to UK mortgages when you live and work in Norway. What you can borrow, how lenders treat Norwegian krone income, what deposit you will need, and how a specialist broker finds the right lender for your situation.';
+
+const relatedPages = [
+  {
+    eyebrow: 'Hub',
+    title: 'UK Mortgages for Expats',
+    description:
+      'British nationals living abroad. Country-by-country lender appetite, currency haircuts, and timelines.',
+    href: '/expat-mortgages',
+  },
+  {
+    eyebrow: 'Hub',
+    title: 'UK Mortgages for Non-UK Residents',
+    description:
+      'Foreign nationals or British expats wanting a UK mortgage on UK property. The lender pool, deposits, and rates explained.',
+    href: '/non-uk-resident-mortgages',
+  },
+  {
+    eyebrow: 'Hub',
+    title: 'UK Mortgages with Foreign Income',
+    description:
+      'How lenders treat non-sterling income. The 20% standard haircut and direct access to no-haircut lenders.',
+    href: '/uk-mortgage-foreign-income',
+  },
+  {
+    eyebrow: 'Hub',
+    title: 'Seafarer Mortgages',
+    description:
+      'Merchant navy, offshore, and superyacht crew. Rotation patterns and how lenders assess seafarer income.',
+    href: '/seafarer-mortgages',
+  },
+  {
+    eyebrow: 'Hub',
+    title: 'Expat Buy-to-Let Mortgages',
+    description:
+      'Building a UK rental portfolio from abroad. ICR, lender appetite, and limited company structures.',
+    href: '/expat-mortgages/buy-to-let',
+  },
+];
+
+const faqs = [
+  {
+    q: "Can I borrow as much from Norway as I could in the UK?",
+    a: "Often less, because of the haircut. With a no-haircut lender and a stable income profile, sometimes the same.",
+  },
+  {
+    q: "Do I need UK income to apply?",
+    a: "No. Norwegian income alone is accepted.",
+  },
+  {
+    q: "Will my offshore allowances count?",
+    a: "Sometimes. Travel, subsistence, and offshore allowances are treated differently across lenders.",
+  },
+  {
+    q: "How big a deposit do I need?",
+    a: "25 percent is the working assumption for residential, 25 to 30 percent for buy-to-let.",
+  },
+  {
+    q: "Does the Seafarers Earnings Deduction affect me?",
+    a: "Only if you are UK tax resident. Most Norway-based expats are not.",
+  },
+  {
+    q: "Can I use a Norwegian bank statement?",
+    a: "Yes. Accepted directly.",
+  },
+  {
+    q: "Is rotational work a problem?",
+    a: "Not usually. Three to six months of contract history and consistent pay records work for most lenders.",
+  },
+  {
+    q: "What if I am paid through a UK or offshore company?",
+    a: "That is treated as self-employment. Two years of accounts is standard.",
+  },
+  {
+    q: "Can I remortgage from Norway?",
+    a: "Yes. Common as a fix end approaches.",
+  },
+  {
+    q: "How long does it take?",
+    a: "Six to ten weeks from application to offer.",
+  },
+  {
+    q: "Do I need to come back to the UK to sign?",
+    a: "No. Norwegian notary documents are accepted, as is notarisation through the British Embassy.",
+  },
+];
+
+const faqSchema = {
+  '@context': 'https://schema.org',
+  '@type': 'FAQPage',
+  mainEntity: faqs.map((f) => ({
+    '@type': 'Question',
+    name: f.q,
+    acceptedAnswer: { '@type': 'Answer', text: f.a },
+  })),
+};
+---
+
+<HubLayout
+  title={title}
+  description={description}
+  h1={h1}
+  subheadline={subheadline}
+  eyebrow="Hub · Norway expat mortgages"
+  relatedPages={relatedPages}
+>
+  <section class="hub-section">
+    <div class="hub-section-inner">
+      <h2 id="who-this-is-for">Who this page is for</h2>
+      <p>
+        If you are a British national living in Norway and you want a
+        mortgage on UK property, this page is for you.
+      </p>
+      <p>
+        That includes buying a UK home while you are still based in
+        Stavanger, Oslo, Bergen, or Trondheim, building a UK buy-to-let
+        portfolio remotely, remortgaging an existing UK property as your
+        fix ends, and planning a return to the UK in the next year or two.
+      </p>
+      <p>
+        Norway is heavily weighted towards energy. Many British expats here
+        work in offshore oil and gas, subsea engineering, or the growing
+        offshore wind sector. If your income relates to seafaring or
+        rotational offshore work, the
+        <a href="/seafarer-mortgages">seafarer mortgages</a> page may also
+        be relevant.
+      </p>
+    </div>
+  </section>
+
+  <section class="hub-section">
+    <div class="hub-section-inner">
+      <h2 id="currency-picture">The currency picture</h2>
+      <p>
+        You earn in Norwegian krone. UK lenders convert NOK income to
+        sterling for affordability. Most apply a haircut of around 20
+        percent, which means a 1,200,000 NOK package is treated as roughly
+        960,000 NOK before the rate kicks in.
+      </p>
+      <p>
+        A smaller group of specialist lenders, accessed through brokers with
+        the right relationships, do not apply a haircut at all. This is the
+        most important variable on what you can borrow from Norway.
+      </p>
+      <p>
+        The NOK has been volatile against sterling in recent years, partly
+        tracking oil prices. Most expat lenders are comfortable with NOK,
+        but not all of them are, and the lenders that work with Norwegian
+        income regularly tend to give better outcomes than those that rarely
+        see it.
+      </p>
+    </div>
+  </section>
+
+  <PullQuote>
+    The lenders that work with Norwegian income regularly tend to give
+    better outcomes than those that rarely see it.
+  </PullQuote>
+
+  <section class="hub-section">
+    <div class="hub-section-inner">
+      <h2 id="common-situations">Common situations</h2>
+      <p>British expats applying from Norway usually fall into one of these:</p>
+      <ul>
+        <li>
+          <strong>Offshore oil and gas</strong> in Stavanger and the
+          surrounding region, including operators, drilling contractors,
+          and service companies. Often rotational work patterns and
+          project-based contracts.
+        </li>
+        <li>
+          <strong>Subsea engineering and ROV</strong> roles with global
+          service companies. Specialist work, well-paid, often paid through
+          international structures.
+        </li>
+        <li>
+          <strong>Offshore wind</strong> at Equinor, Aker, and the growing
+          Norwegian wind cluster.
+        </li>
+        <li>
+          <strong>Maritime and shipping</strong> roles at the Oslo and
+          Bergen-based shipping groups.
+        </li>
+        <li>
+          <strong>Tech and finance</strong> in Oslo, smaller in scale than
+          the offshore cluster but growing.
+        </li>
+        <li>
+          <strong>Seafood, aquaculture, and food processing</strong> at the
+          salmon and fishing industry employers along the western coast.
+        </li>
+      </ul>
+    </div>
+  </section>
+
+  <section class="hub-section">
+    <div class="hub-section-inner">
+      <h2 id="lender-requirements">What lenders want to see</h2>
+      <p>The standard pack from a Norway-based applicant:</p>
+      <ul>
+        <li>Three months of Norwegian bank statements showing salary credits.</li>
+        <li>Three months of payslips (lønnsslipp).</li>
+        <li>Two most recent annual tax statements (skatteoppgjør) and self-assessments (skattemelding).</li>
+        <li>Employment contract or letter from your employer.</li>
+        <li>Evidence of Norwegian residency (D number or fødselsnummer, plus permit if applicable).</li>
+        <li>Proof of UK address history and any UK property already owned.</li>
+        <li>Two or three years of contract history if on rotational or project-based work.</li>
+      </ul>
+      <p>
+        Norway has excellent documentation. Skatteoppgjør tax statements are
+        clear and detailed, and the public register-based banking makes
+        verification straightforward.
+      </p>
+    </div>
+  </section>
+
+  <section class="hub-section">
+    <div class="hub-section-inner">
+      <h2 id="how-lenders-view">How lenders view Norway-based applicants</h2>
+      <p>
+        UK expat lenders that are active in Norway are generally comfortable
+        with the country. The economy is stable, taxes are well-recorded,
+        and Norwegian banks meet UK lender expectations.
+      </p>
+      <p>
+        The complexity is usually around contract type and tax treatment.
+        Rotational offshore workers on UK contracts paid into UK accounts
+        are treated differently to UK expats on Norwegian contracts paid in
+        NOK. The two profiles look superficially similar but lenders treat
+        them very differently. Documentation must reflect which one applies.
+      </p>
+      <p>
+        The Seafarers Earnings Deduction (SED) does not apply to most
+        Norway-based applicants because they are tax resident in Norway,
+        but for those with mixed working patterns the question can come up.
+        A specialist broker will untangle this on a first call.
+      </p>
+    </div>
+  </section>
+
+  <PullQuote>
+    Skatteoppgjør tax statements are clear and detailed, and the public
+    register-based banking makes verification straightforward.
+  </PullQuote>
+
+  <section class="hub-section">
+    <div class="hub-section-inner">
+      <h2 id="pitfalls">Common pitfalls</h2>
+      <p>A few things trip up Norway-based applications more than they should:</p>
+      <ul>
+        <li>
+          <strong>Confusing Norwegian and UK contracts.</strong> A British
+          engineer working offshore Norway might be paid through a UK PAYE
+          arrangement, a Norwegian employer, or a third-country structure.
+          Each is treated differently.
+        </li>
+        <li>
+          <strong>NOK volatility used as an excuse.</strong> Some lenders
+          apply punitive haircuts on NOK that go beyond the standard 20
+          percent. The right lender does not.
+        </li>
+        <li>
+          <strong>Rotational pay misread.</strong> Two-on-two-off contracts
+          often pay only during working weeks. Annualised income is not
+          always obvious from a single payslip.
+        </li>
+        <li>
+          <strong>Self-employment via UK or offshore companies.</strong>
+          Many offshore specialists are technically self-employed through a
+          personal services company. The documentation pack is different to
+          a salaried application.
+        </li>
+        <li>
+          <strong>Tax residency confusion.</strong> People sometimes believe
+          they are UK tax resident when they are Norwegian tax resident, or
+          the other way around. Lenders read the tax records.
+        </li>
+      </ul>
+    </div>
+  </section>
+
+  <MidPageCta />
+
+  <section class="hub-section">
+    <div class="hub-section-inner">
+      <h2 id="faqs">Common questions</h2>
+      <div class="faq">
+        {faqs.map((f) => (
+          <>
+            <h3>{f.q}</h3>
+            <p>{f.a}</p>
+          </>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <script
+    type="application/ld+json"
+    is:inline
+    set:html={JSON.stringify(faqSchema)}
+  />
+</HubLayout>

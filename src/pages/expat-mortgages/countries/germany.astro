@@ -1,0 +1,298 @@
+---
+import HubLayout from '../../../layouts/HubLayout.astro';
+import PullQuote from '../../../components/PullQuote.astro';
+import MidPageCta from '../../../components/MidPageCta.astro';
+
+const title = 'UK Mortgages for British Expats in Germany';
+const description =
+  'A clear guide to UK mortgages when you live and work in Germany. What you can borrow, how lenders treat euro income, what deposit you will need.';
+const h1 = 'UK Mortgages for British Expats in Germany';
+const subheadline =
+  'A clear guide to UK mortgages when you live and work in Germany. What you can borrow, how lenders treat euro income, what deposit you will need, and how a specialist broker finds the right lender for your situation.';
+
+const relatedPages = [
+  {
+    eyebrow: 'Hub',
+    title: 'UK Mortgages for Expats',
+    description:
+      'British nationals living abroad. Country-by-country lender appetite, currency haircuts, and timelines.',
+    href: '/expat-mortgages',
+  },
+  {
+    eyebrow: 'Hub',
+    title: 'UK Mortgages for Non-UK Residents',
+    description:
+      'Foreign nationals or British expats wanting a UK mortgage on UK property. The lender pool, deposits, and rates explained.',
+    href: '/non-uk-resident-mortgages',
+  },
+  {
+    eyebrow: 'Hub',
+    title: 'UK Mortgages with Foreign Income',
+    description:
+      'How lenders treat non-sterling income. The 20% standard haircut and direct access to no-haircut lenders.',
+    href: '/uk-mortgage-foreign-income',
+  },
+  {
+    eyebrow: 'Hub',
+    title: 'Expat Buy-to-Let Mortgages',
+    description:
+      'Building a UK rental portfolio from abroad. ICR, lender appetite, and limited company structures.',
+    href: '/expat-mortgages/buy-to-let',
+  },
+];
+
+const faqs = [
+  {
+    q: "Can I borrow as much from Germany as I could in the UK?",
+    a: "Often less, because of the haircut. With a no-haircut lender, sometimes the same.",
+  },
+  {
+    q: "Do I need UK income to apply?",
+    a: "No. German income alone is accepted.",
+  },
+  {
+    q: "Will my bonus count?",
+    a: "Often, but treatment varies between lenders.",
+  },
+  {
+    q: "How big a deposit do I need?",
+    a: "25 percent is the working assumption for residential, 25 to 30 percent for buy-to-let.",
+  },
+  {
+    q: "Does my visa or residency status matter?",
+    a: "Most expat lenders accept any valid German residency. Brexit-era permits are well understood.",
+  },
+  {
+    q: "Can I use a German bank statement?",
+    a: "Yes. Accepted directly.",
+  },
+  {
+    q: "Is RSU or stock income counted?",
+    a: "Sometimes. Specialist lenders include vested equity.",
+  },
+  {
+    q: "What if I am self-employed in Germany?",
+    a: "Two years of tax statements (Steuerbescheid) is the standard requirement. The figure used is net taxable income.",
+  },
+  {
+    q: "Can I remortgage from Germany?",
+    a: "Yes. Common as a fix end approaches.",
+  },
+  {
+    q: "How long does it take?",
+    a: "Six to ten weeks from application to offer.",
+  },
+  {
+    q: "Do I need to come back to the UK to sign?",
+    a: "No. German notary documents are accepted, as is notarisation through the British Embassy.",
+  },
+];
+
+const faqSchema = {
+  '@context': 'https://schema.org',
+  '@type': 'FAQPage',
+  mainEntity: faqs.map((f) => ({
+    '@type': 'Question',
+    name: f.q,
+    acceptedAnswer: { '@type': 'Answer', text: f.a },
+  })),
+};
+---
+
+<HubLayout
+  title={title}
+  description={description}
+  h1={h1}
+  subheadline={subheadline}
+  eyebrow="Hub · Germany expat mortgages"
+  relatedPages={relatedPages}
+>
+  <section class="hub-section">
+    <div class="hub-section-inner">
+      <h2 id="who-this-is-for">Who this page is for</h2>
+      <p>
+        If you are a British national living in Germany and you want a
+        mortgage on UK property, this page is for you.
+      </p>
+      <p>
+        That includes buying a UK home while you are still based in
+        Frankfurt, Berlin, Munich, Hamburg, or elsewhere, building a UK
+        buy-to-let portfolio remotely, remortgaging an existing UK property
+        as your fix ends, and planning a return to the UK in the next year
+        or two.
+      </p>
+      <p>
+        It also covers joint applications where one of you is in Germany and
+        the other is in the UK, and applicants who moved to Germany after
+        Brexit on long-term residency permits.
+      </p>
+    </div>
+  </section>
+
+  <section class="hub-section">
+    <div class="hub-section-inner">
+      <h2 id="currency-picture">The currency picture</h2>
+      <p>
+        You earn in euros. UK lenders convert euro income to sterling for
+        affordability. Most apply a haircut of around 20 percent, which
+        means a 100,000 EUR package is treated as roughly 80,000 EUR before
+        the rate kicks in.
+      </p>
+      <p>
+        A smaller group of specialist lenders, accessed through brokers with
+        the right relationships, do not apply a haircut at all. This is the
+        most important variable on what you can borrow from Germany.
+      </p>
+      <p>
+        The euro moves against sterling and lenders price the haircut to
+        reflect that volatility. The euro is well understood by all UK
+        expat lenders.
+      </p>
+    </div>
+  </section>
+
+  <PullQuote>
+    Germany has some of the cleanest employment documentation in the world.
+  </PullQuote>
+
+  <section class="hub-section">
+    <div class="hub-section-inner">
+      <h2 id="common-situations">Common situations</h2>
+      <p>British expats applying from Germany usually fall into one of these:</p>
+      <ul>
+        <li>
+          <strong>Finance professionals in Frankfurt</strong> at the European
+          headquarters of US and international banks, increasingly relevant
+          since Brexit. Base plus bonus structures.
+        </li>
+        <li>
+          <strong>Tech and product roles in Berlin and Munich</strong> at the
+          European offices of Google, Meta, Amazon, and the German tech
+          ecosystem. Equity components common.
+        </li>
+        <li>
+          <strong>Auto and engineering</strong> at BMW, Mercedes, Volkswagen,
+          Bosch, and Siemens. Stable income, exceptional documentation.
+        </li>
+        <li>
+          <strong>Pharma</strong> at Bayer, Boehringer, and the Munich and
+          Heidelberg life sciences cluster.
+        </li>
+        <li>
+          <strong>Consulting and professional services</strong> at
+          international firms with German offices.
+        </li>
+        <li>
+          <strong>Academic and research</strong> at universities and Max
+          Planck institutes. Often paid in modest amounts but with strong
+          job security.
+        </li>
+      </ul>
+    </div>
+  </section>
+
+  <section class="hub-section">
+    <div class="hub-section-inner">
+      <h2 id="lender-requirements">What lenders want to see</h2>
+      <p>The standard pack from a Germany-based applicant:</p>
+      <ul>
+        <li>Three months of German bank statements showing salary credits.</li>
+        <li>Three months of payslips (Gehaltsabrechnung).</li>
+        <li>The most recent two annual income tax statements (Lohnsteuerbescheinigung or Steuerbescheid).</li>
+        <li>Employment contract or letter from your employer.</li>
+        <li>Evidence of German residency (Anmeldung registration and any required residence permit).</li>
+        <li>Proof of UK address history and any UK property already owned.</li>
+        <li>Two years of audited accounts if you are self-employed or run a business.</li>
+      </ul>
+      <p>
+        Germany has some of the cleanest employment documentation in the
+        world. Pay slips and tax statements are detailed and consistent,
+        which lenders appreciate.
+      </p>
+    </div>
+  </section>
+
+  <section class="hub-section">
+    <div class="hub-section-inner">
+      <h2 id="how-lenders-view">How lenders view Germany-based applicants</h2>
+      <p>
+        Germany is well regarded by UK expat lenders. The economy is
+        stable, the currency is mainstream, employment documentation is
+        exceptional, and tax records are reliable. Most expat lenders are
+        comfortable with euro income and German residency.
+      </p>
+      <p>
+        The complexities tend to be around bonus and equity rather than
+        country risk. Senior bankers in Frankfurt and tech employees in
+        Berlin often have variable comp that lenders treat inconsistently.
+        The right lender includes vested RSUs and recent bonuses, the wrong
+        one strips them out.
+      </p>
+      <p>
+        Self-employed applicants in Germany are well documented through the
+        tax system, but the figure used for affordability is the net taxable
+        income, after legitimate business deductions. People who optimise
+        heavily for tax often look poorer on paper than they are in
+        practice.
+      </p>
+    </div>
+  </section>
+
+  <PullQuote>
+    The right lender includes vested RSUs and recent bonuses, the wrong one
+    strips them out.
+  </PullQuote>
+
+  <section class="hub-section">
+    <div class="hub-section-inner">
+      <h2 id="pitfalls">Common pitfalls</h2>
+      <p>A few things trip up Germany-based applications more than they should:</p>
+      <ul>
+        <li>
+          <strong>Tax optimisation reduces apparent income.</strong> German
+          tax rates are high, so many expats deduct heavily. The lender uses
+          the post-deduction figure.
+        </li>
+        <li>
+          <strong>Bonus and equity inconsistently treated.</strong> Same
+          applicant, different lenders, very different outcomes.
+        </li>
+        <li>
+          <strong>Brexit-era residency status.</strong> British nationals
+          who arrived after 2021 have specific permit types. Documentation
+          needs to be clear.
+        </li>
+        <li>
+          <strong>Anmeldung not registered.</strong> German residency
+          depends on registering your address. Lenders may ask for proof.
+        </li>
+        <li>
+          <strong>AML on funds moving between euro and sterling.</strong>
+          Multiple currency conversions add documentation requirements.
+        </li>
+      </ul>
+    </div>
+  </section>
+
+  <MidPageCta />
+
+  <section class="hub-section">
+    <div class="hub-section-inner">
+      <h2 id="faqs">Common questions</h2>
+      <div class="faq">
+        {faqs.map((f) => (
+          <>
+            <h3>{f.q}</h3>
+            <p>{f.a}</p>
+          </>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <script
+    type="application/ld+json"
+    is:inline
+    set:html={JSON.stringify(faqSchema)}
+  />
+</HubLayout>

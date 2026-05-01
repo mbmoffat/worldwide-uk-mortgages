@@ -1,0 +1,300 @@
+---
+import HubLayout from '../../../layouts/HubLayout.astro';
+import PullQuote from '../../../components/PullQuote.astro';
+import MidPageCta from '../../../components/MidPageCta.astro';
+
+const title = 'UK Mortgages for British Expats in Hong Kong';
+const description =
+  'A clear guide to UK mortgages when you live and work in Hong Kong. What you can borrow, how lenders treat Hong Kong dollar income, what deposit you need.';
+const h1 = 'UK Mortgages for British Expats in Hong Kong';
+const subheadline =
+  'A clear guide to UK mortgages when you live and work in Hong Kong. What you can borrow, how lenders treat Hong Kong dollar income, what deposit you will need, and how a specialist broker finds the right lender for your situation.';
+
+const relatedPages = [
+  {
+    eyebrow: 'Hub',
+    title: 'UK Mortgages for Expats',
+    description:
+      'British nationals living abroad. Country-by-country lender appetite, currency haircuts, and timelines.',
+    href: '/expat-mortgages',
+  },
+  {
+    eyebrow: 'Hub',
+    title: 'UK Mortgages for Non-UK Residents',
+    description:
+      'Foreign nationals or British expats wanting a UK mortgage on UK property. The lender pool, deposits, and rates explained.',
+    href: '/non-uk-resident-mortgages',
+  },
+  {
+    eyebrow: 'Hub',
+    title: 'UK Mortgages with Foreign Income',
+    description:
+      'How lenders treat non-sterling income. The 20% standard haircut and direct access to no-haircut lenders.',
+    href: '/uk-mortgage-foreign-income',
+  },
+  {
+    eyebrow: 'Hub',
+    title: 'Expat Buy-to-Let Mortgages',
+    description:
+      'Building a UK rental portfolio from abroad. ICR, lender appetite, and limited company structures.',
+    href: '/expat-mortgages/buy-to-let',
+  },
+];
+
+const faqs = [
+  {
+    q: "Can I borrow as much from Hong Kong as I could in the UK?",
+    a: "Often less, because of the haircut. With a no-haircut lender and good bonus treatment, sometimes more.",
+  },
+  {
+    q: "Do I need UK income to apply?",
+    a: "No. Hong Kong income alone is fine.",
+  },
+  {
+    q: "Will my bonus count?",
+    a: "Often, but treatment varies. A broker will tell you which lenders take the most.",
+  },
+  {
+    q: "How big a deposit do I need?",
+    a: "25 percent is the working assumption for residential, 25 to 30 percent for buy-to-let.",
+  },
+  {
+    q: "Can I use a Hong Kong bank statement?",
+    a: "Yes. Hong Kong bank statements are accepted directly.",
+  },
+  {
+    q: "Is deferred stock counted as income?",
+    a: "Sometimes. Specialist lenders include it, mainstream lenders often do not.",
+  },
+  {
+    q: "Can I apply on a BNO visa before I move?",
+    a: "Yes. Lenders increasingly understand BNO and many will lend in advance of the move.",
+  },
+  {
+    q: "Can I remortgage from Hong Kong?",
+    a: "Yes. Very common ahead of a return to the UK.",
+  },
+  {
+    q: "How long does it take?",
+    a: "Six to ten weeks from application to offer.",
+  },
+  {
+    q: "Do I need to come back to the UK to sign?",
+    a: "No. Notarised documents through a Hong Kong notary public or the British Consulate are accepted.",
+  },
+];
+
+const faqSchema = {
+  '@context': 'https://schema.org',
+  '@type': 'FAQPage',
+  mainEntity: faqs.map((f) => ({
+    '@type': 'Question',
+    name: f.q,
+    acceptedAnswer: { '@type': 'Answer', text: f.a },
+  })),
+};
+---
+
+<HubLayout
+  title={title}
+  description={description}
+  h1={h1}
+  subheadline={subheadline}
+  eyebrow="Hub · Hong Kong expat mortgages"
+  relatedPages={relatedPages}
+>
+  <section class="hub-section">
+    <div class="hub-section-inner">
+      <h2 id="who-this-is-for">Who this page is for</h2>
+      <p>
+        If you are a British national living in Hong Kong and you want a
+        mortgage on UK property, this page is for you.
+      </p>
+      <p>
+        That includes buying a UK home while you are still based in Hong
+        Kong, building a UK buy-to-let portfolio remotely, remortgaging an
+        existing UK property as your fix ends, or planning a return to the
+        UK in the next year or two. The number of British professionals
+        returning from Hong Kong has risen sharply in recent years, and
+        remortgaging or buying ahead of that move is one of the most common
+        reasons people contact a broker.
+      </p>
+      <p>
+        It also covers BNO visa holders preparing for a UK move, and joint
+        applications where one of you is in Hong Kong and the other is
+        already in the UK.
+      </p>
+    </div>
+  </section>
+
+  <section class="hub-section">
+    <div class="hub-section-inner">
+      <h2 id="currency-picture">The currency picture</h2>
+      <p>
+        You earn in Hong Kong dollars. UK lenders convert that income to
+        sterling to assess affordability. Most apply a haircut of around 20
+        percent, which means a 1,500,000 HKD package is treated as roughly
+        1,200,000 HKD before the rate is set.
+      </p>
+      <p>
+        A smaller group of specialist lenders, accessed through brokers with
+        the right relationships, do not apply a haircut at all. This is the
+        most important variable on what you can borrow from Hong Kong.
+      </p>
+      <p>
+        The Hong Kong dollar is pegged to the US dollar, so currency movement
+        against sterling tracks GBP-USD. Lenders are familiar and comfortable
+        with HKD income.
+      </p>
+    </div>
+  </section>
+
+  <PullQuote>
+    The same applicant can produce very different borrowing figures
+    depending on which lender sees the case.
+  </PullQuote>
+
+  <section class="hub-section">
+    <div class="hub-section-inner">
+      <h2 id="common-situations">Common situations</h2>
+      <p>British expats applying from Hong Kong usually fall into one of these:</p>
+      <ul>
+        <li>
+          <strong>Banking and finance professionals</strong> at international
+          banks in Central and Admiralty. Heavy use of base plus bonus
+          structures, sometimes deferred. Bonus treatment varies by lender.
+        </li>
+        <li>
+          <strong>Asset management and hedge fund roles</strong> with carry,
+          performance fees, or partnership distributions. These are the most
+          complex profiles to package and the most rewarding to be right.
+        </li>
+        <li>
+          <strong>Legal and professional services</strong> at the
+          international firms. Solid documentation, lender-friendly.
+        </li>
+        <li>
+          <strong>Aviation crew</strong> at Cathay Pacific and other carriers.
+          Pay structure includes flight allowances treated differently to
+          base.
+        </li>
+        <li>
+          <strong>Trading and commodity firms.</strong> Bonus-heavy comp
+          where the variable element often exceeds base.
+        </li>
+        <li>
+          <strong>BNO visa holders or those planning to take up a visa.</strong>
+          UK lenders are increasingly familiar with this category and many
+          are comfortable lending in advance of a confirmed move.
+        </li>
+      </ul>
+    </div>
+  </section>
+
+  <section class="hub-section">
+    <div class="hub-section-inner">
+      <h2 id="lender-requirements">What lenders want to see</h2>
+      <p>The standard pack from a Hong Kong-based applicant:</p>
+      <ul>
+        <li>Three months of Hong Kong bank statements showing salary credits.</li>
+        <li>Three months of payslips.</li>
+        <li>Two most recent annual tax returns or salary tax demand notes from the IRD.</li>
+        <li>Employment contract or letter from your employer.</li>
+        <li>Evidence of Hong Kong residency (HKID and any visa documentation).</li>
+        <li>Proof of UK address history and any UK property already owned.</li>
+        <li>Two or three years of bonus history if relying on bonus income.</li>
+      </ul>
+      <p>
+        Hong Kong has clean documentation. Salary tax demand notes from the
+        Inland Revenue Department are a single-page summary that lenders
+        find easy to read and verify.
+      </p>
+    </div>
+  </section>
+
+  <section class="hub-section">
+    <div class="hub-section-inner">
+      <h2 id="how-lenders-view">How lenders view Hong Kong-based applicants</h2>
+      <p>
+        Most expat lenders are comfortable with Hong Kong. The banking
+        system is transparent, employment documentation is straightforward,
+        and English-language records make the file easy to underwrite.
+      </p>
+      <p>
+        Where it is more complex is when bonus or carry forms a large part
+        of total comp. Some lenders take 100 percent of recent bonus, others
+        take 50 percent of an average over two or three years, and a few
+        ignore variable income entirely. The same applicant can produce very
+        different borrowing figures depending on which lender sees the case.
+      </p>
+      <p>
+        Hong Kong tax is low, so the gross figure on a salary tax demand is
+        close to take-home. This generally works in the applicant's favour
+        because lenders can use the gross figure with confidence.
+      </p>
+    </div>
+  </section>
+
+  <PullQuote>
+    Hong Kong has clean documentation. Salary tax demand notes are a
+    single-page summary that lenders find easy to read.
+  </PullQuote>
+
+  <section class="hub-section">
+    <div class="hub-section-inner">
+      <h2 id="pitfalls">Common pitfalls</h2>
+      <p>A few things trip up Hong Kong-based applications more than they should:</p>
+      <ul>
+        <li>
+          <strong>Bonus heavily discounted by the wrong lender.</strong> A 50
+          percent average treatment on a senior banker's bonus can shave
+          hundreds of thousands off borrowing capacity. The right lender
+          treats it differently.
+        </li>
+        <li>
+          <strong>Deferred compensation ignored.</strong> Stock units and
+          deferred cash awards are often left out of the income figure
+          entirely on standard cases. Specialist lenders include them.
+        </li>
+        <li>
+          <strong>Source of deposit on offshore funds.</strong> Money sitting
+          in a Singapore, BVI, or Cayman account needs a clear paper trail
+          back to documented earnings.
+        </li>
+        <li>
+          <strong>BNO timing.</strong> People sometimes wait until they have
+          arrived in the UK to apply, which is the worst window. Applying as
+          a non-resident before the move is usually cleaner than applying
+          mid-move.
+        </li>
+        <li>
+          <strong>Buy-to-let stress tests.</strong> ICR thresholds applied to
+          expat BTL are higher than UK-resident applicants face. This caps
+          the loan size before lender choice even enters the picture.
+        </li>
+      </ul>
+    </div>
+  </section>
+
+  <MidPageCta />
+
+  <section class="hub-section">
+    <div class="hub-section-inner">
+      <h2 id="faqs">Common questions</h2>
+      <div class="faq">
+        {faqs.map((f) => (
+          <>
+            <h3>{f.q}</h3>
+            <p>{f.a}</p>
+          </>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <script
+    type="application/ld+json"
+    is:inline
+    set:html={JSON.stringify(faqSchema)}
+  />
+</HubLayout>

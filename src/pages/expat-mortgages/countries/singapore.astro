@@ -1,0 +1,297 @@
+---
+import HubLayout from '../../../layouts/HubLayout.astro';
+import PullQuote from '../../../components/PullQuote.astro';
+import MidPageCta from '../../../components/MidPageCta.astro';
+
+const title = 'UK Mortgages for British Expats in Singapore';
+const description =
+  'A clear guide to UK mortgages when you live and work in Singapore. What you can borrow, how lenders treat Singapore dollar income, what deposit you need.';
+const h1 = 'UK Mortgages for British Expats in Singapore';
+const subheadline =
+  'A clear guide to UK mortgages when you live and work in Singapore. What you can borrow, how lenders treat Singapore dollar income, what deposit you will need, and how a specialist broker finds the right lender for your situation.';
+
+const relatedPages = [
+  {
+    eyebrow: 'Hub',
+    title: 'UK Mortgages for Expats',
+    description:
+      'British nationals living abroad. Country-by-country lender appetite, currency haircuts, and timelines.',
+    href: '/expat-mortgages',
+  },
+  {
+    eyebrow: 'Hub',
+    title: 'UK Mortgages for Non-UK Residents',
+    description:
+      'Foreign nationals or British expats wanting a UK mortgage on UK property. The lender pool, deposits, and rates explained.',
+    href: '/non-uk-resident-mortgages',
+  },
+  {
+    eyebrow: 'Hub',
+    title: 'UK Mortgages with Foreign Income',
+    description:
+      'How lenders treat non-sterling income. The 20% standard haircut and direct access to no-haircut lenders.',
+    href: '/uk-mortgage-foreign-income',
+  },
+  {
+    eyebrow: 'Hub',
+    title: 'Expat Buy-to-Let Mortgages',
+    description:
+      'Building a UK rental portfolio from abroad. ICR, lender appetite, and limited company structures.',
+    href: '/expat-mortgages/buy-to-let',
+  },
+];
+
+const faqs = [
+  {
+    q: "Can I borrow as much from Singapore as I could in the UK?",
+    a: "Often less, because of the haircut. With a no-haircut lender and clean bonus treatment, sometimes the same.",
+  },
+  {
+    q: "Do I need UK income to apply?",
+    a: "No. Singapore income alone is accepted.",
+  },
+  {
+    q: "Will my bonus count?",
+    a: "Often, but how much varies sharply between lenders.",
+  },
+  {
+    q: "How big a deposit do I need?",
+    a: "25 percent is the working assumption for residential, 25 to 30 percent for buy-to-let.",
+  },
+  {
+    q: "Does my visa status matter?",
+    a: "Some lenders prefer PR. Most expat lenders accept Employment Pass and S Pass without issue.",
+  },
+  {
+    q: "Can I use a Singapore bank statement?",
+    a: "Yes. Accepted directly.",
+  },
+  {
+    q: "Is RSU income counted?",
+    a: "Sometimes. Specialist lenders include vested equity, mainstream lenders often do not.",
+  },
+  {
+    q: "Can I remortgage from Singapore?",
+    a: "Yes. Very common, especially as a UK fix end approaches.",
+  },
+  {
+    q: "How long does it take?",
+    a: "Six to ten weeks from application to offer.",
+  },
+  {
+    q: "Do I need to come back to the UK to sign?",
+    a: "No. Singapore notary public documents are accepted, as are British High Commission notarisations.",
+  },
+];
+
+const faqSchema = {
+  '@context': 'https://schema.org',
+  '@type': 'FAQPage',
+  mainEntity: faqs.map((f) => ({
+    '@type': 'Question',
+    name: f.q,
+    acceptedAnswer: { '@type': 'Answer', text: f.a },
+  })),
+};
+---
+
+<HubLayout
+  title={title}
+  description={description}
+  h1={h1}
+  subheadline={subheadline}
+  eyebrow="Hub · Singapore expat mortgages"
+  relatedPages={relatedPages}
+>
+  <section class="hub-section">
+    <div class="hub-section-inner">
+      <h2 id="who-this-is-for">Who this page is for</h2>
+      <p>
+        If you are a British national living in Singapore and you want a
+        mortgage on UK property, this page is for you.
+      </p>
+      <p>
+        That includes buying a UK home while you are still based here,
+        building a UK buy-to-let portfolio remotely, remortgaging an existing
+        UK property as your fix ends, and planning a return to the UK in the
+        next year or two. Many British professionals in Singapore retain UK
+        property throughout their assignment, so remortgaging is one of the
+        most common reasons to contact a broker.
+      </p>
+      <p>
+        It also covers joint applications where one of you is in Singapore
+        and the other is in the UK, and applicants on Employment Pass, S
+        Pass, EntrePass, or Permanent Resident status.
+      </p>
+    </div>
+  </section>
+
+  <section class="hub-section">
+    <div class="hub-section-inner">
+      <h2 id="currency-picture">The currency picture</h2>
+      <p>
+        You earn in Singapore dollars. UK lenders convert that income to
+        sterling for affordability. Most apply a haircut of around 20
+        percent, which means a 200,000 SGD package is treated as roughly
+        160,000 SGD before the rate kicks in.
+      </p>
+      <p>
+        A smaller group of specialist lenders, accessed through brokers with
+        the right relationships, do not apply a haircut at all. This is the
+        most important variable on what you can borrow from Singapore.
+      </p>
+      <p>
+        The Singapore dollar is managed against a basket of currencies and
+        is generally one of the more stable Asian currencies against
+        sterling. Lenders treat SGD income with confidence.
+      </p>
+    </div>
+  </section>
+
+  <PullQuote>
+    Singapore is one of the best-documented jurisdictions for expat lending.
+  </PullQuote>
+
+  <section class="hub-section">
+    <div class="hub-section-inner">
+      <h2 id="common-situations">Common situations</h2>
+      <p>British expats applying from Singapore usually fall into one of these:</p>
+      <ul>
+        <li>
+          <strong>Finance professionals</strong> at international banks in
+          Raffles Place and Marina Bay. Base plus bonus is standard, often
+          with deferred elements. Bonus treatment is the biggest variable in
+          borrowing capacity.
+        </li>
+        <li>
+          <strong>Tech and product roles</strong> at the regional
+          headquarters of US tech companies. RSU and equity components are
+          common and treated differently across lenders.
+        </li>
+        <li>
+          <strong>Asset management and hedge funds</strong> with performance
+          fees, partnership distributions, or carry. The most complex
+          profiles to package well, and the most rewarding to package right.
+        </li>
+        <li>
+          <strong>Legal and professional services</strong> at the
+          international firms. Stable, well-documented income.
+        </li>
+        <li>
+          <strong>Maritime, oil, and gas</strong> employees at the Asian
+          regional hubs. Often paid through offshore structures that need
+          careful handling.
+        </li>
+        <li>
+          <strong>British academics and healthcare professionals</strong> at
+          NUS, NTU, and SGH. Long-term contracts, lender-friendly profile.
+        </li>
+      </ul>
+    </div>
+  </section>
+
+  <section class="hub-section">
+    <div class="hub-section-inner">
+      <h2 id="lender-requirements">What lenders want to see</h2>
+      <p>The standard pack from a Singapore-based applicant:</p>
+      <ul>
+        <li>Three months of Singapore bank statements showing salary credits.</li>
+        <li>Three months of payslips.</li>
+        <li>Two most recent IRAS Notice of Assessment forms.</li>
+        <li>Employment contract or letter from your employer.</li>
+        <li>Evidence of Singapore status (NRIC, Employment Pass, S Pass, or PR documentation).</li>
+        <li>Proof of UK address history and any UK property already owned.</li>
+        <li>Two or three years of bonus history if bonus forms a meaningful part of total comp.</li>
+      </ul>
+      <p>
+        The IRAS Notice of Assessment is a clean single-page tax document
+        that lenders read easily. Singapore is one of the best-documented
+        jurisdictions for expat lending.
+      </p>
+    </div>
+  </section>
+
+  <section class="hub-section">
+    <div class="hub-section-inner">
+      <h2 id="how-lenders-view">How lenders view Singapore-based applicants</h2>
+      <p>
+        Singapore is well regarded by UK expat lenders. Transparent banking,
+        English-language documentation, low tax rates that translate gross
+        income cleanly to take-home, and a stable currency. These are the
+        conditions lenders want.
+      </p>
+      <p>
+        Bonus and equity treatment is where deals are won or lost. Some
+        lenders count 100 percent of recent bonus, others take a multi-year
+        average, others discount bonus to 50 percent. For senior bankers and
+        asset managers, this can mean a 30 to 40 percent swing in maximum
+        borrowing.
+      </p>
+      <p>
+        Permanent Residents are sometimes treated more favourably than
+        Employment Pass holders by certain lenders, on the basis that PR
+        status implies long-term residency. Most expat lenders do not
+        distinguish.
+      </p>
+    </div>
+  </section>
+
+  <PullQuote>
+    Bonus and equity treatment is where deals are won or lost.
+  </PullQuote>
+
+  <section class="hub-section">
+    <div class="hub-section-inner">
+      <h2 id="pitfalls">Common pitfalls</h2>
+      <p>A few things trip up Singapore-based applications more than they should:</p>
+      <ul>
+        <li>
+          <strong>Bonus discounted heavily.</strong> A senior banker's bonus
+          is often the largest single component of pay. The wrong lender
+          shaves enormous amounts off borrowing.
+        </li>
+        <li>
+          <strong>Deferred RSUs ignored.</strong> Vested but undelivered
+          equity is real money. Some lenders count it, most do not.
+        </li>
+        <li>
+          <strong>CPF treated inconsistently.</strong> Employer CPF
+          contributions are sometimes added back as part of total comp,
+          sometimes ignored. Worth knowing.
+        </li>
+        <li>
+          <strong>Source of deposit complexity.</strong> Funds held through
+          Singapore-incorporated companies, family offices, or offshore
+          structures need a clear paper trail back to taxed earnings.
+        </li>
+        <li>
+          <strong>Stress tests on BTL.</strong> ICR thresholds for expat BTL
+          are higher than UK-resident applicants face, so the loan size is
+          constrained before lender choice enters the picture.
+        </li>
+      </ul>
+    </div>
+  </section>
+
+  <MidPageCta />
+
+  <section class="hub-section">
+    <div class="hub-section-inner">
+      <h2 id="faqs">Common questions</h2>
+      <div class="faq">
+        {faqs.map((f) => (
+          <>
+            <h3>{f.q}</h3>
+            <p>{f.a}</p>
+          </>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <script
+    type="application/ld+json"
+    is:inline
+    set:html={JSON.stringify(faqSchema)}
+  />
+</HubLayout>

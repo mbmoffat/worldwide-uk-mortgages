@@ -1,0 +1,300 @@
+---
+import HubLayout from '../../../layouts/HubLayout.astro';
+import PullQuote from '../../../components/PullQuote.astro';
+import MidPageCta from '../../../components/MidPageCta.astro';
+
+const title = 'UK Mortgages for British Expats in Switzerland';
+const description =
+  'A clear guide to UK mortgages when you live and work in Switzerland. What you can borrow, how lenders treat Swiss franc income, what deposit you need.';
+const h1 = 'UK Mortgages for British Expats in Switzerland';
+const subheadline =
+  'A clear guide to UK mortgages when you live and work in Switzerland. What you can borrow, how lenders treat Swiss franc income, what deposit you will need, and how a specialist broker finds the right lender for your situation.';
+
+const relatedPages = [
+  {
+    eyebrow: 'Hub',
+    title: 'UK Mortgages for Expats',
+    description:
+      'British nationals living abroad. Country-by-country lender appetite, currency haircuts, and timelines.',
+    href: '/expat-mortgages',
+  },
+  {
+    eyebrow: 'Hub',
+    title: 'UK Mortgages for Non-UK Residents',
+    description:
+      'Foreign nationals or British expats wanting a UK mortgage on UK property. The lender pool, deposits, and rates explained.',
+    href: '/non-uk-resident-mortgages',
+  },
+  {
+    eyebrow: 'Hub',
+    title: 'UK Mortgages with Foreign Income',
+    description:
+      'How lenders treat non-sterling income. The 20% standard haircut and direct access to no-haircut lenders.',
+    href: '/uk-mortgage-foreign-income',
+  },
+  {
+    eyebrow: 'Hub',
+    title: 'Expat Buy-to-Let Mortgages',
+    description:
+      'Building a UK rental portfolio from abroad. ICR, lender appetite, and limited company structures.',
+    href: '/expat-mortgages/buy-to-let',
+  },
+];
+
+const faqs = [
+  {
+    q: "Can I borrow as much from Switzerland as I could in the UK?",
+    a: "Often less, because of the haircut. With a no-haircut lender and clean bonus treatment, sometimes more.",
+  },
+  {
+    q: "Do I need UK income to apply?",
+    a: "No. Swiss income alone is accepted.",
+  },
+  {
+    q: "Will my bonus count?",
+    a: "Often, but treatment varies. Worth knowing in advance.",
+  },
+  {
+    q: "How big a deposit do I need?",
+    a: "25 percent is the working assumption for residential, 25 to 30 percent for buy-to-let.",
+  },
+  {
+    q: "Does my Swiss permit type matter?",
+    a: "B, C, and L permits are all accepted. C is sometimes preferred but rarely a deciding factor.",
+  },
+  {
+    q: "Can I use a Swiss bank statement?",
+    a: "Yes. Accepted directly.",
+  },
+  {
+    q: "Is RSU income counted?",
+    a: "Sometimes. Specialist lenders include vested equity, mainstream lenders often do not.",
+  },
+  {
+    q: "What about UN or CERN income?",
+    a: "Yes, with the right lender. Some are unfamiliar with tax-exempt Swiss roles.",
+  },
+  {
+    q: "Can I remortgage from Switzerland?",
+    a: "Yes. Very common as a fix end approaches.",
+  },
+  {
+    q: "How long does it take?",
+    a: "Six to ten weeks from application to offer.",
+  },
+  {
+    q: "Do I need to come back to the UK to sign?",
+    a: "No. Swiss notary documents are accepted, as is notarisation through the British Embassy.",
+  },
+];
+
+const faqSchema = {
+  '@context': 'https://schema.org',
+  '@type': 'FAQPage',
+  mainEntity: faqs.map((f) => ({
+    '@type': 'Question',
+    name: f.q,
+    acceptedAnswer: { '@type': 'Answer', text: f.a },
+  })),
+};
+---
+
+<HubLayout
+  title={title}
+  description={description}
+  h1={h1}
+  subheadline={subheadline}
+  eyebrow="Hub · Switzerland expat mortgages"
+  relatedPages={relatedPages}
+>
+  <section class="hub-section">
+    <div class="hub-section-inner">
+      <h2 id="who-this-is-for">Who this page is for</h2>
+      <p>
+        If you are a British national living in Switzerland and you want a
+        mortgage on UK property, this page is for you.
+      </p>
+      <p>
+        That includes buying a UK home while you are still based in Geneva,
+        Zurich, Basel, Zug, or Lausanne, building a UK buy-to-let portfolio
+        remotely, remortgaging an existing UK property as your fix ends, and
+        planning a return to the UK in the next year or two.
+      </p>
+      <p>
+        It also covers cross-border workers based in Switzerland who commute
+        into France, and joint applications where one of you is in
+        Switzerland and the other is in the UK.
+      </p>
+    </div>
+  </section>
+
+  <section class="hub-section">
+    <div class="hub-section-inner">
+      <h2 id="currency-picture">The currency picture</h2>
+      <p>
+        You earn in Swiss francs. UK lenders convert franc income to
+        sterling for affordability. Most apply a haircut of around 20
+        percent, which means a 200,000 CHF package is treated as roughly
+        160,000 CHF before the rate is set.
+      </p>
+      <p>
+        A smaller group of specialist lenders, accessed through brokers with
+        the right relationships, do not apply a haircut at all. This is the
+        most important variable on what you can borrow from Switzerland.
+      </p>
+      <p>
+        The Swiss franc is one of the strongest major currencies and has
+        generally been favourable against sterling over the long term.
+        Lenders are very comfortable with CHF income, and the haircut feels
+        less punitive given the currency's stability.
+      </p>
+    </div>
+  </section>
+
+  <PullQuote>
+    Switzerland is one of the most lender-friendly jurisdictions for British
+    expat applications.
+  </PullQuote>
+
+  <section class="hub-section">
+    <div class="hub-section-inner">
+      <h2 id="common-situations">Common situations</h2>
+      <p>British expats applying from Switzerland usually fall into one of these:</p>
+      <ul>
+        <li>
+          <strong>Banking, asset management, and private banking</strong> in
+          Zurich and Geneva. Base plus bonus structures, sometimes with
+          deferred elements. Bonus treatment is the largest variable.
+        </li>
+        <li>
+          <strong>Pharma and life sciences</strong> at the Basel headquarters
+          of Roche, Novartis, and the smaller biotech ecosystem. Stable,
+          well-documented income.
+        </li>
+        <li>
+          <strong>Commodities trading</strong> in Geneva. Variable comp,
+          partnership distributions, and offshore structures common.
+        </li>
+        <li>
+          <strong>Tech and engineering</strong> at Google, Meta, IBM, and
+          ABB. Equity components common and treated differently across
+          lenders.
+        </li>
+        <li>
+          <strong>International organisations</strong> at the UN, WTO, WHO,
+          and CERN. Tax-exempt salaries can require careful packaging.
+        </li>
+        <li>
+          <strong>Hospitality and luxury retail</strong> management. Often
+          well-documented, lender-friendly profile.
+        </li>
+      </ul>
+    </div>
+  </section>
+
+  <section class="hub-section">
+    <div class="hub-section-inner">
+      <h2 id="lender-requirements">What lenders want to see</h2>
+      <p>The standard pack from a Switzerland-based applicant:</p>
+      <ul>
+        <li>Three months of Swiss bank statements showing salary credits.</li>
+        <li>Three months of payslips.</li>
+        <li>Two most recent annual tax statements (Steuererklärung or equivalent cantonal document).</li>
+        <li>Employment contract or letter from your employer.</li>
+        <li>Evidence of Swiss residency (B, C, or L permit, plus passport).</li>
+        <li>Proof of UK address history and any UK property already owned.</li>
+        <li>Two or three years of bonus history if relying on bonus income.</li>
+      </ul>
+      <p>
+        Switzerland's documentation is excellent. Tax statements are
+        detailed but cleanly structured, and Swiss bank statements are
+        accepted by all expat lenders.
+      </p>
+    </div>
+  </section>
+
+  <section class="hub-section">
+    <div class="hub-section-inner">
+      <h2 id="how-lenders-view">How lenders view Switzerland-based applicants</h2>
+      <p>
+        Switzerland is one of the most lender-friendly jurisdictions for
+        British expat applications. The currency is strong, the banking
+        system is transparent, employment documentation is exceptional, and
+        tax records are reliable.
+      </p>
+      <p>
+        The complexities tend to be at the higher end of the profile
+        spectrum. Bonus and equity treatment varies sharply between lenders.
+        Partnership distributions in commodities or law firms need careful
+        packaging. Tax-exempt income from UN agencies or CERN does not
+        appear on standard tax statements and requires lender education.
+      </p>
+      <p>
+        C permit holders are sometimes treated marginally more favourably
+        than B permit holders, on the basis that C status implies indefinite
+        residency. Most expat lenders do not distinguish in practice.
+      </p>
+    </div>
+  </section>
+
+  <PullQuote>
+    Bonus and equity treatment varies sharply between lenders.
+  </PullQuote>
+
+  <section class="hub-section">
+    <div class="hub-section-inner">
+      <h2 id="pitfalls">Common pitfalls</h2>
+      <p>A few things trip up Switzerland-based applications more than they should:</p>
+      <ul>
+        <li>
+          <strong>Bonus discounted to 50 percent.</strong> A senior banker's
+          bonus often exceeds base. The wrong lender shaves enormous capacity
+          off the application.
+        </li>
+        <li>
+          <strong>International organisation income misread.</strong> UN,
+          WHO, and CERN salaries are tax-exempt and do not appear on
+          standard Swiss tax returns. Some lenders find this confusing. The
+          right one does not.
+        </li>
+        <li>
+          <strong>Partnership distributions.</strong> Commodities traders
+          and law firm partners often have variable income paid through
+          complex structures. This needs a specialist lender.
+        </li>
+        <li>
+          <strong>Equity ignored.</strong> Vested RSUs at Google, Meta, and
+          IBM are real income but are sometimes excluded from affordability.
+        </li>
+        <li>
+          <strong>Cross-border workers.</strong> Living in Switzerland but
+          commuting to France, or the reverse, adds complexity. Most expat
+          lenders accept this profile, but documentation must reflect the
+          working arrangement clearly.
+        </li>
+      </ul>
+    </div>
+  </section>
+
+  <MidPageCta />
+
+  <section class="hub-section">
+    <div class="hub-section-inner">
+      <h2 id="faqs">Common questions</h2>
+      <div class="faq">
+        {faqs.map((f) => (
+          <>
+            <h3>{f.q}</h3>
+            <p>{f.a}</p>
+          </>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <script
+    type="application/ld+json"
+    is:inline
+    set:html={JSON.stringify(faqSchema)}
+  />
+</HubLayout>
