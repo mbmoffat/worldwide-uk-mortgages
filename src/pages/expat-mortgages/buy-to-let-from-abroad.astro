@@ -1,0 +1,421 @@
+---
+import HubLayout from '../../layouts/HubLayout.astro';
+import PullQuote from '../../components/PullQuote.astro';
+import MidPageCta from '../../components/MidPageCta.astro';
+
+const title = 'Buy-to-Let from Abroad: UK Investment Mortgages for British Expats';
+const description =
+  'How British expats build UK buy-to-let portfolios from overseas. What lenders accept, deposit and ICR rules, conveyancing across time zones, and currency timing.';
+const h1 = 'Buy-to-Let from Abroad: UK Investment Mortgages for British Expats';
+const subheadline =
+  'How British expats build UK buy-to-let portfolios from overseas. What lenders accept, the deposit and ICR rules, how to handle conveyancing across time zones, and how a specialist broker manages the application end-to-end while you stay in your day job abroad.';
+
+const relatedPages = [
+  {
+    eyebrow: 'Hub',
+    title: 'Expat Buy-to-Let Mortgages',
+    description:
+      'UK buy-to-let mortgages for British nationals living abroad. ICR, deposits, and lender pool.',
+    href: '/expat-mortgages/buy-to-let',
+  },
+  {
+    eyebrow: 'Hub',
+    title: 'UK Mortgages for Expats',
+    description:
+      'British nationals living abroad. Country-by-country lender appetite, currency haircuts, and timelines.',
+    href: '/expat-mortgages',
+  },
+  {
+    eyebrow: 'Guide',
+    title: 'Expat Mortgage Rates',
+    description:
+      'Why expat rates differ, what to expect by profile, and how lender choice moves the rate you pay.',
+    href: '/expat-mortgages/rates',
+  },
+  {
+    eyebrow: 'Hub',
+    title: 'UK Mortgages for Non-UK Residents',
+    description:
+      'Foreign nationals or British expats wanting a UK mortgage on UK property. The lender pool, deposits, and rates explained.',
+    href: '/non-uk-resident-mortgages',
+  },
+  {
+    eyebrow: 'Guide',
+    title: 'Expat Mortgage Deposit Requirements',
+    description:
+      'How much deposit you need, what counts as deposit money, and how thresholds shift the rate you pay.',
+    href: '/expat-mortgages/deposit',
+  },
+];
+
+const faqs = [
+  {
+    q: 'Can I buy UK BTL from abroad?',
+    a: 'Yes. Specialist lenders place expat BTL applications routinely.',
+  },
+  {
+    q: 'What deposit do I need?',
+    a: '30 to 35% in practice, 25% on the strongest profiles.',
+  },
+  {
+    q: 'Do I need to come to the UK to buy?',
+    a: 'No. Notarised documents from abroad complete the transaction.',
+  },
+  {
+    q: 'Is the rate higher than UK-resident BTL?',
+    a: 'Yes. Typically 0.5 to 1 percentage point higher.',
+  },
+  {
+    q: 'Should I buy in personal name or limited company?',
+    a: 'Depends on tax position and portfolio plans. Most multi-property portfolios use SPVs.',
+  },
+  {
+    q: 'Do I pay extra Stamp Duty as a non-resident?',
+    a: 'Yes. An additional 2% on top of standard SDLT.',
+  },
+  {
+    q: 'Can I use rental income to qualify?',
+    a: 'Yes, via the ICR test. Personal income is a backup check.',
+  },
+  {
+    q: 'What about currency timing on my deposit?',
+    a: 'Forward contracts via an FX broker are the cleanest answer.',
+  },
+  {
+    q: 'Can I remortgage from abroad?',
+    a: 'Yes, common as fix terms end.',
+  },
+  {
+    q: 'How long does it take?',
+    a: 'Six to ten weeks for the mortgage. Total purchase timeline 10 to 14 weeks from offer.',
+  },
+];
+
+const faqSchema = {
+  '@context': 'https://schema.org',
+  '@type': 'FAQPage',
+  mainEntity: faqs.map((f) => ({
+    '@type': 'Question',
+    name: f.q,
+    acceptedAnswer: { '@type': 'Answer', text: f.a },
+  })),
+};
+---
+
+<HubLayout
+  title={title}
+  description={description}
+  h1={h1}
+  subheadline={subheadline}
+  eyebrow="GUIDE · BUY-TO-LET FROM ABROAD"
+  relatedPages={relatedPages}
+>
+  <section class="hub-section">
+    <div class="hub-section-inner">
+      <h2 id="who-this-is-for">Who this page is for</h2>
+      <p>
+        If you are a British national living abroad and want to buy or
+        build a UK buy-to-let portfolio without returning to the UK, this
+        page is for you.
+      </p>
+      <p>
+        That covers expats buying a first UK investment property from
+        overseas, expats expanding an existing UK portfolio remotely,
+        expats converting their former UK home into a let property, and
+        expats restructuring an existing portfolio into a limited company
+        while abroad.
+      </p>
+      <p>
+        This page complements the broader expat buy-to-let hub. The angle
+        here is specifically the practical reality of doing this from
+        abroad, including currency timing, conveyancing across time zones,
+        AML on cross-border deposits, and the lender pool willing to
+        underwrite you remotely.
+      </p>
+    </div>
+  </section>
+
+  <section class="hub-section">
+    <div class="hub-section-inner">
+      <h2 id="why-it-works">Why this works as a strategy</h2>
+      <p>
+        UK buy-to-let from abroad has been a quietly significant strategy
+        for British expats for two decades, for three durable reasons.
+      </p>
+      <p>
+        <strong>Sterling-denominated assets.</strong> Even if you intend
+        to retire abroad, holding UK property creates a sterling income
+        stream and asset base in your home country. Currency
+        diversification across major life decisions.
+      </p>
+      <p>
+        <strong>Familiar market.</strong> UK property is a market British
+        expats understand intuitively. Local-market property in Dubai,
+        Singapore, or the US carries unfamiliar risks. UK property does
+        not.
+      </p>
+      <p>
+        <strong>Income to fund a return.</strong> Many expats return to
+        the UK eventually. A pre-built UK property portfolio funds the
+        move and provides ongoing income through retirement.
+      </p>
+      <p>
+        <strong>Legacy and family use.</strong> UK property held abroad
+        becomes available to children studying or working in the UK, or as
+        a family base over time.
+      </p>
+      <p>
+        The strategy is well understood by lenders and well supported by a
+        stable specialist mortgage market.
+      </p>
+    </div>
+  </section>
+
+  <MidPageCta variant="hero" />
+
+  <section class="hub-section">
+    <div class="hub-section-inner">
+      <h2 id="lender-pool">How the lender pool views you</h2>
+      <p>
+        The lender pool for expat BTL applicants from abroad is narrower
+        than for UK-resident BTL but broader than people often assume.
+        Around 15 to 25 lenders actively place expat BTL business at any
+        given time, ranging from mainstream banks with international arms
+        to specialist expat lenders to private banks for high-net-worth
+        applicants.
+      </p>
+      <p>Lender preferences vary on:</p>
+      <ul>
+        <li>Country of residence (most accept the major expat markets, fewer accept emerging-market jurisdictions).</li>
+        <li>Currency (USD, EUR, AED widely accepted, niche currencies harder).</li>
+        <li>Number of existing UK properties (some prefer first-time landlords, others prefer experienced).</li>
+        <li>Property type (standard flats and houses easiest, HMO and unusual properties narrower).</li>
+        <li>Limited company versus personal name (most accept both, some only one).</li>
+        <li>Borrower employment (salaried easier than self-employed).</li>
+      </ul>
+      <p>
+        A specialist broker matches your specific profile to the lenders
+        that place that profile this month.
+      </p>
+    </div>
+  </section>
+
+  <section class="hub-section">
+    <div class="hub-section-inner">
+      <h2 id="deposit-icr">Deposit and ICR</h2>
+      <p>For an expat BTL applicant from abroad:</p>
+      <p>
+        <strong>Deposit.</strong> 25% theoretical minimum. 30 to 35% is
+        the working reality. Larger deposits unlock better rates and
+        access to more lenders.
+      </p>
+      <p>
+        <strong>ICR (interest cover ratio).</strong> Stress-tested at
+        145% or higher of a notional 6% rate for higher-rate taxpayers,
+        which most expats are by default in lender treatment. Lower-rate
+        or limited company landlords sometimes qualify at 125%.
+      </p>
+      <p>
+        A practical example: on a £200,000 loan stressed at 6% and 145%,
+        the property needs to generate at least £1,450 per month in rent.
+        Below that and the application fails ICR regardless of personal
+        income.
+      </p>
+      <p>
+        <strong>Personal income.</strong> Used as a backup affordability
+        check. The 20% currency haircut applies to non-sterling income,
+        narrowing what your personal income can support if rental ICR
+        falls short.
+      </p>
+    </div>
+  </section>
+
+  <section class="hub-section">
+    <div class="hub-section-inner">
+      <h2 id="currency-timing">Currency timing on the deposit</h2>
+      <p>A practical issue specific to BTL from abroad.</p>
+      <p>
+        Your deposit is typically held in your home currency.
+        Sterling-denominated deposits sitting in a UK account are the
+        exception, not the rule, for most expats outside the UK banking
+        system.
+      </p>
+      <p>
+        When you commit to a UK purchase, you usually need to convert
+        deposit funds to sterling. The timing of that conversion matters.
+        GBP can move 5 to 10% against major currencies in a few months. A
+        10% adverse move on a £80,000 deposit is £8,000 of unintended
+        cost.
+      </p>
+      <p>Three approaches:</p>
+      <p>
+        <strong>Convert at exchange.</strong> Lock the rate at the moment
+        you commit to the purchase. Removes uncertainty but takes whatever
+        the rate is on that day.
+      </p>
+      <p>
+        <strong>Forward contract.</strong> Use an FX broker to lock a
+        rate for delivery at completion. Typical for larger transactions.
+        Adds a small spread but removes timing risk.
+      </p>
+      <p>
+        <strong>Convert in tranches.</strong> Spread the conversion over
+        weeks or months ahead of the expected purchase. Smooths the rate
+        but takes longer to execute.
+      </p>
+      <p>
+        For most BTL purchases, a forward contract via a reputable FX
+        broker is the cleanest answer. Worth setting up the relationship
+        before you start property hunting.
+      </p>
+    </div>
+  </section>
+
+  <PullQuote>
+    A 10% adverse FX move on a £80,000 deposit is £8,000 of unintended
+    cost. A forward contract removes the timing risk.
+  </PullQuote>
+
+  <section class="hub-section">
+    <div class="hub-section-inner">
+      <h2 id="conveyancing">Conveyancing across time zones</h2>
+      <p>
+        The legal side of a UK property purchase happens in the UK,
+        regardless of where you are. From abroad, this raises practical
+        issues.
+      </p>
+      <p>
+        <strong>Solicitor selection.</strong> Use a UK conveyancer
+        experienced with non-resident clients. Most major UK firms now
+        have international clients regularly. Specialist firms exist for
+        higher-value cases.
+      </p>
+      <p>
+        <strong>Document signing.</strong> UK property completion
+        requires signed documents. From abroad, you sign with a notary
+        public in your country of residence, who certifies the document.
+        The notarised document is then accepted in the UK. Some embassies
+        and consulates also handle this. Worth budgeting two to four weeks
+        for round-trip notarisation.
+      </p>
+      <p>
+        <strong>Communication time zones.</strong> UK office hours rarely
+        match Asia or West Coast US hours. Email tends to work better than
+        phone. WhatsApp also commonly used.
+      </p>
+      <p>
+        <strong>AML on the buyer.</strong> Standard UK conveyancing AML
+        applies. Source of funds, identity verification, and PEP checks.
+        From abroad, this needs more documentation than from a UK-resident
+        position.
+      </p>
+      <p>
+        <strong>Stamp Duty.</strong> As a non-UK resident, you pay an
+        additional 2% Stamp Duty Land Tax surcharge on top of standard
+        SDLT. For a £400,000 BTL purchase, this is £8,000 of additional
+        tax. Build it into the budget early.
+      </p>
+    </div>
+  </section>
+
+  <section class="hub-section">
+    <div class="hub-section-inner">
+      <h2 id="company-vs-personal">Limited company versus personal name</h2>
+      <p>
+        The choice of structure for an expat BTL purchase has tax and
+        lender implications.
+      </p>
+      <p>
+        <strong>Personal name.</strong> Simpler. Lower lender fees. Wider
+        lender pool. Tax inefficient for higher-rate taxpayers because of
+        the loss of full mortgage interest relief.
+      </p>
+      <p>
+        <strong>Limited company (SPV).</strong> More complex setup.
+        Slightly higher lender fees and rates. Narrower lender pool. Tax
+        efficient because mortgage interest is a deductible business
+        expense.
+      </p>
+      <p>
+        For a single property as a long-term hold, personal name is often
+        simpler and the tax inefficiency is manageable.
+      </p>
+      <p>
+        For a planned portfolio of multiple properties, the limited
+        company route is usually cleaner from acquisition one. Adding
+        properties to an existing SPV is operationally easy. Switching
+        from personal-name to SPV later involves either selling and
+        rebuying (expensive) or living with the inefficiency.
+      </p>
+      <p>
+        For non-resident applicants, the SPV route also helps separate
+        the UK rental business from the borrower's home tax jurisdiction,
+        which can simplify the home-country tax position.
+      </p>
+      <p>
+        A broker's view on which structure to use is usually informed by
+        accountant advice. Most expat brokers work alongside accountants
+        for clients setting up new SPVs.
+      </p>
+    </div>
+  </section>
+
+  <section class="hub-section">
+    <div class="hub-section-inner">
+      <h2 id="pitfalls">Common pitfalls</h2>
+      <p>
+        <strong>Wrong-lender direct application.</strong> Going direct to
+        a high-street lender that does not accept expat BTL gets you
+        declined. Each decline footprints the credit file.
+      </p>
+      <p>
+        <strong>Underestimating the timeline.</strong> Six to ten weeks
+        for the mortgage, plus four to eight weeks for conveyancing.
+        Running both concurrently with notarisation lead times means a 10
+        to 14 week total from offer to completion.
+      </p>
+      <p>
+        <strong>Currency timing on deposits.</strong> Covered above.
+      </p>
+      <p>
+        <strong>Assuming UK BTL rules apply universally.</strong> Tax,
+        lender criteria, and structure choices for expat BTL differ from
+        UK-resident BTL.
+      </p>
+      <p>
+        <strong>Forgetting the SDLT surcharge.</strong> 2% non-resident
+        surcharge plus the existing 5% additional property surcharge means
+        a £400k purchase carries 7% SDLT on top of base, depending on the
+        precise rate band structure on the day. Worth confirming current
+        rates.
+      </p>
+      <p>
+        <strong>Limited company set up wrong.</strong> Wrong SIC code,
+        wrong director structure, or wrong share structure can fail a
+        lender's criteria. Specialist accountant input matters.
+      </p>
+    </div>
+  </section>
+
+  <MidPageCta />
+
+  <section class="hub-section">
+    <div class="hub-section-inner">
+      <h2 id="faqs">Common questions</h2>
+      <div class="faq">
+        {faqs.map((f) => (
+          <>
+            <h3>{f.q}</h3>
+            <p>{f.a}</p>
+          </>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <script
+    type="application/ld+json"
+    is:inline
+    set:html={JSON.stringify(faqSchema)}
+  />
+</HubLayout>

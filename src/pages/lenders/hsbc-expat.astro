@@ -1,0 +1,402 @@
+---
+import HubLayout from '../../layouts/HubLayout.astro';
+import PullQuote from '../../components/PullQuote.astro';
+import MidPageCta from '../../components/MidPageCta.astro';
+
+const title = 'HSBC Expat Mortgages: A Practical Guide';
+const description =
+  'What HSBC Expat lends on, who qualifies, what rates and deposits to expect, and where HSBC sits in the wider expat lender landscape. Independent guide for British expats.';
+const h1 = 'HSBC Expat Mortgages: A Practical Guide';
+const subheadline =
+  'What HSBC Expat lends on, who qualifies, what rates and deposits to expect, and where HSBC sits in the wider expat lender landscape. An independent guide written for British nationals living abroad considering an HSBC application.';
+
+const relatedPages = [
+  {
+    eyebrow: 'Hub',
+    title: 'UK Mortgages for Expats',
+    description:
+      'British nationals living abroad. Country-by-country lender appetite, currency haircuts, and timelines.',
+    href: '/expat-mortgages',
+  },
+  {
+    eyebrow: 'Guide',
+    title: 'Expat Mortgage Rates',
+    description:
+      'Why expat rates differ, what to expect by profile, and how lender choice moves the rate you pay.',
+    href: '/expat-mortgages/rates',
+  },
+  {
+    eyebrow: 'Hub',
+    title: 'UK Mortgages for Non-UK Residents',
+    description:
+      'Foreign nationals or British expats wanting a UK mortgage on UK property. The lender pool, deposits, and rates explained.',
+    href: '/non-uk-resident-mortgages',
+  },
+  {
+    eyebrow: 'Hub',
+    title: 'Expat Buy-to-Let Mortgages',
+    description:
+      'UK buy-to-let mortgages for British nationals living abroad. ICR, deposits, and lender pool.',
+    href: '/expat-mortgages/buy-to-let',
+  },
+  {
+    eyebrow: 'Guide',
+    title: 'Expat Mortgage Deposit Requirements',
+    description:
+      'How much deposit you need, what counts as deposit money, and how thresholds shift the rate you pay.',
+    href: '/expat-mortgages/deposit',
+  },
+];
+
+const faqs = [
+  {
+    q: 'Is HSBC Expat the same as HSBC UK?',
+    a: 'No. HSBC Expat is a separate offshore subsidiary serving non-UK residents.',
+  },
+  {
+    q: 'Do I need to be an HSBC customer to apply?',
+    a: 'No, but HSBC Premier customers face better criteria and pricing.',
+  },
+  {
+    q: 'Does HSBC accept all countries?',
+    a: 'No. Approved country list changes periodically. Most major expat hubs are included.',
+  },
+  {
+    q: 'What is the minimum income?',
+    a: 'HSBC Expat sets a minimum, with a higher Premier-tier threshold. Worth confirming current values directly.',
+  },
+  {
+    q: 'What deposit do I need?',
+    a: 'Usually 25% minimum for residential, more for BTL.',
+  },
+  {
+    q: 'Can I get a buy-to-let through HSBC Expat?',
+    a: 'Yes, with stricter criteria than residential. First-time landlords face additional barriers.',
+  },
+  {
+    q: 'Does HSBC apply a currency haircut?',
+    a: 'Yes, in line with other mainstream expat lenders.',
+  },
+  {
+    q: 'Can I apply via a broker?',
+    a: 'Yes. Most specialist expat brokers can place HSBC Expat cases.',
+  },
+  {
+    q: 'Is HSBC always the cheapest?',
+    a: 'No. Worth comparing against specialist lenders before assuming.',
+  },
+  {
+    q: 'How long does an HSBC Expat application take?',
+    a: 'Typically six to ten weeks, similar to other expat lenders.',
+  },
+];
+
+const faqSchema = {
+  '@context': 'https://schema.org',
+  '@type': 'FAQPage',
+  mainEntity: faqs.map((f) => ({
+    '@type': 'Question',
+    name: f.q,
+    acceptedAnswer: { '@type': 'Answer', text: f.a },
+  })),
+};
+---
+
+<HubLayout
+  title={title}
+  description={description}
+  h1={h1}
+  subheadline={subheadline}
+  eyebrow="LENDER · HSBC EXPAT"
+  relatedPages={relatedPages}
+>
+  <section class="hub-section">
+    <div class="hub-section-inner">
+      <h2 id="who-this-is-for">Who this page is for</h2>
+      <p>
+        If you are a British national living abroad and have considered
+        HSBC Expat as a potential lender for your UK mortgage, this page
+        is for you.
+      </p>
+      <p>
+        HSBC Expat is one of the most well-known names in the UK expat
+        mortgage market, partly because of its size, partly because of
+        marketing reach, and partly because of the perception that being
+        an existing HSBC customer makes the application easier.
+      </p>
+      <p>
+        This page covers what HSBC Expat actually lends on, where the
+        criteria sit relative to other expat lenders, what to expect from
+        an application, and where HSBC is and is not the right answer.
+      </p>
+      <p>
+        This is an independent guide, not an HSBC product page. If you
+        want to apply, the best approach is via a specialist broker who
+        has a working relationship with HSBC Expat and other lenders, so
+        you can compare what HSBC offers against the alternatives.
+      </p>
+    </div>
+  </section>
+
+  <section class="hub-section">
+    <div class="hub-section-inner">
+      <h2 id="what-is-hsbc-expat">What HSBC Expat is</h2>
+      <p>
+        HSBC Expat is a Jersey-based subsidiary of HSBC Group, providing
+        banking and mortgage services to international clients including
+        British nationals living abroad. The mortgage operation lends on
+        UK property to non-UK-resident borrowers across a wide range of
+        countries.
+      </p>
+      <p>
+        HSBC Expat differs from HSBC UK. HSBC UK is the high-street
+        mortgage lender that serves UK-resident borrowers. HSBC Expat is
+        the offshore arm serving expats. Eligibility, criteria, and
+        pricing differ between the two.
+      </p>
+    </div>
+  </section>
+
+  <MidPageCta variant="hero" />
+
+  <section class="hub-section">
+    <div class="hub-section-inner">
+      <h2 id="who-qualifies">Who qualifies</h2>
+      <p>HSBC Expat broadly accepts:</p>
+      <ul>
+        <li>British nationals living abroad in approved countries (a long list covering most major expat destinations).</li>
+        <li>Foreign nationals in some scenarios, with restrictions.</li>
+        <li>Both salaried employees and self-employed applicants with sufficient documentation.</li>
+        <li>Premier banking customers with priority treatment.</li>
+        <li>Non-Premier customers, but with stricter criteria and rate.</li>
+      </ul>
+      <p>
+        The "approved countries" list changes periodically. Major expat
+        hubs like the UAE, Singapore, Hong Kong, Switzerland, USA, Canada,
+        Australia, and most EU countries are typically included.
+        Higher-risk jurisdictions are sometimes excluded.
+      </p>
+      <p>
+        Income thresholds matter. HSBC Expat sets a minimum income that
+        reflects its target market, broadly higher than mainstream UK
+        lender minimums. Premier-tier customers face a different (higher)
+        threshold.
+      </p>
+    </div>
+  </section>
+
+  <section class="hub-section">
+    <div class="hub-section-inner">
+      <h2 id="property-loan-parameters">Property and loan parameters</h2>
+      <p>HSBC Expat typically lends on:</p>
+      <ul>
+        <li>UK residential property for owner-occupier or investment use.</li>
+        <li>Buy-to-let on UK property, subject to additional criteria.</li>
+        <li>Loan sizes from a working minimum to multi-million pound sterling values.</li>
+        <li>Loan-to-value up to 75% on residential, less on BTL.</li>
+        <li>Standard mortgage products (fixed, tracker, variable) with the usual UK term lengths.</li>
+      </ul>
+      <p>What HSBC tends not to do:</p>
+      <ul>
+        <li>Very high LTVs above 75 to 80%.</li>
+        <li>Adverse credit cases.</li>
+        <li>Highly unusual property types.</li>
+        <li>Borrowers from non-approved countries.</li>
+      </ul>
+    </div>
+  </section>
+
+  <section class="hub-section">
+    <div class="hub-section-inner">
+      <h2 id="rates-to-expect">What rates to expect</h2>
+      <p>
+        HSBC Expat typically prices in the middle to upper-middle of the
+        expat lender pool. Premier-tier customers see better rates than
+        non-Premier. Larger loans get private-banking-adjacent pricing.
+      </p>
+      <p>
+        The rate gap between HSBC Expat and the best specialist expat
+        lenders is usually 0.1 to 0.4 percentage points either way,
+        depending on the day and the profile. For some applicants HSBC is
+        the best deal in the market. For others a specialist lender beats
+        HSBC on rate, criteria, or both.
+      </p>
+      <p>
+        Worth knowing: HSBC's rates are public on their website. The
+        rates from specialist expat lenders accessed via brokers are often
+        not public. So an applicant comparing only the publicly visible
+        options may not see the cheapest available rate for their profile.
+      </p>
+    </div>
+  </section>
+
+  <PullQuote>
+    HSBC's rates are public. Specialist expat lender rates accessed via
+    brokers are often not. An applicant comparing only the publicly
+    visible options may not see the cheapest rate for their profile.
+  </PullQuote>
+
+  <section class="hub-section">
+    <div class="hub-section-inner">
+      <h2 id="hsbc-strengths">What HSBC handles well</h2>
+      <p>
+        The application is well-documented and the underwriters are
+        experienced with expat cases. Large international employers and
+        standard salary structures process cleanly.
+      </p>
+      <p>
+        The brand and infrastructure mean documentation, valuations, and
+        conveyancing all run on familiar tracks. Premier customers report
+        a reasonably smooth experience for clean applications.
+      </p>
+      <p>
+        HSBC accepts a wide range of countries, currencies, and employment
+        patterns. For an applicant who fits the criteria comfortably, HSBC
+        is a sensible default option to consider.
+      </p>
+    </div>
+  </section>
+
+  <section class="hub-section">
+    <div class="hub-section-inner">
+      <h2 id="hsbc-weaknesses">Where HSBC is not the right answer</h2>
+      <p>A few profiles where applicants benefit from looking beyond HSBC:</p>
+      <p>
+        <strong>Bonus-heavy or equity-heavy income.</strong> HSBC's
+        treatment of variable comp is more conservative than some
+        specialist lenders. Investment bankers, hedge fund partners, and
+        tech employees with significant RSU components sometimes find
+        their borrowing capacity is materially higher with a specialist
+        lender than with HSBC.
+      </p>
+      <p>
+        <strong>No-haircut on currency.</strong> HSBC applies a haircut on
+        non-sterling income. Specialist lenders accessed via brokers
+        sometimes do not. For an applicant whose borrowing capacity is the
+        binding constraint, a no-haircut lender can unlock 20 to 25% more
+        loan size on the same income.
+      </p>
+      <p>
+        <strong>Self-employed with limited UK presence.</strong> HSBC
+        tends to prefer salaried employees of large international
+        employers. Self-employed expats with personal services companies
+        or consulting structures are sometimes better served by specialist
+        lenders that understand those structures.
+      </p>
+      <p>
+        <strong>Sub-Premier income but strong asset base.</strong>
+        Applicants who do not meet HSBC Expat's Premier income threshold
+        but have meaningful assets sometimes find better options with
+        specialist lenders that weight assets more heavily.
+      </p>
+      <p>
+        <strong>Niche country or currency.</strong> Applicants from
+        non-approved countries or earning in less common currencies have
+        specialist alternatives.
+      </p>
+      <p>
+        <strong>First-time landlord BTL.</strong> HSBC accepts BTL
+        applications but typically prefers experienced landlords.
+        First-time landlords face stricter criteria.
+      </p>
+    </div>
+  </section>
+
+  <section class="hub-section">
+    <div class="hub-section-inner">
+      <h2 id="how-to-apply">How to apply (and what a broker adds)</h2>
+      <p>
+        You can apply directly to HSBC Expat. The HSBC Expat website lays
+        out the process. Premier customers usually have a relationship
+        manager who can introduce them to a mortgage adviser within HSBC.
+      </p>
+      <p>
+        What a specialist broker adds, even when HSBC turns out to be the
+        right answer:
+      </p>
+      <p>
+        <strong>Comparison.</strong> A broker can simultaneously model
+        HSBC and three or four specialist lenders in parallel without
+        footprinting your credit file at all of them. You see what each
+        offers before committing.
+      </p>
+      <p>
+        <strong>Packaging.</strong> HSBC's underwriting prefers cases
+        presented in a particular way. A broker who places HSBC cases
+        regularly knows what to highlight, what to anticipate, and how to
+        avoid the routine queries that delay underwriting.
+      </p>
+      <p>
+        <strong>Backup.</strong> If HSBC declines or offers worse than
+        expected, a broker can switch to an alternative lender without
+        restarting from scratch.
+      </p>
+      <p>
+        <strong>Negotiation.</strong> On larger loans, brokers sometimes
+        have access to relationship-based pricing concessions that direct
+        applicants do not.
+      </p>
+      <p>
+        The cost of using a broker for an HSBC Expat case is usually
+        offset by the value of comparing options and handling the
+        placement properly.
+      </p>
+    </div>
+  </section>
+
+  <section class="hub-section">
+    <div class="hub-section-inner">
+      <h2 id="pitfalls">Common pitfalls</h2>
+      <p>
+        <strong>Assuming HSBC is automatically the cheapest.</strong>
+        Often it is not. Worth comparing.
+      </p>
+      <p>
+        <strong>Applying directly without packaging.</strong>
+        Self-applications get queried more than broker applications. Two
+        extra weeks of back-and-forth is common.
+      </p>
+      <p>
+        <strong>Underestimating the income threshold.</strong> HSBC
+        Expat's minimum is not negotiable. Applicants below the threshold
+        should look elsewhere.
+      </p>
+      <p>
+        <strong>Currency assumptions.</strong> HSBC's accepted currency
+        list is wide but not universal. Worth confirming early in the
+        conversation.
+      </p>
+      <p>
+        <strong>Ignoring Premier vs non-Premier difference.</strong> The
+        two tiers face different criteria and different pricing.
+      </p>
+      <p>
+        <strong>Not checking approved countries.</strong> The country list
+        changes. Worth confirming the current status of your country of
+        residence before assuming HSBC will lend.
+      </p>
+    </div>
+  </section>
+
+  <MidPageCta />
+
+  <section class="hub-section">
+    <div class="hub-section-inner">
+      <h2 id="faqs">Common questions</h2>
+      <div class="faq">
+        {faqs.map((f) => (
+          <>
+            <h3>{f.q}</h3>
+            <p>{f.a}</p>
+          </>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <script
+    type="application/ld+json"
+    is:inline
+    set:html={JSON.stringify(faqSchema)}
+  />
+</HubLayout>

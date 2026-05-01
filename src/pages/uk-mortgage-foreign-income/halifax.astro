@@ -1,0 +1,401 @@
+---
+import HubLayout from '../../layouts/HubLayout.astro';
+import PullQuote from '../../components/PullQuote.astro';
+import MidPageCta from '../../components/MidPageCta.astro';
+
+const title = 'Halifax Mortgages for Foreign Income Applicants';
+const description =
+  'What Halifax accepts on foreign income, who qualifies, what currencies are supported, and where Halifax sits in the wider foreign-income lender landscape.';
+const h1 = 'Halifax Mortgages for Foreign Income Applicants';
+const subheadline =
+  'What Halifax accepts on foreign income, who qualifies, what currencies are supported, and where Halifax sits in the wider foreign-income lender landscape. An independent guide for UK residents and returners with non-sterling income components.';
+
+const relatedPages = [
+  {
+    eyebrow: 'Hub',
+    title: 'UK Mortgages with Foreign Income',
+    description:
+      'How lenders treat non-sterling income. The 20% standard haircut and direct access to no-haircut lenders.',
+    href: '/uk-mortgage-foreign-income',
+  },
+  {
+    eyebrow: 'Hub',
+    title: 'UK Mortgages for Expats',
+    description:
+      'British nationals living abroad. Country-by-country lender appetite, currency haircuts, and timelines.',
+    href: '/expat-mortgages',
+  },
+  {
+    eyebrow: 'Guide',
+    title: 'Returning to the UK',
+    description:
+      'Mortgages for returning expats. When to apply, what evidence you need, and how to time completion.',
+    href: '/expat-mortgages/returning-to-uk',
+  },
+  {
+    eyebrow: 'Guide',
+    title: 'Expat Mortgage Rates',
+    description:
+      'Why expat rates differ, what to expect by profile, and how lender choice moves the rate you pay.',
+    href: '/expat-mortgages/rates',
+  },
+  {
+    eyebrow: 'Lender',
+    title: 'HSBC Expat Mortgages',
+    description:
+      'What HSBC Expat lends on, who qualifies, and where it sits in the wider expat lender landscape.',
+    href: '/lenders/hsbc-expat',
+  },
+];
+
+const faqs = [
+  {
+    q: 'Does Halifax accept foreign income?',
+    a: 'Yes, with currency restrictions and a haircut.',
+  },
+  {
+    q: "What is Halifax's foreign income haircut?",
+    a: 'Historically around 25%. Specifics change. Worth confirming current treatment.',
+  },
+  {
+    q: 'Does Halifax lend to non-UK residents?',
+    a: 'No. Halifax requires UK residency.',
+  },
+  {
+    q: 'What currencies does Halifax accept?',
+    a: 'Major currencies including EUR, USD, CHF, and others. Less common currencies case-by-case.',
+  },
+  {
+    q: 'Is Halifax always the best option for foreign income?',
+    a: 'No. Halifax is one of the more accommodating mainstream lenders, but specialist lenders sometimes beat Halifax on rate or borrowing capacity.',
+  },
+  {
+    q: 'Can I apply directly?',
+    a: 'Yes, via Halifax branches or website.',
+  },
+  {
+    q: 'Should I use a broker?',
+    a: 'Worth considering. A broker can compare Halifax against alternatives in a single conversation.',
+  },
+  {
+    q: 'Does Halifax accept self-employed foreign income?',
+    a: 'Yes, with two years of accounts and proper documentation.',
+  },
+  {
+    q: 'Can I include foreign rental income?',
+    a: "Yes, in line with Halifax's standard treatment of rental income.",
+  },
+  {
+    q: 'How long does the application take?',
+    a: 'Standard residential timeline, typically three to six weeks. Foreign income may add a week or two for documentation review.',
+  },
+];
+
+const faqSchema = {
+  '@context': 'https://schema.org',
+  '@type': 'FAQPage',
+  mainEntity: faqs.map((f) => ({
+    '@type': 'Question',
+    name: f.q,
+    acceptedAnswer: { '@type': 'Answer', text: f.a },
+  })),
+};
+---
+
+<HubLayout
+  title={title}
+  description={description}
+  h1={h1}
+  subheadline={subheadline}
+  eyebrow="LENDER · HALIFAX FOREIGN INCOME"
+  relatedPages={relatedPages}
+>
+  <section class="hub-section">
+    <div class="hub-section-inner">
+      <h2 id="who-this-is-for">Who this page is for</h2>
+      <p>
+        If you live in the UK, or are returning to the UK, and you have
+        income paid in a non-sterling currency, this page is for you.
+      </p>
+      <p>That includes:</p>
+      <ul>
+        <li>UK-resident contractors paid in EUR, USD, or another foreign currency.</li>
+        <li>UK-based employees of overseas companies.</li>
+        <li>UK-resident professionals with foreign rental, dividend, or pension income.</li>
+        <li>Returning expats whose income is still partly in their previous-country currency for the first months or years after return.</li>
+        <li>Cross-border workers, including those commuting to Ireland, France, or other neighbouring countries.</li>
+        <li>Dual-income households where one partner earns in sterling and the other in foreign currency.</li>
+      </ul>
+      <p>
+        Halifax has a longstanding reputation in this market because its
+        foreign income criteria are clearer than most mainstream lenders.
+        This page covers what Halifax actually accepts, where it works
+        well, and where to look elsewhere.
+      </p>
+      <p>This is an independent guide, not a Halifax product page.</p>
+    </div>
+  </section>
+
+  <section class="hub-section">
+    <div class="hub-section-inner">
+      <h2 id="what-is-foreign-income">What "foreign income" means to UK lenders</h2>
+      <p>
+        A UK lender treats income as "foreign" when it is paid in any
+        currency other than sterling, regardless of where the borrower
+        lives or works. A UK resident paid in euros by a German employer
+        is a foreign income case. A UK resident paid in dollars by a US
+        contractor client is a foreign income case. A British returner
+        whose final salary instalment is paid in dirhams from their Dubai
+        employer is a foreign income case.
+      </p>
+      <p>
+        Foreign income matters to lenders because the borrower's
+        repayment capacity is exposed to currency movement against
+        sterling. If the borrower's income currency weakens, the
+        sterling-equivalent income falls, and the mortgage becomes harder
+        to service.
+      </p>
+      <p>
+        Lenders manage this by either applying a haircut (using a
+        discounted figure of the income) or by accepting only certain
+        stable currencies, or both.
+      </p>
+    </div>
+  </section>
+
+  <MidPageCta variant="hero" />
+
+  <section class="hub-section">
+    <div class="hub-section-inner">
+      <h2 id="what-halifax-accepts">What Halifax accepts</h2>
+      <p>
+        Halifax has a reputation for being among the more accommodating
+        mainstream UK lenders on foreign income. The detail varies and
+        policies change, so the specifics on any given day need
+        confirming. The general pattern, however, is:
+      </p>
+      <p>
+        <strong>Currency.</strong> Halifax has accepted income in major
+        currencies for many years. Euros, US dollars, Swiss francs, and
+        other major-economy currencies are typically supported. Some less
+        common currencies are accepted on a case-by-case basis.
+      </p>
+      <p>
+        <strong>Haircut.</strong> Halifax typically applies a haircut to
+        foreign income. The headline working figure has historically been
+        around 25%, though this changes from time to time and varies by
+        currency.
+      </p>
+      <p>
+        <strong>Income type.</strong> Salaried employment is treated most
+        cleanly. Self-employment with foreign income is accepted but with
+        more documentation requirements. Mixed income (sterling plus
+        foreign currency) is treated proportionally.
+      </p>
+      <p>
+        <strong>Country.</strong> Halifax is a UK-resident lender, so the
+        borrower must be UK-resident or returning to UK residence.
+        Halifax does not lend to non-UK residents living abroad. For
+        that, applicants need different lenders (see UK Mortgages for
+        Expats).
+      </p>
+    </div>
+  </section>
+
+  <section class="hub-section">
+    <div class="hub-section-inner">
+      <h2 id="halifax-handles-well">Common situations Halifax handles</h2>
+      <p>
+        <strong>Cross-border worker.</strong> UK resident commuting to
+        Dublin, paid in euros. Standard Halifax case. Documentation pack:
+        payslips, tax records, bank statements, evidence of UK residency
+        and the cross-border working arrangement.
+      </p>
+      <p>
+        <strong>Returning expat.</strong> Recently returned to the UK.
+        Some final payments still arriving from previous-country
+        employer. Halifax typically accepts the returning income provided
+        the borrower is now UK-resident.
+      </p>
+      <p>
+        <strong>Foreign employer paying into UK account.</strong> UK
+        resident working remotely for an overseas company. Income lands
+        in a UK account in foreign currency or is converted on receipt.
+        Halifax accepts these cases with proper income evidence.
+      </p>
+      <p>
+        <strong>UK-employed but bonus paid in foreign currency.</strong>
+        UK employee of a UK firm, but bonus is paid in dollars or another
+        currency. Halifax includes the foreign-currency bonus in
+        affordability subject to its standard bonus treatment.
+      </p>
+      <p>
+        <strong>Self-employed with foreign clients.</strong> UK-resident
+        contractor with international clients paying in EUR or USD. Two
+        years of accounts and the income evidence pack required.
+      </p>
+    </div>
+  </section>
+
+  <PullQuote>
+    Halifax does not lend to non-UK residents. UK residency or a return
+    to UK residency is the threshold.
+  </PullQuote>
+
+  <section class="hub-section">
+    <div class="hub-section-inner">
+      <h2 id="halifax-not-best">Where Halifax may not be the best option</h2>
+      <p>A few profiles where another lender often beats Halifax:</p>
+      <p>
+        <strong>Non-major currencies.</strong> Halifax accepts a wide
+        range, but for less common currencies (some emerging-market
+        currencies, niche African or Asian currencies), specialist
+        lenders may be more comfortable.
+      </p>
+      <p>
+        <strong>Heavy haircut burden.</strong> If your borrowing capacity
+        is constrained by Halifax's haircut, a no-haircut specialist
+        lender can materially increase what you can borrow on the same
+        income.
+      </p>
+      <p>
+        <strong>Pure expat applicants.</strong> Halifax does not lend to
+        non-UK residents. If you live abroad full-time, Halifax is not an
+        option. Specialist expat lenders are.
+      </p>
+      <p>
+        <strong>Complex self-employment structures.</strong> Halifax
+        handles standard self-employment well. More complex structures
+        (overseas limited companies, multiple international income
+        sources) may be better served by lenders that specialise in
+        self-employed cases.
+      </p>
+      <p>
+        <strong>Bonus and equity-heavy comp.</strong> Halifax's treatment
+        of variable comp is more conservative than some specialist
+        lenders. Senior executives with material bonus or equity
+        components sometimes find better outcomes elsewhere.
+      </p>
+    </div>
+  </section>
+
+  <section class="hub-section">
+    <div class="hub-section-inner">
+      <h2 id="documentation">What lenders want to see for foreign income applications</h2>
+      <p>
+        The standard pack for any foreign income application, Halifax
+        included:
+      </p>
+      <ul>
+        <li>Three months of bank statements showing income credits.</li>
+        <li>Three months of payslips.</li>
+        <li>Two most recent annual income statements (P60 equivalent in your country of work) or two years of tax records.</li>
+        <li>Employment contract or letter from employer.</li>
+        <li>Evidence of UK residency (or UK residency intention if returning).</li>
+        <li>Bank statements showing where the foreign income lands and how it converts to sterling.</li>
+      </ul>
+      <p>
+        For self-employed: two years of audited accounts plus evidence of
+        clients and contracts.
+      </p>
+      <p>
+        For cross-border workers: evidence of the working arrangement and
+        the foreign tax position.
+      </p>
+    </div>
+  </section>
+
+  <section class="hub-section">
+    <div class="hub-section-inner">
+      <h2 id="how-to-apply">How to apply</h2>
+      <p>
+        You can apply directly to Halifax via their branch network or
+        website. The application route is the same as for a standard
+        residential mortgage, with the foreign income disclosed at
+        application.
+      </p>
+      <p>What a specialist broker adds:</p>
+      <p>
+        <strong>Lender comparison.</strong> Halifax may or may not be the
+        right answer for your foreign income case. A broker can compare
+        Halifax against several alternatives without multiple credit
+        footprints.
+      </p>
+      <p>
+        <strong>Currency-specialist alternatives.</strong> For some
+        currencies and income patterns, specialist lenders accessed only
+        via brokers offer materially better outcomes than Halifax.
+      </p>
+      <p>
+        <strong>Packaging.</strong> Halifax queries foreign income cases
+        more than sterling cases. A broker who places Halifax cases
+        regularly knows how to pre-empt the questions and reduce
+        back-and-forth.
+      </p>
+      <p>
+        <strong>Buy-to-let layered cases.</strong> If the foreign income
+        case is also a buy-to-let, the lender pool changes. Halifax's BTL
+        appetite for foreign income is narrower than for residential.
+      </p>
+    </div>
+  </section>
+
+  <section class="hub-section">
+    <div class="hub-section-inner">
+      <h2 id="pitfalls">Common pitfalls</h2>
+      <p>
+        <strong>Assuming the headline haircut is the only rate
+        variable.</strong> Different lenders apply different haircuts to
+        different currencies. Worth modelling what each lender actually
+        allows you to borrow on your specific income.
+      </p>
+      <p>
+        <strong>Underestimating documentation lead time.</strong> Foreign
+        income applications need more documentation than sterling cases.
+        Two years of accounts, in particular, often need pulling together
+        if your accountant has not previously prepared lender-friendly
+        summaries.
+      </p>
+      <p>
+        <strong>Income paid into the wrong account.</strong> Foreign
+        income paid into an offshore or non-UK account makes lender
+        verification harder. Where possible, route income into a UK
+        account before applying.
+      </p>
+      <p>
+        <strong>Currency conversion timing.</strong> If you are
+        converting foreign income to sterling for the deposit, GBP-FX
+        moves can shift the available deposit. Worth thinking about
+        timing if the rate has moved against you recently.
+      </p>
+      <p>
+        <strong>Confusing UK-resident foreign income with non-resident
+        expat.</strong> Halifax handles the former. Halifax does not lend
+        to the latter. Worth being clear which category you are in before
+        applying.
+      </p>
+    </div>
+  </section>
+
+  <MidPageCta />
+
+  <section class="hub-section">
+    <div class="hub-section-inner">
+      <h2 id="faqs">Common questions</h2>
+      <div class="faq">
+        {faqs.map((f) => (
+          <>
+            <h3>{f.q}</h3>
+            <p>{f.a}</p>
+          </>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <script
+    type="application/ld+json"
+    is:inline
+    set:html={JSON.stringify(faqSchema)}
+  />
+</HubLayout>

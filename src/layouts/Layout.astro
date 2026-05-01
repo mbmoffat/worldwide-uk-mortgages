@@ -23,6 +23,7 @@ const mortgages = [
   { label: 'Foreign Nationals in UK', href: '/uk-mortgage-for-foreign-nationals' },
   { label: 'Seafarer Mortgages', href: '/seafarer-mortgages' },
   { label: 'Expat Buy-to-Let', href: '/expat-mortgages/buy-to-let' },
+  { label: 'Non-UK Resident Buy-to-Let', href: '/non-uk-resident-mortgages/buy-to-let' },
 ];
 
 const countries = [
@@ -46,9 +47,20 @@ const calculators = [
   { label: 'Stamp Duty Calculator', href: '/tools/stamp-duty-calculator' },
 ];
 
+const lenders = [
+  { label: 'HSBC Expat', href: '/lenders/hsbc-expat' },
+  { label: 'Halifax (Foreign Income)', href: '/uk-mortgage-foreign-income/halifax' },
+];
+
 const guides = [
   { label: 'Returning to the UK', href: '/expat-mortgages/returning-to-uk' },
   { label: 'No UK Credit History', href: '/expat-mortgages/no-uk-credit-history' },
+  { label: 'Expat Mortgage Rates', href: '/expat-mortgages/rates' },
+  { label: 'Expat Mortgage Deposit', href: '/expat-mortgages/deposit' },
+  { label: 'Expat Remortgaging', href: '/expat-mortgages/remortgage' },
+  { label: 'Buy-to-Let from Abroad', href: '/expat-mortgages/buy-to-let-from-abroad' },
+  { label: 'The Application Process', href: '/expat-mortgages/process' },
+  { label: 'Expat Mortgage Broker', href: '/expat-mortgage-broker' },
 ];
 ---
 
@@ -142,6 +154,24 @@ const guides = [
             </button>
             <div class="nav-dropdown-menu" id="nav-calculators-menu" role="menu">
               {calculators.map((item) => (
+                <a href={item.href} role="menuitem">{item.label}</a>
+              ))}
+            </div>
+          </div>
+
+          <div class="nav-dropdown">
+            <button
+              type="button"
+              class="nav-dropdown-trigger"
+              aria-haspopup="true"
+              aria-expanded="false"
+              aria-controls="nav-lenders-menu"
+            >
+              Lenders
+              <span class="nav-dropdown-caret" aria-hidden="true">▾</span>
+            </button>
+            <div class="nav-dropdown-menu" id="nav-lenders-menu" role="menu">
+              {lenders.map((item) => (
                 <a href={item.href} role="menuitem">{item.label}</a>
               ))}
             </div>

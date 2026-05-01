@@ -1,0 +1,464 @@
+---
+import HubLayout from '../../layouts/HubLayout.astro';
+import PullQuote from '../../components/PullQuote.astro';
+import MidPageCta from '../../components/MidPageCta.astro';
+
+const title = 'UK Expat Mortgage Application Process: What Actually Happens';
+const description =
+  'The expat mortgage application process explained step by step. What lenders need, how long each stage takes, and where applications get stuck.';
+const h1 = 'UK Expat Mortgage Application Process: What Actually Happens';
+const subheadline =
+  'The expat mortgage application process explained step by step. What lenders need, what to expect at each stage, how long the whole process takes, and where applications get stuck. Practical walk-through for British nationals abroad.';
+
+const relatedPages = [
+  {
+    eyebrow: 'Hub',
+    title: 'UK Mortgages for Expats',
+    description:
+      'British nationals living abroad. Country-by-country lender appetite, currency haircuts, and timelines.',
+    href: '/expat-mortgages',
+  },
+  {
+    eyebrow: 'Guide',
+    title: 'Expat Mortgage Rates',
+    description:
+      'Why expat rates differ, what to expect by profile, and how lender choice moves the rate you pay.',
+    href: '/expat-mortgages/rates',
+  },
+  {
+    eyebrow: 'Guide',
+    title: 'Expat Mortgage Deposit Requirements',
+    description:
+      'How much deposit you need, what counts as deposit money, and how thresholds shift the rate you pay.',
+    href: '/expat-mortgages/deposit',
+  },
+  {
+    eyebrow: 'Lender',
+    title: 'HSBC Expat Mortgages',
+    description:
+      'What HSBC Expat lends on, who qualifies, and where it sits in the wider expat lender landscape.',
+    href: '/lenders/hsbc-expat',
+  },
+  {
+    eyebrow: 'Guide',
+    title: 'UK Expat Mortgage Broker',
+    description:
+      'What an expat broker actually does, why direct applications underperform, and how to choose.',
+    href: '/expat-mortgage-broker',
+  },
+];
+
+const faqs = [
+  {
+    q: 'How long does the whole process take?',
+    a: 'Ten to fourteen weeks from initial conversation to completion. Six to ten weeks application to offer, four to eight weeks offer to completion.',
+  },
+  {
+    q: 'Do I need to come to the UK?',
+    a: 'No. Documents are notarised abroad and the process completes remotely.',
+  },
+  {
+    q: 'Can I do this without a broker?',
+    a: 'Yes, but most expats benefit from one. The process saving and rate improvement usually outweigh the fee.',
+  },
+  {
+    q: 'What if my employer issues a payslip in a format the lender does not recognise?',
+    a: "Common in some countries. Broker translates into the lender's expected format.",
+  },
+  {
+    q: 'Can I lock the rate before completion?',
+    a: 'Yes. Most offers hold the rate for six months from issue.',
+  },
+  {
+    q: 'What happens if the surveyor downvalues the property?',
+    a: 'You can renegotiate with the seller, increase your deposit, or withdraw from the purchase.',
+  },
+  {
+    q: 'Do I pay anything upfront?',
+    a: 'Survey fee, sometimes broker fee, conveyancing disbursements. Mortgage product fee can usually be added to the loan.',
+  },
+  {
+    q: 'What if my situation changes during the application?',
+    a: 'Tell the broker immediately. Material changes (job loss, marriage, additional debt) can affect the offer.',
+  },
+  {
+    q: 'Can I bring forward the timeline?',
+    a: 'Some, by pre-preparing the documentation and using brokers who place cases efficiently. The biggest wins are at stages 2 and 5.',
+  },
+  {
+    q: 'What if my offer expires before completion?',
+    a: 'Most lenders extend offers in reasonable circumstances. Worth flagging early if the chain is delayed.',
+  },
+];
+
+const faqSchema = {
+  '@context': 'https://schema.org',
+  '@type': 'FAQPage',
+  mainEntity: faqs.map((f) => ({
+    '@type': 'Question',
+    name: f.q,
+    acceptedAnswer: { '@type': 'Answer', text: f.a },
+  })),
+};
+---
+
+<HubLayout
+  title={title}
+  description={description}
+  h1={h1}
+  subheadline={subheadline}
+  eyebrow="GUIDE · APPLICATION PROCESS"
+  relatedPages={relatedPages}
+>
+  <section class="hub-section">
+    <div class="hub-section-inner">
+      <h2 id="who-this-is-for">Who this page is for</h2>
+      <p>
+        If you are a British national living abroad and want to know
+        exactly what happens when you apply for a UK mortgage, this page
+        is for you.
+      </p>
+      <p>
+        Most online guides to mortgage applications assume you are a UK
+        resident. The expat process is different: longer, more
+        documentation-heavy, with more places it can get stuck, and a
+        different cast of people involved.
+      </p>
+      <p>
+        This page walks through the eight stages of an expat mortgage
+        application from initial conversation to keys in hand, with
+        practical detail at each stage about what to expect, what to
+        prepare, and what causes the typical delays.
+      </p>
+    </div>
+  </section>
+
+  <section class="hub-section">
+    <div class="hub-section-inner">
+      <h2 id="timeline">The headline timeline</h2>
+      <p>
+        A clean expat mortgage application takes six to ten weeks from
+        full application submission to formal mortgage offer. After
+        offer, conveyancing takes a further four to eight weeks to
+        completion. Total: ten to fourteen weeks from "I want to apply"
+        to "I own the property."
+      </p>
+      <p>
+        Faster is possible on simple cases with strong applicants and
+        pre-prepared documentation. Twelve weeks is more typical. Sixteen
+        weeks is not unusual on more complex cases.
+      </p>
+      <p>
+        Compared to a UK-resident mortgage (often three to five weeks
+        application-to-offer), the expat process is materially longer.
+        The reasons: more documentation, more underwriter review, and
+        more cross-border verification.
+      </p>
+    </div>
+  </section>
+
+  <MidPageCta variant="hero" />
+
+  <section class="hub-section">
+    <div class="hub-section-inner">
+      <h2 id="stage-1">Stage 1: Initial conversation with a broker</h2>
+      <p>
+        Most expat mortgages start with a 30 to 60 minute conversation
+        with a specialist broker. By phone, video call, or sometimes
+        WhatsApp.
+      </p>
+      <p>The broker asks about:</p>
+      <ul>
+        <li>Country and city of residence, and length of time there.</li>
+        <li>Currency and source of income (employed, self-employed, mixed).</li>
+        <li>Income figures: base salary, bonus, equity comp, other.</li>
+        <li>Existing UK property, if any, and existing mortgages.</li>
+        <li>Target property type, location, price range, intended use (residential, BTL).</li>
+        <li>Deposit size and source of deposit funds.</li>
+        <li>Timeline pressure: rate hold expiring, fix ending, target completion date.</li>
+        <li>Anything unusual: past credit issues, complex employment, family pooling on deposit.</li>
+      </ul>
+      <p>
+        Output of stage 1: a clear sense of which lenders are likely to
+        fit your profile, what rate range to expect, and what
+        documentation you will need to assemble.
+      </p>
+      <p>
+        This conversation is usually free. No commitment yet on either
+        side.
+      </p>
+    </div>
+  </section>
+
+  <section class="hub-section">
+    <div class="hub-section-inner">
+      <h2 id="stage-2">Stage 2: Document gathering</h2>
+      <p>
+        Before submitting an application, the documentation pack must be
+        complete. Lenders will not start meaningful underwriting on
+        incomplete files.
+      </p>
+      <p>Standard expat documentation pack:</p>
+      <ul>
+        <li>Passport and proof of identity.</li>
+        <li>Three months of bank statements showing income credits, in your country of residence.</li>
+        <li>Three months of payslips.</li>
+        <li>Two most recent annual tax records from your country of residence.</li>
+        <li>Employment contract or letter confirming role, salary, and tenure.</li>
+        <li>Proof of residency: visa, residence permit, or equivalent.</li>
+        <li>Proof of UK address history if you previously lived in the UK.</li>
+        <li>Existing UK property and mortgage details if applicable.</li>
+        <li>Evidence of deposit funds and source.</li>
+      </ul>
+      <p>
+        Self-employed applicants add: two years of audited accounts and
+        tax returns.
+      </p>
+      <p>
+        Higher-income applicants add: bonus history, equity grant
+        documentation, partnership distribution records.
+      </p>
+      <p>
+        Property-specific documentation comes later, once you have a
+        target property.
+      </p>
+      <p>
+        Most clients take two to four weeks to assemble the pack.
+        Pre-preparing this before you actually need a mortgage shortens
+        the process meaningfully.
+      </p>
+    </div>
+  </section>
+
+  <section class="hub-section">
+    <div class="hub-section-inner">
+      <h2 id="stage-3">Stage 3: Lender selection and decision in principle</h2>
+      <p>
+        The broker matches your profile to the right lender, then obtains
+        a decision in principle (DIP) from that lender. A DIP is a soft
+        confirmation that, based on the information provided, the lender
+        expects to be able to lend you a specified amount on standard
+        product terms.
+      </p>
+      <p>
+        A DIP is not a formal offer. It does not commit the lender to
+        lending. But it is enough for estate agents to take you seriously
+        when you make an offer on a property.
+      </p>
+      <p>
+        DIPs typically take 24 to 72 hours to obtain. Some lenders run a
+        soft credit check at DIP stage, others do not. A specialist
+        broker pre-screens before requesting a DIP to avoid wasted
+        footprints.
+      </p>
+      <p>
+        Output of stage 3: a DIP for the amount you can borrow, valid
+        usually for 60 to 90 days.
+      </p>
+    </div>
+  </section>
+
+  <PullQuote>
+    Lenders will not start meaningful underwriting on incomplete files.
+    A clean documentation pack on day one shaves two to three weeks off
+    the timeline.
+  </PullQuote>
+
+  <section class="hub-section">
+    <div class="hub-section-inner">
+      <h2 id="stage-4">Stage 4: Property purchase and offer</h2>
+      <p>
+        You then go and find a property, agree a price with the seller,
+        and have the offer accepted.
+      </p>
+      <p>
+        For UK property, this means working with UK estate agents while
+        you are abroad. WhatsApp, video tours, and trusted friends or
+        family viewing on your behalf are common. Some buyers visit the
+        UK for a viewing trip; others buy unseen on a pre-vetted area.
+      </p>
+      <p>
+        Once your offer is accepted, the process moves into the formal
+        mortgage application. The DIP becomes the basis for the full
+        application, but new property-specific documentation is now
+        needed.
+      </p>
+    </div>
+  </section>
+
+  <section class="hub-section">
+    <div class="hub-section-inner">
+      <h2 id="stage-5">Stage 5: Full mortgage application</h2>
+      <p>
+        The broker submits the full application to the chosen lender.
+        This includes everything from stage 2 plus:
+      </p>
+      <ul>
+        <li>Property details: address, type, age, condition.</li>
+        <li>Memorandum of sale from the estate agent.</li>
+        <li>Confirmation of solicitor instruction.</li>
+        <li>Property valuation, paid for as part of the application.</li>
+      </ul>
+      <p>
+        The valuation is commissioned by the lender, paid by the
+        borrower. The surveyor visits the property and produces a
+        valuation report. This takes two to three weeks typically.
+      </p>
+      <p>
+        In parallel, the underwriter reviews the application file. This
+        is where the bulk of the six to ten week timeline goes.
+      </p>
+      <p>Common underwriter queries:</p>
+      <ul>
+        <li>Clarification on bonus income or variable comp.</li>
+        <li>Source of deposit documentation.</li>
+        <li>Proof of right to live and work in your country of residence.</li>
+        <li>Confirmation of UK tax position if relevant.</li>
+        <li>Bank statement annotations explaining unusual transactions.</li>
+      </ul>
+      <p>
+        A specialist broker handles these queries on your behalf. You
+        provide the underlying answers, the broker formats and submits.
+      </p>
+    </div>
+  </section>
+
+  <section class="hub-section">
+    <div class="hub-section-inner">
+      <h2 id="stage-6">Stage 6: Mortgage offer</h2>
+      <p>
+        When underwriting is complete and the valuation is in, the lender
+        issues a formal mortgage offer. This is a binding commitment from
+        the lender, subject to conditions.
+      </p>
+      <p>
+        The offer is sent to you, your solicitor, and the broker. It
+        typically remains valid for six months, allowing time for
+        conveyancing to complete.
+      </p>
+      <p>
+        The offer specifies the loan amount, rate, term, product details,
+        and any specific conditions (most are routine).
+      </p>
+      <p>
+        Output of stage 6: formal mortgage offer in hand. The mortgage
+        process is now substantively complete; what remains is the legal
+        completion.
+      </p>
+    </div>
+  </section>
+
+  <section class="hub-section">
+    <div class="hub-section-inner">
+      <h2 id="stage-7">Stage 7: Conveyancing</h2>
+      <p>
+        Conveyancing is the legal process of transferring ownership from
+        seller to buyer. Your solicitor handles this. The lender's
+        solicitor (often the same firm) protects the lender's interest.
+      </p>
+      <p>Key conveyancing steps:</p>
+      <ul>
+        <li>Searches on the property (local authority, water, environmental).</li>
+        <li>Review of the title deeds.</li>
+        <li>Enquiries with the seller's solicitor.</li>
+        <li>Drafting the contract.</li>
+        <li>Exchange of contracts (the legally binding moment).</li>
+        <li>Completion (the day funds change hands and you own the property).</li>
+      </ul>
+      <p>For expats, the practical complications:</p>
+      <ul>
+        <li>Document signing requires notarisation abroad.</li>
+        <li>Time zone differences slow back-and-forth with the solicitor.</li>
+        <li>AML checks on the buyer require thorough documentation.</li>
+        <li>Source of funds checks on the deposit and any additional capital.</li>
+      </ul>
+      <p>
+        Conveyancing typically takes four to eight weeks. Faster on
+        simple chains, slower if the seller's chain is complex.
+      </p>
+    </div>
+  </section>
+
+  <section class="hub-section">
+    <div class="hub-section-inner">
+      <h2 id="stage-8">Stage 8: Completion</h2>
+      <p>
+        On completion day, your solicitor sends the deposit to the
+        seller's solicitor. The lender releases the mortgage funds, also
+        to the seller's solicitor. The seller's solicitor confirms
+        receipt and releases the keys to the estate agent. You collect
+        the keys (or arrange for someone to on your behalf if you are
+        abroad).
+      </p>
+      <p>You now own the property and the mortgage is active.</p>
+      <p>
+        For BTL purchases, the next step is appointing a letting agent
+        (if not already done) and starting the let. For owner-occupier
+        purchases where you are not yet returning to the UK, the property
+        typically sits empty or is occupied by family until your move.
+      </p>
+    </div>
+  </section>
+
+  <section class="hub-section">
+    <div class="hub-section-inner">
+      <h2 id="where-stuck">Where applications get stuck</h2>
+      <p>Patterns of delay, in rough order of frequency:</p>
+      <p>
+        <strong>Documentation gaps.</strong> Missing tax records,
+        incomplete bank statements, or stale documents (more than three
+        months old at submission) trigger underwriter requests.
+      </p>
+      <p>
+        <strong>AML on deposit.</strong> Funds with unclear paper trails,
+        multi-currency conversions, or sources from less common
+        jurisdictions need extra documentation.
+      </p>
+      <p>
+        <strong>Valuation surprises.</strong> Surveyor downvalues the
+        property below the agreed purchase price. Buyer must either
+        renegotiate, increase the deposit, or pull out.
+      </p>
+      <p>
+        <strong>Conveyancing chain delays.</strong> Problems with the
+        seller's chain push the completion date back.
+      </p>
+      <p>
+        <strong>Time zone mismatches.</strong> Notarisation lead times
+        and email round-trips between abroad and the UK add days.
+      </p>
+      <p>
+        <strong>Surveyor access.</strong> Booking the survey takes longer
+        for some property types or remote areas.
+      </p>
+      <p>
+        A specialist broker pre-empts most of these. Working with an
+        experienced broker rather than going direct shaves typically two
+        to three weeks off the total timeline by avoiding the routine
+        causes of delay.
+      </p>
+    </div>
+  </section>
+
+  <MidPageCta />
+
+  <section class="hub-section">
+    <div class="hub-section-inner">
+      <h2 id="faqs">Common questions</h2>
+      <div class="faq">
+        {faqs.map((f) => (
+          <>
+            <h3>{f.q}</h3>
+            <p>{f.a}</p>
+          </>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <script
+    type="application/ld+json"
+    is:inline
+    set:html={JSON.stringify(faqSchema)}
+  />
+</HubLayout>

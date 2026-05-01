@@ -1,0 +1,361 @@
+---
+import HubLayout from '../../layouts/HubLayout.astro';
+import PullQuote from '../../components/PullQuote.astro';
+import MidPageCta from '../../components/MidPageCta.astro';
+
+const title = 'UK Expat Remortgaging: Switching Your UK Mortgage from Abroad';
+const description =
+  'How to remortgage a UK property when you live abroad. What lenders look for, how it differs from a UK-resident remortgage, when to start, and how a broker handles it.';
+const h1 = 'UK Expat Remortgaging: Switching Your UK Mortgage from Abroad';
+const subheadline =
+  'How to remortgage a UK property when you live abroad. What lenders look for, how the process differs from a UK-resident remortgage, when to start, and how a specialist broker handles the application end-to-end while you stay in your day job.';
+
+const relatedPages = [
+  {
+    eyebrow: 'Hub',
+    title: 'UK Mortgages for Expats',
+    description:
+      'British nationals living abroad. Country-by-country lender appetite, currency haircuts, and timelines.',
+    href: '/expat-mortgages',
+  },
+  {
+    eyebrow: 'Guide',
+    title: 'Expat Mortgage Rates',
+    description:
+      'Why expat rates differ, what to expect by profile, and how lender choice moves the rate you pay.',
+    href: '/expat-mortgages/rates',
+  },
+  {
+    eyebrow: 'Hub',
+    title: 'Expat Buy-to-Let Mortgages',
+    description:
+      'UK buy-to-let mortgages for British nationals living abroad. ICR, deposits, and lender pool.',
+    href: '/expat-mortgages/buy-to-let',
+  },
+  {
+    eyebrow: 'Hub',
+    title: 'UK Mortgages Living Abroad',
+    description:
+      'UK property and mortgages while you live abroad. Renting out your UK home, remortgaging, and tax basics.',
+    href: '/uk-mortgage-living-abroad',
+  },
+  {
+    eyebrow: 'Guide',
+    title: 'Returning to the UK',
+    description:
+      'Mortgages for returning expats. When to apply, what evidence you need, and how to time completion.',
+    href: '/expat-mortgages/returning-to-uk',
+  },
+];
+
+const faqs = [
+  {
+    q: 'Can I remortgage from abroad?',
+    a: 'Yes. Most expats remortgage from abroad rather than waiting until they return.',
+  },
+  {
+    q: 'How long does it take?',
+    a: 'Six to ten weeks from application to completion, longer than a UK-resident remortgage.',
+  },
+  {
+    q: 'Will my current lender offer a product transfer?',
+    a: 'Some yes, some no. Worth asking before assuming.',
+  },
+  {
+    q: 'Is the rate worse than a UK-resident remortgage?',
+    a: 'Yes. Typically 0.3 to 0.5 percentage points higher than equivalent residential pricing.',
+  },
+  {
+    q: 'Can I release equity at remortgage?',
+    a: 'Yes, subject to affordability. Lender treatment of capital raise varies by intended use.',
+  },
+  {
+    q: 'Do I need a UK address?',
+    a: 'No. Lenders accept your overseas address as your correspondence address.',
+  },
+  {
+    q: 'Can I remortgage if I am on SVR already?',
+    a: 'Yes. The remortgage process is the same whether your fix has ended or is still running.',
+  },
+  {
+    q: 'What about early repayment charges?',
+    a: 'If your current fix has not ended, ERCs may apply. Worth modelling whether the new rate covers the ERC plus the remaining months at the current rate.',
+  },
+  {
+    q: 'Can I switch from residential to buy-to-let at remortgage?',
+    a: 'Yes. Specialist case, but routine for a broker that does expat work.',
+  },
+  {
+    q: 'Can I extend the term?',
+    a: 'Yes, subject to age limits and affordability.',
+  },
+];
+
+const faqSchema = {
+  '@context': 'https://schema.org',
+  '@type': 'FAQPage',
+  mainEntity: faqs.map((f) => ({
+    '@type': 'Question',
+    name: f.q,
+    acceptedAnswer: { '@type': 'Answer', text: f.a },
+  })),
+};
+---
+
+<HubLayout
+  title={title}
+  description={description}
+  h1={h1}
+  subheadline={subheadline}
+  eyebrow="GUIDE · EXPAT REMORTGAGING"
+  relatedPages={relatedPages}
+>
+  <section class="hub-section">
+    <div class="hub-section-inner">
+      <h2 id="who-this-is-for">Who this page is for</h2>
+      <p>
+        If you own a UK property, your current mortgage fix is ending or
+        has ended, and you live outside the UK, this page is for you.
+      </p>
+      <p>
+        That covers British expats with a UK home rented out while they
+        work abroad. UK landlords whose own residency status changed since
+        the original mortgage was taken out. Returning expats refinancing
+        ahead of a UK move. People sitting on the lender's standard
+        variable rate after a fix expired and looking for a better deal.
+        And anyone whose current lender has refused to keep them on as a
+        non-resident.
+      </p>
+      <p>
+        Remortgaging from abroad is one of the most common reasons expats
+        contact a specialist broker. The mechanics differ from a UK
+        remortgage, and the timing matters more than people realise.
+      </p>
+    </div>
+  </section>
+
+  <section class="hub-section">
+    <div class="hub-section-inner">
+      <h2 id="why-different">Why expat remortgaging is different</h2>
+      <p>
+        A UK-resident remortgage is straightforward. The current lender
+        offers a product transfer, the borrower compares against the wider
+        market, picks the best deal, and the process completes inside two
+        to four weeks.
+      </p>
+      <p>For an expat, three things complicate this.</p>
+      <p>
+        First, your current lender may not offer you a product transfer
+        at all. Many high-street lenders only offer product transfers to
+        UK residents. When the fix ends, you are quietly moved to the
+        standard variable rate and left there indefinitely.
+      </p>
+      <p>
+        Second, applying for a remortgage with a new lender means a full
+        new application from a non-resident position. Income evidence,
+        currency haircut, deposit equivalent (the equity in the property),
+        AML on funds, and underwriter time. This takes six to ten weeks,
+        not two to four.
+      </p>
+      <p>
+        Third, lenders price expat remortgages at higher rates than
+        residential remortgages because of currency risk and underwriting
+        cost. The trade-off is between staying on the lender's standard
+        variable rate, which is usually high, and the upfront cost and
+        time of a full expat remortgage.
+      </p>
+      <p>
+        For most expats, the maths favours remortgaging. The gap between
+        SVR and a fresh expat fix is usually wide enough to pay for the
+        application time several times over.
+      </p>
+    </div>
+  </section>
+
+  <MidPageCta variant="hero" />
+
+  <section class="hub-section">
+    <div class="hub-section-inner">
+      <h2 id="when-to-start">When to start</h2>
+      <p>
+        The single biggest mistake expats make is starting too late.
+      </p>
+      <p>
+        A UK-resident remortgage can be turned around in three weeks. An
+        expat remortgage takes six to ten weeks at best. If your fix ends
+        in three months and you have not started, you are already late.
+      </p>
+      <p>Working timeline for a clean expat remortgage:</p>
+      <p>
+        Six months before fix end: gather two years of tax records, three
+        months of bank statements and payslips, employment contract, and
+        proof of UK address history. Speak to a specialist broker.
+      </p>
+      <p>
+        Four months before fix end: full application submitted to a
+        chosen lender.
+      </p>
+      <p>
+        Two to three months before fix end: offer issued, conveyancing
+        solicitor instructed.
+      </p>
+      <p>At fix end: completion. New rate active immediately.</p>
+      <p>
+        Starting later than six months before fix end is doable but
+        compresses the timeline and removes options. Starting later than
+        four months before fix end risks falling onto SVR for one or more
+        months while the new mortgage completes.
+      </p>
+    </div>
+  </section>
+
+  <PullQuote>
+    A UK-resident remortgage can be turned around in three weeks. An
+    expat remortgage takes six to ten weeks at best.
+  </PullQuote>
+
+  <section class="hub-section">
+    <div class="hub-section-inner">
+      <h2 id="lender-pack">What lenders want to see</h2>
+      <p>
+        The pack from an expat remortgage applicant looks like a fresh
+        application:
+      </p>
+      <ul>
+        <li>Three months of bank statements showing salary credits.</li>
+        <li>Three months of payslips.</li>
+        <li>Two most recent years of tax records from your country of residence.</li>
+        <li>Employment contract or employer letter confirming current role and salary.</li>
+        <li>Evidence of residency status (visa, residence permit, or equivalent).</li>
+        <li>Statement of the existing UK mortgage (lender, balance, current rate, fix end date).</li>
+        <li>Property valuation, paid for as part of the new application.</li>
+        <li>AML on the deposit equivalent (the equity in the property).</li>
+        <li>Two years of audited accounts if self-employed.</li>
+      </ul>
+      <p>
+        Lenders treat the equity built up in the property as the
+        equivalent of a deposit. A property worth £500,000 with £300,000
+        outstanding gives an LTV of 60%, which is treated more favourably
+        than a 75% LTV new purchase at the same income.
+      </p>
+    </div>
+  </section>
+
+  <section class="hub-section">
+    <div class="hub-section-inner">
+      <h2 id="currency-picture">The currency picture</h2>
+      <p>
+        Same as for a fresh purchase. UK lenders convert non-sterling
+        income to sterling for affordability. Most apply a 20% haircut. A
+        specialist broker with no-haircut relationships can get you a
+        meaningfully larger borrowing capacity on the same income.
+      </p>
+      <p>
+        This matters less on remortgages than purchases, because
+        remortgages usually do not require borrowing more, just continuing
+        to borrow what is already outstanding. But it matters when:
+      </p>
+      <ul>
+        <li>You want to release equity from the property (capital raise).</li>
+        <li>The property has fallen in value and you need affordability to support the existing balance.</li>
+        <li>You want to consolidate or extend the term.</li>
+      </ul>
+      <p>
+        In any of those scenarios, lender choice and currency haircut
+        treatment determine what is possible.
+      </p>
+    </div>
+  </section>
+
+  <section class="hub-section">
+    <div class="hub-section-inner">
+      <h2 id="common-situations">Common situations</h2>
+      <p>Most expat remortgages fall into one of these:</p>
+      <p>
+        <strong>The "fix is ending" remortgage.</strong> Standard case.
+        Same property, same loan size, new product. Most lenders compete
+        for these.
+      </p>
+      <p>
+        <strong>The capital raise remortgage.</strong> Borrower wants to
+        release equity from a UK property to fund a deposit on another UK
+        purchase, school fees, business investment, or to send funds home.
+        Lenders treat capital raises differently. Some are happy with most
+        uses, others are restrictive.
+      </p>
+      <p>
+        <strong>The let-to-let remortgage.</strong> Borrower bought as an
+        owner-occupier, moved abroad, the property is now rented, the
+        original residential mortgage no longer fits. Needs to switch to a
+        buy-to-let basis. Specialist case.
+      </p>
+      <p>
+        <strong>The product transfer refused.</strong> Current lender will
+        not offer a product transfer because the borrower is now
+        non-resident. Borrower must remortgage out to a lender that
+        accepts expats.
+      </p>
+      <p>
+        <strong>The portfolio remortgage.</strong> Multiple UK BTL
+        properties, multiple existing mortgages, expat owner. Often
+        handled as a portfolio review with a specialist BTL lender rather
+        than property-by-property.
+      </p>
+    </div>
+  </section>
+
+  <section class="hub-section">
+    <div class="hub-section-inner">
+      <h2 id="pitfalls">Common pitfalls</h2>
+      <p>Starting too late, as covered above.</p>
+      <p>
+        Not understanding what your current lender will or will not do.
+        Some lenders quietly tolerate non-residents for years, then refuse
+        a product transfer at fix end. Others accept non-residents at
+        product transfer but only at adverse rates. The first call to make
+        is to your existing lender to confirm exactly what they will
+        offer.
+      </p>
+      <p>
+        Underestimating the cost of staying on SVR. The gap between SVR
+        and a fresh expat fix is often 1.5 to 3 percentage points. On a
+        £300,000 mortgage, even one month on SVR rather than a fix can
+        cost £400 to £600 in extra interest.
+      </p>
+      <p>
+        Currency timing on capital raises. If you are remortgaging to
+        release equity that you will then convert to a foreign currency,
+        GBP-FX moves matter. Worth thinking about timing if the rate has
+        moved against you recently.
+      </p>
+      <p>
+        AML on the deposit equivalent. Lenders ask where the equity in the
+        property came from. If the original deposit came from an
+        inheritance, gift, or sale of a non-UK asset, documentation should
+        be ready before applying.
+      </p>
+    </div>
+  </section>
+
+  <MidPageCta />
+
+  <section class="hub-section">
+    <div class="hub-section-inner">
+      <h2 id="faqs">Common questions</h2>
+      <div class="faq">
+        {faqs.map((f) => (
+          <>
+            <h3>{f.q}</h3>
+            <p>{f.a}</p>
+          </>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <script
+    type="application/ld+json"
+    is:inline
+    set:html={JSON.stringify(faqSchema)}
+  />
+</HubLayout>

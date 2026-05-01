@@ -1,0 +1,368 @@
+---
+import HubLayout from '../../layouts/HubLayout.astro';
+import PullQuote from '../../components/PullQuote.astro';
+import MidPageCta from '../../components/MidPageCta.astro';
+
+const title = 'UK Expat Mortgage Deposit Requirements';
+const description =
+  'How much deposit you need for a UK mortgage as a British expat, why thresholds differ from UK-resident requirements, what counts as deposit, and where the real thresholds sit.';
+const h1 = 'UK Expat Mortgage Deposit Requirements';
+const subheadline =
+  'How much deposit you need for a UK mortgage as a British expat, why deposit thresholds differ from UK-resident requirements, what counts as deposit money, and how a specialist broker structures applications around the deposit you actually have.';
+
+const relatedPages = [
+  {
+    eyebrow: 'Hub',
+    title: 'UK Mortgages for Expats',
+    description:
+      'British nationals living abroad. Country-by-country lender appetite, currency haircuts, and timelines.',
+    href: '/expat-mortgages',
+  },
+  {
+    eyebrow: 'Guide',
+    title: 'Expat Mortgage Rates',
+    description:
+      'Why expat rates differ, what to expect by profile, and how lender choice moves the rate you pay.',
+    href: '/expat-mortgages/rates',
+  },
+  {
+    eyebrow: 'Hub',
+    title: 'Expat Buy-to-Let Mortgages',
+    description:
+      'UK buy-to-let mortgages for British nationals living abroad. ICR, deposits, and lender pool.',
+    href: '/expat-mortgages/buy-to-let',
+  },
+  {
+    eyebrow: 'Hub',
+    title: 'UK Mortgages for Non-UK Residents',
+    description:
+      'Foreign nationals or British expats wanting a UK mortgage on UK property. The lender pool, deposits, and rates explained.',
+    href: '/non-uk-resident-mortgages',
+  },
+  {
+    eyebrow: 'Guide',
+    title: 'Expat Remortgaging',
+    description:
+      'Switching your UK mortgage from abroad. When to start, what lenders look for, and how the process differs.',
+    href: '/expat-mortgages/remortgage',
+  },
+];
+
+const faqs = [
+  {
+    q: 'What is the minimum expat deposit?',
+    a: '20% on strongest profiles, 25% as working reality, 30% for better access.',
+  },
+  {
+    q: 'Does deposit size affect the rate?',
+    a: 'Yes, materially. 30% to 35% deposit unlocks better pricing.',
+  },
+  {
+    q: 'Can I use savings from abroad?',
+    a: 'Yes, with documentation showing accumulation and source.',
+  },
+  {
+    q: 'Can family give me the deposit?',
+    a: 'Yes, with a formal gift declaration and AML on the gifter.',
+  },
+  {
+    q: 'Does crypto count?',
+    a: 'Sometimes. Documentation requirements are heavier than other sources.',
+  },
+  {
+    q: 'Is end-of-service gratuity counted?',
+    a: 'Yes, as deposit, not as income.',
+  },
+  {
+    q: 'Do I need the deposit in a UK account before applying?',
+    a: 'Not always, but it usually speeds up the process.',
+  },
+  {
+    q: 'Can I borrow part of the deposit?',
+    a: 'Most lenders refuse. Some accept on case-by-case for second-charge loans against another property.',
+  },
+  {
+    q: 'What about a buy-to-let deposit?',
+    a: '25% minimum, 30 to 35% in practice.',
+  },
+  {
+    q: 'Is the deposit threshold likely to come down?',
+    a: 'Slowly trending lower over time, but a 5-percentage-point change takes years.',
+  },
+];
+
+const faqSchema = {
+  '@context': 'https://schema.org',
+  '@type': 'FAQPage',
+  mainEntity: faqs.map((f) => ({
+    '@type': 'Question',
+    name: f.q,
+    acceptedAnswer: { '@type': 'Answer', text: f.a },
+  })),
+};
+---
+
+<HubLayout
+  title={title}
+  description={description}
+  h1={h1}
+  subheadline={subheadline}
+  eyebrow="GUIDE · EXPAT DEPOSIT"
+  relatedPages={relatedPages}
+>
+  <section class="hub-section">
+    <div class="hub-section-inner">
+      <h2 id="who-this-is-for">Who this page is for</h2>
+      <p>
+        If you are a British national living abroad and want to know
+        exactly how much deposit you will need for a UK mortgage, this
+        page is for you. The number you have probably seen quoted online
+        is wrong, or at least incomplete, because the working answer is
+        more nuanced than a single percentage.
+      </p>
+      <p>
+        This page covers residential expat purchases, expat buy-to-let,
+        and capital-raise remortgages. It also covers what counts as
+        deposit, what does not, and where the real deposit thresholds sit
+        in the current market.
+      </p>
+    </div>
+  </section>
+
+  <section class="hub-section">
+    <div class="hub-section-inner">
+      <h2 id="headline-number">The headline number</h2>
+      <p>
+        For an expat residential purchase, the working minimum deposit is
+        <strong>25%</strong>. Some lenders accept 20% on the strongest
+        profiles. Most cluster at 25% as the entry threshold. Better rates
+        open up at 30%, 35%, and 40% deposit thresholds.
+      </p>
+      <p>
+        For an expat buy-to-let, the working minimum is <strong>25%</strong>.
+        Real-world deposits cluster at 30 to 35%, partly because of stress
+        test arithmetic and partly because lenders are choosier with
+        non-resident BTL.
+      </p>
+      <p>
+        For a capital-raise remortgage (releasing equity from an existing
+        UK property), the equity in the property is the equivalent of the
+        deposit. A property worth £500,000 with £350,000 outstanding has
+        £150,000 of equity, which is treated as a 30% LTV remortgage.
+      </p>
+    </div>
+  </section>
+
+  <MidPageCta variant="hero" />
+
+  <section class="hub-section">
+    <div class="hub-section-inner">
+      <h2 id="why-higher">Why expat deposits are higher than UK-resident deposits</h2>
+      <p>
+        UK residents can buy with as little as 5% deposit on Help to Buy
+        or shared ownership schemes, and 10% deposit on standard
+        residential mortgages with mainstream lenders.
+      </p>
+      <p>Expat applicants face higher minimums for three reasons.</p>
+      <p>
+        <strong>Currency risk.</strong> Lenders accepting non-sterling
+        income want a buffer against the borrower's home currency
+        weakening. A 25% deposit reduces the loan-to-value ratio enough
+        to absorb 10 to 15% of currency movement without triggering
+        negative equity.
+      </p>
+      <p>
+        <strong>Underwriting risk.</strong> Expat applications are harder
+        to verify, harder to chase, and harder to enforce against if
+        things go wrong. Higher deposit reduces the lender's exposure on
+        a case that costs them more to manage.
+      </p>
+      <p>
+        <strong>Lender appetite.</strong> The lenders that accept expats
+        are competing for a smaller pool of applicants. They can afford
+        to be selective. A higher deposit signals a stronger applicant.
+      </p>
+      <p>
+        The size of the gap between expat and resident minimums has
+        narrowed in recent years. Five years ago, 30% was the entry
+        deposit. Today 25% is workable on clean profiles. The trend is
+        gradually toward narrower gaps.
+      </p>
+    </div>
+  </section>
+
+  <section class="hub-section">
+    <div class="hub-section-inner">
+      <h2 id="what-counts">What counts as deposit</h2>
+      <p>Deposit money must be your own and provable.</p>
+      <h3>Counts</h3>
+      <ul>
+        <li>Personal savings in your home country bank account, with statements showing accumulation over time.</li>
+        <li>Sale proceeds from another property, with completion statement.</li>
+        <li>Inheritance, with grant of probate and bank credit.</li>
+        <li>Investment proceeds from sale of shares, ISAs, or other recorded investments.</li>
+        <li>Gift from immediate family, with a gifted deposit declaration.</li>
+      </ul>
+      <h3>Does not count, or counts conditionally</h3>
+      <ul>
+        <li>Borrowed money (personal loans, second-charge loans against another property). Most lenders refuse, some accept on case-by-case.</li>
+        <li>Cryptocurrency proceeds. Increasingly accepted but with strict AML evidence requirements covering source, exchange records, and conversion to fiat.</li>
+        <li>Cash deposits with no clear paper trail. Refused universally.</li>
+        <li>Funds from undisclosed sources or jurisdictions on AML watchlists. Refused universally.</li>
+      </ul>
+      <h3>Treated specifically</h3>
+      <ul>
+        <li>End-of-service gratuity from Gulf employment. Accepted as deposit if already paid out and sitting in a normal bank account.</li>
+        <li>Bonus and equity comp recently received. Accepted with payslips and tax records showing the income.</li>
+      </ul>
+    </div>
+  </section>
+
+  <section class="hub-section">
+    <div class="hub-section-inner">
+      <h2 id="aml">AML on the deposit</h2>
+      <p>
+        Anti-money laundering checks on expat deposits are stricter than
+        for UK-resident purchases, because the funds usually originated
+        outside the UK and may have moved through multiple jurisdictions.
+      </p>
+      <p>Lenders want to see:</p>
+      <ul>
+        <li>The original source of the funds (salary, sale, gift, inheritance).</li>
+        <li>The path the funds took to reach the UK or the deposit account.</li>
+        <li>Documentation at each step (bank statements, sale completion documents, tax records).</li>
+      </ul>
+      <p>Common AML traps for expats:</p>
+      <ul>
+        <li>Money parked in Singapore, Cayman, BVI, or similar before being moved to the UK. Each stop adds documentation.</li>
+        <li>Multiple currency conversions. EUR to USD to GBP via three accounts needs paper at each conversion.</li>
+        <li>Family pooling. If a family member contributed to the deposit pool, lender treats it as a gift requiring formal documentation.</li>
+        <li>Cash savings built up over years. Lenders want to see evidence of where the cash came from, not just the current balance.</li>
+      </ul>
+      <p>
+        A clean AML pack saves weeks. A messy AML pack can stall an
+        application indefinitely or trigger a withdrawal of offer.
+      </p>
+    </div>
+  </section>
+
+  <PullQuote>
+    A clean AML pack saves weeks. A messy AML pack can stall an
+    application indefinitely or trigger a withdrawal of offer.
+  </PullQuote>
+
+  <section class="hub-section">
+    <div class="hub-section-inner">
+      <h2 id="deposit-rate">How deposit size affects the rate</h2>
+      <p>
+        Deposit size is the second-biggest variable on rate after lender
+        choice.
+      </p>
+      <p>
+        <strong>25% deposit (75% LTV).</strong> Working minimum. Rates at
+        the higher end of the expat range.
+      </p>
+      <p>
+        <strong>30% deposit (70% LTV).</strong> A common sweet spot. Most
+        expat lenders price meaningfully better at 70% than 75%.
+      </p>
+      <p>
+        <strong>35% deposit (65% LTV).</strong> Stronger pricing. Several
+        lenders that decline 75% LTV applicants will accept at 65%.
+      </p>
+      <p>
+        <strong>40% deposit and above (60% LTV or lower).</strong> Best
+        expat pricing. Some lenders will treat sub-60% LTV applicants
+        with near-residential rates regardless of expat status.
+      </p>
+      <p>
+        For private bank applicants on larger loans (£1m+), even larger
+        deposits unlock private bank pricing that can beat mainstream
+        expat rates entirely.
+      </p>
+    </div>
+  </section>
+
+  <section class="hub-section">
+    <div class="hub-section-inner">
+      <h2 id="planning">Practical deposit planning</h2>
+      <p>
+        If you have flexibility on timing and the deposit you have is
+        close to a threshold, it is often worth waiting to cross the
+        threshold rather than buying with a smaller deposit.
+      </p>
+      <p>
+        The rate improvement at 30% versus 25% deposit can be 0.2 to 0.4
+        percentage points. On a £400,000 mortgage over a five-year fix,
+        that is £4,000 to £8,000 saved. If the gap to 30% is six months
+        of saving, the rate saving usually beats the cost of waiting.
+      </p>
+      <p>
+        This calculation is different for high-yield BTL. There the
+        rental income matters more than the rate, and getting in earlier
+        can be worth more than the rate improvement.
+      </p>
+    </div>
+  </section>
+
+  <section class="hub-section">
+    <div class="hub-section-inner">
+      <h2 id="situations">Common situations and pitfalls</h2>
+      <p>
+        <strong>The "I have 20% deposit" expat.</strong> Workable on the
+        strongest profiles. Worth talking to a specialist broker before
+        assuming the deal is impossible. Worth also modelling whether
+        saving for another 5 to 10% changes the available rate.
+      </p>
+      <p>
+        <strong>Family-gifted deposit.</strong> Acceptable, but the
+        lender wants a signed gift declaration, AML on the gifter, and
+        the gift to land in the borrower's account before the
+        application. Last-minute gifts cause friction.
+      </p>
+      <p>
+        <strong>Property sale proceeds.</strong> Clean source, well
+        documented. Treated favourably. Make sure the sale completes
+        before the new application reaches AML.
+      </p>
+      <p>
+        <strong>Returning expat selling overseas property.</strong> The
+        proceeds need to land in a UK or expat-friendly account before
+        the deposit clock starts. Currency timing matters.
+      </p>
+      <p>
+        <strong>Inherited deposit.</strong> Grant of probate, bank
+        credit, and a clear chain to the borrower. Usually clean if
+        documentation is ready.
+      </p>
+      <p>
+        <strong>Crypto-funded deposit.</strong> Increasingly common,
+        increasingly accepted, but the documentation pack is heavier than
+        any other source. Exchange records, KYC at the exchange,
+        on-chain history if requested. Worth flagging early.
+      </p>
+    </div>
+  </section>
+
+  <MidPageCta />
+
+  <section class="hub-section">
+    <div class="hub-section-inner">
+      <h2 id="faqs">Common questions</h2>
+      <div class="faq">
+        {faqs.map((f) => (
+          <>
+            <h3>{f.q}</h3>
+            <p>{f.a}</p>
+          </>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <script
+    type="application/ld+json"
+    is:inline
+    set:html={JSON.stringify(faqSchema)}
+  />
+</HubLayout>

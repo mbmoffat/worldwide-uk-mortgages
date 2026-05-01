@@ -1,0 +1,368 @@
+---
+import HubLayout from '../../layouts/HubLayout.astro';
+import PullQuote from '../../components/PullQuote.astro';
+import MidPageCta from '../../components/MidPageCta.astro';
+
+const title = 'UK Buy-to-Let Mortgages for Non-UK Residents';
+const description =
+  'Buy-to-let mortgages on UK property when you live outside the UK. Lender pool, deposits, ICR stress tests, and limited company structures for foreign nationals and expats.';
+const h1 = 'UK Buy-to-Let Mortgages for Non-UK Residents';
+const subheadline =
+  'A clear guide to buy-to-let mortgages on UK property when you live outside the UK. What lenders accept, what deposit you need, how rental income is stress-tested, and how a specialist broker finds the right lender for foreign nationals and British expats alike.';
+
+const relatedPages = [
+  {
+    eyebrow: 'Hub',
+    title: 'UK Mortgages for Non-UK Residents',
+    description:
+      'Foreign nationals or British expats wanting a UK mortgage on UK property. The lender pool, deposits, and rates explained.',
+    href: '/non-uk-resident-mortgages',
+  },
+  {
+    eyebrow: 'Hub',
+    title: 'UK Mortgages for Foreign Nationals',
+    description:
+      'Foreign nationals living in the UK who want to buy or remortgage a UK home. Visa types, deposits, and lender appetite.',
+    href: '/uk-mortgage-for-foreign-nationals',
+  },
+  {
+    eyebrow: 'Hub',
+    title: 'UK Mortgages for Expats',
+    description:
+      'British nationals living abroad. Country-by-country lender appetite, currency haircuts, and timelines.',
+    href: '/expat-mortgages',
+  },
+  {
+    eyebrow: 'Hub',
+    title: 'Expat Buy-to-Let Mortgages',
+    description:
+      'UK buy-to-let for British expats. ICR rules, deposit thresholds, and lender pool for non-resident landlords.',
+    href: '/expat-mortgages/buy-to-let',
+  },
+  {
+    eyebrow: 'Guide',
+    title: 'Expat Mortgage Rates',
+    description:
+      'Why expat rates differ, what to expect by profile, and how lender choice moves the rate you pay.',
+    href: '/expat-mortgages/rates',
+  },
+];
+
+const faqs = [
+  {
+    q: 'Can I buy UK property without ever having lived in the UK?',
+    a: 'Yes. Foreign nationals can buy UK property and obtain UK BTL mortgages.',
+  },
+  {
+    q: 'Do I need UK income to apply?',
+    a: 'No. Non-UK income is accepted, subject to currency haircut.',
+  },
+  {
+    q: 'Can a foreign national get a UK BTL mortgage?',
+    a: 'Yes. Specialist lenders accept foreign-national applicants with proper documentation.',
+  },
+  {
+    q: 'How big a deposit do I need?',
+    a: '30 to 35% is the working assumption. Some lenders accept 25% on stronger profiles.',
+  },
+  {
+    q: 'Will rental income alone qualify me?',
+    a: 'Often yes, via the ICR test. Personal income is a secondary check.',
+  },
+  {
+    q: 'Can I buy through a limited company?',
+    a: 'Yes. The SPV must be UK-incorporated with appropriate SIC codes. Lender criteria vary.',
+  },
+  {
+    q: 'Are rates higher than UK-resident BTL?',
+    a: 'Yes. Typically 0.5 to 1 percentage point higher.',
+  },
+  {
+    q: 'Does the property type matter?',
+    a: 'Yes. Standard flats and houses in established markets are easiest. New-build, ex-council, or unusual properties face more lender restrictions.',
+  },
+  {
+    q: 'Can I remortgage a non-resident BTL?',
+    a: 'Yes. Common as fix terms end.',
+  },
+  {
+    q: 'How long does it take?',
+    a: 'Six to ten weeks from application to offer.',
+  },
+];
+
+const faqSchema = {
+  '@context': 'https://schema.org',
+  '@type': 'FAQPage',
+  mainEntity: faqs.map((f) => ({
+    '@type': 'Question',
+    name: f.q,
+    acceptedAnswer: { '@type': 'Answer', text: f.a },
+  })),
+};
+---
+
+<HubLayout
+  title={title}
+  description={description}
+  h1={h1}
+  subheadline={subheadline}
+  eyebrow="HUB · NON-RESIDENT BUY-TO-LET"
+  relatedPages={relatedPages}
+>
+  <section class="hub-section">
+    <div class="hub-section-inner">
+      <h2 id="who-this-is-for">Who this page is for</h2>
+      <p>
+        If you live outside the UK and want a buy-to-let mortgage on UK
+        property, this page is for you.
+      </p>
+      <p>That covers two distinct groups.</p>
+      <p>
+        Foreign nationals who have never lived in the UK and want to buy
+        investment property in London, Manchester, Birmingham, or other UK
+        markets. Often professionals based in the Gulf, Asia, or Europe
+        with sterling-denominated savings or rental property as part of a
+        wider investment portfolio.
+      </p>
+      <p>
+        British nationals living abroad who already own UK property, are
+        building a portfolio remotely, or want to convert a former
+        residence into a let property. These are the expat landlords who
+        form the backbone of the UK private rental sector outside London.
+      </p>
+      <p>
+        Both groups face the same lender pool and the same rules, but with
+        different documentation patterns. This page covers both.
+      </p>
+    </div>
+  </section>
+
+  <section class="hub-section">
+    <div class="hub-section-inner">
+      <h2 id="differences">How non-resident buy-to-let differs from UK-resident BTL</h2>
+      <p>Three things separate the two markets.</p>
+      <p>
+        <strong>Lender pool.</strong> Around 80% of UK buy-to-let lenders
+        only accept UK-resident borrowers. The remaining 20% accept
+        non-residents, but with stricter criteria, larger minimum
+        deposits, and higher rates. Inside that 20%, a smaller subset will
+        accept first-time landlords, foreign nationals, complex incomes,
+        or larger portfolios. Specialist broker territory throughout.
+      </p>
+      <p>
+        <strong>Stress test (ICR).</strong> UK-resident BTL is stressed at
+        typically 125% of the rate. Non-resident BTL is stressed at 145%
+        or higher, and at a higher assumed rate. The combined effect is
+        that non-resident BTL borrowing capacity is around 70 to 80% of
+        what an equivalent UK-resident borrower could achieve on the same
+        rental income.
+      </p>
+      <p>
+        <strong>Deposit and rate.</strong> 25% deposit minimum is
+        theoretical. 30 to 35% is the working reality for most non-resident
+        applications. Rates sit around 0.5 to 1 percentage point above
+        equivalent UK-resident BTL pricing.
+      </p>
+    </div>
+  </section>
+
+  <MidPageCta variant="hero" />
+
+  <section class="hub-section">
+    <div class="hub-section-inner">
+      <h2 id="lender-pack">What lenders want to see</h2>
+      <p>The standard pack from a non-resident BTL applicant:</p>
+      <ul>
+        <li>Three months of bank statements showing income credits.</li>
+        <li>Three months of payslips or equivalent income evidence.</li>
+        <li>Two most recent years of tax records from your country of residence.</li>
+        <li>Employment contract or letter from your employer (or two years of audited accounts if self-employed).</li>
+        <li>Proof of identity (passport).</li>
+        <li>Proof of residency abroad (utility bill or bank statement at the overseas address).</li>
+        <li>Evidence of the deposit funds and their source.</li>
+        <li>Property details once a target property is identified.</li>
+        <li>Existing UK property and mortgage details if you have a portfolio.</li>
+      </ul>
+      <p>
+        Foreign nationals add documentation around UK presence: any UK
+        bank accounts, UK tax records if applicable, UK address history if
+        any.
+      </p>
+      <p>
+        British expats add documentation around the country they currently
+        live in and the residency status they hold there.
+      </p>
+    </div>
+  </section>
+
+  <section class="hub-section">
+    <div class="hub-section-inner">
+      <h2 id="currency-rent">Currency and rental income</h2>
+      <p>
+        Two currencies matter on a non-resident BTL application: the
+        borrower's income currency and sterling.
+      </p>
+      <p>
+        Most lenders apply a haircut to non-sterling income for personal
+        income affordability. A smaller group of specialist lenders do
+        not. As covered on the foreign income page, this is the single
+        biggest variable on what is possible.
+      </p>
+      <p>
+        Rental income is sterling, so no haircut applies to the rent.
+        Rental income is the primary affordability test on most BTL
+        applications, with personal income tested as a backup.
+      </p>
+      <p>
+        The interest cover ratio (ICR) test sets minimum rent. If the
+        lender stresses at 145% ICR at 6% notional rate, a £200,000 loan
+        needs rent of at least £1,450 per month to pass. Higher-rate
+        taxpayers face a tougher 145% test. Lower-rate taxpayers and
+        limited company landlords sometimes qualify at 125%.
+      </p>
+      <p>
+        For non-residents, lenders typically use the higher of the actual
+        borrower's tax rate or the 145% threshold, regardless of personal
+        tax position. This is conservative and not always reversible by
+        argument.
+      </p>
+    </div>
+  </section>
+
+  <PullQuote>
+    Non-resident BTL borrowing capacity is around 70 to 80% of what an
+    equivalent UK-resident borrower could achieve on the same rental
+    income.
+  </PullQuote>
+
+  <section class="hub-section">
+    <div class="hub-section-inner">
+      <h2 id="limited-company">Limited company structures</h2>
+      <p>
+        Many UK landlords now hold BTL property in a limited company (a
+        special purpose vehicle, or SPV) for tax reasons. The 2017
+        mortgage interest tax relief changes made personal-name BTL much
+        less attractive for higher-rate taxpayers. Limited company BTL
+        became the default for new portfolio acquisitions.
+      </p>
+      <p>
+        Non-resident BTL in a UK limited company is possible but involves
+        additional structural choices:
+      </p>
+      <ul>
+        <li>The company itself must be a UK-incorporated SPV with the right SIC codes (typically 68209 or 68100).</li>
+        <li>The directors and shareholders need to satisfy the lender's criteria.</li>
+        <li>AML checks run on every controlling person, not just the borrower.</li>
+        <li>Some lenders only accept SPVs where all directors are UK-resident. Others accept non-resident directors. Specialist broker knowledge of who accepts what matters more than the deposit size.</li>
+      </ul>
+      <p>
+        For foreign nationals, the SPV route is often cleaner than
+        personal-name borrowing because it isolates the UK rental business
+        from the borrower's home tax jurisdiction.
+      </p>
+    </div>
+  </section>
+
+  <section class="hub-section">
+    <div class="hub-section-inner">
+      <h2 id="common-situations">Common situations</h2>
+      <p>
+        <strong>The first non-resident BTL.</strong> Borrower has never
+        owned UK property, lives abroad, wants to buy a single investment
+        flat. Lender pool is narrow but workable. 30% deposit, clean
+        documentation, mainstream rental yield.
+      </p>
+      <p>
+        <strong>The portfolio expansion.</strong> Existing UK landlord
+        living abroad wants to add a property. Lender treats this as a
+        portfolio applicant, with portfolio-wide affordability tests.
+        Often handled by specialist BTL lenders with portfolio experience.
+      </p>
+      <p>
+        <strong>The convert-to-let.</strong> Borrower bought a UK home,
+        moved abroad, now wants to switch the property to BTL. Often
+        easier than starting fresh because the property and ownership
+        history are already established. Sometimes done at remortgage
+        rather than as a new purchase.
+      </p>
+      <p>
+        <strong>The foreign national first investment.</strong> Singapore,
+        UAE, or Hong Kong-based professional buying UK property as a
+        sterling-denominated asset. Strong income, good deposit, no UK
+        history. Specialist lenders with foreign-national books are the
+        right fit.
+      </p>
+      <p>
+        <strong>The limited company BTL.</strong> Borrower with several UK
+        BTLs setting up an SPV for new acquisitions. Lender choice depends
+        on whether the SPV has UK or non-resident directors.
+      </p>
+    </div>
+  </section>
+
+  <section class="hub-section">
+    <div class="hub-section-inner">
+      <h2 id="pitfalls">Common pitfalls</h2>
+      <p>
+        <strong>Underestimating deposit.</strong> 25% is the minimum on
+        paper. Real-world deposits cluster at 30 to 35% for non-residents.
+        Lower-deposit applications get rejected before underwriting, or
+        priced punitively if accepted.
+      </p>
+      <p>
+        <strong>Stress test surprise.</strong> A property that yields 5%
+        gross might pass UK-resident affordability easily and fail
+        non-resident affordability. Worth running the ICR calculation
+        before offering on a property.
+      </p>
+      <p>
+        <strong>Source of deposit complexity.</strong> Foreign-currency
+        deposits moving through multiple accounts before reaching the UK
+        need a clean paper trail. Money inherited from family, returned
+        from a non-UK property sale, or held in a trust adds documentation
+        requirements.
+      </p>
+      <p>
+        <strong>Wrong-lender direct application.</strong> Non-resident
+        applicants applying directly to high-street lenders that do not
+        accept them get declined. Each decline footprints the credit file.
+      </p>
+      <p>
+        <strong>Limited company complications.</strong> Setting up an SPV
+        before knowing which lender to apply to is risky. Some lenders are
+        particular about SIC codes, share structures, and director
+        residency. Pre-application conversation with a specialist broker
+        prevents this.
+      </p>
+      <p>
+        <strong>Tax confusion.</strong> UK rental income from non-resident
+        landlords is taxed under the Non-Resident Landlord Scheme. Letting
+        agents withhold tax unless an NRL1 form is filed with HMRC. Worth
+        being aware of, though not directly a lender issue.
+      </p>
+    </div>
+  </section>
+
+  <MidPageCta />
+
+  <section class="hub-section">
+    <div class="hub-section-inner">
+      <h2 id="faqs">Common questions</h2>
+      <div class="faq">
+        {faqs.map((f) => (
+          <>
+            <h3>{f.q}</h3>
+            <p>{f.a}</p>
+          </>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <script
+    type="application/ld+json"
+    is:inline
+    set:html={JSON.stringify(faqSchema)}
+  />
+</HubLayout>
