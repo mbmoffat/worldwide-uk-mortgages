@@ -1,7 +1,6 @@
 ---
 interface Props {
   heading?: string;
-  body?: string;
   ctaLabel?: string;
   ctaHref?: string;
   ctaNote?: string;
@@ -10,7 +9,6 @@ interface Props {
 
 const {
   heading = 'Talk to a broker about your situation',
-  body = 'A specialist will tell you within one conversation which lenders are likely to lend to you, what deposit you will need, and what rate range to expect.',
   ctaLabel = 'Send an enquiry',
   ctaHref = '#contact-form',
   ctaNote = 'A mortgage broker will usually respond immediately.',
@@ -22,7 +20,6 @@ const {
   <section class="cta-block">
     <div class="cta-block-inner">
       <h3 class="cta-block-heading">{heading}</h3>
-      <p class="cta-block-body">{body}</p>
       <a class="btn cta-block-btn" href={ctaHref}>{ctaLabel}</a>
       <p class="cta-block-note">{ctaNote}</p>
     </div>
@@ -31,7 +28,6 @@ const {
   <div class="cta-block cta-block--hero">
     <div class="cta-block-inner">
       <h3 class="cta-block-heading">{heading}</h3>
-      <p class="cta-block-body">{body}</p>
       <a class="btn cta-block-btn" href={ctaHref}>{ctaLabel}</a>
       <p class="cta-block-note">{ctaNote}</p>
     </div>
@@ -72,16 +68,6 @@ const {
     font-size: 1.5rem;
     line-height: 1.3;
     color: #1A1612;
-    margin: 0 0 0.75rem;
-  }
-
-  .cta-block-body {
-    font-family: var(--font-body);
-    font-weight: 400;
-    font-size: 1.1875rem;
-    color: #1A1612;
-    line-height: 1.5;
-    letter-spacing: -0.01em;
     margin: 0;
   }
 
