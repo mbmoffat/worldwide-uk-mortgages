@@ -506,9 +506,13 @@ const currentYear = new Date().getFullYear();
         background: var(--bg);
       }
 
+      /* No vertical padding on hub-section/hub-hero. All vertical rhythm
+         comes from element margins to prevent compounding. Horizontal
+         padding remains for the column. Hero keeps a top padding so the
+         page breathes from the sticky header. */
       .hub-section,
       .hub-hero {
-        padding: 2rem 1.5rem;
+        padding: 0 1.5rem;
         background: var(--bg);
       }
 
@@ -519,7 +523,7 @@ const currentYear = new Date().getFullYear();
       @media (min-width: 768px) {
         .hub-section,
         .hub-hero {
-          padding: 2.5rem 2rem;
+          padding: 0 2rem;
         }
 
         .hub-hero {
@@ -530,7 +534,7 @@ const currentYear = new Date().getFullYear();
       @media (min-width: 1024px) {
         .hub-section,
         .hub-hero {
-          padding: 2.5rem 3rem;
+          padding: 0 3rem;
         }
 
         .hub-hero {
@@ -564,38 +568,20 @@ const currentYear = new Date().getFullYear();
         color: #1A1612;
         line-height: 1.5;
         letter-spacing: -0.01em;
-        margin: 0 0 2rem;
+        margin: 0 0 1.5rem;
       }
 
       .hub-section h2 {
-        margin: 3rem 0 1rem;
+        margin: 2rem 0 0.75rem;
         scroll-margin-top: 6rem;
       }
 
-      /* Collapse the boundary between hero and first body section so the
-         total visible gap is just the subheadline's margin-bottom (2rem).
-         The :has() guard exempts the homepage hero, which contains a CTA
-         inside .hub-hero and needs to keep its bottom padding. */
-      .hub-hero:not(:has(.cta-block)) {
-        padding-bottom: 0;
-      }
-
-      .hub-hero + .hub-section {
-        padding-top: 0;
-      }
-
+      /* First H2 in body content (the H2 inside the first .hub-section
+         after .hub-hero) gets a smaller top margin. With the .hub-body
+         wrapper removed, .hub-hero + .hub-section is now a real adjacent
+         sibling pair, so this selector matches reliably. */
       .hub-hero + .hub-section h2 {
-        margin-top: 0;
-      }
-
-      /* Tighten the section-before-CTA bottom padding and remove the
-         section-after-CTA top padding so the CTA hugs both neighbours. */
-      .hub-section:has(+ .cta-block) {
-        padding-bottom: 1.5rem;
-      }
-
-      .cta-block + .hub-section {
-        padding-top: 0;
+        margin-top: 1rem;
       }
 
       .hub-section h3 {
@@ -618,12 +604,12 @@ const currentYear = new Date().getFullYear();
       }
 
       .hub-section p {
-        margin: 0 0 1rem;
+        margin: 0 0 0.75rem;
       }
 
       .hub-section ul,
       .hub-section ol {
-        margin: 0.5rem 0 1.5rem;
+        margin: 0.5rem 0 1rem;
       }
 
       .hub-section ul li,
