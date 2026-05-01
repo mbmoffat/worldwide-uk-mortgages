@@ -50,11 +50,6 @@ const calculators = [
   { label: 'Stamp Duty Calculator', href: '/tools/stamp-duty-calculator' },
 ];
 
-const lenders = [
-  { label: 'HSBC Expat', href: '/lenders/hsbc-expat' },
-  { label: 'Halifax (Foreign Income)', href: '/uk-mortgage-foreign-income/halifax' },
-];
-
 const guides = [
   { label: 'Returning to the UK', href: '/expat-mortgages/returning-to-uk' },
   { label: 'No UK Credit History', href: '/expat-mortgages/no-uk-credit-history' },
@@ -163,24 +158,6 @@ const guides = [
             </button>
             <div class="nav-dropdown-menu" id="nav-calculators-menu" role="menu">
               {calculators.map((item) => (
-                <a href={item.href} role="menuitem">{item.label}</a>
-              ))}
-            </div>
-          </div>
-
-          <div class="nav-dropdown">
-            <button
-              type="button"
-              class="nav-dropdown-trigger"
-              aria-haspopup="true"
-              aria-expanded="false"
-              aria-controls="nav-lenders-menu"
-            >
-              Lenders
-              <span class="nav-dropdown-caret" aria-hidden="true">▾</span>
-            </button>
-            <div class="nav-dropdown-menu" id="nav-lenders-menu" role="menu">
-              {lenders.map((item) => (
                 <a href={item.href} role="menuitem">{item.label}</a>
               ))}
             </div>
