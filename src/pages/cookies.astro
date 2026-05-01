@@ -3,8 +3,16 @@ import T7Layout from '../layouts/T7Layout.astro';
 
 const title = 'Cookies Policy';
 const description = 'Cookies policy for UK Mortgages Worldwide.';
+import { breadcrumbSchema } from '../lib/schema';
+
+const schemas = [
+  breadcrumbSchema([
+    { name: 'Home', path: '/' },
+    { name: 'Cookies Policy' },
+  ]),
+];
 ---
 
-<T7Layout title={title} description={description} h1="Cookies Policy">
+<T7Layout title={title} description={description} h1="Cookies Policy" schemas={schemas}>
   <p>PLACEHOLDER: full cookies policy to be added before launch.</p>
 </T7Layout>

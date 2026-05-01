@@ -6,12 +6,13 @@ interface Props {
   description?: string;
   h1: string;
   lead?: string;
+  schemas?: Record<string, any>[];
 }
 
-const { title, description, h1, lead } = Astro.props;
+const { title, description, h1, lead, schemas = [] } = Astro.props;
 ---
 
-<Layout title={title} description={description}>
+<Layout title={title} description={description} schemas={schemas}>
   <article class="t7">
     <div class="t7-inner">
       <h1>{h1}</h1>

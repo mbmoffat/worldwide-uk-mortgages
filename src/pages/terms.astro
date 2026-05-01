@@ -3,8 +3,16 @@ import T7Layout from '../layouts/T7Layout.astro';
 
 const title = 'Terms of Use';
 const description = 'Terms of use for UK Mortgages Worldwide.';
+import { breadcrumbSchema } from '../lib/schema';
+
+const schemas = [
+  breadcrumbSchema([
+    { name: 'Home', path: '/' },
+    { name: 'Terms' },
+  ]),
+];
 ---
 
-<T7Layout title={title} description={description} h1="Terms of Use">
+<T7Layout title={title} description={description} h1="Terms of Use" schemas={schemas}>
   <p>PLACEHOLDER: full terms of use to be added before launch.</p>
 </T7Layout>

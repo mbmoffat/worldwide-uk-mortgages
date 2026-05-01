@@ -4,9 +4,17 @@ import T7Layout from '../layouts/T7Layout.astro';
 const title = 'About';
 const description =
   'UK Mortgages Worldwide is a UK-based introducer for specialist mortgages. We pass enquiries to FCA-authorised brokers.';
+import { breadcrumbSchema } from '../lib/schema';
+
+const schemas = [
+  breadcrumbSchema([
+    { name: 'Home', path: '/' },
+    { name: 'About' },
+  ]),
+];
 ---
 
-<T7Layout title={title} description={description} h1="About UK Mortgages Worldwide">
+<T7Layout title={title} description={description} h1="About UK Mortgages Worldwide" schemas={schemas}>
   <p>
     We are a UK-based introducer for specialist mortgages. Our role is to
     receive your enquiry and pass it to an FCA-authorised mortgage broker who

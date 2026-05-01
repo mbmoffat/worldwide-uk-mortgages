@@ -2,6 +2,7 @@
 import HubLayout from '../../../layouts/HubLayout.astro';
 import PullQuote from '../../../components/PullQuote.astro';
 import MidPageCta from '../../../components/MidPageCta.astro';
+import { breadcrumbSchema, articleSchema } from '../../../lib/schema';
 
 const title = 'UK Mortgages for British Expats in Qatar';
 const description =
@@ -97,6 +98,14 @@ const faqSchema = {
     acceptedAnswer: { '@type': 'Answer', text: f.a },
   })),
 };
+const schemas = [
+  breadcrumbSchema([
+    { name: 'Home', path: '/' },
+    { name: 'UK Mortgages for Expats', path: '/expat-mortgages' },
+    { name: 'Qatar' },
+  ]),
+  articleSchema({ headline: h1, description }),
+];
 ---
 
 <HubLayout
@@ -105,6 +114,7 @@ const faqSchema = {
   h1={h1}
   subheadline={subheadline}
   eyebrow="Hub · Qatar expat mortgages"
+  schemas={schemas}
   relatedPages={relatedPages}
 >
   <section class="hub-section">

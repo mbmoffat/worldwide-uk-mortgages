@@ -2,6 +2,7 @@
 import HubLayout from '../../layouts/HubLayout.astro';
 import PullQuote from '../../components/PullQuote.astro';
 import MidPageCta from '../../components/MidPageCta.astro';
+import { breadcrumbSchema, serviceSchema } from '../../lib/schema';
 
 const title = 'Expat Buy-to-Let Mortgages';
 const description =
@@ -78,6 +79,14 @@ const faqSchema = {
     acceptedAnswer: { '@type': 'Answer', text: f.a },
   })),
 };
+const schemas = [
+  breadcrumbSchema([
+    { name: 'Home', path: '/' },
+    { name: 'UK Mortgages for Expats', path: '/expat-mortgages' },
+    { name: 'Expat Buy-to-Let' },
+  ]),
+  serviceSchema({ serviceType: 'UK Expat Buy-to-Let Mortgage Information', name: h1, description }),
+];
 ---
 
 <HubLayout
@@ -87,6 +96,7 @@ const faqSchema = {
   subheadline={subheadline}
   eyebrow="Hub · Expat BTL"
   ctaHeading="Speak to a specialist mortgage broker"
+  schemas={schemas}
   relatedPages={relatedPages}
 >
   <section class="hub-section">

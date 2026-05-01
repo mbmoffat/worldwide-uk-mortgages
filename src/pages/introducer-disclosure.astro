@@ -4,9 +4,17 @@ import T7Layout from '../layouts/T7Layout.astro';
 const title = 'Introducer Disclosure';
 const description =
   'UK Mortgages Worldwide operates as an unregulated introducer to FCA-authorised mortgage brokers.';
+import { breadcrumbSchema } from '../lib/schema';
+
+const schemas = [
+  breadcrumbSchema([
+    { name: 'Home', path: '/' },
+    { name: 'Introducer Disclosure' },
+  ]),
+];
 ---
 
-<T7Layout title={title} description={description} h1="Introducer Disclosure">
+<T7Layout title={title} description={description} h1="Introducer Disclosure" schemas={schemas}>
   <p>
     UK Mortgages Worldwide operates as an unregulated introducer. We are not
     authorised by the Financial Conduct Authority. We do not provide mortgage

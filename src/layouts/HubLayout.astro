@@ -21,6 +21,7 @@ interface Props {
   relatedPages?: RelatedPage[];
   relatedPagesHeading?: string;
   articleClass?: string;
+  schemas?: Record<string, any>[];
 }
 
 const {
@@ -32,6 +33,7 @@ const {
   relatedPages = [],
   relatedPagesHeading = 'Related pages',
   articleClass,
+  schemas = [],
 } = Astro.props;
 
 const slotHtml = await Astro.slots.render('default');
@@ -43,7 +45,7 @@ const wordCount = slotHtml
 const readMinutes = Math.max(1, Math.round(wordCount / 200));
 ---
 
-<Layout title={title} description={description}>
+<Layout title={title} description={description} schemas={schemas}>
   <article class:list={["hub", articleClass]}>
     <section class="hub-hero">
       <div class="hub-section-inner">

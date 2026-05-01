@@ -5,9 +5,17 @@ import ContactForm from '../components/ContactForm.astro';
 const title = 'Contact';
 const description =
   'The fastest way to reach us is the enquiry form on any of our pages. A broker will be in touch, usually the same working day.';
+import { breadcrumbSchema } from '../lib/schema';
+
+const schemas = [
+  breadcrumbSchema([
+    { name: 'Home', path: '/' },
+    { name: 'Contact' },
+  ]),
+];
 ---
 
-<T7Layout title={title} description={description} h1="Contact">
+<T7Layout title={title} description={description} h1="Contact" schemas={schemas}>
   <p>
     The fastest way to reach us is the enquiry form on any of our pages. Tell
     us where you live, what you earn, and what you want to buy. A broker will

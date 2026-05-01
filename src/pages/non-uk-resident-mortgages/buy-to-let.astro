@@ -2,6 +2,7 @@
 import HubLayout from '../../layouts/HubLayout.astro';
 import PullQuote from '../../components/PullQuote.astro';
 import MidPageCta from '../../components/MidPageCta.astro';
+import { breadcrumbSchema, serviceSchema } from '../../lib/schema';
 
 const title = 'UK Buy-to-Let Mortgages for Non-UK Residents';
 const description =
@@ -100,6 +101,14 @@ const faqSchema = {
     acceptedAnswer: { '@type': 'Answer', text: f.a },
   })),
 };
+const schemas = [
+  breadcrumbSchema([
+    { name: 'Home', path: '/' },
+    { name: 'UK Mortgages for Non-UK Residents', path: '/non-uk-resident-mortgages' },
+    { name: 'Non-UK Resident Buy-to-Let' },
+  ]),
+  serviceSchema({ serviceType: 'UK Buy-to-Let Mortgage Information for Non-Residents', name: h1, description }),
+];
 ---
 
 <HubLayout
@@ -108,6 +117,7 @@ const faqSchema = {
   h1={h1}
   subheadline={subheadline}
   eyebrow="HUB · NON-RESIDENT BUY-TO-LET"
+  schemas={schemas}
   relatedPages={relatedPages}
 >
   <section class="hub-section">

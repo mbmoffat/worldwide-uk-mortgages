@@ -4,9 +4,18 @@ import Layout from '../../layouts/Layout.astro';
 const title = 'Stamp Duty Calculator';
 const description =
   'Calculate UK stamp duty (SDLT) for residents and non-residents. Includes the 2% non-resident surcharge and 5% additional dwelling surcharge.';
+import { breadcrumbSchema } from '../../lib/schema';
+
+const schemas = [
+  breadcrumbSchema([
+    { name: 'Home', path: '/' },
+    { name: 'Tools' },
+    { name: 'Stamp Duty Calculator' },
+  ]),
+];
 ---
 
-<Layout title={title} description={description}>
+<Layout title={title} description={description} schemas={schemas}>
   <article class="sdlt">
     <section class="sdlt-hero">
       <div class="sdlt-inner">

@@ -82,9 +82,17 @@ const groups = [
     ],
   },
 ];
+import { breadcrumbSchema } from '../lib/schema';
+
+const schemas = [
+  breadcrumbSchema([
+    { name: 'Home', path: '/' },
+    { name: 'Sitemap' },
+  ]),
+];
 ---
 
-<T7Layout title={title} description={description} h1="Sitemap">
+<T7Layout title={title} description={description} h1="Sitemap" schemas={schemas}>
   {groups.map((group) => (
     <section class="sitemap-group">
       <h2>{group.heading}</h2>

@@ -2,6 +2,7 @@
 import HubLayout from '../../layouts/HubLayout.astro';
 import PullQuote from '../../components/PullQuote.astro';
 import MidPageCta from '../../components/MidPageCta.astro';
+import { breadcrumbSchema, articleSchema } from '../../lib/schema';
 
 const title = 'UK Expat Mortgage Application Process: What Actually Happens';
 const description =
@@ -100,6 +101,14 @@ const faqSchema = {
     acceptedAnswer: { '@type': 'Answer', text: f.a },
   })),
 };
+const schemas = [
+  breadcrumbSchema([
+    { name: 'Home', path: '/' },
+    { name: 'UK Mortgages for Expats', path: '/expat-mortgages' },
+    { name: 'Application Process' },
+  ]),
+  articleSchema({ headline: h1, description }),
+];
 ---
 
 <HubLayout
@@ -108,6 +117,7 @@ const faqSchema = {
   h1={h1}
   subheadline={subheadline}
   eyebrow="GUIDE · APPLICATION PROCESS"
+  schemas={schemas}
   relatedPages={relatedPages}
 >
   <section class="hub-section">

@@ -6,13 +6,15 @@ interface Props {
   description?: string;
   ogTitle?: string;
   ogDescription?: string;
+  schemas?: Record<string, any>[];
 }
 
-const { title, description, ogTitle, ogDescription } = Astro.props;
+const { title, description, ogTitle, ogDescription, schemas = [] } = Astro.props;
 const pageTitle = title ? `${title} | ${SITE_NAME}` : SITE_NAME;
 const socialTitle = ogTitle ?? title ?? SITE_NAME;
 const socialDescription = ogDescription ?? description;
 const canonicalURL = new URL(Astro.url.pathname, Astro.site).toString();
+const ogImage = new URL('/og-default.png', Astro.site).toString();
 const currentYear = new Date().getFullYear();
 
 const mortgages = [
@@ -84,10 +86,16 @@ const guides = [
     {socialDescription && <meta property="og:description" content={socialDescription} />}
     <meta property="og:url" content={canonicalURL} />
     <meta property="og:locale" content="en_GB" />
+    <meta property="og:image" content={ogImage} />
 
-    <meta name="twitter:card" content="summary" />
+    <meta name="twitter:card" content="summary_large_image" />
     <meta name="twitter:title" content={socialTitle} />
     {socialDescription && <meta name="twitter:description" content={socialDescription} />}
+    <meta name="twitter:image" content={ogImage} />
+
+    {schemas.map((s) => (
+      <script type="application/ld+json" is:inline set:html={JSON.stringify(s)} />
+    ))}
 
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
