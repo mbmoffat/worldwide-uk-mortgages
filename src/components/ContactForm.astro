@@ -22,8 +22,13 @@
       <input type="text" name="_honey" tabindex="-1" autocomplete="off" class="contact-honeypot" />
 
       <div class="contact-field">
-        <label for="cf-name">Name <span class="contact-required" aria-hidden="true">*</span></label>
-        <input id="cf-name" type="text" name="name" autocomplete="name" required />
+        <label for="cf-first-name">First name <span class="contact-required" aria-hidden="true">*</span></label>
+        <input id="cf-first-name" type="text" name="first_name" autocomplete="given-name" required />
+      </div>
+
+      <div class="contact-field">
+        <label for="cf-phone">WhatsApp or phone number <span class="contact-required" aria-hidden="true">*</span></label>
+        <input id="cf-phone" type="tel" name="phone" autocomplete="tel" required />
       </div>
 
       <div class="contact-field">
@@ -32,26 +37,27 @@
       </div>
 
       <div class="contact-field">
-        <label for="cf-phone">WhatsApp or phone number</label>
-        <input id="cf-phone" type="tel" name="phone" autocomplete="tel" />
+        <label for="cf-country">What country do you mostly live in? <span class="contact-required" aria-hidden="true">*</span></label>
+        <input id="cf-country" type="text" name="country" autocomplete="country-name" required />
       </div>
 
       <div class="contact-field">
-        <label for="cf-location">Where do you live?</label>
-        <input id="cf-location" type="text" name="location" />
+        <label for="cf-message">What can we help with?</label>
+        <textarea
+          id="cf-message"
+          name="message"
+          rows="4"
+          placeholder="A few words about your situation, e.g. remortgaging from Dubai"
+        ></textarea>
       </div>
 
-      <div class="contact-field">
-        <label for="cf-message">Tell us about your situation <span class="contact-required" aria-hidden="true">*</span></label>
-        <textarea id="cf-message" name="message" rows="4" required></textarea>
+      <button type="submit" class="btn contact-submit">Talk to a broker</button>
+
+      <div class="contact-trust">
+        <p>A mortgage broker will usually respond immediately.</p>
+        <p>No credit check. No commitment.</p>
+        <p>One call to know where you stand.</p>
       </div>
-
-      <button type="submit" class="btn contact-submit">Send</button>
-
-      <p class="contact-note">
-        We will pass your enquiry to a specialist mortgage broker. We do not
-        provide regulated advice.
-      </p>
     </form>
   </div>
 </section>
@@ -155,11 +161,19 @@
     margin-top: 0.5rem;
   }
 
-  .contact-note {
+  .contact-trust {
+    margin: 1rem 0 0;
+  }
+
+  .contact-trust p {
     font-family: var(--font-sans);
     font-size: 0.8125rem;
     color: var(--muted);
-    margin: 1rem 0 0;
     line-height: 1.5;
+    margin: 0 0 0.25rem;
+  }
+
+  .contact-trust p:last-child {
+    margin-bottom: 0;
   }
 </style>
