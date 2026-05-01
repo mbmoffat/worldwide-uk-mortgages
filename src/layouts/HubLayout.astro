@@ -1,6 +1,5 @@
 ---
 import Layout from './Layout.astro';
-import MidPageCta from '../components/MidPageCta.astro';
 import RelatedCard from '../components/RelatedCard.astro';
 import ContactForm from '../components/ContactForm.astro';
 
@@ -53,8 +52,6 @@ const readMinutes = Math.max(1, Math.round(wordCount / 200));
         <p class="subheadline">{subheadline}</p>
 
         <p class="hero-read-meta">{readMinutes} min read · {sectionCount} sections</p>
-
-        <MidPageCta variant="hero" />
       </div>
     </section>
 
