@@ -1,9 +1,10 @@
 ---
 import T7Layout from '../layouts/T7Layout.astro';
+import { breadcrumbSchema } from '../lib/schema';
 
 const title = 'Cookies Policy';
-const description = 'Cookies policy for UK Mortgages Worldwide.';
-import { breadcrumbSchema } from '../lib/schema';
+const description =
+  'How UK Mortgages Worldwide uses cookies and similar technologies on this website. Read alongside our Privacy Policy.';
 
 const schemas = [
   breadcrumbSchema([
@@ -14,5 +15,105 @@ const schemas = [
 ---
 
 <T7Layout title={title} description={description} h1="Cookies Policy" schemas={schemas}>
-  <p>PLACEHOLDER: full cookies policy to be added before launch.</p>
+  <div class="t7-banner">
+    <strong>This is a pre-launch draft.</strong> The final policy will be reviewed and approved by a compliance consultant before the site goes live.
+  </div>
+
+  <p class="t7-meta">Last updated: [DATE]</p>
+
+  <hr class="t7-divider" />
+
+  <h2>What this policy covers</h2>
+  <p>This policy explains how UK Mortgages Worldwide uses cookies and similar technologies on this website. It should be read alongside our Privacy Policy.</p>
+
+  <h2>What cookies are</h2>
+  <p>Cookies are small text files placed on your device when you visit a website. They are widely used to make websites work efficiently, remember your preferences, and provide information to site owners about how visitors use the site.</p>
+  <p>Cookies do not damage your device. They cannot read other files on your device or pass on viruses.</p>
+  <p>There are different types of cookies, classified by who sets them and what they do:</p>
+  <ul>
+    <li><strong>Session cookies</strong> are temporary and are deleted when you close your browser.</li>
+    <li><strong>Persistent cookies</strong> remain on your device for a set period or until you delete them.</li>
+    <li><strong>First-party cookies</strong> are set by the site you are visiting.</li>
+    <li><strong>Third-party cookies</strong> are set by other organisations whose services are used on the site (such as analytics or social media providers).</li>
+  </ul>
+
+  <h2>What cookies we use</h2>
+  <p>We use a small number of cookies to operate the site and to understand how it is used. The cookies in use fall into the categories below.</p>
+
+  <h3>Strictly necessary cookies</h3>
+  <p>These cookies are essential for the site to function properly. They enable basic features such as page navigation and access to secure areas. Without these cookies, the site cannot work as expected.</p>
+  <p>We do not require your consent to use strictly necessary cookies. They are exempt from consent requirements under UK law.</p>
+  <p>Examples include:</p>
+  <ul>
+    <li>Cookies that remember your form input as you move between pages</li>
+    <li>Cookies that protect against fraud and abuse</li>
+    <li>Cookies that maintain session security</li>
+  </ul>
+
+  <h3>Analytics cookies</h3>
+  <p>We use analytics cookies to understand how visitors use the site so we can improve it. These cookies collect information such as which pages are most visited, how long visitors spend on each page, and how visitors arrived at the site.</p>
+  <p>Analytics cookies do not directly identify you. The information they collect is aggregated and anonymised where possible.</p>
+  <p>We will only set analytics cookies if you give consent. You can change your consent preferences at any time using the controls on the site.</p>
+
+  <h3>Functional cookies</h3>
+  <p>We do not currently use functional cookies that store user preferences beyond strictly necessary ones.</p>
+
+  <h3>Marketing and advertising cookies</h3>
+  <p>We do not currently use marketing or advertising cookies on this site. We do not run retargeting campaigns or share data with advertising networks through this site.</p>
+
+  <h2>Third-party services</h2>
+  <p>Some cookies on the site may be set by third-party services we use to operate or improve the site. These include:</p>
+  <ul>
+    <li><strong>Hosting and content delivery</strong>, such as Vercel, which may set strictly necessary cookies for site security and performance.</li>
+    <li><strong>Form submission services</strong>, which may set cookies to prevent spam submissions.</li>
+    <li><strong>Analytics providers</strong> (when consent is given), which set cookies to measure site use.</li>
+  </ul>
+  <p>Each third-party provider has its own privacy and cookies policies, which you should review if you want to understand how they handle your information.</p>
+
+  <h2>Other tracking technologies</h2>
+  <p>In addition to cookies, the site may use related technologies such as:</p>
+  <ul>
+    <li><strong>Local storage</strong>, which stores small amounts of data in your browser similar to cookies but with greater capacity.</li>
+    <li><strong>Pixel tags or web beacons</strong>, small image files used to count page views or track interactions.</li>
+  </ul>
+  <p>We use these technologies for the same purposes as cookies and they are subject to the same consent rules.</p>
+
+  <h2>Your choices and controls</h2>
+  <p>You can control how cookies are used on this site in several ways.</p>
+
+  <h3>Consent banner</h3>
+  <p>When you first visit the site, you may see a banner asking for your consent to non-essential cookies. You can choose which categories of cookies to allow. Your preferences are saved and applied to subsequent visits.</p>
+  <p>You can revisit your cookie preferences at any time by [link to be added when consent banner is implemented].</p>
+
+  <h3>Browser settings</h3>
+  <p>Most browsers allow you to:</p>
+  <ul>
+    <li>See what cookies are on your device</li>
+    <li>Delete cookies individually or all at once</li>
+    <li>Block cookies from specific sites or all sites</li>
+    <li>Block third-party cookies</li>
+    <li>Clear all cookies when you close the browser</li>
+  </ul>
+  <p>The exact controls depend on your browser. The browser provider's help pages explain how to use them.</p>
+  <p>Note that blocking cookies entirely may affect how the site works.</p>
+
+  <h3>Do Not Track</h3>
+  <p>Some browsers offer a "Do Not Track" setting. There is no agreed industry standard for how sites should respond to this signal. Our current practice is to set only strictly necessary cookies for visitors who have not given consent, regardless of any "Do Not Track" setting.</p>
+
+  <h2>Specific cookies in use</h2>
+  <p>A current list of cookies set by this site, including their purpose and duration, will be provided in the consent banner once it is implemented. This section will be updated as part of the pre-launch compliance review.</p>
+  <div class="t7-callout">[Pre-launch note: detailed cookie inventory to be completed during compliance review.]</div>
+
+  <h2>Changes to this policy</h2>
+  <p>We may update this policy from time to time as we change how the site works or in response to changes in law. The "last updated" date at the top of the policy will reflect any changes.</p>
+
+  <h2>Contact us</h2>
+  <p>If you have any questions about how we use cookies, please contact us at enquiry@ukmortgagesworldwide.com.</p>
+  <p>You can also contact the Information Commissioner's Office at ico.org.uk if you have a complaint about how we use cookies.</p>
+
+  <hr class="t7-divider" />
+
+  <div class="t7-prelaunch-note">
+    <strong>Pre-launch note:</strong> A detailed cookie inventory and consent banner implementation will be completed before launch. Specific provisions relating to analytics setup (whether GA4 or otherwise) and any future advertising activity will be added at that point.
+  </div>
 </T7Layout>

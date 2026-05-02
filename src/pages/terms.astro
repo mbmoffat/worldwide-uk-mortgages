@@ -1,18 +1,124 @@
 ---
 import T7Layout from '../layouts/T7Layout.astro';
+import { breadcrumbSchema } from '../lib/schema';
 
 const title = 'Terms of Use';
-const description = 'Terms of use for UK Mortgages Worldwide.';
-import { breadcrumbSchema } from '../lib/schema';
+const description =
+  'Terms of use for ukmortgagesworldwide.com. Information and lead-generation site introducing UK mortgage enquiries to FCA-authorised brokers.';
 
 const schemas = [
   breadcrumbSchema([
     { name: 'Home', path: '/' },
-    { name: 'Terms' },
+    { name: 'Terms of Use' },
   ]),
 ];
 ---
 
 <T7Layout title={title} description={description} h1="Terms of Use" schemas={schemas}>
-  <p>PLACEHOLDER: full terms of use to be added before launch.</p>
+  <div class="t7-banner">
+    <strong>This is a pre-launch draft.</strong> The final terms will be reviewed and approved by a compliance consultant before the site goes live.
+  </div>
+
+  <p class="t7-meta">Last updated: [DATE]</p>
+
+  <hr class="t7-divider" />
+
+  <h2>About these terms</h2>
+  <p>These terms apply to your use of ukmortgagesworldwide.com ("the site"). The site is operated by [ENTITY NAME TBD], a company registered in England and Wales, with its registered office at [REGISTERED ADDRESS TBD].</p>
+  <p>By using the site, you agree to these terms. If you do not agree, do not use the site.</p>
+  <p>We may update these terms from time to time. The "last updated" date at the top will reflect any changes. Continuing to use the site after changes are made means you accept the updated terms.</p>
+
+  <h2>What this site does</h2>
+  <p>UK Mortgages Worldwide is an information and lead-generation website covering UK mortgages for British nationals living abroad, non-UK residents, foreign nationals, and applicants with foreign-currency income.</p>
+  <p>We do the following:</p>
+  <ul>
+    <li>Provide general information about UK mortgage criteria, lender approaches, and application processes for non-resident and foreign-income applicants</li>
+    <li>Capture enquiries through our contact form</li>
+    <li>Pass enquiries to FCA-authorised mortgage brokers who can provide regulated advice</li>
+  </ul>
+  <p>We do not do the following:</p>
+  <ul>
+    <li>Provide regulated mortgage advice</li>
+    <li>Recommend specific mortgage products</li>
+    <li>Compare lenders for you</li>
+    <li>Process mortgage applications</li>
+    <li>Hold or use any client money</li>
+  </ul>
+
+  <h2>Information on this site is not advice</h2>
+  <p>Everything on this site is general information for educational purposes. Nothing on this site constitutes personal financial advice, mortgage advice, tax advice, legal advice, or investment advice.</p>
+  <p>You should not rely on the information on this site as the basis for any decision about whether to apply for a mortgage, which lender to apply to, or how to structure your finances. For regulated mortgage advice, you should speak to an FCA-authorised mortgage broker. We can introduce you to one.</p>
+  <p>The mortgage market changes frequently. Lender criteria, rates, and products change without notice. Information on this site reflects our understanding at the time of writing and may not reflect the current market.</p>
+
+  <h2>Submitting an enquiry</h2>
+  <p>When you submit an enquiry through our contact form, you understand that:</p>
+  <ul>
+    <li>The information you provide will be passed to an FCA-authorised mortgage broker</li>
+    <li>The broker will contact you to discuss your mortgage requirements</li>
+    <li>The regulated mortgage advice conversation, if any, will take place between you and the broker, not with us</li>
+    <li>The broker will be responsible for providing any advice and for the application if you proceed</li>
+    <li>Our role is limited to introducing you to the broker</li>
+  </ul>
+  <p>We are not regulated by the Financial Conduct Authority. We do not give regulated advice and we do not arrange mortgages. The broker we introduce you to is responsible for these activities under their own FCA authorisation.</p>
+  <p>By submitting an enquiry, you confirm that the information you provide is accurate to the best of your knowledge and that you are over 18 years of age.</p>
+
+  <h2>Acceptable use</h2>
+  <p>You may use the site for lawful, personal purposes only. You agree that you will not:</p>
+  <ul>
+    <li>Use the site in any way that breaches applicable law</li>
+    <li>Submit false, misleading, or fraudulent information through the contact form</li>
+    <li>Attempt to gain unauthorised access to the site, the server it is hosted on, or any related systems</li>
+    <li>Introduce malicious code, viruses, or other harmful material</li>
+    <li>Conduct automated scraping, harvesting, or data extraction without our written permission</li>
+    <li>Use the site to send spam or unsolicited communications</li>
+    <li>Reproduce, redistribute, or commercially exploit content from the site without our written permission</li>
+    <li>Frame or embed the site into another site without our written permission</li>
+  </ul>
+  <p>We may suspend or restrict your access to the site if we reasonably believe you have breached these terms.</p>
+
+  <h2>Intellectual property</h2>
+  <p>The content on this site, including text, images, design, and code, is owned by [ENTITY NAME TBD] or used under licence. All rights are reserved.</p>
+  <p>You may view the site, print individual pages for personal reference, and share links to the site. You may not copy, reproduce, modify, distribute, or commercially exploit any content without our written permission.</p>
+  <p>References to third-party brands, lenders, or service providers are for informational purposes only. Such references do not imply any endorsement or partnership.</p>
+
+  <h2>Links to other sites</h2>
+  <p>The site may contain links to third-party websites. We provide these links for convenience only. We do not control the linked sites and are not responsible for their content, accuracy, or practices.</p>
+  <p>You access linked sites at your own risk and should review the privacy and terms of each before using them.</p>
+
+  <h2>Liability</h2>
+  <p>We provide the site and its content "as is" without warranties of any kind, whether express or implied. To the fullest extent permitted by law, we disclaim all warranties including warranties of merchantability, fitness for a particular purpose, and non-infringement.</p>
+  <p>We are not liable for any loss or damage arising from your use of the site or your reliance on any information on the site, including:</p>
+  <ul>
+    <li>Direct, indirect, incidental, consequential, or punitive damages</li>
+    <li>Loss of profit, business, opportunity, or anticipated savings</li>
+    <li>Loss or corruption of data</li>
+    <li>Loss arising from decisions you make based on information on the site</li>
+  </ul>
+  <p>This does not limit our liability for death or personal injury caused by our negligence, for fraud, or for any other liability that cannot lawfully be excluded.</p>
+
+  <h2>No guarantee of mortgage outcome</h2>
+  <p>We do not guarantee that you will be approved for a mortgage, that any specific lender will accept your application, that any specific rate or product will be available to you, or that any application introduced through us will complete successfully.</p>
+  <p>Mortgage decisions are made by lenders based on their own criteria. The broker we introduce you to will assess your situation and discuss your options. Outcomes depend on your individual circumstances, lender appetite, and market conditions.</p>
+
+  <h2>Indemnity</h2>
+  <p>You agree to indemnify and hold harmless [ENTITY NAME TBD], its officers, employees, and contractors against any claims, damages, losses, or expenses arising from your breach of these terms or your misuse of the site.</p>
+
+  <h2>Governing law and jurisdiction</h2>
+  <p>These terms are governed by the laws of England and Wales. Any dispute arising from these terms or your use of the site will be subject to the exclusive jurisdiction of the courts of England and Wales.</p>
+
+  <h2>Severability</h2>
+  <p>If any provision of these terms is found to be unenforceable, the remaining provisions will continue in full force.</p>
+
+  <h2>Contact us</h2>
+  <p>If you have any questions about these terms, please contact us:</p>
+  <ul>
+    <li>Email: enquiry@ukmortgagesworldwide.com</li>
+    <li>Post: [ENTITY NAME TBD], [REGISTERED ADDRESS TBD]</li>
+  </ul>
+
+  <hr class="t7-divider" />
+
+  <div class="t7-prelaunch-note">
+    <strong>Pre-launch note:</strong> These terms will be reviewed and finalised by a compliance consultant before launch. Specific provisions relating to FCA introducer arrangements, the relationship between this entity and the receiving broker(s), and any commercial terms with brokers will be added at that point.
+  </div>
 </T7Layout>
