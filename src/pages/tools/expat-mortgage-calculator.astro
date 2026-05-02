@@ -175,13 +175,13 @@ const currencies = [
     }
 
     .calc-card {
-      background: var(--bg);
-      border-top: 3px solid var(--accent);
-      border-radius: var(--radius-md);
-      box-shadow: var(--shadow-sm);
-      padding: 2rem 1.5rem;
-      max-width: 700px;
-      margin: 0 auto;
+      background: #FAEFE3;
+      border: 1px solid rgba(139, 35, 49, 0.15);
+      border-radius: 12px;
+      box-shadow: 0 2px 12px rgba(26, 22, 18, 0.06);
+      padding: 1.75rem;
+      max-width: 640px;
+      margin: 0 auto 3rem;
     }
 
     @media (min-width: 768px) {
@@ -190,8 +190,16 @@ const currencies = [
       }
     }
 
-    .calc-field {
-      margin-bottom: 1.25rem;
+    .calc-card .calc-field {
+      margin-bottom: 0;
+    }
+
+    .calc-card .calc-field + .calc-field {
+      margin-top: 1.5rem;
+    }
+
+    .calc-card .calc-button {
+      margin-top: 2rem;
     }
 
     .calc-field label {
@@ -228,20 +236,16 @@ const currencies = [
       border-color: var(--accent);
     }
 
-    .calc-button {
-      margin-top: 0.5rem;
-    }
-
     .calc-note {
       font-family: var(--font-body);
       font-size: 0.875rem;
       color: var(--muted);
-      margin: 1.25rem 0 0;
+      margin: 1.5rem 0 0;
       line-height: 1.5;
     }
 
     .calc-results {
-      margin-top: 2.5rem;
+      margin-top: 2rem;
     }
 
     .calc-form-heading {
