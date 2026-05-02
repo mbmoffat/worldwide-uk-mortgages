@@ -1,6 +1,5 @@
 ---
 import HubLayout from '../../layouts/HubLayout.astro';
-import MidPageCta from '../../components/MidPageCta.astro';
 import { breadcrumbSchema } from '../../lib/schema';
 
 const title = 'Expat Mortgage Calculator: Borrowing Capacity';
@@ -161,7 +160,11 @@ const currencies = [
         </div>
         <p class="calc-difference" id="calc-difference"></p>
 
-        <MidPageCta heading="See if a no-haircut lender is right for you" />
+        <h2 class="calc-form-heading">See if a no-haircut lender is right for you</h2>
+        <p class="calc-form-lead">
+          Send an enquiry below and a mortgage broker will respond about
+          your situation.
+        </p>
       </div>
     </div>
   </section>
@@ -247,15 +250,14 @@ const currencies = [
 
     .calc-results {
       margin-top: 2.5rem;
-      scroll-margin-top: 20px;
     }
 
-    /* The CTA button sits inside .hub-section, where .hub-section a (1,1)
-       beats .btn (1,0) and would tint the link burgundy. Restore white. */
-    .calc-results .cta-block-btn,
-    .calc-results .cta-block-btn:hover {
-      color: #FFFFFF;
-      text-decoration: none;
+    .calc-form-heading {
+      margin-top: 2rem;
+    }
+
+    .calc-form-lead {
+      font-family: var(--font-body);
     }
 
     .calc-cards {
@@ -403,9 +405,6 @@ const currencies = [
           fmt.format(bNone - b25) +
           ' more borrowing capacity on the same income.';
         resultsEl.hidden = false;
-        requestAnimationFrame(function () {
-          resultsEl.scrollIntoView({ behavior: 'smooth', block: 'start' });
-        });
       }
 
       calcButton.addEventListener('click', calculate);
