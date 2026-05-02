@@ -1,0 +1,314 @@
+---
+import HubLayout from '../../layouts/HubLayout.astro';
+import PullQuote from '../../components/PullQuote.astro';
+import MidPageCta from '../../components/MidPageCta.astro';
+import { breadcrumbSchema, articleSchema } from '../../lib/schema';
+
+const title = 'UK Expat First-Time Buyer Mortgages';
+const description =
+  'How British expats buy their first UK property from abroad. Lenders that accept first-time buyers, deposits, schemes, and the practical reality.';
+const h1 = 'UK Expat First-Time Buyer Mortgages';
+const subheadline =
+  'How British expats buy their first UK property from abroad. What lenders accept first-time buyers as expats, what deposit you need, what schemes are or are not available, and how to handle the practical reality of buying your first home while living in another country.';
+
+const relatedPages = [
+  {
+    eyebrow: 'Hub',
+    title: 'UK Mortgages for Expats',
+    description:
+      'British nationals living abroad. Country-by-country lender appetite, currency haircuts, and timelines.',
+    href: '/expat-mortgages',
+  },
+  {
+    eyebrow: 'Guide',
+    title: 'Expat Mortgage Deposit Requirements',
+    description:
+      'How much deposit you need, what counts as deposit money, and how thresholds shift the rate you pay.',
+    href: '/expat-mortgages/deposit',
+  },
+  {
+    eyebrow: 'Guide',
+    title: 'Expat Mortgage Rates',
+    description:
+      'Why expat rates differ, what to expect by profile, and how lender choice moves the rate you pay.',
+    href: '/expat-mortgages/rates',
+  },
+  {
+    eyebrow: 'Guide',
+    title: 'Expat Mortgage Application Process',
+    description:
+      'Step-by-step walkthrough of an expat mortgage application from initial chat to completion.',
+    href: '/expat-mortgages/process',
+  },
+  {
+    eyebrow: 'Guide',
+    title: 'Buying UK Property from Overseas',
+    description:
+      'Eight-stage process for buying UK property when you live abroad. Documentation, solicitors, and timelines.',
+    href: '/guides/buying-uk-property-from-overseas',
+  },
+];
+
+const faqs = [
+  {
+    q: 'Can I buy my first UK home as an expat?',
+    a: 'Yes. Lenders accept first-time expat buyers, with stricter criteria than for UK-resident first-time buyers.',
+  },
+  {
+    q: 'Do I qualify for Help to Buy schemes?',
+    a: 'No. Most UK first-time buyer schemes exclude expats.',
+  },
+  {
+    q: 'Do I qualify for first-time buyer Stamp Duty relief?',
+    a: 'Yes if you meet HMRC\'s definition (no property ownership anywhere globally) and the property is below the threshold. Plus the 2% non-resident SDLT surcharge.',
+  },
+  {
+    q: 'What is the smallest deposit?',
+    a: '25% on strongest profiles, 30% in practice. Lower-deposit expat mortgages do not generally exist.',
+  },
+  {
+    q: 'Do I need a UK address?',
+    a: 'No. Your overseas address is acceptable.',
+  },
+  {
+    q: 'Can I buy a property to rent out?',
+    a: 'Technically yes, but that is a buy-to-let application, not a residential first-time buyer one. Different lenders, different criteria.',
+  },
+  {
+    q: 'Can my parents help with the deposit?',
+    a: 'Yes, with a formal gift declaration and AML on the gifter.',
+  },
+  {
+    q: 'Do I need UK credit history?',
+    a: 'Helpful but not essential. Lenders accept "thin file" expats. Outright adverse credit is a problem.',
+  },
+  {
+    q: 'Can I buy off-plan?',
+    a: 'Yes, with extra restrictions. Lender choice narrows.',
+  },
+  {
+    q: 'What if the property will not complete before my mortgage offer expires?',
+    a: 'Most offers extend on request in reasonable circumstances. New-build delays are common. Lenders are used to handling them.',
+  },
+];
+
+const faqSchema = {
+  '@context': 'https://schema.org',
+  '@type': 'FAQPage',
+  mainEntity: faqs.map((f) => ({
+    '@type': 'Question',
+    name: f.q,
+    acceptedAnswer: { '@type': 'Answer', text: f.a },
+  })),
+};
+const schemas = [
+  breadcrumbSchema([
+    { name: 'Home', path: '/' },
+    { name: 'UK Mortgages for Expats', path: '/expat-mortgages' },
+    { name: 'First-Time Buyer' },
+  ]),
+  articleSchema({ headline: h1, description }),
+];
+---
+
+<HubLayout
+  title={title}
+  description={description}
+  h1={h1}
+  subheadline={subheadline}
+  eyebrow="GUIDE · FIRST-TIME EXPAT BUYER"
+  schemas={schemas}
+  relatedPages={relatedPages}
+>
+  <section class="hub-section">
+    <div class="hub-section-inner">
+      <h2 id="who-this-is-for">Who this page is for</h2>
+      <p>If you are a British national living abroad and you have never owned UK property, this page is for you.</p>
+      <p>That covers expats who are buying a UK home as a future place to return to, expats buying their first investment property remotely, expats helping family by buying property they intend to occupy later, and people who have lived abroad long enough that any previous UK ownership is too far in the past to count.</p>
+      <p>
+        This page covers the residential first-time buyer position
+        specifically. For investment first-time buyers, see also
+        <a href="/expat-mortgages/buy-to-let-from-abroad">expat buy-to-let from abroad</a>.
+      </p>
+    </div>
+  </section>
+
+  <section class="hub-section">
+    <div class="hub-section-inner">
+      <h2 id="ftb-definitions">What "first-time buyer" actually means to lenders</h2>
+      <p>UK lenders apply different definitions of "first-time buyer". Most define it as never having owned a property anywhere in the world, not just in the UK. Some apply more relaxed definitions that count overseas property differently.</p>
+      <p>For HMRC's Stamp Duty rules, "first-time buyer" relief is more restrictive: never having held an interest in a residential property anywhere globally, including via marriage, inheritance, or trust.</p>
+      <p>For an expat applicant, this matters because:</p>
+      <ul>
+        <li>If you own a property in your country of residence, you are usually not a first-time buyer for UK SDLT purposes.</li>
+        <li>You may still be a first-time buyer in some lenders' eyes.</li>
+        <li>The two definitions can diverge.</li>
+      </ul>
+      <p>A specialist broker confirms which definition each lender uses and packages the application accordingly.</p>
+    </div>
+  </section>
+
+  <section class="hub-section">
+    <div class="hub-section-inner">
+      <h2 id="schemes-excluded">Schemes that do not apply to expats</h2>
+      <p>Several UK first-time buyer schemes are designed for UK residents and explicitly exclude expats.</p>
+      <p>
+        <strong>Help to Buy ISA / Lifetime ISA.</strong> Both are
+        UK-resident saving schemes. Funds saved during a period of UK
+        residency can sometimes be used after returning to the UK. New
+        contributions while non-resident are not permitted.
+      </p>
+      <p><strong>Shared Ownership.</strong> Available only to UK residents.</p>
+      <p><strong>First Homes Scheme.</strong> UK-resident only.</p>
+      <p><strong>Help to Buy Equity Loan.</strong> Closed to new applicants in 2023. Was UK-resident only.</p>
+      <p>
+        <strong>5% deposit mortgages on the high street.</strong> The 95%
+        LTV mortgages that mainstream lenders offer to UK-resident
+        first-time buyers are not available to expat applicants. Expat
+        applications start at 75% LTV (25% deposit) on the strongest
+        profiles.
+      </p>
+      <p>The practical reality: expat first-time buyers do not have access to the schemes designed to help UK-resident first-time buyers. The compensation is that expat first-time buyers usually have larger deposits and stronger income profiles than typical UK first-time buyers.</p>
+    </div>
+  </section>
+
+  <MidPageCta variant="hero" />
+
+  <PullQuote>
+    Expat first-time buyer rates are higher than UK-resident first-time
+    buyer rates. Worth modelling the actual rate range before falling in
+    love with a specific property.
+  </PullQuote>
+
+  <section class="hub-section">
+    <div class="hub-section-inner">
+      <h2 id="what-you-need">What you actually need</h2>
+      <p>For a residential UK mortgage as an expat first-time buyer, the working requirements are:</p>
+      <p><strong>Deposit:</strong> 25% minimum on the strongest profiles. 30% in practice is the working assumption, mid-market.</p>
+      <p><strong>Income:</strong> Sufficient to support the loan after the lender's currency haircut (usually 20%) and at the applicable income multiplier (typically 4.5x to 5x).</p>
+      <p><strong>Documentation:</strong> Three months of bank statements, three months of payslips, two years of tax records, employment contract, proof of residency abroad, AML paper trail on deposit.</p>
+      <p><strong>Credit:</strong> A clean UK credit footprint if you have one. No UK credit history is workable, but adverse history is a problem.</p>
+      <p><strong>Property:</strong> Standard residential property in an established market. New-build is acceptable but with some lender restrictions. Unusual property types (HMOs, holiday lets, ex-local authority high-rise) face more scrutiny.</p>
+    </div>
+  </section>
+
+  <section class="hub-section">
+    <div class="hub-section-inner">
+      <h2 id="ftb-helps-hurts">Why first-time buyer status helps and hurts</h2>
+      <p>
+        <strong>Helps:</strong> Stamp Duty relief. UK first-time buyer
+        SDLT relief currently exempts the first £425,000 of a residential
+        purchase from SDLT for first-time buyers buying property up to
+        £625,000. This applies to expats who meet the HMRC first-time
+        buyer definition.
+      </p>
+      <p>For an expat first-time buyer of a £400,000 property, this saves around £7,500 in SDLT compared to non-first-time-buyer rates. On a £600,000 property the saving is around £8,500.</p>
+      <p>The 2% non-resident SDLT surcharge still applies on top, but the FTB exemption applies first to the standard rates underneath.</p>
+      <p>
+        <strong>Hurts:</strong> Some lenders prefer experienced borrowers.
+        A first-time expat buyer with no UK ownership history is a
+        slightly higher-friction case than a returning expat who already
+        owns UK property. The pool of lenders willing to take first-time
+        expat applications is narrower than the full expat lender pool.
+      </p>
+      <p>This is not a major problem. Plenty of mainstream and specialist expat lenders accept first-time buyers. It just means lender choice is slightly more constrained.</p>
+    </div>
+  </section>
+
+  <section class="hub-section">
+    <div class="hub-section-inner">
+      <h2 id="situations">Common situations</h2>
+      <p>
+        <strong>The "buy now, return later" first-time buyer.</strong>
+        Expat planning to return to the UK in 2 to 5 years. Buys now to
+        lock in property at current prices and avoid renting on return.
+        Often lets the property out in the meantime, then converts to
+        owner-occupation on return. Specialist broker territory because
+        the long-term plan affects which lender to approach.
+      </p>
+      <p>
+        <strong>The "buying for parents" first-time buyer.</strong> Expat
+        buying UK property where parents or family will live. Lender
+        treats this as a non-arm's-length residential purchase with
+        specific criteria. Rare lenders accept this, broker advice
+        essential.
+      </p>
+      <p>
+        <strong>The "first-time landlord" expat.</strong> Buying UK
+        property as an investment from abroad, never having owned property
+        anywhere. Treated as both first-time buyer and first-time
+        landlord. Narrowest lender pool but workable with the right
+        specialist.
+      </p>
+      <p>
+        <strong>The "returning to buy" first-time buyer.</strong> Expat
+        planning to move back to the UK in the next 6 to 18 months and
+        wanting to buy before returning. Lender treats this as an expat
+        application but with the planned move flagged. Some lenders prefer
+        this. Others find the timing awkward.
+      </p>
+    </div>
+  </section>
+
+  <section class="hub-section">
+    <div class="hub-section-inner">
+      <h2 id="pitfalls">Common pitfalls</h2>
+      <p>
+        <strong>Underestimating the deposit gap.</strong> Expat first-time
+        buyers do not have access to 5% deposit mortgages. Build the
+        timeline around 25 to 30% deposit minimum.
+      </p>
+      <p>
+        <strong>Confusing FTB schemes.</strong> Help to Buy, Lifetime ISA,
+        Shared Ownership all exclude expats. Save the energy you would
+        spend researching them.
+      </p>
+      <p>
+        <strong>Wrong-lender direct application.</strong> First-time expat
+        applicants who go direct to high-street lenders that do not
+        accept their profile face declines and credit footprints.
+      </p>
+      <p>
+        <strong>Property type wrong for lender.</strong> New-build,
+        leasehold flats with cladding issues, ex-council, or properties
+        below typical lender minimum value face rejections. Worth running
+        the property past your broker before offering.
+      </p>
+      <p>
+        <strong>Deposit AML.</strong> First-time buyer expats often have
+        deposits accumulated from family gifts, pre-expat savings,
+        end-of-service gratuity, or property sale proceeds. Each source
+        needs documentation. Pre-prepare.
+      </p>
+      <p>
+        <strong>Expectation mismatch on rate.</strong> Expat first-time
+        buyer rates are higher than UK-resident first-time buyer rates.
+        Significantly higher than headline 5% deposit mortgages, because
+        expat rates start at 25% deposit. Worth modelling the actual rate
+        range before falling in love with a specific property.
+      </p>
+    </div>
+  </section>
+
+  <MidPageCta />
+
+  <section class="hub-section">
+    <div class="hub-section-inner">
+      <h2 id="faqs">Frequently asked questions</h2>
+      <div class="faq">
+        {faqs.map((f) => (
+          <>
+            <h3>{f.q}</h3>
+            <p>{f.a}</p>
+          </>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <script
+    type="application/ld+json"
+    is:inline
+    set:html={JSON.stringify(faqSchema)}
+  />
+</HubLayout>

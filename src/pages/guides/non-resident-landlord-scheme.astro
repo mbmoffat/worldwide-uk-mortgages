@@ -1,0 +1,417 @@
+---
+import HubLayout from '../../layouts/HubLayout.astro';
+import PullQuote from '../../components/PullQuote.astro';
+import MidPageCta from '../../components/MidPageCta.astro';
+import { breadcrumbSchema, articleSchema } from '../../lib/schema';
+
+const title = 'Non-Resident Landlord Scheme: A Plain Guide for UK Landlords Living Abroad';
+const description =
+  'What the Non-Resident Landlord Scheme is, who it applies to, how UK rental income is taxed when you live abroad, and what to do practically.';
+const h1 = 'Non-Resident Landlord Scheme: A Plain Guide for UK Landlords Living Abroad';
+const subheadline =
+  'What the Non-Resident Landlord Scheme is, who it applies to, how it changes the way your UK rental income is taxed, and what to do practically when you live abroad and rent out a UK property.';
+
+const relatedPages = [
+  {
+    eyebrow: 'Hub',
+    title: 'UK Mortgages for Expats',
+    description:
+      'British nationals living abroad. Country-by-country lender appetite, currency haircuts, and timelines.',
+    href: '/expat-mortgages',
+  },
+  {
+    eyebrow: 'Hub',
+    title: 'Expat Buy-to-Let Mortgages',
+    description:
+      'UK buy-to-let mortgages for British nationals living abroad. ICR, deposits, and lender pool.',
+    href: '/expat-mortgages/buy-to-let',
+  },
+  {
+    eyebrow: 'Guide',
+    title: 'Buy-to-Let from Abroad',
+    description:
+      'Practical playbook for UK BTL applications when you live overseas. Documentation, lenders, and timelines.',
+    href: '/expat-mortgages/buy-to-let-from-abroad',
+  },
+  {
+    eyebrow: 'Hub',
+    title: 'UK Mortgages for Non-UK Residents',
+    description:
+      'Foreign nationals or British expats wanting a UK mortgage on UK property. The lender pool, deposits, and rates explained.',
+    href: '/non-uk-resident-mortgages',
+  },
+  {
+    eyebrow: 'Guide',
+    title: 'NRL1 Form Explained',
+    description:
+      'Step-by-step guide to the NRL1 form. Who files it, how to complete each section, and what HMRC does next.',
+    href: '/guides/nrl1-form-explained',
+  },
+];
+
+const faqs = [
+  {
+    q: 'What is the Non-Resident Landlord Scheme?',
+    a: 'An HMRC scheme that determines how UK rental income is taxed when the landlord lives outside the UK.',
+  },
+  {
+    q: 'Do I have to apply?',
+    a: 'You do not have to apply, but if you do not, your letting agent or tenant will deduct 20% basic-rate tax from your rent before paying you.',
+  },
+  {
+    q: 'How do I apply?',
+    a: 'Complete form NRL1 on the gov.uk website and submit it to HMRC.',
+  },
+  {
+    q: 'How long does NRL1 approval take?',
+    a: 'Typically three to six weeks.',
+  },
+  {
+    q: 'Will my agent deduct tax if I have NRL1 approval?',
+    a: 'No. HMRC will send your agent a notice authorising gross rent payment.',
+  },
+  {
+    q: 'Do I still need to file self-assessment?',
+    a: 'Yes. NRL1 approval changes the timing and method of tax collection, not the requirement to file.',
+  },
+  {
+    q: 'Does NRLS apply if my rent is below a certain amount?',
+    a: 'The £100/week threshold determines who operates the scheme (agent or tenant). It does not exempt the rental income from tax.',
+  },
+  {
+    q: 'Can a foreign national be a non-resident landlord?',
+    a: 'Yes. The scheme applies to all non-resident landlords regardless of nationality.',
+  },
+  {
+    q: 'What about limited company landlords?',
+    a: 'The scheme applies to overseas-incorporated companies. UK-incorporated companies are generally outside the scope, even if shareholders live abroad.',
+  },
+  {
+    q: 'Does NRLS interact with mortgage applications?',
+    a: 'Indirectly. Lenders sometimes ask for NRL1 status as part of the application pack. A clean NRLS position helps demonstrate ongoing UK tax compliance.',
+  },
+];
+
+const faqSchema = {
+  '@context': 'https://schema.org',
+  '@type': 'FAQPage',
+  mainEntity: faqs.map((f) => ({
+    '@type': 'Question',
+    name: f.q,
+    acceptedAnswer: { '@type': 'Answer', text: f.a },
+  })),
+};
+const schemas = [
+  breadcrumbSchema([
+    { name: 'Home', path: '/' },
+    { name: 'Guides', path: '/guides' },
+    { name: 'Non-Resident Landlord Scheme' },
+  ]),
+  articleSchema({ headline: h1, description }),
+];
+---
+
+<HubLayout
+  title={title}
+  description={description}
+  h1={h1}
+  subheadline={subheadline}
+  eyebrow="GUIDE · NON-RESIDENT LANDLORD SCHEME"
+  schemas={schemas}
+  relatedPages={relatedPages}
+>
+  <section class="hub-section">
+    <div class="hub-section-inner">
+      <h2 id="who-this-is-for">Who this page is for</h2>
+      <p>
+        If you own UK rental property and live outside the UK, this page is
+        for you. The Non-Resident Landlord Scheme (NRLS) almost certainly
+        applies to your situation, and how you handle it affects your cash
+        flow, your tax position, and your relationship with HMRC.
+      </p>
+      <p>
+        This page covers what the scheme is, how it works, the NRL1 form,
+        the choice between basic-rate withholding and self-assessment, and
+        the practical steps to put the right arrangement in place.
+      </p>
+      <p>
+        This is a general guide, not tax advice. For your specific position
+        you should speak to a tax adviser familiar with non-resident
+        landlord matters.
+      </p>
+    </div>
+  </section>
+
+  <section class="hub-section">
+    <div class="hub-section-inner">
+      <h2 id="what-the-scheme-is">What the Non-Resident Landlord Scheme is</h2>
+      <p>
+        The Non-Resident Landlord Scheme is an HMRC scheme that determines
+        how UK rental income is taxed when the landlord lives outside the
+        UK.
+      </p>
+      <p>
+        Under the default rules, your letting agent (if you have one) or
+        your tenant (if you do not) is required to deduct UK basic-rate
+        income tax from your rental income before paying the rest to you.
+        The deducted amount is paid directly to HMRC.
+      </p>
+      <p>So if you are a non-resident landlord and you have not registered with the scheme:</p>
+      <ul>
+        <li>Letting agent collects rent of £1,500 per month.</li>
+        <li>Letting agent deducts £300 (20% basic rate).</li>
+        <li>You receive £1,200.</li>
+        <li>HMRC receives £300.</li>
+      </ul>
+      <p>
+        This applies even if your overall tax liability for the year is
+        lower than the amount being withheld. You only receive the
+        difference back through self-assessment, after the tax year ends.
+      </p>
+      <p>
+        The scheme exists because HMRC cannot rely on a non-resident
+        landlord to settle their own UK tax bill. The withholding ensures
+        HMRC is paid up front.
+      </p>
+    </div>
+  </section>
+
+  <section class="hub-section">
+    <div class="hub-section-inner">
+      <h2 id="who-counts">Who counts as a non-resident landlord</h2>
+      <p>
+        The scheme applies to landlords whose "usual place of abode" is
+        outside the UK for more than six months of the tax year.
+      </p>
+      <p>This includes:</p>
+      <ul>
+        <li>British nationals living abroad (expats).</li>
+        <li>Foreign nationals who own UK rental property and live outside the UK.</li>
+        <li>Members of the armed forces or other UK government employees serving abroad, in some cases.</li>
+        <li>Trustees and partnerships where the trustees or partners live outside the UK.</li>
+      </ul>
+      <p>It does not apply to:</p>
+      <ul>
+        <li>UK residents who happen to be abroad temporarily (for example, on holiday).</li>
+        <li>Companies registered and managed in the UK, even if shareholders live abroad.</li>
+        <li>Owner-occupiers who do not let the property at all.</li>
+      </ul>
+      <p>
+        The "usual place of abode" test is about where you actually live,
+        not your tax residency status under the Statutory Residence Test,
+        although the two often overlap.
+      </p>
+    </div>
+  </section>
+
+  <MidPageCta variant="hero" />
+
+  <PullQuote>
+    For most non-resident landlords, NRL1 approval is the right answer. The
+    form takes 30 minutes to complete and unlocks materially better cash
+    flow.
+  </PullQuote>
+
+  <section class="hub-section">
+    <div class="hub-section-inner">
+      <h2 id="nrl1-form">The NRL1 form: applying to receive rent gross</h2>
+      <p>
+        If you want to receive your rental income without tax being
+        deducted at source, you need to apply to HMRC for approval. The
+        form for this is the NRL1, available on the gov.uk website.
+      </p>
+      <p>
+        The application asks HMRC's permission to receive rent gross, on
+        the basis that you will then settle any UK tax owed through
+        self-assessment after the tax year ends.
+      </p>
+      <p>HMRC approves an NRL1 application if:</p>
+      <ul>
+        <li>Your UK tax affairs are up to date.</li>
+        <li>You do not have a track record of failing to comply with UK tax obligations.</li>
+        <li>You agree to file a self-assessment return each year.</li>
+      </ul>
+      <p>
+        Approval takes around three to six weeks in normal circumstances.
+        Once approved, HMRC sends a notice to your letting agent (if you
+        have one) authorising them to pay you rent gross. The same applies
+        if your tenant is paying you direct.
+      </p>
+      <p>
+        Approval is not automatic for everyone. People with poor compliance
+        histories, or with complex international structures, sometimes have
+        applications declined or delayed. See our
+        <a href="/guides/nrl1-form-explained">NRL1 form explained</a> page
+        for the step-by-step.
+      </p>
+    </div>
+  </section>
+
+  <section class="hub-section">
+    <div class="hub-section-inner">
+      <h2 id="agents-tenants">Letting agents and tenants: who is responsible</h2>
+      <p>If you have a letting agent, they are responsible for operating the scheme. They will:</p>
+      <ul>
+        <li>Deduct basic-rate tax from your rent unless they have a notice from HMRC saying you have NRL1 approval.</li>
+        <li>Pay the deducted amount to HMRC quarterly.</li>
+        <li>Provide you and HMRC with an annual statement (form NRLY) showing the income and tax paid.</li>
+      </ul>
+      <p>
+        If you do not have a letting agent and your tenant pays you
+        directly, the responsibility falls on the tenant if their rent
+        payment to you is more than £100 per week (£5,200 per year). If
+        rent is below this threshold, the responsibility may fall to you to
+        register and pay tax via self-assessment.
+      </p>
+      <p>
+        In practice, almost all non-resident landlords with property
+        managed through an agent operate via the agent. Self-managed lets,
+        particularly those collected directly from tenants overseas, are
+        where the rules are more complex.
+      </p>
+    </div>
+  </section>
+
+  <section class="hub-section">
+    <div class="hub-section-inner">
+      <h2 id="two-paths">Two paths: with NRL1 approval vs without</h2>
+      <p>You broadly have two operating models as a non-resident landlord.</p>
+
+      <h3>Path 1: NRL1 approved, gross rent</h3>
+      <ul>
+        <li>Apply for NRL1 approval before your first rent receipt as a non-resident.</li>
+        <li>Receive 100% of rent gross.</li>
+        <li>File self-assessment each tax year.</li>
+        <li>Pay any UK tax owing through self-assessment.</li>
+        <li>Manage your own cash flow throughout the year.</li>
+      </ul>
+      <p>
+        This is the most common arrangement for established expat
+        landlords. It gives you full use of your rental income through the
+        year and lets you offset deductible expenses (mortgage interest in
+        limited company structures, agent fees, repairs, and others)
+        before settling the tax bill.
+      </p>
+
+      <h3>Path 2: No NRL1 approval, basic-rate withholding</h3>
+      <ul>
+        <li>Letting agent deducts 20% from rent.</li>
+        <li>You receive 80% throughout the year.</li>
+        <li>File self-assessment to reclaim any over-paid tax (if your actual liability is less than withheld) or to pay any shortfall (if your liability is more).</li>
+      </ul>
+      <p>
+        This is the default when you start renting out as a non-resident
+        without applying for NRL1. It is functional but inefficient: you
+        lose use of 20% of your rent throughout the year and only see it
+        again (if owed) several months after the tax year ends.
+      </p>
+    </div>
+  </section>
+
+  <section class="hub-section">
+    <div class="hub-section-inner">
+      <h2 id="self-assessment">Self-assessment as a non-resident landlord</h2>
+      <p>
+        Whether or not you have NRL1 approval, you must file a UK
+        self-assessment tax return each year if you have UK rental income
+        above your personal allowance.
+      </p>
+      <p>The self-assessment process for non-resident landlords includes:</p>
+      <ul>
+        <li>Reporting your gross rental income.</li>
+        <li>Claiming deductible expenses (agent fees, repairs, ground rent, insurance, replacement of domestic items).</li>
+        <li>Reporting any tax already withheld at source under the NRLS.</li>
+        <li>Calculating your final UK tax liability.</li>
+        <li>Paying any balance owing or claiming any overpayment.</li>
+      </ul>
+      <p>
+        UK personal allowance is generally available to non-residents who
+        are British citizens, EEA nationals, or residents of certain
+        countries with reciprocal arrangements. For others, the allowance
+        may not apply, and 20% basic rate may apply from the first pound of
+        UK income.
+      </p>
+      <p>
+        Mortgage interest treatment changed materially in 2017. For
+        personally-held UK rental property, mortgage interest is no longer
+        fully deductible. Instead, a 20% tax credit is given. This is one
+        reason limited company structures became more popular for new BTL
+        acquisitions.
+      </p>
+    </div>
+  </section>
+
+  <PullQuote>
+    NRLS is an income tax scheme. It does not affect your status under the
+    Statutory Residence Test, your liability for capital gains on UK
+    property disposals, or your treatment under double tax treaties.
+  </PullQuote>
+
+  <section class="hub-section">
+    <div class="hub-section-inner">
+      <h2 id="pitfalls">Common pitfalls</h2>
+      <p>
+        <strong>Not applying for NRL1 before letting starts.</strong>
+        Once you are abroad and renting, withholding kicks in automatically
+        with most agents. Apply for NRL1 ahead of time to avoid the 20%
+        deduction from your first rent.
+      </p>
+      <p>
+        <strong>Letting agent unaware of NRLS.</strong> Most established UK
+        letting agents handle the scheme routinely. Smaller or self-managed
+        agents sometimes do not, leading to compliance failures that come
+        up at audit. Worth confirming the agent operates the scheme before
+        instructing them.
+      </p>
+      <p>
+        <strong>Direct-collected rent from tenants.</strong> If you collect
+        rent directly from a tenant living in the UK, the tenant may be
+        required to operate the scheme themselves above the £100/week
+        threshold. Most tenants do not realise this. Worth either using an
+        agent or making sure the tenant is aware.
+      </p>
+      <p>
+        <strong>Forgetting self-assessment after a year of withholding.</strong>
+        Some non-resident landlords assume that because the agent is
+        withholding tax, they do not need to file a return. This is
+        incorrect. Self-assessment is still required for non-resident
+        landlords with UK rental income above the threshold.
+      </p>
+      <p>
+        <strong>Mistaking NRLS for non-residence in general.</strong> NRLS
+        is an income tax scheme. It does not affect your status under the
+        Statutory Residence Test, your liability for capital gains on UK
+        property disposals, or your treatment under double tax treaties.
+      </p>
+      <p>
+        <strong>Stamp Duty surcharge for non-residents.</strong> Since
+        April 2021, non-UK residents buying additional UK residential
+        property pay a 2% Stamp Duty surcharge on top of standard SDLT plus
+        the existing 5% surcharge for additional properties. Worth being
+        aware of when expanding the portfolio.
+      </p>
+    </div>
+  </section>
+
+  <MidPageCta />
+
+  <section class="hub-section">
+    <div class="hub-section-inner">
+      <h2 id="faqs">Frequently asked questions</h2>
+      <div class="faq">
+        {faqs.map((f) => (
+          <>
+            <h3>{f.q}</h3>
+            <p>{f.a}</p>
+          </>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <script
+    type="application/ld+json"
+    is:inline
+    set:html={JSON.stringify(faqSchema)}
+  />
+</HubLayout>

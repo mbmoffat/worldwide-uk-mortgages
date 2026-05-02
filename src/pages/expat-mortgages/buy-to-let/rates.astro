@@ -1,0 +1,315 @@
+---
+import HubLayout from '../../../layouts/HubLayout.astro';
+import PullQuote from '../../../components/PullQuote.astro';
+import MidPageCta from '../../../components/MidPageCta.astro';
+import { breadcrumbSchema, articleSchema } from '../../../lib/schema';
+
+const title = 'UK Expat Buy-to-Let Mortgage Rates';
+const description =
+  'What rates UK expats can expect on buy-to-let mortgages, what drives the rate you actually receive, and how to compress the gap to mainstream pricing.';
+const h1 = 'UK Expat Buy-to-Let Mortgage Rates';
+const subheadline =
+  'What rates UK expats can expect on buy-to-let mortgages, why expat BTL rates differ from residential expat rates and from UK-resident BTL rates, what drives the actual rate you receive, and how to compress the gap to mainstream pricing.';
+
+const relatedPages = [
+  {
+    eyebrow: 'Hub',
+    title: 'Expat Buy-to-Let Mortgages',
+    description:
+      'UK buy-to-let mortgages for British nationals living abroad. ICR, deposits, and lender pool.',
+    href: '/expat-mortgages/buy-to-let',
+  },
+  {
+    eyebrow: 'Guide',
+    title: 'Expat Mortgage Rates',
+    description:
+      'Why expat rates differ, what to expect by profile, and how lender choice moves the rate you pay.',
+    href: '/expat-mortgages/rates',
+  },
+  {
+    eyebrow: 'Guide',
+    title: 'Buy-to-Let from Abroad',
+    description:
+      'Practical playbook for UK BTL applications when you live overseas. Documentation, lenders, and timelines.',
+    href: '/expat-mortgages/buy-to-let-from-abroad',
+  },
+  {
+    eyebrow: 'Hub',
+    title: 'UK Mortgages for Non-UK Residents',
+    description:
+      'Foreign nationals or British expats wanting a UK mortgage on UK property. The lender pool, deposits, and rates explained.',
+    href: '/non-uk-resident-mortgages',
+  },
+  {
+    eyebrow: 'Guide',
+    title: 'Expat Mortgage Deposit Requirements',
+    description:
+      'How much deposit you need, what counts as deposit money, and how thresholds shift the rate you pay.',
+    href: '/expat-mortgages/deposit',
+  },
+];
+
+const faqs = [
+  {
+    q: 'What rate range should I expect?',
+    a: 'Typically 0.5 to 1 percentage point higher than expat residential rates. Specifics depend on profile.',
+  },
+  {
+    q: 'Does a bigger deposit mean a better rate?',
+    a: 'Yes, materially. 35% versus 25% deposit unlocks meaningful improvements.',
+  },
+  {
+    q: 'Are five-year fixes worth the small premium?',
+    a: 'For most expat BTL applicants, yes. It removes remortgage friction.',
+  },
+  {
+    q: 'Will rental income alone qualify me?',
+    a: 'Often yes, via the ICR test. Personal income is a secondary check.',
+  },
+  {
+    q: 'Can foreign nationals access UK BTL rates similar to expats?',
+    a: 'Foreign nationals typically face slightly stricter criteria but rate ranges are similar.',
+  },
+  {
+    q: 'Are limited company BTL rates higher?',
+    a: 'Marginally. Lender fees can be higher. Tax efficiency usually offsets the rate difference for higher-rate taxpayers.',
+  },
+  {
+    q: 'Are rates worse if I am self-employed?',
+    a: 'Slightly, with a smaller acceptance pool. Two years of accounts and proper documentation help.',
+  },
+  {
+    q: 'Can I lock the rate in advance of completion?',
+    a: 'Yes. Most lenders allow rate hold for 3 to 6 months from offer.',
+  },
+  {
+    q: 'Does my country of residence affect the rate?',
+    a: 'Indirectly via currency. Country itself matters less than which currency you earn.',
+  },
+  {
+    q: 'Can I remortgage to a better rate later?',
+    a: 'Yes. Most expat landlords remortgage at fix end if a better rate is available.',
+  },
+];
+
+const faqSchema = {
+  '@context': 'https://schema.org',
+  '@type': 'FAQPage',
+  mainEntity: faqs.map((f) => ({
+    '@type': 'Question',
+    name: f.q,
+    acceptedAnswer: { '@type': 'Answer', text: f.a },
+  })),
+};
+const schemas = [
+  breadcrumbSchema([
+    { name: 'Home', path: '/' },
+    { name: 'UK Mortgages for Expats', path: '/expat-mortgages' },
+    { name: 'Buy-to-Let', path: '/expat-mortgages/buy-to-let' },
+    { name: 'Rates' },
+  ]),
+  articleSchema({ headline: h1, description }),
+];
+---
+
+<HubLayout
+  title={title}
+  description={description}
+  h1={h1}
+  subheadline={subheadline}
+  eyebrow="GUIDE · EXPAT BTL RATES"
+  schemas={schemas}
+  relatedPages={relatedPages}
+>
+  <section class="hub-section">
+    <div class="hub-section-inner">
+      <h2 id="who-this-is-for">Who this page is for</h2>
+      <p>
+        If you are a British national living abroad and want to know what
+        BTL mortgage rate you will pay, this page is for you. The headline
+        answer is more nuanced than a single number because expat BTL
+        pricing depends on currency, deposit, lender, property type, and
+        rental yield.
+      </p>
+      <p>This page covers the current rate range, what drives the rate you actually receive, and how a specialist broker compresses the gap to mainstream pricing.</p>
+    </div>
+  </section>
+
+  <section class="hub-section">
+    <div class="hub-section-inner">
+      <h2 id="why-higher">Why expat BTL rates are higher than residential expat rates</h2>
+      <p>UK lenders price expat buy-to-let around 0.5 to 1 percentage point higher than expat residential mortgages. Three reasons.</p>
+      <p>
+        <strong>Investment lending carries more credit risk than
+        owner-occupier lending.</strong> A landlord under financial pressure
+        prioritises their own home over a rental property. Lenders price
+        this in.
+      </p>
+      <p>
+        <strong>Stress test rules push BTL rates up.</strong> UK-resident
+        BTL is stressed at typically 125% interest cover ratio (ICR) at a
+        notional 5.5% rate. Expat BTL is stressed at 145% or higher at 6%.
+        The mechanical effect is that lenders set product rates to ensure
+        most applications can pass the stress test, which means slightly
+        higher rates than would otherwise apply.
+      </p>
+      <p>
+        <strong>Smaller lender pool with less competition.</strong> Roughly
+        20% of UK BTL lenders accept non-resident applicants. Within that
+        20%, the competitive pressure on rates is less than in the open
+        UK-resident BTL market.
+      </p>
+      <p>The combined effect: expat BTL rates sit meaningfully above expat residential rates, which themselves sit above UK-resident residential rates.</p>
+    </div>
+  </section>
+
+  <section class="hub-section">
+    <div class="hub-section-inner">
+      <h2 id="rate-range">The current rate range</h2>
+      <p>At the time of writing, expat BTL rates typically sit in a band that runs from the lower end of specialist BTL pricing to the higher end of expat-specialist pricing.</p>
+      <p>The range is wide because the lender pool is wide. Mainstream lenders that accept expat BTL price keenly to attract good profiles. Specialist expat BTL lenders price to reflect the extra underwriting effort. Private banks for high-net-worth applicants price differently again.</p>
+      <p>A useful working assumption: a clean expat BTL profile with 30% deposit, a major-currency income, and a property in an established UK rental market sits in the middle of this range. Smaller deposits, niche currencies, or unusual property types push higher. Larger deposits or HNW positions push lower.</p>
+      <p>Two-year and five-year fixes dominate. Five-year fixes often price slightly higher upfront but remove remortgage friction at the two-year mark, which matters more for expats than UK residents because remortgage from abroad is more involved.</p>
+    </div>
+  </section>
+
+  <MidPageCta variant="hero" />
+
+  <PullQuote>
+    The same applicant with the same profile can secure a 0.3 to 0.5
+    percentage point better rate purely because of which lender they
+    applied to.
+  </PullQuote>
+
+  <section class="hub-section">
+    <div class="hub-section-inner">
+      <h2 id="rate-drivers">What drives the rate you actually receive</h2>
+      <p>Five factors do most of the work.</p>
+      <p>
+        <strong>Lender choice.</strong> The single biggest variable. The
+        same applicant can be offered materially different rates from
+        different lenders for the same loan. The right lender for a given
+        expat BTL profile is rarely obvious without specialist knowledge.
+      </p>
+      <p>
+        <strong>Deposit size.</strong> 25% minimum on paper, 30 to 35% in
+        practice. The jump from 25% to 30% deposit is the single biggest
+        rate lever. The next meaningful threshold is 40%.
+      </p>
+      <p>
+        <strong>Currency.</strong> Major currencies pegged to or tracking
+        the dollar (AED, QAR, SAR, HKD) are widely accepted with light
+        pricing. EUR, USD, CHF accepted universally. SGD, AUD, NZD accepted
+        with slightly heavier pricing. ZAR and minor currencies face the
+        toughest rates.
+      </p>
+      <p>
+        <strong>Rental yield and ICR.</strong> A property yielding 6%
+        gross at the asking rent passes ICR easily. A property yielding 4%
+        may fail and force the borrower to either reduce the loan size,
+        find a lower-stress lender, or top up the deposit.
+      </p>
+      <p>
+        <strong>Property type.</strong> Standard flats and houses in
+        established markets price well. New-build, ex-council, HMOs, and
+        holiday lets face restrictions or premium pricing.
+      </p>
+    </div>
+  </section>
+
+  <section class="hub-section">
+    <div class="hub-section-inner">
+      <h2 id="profile-effect">How borrower profile affects rate</h2>
+      <p>Working ranges, not guarantees.</p>
+      <p>A British expat in the UAE earning AED, employed by a major employer, with a 30% deposit on a London BTL: typically toward the lower end of the expat BTL range, close to mainstream specialist BTL pricing.</p>
+      <p>A British expat in the US earning USD with bonus and equity comp, 25% deposit on a UK BTL: middle of the expat BTL range, with room to improve via lenders that include vested equity.</p>
+      <p>A British expat in Hong Kong on a senior banking package, 35% deposit, central London BTL: middle to lower end, often with private bank options that compete on rate for larger loans.</p>
+      <p>A British expat in South Africa earning ZAR, 30% deposit: higher end of the expat BTL range, because fewer lenders accept ZAR.</p>
+      <p>A first-time landlord buying their first BTL from abroad: middle to upper end. First-time landlord status alone is enough to disqualify some lenders entirely.</p>
+      <p>Limited company structure does not materially change the rate, but does narrow the lender pool. Some lenders only accept SPV-held BTL with UK-resident directors. Others accept non-resident directors. Specialist broker territory.</p>
+    </div>
+  </section>
+
+  <section class="hub-section">
+    <div class="hub-section-inner">
+      <h2 id="best-rate">How to secure the best rate</h2>
+      <p>Three things compress the gap to mainstream pricing.</p>
+      <p>
+        <strong>A larger deposit if you have it.</strong> 35% deposit
+        unlocks materially better pricing than 25%. Worth modelling the
+        maths if you have flexibility on timing.
+      </p>
+      <p>
+        <strong>A clean documentation pack ready before applying.</strong>
+        Three months of bank statements, payslips, tax records, employment
+        contract, AML paper trail on deposit funds. Lenders penalise messy
+        applications with caution, which shows up as worse rates.
+      </p>
+      <p>
+        <strong>A specialist broker who knows which lender suits your
+        profile this month.</strong> Lender appetite changes month to
+        month. The lender that priced your profile sharply six months ago
+        might be off-market now. A broker with current relationships sees
+        the live picture.
+      </p>
+      <p>The same applicant with the same profile can be offered a 0.3 to 0.5 percentage point better rate purely because of which lender they applied to. On a £300,000 BTL over a five-year fix, that is £4,500 to £7,500 in interest paid.</p>
+    </div>
+  </section>
+
+  <section class="hub-section">
+    <div class="hub-section-inner">
+      <h2 id="situations">Common situations</h2>
+      <p>
+        <strong>Existing UK landlord living abroad expanding the portfolio.</strong>
+        Specialist lenders treat established expat landlords more
+        favourably than first-time landlords. Rate at the better end of
+        the range.
+      </p>
+      <p>
+        <strong>First UK BTL from abroad.</strong> First-time landlord
+        status is the binding constraint. Specialist lenders that accept
+        first-time non-resident landlords are a smaller subset.
+      </p>
+      <p>
+        <strong>Remortgage at end of fix.</strong> Existing expat BTL
+        coming to fix end. Apply for the remortgage 4 to 6 months before
+        fix end. Rates reflect current market plus the borrower's track
+        record on the existing mortgage.
+      </p>
+      <p>
+        <strong>Convert-to-let from former residence.</strong> Borrower
+        bought a UK home, moved abroad, now wants to switch to BTL.
+        Sometimes handled at remortgage rather than fresh purchase. Lender
+        choice depends on whether the property is currently let or
+        vacant.
+      </p>
+      <p>
+        <strong>HMO from abroad.</strong> Houses in Multiple Occupation.
+        Higher yields, but a much narrower lender pool and premium
+        pricing. Specialist broker territory.
+      </p>
+    </div>
+  </section>
+
+  <MidPageCta />
+
+  <section class="hub-section">
+    <div class="hub-section-inner">
+      <h2 id="faqs">Frequently asked questions</h2>
+      <div class="faq">
+        {faqs.map((f) => (
+          <>
+            <h3>{f.q}</h3>
+            <p>{f.a}</p>
+          </>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <script
+    type="application/ld+json"
+    is:inline
+    set:html={JSON.stringify(faqSchema)}
+  />
+</HubLayout>

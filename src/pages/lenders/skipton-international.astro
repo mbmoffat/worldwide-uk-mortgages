@@ -1,0 +1,336 @@
+---
+import HubLayout from '../../layouts/HubLayout.astro';
+import PullQuote from '../../components/PullQuote.astro';
+import MidPageCta from '../../components/MidPageCta.astro';
+import { breadcrumbSchema, serviceSchema } from '../../lib/schema';
+
+const title = 'Skipton International Mortgages: A Practical Guide';
+const description =
+  'What Skipton International lends on, who qualifies, what rates and deposits to expect, and where Skipton sits in the wider expat lender landscape.';
+const h1 = 'Skipton International Mortgages: A Practical Guide';
+const subheadline =
+  'What Skipton International lends on, who qualifies for an expat or non-resident UK mortgage with them, what rates and deposits to expect, and where Skipton sits in the wider expat lender landscape.';
+
+const relatedPages = [
+  {
+    eyebrow: 'Hub',
+    title: 'UK Mortgages for Expats',
+    description:
+      'British nationals living abroad. Country-by-country lender appetite, currency haircuts, and timelines.',
+    href: '/expat-mortgages',
+  },
+  {
+    eyebrow: 'Guide',
+    title: 'Expat Mortgage Rates',
+    description:
+      'Why expat rates differ, what to expect by profile, and how lender choice moves the rate you pay.',
+    href: '/expat-mortgages/rates',
+  },
+  {
+    eyebrow: 'Hub',
+    title: 'UK Mortgages for Non-UK Residents',
+    description:
+      'Foreign nationals or British expats wanting a UK mortgage on UK property. The lender pool, deposits, and rates explained.',
+    href: '/non-uk-resident-mortgages',
+  },
+  {
+    eyebrow: 'Hub',
+    title: 'Expat Buy-to-Let Mortgages',
+    description:
+      'UK buy-to-let mortgages for British nationals living abroad. ICR, deposits, and lender pool.',
+    href: '/expat-mortgages/buy-to-let',
+  },
+  {
+    eyebrow: 'Lender',
+    title: 'HSBC Expat Mortgages',
+    description:
+      'What HSBC Expat lends on, who qualifies, rates and deposits, and where HSBC sits in the wider expat lender landscape.',
+    href: '/lenders/hsbc-expat',
+  },
+];
+
+const faqs = [
+  {
+    q: 'Is Skipton International the same as Skipton Building Society?',
+    a: 'No. Skipton International is a separate offshore subsidiary based in Guernsey, focused on expat and non-resident lending.',
+  },
+  {
+    q: 'Do I need to be a Skipton customer to apply?',
+    a: 'No, but applicants with Skipton banking relationships sometimes see smoother underwriting.',
+  },
+  {
+    q: 'Does Skipton accept all countries?',
+    a: 'No. Approved-countries list changes. Most major expat hubs are included.',
+  },
+  {
+    q: 'What is the minimum income?',
+    a: 'Skipton sets a working minimum income. Specifics change. Worth confirming current values directly.',
+  },
+  {
+    q: 'What deposit do I need?',
+    a: '25% minimum for residential, more for BTL. 30 to 35% in practice for most cases.',
+  },
+  {
+    q: 'Can I have a buy-to-let through Skipton?',
+    a: 'Yes, with stricter criteria than residential. Experienced landlords face fewer barriers than first-time landlords.',
+  },
+  {
+    q: 'Does Skipton apply a currency haircut?',
+    a: 'Yes, standard 20%-ish range. Worth confirming for your specific currency.',
+  },
+  {
+    q: 'Is Skipton always the cheapest?',
+    a: 'No. Worth comparing.',
+  },
+  {
+    q: 'Can I apply via a broker?',
+    a: 'Yes. Most specialist expat brokers can place Skipton cases.',
+  },
+  {
+    q: 'How long does an application take?',
+    a: 'Typically six to ten weeks, similar to other expat lenders.',
+  },
+];
+
+const faqSchema = {
+  '@context': 'https://schema.org',
+  '@type': 'FAQPage',
+  mainEntity: faqs.map((f) => ({
+    '@type': 'Question',
+    name: f.q,
+    acceptedAnswer: { '@type': 'Answer', text: f.a },
+  })),
+};
+const schemas = [
+  breadcrumbSchema([
+    { name: 'Home', path: '/' },
+    { name: 'Lenders' },
+    { name: 'Skipton International' },
+  ]),
+  serviceSchema({
+    serviceType: 'International Mortgage Lender Information',
+    name: 'Skipton International Mortgages Information',
+    description,
+  }),
+];
+---
+
+<HubLayout
+  title={title}
+  description={description}
+  h1={h1}
+  subheadline={subheadline}
+  eyebrow="LENDER · SKIPTON INTERNATIONAL"
+  schemas={schemas}
+  relatedPages={relatedPages}
+>
+  <section class="hub-section">
+    <div class="hub-section-inner">
+      <h2 id="who-this-is-for">Who this page is for</h2>
+      <p>If you are a British national living abroad, or a non-UK resident considering UK property, and you have looked at Skipton International as a potential lender, this page is for you.</p>
+      <p>Skipton International is one of the longer-established names in the UK expat and non-resident mortgage market, headquartered in Guernsey. They focus exclusively on expat and non-resident lending, which makes them a specialist rather than a generalist.</p>
+      <p>This page covers what Skipton actually lends on, how their criteria sit relative to other expat lenders, and where Skipton is or is not the right fit. Independent guide, not a Skipton product page.</p>
+    </div>
+  </section>
+
+  <section class="hub-section">
+    <div class="hub-section-inner">
+      <h2 id="what-it-is">What Skipton International is</h2>
+      <p>Skipton International is the offshore arm of Skipton Building Society, headquartered in Guernsey. The Guernsey base means it operates under Channel Islands financial regulation rather than directly under UK FCA regulation, although the products it lends on are UK property.</p>
+      <p>Skipton International specialises in:</p>
+      <ul>
+        <li>UK mortgages for British expats living abroad.</li>
+        <li>UK mortgages for non-UK residents.</li>
+        <li>Buy-to-let lending to non-resident applicants.</li>
+        <li>Some residential lending to non-resident applicants.</li>
+      </ul>
+      <p>Their target market is established expat applicants with stable incomes and reasonable deposit positions, rather than first-time or marginal cases.</p>
+    </div>
+  </section>
+
+  <section class="hub-section">
+    <div class="hub-section-inner">
+      <h2 id="who-qualifies">Who qualifies</h2>
+      <p>Skipton International broadly accepts:</p>
+      <ul>
+        <li>British expats in approved countries (a wide list covering most major expat hubs).</li>
+        <li>Non-UK national applicants in some scenarios, with restrictions.</li>
+        <li>Salaried employees and self-employed applicants with sufficient documentation.</li>
+        <li>Property investors with reasonable track records.</li>
+        <li>Limited company BTL via UK-incorporated SPVs in some cases.</li>
+      </ul>
+      <p>Skipton's approved-countries list changes from time to time. Major expat markets like the UAE, Singapore, Hong Kong, Switzerland, USA, Canada, Australia, EU countries, and others are typically included. Higher-risk jurisdictions are sometimes excluded.</p>
+      <p>Income thresholds matter. Skipton sets minimum income criteria that reflect their target market: established professional applicants rather than entry-level borrowers.</p>
+    </div>
+  </section>
+
+  <MidPageCta variant="hero" />
+
+  <PullQuote>
+    Skipton typically prices in the middle of the expat lender pool. Not
+    the absolute cheapest, not the most expensive.
+  </PullQuote>
+
+  <section class="hub-section">
+    <div class="hub-section-inner">
+      <h2 id="loan-parameters">Property and loan parameters</h2>
+      <p>Skipton typically lends on:</p>
+      <ul>
+        <li>UK residential property for owner-occupier or expat residence.</li>
+        <li>UK buy-to-let for investment purposes.</li>
+        <li>Loan sizes from a working minimum upward, with maximum loans in the multi-million pound range.</li>
+        <li>Loan-to-value typically up to 75% on residential, less on BTL (often 70%).</li>
+        <li>Standard mortgage products, fixed and variable, with usual UK term lengths.</li>
+      </ul>
+      <p>What Skipton tends not to do:</p>
+      <ul>
+        <li>Very high LTVs above 75 to 80%.</li>
+        <li>Adverse credit cases.</li>
+        <li>Unusual property types.</li>
+        <li>First-time landlord cases (they prefer experienced landlords).</li>
+        <li>Borrowers from non-approved countries.</li>
+      </ul>
+    </div>
+  </section>
+
+  <section class="hub-section">
+    <div class="hub-section-inner">
+      <h2 id="rates">What rates to expect</h2>
+      <p>Skipton typically prices in the middle of the expat lender pool. Not the absolute cheapest, not the most expensive. Their pricing reflects their position as an established specialist rather than a volume-led mainstream lender.</p>
+      <p>The rate gap between Skipton and other expat lenders is usually 0.1 to 0.4 percentage points either way, depending on the day and the profile. For some applicants Skipton beats the market. For others a different lender offers better rates.</p>
+      <p>Skipton's rates are not always public on their website, partly because much of their business goes through brokers. So an applicant comparing only what they can find online may not see Skipton's actual best pricing.</p>
+    </div>
+  </section>
+
+  <section class="hub-section">
+    <div class="hub-section-inner">
+      <h2 id="handles-well">What Skipton handles well</h2>
+      <p>
+        <strong>Established expat profiles.</strong> Long-term expats with
+        stable employment, clean documentation, and sensible deposits move
+        through Skipton's underwriting smoothly.
+      </p>
+      <p>
+        <strong>Clean salaried applications.</strong> Major employers,
+        predictable salary, standard payslips. Skipton processes these
+        efficiently.
+      </p>
+      <p>
+        <strong>Repeat landlord cases.</strong> Existing UK landlords
+        expanding portfolios. Skipton looks favourably on track records.
+      </p>
+      <p>
+        <strong>Non-UK national professionals.</strong> Within their
+        approved countries, Skipton accepts non-UK nationals with proper
+        documentation more readily than some mainstream lenders.
+      </p>
+    </div>
+  </section>
+
+  <section class="hub-section">
+    <div class="hub-section-inner">
+      <h2 id="not-right-fit">Where Skipton may not be the right fit</h2>
+      <p>A few profiles where another lender often beats Skipton.</p>
+      <p>
+        <strong>First-time landlords.</strong> Skipton prefers experienced
+        landlords. First-time non-resident BTL applicants may find better
+        terms with lenders that specialise in that segment.
+      </p>
+      <p>
+        <strong>Bonus-heavy or equity-heavy comp.</strong> Skipton is on
+        the conservative side regarding variable comp. Senior banking,
+        hedge fund, or tech employees with significant bonus or RSU
+        components sometimes find better borrowing capacity with lenders
+        that include more variable income.
+      </p>
+      <p>
+        <strong>Niche country or currency.</strong> Skipton's approved
+        countries list is wide but not universal. Applicants from
+        non-approved jurisdictions or earning in less common currencies
+        need alternatives.
+      </p>
+      <p>
+        <strong>No-haircut on currency.</strong> Skipton applies standard
+        currency haircut. A small group of specialist lenders accepts
+        gross income on certain currencies, which can materially increase
+        borrowing capacity.
+      </p>
+      <p>
+        <strong>Adverse credit or unusual property.</strong> Skipton
+        prefers clean cases. Anything outside that profile is better
+        placed elsewhere.
+      </p>
+      <p>
+        <strong>Sub-Skipton minimum income.</strong> Skipton sets a
+        minimum income threshold. Applicants below it should look at
+        lenders with lower thresholds.
+      </p>
+    </div>
+  </section>
+
+  <section class="hub-section">
+    <div class="hub-section-inner">
+      <h2 id="how-to-apply">How to apply</h2>
+      <p>You can apply directly to Skipton International via their website. Direct applications work for clean, standard cases.</p>
+      <p>What a specialist broker adds:</p>
+      <p>
+        <strong>Comparison.</strong> A broker can simultaneously model
+        Skipton and three or four alternative lenders without footprinting
+        your credit file at all of them.
+      </p>
+      <p>
+        <strong>Packaging.</strong> Skipton's underwriting prefers cases
+        presented in a particular way. A broker who places Skipton cases
+        regularly knows what to highlight and what to anticipate.
+      </p>
+      <p>
+        <strong>Backup lender.</strong> If Skipton declines or offers
+        worse than expected, a broker can switch to an alternative without
+        restarting from scratch.
+      </p>
+      <p>
+        <strong>Access to other intermediary-only lenders.</strong> Several
+        specialist expat lenders are intermediary-only and will not accept
+        direct applications. A broker accesses them.
+      </p>
+    </div>
+  </section>
+
+  <PullQuote>
+    Several specialist expat lenders are intermediary-only and will not
+    accept direct applications. A broker accesses them.
+  </PullQuote>
+
+  <section class="hub-section">
+    <div class="hub-section-inner">
+      <h2 id="pitfalls">Common pitfalls</h2>
+      <p><strong>Assuming Skipton is automatically the cheapest because they are specialists.</strong> Often they are middle-of-pack. Worth comparing.</p>
+      <p><strong>Applying directly without packaging.</strong> Self-applications are queried more than broker applications.</p>
+      <p><strong>Underestimating the income threshold.</strong> Skipton's minimum is firm. Applicants below should look elsewhere.</p>
+      <p><strong>Ignoring the experienced-landlord preference.</strong> First-time non-resident BTL applicants often face friction with Skipton.</p>
+      <p><strong>Country assumptions.</strong> Skipton's approved-countries list changes. Confirm current status before assuming.</p>
+    </div>
+  </section>
+
+  <MidPageCta />
+
+  <section class="hub-section">
+    <div class="hub-section-inner">
+      <h2 id="faqs">Frequently asked questions</h2>
+      <div class="faq">
+        {faqs.map((f) => (
+          <>
+            <h3>{f.q}</h3>
+            <p>{f.a}</p>
+          </>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <script
+    type="application/ld+json"
+    is:inline
+    set:html={JSON.stringify(faqSchema)}
+  />
+</HubLayout>

@@ -1,0 +1,395 @@
+---
+import HubLayout from '../../layouts/HubLayout.astro';
+import PullQuote from '../../components/PullQuote.astro';
+import MidPageCta from '../../components/MidPageCta.astro';
+import { breadcrumbSchema, articleSchema } from '../../lib/schema';
+
+const title = 'Buying UK Property from Overseas: Step-by-Step Guide';
+const description =
+  'How to buy UK property when you live abroad. The full process from finding a property to completion, the people you need, the lead times, and tax basics.';
+const h1 = 'Buying UK Property from Overseas: Step-by-Step Guide';
+const subheadline =
+  'How to buy UK property when you live abroad. The full process from finding a property to completion, the people you need on your side, the documentation lead times, and the tax and currency considerations.';
+
+const relatedPages = [
+  {
+    eyebrow: 'Hub',
+    title: 'UK Mortgages for Expats',
+    description:
+      'British nationals living abroad. Country-by-country lender appetite, currency haircuts, and timelines.',
+    href: '/expat-mortgages',
+  },
+  {
+    eyebrow: 'Hub',
+    title: 'UK Mortgages for Non-UK Residents',
+    description:
+      'Foreign nationals or British expats wanting a UK mortgage on UK property. The lender pool, deposits, and rates explained.',
+    href: '/non-uk-resident-mortgages',
+  },
+  {
+    eyebrow: 'Guide',
+    title: 'Expat Mortgage Application Process',
+    description:
+      'Step-by-step walkthrough of an expat mortgage application from initial chat to completion.',
+    href: '/expat-mortgages/process',
+  },
+  {
+    eyebrow: 'Guide',
+    title: 'Buy-to-Let from Abroad',
+    description:
+      'Practical playbook for UK BTL applications when you live overseas. Documentation, lenders, and timelines.',
+    href: '/expat-mortgages/buy-to-let-from-abroad',
+  },
+  {
+    eyebrow: 'Guide',
+    title: 'Non-Resident Landlord Scheme',
+    description:
+      'Plain guide to NRLS. How withholding works, who counts as non-resident, and the practical steps to put the right arrangement in place.',
+    href: '/guides/non-resident-landlord-scheme',
+  },
+];
+
+const faqs = [
+  {
+    q: 'Can I buy UK property without ever having lived in the UK?',
+    a: 'Yes. Foreign nationals buy UK property routinely.',
+  },
+  {
+    q: 'Do I need to come to the UK to buy?',
+    a: 'No. Notarised documents from abroad complete the transaction.',
+  },
+  {
+    q: 'How long does it take?',
+    a: 'Twelve to sixteen weeks from offer to completion.',
+  },
+  {
+    q: 'What is the additional Stamp Duty?',
+    a: '2% surcharge for non-residents, on top of standard SDLT and the 5% additional property surcharge if applicable.',
+  },
+  {
+    q: 'Can I buy a UK home as a holiday home from abroad?',
+    a: 'Yes, with a residential mortgage if you can evidence you will use it as a residence, or a buy-to-let mortgage if you will let it.',
+  },
+  {
+    q: 'Should I buy in personal name or limited company?',
+    a: 'For investment property, often limited company for tax efficiency. For owner-occupation, usually personal name. Speak to a tax adviser.',
+  },
+  {
+    q: 'Do I need a UK address?',
+    a: 'No. Your overseas address is acceptable as your correspondence address.',
+  },
+  {
+    q: 'What deposit do I need?',
+    a: '25% minimum on residential, 30 to 35% in practice on buy-to-let.',
+  },
+  {
+    q: 'Can I have a mortgage for a UK new-build from abroad?',
+    a: 'Yes, though some lenders are restrictive on new-builds. Specialist broker territory.',
+  },
+  {
+    q: 'What if my offer falls through?',
+    a: 'Common in chained UK transactions. Move on to alternative properties. Mortgage applications often hold for 3 to 6 months and can be redirected.',
+  },
+];
+
+const faqSchema = {
+  '@context': 'https://schema.org',
+  '@type': 'FAQPage',
+  mainEntity: faqs.map((f) => ({
+    '@type': 'Question',
+    name: f.q,
+    acceptedAnswer: { '@type': 'Answer', text: f.a },
+  })),
+};
+const schemas = [
+  breadcrumbSchema([
+    { name: 'Home', path: '/' },
+    { name: 'Guides', path: '/guides' },
+    { name: 'Buying UK Property from Overseas' },
+  ]),
+  articleSchema({ headline: h1, description }),
+];
+---
+
+<HubLayout
+  title={title}
+  description={description}
+  h1={h1}
+  subheadline={subheadline}
+  eyebrow="GUIDE · BUYING UK PROPERTY FROM ABROAD"
+  schemas={schemas}
+  relatedPages={relatedPages}
+>
+  <section class="hub-section">
+    <div class="hub-section-inner">
+      <h2 id="who-this-is-for">Who this page is for</h2>
+      <p>
+        If you live outside the UK and want to buy UK property, this page
+        is for you. Whether you are a British expat planning a future
+        return, a foreign national investing in UK property, or someone
+        with family ties to the UK looking to purchase, the process is
+        broadly the same.
+      </p>
+      <p>
+        This page walks through the eight stages of a UK property purchase
+        from abroad, with practical detail on what each stage involves,
+        who handles what, and where the typical delays appear.
+      </p>
+      <p>
+        For the mortgage side specifically, see the
+        <a href="/expat-mortgages/process">expat mortgage application process</a>
+        page. This page covers the wider purchase process.
+      </p>
+    </div>
+  </section>
+
+  <section class="hub-section">
+    <div class="hub-section-inner">
+      <h2 id="stage-1">Stage 1: Set up your financial position</h2>
+      <p>Before looking at properties, set the financial picture out clearly.</p>
+      <p>You need to know:</p>
+      <ul>
+        <li>Your deposit, in your home currency and the GBP equivalent at current rates.</li>
+        <li>Your borrowing capacity, which depends on your income, currency, and lender choice.</li>
+        <li>Your timeline for moving funds to the UK.</li>
+        <li>Your tax position in your country of residence regarding UK property purchases.</li>
+      </ul>
+      <p>
+        A specialist mortgage broker can confirm borrowing capacity in 20
+        to 45 minutes and issue a decision in principle within 24 to 72
+        hours. This is the foundation. Without it, you cannot make
+        credible offers.
+      </p>
+      <p>
+        A foreign exchange broker is worth setting up alongside this. UK
+        property transactions usually require deposit and completion funds
+        to land in sterling at specific dates. An FX broker can lock rates
+        with forward contracts, removing currency uncertainty.
+      </p>
+    </div>
+  </section>
+
+  <section class="hub-section">
+    <div class="hub-section-inner">
+      <h2 id="stage-2">Stage 2: Find the property</h2>
+      <p>UK property search runs on three main portals: Rightmove, Zoopla, and OnTheMarket. All three are free and accessible from anywhere.</p>
+      <p>For a buyer abroad, the practical question is how to view properties. Three approaches.</p>
+      <p>
+        <strong>Visit the UK for a viewing trip.</strong> A concentrated
+        three-to-five-day trip viewing 10 to 20 properties is efficient if
+        you can spare the time. Useful for first-time buyers who need to
+        calibrate what their budget gets in their target area.
+      </p>
+      <p>
+        <strong>Video viewings.</strong> Most UK estate agents now offer
+        video tours, either pre-recorded or live via WhatsApp or Zoom.
+        Adequate for buyers who already know the area or are buying a
+        relatively standard property type.
+      </p>
+      <p>
+        <strong>Trusted local viewer.</strong> A friend, family member, or
+        paid buying agent visits in person and reports back. Best when
+        video is not enough but a UK trip is impractical.
+      </p>
+      <p>Most expat buyers combine approaches. A video viewing to shortlist, a UK visit for the final 2 or 3 candidates.</p>
+    </div>
+  </section>
+
+  <section class="hub-section">
+    <div class="hub-section-inner">
+      <h2 id="stage-3">Stage 3: Make an offer</h2>
+      <p>Offers in the UK are made through the estate agent, not directly to the seller. The agent passes the offer to the seller and negotiates on their behalf.</p>
+      <p>Practical tips for offers from abroad:</p>
+      <ul>
+        <li>Have your decision in principle ready before offering. Agents take you more seriously when financial backing is confirmed.</li>
+        <li>State clearly that you are buying from abroad. Some sellers prefer cash buyers or UK-based mortgage applicants because completion is faster. Being upfront about your situation avoids problems later.</li>
+        <li>Be prepared to evidence funds. Estate agents often ask for proof of deposit and decision in principle before forwarding the offer.</li>
+      </ul>
+      <p>If your offer is accepted, the property is "subject to contract" or "STC". Not legally binding yet, but the agent should remove the property from active marketing.</p>
+    </div>
+  </section>
+
+  <MidPageCta variant="hero" />
+
+  <PullQuote>
+    A standard UK property purchase from abroad takes 12 to 16 weeks from
+    offer to completion. Worth assuming 14 weeks as a working figure.
+  </PullQuote>
+
+  <section class="hub-section">
+    <div class="hub-section-inner">
+      <h2 id="stage-4">Stage 4: Instruct a solicitor</h2>
+      <p>You need a UK solicitor to handle the legal side of the purchase. From abroad, this is best done as soon as your offer is accepted.</p>
+      <p>Pick a UK solicitor experienced with non-resident clients. Most major UK conveyancing firms have non-resident clients regularly. Specialist firms exist for higher-value or unusual cases.</p>
+      <p>The solicitor handles:</p>
+      <ul>
+        <li>Property title checks and searches.</li>
+        <li>Contract drafting and review.</li>
+        <li>Enquiries with the seller's solicitor.</li>
+        <li>Coordinating with your lender.</li>
+        <li>Exchange of contracts (the legally binding moment).</li>
+        <li>Completion (the moment you own the property).</li>
+      </ul>
+      <p>Conveyancing typically takes four to eight weeks. Faster on simple chains, slower if the seller's chain is complex.</p>
+    </div>
+  </section>
+
+  <section class="hub-section">
+    <div class="hub-section-inner">
+      <h2 id="stage-5">Stage 5: Submit the mortgage application</h2>
+      <p>Run this in parallel with stage 4. Your specialist mortgage broker submits the full application to the chosen lender, with all your documentation.</p>
+      <p>Lender processes for an expat purchase take six to ten weeks from full application to formal mortgage offer. The valuation is commissioned during this period.</p>
+      <p>Common documentation lead times to factor in:</p>
+      <ul>
+        <li>Bank statements: instantly available from online banking.</li>
+        <li>Tax records: depends on your country, sometimes weeks to obtain certified copies.</li>
+        <li>Notarised documents from your country of residence: two to four weeks for round-trip notarisation.</li>
+        <li>Apostille certificates if needed: additional 1 to 3 weeks.</li>
+      </ul>
+      <p>Pre-preparing this pack saves real time.</p>
+    </div>
+  </section>
+
+  <section class="hub-section">
+    <div class="hub-section-inner">
+      <h2 id="stage-6">Stage 6: Pay the Stamp Duty surcharge</h2>
+      <p>
+        UK Stamp Duty Land Tax (SDLT) for non-residents includes a 2%
+        surcharge on top of standard rates, plus the existing 5% surcharge
+        for additional properties.
+      </p>
+      <p>
+        For a £400,000 property bought as an additional residence by a
+        non-UK resident, the SDLT is materially higher than for a
+        UK-resident first-time buyer of the same property. The
+        <a href="/tools/stamp-duty-calculator">stamp duty calculator</a>
+        on this site walks through the maths.
+      </p>
+      <p>SDLT is paid by your solicitor on completion, from funds you have provided. Build it into your budget before offering on a property.</p>
+    </div>
+  </section>
+
+  <section class="hub-section">
+    <div class="hub-section-inner">
+      <h2 id="stage-7">Stage 7: Exchange and complete</h2>
+      <p>Two separate moments at the end of the conveyancing process.</p>
+      <p>
+        <strong>Exchange of contracts.</strong> The legally binding moment.
+        Both sides sign contracts and the deposit (typically 10% of the
+        purchase price, even if your mortgage deposit is larger) is
+        transferred to the seller's solicitor. From this point, neither
+        side can walk away without significant penalty.
+      </p>
+      <p>
+        For non-resident buyers, exchange usually requires notarised
+        documents. Your solicitor sends them to your country of residence,
+        you sign before a notary public, and the notarised documents are
+        returned to the UK. Two to four weeks of round-trip lead time.
+      </p>
+      <p>
+        <strong>Completion.</strong> Usually one to four weeks after
+        exchange. The full purchase price is transferred to the seller.
+        Your solicitor sends the funds, the seller's solicitor confirms
+        receipt and releases the keys. You own the property.
+      </p>
+      <p>For non-resident buyers, the keys are typically collected by an agreed third party on your behalf. Could be a letting agent (if it is a buy-to-let), family member, or your solicitor.</p>
+    </div>
+  </section>
+
+  <section class="hub-section">
+    <div class="hub-section-inner">
+      <h2 id="stage-8">Stage 8: Post-completion</h2>
+      <p>The property is yours. A few things still to handle.</p>
+      <p>
+        <strong>Register at the Land Registry.</strong> Your solicitor
+        handles this automatically. Confirms your name on the title.
+      </p>
+      <p>
+        <strong>Set up the let, if applicable.</strong> Letting agent
+        appointed, tenant found, NRL1 form filed if you are a non-resident
+        landlord.
+      </p>
+      <p>
+        <strong>Notify HMRC.</strong> If this is a UK rental property and
+        you are non-resident, file NRL1 to receive rent gross. See the
+        <a href="/guides/nrl1-form-explained">NRL1 page</a> for detail.
+      </p>
+      <p>
+        <strong>Set up insurance.</strong> Buildings insurance is required
+        by lenders. Contents insurance is your call. UK-based insurers
+        will quote for non-resident-owned property.
+      </p>
+      <p>
+        <strong>Council tax / leasehold management.</strong> If the
+        property is leasehold, ground rent and service charges start. If
+        freehold, council tax kicks in once the property is occupied.
+      </p>
+    </div>
+  </section>
+
+  <PullQuote>
+    A specialist expat broker is rarely optional for non-resident
+    purchases. Direct mortgage applications from abroad usually
+    underperform on rate, criteria, and timeline.
+  </PullQuote>
+
+  <section class="hub-section">
+    <div class="hub-section-inner">
+      <h2 id="pitfalls">Common pitfalls</h2>
+      <p>
+        <strong>Underestimating timeline.</strong> A standard UK property
+        purchase from abroad takes 12 to 16 weeks from offer to
+        completion. Worth assuming 14 weeks as a working figure.
+      </p>
+      <p>
+        <strong>Currency timing on the deposit.</strong> Funds must arrive
+        in sterling at specific dates. Use a forward contract or
+        pre-converted GBP holdings to remove timing risk.
+      </p>
+      <p>
+        <strong>Notarisation delays.</strong> Build 2 to 4 weeks of
+        notarisation lead time into the schedule.
+      </p>
+      <p>
+        <strong>Missing the SDLT surcharge in the budget.</strong> A
+        £400,000 purchase as a non-resident additional property carries
+        materially more SDLT than the same property bought by a
+        UK-resident first-time buyer. Calculate this before offering.
+      </p>
+      <p>
+        <strong>Choosing a non-specialist solicitor.</strong> UK solicitors
+        not used to non-resident clients often add weeks to the process by
+        being unfamiliar with notarisation, AML on overseas funds, and
+        cross-border communication.
+      </p>
+      <p>
+        <strong>Trying to bypass the broker.</strong> Direct mortgage
+        applications from abroad usually underperform on rate, criteria,
+        and timeline. A specialist expat broker is rarely optional for
+        non-resident purchases.
+      </p>
+    </div>
+  </section>
+
+  <MidPageCta />
+
+  <section class="hub-section">
+    <div class="hub-section-inner">
+      <h2 id="faqs">Frequently asked questions</h2>
+      <div class="faq">
+        {faqs.map((f) => (
+          <>
+            <h3>{f.q}</h3>
+            <p>{f.a}</p>
+          </>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <script
+    type="application/ld+json"
+    is:inline
+    set:html={JSON.stringify(faqSchema)}
+  />
+</HubLayout>

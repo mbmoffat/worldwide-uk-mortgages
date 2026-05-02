@@ -1,0 +1,408 @@
+---
+import HubLayout from '../../layouts/HubLayout.astro';
+import PullQuote from '../../components/PullQuote.astro';
+import MidPageCta from '../../components/MidPageCta.astro';
+import { breadcrumbSchema, articleSchema } from '../../lib/schema';
+
+const title = 'NRL1 Form: Step-by-Step Guide for UK Landlords Living Abroad';
+const description =
+  'What the NRL1 form is, who needs to file it, how to complete each section, what HMRC does once you submit it, and how it affects your UK rental income.';
+const h1 = 'NRL1 Form: Step-by-Step Guide for UK Landlords Living Abroad';
+const subheadline =
+  'What the NRL1 form is, who needs to file it, how to complete each section, what HMRC does once you submit it, and how it affects the way you receive your UK rental income.';
+
+const relatedPages = [
+  {
+    eyebrow: 'Guide',
+    title: 'Non-Resident Landlord Scheme',
+    description:
+      'Plain guide to NRLS. How withholding works, who counts as non-resident, and the practical steps to put the right arrangement in place.',
+    href: '/guides/non-resident-landlord-scheme',
+  },
+  {
+    eyebrow: 'Hub',
+    title: 'UK Mortgages for Expats',
+    description:
+      'British nationals living abroad. Country-by-country lender appetite, currency haircuts, and timelines.',
+    href: '/expat-mortgages',
+  },
+  {
+    eyebrow: 'Hub',
+    title: 'Expat Buy-to-Let Mortgages',
+    description:
+      'UK buy-to-let mortgages for British nationals living abroad. ICR, deposits, and lender pool.',
+    href: '/expat-mortgages/buy-to-let',
+  },
+  {
+    eyebrow: 'Guide',
+    title: 'Buy-to-Let from Abroad',
+    description:
+      'Practical playbook for UK BTL applications when you live overseas. Documentation, lenders, and timelines.',
+    href: '/expat-mortgages/buy-to-let-from-abroad',
+  },
+  {
+    eyebrow: 'Hub',
+    title: 'UK Mortgages for Non-UK Residents',
+    description:
+      'Foreign nationals or British expats wanting a UK mortgage on UK property. The lender pool, deposits, and rates explained.',
+    href: '/non-uk-resident-mortgages',
+  },
+];
+
+const faqs = [
+  {
+    q: 'What is NRL1 used for?',
+    a: 'Applying to HMRC to receive UK rental income gross, without 20% withholding.',
+  },
+  {
+    q: 'Do I have to file NRL1?',
+    a: 'No, but if you do not, 20% will be deducted from your rent.',
+  },
+  {
+    q: 'Where do I find the form?',
+    a: 'gov.uk website, search "NRL1 form HMRC".',
+  },
+  {
+    q: 'How do I submit it?',
+    a: 'Post it to HMRC. Online submission is available in some circumstances.',
+  },
+  {
+    q: 'How long does approval take?',
+    a: 'Three to six weeks typically.',
+  },
+  {
+    q: 'Can it be declined?',
+    a: 'Yes, usually if your UK tax affairs have outstanding issues.',
+  },
+  {
+    q: 'Does NRL1 cover joint owners?',
+    a: 'Each non-resident owner needs their own.',
+  },
+  {
+    q: 'Do I still need to file self-assessment?',
+    a: 'Yes, every tax year.',
+  },
+  {
+    q: 'What if I move back to the UK?',
+    a: 'You become UK resident again and the scheme no longer applies. Notify HMRC and your letting agent.',
+  },
+  {
+    q: 'Can I file NRL1 retrospectively?',
+    a: 'Yes, to switch to gross from a future date. Tax already withheld is settled through self-assessment.',
+  },
+];
+
+const faqSchema = {
+  '@context': 'https://schema.org',
+  '@type': 'FAQPage',
+  mainEntity: faqs.map((f) => ({
+    '@type': 'Question',
+    name: f.q,
+    acceptedAnswer: { '@type': 'Answer', text: f.a },
+  })),
+};
+const schemas = [
+  breadcrumbSchema([
+    { name: 'Home', path: '/' },
+    { name: 'Guides', path: '/guides' },
+    { name: 'NRL1 Form Explained' },
+  ]),
+  articleSchema({ headline: h1, description }),
+];
+---
+
+<HubLayout
+  title={title}
+  description={description}
+  h1={h1}
+  subheadline={subheadline}
+  eyebrow="GUIDE · NRL1 FORM"
+  schemas={schemas}
+  relatedPages={relatedPages}
+>
+  <section class="hub-section">
+    <div class="hub-section-inner">
+      <h2 id="who-this-is-for">Who this page is for</h2>
+      <p>
+        If you live outside the UK and own (or are about to own) UK rental
+        property, you almost certainly need to know about the NRL1 form.
+        This page walks through what it does, when to file it, and how to
+        complete it properly.
+      </p>
+      <p>
+        This is a general guide. For your specific tax position, speak to
+        a tax adviser. For mortgage matters arising from your status as a
+        non-resident landlord, an
+        <a href="/expat-mortgage-broker">expat-specialist mortgage broker</a>
+        can help.
+      </p>
+    </div>
+  </section>
+
+  <section class="hub-section">
+    <div class="hub-section-inner">
+      <h2 id="what-it-is">What the NRL1 form is</h2>
+      <p>
+        NRL1 is the form used to apply to HMRC to receive UK rental income
+        without basic-rate tax being deducted at source.
+      </p>
+      <p>
+        If you are a non-resident landlord and you have not been approved
+        on NRL1, your letting agent (or your tenant, in some cases) is
+        required to deduct 20% basic-rate income tax from your rent before
+        paying you. The deducted amount goes to HMRC. You only receive it
+        back, if you are owed it, through self-assessment after the tax
+        year ends.
+      </p>
+      <p>
+        NRL1 approval lets you receive rent gross, with you settling any
+        UK tax owing through self-assessment. For most non-resident
+        landlords this is materially better for cash flow.
+      </p>
+      <p>
+        For a fuller explanation of the underlying scheme, see the
+        <a href="/guides/non-resident-landlord-scheme">Non-Resident Landlord Scheme</a> page.
+      </p>
+    </div>
+  </section>
+
+  <section class="hub-section">
+    <div class="hub-section-inner">
+      <h2 id="who-files">Who needs to file NRL1</h2>
+      <p>You should file NRL1 if you are a non-resident landlord and want to receive UK rental income gross.</p>
+      <p>
+        You are a non-resident landlord if your "usual place of abode" is
+        outside the UK for more than six months of the tax year. This
+        includes:
+      </p>
+      <ul>
+        <li>British nationals living abroad.</li>
+        <li>Foreign nationals owning UK rental property.</li>
+        <li>Joint owners where any of you is non-resident (each non-resident owner needs to file separately).</li>
+      </ul>
+      <p>You do not need to file NRL1 if:</p>
+      <ul>
+        <li>You are a UK resident.</li>
+        <li>You own UK property through a UK-incorporated limited company (the company is not a non-resident, even if you live abroad).</li>
+        <li>You do not let the property at all.</li>
+      </ul>
+      <p>
+        Joint owners each need their own NRL1. If a property is owned by
+        two non-resident spouses, both file separately. If one owner is
+        UK-resident and the other is not, only the non-resident owner
+        files.
+      </p>
+    </div>
+  </section>
+
+  <MidPageCta variant="hero" />
+
+  <PullQuote>
+    Submit NRL1 before your move where possible. Withholding starts as soon
+    as you become non-resident if you have not been approved.
+  </PullQuote>
+
+  <section class="hub-section">
+    <div class="hub-section-inner">
+      <h2 id="when-to-file">When to file NRL1</h2>
+      <p>
+        You should file NRL1 before your first rent receipt as a
+        non-resident landlord. Once you start receiving rent, withholding
+        rules apply automatically with most letting agents until HMRC
+        issues approval.
+      </p>
+      <p>Practical timing:</p>
+      <ul>
+        <li>If you are about to move abroad and will be letting your existing UK home: file NRL1 in the weeks before your move.</li>
+        <li>If you already own UK rental property and are now becoming non-resident: file NRL1 as soon as your non-residence is established.</li>
+        <li>If you are about to buy a UK rental property as a non-resident: file NRL1 as soon as you have a property under offer or shortly after completion.</li>
+      </ul>
+      <p>
+        If you have already been receiving rent under withholding, you can
+        still file NRL1 to switch to gross payment going forward. The tax
+        already withheld is reconciled through your self-assessment
+        return.
+      </p>
+    </div>
+  </section>
+
+  <section class="hub-section">
+    <div class="hub-section-inner">
+      <h2 id="where-to-find">Where to find the form</h2>
+      <p>
+        The NRL1 form is on the gov.uk website at
+        gov.uk/government/publications/non-resident-landlord-application-to-have-uk-rental-income-without-deduction-of-uk-tax-individuals-nrl1.
+      </p>
+      <p>Search "NRL1 form HMRC" if the URL has changed.</p>
+      <p>
+        The form is a PDF you complete and submit by post. There is also
+        an online version available through HMRC's online services in some
+        circumstances.
+      </p>
+    </div>
+  </section>
+
+  <section class="hub-section">
+    <div class="hub-section-inner">
+      <h2 id="completing">Completing the NRL1: section by section</h2>
+      <p>The NRL1 has several sections. Here is what each one asks for.</p>
+
+      <h3>Section 1: Personal details</h3>
+      <ul>
+        <li>Your full name (must match your name as it appears on official documents).</li>
+        <li>Your date of birth.</li>
+        <li>Your National Insurance number (if you have one).</li>
+        <li>Your UK tax reference (Unique Taxpayer Reference, if you already have a UK self-assessment record).</li>
+        <li>Your overseas address (your usual place of abode).</li>
+        <li>Your UK correspondence address, if different (where HMRC should write to you in the UK).</li>
+        <li>Your telephone number and email address.</li>
+      </ul>
+      <p>
+        If you do not have a UTR yet because you have never filed UK
+        self-assessment, you can leave that field blank. HMRC will issue
+        one as part of approving your NRL1.
+      </p>
+
+      <h3>Section 2: Tax residency</h3>
+      <ul>
+        <li>The country where you currently live.</li>
+        <li>The date you became non-resident in the UK.</li>
+        <li>Whether you are claiming benefits under a double tax treaty (most British expats do not need to claim treaty benefits, but US-resident applicants and others sometimes do).</li>
+      </ul>
+      <p>
+        The "date you became non-resident" should be the date you actually
+        moved abroad, not the start of the tax year unless they coincide.
+      </p>
+
+      <h3>Section 3: Property and letting details</h3>
+      <ul>
+        <li>The address of the UK property (or properties) you let.</li>
+        <li>The date letting started or will start.</li>
+        <li>Approximate annual rental income.</li>
+        <li>Name and address of your letting agent (if you have one).</li>
+        <li>Whether the tenant pays you direct (rare but possible).</li>
+      </ul>
+      <p>If you have multiple UK rental properties, list all of them on the same NRL1.</p>
+
+      <h3>Section 4: Declaration</h3>
+      <ul>
+        <li>A declaration that you are aware of UK tax obligations.</li>
+        <li>A confirmation that you will file self-assessment as required.</li>
+        <li>Your signature and the date.</li>
+      </ul>
+      <p>
+        The declaration is the legal commitment to comply with UK tax
+        rules. HMRC takes it seriously and your application can be revoked
+        if you fail to comply later.
+      </p>
+    </div>
+  </section>
+
+  <section class="hub-section">
+    <div class="hub-section-inner">
+      <h2 id="hmrc-process">What HMRC does with your application</h2>
+      <p>After you submit NRL1, HMRC reviews it. Typical processing time is three to six weeks.</p>
+      <p>HMRC checks:</p>
+      <ul>
+        <li>Whether your tax affairs are up to date.</li>
+        <li>Whether you have a track record of UK tax compliance (or no record, which is fine for first-time applicants).</li>
+        <li>Whether the letting arrangements look genuine.</li>
+      </ul>
+      <p>If approved, HMRC sends:</p>
+      <ul>
+        <li>A letter to you confirming approval, with a UTR if you did not already have one.</li>
+        <li>A notice to your letting agent (if you have one) authorising gross payment.</li>
+      </ul>
+      <p>Your letting agent is then permitted to pay you rent without deducting basic-rate tax.</p>
+      <p>
+        If declined, HMRC writes to you explaining why. The most common
+        reasons for decline are unresolved tax issues from previous UK
+        obligations, or missing information on the application.
+      </p>
+    </div>
+  </section>
+
+  <section class="hub-section">
+    <div class="hub-section-inner">
+      <h2 id="after-approval">After approval</h2>
+      <p>Approval is not a one-time event you can forget about. You must:</p>
+      <ul>
+        <li>File a UK self-assessment tax return each tax year, reporting your UK rental income and any tax paid.</li>
+        <li>Settle any UK tax owing by the relevant deadlines.</li>
+        <li>Notify HMRC of any material changes (new properties, change of agent, change of address).</li>
+      </ul>
+      <p>Failure to comply can lead to revocation of NRL1 approval, after which withholding kicks back in.</p>
+    </div>
+  </section>
+
+  <PullQuote>
+    Approval is conditional on ongoing compliance. Plenty of NRL1-approved
+    landlords have approval revoked because they failed to file returns.
+  </PullQuote>
+
+  <section class="hub-section">
+    <div class="hub-section-inner">
+      <h2 id="pitfalls">Common pitfalls and tips</h2>
+      <p>
+        <strong>Submitting too late.</strong> Withholding starts as soon as
+        you become non-resident if you have not been approved. Submit NRL1
+        before your move where possible.
+      </p>
+      <p>
+        <strong>Joint owners filing one NRL1.</strong> Each non-resident
+        owner needs their own. Joint NRL1s are not accepted.
+      </p>
+      <p>
+        <strong>Missing UTR.</strong> If you have ever filed UK
+        self-assessment, find your UTR and include it. If you have not,
+        leave blank and HMRC will issue one.
+      </p>
+      <p>
+        <strong>Vague property details.</strong> Be specific. Full UK
+        postal addresses, accurate start dates, and realistic rental
+        figures.
+      </p>
+      <p>
+        <strong>Out-of-date letting agent details.</strong> If you are
+        between agents, the form is harder to complete. Either pause until
+        you have an agent in place, or note the change clearly so HMRC
+        knows.
+      </p>
+      <p>
+        <strong>Self-assessment forgotten after approval.</strong> Plenty
+        of NRL1-approved landlords have approval revoked because they
+        failed to file returns. Approval is conditional on ongoing
+        compliance.
+      </p>
+      <p>
+        <strong>International tax position.</strong> If you live in a
+        country with a double tax treaty, your UK rental income may be
+        taxed differently. NRL1 is the UK side. You will also need to
+        consider how your country of residence taxes the same income, with
+        treaty relief where applicable.
+      </p>
+    </div>
+  </section>
+
+  <MidPageCta />
+
+  <section class="hub-section">
+    <div class="hub-section-inner">
+      <h2 id="faqs">Frequently asked questions</h2>
+      <div class="faq">
+        {faqs.map((f) => (
+          <>
+            <h3>{f.q}</h3>
+            <p>{f.a}</p>
+          </>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <script
+    type="application/ld+json"
+    is:inline
+    set:html={JSON.stringify(faqSchema)}
+  />
+</HubLayout>
