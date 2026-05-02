@@ -4,13 +4,26 @@ import MidPageCta from '../components/MidPageCta.astro';
 import PullQuote from '../components/PullQuote.astro';
 import RelatedCard from '../components/RelatedCard.astro';
 import ContactForm from '../components/ContactForm.astro';
-import { organizationSchema } from '../lib/schema';
+import { organizationSchema, SITE_URL, SITE_NAME } from '../lib/schema';
 
 const title = 'UK Mortgages, Wherever You Live';
 const description =
-  'Specialist UK mortgages for British nationals abroad, foreign nationals, and people with non-sterling income. Enquiries are passed to FCA-authorised brokers who place these cases daily.';
+  'Specialist UK mortgages for British expats, foreign nationals, and applicants with non-sterling income. Enquiries passed to FCA-authorised brokers.';
 
-const schemas = [organizationSchema()];
+const schemas = [
+  organizationSchema(),
+  {
+    '@context': 'https://schema.org',
+    '@type': 'WebSite',
+    name: SITE_NAME,
+    url: SITE_URL,
+    potentialAction: {
+      '@type': 'SearchAction',
+      target: `${SITE_URL}/?q={search_term_string}`,
+      'query-input': 'required name=search_term_string',
+    },
+  },
+];
 
 const hubs = [
   {

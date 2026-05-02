@@ -2,7 +2,7 @@
 import HubLayout from '../layouts/HubLayout.astro';
 import PullQuote from '../components/PullQuote.astro';
 import MidPageCta from '../components/MidPageCta.astro';
-import { breadcrumbSchema, articleSchema } from '../lib/schema';
+import { breadcrumbSchema, articleSchema, serviceSchema } from '../lib/schema';
 
 const title = 'UK Expat Mortgage Broker: What a Broker Actually Does';
 const description =
@@ -107,6 +107,12 @@ const schemas = [
     { name: 'UK Expat Mortgage Broker' },
   ]),
   articleSchema({ headline: h1, description }),
+  serviceSchema({
+    serviceType: 'Mortgage Brokerage Introduction',
+    name: 'Expat Mortgage Broker Introduction',
+    description:
+      'Introduction to FCA-authorised mortgage brokers who specialise in UK mortgages for British nationals living abroad.',
+  }),
 ];
 ---
 
