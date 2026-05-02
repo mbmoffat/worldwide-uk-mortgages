@@ -1,0 +1,138 @@
+---
+import T7Layout from '../../layouts/T7Layout.astro';
+import MidPageCta from '../../components/MidPageCta.astro';
+import ContactForm from '../../components/ContactForm.astro';
+import { breadcrumbSchema } from '../../lib/schema';
+
+const title = 'All Guides';
+const description =
+  'Complete index of guides on UK mortgages for British expats, non-UK residents, foreign nationals, and applicants with foreign income.';
+
+const schemas = [
+  breadcrumbSchema([
+    { name: 'Home', path: '/' },
+    { name: 'All Guides' },
+  ]),
+];
+
+const entries = [
+  // Mortgage Hubs
+  { href: '/expat-mortgages', label: 'UK Mortgages for Expats', desc: 'British nationals living abroad. Country-by-country lender appetite, currency haircuts, and timelines.' },
+  { href: '/non-uk-resident-mortgages', label: 'UK Mortgages for Non-UK Residents', desc: 'Foreign nationals or British expats wanting a UK mortgage. Lender pool, deposits, and rates.' },
+  { href: '/uk-mortgage-foreign-income', label: 'UK Mortgages with Foreign Income', desc: 'How lenders treat non-sterling income. The 20% standard haircut and no-haircut lender access.' },
+  { href: '/uk-mortgage-living-abroad', label: 'UK Mortgages Living Abroad', desc: 'Yes, in most cases. Common questions and what to expect when you live abroad.' },
+  { href: '/uk-mortgage-for-foreign-nationals', label: 'UK Mortgages for Foreign Nationals', desc: 'What lenders look for and how visa status is treated for foreign nationals in the UK.' },
+  { href: '/seafarer-mortgages', label: 'Seafarer Mortgages', desc: 'UK mortgages for merchant navy, offshore, and superyacht crew. SED handling and lender choice.' },
+  { href: '/expat-mortgages/buy-to-let', label: 'Expat Buy-to-Let Mortgages', desc: 'Buy-to-let mortgages for British nationals abroad. ICR, deposits, and the lender pool.' },
+  { href: '/non-uk-resident-mortgages/buy-to-let', label: 'Non-Resident Buy-to-Let Mortgages', desc: 'BTL on UK property from outside the UK. Lender pool, deposits, ICR, limited company structures.' },
+
+  // Application Guides
+  { href: '/expat-mortgages/rates', label: 'Expat Mortgage Rates', desc: 'Rate ranges, what drives the rate you actually receive, and how lender choice changes pricing.' },
+  { href: '/expat-mortgages/deposit', label: 'Expat Mortgage Deposit Requirements', desc: 'How much deposit you need, what counts as deposit, and where the thresholds sit.' },
+  { href: '/expat-mortgages/process', label: 'Expat Mortgage Application Process', desc: 'What lenders look for and how a specialist broker handles the application from abroad.' },
+  { href: '/expat-mortgages/remortgage', label: 'Expat Remortgaging', desc: 'Switching your UK mortgage from abroad. Timing, lender choice, and how a broker handles it.' },
+  { href: '/expat-mortgage-broker', label: 'Expat Mortgage Broker', desc: 'What an expat mortgage broker does and why direct-to-lender often goes wrong.' },
+  { href: '/expat-mortgages/first-time-buyer', label: 'Expat First-Time Buyer', desc: 'How British expats buy their first UK property from abroad. Lenders that accept first-time buyers.' },
+  { href: '/expat-mortgages/buy-to-let-from-abroad', label: 'Buy-to-Let from Abroad', desc: 'BTL applications when you live outside the UK. Process, lender choice, and pitfalls.' },
+  { href: '/expat-mortgages/buy-to-let/rates', label: 'Expat BTL Rates', desc: 'What rates UK expats can expect on buy-to-let mortgages and what drives the rate.' },
+
+  // Tax and Compliance
+  { href: '/guides/non-resident-landlord-scheme', label: 'Non-Resident Landlord Scheme', desc: 'What NRLS is, who it applies to, and how UK rental income is taxed when you live abroad.' },
+  { href: '/guides/nrl1-form-explained', label: 'NRL1 Form Explained', desc: 'What the NRL1 form is, who needs to file it, and how to complete each section.' },
+  { href: '/guides/buying-uk-property-from-overseas', label: 'Buying UK Property from Overseas', desc: 'The full process from finding a property to completion when you live abroad.' },
+
+  // Country Guides
+  { href: '/expat-mortgages/countries/australia', label: 'UK Mortgages for British Expats in Australia', desc: 'AUD income treatment, residency profiles, and the lender pool for Australia-resident expats.' },
+  { href: '/expat-mortgages/countries/canada', label: 'UK Mortgages for British Expats in Canada', desc: 'CAD income treatment, residency profiles, and the lender pool for Canada-resident expats.' },
+  { href: '/expat-mortgages/countries/dubai', label: 'UK Mortgages for British Expats in Dubai', desc: 'AED income, tax-free pay handling, and the lender pool for Dubai-resident expats.' },
+  { href: '/expat-mortgages/countries/germany', label: 'UK Mortgages for British Expats in Germany', desc: 'EUR income treatment and the lender pool for Germany-resident expats.' },
+  { href: '/expat-mortgages/countries/hong-kong', label: 'UK Mortgages for British Expats in Hong Kong', desc: 'HKD income treatment and the lender pool for Hong Kong-resident expats.' },
+  { href: '/expat-mortgages/countries/netherlands', label: 'UK Mortgages for British Expats in the Netherlands', desc: 'EUR income treatment and the lender pool for Netherlands-resident expats.' },
+  { href: '/expat-mortgages/countries/new-zealand', label: 'UK Mortgages for British Expats in New Zealand', desc: 'NZD income treatment and the lender pool for New Zealand-resident expats.' },
+  { href: '/expat-mortgages/countries/norway', label: 'UK Mortgages for British Expats in Norway', desc: 'NOK income treatment and the lender pool for Norway-resident expats.' },
+  { href: '/expat-mortgages/countries/qatar', label: 'UK Mortgages for British Expats in Qatar', desc: 'QAR income, tax-free pay handling, and the lender pool for Qatar-resident expats.' },
+  { href: '/expat-mortgages/countries/saudi-arabia', label: 'UK Mortgages for British Expats in Saudi Arabia', desc: 'SAR income, tax-free pay handling, and the lender pool for Saudi-resident expats.' },
+  { href: '/expat-mortgages/countries/singapore', label: 'UK Mortgages for British Expats in Singapore', desc: 'SGD income treatment and the lender pool for Singapore-resident expats.' },
+  { href: '/expat-mortgages/countries/south-africa', label: 'UK Mortgages for British Expats in South Africa', desc: 'ZAR income treatment and the lender pool for South Africa-resident expats.' },
+  { href: '/expat-mortgages/countries/switzerland', label: 'UK Mortgages for British Expats in Switzerland', desc: 'CHF income treatment and the lender pool for Switzerland-resident expats.' },
+  { href: '/expat-mortgages/countries/usa', label: 'UK Mortgages for British Expats in the USA', desc: 'USD income treatment and the lender pool for USA-resident expats.' },
+
+  // Situations
+  { href: '/expat-mortgages/returning-to-uk', label: 'Returning to the UK', desc: 'Buying or remortgaging UK property when you are returning to the UK after time abroad.' },
+  { href: '/expat-mortgages/no-uk-credit-history', label: 'No UK Credit History', desc: 'How lenders see applicants with no UK credit history and what evidence helps.' },
+
+  // Lender Guides
+  { href: '/lenders/hsbc-expat', label: 'HSBC Expat', desc: 'What HSBC Expat lends on, who qualifies, and where it sits in the wider expat market.' },
+  { href: '/uk-mortgage-foreign-income/halifax', label: 'Halifax (Foreign Income)', desc: 'How Halifax treats foreign income, who qualifies, and where it fits in the lender pool.' },
+  { href: '/lenders/skipton-international', label: 'Skipton International', desc: 'What Skipton International lends on, who qualifies, and where it sits in the expat market.' },
+  { href: '/lenders/natwest-international', label: 'NatWest International', desc: 'What NatWest International lends on, who qualifies, and where it sits in the expat market.' },
+
+  // Calculators
+  { href: '/tools/stamp-duty-calculator', label: 'Stamp Duty Calculator', desc: 'Calculate UK SDLT including the 2% non-resident surcharge and 5% additional dwelling surcharge.' },
+  { href: '/tools/expat-mortgage-calculator', label: 'Expat Mortgage Calculator', desc: 'Compare borrowing capacity across 14 currencies. See haircut and no-haircut scenarios.' },
+
+  // About
+  { href: '/about', label: 'About UK Mortgages Worldwide', desc: 'Who we are, what we do, and how we pass enquiries to FCA-authorised mortgage brokers.' },
+];
+---
+
+<T7Layout
+  title={title}
+  description={description}
+  h1="All Guides"
+  schemas={schemas}
+>
+  <p class="t7-lead">
+    Every guide on UK Mortgages Worldwide. Use this page as a starting point
+    if you are not sure which page is most relevant to your situation.
+  </p>
+
+  <div class="guides-list">
+    {entries.map((e) => (
+      <div class="guides-entry">
+        <a href={e.href} class="guides-entry-link">{e.label}</a>
+        <p class="guides-entry-desc">{e.desc}</p>
+      </div>
+    ))}
+  </div>
+
+  <MidPageCta />
+
+  <ContactForm />
+</T7Layout>
+
+<style is:global>
+  .guides-list {
+    margin: 2rem 0 3rem;
+  }
+
+  .guides-entry {
+    margin: 0 0 1.5rem;
+  }
+
+  .guides-entry:last-child {
+    margin-bottom: 0;
+  }
+
+  .guides-entry-link {
+    font-family: var(--font-body);
+    font-size: 1.0625rem;
+    font-weight: 500;
+    color: var(--accent);
+    text-decoration: none;
+    line-height: 1.4;
+  }
+
+  .guides-entry-link:hover {
+    color: var(--accent-hover);
+    text-decoration: underline;
+  }
+
+  .t7-body .guides-entry-desc {
+    margin: 0.25rem 0 0;
+    font-size: 0.9375rem;
+    color: var(--muted);
+    line-height: 1.5;
+    letter-spacing: 0;
+  }
+</style>
