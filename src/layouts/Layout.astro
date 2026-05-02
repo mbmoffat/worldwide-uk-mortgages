@@ -50,41 +50,21 @@ const calculators = [
   { label: 'Expat Mortgage Calculator', href: '/tools/expat-mortgage-calculator' },
 ];
 
-const guideSections = [
-  {
-    heading: 'All guides',
-    items: [
-      { label: 'All Guides', href: '/guides' },
-    ],
-  },
-  {
-    heading: 'Application guides',
-    items: [
-      { label: 'Expat Mortgage Rates', href: '/expat-mortgages/rates' },
-      { label: 'Expat Mortgage Deposit', href: '/expat-mortgages/deposit' },
-      { label: 'The Application Process', href: '/expat-mortgages/process' },
-      { label: 'Expat Remortgaging', href: '/expat-mortgages/remortgage' },
-      { label: 'Expat Mortgage Broker', href: '/expat-mortgage-broker' },
-      { label: 'Expat First-Time Buyer', href: '/expat-mortgages/first-time-buyer' },
-      { label: 'Buy-to-Let from Abroad', href: '/expat-mortgages/buy-to-let-from-abroad' },
-      { label: 'Expat BTL Rates', href: '/expat-mortgages/buy-to-let/rates' },
-    ],
-  },
-  {
-    heading: 'Tax and compliance',
-    items: [
-      { label: 'Non-Resident Landlord Scheme', href: '/guides/non-resident-landlord-scheme' },
-      { label: 'NRL1 Form Explained', href: '/guides/nrl1-form-explained' },
-      { label: 'Buying UK Property from Overseas', href: '/guides/buying-uk-property-from-overseas' },
-    ],
-  },
-  {
-    heading: 'Situations',
-    items: [
-      { label: 'Returning to the UK', href: '/expat-mortgages/returning-to-uk' },
-      { label: 'No UK Credit History', href: '/expat-mortgages/no-uk-credit-history' },
-    ],
-  },
+const guides = [
+  { label: 'All Guides', href: '/guides' },
+  { label: 'Expat Mortgage Rates', href: '/expat-mortgages/rates' },
+  { label: 'Expat Mortgage Deposit', href: '/expat-mortgages/deposit' },
+  { label: 'The Application Process', href: '/expat-mortgages/process' },
+  { label: 'Expat Remortgaging', href: '/expat-mortgages/remortgage' },
+  { label: 'Expat Mortgage Broker', href: '/expat-mortgage-broker' },
+  { label: 'Expat First-Time Buyer', href: '/expat-mortgages/first-time-buyer' },
+  { label: 'Buy-to-Let from Abroad', href: '/expat-mortgages/buy-to-let-from-abroad' },
+  { label: 'Expat BTL Rates', href: '/expat-mortgages/buy-to-let/rates' },
+  { label: 'Non-Resident Landlord Scheme', href: '/guides/non-resident-landlord-scheme' },
+  { label: 'NRL1 Form Explained', href: '/guides/nrl1-form-explained' },
+  { label: 'Buying UK Property from Overseas', href: '/guides/buying-uk-property-from-overseas' },
+  { label: 'Returning to the UK', href: '/expat-mortgages/returning-to-uk' },
+  { label: 'No UK Credit History', href: '/expat-mortgages/no-uk-credit-history' },
 ];
 ---
 
@@ -201,13 +181,8 @@ const guideSections = [
               <span class="nav-dropdown-caret" aria-hidden="true">▾</span>
             </button>
             <div class="nav-dropdown-menu nav-dropdown-menu--scroll" id="nav-guides-menu" role="menu">
-              {guideSections.map((section) => (
-                <>
-                  <div class="nav-dropdown-heading" role="presentation">{section.heading}</div>
-                  {section.items.map((item) => (
-                    <a href={item.href} role="menuitem">{item.label}</a>
-                  ))}
-                </>
+              {guides.map((item) => (
+                <a href={item.href} role="menuitem">{item.label}</a>
               ))}
             </div>
           </div>
