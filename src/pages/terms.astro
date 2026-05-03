@@ -2,123 +2,283 @@
 import T7Layout from '../layouts/T7Layout.astro';
 import { breadcrumbSchema } from '../lib/schema';
 
-const title = 'Terms of Use';
+const title = 'Terms and Conditions';
 const description =
-  'Terms of use for ukmortgagesworldwide.com. Information and lead-generation site introducing UK mortgage enquiries to FCA-authorised brokers.';
+  'Terms and Conditions for UK Mortgages Worldwide, a trading style of Sandsea Capital Ltd, an appointed representative of Quilter Financial Services Limited.';
 
 const schemas = [
   breadcrumbSchema([
     { name: 'Home', path: '/' },
-    { name: 'Terms of Use' },
+    { name: 'Terms and Conditions' },
   ]),
 ];
 ---
 
-<T7Layout title={title} description={description} h1="Terms of Use" schemas={schemas}>
-  <div class="t7-banner">
-    <strong>This is a pre-launch draft.</strong> The final terms will be reviewed and approved by a compliance consultant before the site goes live.
-  </div>
+<T7Layout
+  title={title}
+  description={description}
+  h1="Terms and Conditions"
+  eyebrow="LEGAL"
+  schemas={schemas}
+>
+  <p><strong>YOUR HOME MAY BE REPOSSESSED IF YOU DO NOT KEEP UP REPAYMENTS ON YOUR MORTGAGE.</strong></p>
 
-  <p class="t7-meta">Last updated: [DATE]</p>
+  <p>Effective Date: [APPROVAL DATE TBD]</p>
+
+  <p>
+    The guidance and information contained within this website is subject to
+    the UK regulatory regime and is therefore intended for consumers based
+    in the United Kingdom.
+  </p>
+
+  <h2>1. Legal Status and Regulatory Disclosure</h2>
+  <p>
+    UK Mortgages Worldwide is a trading style of Sandsea Capital Ltd, an
+    appointed representative of Quilter Financial Services Limited, which
+    is authorised and regulated by the Financial Conduct Authority. Sandsea
+    Capital Ltd is registered in England and Wales No. 11374947. Registered
+    Office: 555-557 Cranbrook Road, Gants Hill, Ilford, Essex, England IG2
+    6HE.
+  </p>
+  <p>Approver: Quilter Financial Services Limited [APPROVAL DATE TBD].</p>
+  <p><strong>YOUR HOME MAY BE REPOSSESSED IF YOU DO NOT KEEP UP REPAYMENTS ON YOUR MORTGAGE.</strong></p>
+
+  <h2>2. Financial Services Compensation Scheme (FSCS)</h2>
+  <p>
+    UK Mortgages Worldwide does not provide or hold mortgage funds. We act
+    solely as a mortgage intermediary, providing advice and arranging
+    regulated mortgage and insurance products. Any lending obligations rest
+    entirely with the mortgage lender and are governed by the lender's
+    terms and conditions.
+  </p>
+  <p>
+    In the event that we are unable to meet our obligations, clients may be
+    entitled to compensation under the Financial Services Compensation
+    Scheme (FSCS):
+  </p>
+  <ul>
+    <li><strong>Mortgage advice and arrangement:</strong> 100% of the first £85,000 (per eligible person, per firm).</li>
+    <li><strong>Insurance advice and arrangement:</strong> 100% of the claim with no upper limit.</li>
+  </ul>
+  <p>
+    Eligibility criteria apply. For more information visit
+    <a href="https://www.fscs.org.uk" target="_blank" rel="noopener">https://www.fscs.org.uk</a>
+  </p>
+
+  <h2>3. Scope of Agreement and Variation</h2>
+  <p>
+    The Terms of Business set out the basis on which we will provide
+    services to you. This version will take effect upon receipt. We reserve
+    the right to amend these Terms by providing you any revised terms,
+    unless it is impractical to do so.
+  </p>
+
+  <h2>4. Instructions and Authority</h2>
+  <p>
+    Instructions may be provided to us verbally or in writing. All
+    transactions will require completion of relevant documentation and
+    signatures. Our authority to act on your behalf under these Terms can
+    be terminated by either party at any time by written notice.
+    Termination will not affect any rights or obligations already accrued
+    or any transactions already in progress.
+  </p>
+
+  <h2>5. Conflicts of Interest</h2>
+  <p>
+    We maintain a Conflicts of Interest Policy in accordance with Financial
+    Conduct Authority requirements. Where we or an associated party have a
+    material interest in any transaction, we will disclose this to you in
+    writing and obtain your informed consent before proceeding.
+  </p>
+
+  <h2>6. Record-Keeping and Access</h2>
+  <p>
+    We will maintain records of all client transactions in accordance with
+    Financial Conduct Authority rules and UK data protection laws. Copies
+    of relevant documents can be provided to you or your authorised
+    representative upon written request.
+  </p>
+
+  <h2>7. Product Ownership and Documentation</h2>
+  <p>
+    As an intermediary, we never hold legal title to any product on your
+    behalf. All products will be registered in your name. We will forward
+    all documentation relating to ownership as soon as practicable after
+    receipt from the provider. Some providers may send documents directly
+    to you.
+  </p>
+
+  <h2>8. Reviews</h2>
+  <p>
+    We may contact you at a future date to review your arrangements,
+    especially where it may be in your interest to revise or replace the
+    original recommendation. Reviews are not guaranteed unless agreed as
+    part of an ongoing service.
+  </p>
+
+  <h2>9. Client Money</h2>
+  <p>
+    We do not hold or accept client money. We do not accept cheques made
+    payable to us (unless in settlement of an advice fee invoice), and we
+    do not handle cash.
+  </p>
+
+  <h2>10. Fees and Charges</h2>
+  <p>
+    UK Mortgages Worldwide may charge a fee of up to £1,100 for advice in
+    relation to mortgage and protection services. In most cases, this fee
+    is waived. However, a fee may become payable where a formal mortgage
+    offer has been secured, and you then choose not to proceed, for
+    example, if you decide to instruct another broker.
+  </p>
+  <p>
+    Full details of any applicable fees will be clearly outlined in our
+    Initial Disclosure Document and your Authority to Proceed, which your
+    adviser will provide and explain before any chargeable activity takes
+    place.
+  </p>
+  <p>
+    Please note that additional costs, charges, or taxes relating to your
+    mortgage or protection arrangements may apply, which are not charged by
+    or payable through UK Mortgages Worldwide.
+  </p>
+
+  <h2>11. Data Protection and Privacy</h2>
+  <p>
+    We are committed to protecting your personal data. Your information
+    will be processed in accordance with the UK General Data Protection
+    Regulation and the Data Protection Act 2018.
+  </p>
+  <p>
+    Information you provide may be shared with Quilter Financial Services
+    Limited, our professional adviser and selected third-party providers
+    for regulatory, administrative or compliance purposes. We will only
+    share your data where confidentiality and security are assured. For
+    full details, please refer to the Quilter Appointed Representative
+    Privacy Notice at
+    <a href="https://www.quilter.com/important-information/privacy-notices/appointed-representative-privacy-notice/" target="_blank" rel="noopener">https://www.quilter.com/important-information/privacy-notices/appointed-representative-privacy-notice/</a>
+  </p>
+
+  <h2>12. Communications and Call Recording</h2>
+  <p>
+    All communications will be conducted in English. Telephone calls may
+    be recorded for monitoring, training and regulatory purposes.
+  </p>
+
+  <h2>13. Legal Jurisdiction</h2>
+  <p>
+    These Terms are governed by the laws of England and Wales. All
+    communications will be conducted in English. The Contracts (Rights of
+    Third Parties) Act 1999 shall not apply to this agreement.
+  </p>
+
+  <h2>14. Website Terms of Use</h2>
+  <p>
+    By accessing or using this website, you agree to be bound by the
+    following terms:
+  </p>
+  <ul>
+    <li>The content is for general information purposes only and does not constitute financial advice.</li>
+    <li>We strive to ensure accuracy, but information is subject to change without notice.</li>
+    <li>No warranty or guarantee is given as to the accuracy, timeliness, performance, completeness or suitability of any material on this site.</li>
+    <li>Use of any material is entirely at your own risk. It is your responsibility to ensure that products or services meet your specific requirements.</li>
+    <li>This website and its content are protected by copyright. No part may be reproduced, copied or distributed without our prior written consent.</li>
+    <li>You may not link to this website without written permission.</li>
+    <li>Unauthorised use may give rise to a claim for damages or be a criminal offence.</li>
+  </ul>
+
+  <h2>15. Website Security and Limitations</h2>
+  <p>
+    Access to this website is provided on an "as is" and "as available"
+    basis. We do not guarantee uninterrupted access or that the website is
+    virus-free. While we take reasonable precautions, internet use carries
+    inherent risks and users are responsible for securing their systems.
+    We accept no liability for any loss or damage, direct or indirect,
+    arising from website use.
+  </p>
+
+  <h2>16. Cookies and Analytics</h2>
+  <p>
+    We use cookies and analytics tools to enhance the performance of our
+    website and improve user experience. Cookies collect anonymous data
+    and do not identify individuals. By using our website, you consent to
+    the use of cookies in accordance with this policy.
+  </p>
+
+  <h2>17. Intellectual Property, Copyright and Trademarks</h2>
+  <p>
+    The material on our website is protected by copyright. This includes
+    but is not limited to trademarks, branding, layout, design, and
+    content. No part of it may in any form or by any means (electronic,
+    mechanical, micro-copying, photocopying, recording, or otherwise) be
+    reproduced, uploaded to a third party, linked to, framed, stored in a
+    retrieval system or transmitted without our express written
+    permission. You also must not in any form or by any means commercialise
+    any information, products or services obtained from our website
+    without our prior written permission. Our website includes registered
+    trade marks owned by us or our licensors. You must not use any of our
+    trademarks in any way without our express written consent.
+  </p>
+
+  <h2>18. External Links</h2>
+  <p>
+    This website may contain links to third-party websites. We do not
+    endorse or guarantee the content or services provided on these
+    external sites and accept no liability for their use.
+  </p>
 
   <hr class="t7-divider" />
 
-  <h2>About these terms</h2>
-  <p>These terms apply to your use of ukmortgagesworldwide.com ("the site"). The site is operated by [ENTITY NAME TBD], a company registered in England and Wales, with its registered office at [REGISTERED ADDRESS TBD].</p>
-  <p>By using the site, you agree to these terms. If you do not agree, do not use the site.</p>
-  <p>We may update these terms from time to time. The "last updated" date at the top will reflect any changes. Continuing to use the site after changes are made means you accept the updated terms.</p>
+  <p>
+    UK Mortgages Worldwide is a trading style of Sandsea Capital Ltd,
+    which is an appointed representative of Quilter Financial Services
+    Limited. Financial Conduct Authority Register No. 440703. FCA
+    Register:
+    <a href="https://register.fca.org.uk/s/" target="_blank" rel="noopener">https://register.fca.org.uk/s/</a>
+  </p>
 
-  <h2>What this site does</h2>
-  <p>UK Mortgages Worldwide is an information and lead-generation website covering UK mortgages for British nationals living abroad, non-UK residents, foreign nationals, and applicants with foreign-currency income.</p>
-  <p>We do the following:</p>
-  <ul>
-    <li>Provide general information about UK mortgage criteria, lender approaches, and application processes for non-resident and foreign-income applicants</li>
-    <li>Capture enquiries through our contact form</li>
-    <li>Pass enquiries to FCA-authorised mortgage brokers who can provide regulated advice</li>
-  </ul>
-  <p>We do not do the following:</p>
-  <ul>
-    <li>Provide regulated mortgage advice</li>
-    <li>Recommend specific mortgage products</li>
-    <li>Compare lenders for you</li>
-    <li>Process mortgage applications</li>
-    <li>Hold or use any client money</li>
-  </ul>
+  <p><strong>Approver: Quilter Financial Services Limited – [APPROVAL DATE TBD]</strong></p>
 
-  <h2>Information on this site is not advice</h2>
-  <p>Everything on this site is general information for educational purposes. Nothing on this site constitutes personal financial advice, mortgage advice, tax advice, legal advice, or investment advice.</p>
-  <p>You should not rely on the information on this site as the basis for any decision about whether to apply for a mortgage, which lender to apply to, or how to structure your finances. For regulated mortgage advice, you should speak to an FCA-authorised mortgage broker. We can introduce you to one.</p>
-  <p>The mortgage market changes frequently. Lender criteria, rates, and products change without notice. Information on this site reflects our understanding at the time of writing and may not reflect the current market.</p>
-
-  <h2>Submitting an enquiry</h2>
-  <p>When you submit an enquiry through our contact form, you understand that:</p>
-  <ul>
-    <li>The information you provide will be passed to an FCA-authorised mortgage broker</li>
-    <li>The broker will contact you to discuss your mortgage requirements</li>
-    <li>The regulated mortgage advice conversation, if any, will take place between you and the broker, not with us</li>
-    <li>The broker will be responsible for providing any advice and for the application if you proceed</li>
-    <li>Our role is limited to introducing you to the broker</li>
-  </ul>
-  <p>We are not regulated by the Financial Conduct Authority. We do not give regulated advice and we do not arrange mortgages. The broker we introduce you to is responsible for these activities under their own FCA authorisation.</p>
-  <p>By submitting an enquiry, you confirm that the information you provide is accurate to the best of your knowledge and that you are over 18 years of age.</p>
-
-  <h2>Acceptable use</h2>
-  <p>You may use the site for lawful, personal purposes only. You agree that you will not:</p>
-  <ul>
-    <li>Use the site in any way that breaches applicable law</li>
-    <li>Submit false, misleading, or fraudulent information through the contact form</li>
-    <li>Attempt to gain unauthorised access to the site, the server it is hosted on, or any related systems</li>
-    <li>Introduce malicious code, viruses, or other harmful material</li>
-    <li>Conduct automated scraping, harvesting, or data extraction without our written permission</li>
-    <li>Use the site to send spam or unsolicited communications</li>
-    <li>Reproduce, redistribute, or commercially exploit content from the site without our written permission</li>
-    <li>Frame or embed the site into another site without our written permission</li>
-  </ul>
-  <p>We may suspend or restrict your access to the site if we reasonably believe you have breached these terms.</p>
-
-  <h2>Intellectual property</h2>
-  <p>The content on this site, including text, images, design, and code, is owned by [ENTITY NAME TBD] or used under licence. All rights are reserved.</p>
-  <p>You may view the site, print individual pages for personal reference, and share links to the site. You may not copy, reproduce, modify, distribute, or commercially exploit any content without our written permission.</p>
-  <p>References to third-party brands, lenders, or service providers are for informational purposes only. Such references do not imply any endorsement or partnership.</p>
-
-  <h2>Links to other sites</h2>
-  <p>The site may contain links to third-party websites. We provide these links for convenience only. We do not control the linked sites and are not responsible for their content, accuracy, or practices.</p>
-  <p>You access linked sites at your own risk and should review the privacy and terms of each before using them.</p>
-
-  <h2>Liability</h2>
-  <p>We provide the site and its content "as is" without warranties of any kind, whether express or implied. To the fullest extent permitted by law, we disclaim all warranties including warranties of merchantability, fitness for a particular purpose, and non-infringement.</p>
-  <p>We are not liable for any loss or damage arising from your use of the site or your reliance on any information on the site, including:</p>
-  <ul>
-    <li>Direct, indirect, incidental, consequential, or punitive damages</li>
-    <li>Loss of profit, business, opportunity, or anticipated savings</li>
-    <li>Loss or corruption of data</li>
-    <li>Loss arising from decisions you make based on information on the site</li>
-  </ul>
-  <p>This does not limit our liability for death or personal injury caused by our negligence, for fraud, or for any other liability that cannot lawfully be excluded.</p>
-
-  <h2>No guarantee of mortgage outcome</h2>
-  <p>We do not guarantee that you will be approved for a mortgage, that any specific lender will accept your application, that any specific rate or product will be available to you, or that any application introduced through us will complete successfully.</p>
-  <p>Mortgage decisions are made by lenders based on their own criteria. The broker we introduce you to will assess your situation and discuss your options. Outcomes depend on your individual circumstances, lender appetite, and market conditions.</p>
-
-  <h2>Indemnity</h2>
-  <p>You agree to indemnify and hold harmless [ENTITY NAME TBD], its officers, employees, and contractors against any claims, damages, losses, or expenses arising from your breach of these terms or your misuse of the site.</p>
-
-  <h2>Governing law and jurisdiction</h2>
-  <p>These terms are governed by the laws of England and Wales. Any dispute arising from these terms or your use of the site will be subject to the exclusive jurisdiction of the courts of England and Wales.</p>
-
-  <h2>Severability</h2>
-  <p>If any provision of these terms is found to be unenforceable, the remaining provisions will continue in full force.</p>
-
-  <h2>Contact us</h2>
-  <p>If you have any questions about these terms, please contact us:</p>
-  <ul>
-    <li>Email: enquiry@ukmortgagesworldwide.com</li>
-    <li>Post: [ENTITY NAME TBD], [REGISTERED ADDRESS TBD]</li>
-  </ul>
-
-  <hr class="t7-divider" />
-
-  <div class="t7-prelaunch-note">
-    <strong>Pre-launch note:</strong> These terms will be reviewed and finalised by a compliance consultant before launch. Specific provisions relating to FCA introducer arrangements, the relationship between this entity and the receiving broker(s), and any commercial terms with brokers will be added at that point.
-  </div>
+  <h2>Disclaimer</h2>
+  <p>
+    The content of this website is provided for general information
+    purposes only and does not constitute personal financial advice,
+    recommendation or an offer to engage in regulated activity. UK
+    Mortgages Worldwide makes every reasonable effort to ensure the
+    accuracy and completeness of the information published on this site.
+    However, we do not warrant or guarantee that any information is
+    accurate, up to date or applicable to your individual circumstances.
+  </p>
+  <p>
+    You should not rely solely on the information provided on this website
+    when making financial decisions. Any reliance you place on such
+    information is strictly at your own risk. We recommend that you seek
+    formal advice from a qualified mortgage adviser before acting on any
+    content from this website.
+  </p>
+  <p>
+    Neither UK Mortgages Worldwide, Sandsea Capital Ltd, nor Quilter
+    Financial Services Limited accepts any liability for any loss, damage
+    or inconvenience arising as a result of the use or inability to use
+    this website, or for reliance on its contents, whether arising in
+    contract, tort (including negligence), breach of statutory duty or
+    otherwise.
+  </p>
+  <p>
+    UK Mortgages Worldwide does not accept responsibility for the content,
+    availability or security of external websites linked to or from this
+    site. The inclusion of any links does not imply endorsement or
+    approval of the linked website, its operator, or its content.
+  </p>
+  <p>
+    UK Mortgages Worldwide does not warrant that this site is free from
+    errors, viruses or other potentially harmful components. Users should
+    ensure they have appropriate cybersecurity protections in place before
+    accessing the site.
+  </p>
+  <p>
+    All content is subject to change without notice. Accessing or using
+    this site implies acceptance of these terms and the related Terms of
+    Business and Website Use.
+  </p>
 </T7Layout>
