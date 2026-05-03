@@ -9,7 +9,7 @@ interface Props {
 
 const {
   heading = 'Talk to a broker about your situation',
-  ctaLabel = 'Send an enquiry',
+  ctaLabel = 'Talk to a broker',
   ctaHref = '#contact-form',
   ctaNote = 'A mortgage broker will usually respond immediately.',
   variant = 'section',
@@ -39,7 +39,7 @@ const {
     border-top: 1px solid #E8E0D5;
     border-bottom: 1px solid #E8E0D5;
     padding: 2rem 1.5rem;
-    margin: 1.5rem 0;
+    margin: 1.5rem 0 0;
     text-align: center;
   }
 
@@ -47,6 +47,10 @@ const {
     .cta-block {
       padding: 2rem 2rem;
     }
+  }
+
+  .cta-block + .contact {
+    padding-top: 2rem !important;
   }
 
   /* Hero variant breaks out of the constrained content column so the
