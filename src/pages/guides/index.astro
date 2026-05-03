@@ -4,6 +4,7 @@ import MidPageCta from '../../components/MidPageCta.astro';
 import ContactForm from '../../components/ContactForm.astro';
 import { breadcrumbSchema } from '../../lib/schema';
 import RiskWarning from '../../components/RiskWarning.astro';
+import TerritorialScope from '../../components/TerritorialScope.astro';
 
 const title = 'All Guides';
 const description =
@@ -84,6 +85,7 @@ const entries = [
   schemas={schemas}
 >
   <RiskWarning type="residential" />
+  <TerritorialScope />
   <p class="t7-lead">
     Every guide on UK Mortgages Worldwide. Use this page as a starting point
     if you are not sure which page is most relevant to your situation.

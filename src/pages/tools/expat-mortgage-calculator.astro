@@ -2,6 +2,7 @@
 import HubLayout from '../../layouts/HubLayout.astro';
 import { breadcrumbSchema } from '../../lib/schema';
 import RiskWarning from '../../components/RiskWarning.astro';
+import TerritorialScope from '../../components/TerritorialScope.astro';
 
 const title = 'Expat Mortgage Calculator: Borrowing Capacity';
 const description =
@@ -87,6 +88,7 @@ const currencies = [
   relatedPages={relatedPages}
 >
   <RiskWarning type="residential" />
+  <TerritorialScope />
   <section class="hub-section">
     <div class="hub-section-inner">
       <h2 id="who-this-is-for">Who this page is for</h2>

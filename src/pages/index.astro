@@ -6,6 +6,7 @@ import RelatedCard from '../components/RelatedCard.astro';
 import ContactForm from '../components/ContactForm.astro';
 import { organizationSchema, SITE_URL, SITE_NAME } from '../lib/schema';
 import RiskWarning from '../components/RiskWarning.astro';
+import TerritorialScope from '../components/TerritorialScope.astro';
 
 const title = 'UK Mortgages, Wherever You Live';
 const description =
@@ -125,6 +126,8 @@ const faqSchema = {
 
     <RiskWarning type="residential" />
 
+
+    <TerritorialScope />
     <section class="related-pages-section" aria-labelledby="what-we-cover-heading">
       <div class="hub-section-inner">
         <h2 id="what-we-cover-heading">What we cover</h2>
