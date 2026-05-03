@@ -14,29 +14,50 @@ const approverDate = '[APPROVAL DATE TBD]';
     Mortgage One is only able to provide regulated mortgage advice to clients who are physically present in the UK at the time the advice is given.
   </p>
   <p class="risk-line"><strong>YOUR HOME MAY BE REPOSSESSED IF YOU DO NOT KEEP UP REPAYMENTS ON YOUR MORTGAGE.</strong> Some Buy-to-Let, Holiday-Let Mortgages, House in Multiple Occupation, Bridging Loans, Mezzanine Finance, Inheritance Tax Planning and Tax Planning are not regulated by the Financial Conduct Authority.</p>
+  <div class="legal-links">
+    <a href="https://www.quilter.com/important-information/privacy-notices/appointed-representative-privacy-notice/" target="_blank" rel="noopener">Privacy Notice</a>
+    <a href="/terms">Terms and Conditions</a>
+  </div>
 </div>
 
 <style>
   .compliance-footer {
+    margin: 0 auto;
     padding: 1.5rem 1rem 2rem;
-    border-top: 1px solid rgba(139, 35, 49, 0.15);
   }
   .compliance-footer p {
     font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
-    font-size: 0.8rem;
-    line-height: 1.5;
-    color: rgba(26, 22, 18, 0.65);
-    margin: 0 0 0.75rem;
+    font-size: 0.95rem;
+    line-height: 1.6;
+    color: rgba(26, 22, 18, 0.9);
+    margin: 0 0 0.5rem;
     text-align: center;
   }
   .compliance-footer p:last-child {
     margin-bottom: 0;
   }
   .compliance-footer .copyright {
-    color: rgba(26, 22, 18, 0.85);
-    margin-bottom: 1rem;
+    font-weight: 700;
+    margin-bottom: 0.75rem;
   }
-  .compliance-footer .risk-line {
-    margin-top: 1rem;
+  .compliance-footer .risk-line strong {
+    font-weight: 700;
+  }
+  .compliance-footer .legal-links {
+    margin-top: 1.5rem;
+    display: flex;
+    justify-content: center;
+    gap: 4rem;
+  }
+  .compliance-footer .legal-links a {
+    color: rgba(26, 22, 18, 0.9);
+    text-decoration: underline;
+    font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+    font-size: 0.95rem;
+  }
+  @media (max-width: 600px) {
+    .compliance-footer .legal-links {
+      gap: 2rem;
+    }
   }
 </style>
