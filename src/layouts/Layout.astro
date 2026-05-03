@@ -33,21 +33,56 @@ const mortgages = [
   { label: 'BNO Visa', href: '/uk-mortgage-for-foreign-nationals/bno-visa', child: true },
 ];
 
-const countries = [
-  { label: 'Australia', href: '/expat-mortgages/countries/australia' },
-  { label: 'Canada', href: '/expat-mortgages/countries/canada' },
-  { label: 'Dubai', href: '/expat-mortgages/countries/dubai' },
-  { label: 'Germany', href: '/expat-mortgages/countries/germany' },
-  { label: 'Hong Kong', href: '/expat-mortgages/countries/hong-kong' },
-  { label: 'Netherlands', href: '/expat-mortgages/countries/netherlands' },
-  { label: 'New Zealand', href: '/expat-mortgages/countries/new-zealand' },
-  { label: 'Norway', href: '/expat-mortgages/countries/norway' },
-  { label: 'Qatar', href: '/expat-mortgages/countries/qatar' },
-  { label: 'Saudi Arabia', href: '/expat-mortgages/countries/saudi-arabia' },
-  { label: 'Singapore', href: '/expat-mortgages/countries/singapore' },
-  { label: 'South Africa', href: '/expat-mortgages/countries/south-africa' },
-  { label: 'Switzerland', href: '/expat-mortgages/countries/switzerland' },
-  { label: 'USA', href: '/expat-mortgages/countries/usa' },
+const countryRegions = [
+  {
+    region: 'EUROPE',
+    items: [
+      { label: 'France', href: '/expat-mortgages/countries/france' },
+      { label: 'Germany', href: '/expat-mortgages/countries/germany' },
+      { label: 'Ireland', href: '/expat-mortgages/countries/ireland' },
+      { label: 'Netherlands', href: '/expat-mortgages/countries/netherlands' },
+      { label: 'Norway', href: '/expat-mortgages/countries/norway' },
+      { label: 'Portugal', href: '/expat-mortgages/countries/portugal' },
+      { label: 'Spain', href: '/expat-mortgages/countries/spain' },
+      { label: 'Switzerland', href: '/expat-mortgages/countries/switzerland' },
+    ],
+  },
+  {
+    region: 'GULF',
+    items: [
+      { label: 'Bahrain', href: '/expat-mortgages/countries/bahrain' },
+      { label: 'Dubai / UAE', href: '/expat-mortgages/countries/dubai' },
+      { label: 'Kuwait', href: '/expat-mortgages/countries/kuwait' },
+      { label: 'Oman', href: '/expat-mortgages/countries/oman' },
+      { label: 'Qatar', href: '/expat-mortgages/countries/qatar' },
+      { label: 'Saudi Arabia', href: '/expat-mortgages/countries/saudi-arabia' },
+    ],
+  },
+  {
+    region: 'ASIA-PACIFIC',
+    items: [
+      { label: 'Australia', href: '/expat-mortgages/countries/australia' },
+      { label: 'Hong Kong', href: '/expat-mortgages/countries/hong-kong' },
+      { label: 'Japan', href: '/expat-mortgages/countries/japan' },
+      { label: 'Malaysia', href: '/expat-mortgages/countries/malaysia' },
+      { label: 'New Zealand', href: '/expat-mortgages/countries/new-zealand' },
+      { label: 'Singapore', href: '/expat-mortgages/countries/singapore' },
+      { label: 'Thailand', href: '/expat-mortgages/countries/thailand' },
+    ],
+  },
+  {
+    region: 'AMERICAS',
+    items: [
+      { label: 'Canada', href: '/expat-mortgages/countries/canada' },
+      { label: 'USA', href: '/expat-mortgages/countries/usa' },
+    ],
+  },
+  {
+    region: 'OTHERS',
+    items: [
+      { label: 'South Africa', href: '/expat-mortgages/countries/south-africa' },
+    ],
+  },
 ];
 
 const calculators = [
@@ -153,9 +188,14 @@ const guides = [
               Countries
               <span class="nav-dropdown-caret" aria-hidden="true">▾</span>
             </button>
-            <div class="nav-dropdown-menu" id="nav-countries-menu" role="menu">
-              {countries.map((item) => (
-                <a href={item.href} role="menuitem">{item.label}</a>
+            <div class="nav-dropdown-menu nav-dropdown-menu--scroll" id="nav-countries-menu" role="menu">
+              {countryRegions.map((group) => (
+                <>
+                  <p class="nav-dropdown-heading" aria-hidden="true">{group.region}</p>
+                  {group.items.map((item) => (
+                    <a href={item.href} role="menuitem">{item.label}</a>
+                  ))}
+                </>
               ))}
             </div>
           </div>
@@ -573,18 +613,20 @@ const guides = [
       }
 
       .nav-dropdown-heading {
-        font-family: var(--font-sans);
-        font-size: 0.6875rem;
-        font-weight: 500;
+        font-family: 'Lora', serif;
+        font-size: 0.75rem;
+        font-weight: 600;
         text-transform: uppercase;
         letter-spacing: 0.08em;
-        color: var(--muted);
-        padding: 0.6rem 1rem 0.25rem;
-        margin: 0.75rem 0 0;
+        color: rgba(26, 22, 18, 0.5);
+        padding: 0.75rem 1rem 0.25rem;
+        margin: 0;
+        cursor: default;
+        user-select: none;
       }
 
       .nav-dropdown-menu > .nav-dropdown-heading:first-child {
-        margin-top: 0;
+        padding-top: 0;
       }
 
       .nav-dropdown-menu--scroll {
