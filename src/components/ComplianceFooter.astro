@@ -4,24 +4,21 @@ const approverDate = '[APPROVAL DATE TBD]';
 
 <div class="compliance-footer">
   <p class="copyright"><strong>©2026 UK Mortgages Worldwide. All rights reserved.</strong></p>
-  <p>
-    UK Mortgages Worldwide is a website operated by Mortgage One, a trading style of Sandsea Capital Ltd, an appointed representative of Quilter Financial Services Limited, which is authorised and regulated by the Financial Conduct Authority Register No. 440703. Sandsea Capital Ltd is registered in England and Wales CRN No. 11374947. Registered Office: 555-557 Cranbrook Road, Gants Hill, Ilford, Essex, England IG2 6HE. Approver: Quilter Financial Services Limited – {approverDate}.
-  </p>
-  <p>
-    Mortgage One is only able to provide regulated mortgage advice to clients who are physically present in the UK at the time the advice is given.
-  </p>
+  <p>UK Mortgages Worldwide is a website operated by Mortgage One, a trading style of Sandsea Capital Ltd, an appointed representative of Quilter Financial Services Limited, which is authorised and regulated by the Financial Conduct Authority Register No. 440703.</p>
+  <p>Sandsea Capital Ltd is registered in England and Wales CRN No. 11374947. Registered Office: 555-557 Cranbrook Road, Gants Hill, Ilford, Essex, England IG2 6HE. Approver: Quilter Financial Services Limited – {approverDate}.</p>
   <p class="risk-line"><strong>YOUR HOME MAY BE REPOSSESSED IF YOU DO NOT KEEP UP REPAYMENTS ON YOUR MORTGAGE.</strong></p>
   <p>Some Buy-to-Let, Holiday-Let Mortgages, House in Multiple Occupation, Bridging Loans, Mezzanine Finance, Inheritance Tax Planning and Tax Planning are not regulated by the Financial Conduct Authority.</p>
   <div class="legal-links">
     <a href="https://www.quilter.com/important-information/privacy-notices/appointed-representative-privacy-notice/" target="_blank" rel="noopener">Privacy Notice</a>
     <a href="/terms">Terms and Conditions</a>
   </div>
+  <p>Mortgage One is only able to provide regulated mortgage advice to clients who are physically present in the UK at the time the advice is given.</p>
 </div>
 
 <style>
   .compliance-footer {
     margin: 0 auto;
-    padding: 1.5rem 1rem 1.5rem;
+    padding: 1.5rem 1rem 0.75rem;
   }
   .compliance-footer p {
     font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
@@ -30,6 +27,9 @@ const approverDate = '[APPROVAL DATE TBD]';
     color: rgba(26, 22, 18, 0.9);
     margin: 0;
     text-align: center;
+  }
+  .compliance-footer p:last-child {
+    margin-top: 0.5rem;
   }
   .compliance-footer .copyright {
     font-weight: 700;
