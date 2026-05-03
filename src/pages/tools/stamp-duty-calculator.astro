@@ -7,6 +7,7 @@ const title = 'Stamp Duty Calculator';
 const description =
   'Calculate UK stamp duty (SDLT) for residents and non-residents. Includes the 2% non-resident surcharge and 5% additional dwelling surcharge.';
 import { breadcrumbSchema } from '../../lib/schema';
+import RiskWarning from '../../components/RiskWarning.astro';
 
 const schemas = [
   breadcrumbSchema([
@@ -40,6 +41,8 @@ const schemas = [
         </p>
       </div>
     </section>
+
+    <RiskWarning type="residential" />
 
     <section class="sdlt-panel-section">
       <div class="sdlt-inner">

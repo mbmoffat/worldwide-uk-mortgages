@@ -3,6 +3,7 @@ import HubLayout from '../../../layouts/HubLayout.astro';
 import PullQuote from '../../../components/PullQuote.astro';
 import MidPageCta from '../../../components/MidPageCta.astro';
 import { breadcrumbSchema, articleSchema } from '../../../lib/schema';
+import RiskWarning from '../../../components/RiskWarning.astro';
 
 const title = 'UK Mortgages for British Expats in Saudi Arabia';
 const description =
@@ -117,6 +118,7 @@ const schemas = [
   schemas={schemas}
   relatedPages={relatedPages}
 >
+  <RiskWarning type="residential" />
   <section class="hub-section">
     <div class="hub-section-inner">
       <h2 id="who-this-is-for">Who this page is for</h2>
