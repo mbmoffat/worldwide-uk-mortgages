@@ -1,5 +1,6 @@
 ---
 import { SITE_NAME } from '../../astro.config.mjs';
+import ComplianceFooter from '../components/ComplianceFooter.astro';
 
 interface Props {
   title?: string;
@@ -222,15 +223,12 @@ const guides = [
               <li><a href="/terms">Terms and Conditions</a></li>
               <li><a href="/sitemap">Sitemap</a></li>
             </ul>
-            <p class="footer-disclaimer">
-              We do not provide regulated mortgage advice. We pass enquiries to
-              FCA-authorised mortgage brokers.
-            </p>
           </div>
         </div>
         <div class="footer-bottom">
           <p class="copyright">&copy; {currentYear} UK Mortgages Worldwide.</p>
         </div>
+        <ComplianceFooter />
       </div>
     </footer>
 
