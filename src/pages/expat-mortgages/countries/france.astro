@@ -1,0 +1,302 @@
+---
+import HubLayout from '../../../layouts/HubLayout.astro';
+import PullQuote from '../../../components/PullQuote.astro';
+import MidPageCta from '../../../components/MidPageCta.astro';
+import { breadcrumbSchema, articleSchema, serviceSchema } from '../../../lib/schema';
+import RiskWarning from '../../../components/RiskWarning.astro';
+import TerritorialScope from '../../../components/TerritorialScope.astro';
+
+const title = 'UK Mortgages for British Expats in France';
+const description =
+  'UK mortgages for British expats in France. Euro income treatment, French tax position, deposits, rates, and lender appetite for Paris and regional applicants.';
+const h1 = 'UK Mortgages for British Expats in France';
+const subheadline =
+  "A clear guide to UK mortgages when you live and work in France. What you can borrow, how lenders treat euro income, what deposit you'll need, and how we find the right lender for your situation.";
+
+const relatedPages = [
+  {
+    eyebrow: 'Hub',
+    title: 'UK Mortgages for Expats',
+    description:
+      'British nationals living abroad. Country-by-country lender appetite, currency haircuts, and timelines.',
+    href: '/expat-mortgages',
+  },
+  {
+    eyebrow: 'Hub',
+    title: 'UK Mortgages with Foreign Income',
+    description:
+      'How lenders treat non-sterling income. The 20% standard haircut and direct access to no-haircut lenders.',
+    href: '/uk-mortgage-foreign-income',
+  },
+  {
+    eyebrow: 'Country',
+    title: 'UK Mortgages for British Expats in Spain',
+    description:
+      'Spain-based expats. Euro income, Beckham Law, autonomo cases, and lender appetite for Madrid and Barcelona.',
+    href: '/expat-mortgages/countries/spain',
+  },
+  {
+    eyebrow: 'Country',
+    title: 'UK Mortgages for British Expats in Portugal',
+    description:
+      'Portugal-based expats. NHR tax regime, euro income treatment, and lender appetite for Lisbon and Algarve.',
+    href: '/expat-mortgages/countries/portugal',
+  },
+  {
+    eyebrow: 'Country',
+    title: 'UK Mortgages for British Expats in Ireland',
+    description:
+      'Ireland-based expats. Euro income, Common Travel Area treatment, and the close UK-Ireland market relationship.',
+    href: '/expat-mortgages/countries/ireland',
+  },
+];
+
+const faqs = [
+  {
+    q: 'Can I get a UK mortgage if I live in France?',
+    a: 'Yes. Around 10-13 lenders in the expat space lend to France-resident British nationals.',
+  },
+  {
+    q: 'How is my euro income treated?',
+    a: 'Euro is hard currency. Standard 20 percent haircut applies at most lenders. Some specialist lenders apply no haircut.',
+  },
+  {
+    q: 'Will the lender want my French tax filings?',
+    a: "Yes. Most lenders want at least the most recent French tax filing (Avis d'Imposition) plus underlying payslips or accounts.",
+  },
+  {
+    q: 'Am I treated differently as auto-entrepreneur or self-employed?',
+    a: 'Yes. Self-employed cases need two to three years of French tax filings. The lender pool is tighter but the cases are workable.',
+  },
+  {
+    q: 'What deposit will I need?',
+    a: 'Typically 25-35 percent. Salaried PAYE applicants access the lower end.',
+  },
+  {
+    q: 'Do I need to be in the UK to apply?',
+    a: 'No. The formal advice meeting takes place in the UK.',
+  },
+  {
+    q: 'How long does the application take?',
+    a: 'Typically 10-14 weeks. Document translation and certification can add time for France cases.',
+  },
+  {
+    q: 'Can I use French rental income to support the application?',
+    a: 'Sometimes. A small number of lenders consider French rental income with proper tax documentation. Most do not.',
+  },
+];
+
+const faqSchema = {
+  '@context': 'https://schema.org',
+  '@type': 'FAQPage',
+  mainEntity: faqs.map((f) => ({
+    '@type': 'Question',
+    name: f.q,
+    acceptedAnswer: { '@type': 'Answer', text: f.a },
+  })),
+};
+const schemas = [
+  breadcrumbSchema([
+    { name: 'Home', path: '/' },
+    { name: 'UK Mortgages for Expats', path: '/expat-mortgages' },
+    { name: 'Countries' },
+    { name: 'France' },
+  ]),
+  articleSchema({ headline: h1, description }),
+  serviceSchema({
+    serviceType: 'UK Mortgage Brokerage for British Expats in France',
+    name: h1,
+    description,
+  }),
+];
+---
+
+<HubLayout
+  title={title}
+  description={description}
+  h1={h1}
+  subheadline={subheadline}
+  eyebrow="COUNTRY · EUROPE"
+  schemas={schemas}
+  relatedPages={relatedPages}
+>
+  <RiskWarning type="residential" />
+  <TerritorialScope />
+  <section class="hub-section">
+    <div class="hub-section-inner">
+      <h2 id="who-this-is-for">Who this page is for</h2>
+      <p>
+        If you are a British national living and working in France and you
+        want a UK mortgage, this page is for you. Common situations we see:
+      </p>
+      <ul>
+        <li>A British national working in finance, banking, or asset management in Paris.</li>
+        <li>A British national working in tech for a Paris-based scale-up or international employer.</li>
+        <li>A British national working in fashion, hospitality, or wine and spirits, often Paris or regional.</li>
+        <li>A British national who relocated post-Brexit for work and is settling in France long-term.</li>
+        <li>A British national married to a French citizen and living in France.</li>
+        <li>A British national who retired or semi-retired to France (Provence, Dordogne, the Languedoc) and is looking at UK property for family reasons.</li>
+        <li>A British national running a small business in France (gite, vineyard, hospitality, consultancy).</li>
+      </ul>
+      <p>
+        France is a major British expat destination, but the cases are more
+        structurally varied than Spain or Ireland. Tax position, business
+        structure, and residency status all materially affect lender
+        selection.
+      </p>
+    </div>
+  </section>
+
+  <MidPageCta variant="hero" />
+
+  <section class="hub-section">
+    <div class="hub-section-inner">
+      <h2 id="lender-view">What UK lenders think of France</h2>
+      <p>
+        France sits firmly in the lender comfort zone. EU country, mature
+        banking, transparent tax reporting, well-established British expat
+        community. Around 10-13 expat lenders lend to France-resident
+        British nationals.
+      </p>
+      <p>Where France varies:</p>
+      <ul>
+        <li>Salaried PAYE employees of large employers: standard profile, well understood.</li>
+        <li>Self-employed (auto-entrepreneur, micro-entrepreneur, EI, EURL, SARL): more documentation needed, lender pool slightly tighter.</li>
+        <li>Retirees on UK or French pensions: different lender pool, deposit-driven.</li>
+        <li>Business owners with French SARL or similar structures: most complex profile, careful lender selection.</li>
+      </ul>
+    </div>
+  </section>
+
+  <section class="hub-section">
+    <div class="hub-section-inner">
+      <h2 id="eur-income">How euro income is treated</h2>
+      <p>
+        Euro is hard currency. The standard 20 percent haircut applies at
+        most lenders. A handful of specialist lenders apply no haircut.
+      </p>
+      <p>
+        France has high marginal tax rates plus significant social charges
+        (CSG, CRDS, and others). Some lenders calculate affordability on
+        gross income; others on net-of-French-tax. The difference for
+        higher earners is meaningful. Try the
+        <a href="/tools/expat-mortgage-calculator">expat mortgage calculator</a>
+        to model the impact for your income.
+      </p>
+    </div>
+  </section>
+
+  <section class="hub-section">
+    <div class="hub-section-inner">
+      <h2 id="tax-residency">The French tax and residency picture</h2>
+      <p>
+        France treats tax residency strictly. Most British expats in
+        France become French tax residents after 183 days, with worldwide
+        income reportable in France. The way income is structured (salary,
+        dividends, interest) affects how it appears on French tax filings,
+        which UK lenders may want to see.
+      </p>
+      <p>
+        The double taxation treaty between the UK and France handles most
+        overlap, but the documentation can get complex. Cleanest cases:
+        salaried PAYE in France, French tax filings in order, no
+        significant UK income alongside.
+      </p>
+    </div>
+  </section>
+
+  <section class="hub-section">
+    <div class="hub-section-inner">
+      <h2 id="deposit-rates">Deposit and rates</h2>
+      <p>
+        Deposits for British expats in France typically sit at 25-35
+        percent. Salaried PAYE applicants in straightforward situations
+        access the lower end. Self-employed or complex structures need
+        30-35 percent.
+      </p>
+      <p>
+        <a href="/expat-mortgages/rates">Expat rates</a> from France are
+        typically 0.3 to 0.6 percent above the equivalent UK-resident
+        product.
+      </p>
+    </div>
+  </section>
+
+  <section class="hub-section">
+    <div class="hub-section-inner">
+      <h2 id="paris-finance">The Paris finance employer angle</h2>
+      <p>
+        A large share of British expats in France work in Paris finance.
+        Major employers (BNP Paribas, Société Générale, HSBC France, US
+        investment banks with Paris offices) underwrite cleanly. Stock
+        comp and bonus treatment varies by lender.
+      </p>
+      <p>
+        For non-finance Paris roles (tech, consulting, professional
+        services), the case is similar in structure but the employers may
+        be less well-known to UK lenders, requiring more verification.
+      </p>
+    </div>
+  </section>
+
+  <PullQuote>
+    France varies more by employment type than most other expat markets.
+    The route depends on whether you are PAYE, self-employed, or retiree.
+  </PullQuote>
+
+  <section class="hub-section">
+    <div class="hub-section-inner">
+      <h2 id="situations">Common situations from France</h2>
+      <p>
+        <strong>Paris finance employee buying first UK property.</strong>
+        Strong case profile. Stable employer, predictable income.
+        Deposits 25-30 percent.
+      </p>
+      <p>
+        <strong>Auto-entrepreneur or self-employed in France.</strong>
+        Two to three years of French tax filings and accountant
+        confirmation needed. Lender pool tighter but workable.
+      </p>
+      <p>
+        <strong>Retiree in regional France with UK property
+        aspirations.</strong> Often pension-driven affordability. Strong
+        deposit makes the case clean.
+      </p>
+      <p>
+        <strong>Returning to the UK from France.</strong> Common path
+        back, especially for people who relocated for one specific role
+        and are now returning. Apply 3-4 months before the move. See our
+        <a href="/expat-mortgages/returning-to-uk">returning to the UK</a>
+        guide for more.
+      </p>
+      <p>
+        <strong>Buy-to-let from France.</strong> Standard
+        <a href="/expat-mortgages/buy-to-let">expat BTL</a> pattern.
+        Currency haircut applies to French income used to support the
+        application.
+      </p>
+    </div>
+  </section>
+
+  <MidPageCta />
+
+  <section class="hub-section">
+    <div class="hub-section-inner">
+      <h2 id="faqs">Common questions</h2>
+      <div class="faq">
+        {faqs.map((f) => (
+          <>
+            <h3>{f.q}</h3>
+            <p>{f.a}</p>
+          </>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <script
+    type="application/ld+json"
+    is:inline
+    set:html={JSON.stringify(faqSchema)}
+  />
+</HubLayout>

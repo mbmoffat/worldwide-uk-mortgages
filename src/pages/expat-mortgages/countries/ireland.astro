@@ -1,0 +1,287 @@
+---
+import HubLayout from '../../../layouts/HubLayout.astro';
+import PullQuote from '../../../components/PullQuote.astro';
+import MidPageCta from '../../../components/MidPageCta.astro';
+import { breadcrumbSchema, articleSchema, serviceSchema } from '../../../lib/schema';
+import RiskWarning from '../../../components/RiskWarning.astro';
+import TerritorialScope from '../../../components/TerritorialScope.astro';
+
+const title = 'UK Mortgages for British Expats in Ireland';
+const description =
+  'UK mortgages for British expats in Ireland. How lenders treat euro income from Dublin or elsewhere, deposits, rates, and the close UK-Ireland mortgage market relationship.';
+const h1 = 'UK Mortgages for British Expats in Ireland';
+const subheadline =
+  "A clear guide to UK mortgages when you live and work in Ireland. What you can borrow, how lenders treat euro income, what deposit you'll need, and how we find the right lender for your situation.";
+
+const relatedPages = [
+  {
+    eyebrow: 'Hub',
+    title: 'UK Mortgages for Expats',
+    description:
+      'British nationals living abroad. Country-by-country lender appetite, currency haircuts, and timelines.',
+    href: '/expat-mortgages',
+  },
+  {
+    eyebrow: 'Hub',
+    title: 'UK Mortgages with Foreign Income',
+    description:
+      'How lenders treat non-sterling income. The 20% standard haircut and direct access to no-haircut lenders.',
+    href: '/uk-mortgage-foreign-income',
+  },
+  {
+    eyebrow: 'Country',
+    title: 'UK Mortgages for British Expats in Spain',
+    description:
+      'Spain-based expats. Euro income, Beckham Law, autonomo cases, and lender appetite for Madrid and Barcelona.',
+    href: '/expat-mortgages/countries/spain',
+  },
+  {
+    eyebrow: 'Country',
+    title: 'UK Mortgages for British Expats in France',
+    description:
+      'France-based expats. Euro income, French tax position, and lender appetite for Paris and regional applicants.',
+    href: '/expat-mortgages/countries/france',
+  },
+  {
+    eyebrow: 'Country',
+    title: 'UK Mortgages for British Expats in Portugal',
+    description:
+      'Portugal-based expats. NHR tax regime, euro income treatment, and lender appetite for Lisbon and Algarve.',
+    href: '/expat-mortgages/countries/portugal',
+  },
+];
+
+const faqs = [
+  {
+    q: 'Can I get a UK mortgage if I live in Ireland?',
+    a: 'Yes. Ireland is one of the most lender-friendly countries in the expat space. Around 12-15 lenders consider Irish-resident British nationals.',
+  },
+  {
+    q: 'How is my euro income treated?',
+    a: 'Euro is hard currency. Standard 20 percent haircut applies at most lenders. Some specialist lenders apply no haircut.',
+  },
+  {
+    q: 'Are Irish-resident British applicants treated differently?',
+    a: 'Often yes. Several lenders treat Ireland-resident applicants on near-UK-resident terms because of the Common Travel Area and the close market relationship.',
+  },
+  {
+    q: 'What deposit will I need?',
+    a: 'Typically 20-30 percent. Ireland accesses lower deposit floors than most expat markets.',
+  },
+  {
+    q: 'Will Dublin tech RSUs count as income?',
+    a: 'Sometimes. Lender treatment of stock-based compensation varies. Some include with a discount, some exclude. We will tell you which lenders fit your specific RSU profile.',
+  },
+  {
+    q: 'Do I need to be in the UK to apply?',
+    a: 'No. The formal advice meeting takes place in the UK.',
+  },
+  {
+    q: 'How long does the application take?',
+    a: 'Typically 10-12 weeks. Documentation is usually quicker for Ireland than for further-afield markets.',
+  },
+  {
+    q: 'Can I apply jointly with my UK-resident partner?',
+    a: 'Yes. Joint expat-resident applications are standard. The case is structured around both incomes and residency situations.',
+  },
+];
+
+const faqSchema = {
+  '@context': 'https://schema.org',
+  '@type': 'FAQPage',
+  mainEntity: faqs.map((f) => ({
+    '@type': 'Question',
+    name: f.q,
+    acceptedAnswer: { '@type': 'Answer', text: f.a },
+  })),
+};
+const schemas = [
+  breadcrumbSchema([
+    { name: 'Home', path: '/' },
+    { name: 'UK Mortgages for Expats', path: '/expat-mortgages' },
+    { name: 'Countries' },
+    { name: 'Ireland' },
+  ]),
+  articleSchema({ headline: h1, description }),
+  serviceSchema({
+    serviceType: 'UK Mortgage Brokerage for British Expats in Ireland',
+    name: h1,
+    description,
+  }),
+];
+---
+
+<HubLayout
+  title={title}
+  description={description}
+  h1={h1}
+  subheadline={subheadline}
+  eyebrow="COUNTRY · EUROPE"
+  schemas={schemas}
+  relatedPages={relatedPages}
+>
+  <RiskWarning type="residential" />
+  <TerritorialScope />
+  <section class="hub-section">
+    <div class="hub-section-inner">
+      <h2 id="who-this-is-for">Who this page is for</h2>
+      <p>
+        If you are a British national living and working in Ireland and you
+        want a UK mortgage, this page is for you. Common situations we see:
+      </p>
+      <ul>
+        <li>A British national working in financial services in Dublin's IFSC.</li>
+        <li>A British national working in tech for one of the major Dublin-based multinationals (Google, Meta, Microsoft, LinkedIn, Stripe, and similar).</li>
+        <li>A British national working in pharma or medical devices, often in Cork, Galway, or Dublin.</li>
+        <li>A British national in a cross-border role between Northern Ireland and the Republic.</li>
+        <li>A British national who relocated to Dublin post-Brexit for tax or career reasons and is now looking at UK property.</li>
+        <li>A British national married to an Irish citizen and living in Ireland but maintaining UK ties.</li>
+      </ul>
+      <p>
+        Ireland sits in a unique position relative to the UK. The two
+        markets are intertwined, the Common Travel Area allows free
+        movement, and many lenders are comfortable with Ireland-resident
+        British applicants.
+      </p>
+    </div>
+  </section>
+
+  <MidPageCta variant="hero" />
+
+  <section class="hub-section">
+    <div class="hub-section-inner">
+      <h2 id="lender-view">What UK lenders think of Ireland</h2>
+      <p>
+        Ireland is one of the most lender-friendly countries in the expat
+        pool. Around 12-15 expat lenders consider Ireland-resident British
+        nationals. Several mainstream UK lenders treat Irish-resident
+        British applicants on near-resident terms because of the close
+        market relationship and Common Travel Area.
+      </p>
+      <p>Where Ireland is straightforward:</p>
+      <ul>
+        <li>Stable euro economy, mature banking, transparent tax reporting.</li>
+        <li>Direct flight access to the UK and physical proximity.</li>
+        <li>British applicants typically retain UK ties (NI number, often a UK bank account).</li>
+      </ul>
+      <p>Where Ireland needs careful handling:</p>
+      <ul>
+        <li>The Common Travel Area can blur residency definitions. Some lenders ask careful questions about where you actually live and pay tax.</li>
+        <li>Some lenders want to see formal Irish tax residency status before treating the case as a non-UK resident expat.</li>
+      </ul>
+    </div>
+  </section>
+
+  <PullQuote>
+    Ireland is the friendliest country in the expat lender pool. The
+    premium versus a UK-resident case is small.
+  </PullQuote>
+
+  <section class="hub-section">
+    <div class="hub-section-inner">
+      <h2 id="eur-income">How euro income is treated</h2>
+      <p>
+        Euro is hard currency. The standard 20 percent haircut applies at
+        most lenders. A handful of specialist lenders apply no haircut.
+      </p>
+      <p>
+        Ireland has very high marginal tax rates (up to 52 percent
+        including USC and PRSI). Some lenders look at gross income, others
+        at net. For high earners on Irish PAYE, the difference can swing
+        borrowing power significantly. Try the
+        <a href="/tools/expat-mortgage-calculator">expat mortgage calculator</a>
+        to see what each scenario means for your income.
+      </p>
+    </div>
+  </section>
+
+  <section class="hub-section">
+    <div class="hub-section-inner">
+      <h2 id="deposit-rates">Deposit and rates</h2>
+      <p>
+        Deposits for British expats in Ireland typically sit at 20-30
+        percent. Ireland often accesses lower deposit floors than other
+        expat markets because of the close market relationship. Some
+        lenders go to 80 percent LTV for Irish-resident British applicants
+        on standard PAYE income.
+      </p>
+      <p>
+        <a href="/expat-mortgages/rates">Expat rates</a> from Ireland are
+        typically 0.2 to 0.5 percent above the equivalent UK-resident
+        product, the narrowest premium of any expat market.
+      </p>
+    </div>
+  </section>
+
+  <section class="hub-section">
+    <div class="hub-section-inner">
+      <h2 id="dublin-tech">The Dublin tech employer angle</h2>
+      <p>
+        A large share of British expats in Ireland work in the Dublin tech
+        sector. UK lenders are familiar with the major employers (Google,
+        Meta, Microsoft, LinkedIn, Stripe, Intercom, and others) and treat
+        their income similarly to UK tech employer income.
+      </p>
+      <p>
+        Stock-based compensation (RSUs, ESPPs) is common in Dublin tech
+        roles. Some lenders include it in affordability with a discount;
+        others exclude it entirely. Lender selection matters where stock
+        comp is a meaningful portion of total compensation.
+      </p>
+    </div>
+  </section>
+
+  <section class="hub-section">
+    <div class="hub-section-inner">
+      <h2 id="situations">Common situations from Ireland</h2>
+      <p>
+        <strong>Dublin tech employee buying first UK property.</strong>
+        Common case. Strong employer, stable PAYE income, deposit
+        accumulated. Deposits 20-25 percent, competitive rates.
+      </p>
+      <p>
+        <strong>Cross-border worker (Northern Ireland and Republic).</strong>
+        A British national living in NI and working in the Republic, or
+        vice versa. Lender selection critical to handle the residency
+        picture cleanly.
+      </p>
+      <p>
+        <strong>Buy-to-let from Ireland.</strong> Common for professionals
+        on strong euro PAYE income.
+        <a href="/expat-mortgages/buy-to-let">ICR thresholds</a> standard.
+      </p>
+      <p>
+        <strong>Returning to the UK from Ireland.</strong> Often the
+        simplest expat return because of the Common Travel Area and the
+        market closeness. Apply 2-3 months before the move.
+      </p>
+      <p>
+        <strong>Joint mortgage with UK partner.</strong> A British expat
+        in Ireland buying jointly with a UK-resident partner. Treated as a
+        joint expat-resident case with specific lender appetite.
+      </p>
+    </div>
+  </section>
+
+  <MidPageCta />
+
+  <section class="hub-section">
+    <div class="hub-section-inner">
+      <h2 id="faqs">Common questions</h2>
+      <div class="faq">
+        {faqs.map((f) => (
+          <>
+            <h3>{f.q}</h3>
+            <p>{f.a}</p>
+          </>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <script
+    type="application/ld+json"
+    is:inline
+    set:html={JSON.stringify(faqSchema)}
+  />
+</HubLayout>

@@ -1,0 +1,288 @@
+---
+import HubLayout from '../../../layouts/HubLayout.astro';
+import PullQuote from '../../../components/PullQuote.astro';
+import MidPageCta from '../../../components/MidPageCta.astro';
+import { breadcrumbSchema, articleSchema, serviceSchema } from '../../../lib/schema';
+import RiskWarning from '../../../components/RiskWarning.astro';
+import TerritorialScope from '../../../components/TerritorialScope.astro';
+
+const title = 'UK Mortgages for British Expats in Spain';
+const description =
+  'UK mortgages for British expats in Spain. How lenders treat euro income, deposits, rates, and the difference between salary expats and self-employed expats.';
+const h1 = 'UK Mortgages for British Expats in Spain';
+const subheadline =
+  "A clear guide to UK mortgages when you live and work in Spain. What you can borrow, how lenders treat euro income, what deposit you'll need, and how we find the right lender for your situation.";
+
+const relatedPages = [
+  {
+    eyebrow: 'Hub',
+    title: 'UK Mortgages for Expats',
+    description:
+      'British nationals living abroad. Country-by-country lender appetite, currency haircuts, and timelines.',
+    href: '/expat-mortgages',
+  },
+  {
+    eyebrow: 'Hub',
+    title: 'UK Mortgages with Foreign Income',
+    description:
+      'How lenders treat non-sterling income. The 20% standard haircut and direct access to no-haircut lenders.',
+    href: '/uk-mortgage-foreign-income',
+  },
+  {
+    eyebrow: 'Country',
+    title: 'UK Mortgages for British Expats in France',
+    description:
+      'France-based expats. Euro income, French tax position, and lender appetite for Paris and regional applicants.',
+    href: '/expat-mortgages/countries/france',
+  },
+  {
+    eyebrow: 'Country',
+    title: 'UK Mortgages for British Expats in Portugal',
+    description:
+      'Portugal-based expats. NHR tax regime, euro income treatment, and lender appetite for Lisbon and Algarve.',
+    href: '/expat-mortgages/countries/portugal',
+  },
+  {
+    eyebrow: 'Country',
+    title: 'UK Mortgages for British Expats in Ireland',
+    description:
+      'Ireland-based expats. Euro income, Common Travel Area treatment, and the close UK-Ireland market relationship.',
+    href: '/expat-mortgages/countries/ireland',
+  },
+];
+
+const faqs = [
+  {
+    q: 'Can I get a UK mortgage if I live in Spain?',
+    a: 'Yes. Around 12-15 lenders in the expat space lend to British nationals in Spain.',
+  },
+  {
+    q: 'How is my euro income treated?',
+    a: 'Euro is hard currency. The standard 20 percent haircut applies at most lenders. A handful of specialist lenders apply no haircut.',
+  },
+  {
+    q: 'Does the Beckham Law affect my application?',
+    a: 'It can. Some lenders look at gross income, others at net-of-Spanish-tax. We will tell you upfront which route fits your profile.',
+  },
+  {
+    q: 'Am I treated differently as autonomo?',
+    a: 'Yes. Self-employed cases need two to three years of tax filings and accountant confirmation. The lender pool is slightly tighter but workable.',
+  },
+  {
+    q: 'What deposit will I need?',
+    a: 'Typically 25-30 percent. Self-employed or complex tax structures may need 30-35 percent.',
+  },
+  {
+    q: 'Do I need to be in the UK to apply?',
+    a: 'No. The formal advice meeting takes place in the UK.',
+  },
+  {
+    q: 'How long does the application take?',
+    a: 'Typically 10-14 weeks. Document certification through Spanish notaries can add time.',
+  },
+  {
+    q: 'Can I apply with rental income from a Spanish property?',
+    a: 'Sometimes. A few lenders consider Spanish rental income with proper documentation. Most do not.',
+  },
+];
+
+const faqSchema = {
+  '@context': 'https://schema.org',
+  '@type': 'FAQPage',
+  mainEntity: faqs.map((f) => ({
+    '@type': 'Question',
+    name: f.q,
+    acceptedAnswer: { '@type': 'Answer', text: f.a },
+  })),
+};
+const schemas = [
+  breadcrumbSchema([
+    { name: 'Home', path: '/' },
+    { name: 'UK Mortgages for Expats', path: '/expat-mortgages' },
+    { name: 'Countries' },
+    { name: 'Spain' },
+  ]),
+  articleSchema({ headline: h1, description }),
+  serviceSchema({
+    serviceType: 'UK Mortgage Brokerage for British Expats in Spain',
+    name: h1,
+    description,
+  }),
+];
+---
+
+<HubLayout
+  title={title}
+  description={description}
+  h1={h1}
+  subheadline={subheadline}
+  eyebrow="COUNTRY · EUROPE"
+  schemas={schemas}
+  relatedPages={relatedPages}
+>
+  <RiskWarning type="residential" />
+  <TerritorialScope />
+  <section class="hub-section">
+    <div class="hub-section-inner">
+      <h2 id="who-this-is-for">Who this page is for</h2>
+      <p>
+        If you are a British national living and working in Spain and you
+        want a UK mortgage, this page is for you. Common situations we see:
+      </p>
+      <ul>
+        <li>A British national working for a Spanish or international employer in Madrid or Barcelona, often in finance, tech, professional services, or hospitality management.</li>
+        <li>A British national working remotely from Spain for a UK or international employer, common in tech, design, and consulting.</li>
+        <li>A British national who is self-employed in Spain (autonomo), often running a small business, consultancy, or property-related venture.</li>
+        <li>A British national who retired or semi-retired to Spain and is now looking at UK property for family reasons or as an investment.</li>
+        <li>A British national on the Beckham Law special tax regime, which materially affects how income is reported.</li>
+      </ul>
+      <p>
+        Spain is one of the largest British expat populations in Europe.
+        UK lenders are familiar with Spain-resident applicants, but the
+        case structure varies significantly by employment type and tax
+        position.
+      </p>
+    </div>
+  </section>
+
+  <MidPageCta variant="hero" />
+
+  <section class="hub-section">
+    <div class="hub-section-inner">
+      <h2 id="lender-view">What UK lenders think of Spain</h2>
+      <p>
+        Spain sits firmly inside the lender comfort zone. It is an EU
+        country with mature banking, transparent tax reporting, and a
+        long-established British expat community. Around 12-15 expat
+        lenders consider Spain-resident applicants routinely.
+      </p>
+      <p>Where Spain cases vary:</p>
+      <ul>
+        <li>Salaried PAYE employees of multinationals: cleanest profile, treated similarly to UK-resident employees.</li>
+        <li>Autonomo (self-employed): more documentation, two to three years of accounts usually required.</li>
+        <li>Beckham Law applicants: some lenders need additional explanation of how the income is taxed.</li>
+        <li>Retirees: pension and savings-based affordability rather than salary, a different lender pool.</li>
+      </ul>
+    </div>
+  </section>
+
+  <section class="hub-section">
+    <div class="hub-section-inner">
+      <h2 id="eur-income">How euro income is treated</h2>
+      <p>
+        The euro is treated as hard currency by all expat lenders. The
+        standard 20 percent currency haircut applies at most lenders. A
+        handful of specialist lenders apply no haircut to euro income.
+      </p>
+      <p>
+        Spain has a quirk that matters for lender selection: the Beckham
+        Law (Régimen Especial para Trabajadores Desplazados) caps tax on
+        Spanish-source employment income at 24 percent for qualifying
+        inbound workers for up to six years. Some lenders look only at
+        gross income; others want net-of-Spanish-tax income. The structure
+        can affect maximum borrowing materially. Try the
+        <a href="/tools/expat-mortgage-calculator">expat mortgage calculator</a>
+        to model the difference for your income.
+      </p>
+    </div>
+  </section>
+
+  <section class="hub-section">
+    <div class="hub-section-inner">
+      <h2 id="deposit-rates">Deposit and rates</h2>
+      <p>
+        Deposits for British expats in Spain typically sit at 25-30
+        percent. Stronger PAYE applicants access the lower end.
+        Self-employed and complex tax structures may need 30-35 percent.
+      </p>
+      <p>
+        <a href="/expat-mortgages/rates">Expat rates</a> from Spain are
+        typically 0.3 to 0.6 percent above the equivalent UK-resident
+        product. Spain is a competitive country in the expat lender pool
+        because of its size and stability.
+      </p>
+    </div>
+  </section>
+
+  <section class="hub-section">
+    <div class="hub-section-inner">
+      <h2 id="autonomo">The autonomo angle</h2>
+      <p>
+        A significant share of British expats in Spain are self-employed
+        under the autonomo system. UK lenders need:
+      </p>
+      <ul>
+        <li>Two to three years of Spanish tax filings (Declaración de la Renta).</li>
+        <li>Accountant or gestor confirmation of net income.</li>
+        <li>Bank statements showing income flow.</li>
+        <li>Limited company structures (SL) where applicable, with company accounts.</li>
+      </ul>
+      <p>
+        Some lenders are more comfortable with autonomo income than
+        others. The fewer years of trading you have, the tighter the
+        lender pool. Three years of consistent autonomo income unlocks
+        most of the market.
+      </p>
+    </div>
+  </section>
+
+  <PullQuote>
+    Spain is a well-served country in the expat lender pool. The case
+    profile depends heavily on whether you are PAYE or autonomo.
+  </PullQuote>
+
+  <section class="hub-section">
+    <div class="hub-section-inner">
+      <h2 id="situations">Common situations from Spain</h2>
+      <p>
+        <strong>Salaried expat in Madrid or Barcelona buying first UK
+        property.</strong> Cleanest case profile. Stable employer,
+        predictable income, deposit accumulated. Deposits 25-30 percent.
+      </p>
+      <p>
+        <strong>Autonomo buying UK property as investment.</strong> Two
+        to three years of accounts needed. Lender selection is the
+        difference between an offer and a refusal.
+      </p>
+      <p>
+        <strong>Beckham Law applicant.</strong> The special tax regime
+        affects how income is presented. Some lenders are well-versed;
+        others need careful explanation. We handle this regularly.
+      </p>
+      <p>
+        <strong>Retiree returning UK property to portfolio.</strong>
+        Pension income, savings-based affordability, often a different
+        lender pool. Strong deposit makes this a clean case.
+      </p>
+      <p>
+        <strong>Returning to the UK from Spain.</strong> Apply 3-4 months
+        before the move. Income source switches from EUR to GBP at the
+        point of return. See our
+        <a href="/expat-mortgages/returning-to-uk">returning to the UK</a>
+        guide for more.
+      </p>
+    </div>
+  </section>
+
+  <MidPageCta />
+
+  <section class="hub-section">
+    <div class="hub-section-inner">
+      <h2 id="faqs">Common questions</h2>
+      <div class="faq">
+        {faqs.map((f) => (
+          <>
+            <h3>{f.q}</h3>
+            <p>{f.a}</p>
+          </>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <script
+    type="application/ld+json"
+    is:inline
+    set:html={JSON.stringify(faqSchema)}
+  />
+</HubLayout>
