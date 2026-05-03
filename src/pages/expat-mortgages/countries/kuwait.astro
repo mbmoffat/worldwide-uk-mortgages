@@ -1,0 +1,299 @@
+---
+import HubLayout from '../../../layouts/HubLayout.astro';
+import PullQuote from '../../../components/PullQuote.astro';
+import MidPageCta from '../../../components/MidPageCta.astro';
+import { breadcrumbSchema, articleSchema, serviceSchema } from '../../../lib/schema';
+import RiskWarning from '../../../components/RiskWarning.astro';
+import TerritorialScope from '../../../components/TerritorialScope.astro';
+
+const title = 'UK Mortgages for British Expats in Kuwait';
+const description =
+  'UK mortgages for British expats living in Kuwait. Tax-free KWD income, deposits, rates, and the returning-expat path back to the UK.';
+const h1 = 'UK Mortgages for British Expats in Kuwait';
+const subheadline =
+  "A clear guide to UK mortgages when you live and work in Kuwait. What you can borrow, how lenders treat dinar income, what deposit you'll need, and how we find the right lender for your situation.";
+
+const relatedPages = [
+  {
+    eyebrow: 'Hub',
+    title: 'UK Mortgages for Expats',
+    description:
+      'British nationals living abroad. Country-by-country lender appetite, currency haircuts, and timelines.',
+    href: '/expat-mortgages',
+  },
+  {
+    eyebrow: 'Hub',
+    title: 'UK Mortgages with Foreign Income',
+    description:
+      'How lenders treat non-sterling income. The 20% standard haircut and direct access to no-haircut lenders.',
+    href: '/uk-mortgage-foreign-income',
+  },
+  {
+    eyebrow: 'Country',
+    title: 'UK Mortgages for British Expats in Saudi Arabia',
+    description:
+      'Saudi-based expats. SAR income, AML scrutiny, and lender appetite for KSA cases.',
+    href: '/expat-mortgages/countries/saudi-arabia',
+  },
+  {
+    eyebrow: 'Country',
+    title: 'UK Mortgages for British Expats in Dubai',
+    description:
+      'Dubai-based expats. AED income treatment, no-haircut lender access, and lender appetite for the UAE.',
+    href: '/expat-mortgages/countries/dubai',
+  },
+  {
+    eyebrow: 'Country',
+    title: 'UK Mortgages for British Expats in Qatar',
+    description:
+      'Qatar-based expats. QAR income, tax-free pay handling, and the lender pool for Qatar.',
+    href: '/expat-mortgages/countries/qatar',
+  },
+];
+
+const faqs = [
+  {
+    q: 'Can I get a UK mortgage if I live in Kuwait?',
+    a: 'Yes. Around 10-12 lenders in the expat space lend to British nationals in Kuwait.',
+  },
+  {
+    q: 'How is my KWD income treated?',
+    a: 'KWD is treated as hard currency at most lenders. The standard 20 percent haircut applies. A handful of specialist lenders apply no haircut.',
+  },
+  {
+    q: 'Should I apply before or after returning to the UK?',
+    a: 'It depends on your timeline and your willingness to wait. We will walk you through both routes and recommend.',
+  },
+  {
+    q: 'Will my end-of-service indemnity count as income?',
+    a: 'No, it is treated as a one-off payment. It can be used toward deposit.',
+  },
+  {
+    q: 'Do I need to be in the UK to apply?',
+    a: 'No. The formal advice meeting takes place in the UK.',
+  },
+  {
+    q: 'How long does the application take?',
+    a: 'Typically 10-14 weeks. Documentation certification often takes longer for Kuwait than for some other Gulf countries.',
+  },
+  {
+    q: 'What deposit will I need?',
+    a: 'Typically 25-35 percent. Stronger oil and gas employer profile usually accesses 25 percent.',
+  },
+  {
+    q: 'Will the lender want to see my visa status?',
+    a: 'Yes. Most lenders want to see your work permit and Kuwaiti residency.',
+  },
+];
+
+const faqSchema = {
+  '@context': 'https://schema.org',
+  '@type': 'FAQPage',
+  mainEntity: faqs.map((f) => ({
+    '@type': 'Question',
+    name: f.q,
+    acceptedAnswer: { '@type': 'Answer', text: f.a },
+  })),
+};
+const schemas = [
+  breadcrumbSchema([
+    { name: 'Home', path: '/' },
+    { name: 'UK Mortgages for Expats', path: '/expat-mortgages' },
+    { name: 'Countries' },
+    { name: 'Kuwait' },
+  ]),
+  articleSchema({ headline: h1, description }),
+  serviceSchema({
+    serviceType: 'UK Mortgage Brokerage for British Expats in Kuwait',
+    name: h1,
+    description,
+  }),
+];
+---
+
+<HubLayout
+  title={title}
+  description={description}
+  h1={h1}
+  subheadline={subheadline}
+  eyebrow="COUNTRY · GULF"
+  schemas={schemas}
+  relatedPages={relatedPages}
+>
+  <RiskWarning type="residential" />
+  <TerritorialScope />
+  <section class="hub-section">
+    <div class="hub-section-inner">
+      <h2 id="who-this-is-for">Who this page is for</h2>
+      <p>
+        If you are a British national living and working in Kuwait and you
+        want a UK mortgage, this page is for you. Common situations we see:
+      </p>
+      <ul>
+        <li>A British national working in oil and gas (KOC, Kuwait National Petroleum Company, supermajors, oilfield services).</li>
+        <li>A British national working for a Kuwaiti government entity, ministry, or state-affiliated organisation.</li>
+        <li>A British national in defence and security roles linked to KAFCO, defence contractors, or the embassy.</li>
+        <li>A British national working for a Kuwaiti private bank or in financial services in Kuwait City.</li>
+        <li>A British national on a 2-4 year contract, often on a strong package and saving aggressively.</li>
+        <li>A British national returning to the UK after a Kuwait stint, looking at UK property timed around the move.</li>
+      </ul>
+      <p>
+        The British community in Kuwait is smaller than other Gulf states
+        and skews work-focused. Most expats are on defined contracts with a
+        return-home arc.
+      </p>
+    </div>
+  </section>
+
+  <MidPageCta variant="hero" />
+
+  <section class="hub-section">
+    <div class="hub-section-inner">
+      <h2 id="lender-view">What UK lenders think of Kuwait</h2>
+      <p>
+        Kuwait is a tax-free, USD-pegged-currency, mature-banking
+        jurisdiction. Lenders are comfortable with it from a financial
+        services perspective. Around 10-12 active expat lenders consider
+        Kuwait-resident British nationals.
+      </p>
+      <p>Where Kuwait can need careful handling:</p>
+      <ul>
+        <li>The Kuwaiti visa system is restrictive. Some lenders want to see employment continuity and a clear residency status before lending.</li>
+        <li>Some employers (government and quasi-government entities) need additional verification given their less-internationally-known profile.</li>
+        <li>For applicants with shorter tenures (under 12 months), a handful of lenders apply tighter criteria.</li>
+      </ul>
+    </div>
+  </section>
+
+  <PullQuote>
+    Most Kuwait cases are about timing the application around the return
+    home.
+  </PullQuote>
+
+  <section class="hub-section">
+    <div class="hub-section-inner">
+      <h2 id="kwd-income">How Kuwaiti dinar income is treated</h2>
+      <p>
+        The Kuwaiti dinar (KWD) is the highest-value currency in the world
+        (1 KWD ≈ 2.50 GBP). It is not pegged to USD but is managed against
+        a basket of currencies, which adds a small amount of volatility
+        versus other Gulf currencies.
+      </p>
+      <p>
+        The standard 20 percent currency haircut applies at most lenders.
+        Some specialist lenders apply no haircut. Given KWD salaries are
+        typically high in GBP terms, removing the haircut can make a
+        meaningful difference to maximum borrowing.
+      </p>
+      <p>
+        Annual bonus, end-of-service indemnity, and housing allowance are
+        usually excluded from affordability. End-of-service indemnity,
+        which can be substantial after 5+ years in Kuwait, is often used to
+        bolster deposit on the eventual UK purchase. Try the
+        <a href="/tools/expat-mortgage-calculator">expat mortgage calculator</a>
+        to see what each scenario means for your income.
+      </p>
+    </div>
+  </section>
+
+  <section class="hub-section">
+    <div class="hub-section-inner">
+      <h2 id="deposit-rates">Deposit and rates</h2>
+      <p>
+        Deposits for British expats in Kuwait typically sit at 25-35
+        percent. Strong oil and gas employer profile + stable income
+        usually accesses 25 percent. Less common employer profiles or
+        shorter tenures need 30-35 percent.
+      </p>
+      <p>
+        <a href="/expat-mortgages/rates">Expat rates</a> from Kuwait are
+        typically 0.3 to 0.7 percent above the equivalent UK-resident
+        product.
+      </p>
+    </div>
+  </section>
+
+  <section class="hub-section">
+    <div class="hub-section-inner">
+      <h2 id="returning">The returning-to-UK path</h2>
+      <p>
+        More than half of the cases we see from Kuwait are about timing the
+        return. Common pattern: a British expat has been in Kuwait 3-7
+        years on strong tax-free pay, has saved a substantial deposit, and
+        is now planning to return to the UK. The UK property purchase often
+        coincides with the move.
+      </p>
+      <p>Two routes:</p>
+      <p>
+        <strong>Route A:</strong> Apply as a non-resident expat shortly
+        before the move, complete close to or just after arrival in the UK.
+        Faster timeline, slightly tighter lender pool, modest rate
+        premium.
+      </p>
+      <p>
+        <strong>Route B:</strong> Move first, settle into a UK address and
+        a UK income for 3-4 months, then apply as a UK resident. Wider
+        lender pool, often better rates, but slower.
+      </p>
+      <p>
+        We help clients pick the right route for their timing and income
+        picture. See our
+        <a href="/expat-mortgages/returning-to-uk">returning to the UK</a>
+        guide for more.
+      </p>
+    </div>
+  </section>
+
+  <section class="hub-section">
+    <div class="hub-section-inner">
+      <h2 id="situations">Common situations from Kuwait</h2>
+      <p>
+        <strong>Long-stay oil and gas expat buying UK property
+        pre-return.</strong> The classic Kuwait case. Strong employer,
+        accumulated deposit, moving home in 6-12 months. Apply early, close
+        around the move.
+      </p>
+      <p>
+        <strong>Buy-to-let portfolio building from Kuwait.</strong> Some
+        expats build 2-3 UK BTL properties during their Kuwait years using
+        accumulated savings. Each purchase is a separate
+        <a href="/expat-mortgages/buy-to-let">expat BTL</a> application.
+      </p>
+      <p>
+        <strong>First-time buyer expat.</strong> A British national who
+        left for Kuwait before owning UK property and is now buying their
+        first UK home. Treated as a standard
+        <a href="/expat-mortgages/first-time-buyer">first-time buyer</a> in
+        most respects, with the expat-specific overlay.
+      </p>
+      <p>
+        <strong>Defence and government contract expat.</strong> Some
+        lenders are very comfortable with these profiles, others less so.
+        Lender selection matters more here than for a standard
+        oil-and-gas profile.
+      </p>
+    </div>
+  </section>
+
+  <MidPageCta />
+
+  <section class="hub-section">
+    <div class="hub-section-inner">
+      <h2 id="faqs">Common questions</h2>
+      <div class="faq">
+        {faqs.map((f) => (
+          <>
+            <h3>{f.q}</h3>
+            <p>{f.a}</p>
+          </>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <script
+    type="application/ld+json"
+    is:inline
+    set:html={JSON.stringify(faqSchema)}
+  />
+</HubLayout>

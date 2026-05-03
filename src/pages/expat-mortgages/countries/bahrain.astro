@@ -1,0 +1,296 @@
+---
+import HubLayout from '../../../layouts/HubLayout.astro';
+import PullQuote from '../../../components/PullQuote.astro';
+import MidPageCta from '../../../components/MidPageCta.astro';
+import { breadcrumbSchema, articleSchema, serviceSchema } from '../../../lib/schema';
+import RiskWarning from '../../../components/RiskWarning.astro';
+import TerritorialScope from '../../../components/TerritorialScope.astro';
+
+const title = 'UK Mortgages for British Expats in Bahrain';
+const description =
+  'UK mortgages for British expats living in Bahrain. How lenders treat tax-free BHD income, deposits, rates, and the Saudi commuter angle.';
+const h1 = 'UK Mortgages for British Expats in Bahrain';
+const subheadline =
+  "A clear guide to UK mortgages when you live and work in Bahrain. What you can borrow, how lenders treat dirham income, what deposit you'll need, and how we find the right lender for your situation.";
+
+const relatedPages = [
+  {
+    eyebrow: 'Hub',
+    title: 'UK Mortgages for Expats',
+    description:
+      'British nationals living abroad. Country-by-country lender appetite, currency haircuts, and timelines.',
+    href: '/expat-mortgages',
+  },
+  {
+    eyebrow: 'Hub',
+    title: 'UK Mortgages with Foreign Income',
+    description:
+      'How lenders treat non-sterling income. The 20% standard haircut and direct access to no-haircut lenders.',
+    href: '/uk-mortgage-foreign-income',
+  },
+  {
+    eyebrow: 'Country',
+    title: 'UK Mortgages for British Expats in Dubai',
+    description:
+      'Dubai-based expats. AED income treatment, no-haircut lender access, and lender appetite for the UAE.',
+    href: '/expat-mortgages/countries/dubai',
+  },
+  {
+    eyebrow: 'Country',
+    title: 'UK Mortgages for British Expats in Saudi Arabia',
+    description:
+      'Saudi-based expats. SAR income, AML scrutiny, and lender appetite for KSA cases.',
+    href: '/expat-mortgages/countries/saudi-arabia',
+  },
+  {
+    eyebrow: 'Country',
+    title: 'UK Mortgages for British Expats in Qatar',
+    description:
+      'Qatar-based expats. QAR income, tax-free pay handling, and the lender pool for Qatar.',
+    href: '/expat-mortgages/countries/qatar',
+  },
+];
+
+const faqs = [
+  {
+    q: 'Can I get a UK mortgage if I live in Bahrain?',
+    a: 'Yes. Bahrain is a well-served country in the expat lender pool. Around 12-15 active lenders consider applications from British nationals resident in Bahrain.',
+  },
+  {
+    q: 'How is my BHD income treated?',
+    a: 'Bahraini dinar is treated as hard currency. The standard 20 percent haircut applies at most lenders. A handful of specialist lenders apply no haircut.',
+  },
+  {
+    q: 'What deposit do I need?',
+    a: 'Typically 25-35 percent. Stronger applicants in straightforward situations can sometimes access 25 percent. Larger deposits unlock better rates.',
+  },
+  {
+    q: 'Can I apply if I work in Saudi but live in Bahrain?',
+    a: 'Yes. Some lenders are completely fine with this profile. Others want to review the residency and tax picture in detail. We will tell you upfront which route is cleanest for your case.',
+  },
+  {
+    q: 'Do I need to be in the UK to apply?',
+    a: 'No. Initial enquiry, document gathering, and lender placement all happen remotely. The formal advice meeting takes place when you are physically present in the UK.',
+  },
+  {
+    q: 'How long does the application take?',
+    a: 'Typically 10-14 weeks from first conversation to completion. Documentation gathering for expat applications usually takes the longest.',
+  },
+  {
+    q: 'Can I buy UK property as a buy-to-let from Bahrain?',
+    a: 'Yes. Expat BTL is a well-established market. Around 10-12 lenders compete for it.',
+  },
+  {
+    q: 'Will the bank want to see my Saudi commute paperwork?',
+    a: 'If you are paid by a Saudi entity, yes. Most lenders want to see the employment contract, Saudi residency or work permit, and evidence of the regular Bahrain-Saudi commute pattern.',
+  },
+];
+
+const faqSchema = {
+  '@context': 'https://schema.org',
+  '@type': 'FAQPage',
+  mainEntity: faqs.map((f) => ({
+    '@type': 'Question',
+    name: f.q,
+    acceptedAnswer: { '@type': 'Answer', text: f.a },
+  })),
+};
+const schemas = [
+  breadcrumbSchema([
+    { name: 'Home', path: '/' },
+    { name: 'UK Mortgages for Expats', path: '/expat-mortgages' },
+    { name: 'Countries' },
+    { name: 'Bahrain' },
+  ]),
+  articleSchema({ headline: h1, description }),
+  serviceSchema({
+    serviceType: 'UK Mortgage Brokerage for British Expats in Bahrain',
+    name: h1,
+    description,
+  }),
+];
+---
+
+<HubLayout
+  title={title}
+  description={description}
+  h1={h1}
+  subheadline={subheadline}
+  eyebrow="COUNTRY · GULF"
+  schemas={schemas}
+  relatedPages={relatedPages}
+>
+  <RiskWarning type="residential" />
+  <TerritorialScope />
+  <section class="hub-section">
+    <div class="hub-section-inner">
+      <h2 id="who-this-is-for">Who this page is for</h2>
+      <p>
+        If you are a British national living and working in Bahrain and you
+        want a UK mortgage, this page is for you. Common situations we see:
+      </p>
+      <ul>
+        <li>A British national working in financial services in Manama (Bahrain has been the Gulf's banking hub for decades).</li>
+        <li>A British national working in oil and gas, or for a Bahraini state energy company.</li>
+        <li>A British national living in Bahrain and commuting daily across the King Fahd Causeway to a job in Eastern Province, Saudi Arabia.</li>
+        <li>A British national on a 2-3 year contract with a multinational, often in banking, professional services, or aviation.</li>
+        <li>A British national who has lived in Bahrain longer-term and is looking at UK property as a buy-to-let investment or a future home.</li>
+      </ul>
+      <p>
+        Bahrain is one of the smaller Gulf expat markets but has a stable,
+        long-established British community. UK lenders treat Bahrain similarly
+        to UAE in most respects.
+      </p>
+    </div>
+  </section>
+
+  <MidPageCta variant="hero" />
+
+  <section class="hub-section">
+    <div class="hub-section-inner">
+      <h2 id="lender-view">What UK lenders think of Bahrain</h2>
+      <p>
+        Bahrain sits well inside the comfort zone for most expat lenders. It
+        is a low-risk country from a financial services perspective:
+        tax-free, USD-pegged currency, mature banking system, no exchange
+        controls on outbound transfers.
+      </p>
+      <p>
+        Around 12-15 lenders in the expat space lend to British nationals
+        resident in Bahrain. The lender pool is similar to the UAE pool with
+        one or two minor exceptions. Most cases that fit a Dubai or Abu
+        Dhabi profile will fit Bahrain too.
+      </p>
+      <p>Where Bahrain is occasionally trickier:</p>
+      <ul>
+        <li>Some lenders want minimum employment tenure of 6-12 months in country before lending.</li>
+        <li>A handful of lenders treat Saudi-employer income (where you live in Bahrain but work in Saudi) differently from a Bahraini-employer case. Worth flagging upfront.</li>
+      </ul>
+    </div>
+  </section>
+
+  <PullQuote>
+    Bahrain sits well inside the comfort zone for most expat lenders. It is
+    one of the cleanest Gulf cases to place.
+  </PullQuote>
+
+  <section class="hub-section">
+    <div class="hub-section-inner">
+      <h2 id="bhd-income">How Bahraini dinar income is treated</h2>
+      <p>
+        The Bahraini dinar (BHD) is pegged to the US dollar at a fixed rate.
+        Most lenders treat BHD income as "hard currency" with the same
+        haircut treatment as USD or AED.
+      </p>
+      <p>
+        The standard 20 percent currency haircut applies at most lenders. A
+        handful of specialist lenders take BHD income at face value with no
+        haircut. For a typical British expat in Bahrain on a 35,000-50,000
+        BHD package (roughly 75,000-110,000 GBP), the no-haircut route can
+        lift maximum borrowing by 20-25 percent versus a high-street
+        haircut lender.
+      </p>
+      <p>
+        End-of-service gratuity and housing allowance are treated as one-off
+        or non-permanent income by most lenders and usually excluded from
+        the affordability calculation. They can still be used toward
+        deposit. Try the
+        <a href="/tools/expat-mortgage-calculator">expat mortgage calculator</a>
+        to see what each scenario means for your income.
+      </p>
+    </div>
+  </section>
+
+  <section class="hub-section">
+    <div class="hub-section-inner">
+      <h2 id="deposit-rates">Deposit and rates</h2>
+      <p>
+        Deposits for British expats in Bahrain typically sit at 25-35
+        percent of property value. Stronger applicants in standard
+        situations can sometimes access 25 percent. More complex profiles
+        (limited UK credit history, recent change of employer, unusual
+        income structure) may need 30-35 percent.
+      </p>
+      <p>
+        <a href="/expat-mortgages/rates">Expat rates</a> from Bahrain are
+        typically 0.3 to 0.6 percent above the equivalent UK-resident
+        product at the same loan-to-value. The premium narrows with larger
+        deposits and stronger income.
+      </p>
+    </div>
+  </section>
+
+  <section class="hub-section">
+    <div class="hub-section-inner">
+      <h2 id="saudi-commuter">The Saudi commuter angle</h2>
+      <p>
+        A meaningful share of British expats in Bahrain commute to Saudi
+        Arabia for work via the King Fahd Causeway. From a UK lender's
+        perspective:
+      </p>
+      <ul>
+        <li>If you are paid in BHD by a Bahraini entity, you are treated as a standard Bahrain-based applicant.</li>
+        <li>If you are paid in SAR by a Saudi entity but living in Bahrain, the lender will treat you as a Saudi-employed expat with Bahraini residency. Some lenders accept this cleanly. Others want to see the residency picture and tax position carefully.</li>
+      </ul>
+      <p>
+        This is exactly the kind of detail that determines which lender to
+        approach. We work with this profile regularly.
+      </p>
+    </div>
+  </section>
+
+  <section class="hub-section">
+    <div class="hub-section-inner">
+      <h2 id="situations">Common situations from Bahrain</h2>
+      <p>
+        <strong>First UK property as an expat.</strong> Most British expats
+        buying their first UK property from Bahrain go for a residential
+        purchase in commuter belt towns, with a view to either returning
+        eventually or letting the property out under consent-to-let.
+        Deposits 25-30 percent, rates competitive.
+      </p>
+      <p>
+        <strong>Buy-to-let from Bahrain.</strong> Some expats build a small
+        UK rental portfolio over their Gulf years. The
+        <a href="/expat-mortgages/buy-to-let">expat BTL market</a> is
+        well-served. ICR thresholds are slightly tighter than for UK
+        residents, around 145 percent at stress rate.
+      </p>
+      <p>
+        <strong>Returning to the UK from Bahrain.</strong> Common path: sell
+        or rent out the Bahrain home, repatriate savings, complete on a UK
+        home around the relocation date. Timing matters - apply 3-4 months
+        before the planned return for cleanest case handling.
+      </p>
+      <p>
+        <strong>Remortgaging from Bahrain.</strong> If you bought UK
+        property as a UK resident and have since relocated to Bahrain, your
+        fix end date triggers an
+        <a href="/expat-mortgages/remortgage">expat remortgage</a>. We
+        handle these regularly.
+      </p>
+    </div>
+  </section>
+
+  <MidPageCta />
+
+  <section class="hub-section">
+    <div class="hub-section-inner">
+      <h2 id="faqs">Common questions</h2>
+      <div class="faq">
+        {faqs.map((f) => (
+          <>
+            <h3>{f.q}</h3>
+            <p>{f.a}</p>
+          </>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <script
+    type="application/ld+json"
+    is:inline
+    set:html={JSON.stringify(faqSchema)}
+  />
+</HubLayout>

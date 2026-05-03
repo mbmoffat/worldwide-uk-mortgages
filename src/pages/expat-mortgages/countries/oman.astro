@@ -1,0 +1,283 @@
+---
+import HubLayout from '../../../layouts/HubLayout.astro';
+import PullQuote from '../../../components/PullQuote.astro';
+import MidPageCta from '../../../components/MidPageCta.astro';
+import { breadcrumbSchema, articleSchema, serviceSchema } from '../../../lib/schema';
+import RiskWarning from '../../../components/RiskWarning.astro';
+import TerritorialScope from '../../../components/TerritorialScope.astro';
+
+const title = 'UK Mortgages for British Expats in Oman';
+const description =
+  'UK mortgages for British expats living in Oman. Tax-free OMR income, deposits, rates, and lender appetite for Muscat-based applicants.';
+const h1 = 'UK Mortgages for British Expats in Oman';
+const subheadline =
+  "A clear guide to UK mortgages when you live and work in Oman. What you can borrow, how lenders treat OMR income, what deposit you'll need, and how we find the right lender for your situation.";
+
+const relatedPages = [
+  {
+    eyebrow: 'Hub',
+    title: 'UK Mortgages for Expats',
+    description:
+      'British nationals living abroad. Country-by-country lender appetite, currency haircuts, and timelines.',
+    href: '/expat-mortgages',
+  },
+  {
+    eyebrow: 'Hub',
+    title: 'UK Mortgages with Foreign Income',
+    description:
+      'How lenders treat non-sterling income. The 20% standard haircut and direct access to no-haircut lenders.',
+    href: '/uk-mortgage-foreign-income',
+  },
+  {
+    eyebrow: 'Country',
+    title: 'UK Mortgages for British Expats in Dubai',
+    description:
+      'Dubai-based expats. AED income treatment, no-haircut lender access, and lender appetite for the UAE.',
+    href: '/expat-mortgages/countries/dubai',
+  },
+  {
+    eyebrow: 'Country',
+    title: 'UK Mortgages for British Expats in Qatar',
+    description:
+      'Qatar-based expats. QAR income, tax-free pay handling, and the lender pool for Qatar.',
+    href: '/expat-mortgages/countries/qatar',
+  },
+];
+
+const faqs = [
+  {
+    q: 'Can I get a UK mortgage if I live in Oman?',
+    a: 'Yes. Around 10-13 lenders in the expat space lend to British nationals in Oman.',
+  },
+  {
+    q: 'How is my OMR income treated?',
+    a: 'OMR is treated as hard currency. The standard 20 percent haircut applies at most lenders. A handful of specialist lenders apply no haircut.',
+  },
+  {
+    q: 'What deposit will I need?',
+    a: 'Typically 25-35 percent. Stronger applicants access 25 percent.',
+  },
+  {
+    q: 'Are oil and gas contracts treated differently?',
+    a: 'Major employers in oil and gas (PDO, supermajors, big oilfield service companies) underwrite very cleanly. Smaller contractors or project-based contracts need slightly more careful lender selection.',
+  },
+  {
+    q: 'Does the housing allowance count toward income?',
+    a: 'Usually not, even where it is tax-free and contractual. A handful of lenders will include some allowances case by case.',
+  },
+  {
+    q: 'Do I need to be in the UK to apply?',
+    a: 'No. Initial work happens remotely. The formal advice meeting is in the UK.',
+  },
+  {
+    q: 'How long does it take?',
+    a: 'Typically 10-14 weeks. Documentation gathering and certification are usually the slowest steps.',
+  },
+  {
+    q: 'Can I borrow more by using a no-haircut lender?',
+    a: 'Often yes. Given OMR salaries can look modest in absolute number, removing the 20 percent haircut can lift maximum borrowing by 20-25 percent.',
+  },
+];
+
+const faqSchema = {
+  '@context': 'https://schema.org',
+  '@type': 'FAQPage',
+  mainEntity: faqs.map((f) => ({
+    '@type': 'Question',
+    name: f.q,
+    acceptedAnswer: { '@type': 'Answer', text: f.a },
+  })),
+};
+const schemas = [
+  breadcrumbSchema([
+    { name: 'Home', path: '/' },
+    { name: 'UK Mortgages for Expats', path: '/expat-mortgages' },
+    { name: 'Countries' },
+    { name: 'Oman' },
+  ]),
+  articleSchema({ headline: h1, description }),
+  serviceSchema({
+    serviceType: 'UK Mortgage Brokerage for British Expats in Oman',
+    name: h1,
+    description,
+  }),
+];
+---
+
+<HubLayout
+  title={title}
+  description={description}
+  h1={h1}
+  subheadline={subheadline}
+  eyebrow="COUNTRY · GULF"
+  schemas={schemas}
+  relatedPages={relatedPages}
+>
+  <RiskWarning type="residential" />
+  <TerritorialScope />
+  <section class="hub-section">
+    <div class="hub-section-inner">
+      <h2 id="who-this-is-for">Who this page is for</h2>
+      <p>
+        If you are a British national living and working in Oman and you
+        want a UK mortgage, this page is for you. Common situations we see:
+      </p>
+      <ul>
+        <li>A British national working in oil and gas (Petroleum Development Oman, Shell, BP, Occidental), often based in Muscat or in the interior fields.</li>
+        <li>A British national working for a Western multinational with an Oman office, in finance, professional services, or aviation.</li>
+        <li>A British national working for an Omani state entity or sultanate-affiliated company.</li>
+        <li>A British national on long-term assignment in Oman, often 5+ years, with family settled.</li>
+        <li>A British national who has worked across the Gulf and is now based in Oman, looking at UK property as an investment or future home.</li>
+      </ul>
+      <p>
+        Oman has a smaller British expat community than the UAE or Qatar,
+        but the expats who are there tend to be longer-tenured and more
+        settled. UK lenders treat Oman similarly to other GCC countries.
+      </p>
+    </div>
+  </section>
+
+  <MidPageCta variant="hero" />
+
+  <section class="hub-section">
+    <div class="hub-section-inner">
+      <h2 id="lender-view">What UK lenders think of Oman</h2>
+      <p>
+        Oman sits well inside the expat lender comfort zone. It is a
+        tax-free, USD-pegged currency, mature banking system, low-risk
+        jurisdiction for AML purposes.
+      </p>
+      <p>
+        Around 10-13 lenders in the expat space lend to British nationals
+        resident in Oman. Slightly fewer than for UAE or Bahrain, but the
+        pool is solid. Specialist building societies and the international
+        arms of major UK banks make up most of the routes.
+      </p>
+      <p>Where Oman occasionally needs careful handling:</p>
+      <ul>
+        <li>Smaller employer profiles (lesser-known Omani companies) sometimes need additional employer verification.</li>
+        <li>A handful of lenders prefer to see at least 12 months in country before lending, particularly for applicants new to the Gulf.</li>
+      </ul>
+    </div>
+  </section>
+
+  <PullQuote>
+    Oman is a stable, well-understood country for UK lenders. The cases are
+    typically clean.
+  </PullQuote>
+
+  <section class="hub-section">
+    <div class="hub-section-inner">
+      <h2 id="omr-income">How Omani rial income is treated</h2>
+      <p>
+        The Omani rial (OMR) is one of the highest-value currencies in the
+        world (1 OMR ≈ 2 GBP at typical rates) and is pegged to the US
+        dollar.
+      </p>
+      <p>
+        The standard 20 percent currency haircut applies at most lenders. A
+        handful of specialist lenders apply no haircut. Given OMR salaries
+        are smaller in absolute number (a 3,000 OMR monthly salary equates
+        to roughly 6,000 GBP), the haircut versus no-haircut difference
+        can swing borrowing power meaningfully.
+      </p>
+      <p>
+        Housing allowance and other allowances common in Omani employment
+        packages are usually excluded from the affordability calculation,
+        even where they are tax-free and contractual. Some specialist
+        lenders will include certain allowances on a case-by-case basis.
+        Try the
+        <a href="/tools/expat-mortgage-calculator">expat mortgage calculator</a>
+        to see what each scenario means for your income.
+      </p>
+    </div>
+  </section>
+
+  <section class="hub-section">
+    <div class="hub-section-inner">
+      <h2 id="deposit-rates">Deposit and rates</h2>
+      <p>
+        Deposits for British expats in Oman typically sit at 25-35 percent.
+        Stronger profiles with larger deposits and standard income access
+        the lower end. More complex cases need 30-35 percent.
+      </p>
+      <p>
+        <a href="/expat-mortgages/rates">Expat rates</a> from Oman are
+        typically 0.3 to 0.7 percent above the equivalent UK-resident
+        product. Rate competitiveness improves significantly above 35-40
+        percent deposit.
+      </p>
+    </div>
+  </section>
+
+  <section class="hub-section">
+    <div class="hub-section-inner">
+      <h2 id="oil-gas">The oil and gas employer angle</h2>
+      <p>
+        A large share of British expats in Oman work in oil and gas.
+        Lenders understand this employer profile well. Cases involving
+        major oilfield service companies, supermajors, or PDO directly tend
+        to underwrite cleanly.
+      </p>
+      <p>
+        Where it gets more nuanced: smaller specialist contractors,
+        project-based contracts with a defined end date, or income partly
+        in OMR and partly via an offshore structure. We handle each
+        variation regularly and know which lenders flex on which point.
+      </p>
+    </div>
+  </section>
+
+  <section class="hub-section">
+    <div class="hub-section-inner">
+      <h2 id="situations">Common situations from Oman</h2>
+      <p>
+        <strong>Long-tenured expat buying first UK property.</strong> Many
+        British expats in Oman have been there 5-10 years and finally pull
+        the trigger on a UK property. The case profile is usually strong:
+        stable employer, predictable income, accumulated savings. Deposits
+        25-30 percent, rates competitive.
+      </p>
+      <p>
+        <strong>Returning to the UK from Oman.</strong> Often planned
+        around school-age children's secondary education. Apply 3-4 months
+        before the move for cleanest handling. Income source switches from
+        OMR to GBP at the point of return, which the lender needs to plan
+        for.
+      </p>
+      <p>
+        <strong>Buy-to-let from Oman.</strong> Less common than from UAE
+        but a steady minority.
+        <a href="/expat-mortgages/buy-to-let">Expat BTL</a> works the same
+        way as it does for any Gulf-based applicant.
+      </p>
+      <p>
+        <strong>Remortgaging from Oman.</strong> Standard
+        <a href="/expat-mortgages/remortgage">expat remortgage</a> process.
+        Existing UK property + Oman residency + OMR income.
+      </p>
+    </div>
+  </section>
+
+  <MidPageCta />
+
+  <section class="hub-section">
+    <div class="hub-section-inner">
+      <h2 id="faqs">Common questions</h2>
+      <div class="faq">
+        {faqs.map((f) => (
+          <>
+            <h3>{f.q}</h3>
+            <p>{f.a}</p>
+          </>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <script
+    type="application/ld+json"
+    is:inline
+    set:html={JSON.stringify(faqSchema)}
+  />
+</HubLayout>

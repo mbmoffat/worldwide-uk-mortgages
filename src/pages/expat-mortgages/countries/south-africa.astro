@@ -2,16 +2,16 @@
 import HubLayout from '../../../layouts/HubLayout.astro';
 import PullQuote from '../../../components/PullQuote.astro';
 import MidPageCta from '../../../components/MidPageCta.astro';
-import { breadcrumbSchema, articleSchema } from '../../../lib/schema';
+import { breadcrumbSchema, articleSchema, serviceSchema } from '../../../lib/schema';
 import RiskWarning from '../../../components/RiskWarning.astro';
 import TerritorialScope from '../../../components/TerritorialScope.astro';
 
 const title = 'UK Mortgages for British Expats in South Africa';
 const description =
-  'A clear guide to UK mortgages when you live and work in South Africa. What you can borrow, how lenders treat South African rand income, what deposit you need.';
+  'UK mortgages for British expats in South Africa. ZAR currency volatility, no-haircut lender access, deposits, rates, and the returning-expat path.';
 const h1 = 'UK Mortgages for British Expats in South Africa';
 const subheadline =
-  'A clear guide to UK mortgages when you live and work in South Africa. What you can borrow, how lenders treat South African rand income, what deposit you will need, and how we find the right lender for your situation.';
+  'A clear guide to UK mortgages when you live and work in South Africa. What you can borrow, how lenders treat rand income, why the currency picture matters, and how we find the right lender for your situation.';
 
 const relatedPages = [
   {
@@ -23,71 +23,66 @@ const relatedPages = [
   },
   {
     eyebrow: 'Hub',
-    title: 'UK Mortgages for Non-UK Residents',
-    description:
-      'Foreign nationals or British expats wanting a UK mortgage on UK property. The lender pool, deposits, and rates explained.',
-    href: '/non-uk-resident-mortgages',
-  },
-  {
-    eyebrow: 'Hub',
     title: 'UK Mortgages with Foreign Income',
     description:
       'How lenders treat non-sterling income. The 20% standard haircut and direct access to no-haircut lenders.',
     href: '/uk-mortgage-foreign-income',
   },
   {
-    eyebrow: 'Hub',
-    title: 'Expat Buy-to-Let Mortgages',
+    eyebrow: 'Country',
+    title: 'UK Mortgages for British Expats in Australia',
     description:
-      'Building a UK rental portfolio from abroad. ICR, lender appetite, and limited company structures.',
-    href: '/expat-mortgages/buy-to-let',
+      'Australia-based expats. AUD income treatment, residency profiles, and the lender pool for Australia.',
+    href: '/expat-mortgages/countries/australia',
+  },
+  {
+    eyebrow: 'Country',
+    title: 'UK Mortgages for British Expats in New Zealand',
+    description:
+      'New Zealand-based expats. NZD income treatment and the lender pool for NZ residents.',
+    href: '/expat-mortgages/countries/new-zealand',
+  },
+  {
+    eyebrow: 'Guide',
+    title: 'Returning to the UK',
+    description:
+      'Buying or remortgaging UK property when you are returning to the UK after time abroad.',
+    href: '/expat-mortgages/returning-to-uk',
   },
 ];
 
 const faqs = [
   {
-    q: "Can I borrow as much from South Africa as I could in the UK?",
-    a: "Often less, because of the haircut and ZAR volatility. With a no-haircut lender, sometimes more.",
+    q: 'Can I get a UK mortgage if I live in South Africa?',
+    a: 'Yes. Around 8-12 lenders in the expat space lend to British nationals in South Africa, but lender selection matters more than in many other countries.',
   },
   {
-    q: "Do I need UK income to apply?",
-    a: "No. South African income alone is accepted.",
+    q: 'How is my ZAR income treated?',
+    a: 'Most lenders apply a 25-30 percent haircut to ZAR (deeper than the 20 percent standard for hard currencies). A small group of specialist lenders apply no haircut. We work with these lenders directly.',
   },
   {
-    q: "Will my bonus count?",
-    a: "Often, but treatment varies between lenders.",
+    q: 'Does my UK passport help?',
+    a: 'Yes. Dual-passport British-SA applicants have a wider lender pool and often better rates than non-passport-holders.',
   },
   {
-    q: "How big a deposit do I need?",
-    a: "25 percent is the working assumption for residential, 25 to 30 percent for buy-to-let.",
+    q: 'What deposit will I need?',
+    a: 'Typically 30-40 percent. The deposit floor is higher than for hard-currency Gulf applicants.',
   },
   {
-    q: "Does my South African status matter?",
-    a: "Most lenders accept SA citizens and permanent residents. Work visa holders may face more scrutiny.",
+    q: 'Is now a good time to apply with the rand where it is?',
+    a: 'Currency timing is hard to predict. We focus on what is achievable today, not on what might happen to the rand in six months. Most clients apply when their personal timeline requires it.',
   },
   {
-    q: "Can I use a South African bank statement?",
-    a: "Yes. Accepted directly.",
+    q: 'Do I need to be in the UK to apply?',
+    a: 'No. The formal advice meeting takes place in the UK.',
   },
   {
-    q: "Is currency volatility an issue?",
-    a: "It can be. Some lenders apply heavier haircuts on ZAR. The right lender prices the haircut sensibly.",
+    q: 'Can I buy UK property as a buy-to-let from South Africa?',
+    a: 'Yes, but the currency haircut on rental affordability calculations is also a factor. Worth running the numbers before committing.',
   },
   {
-    q: "What about Reserve Bank limits on transferring funds?",
-    a: "Reserve Bank approvals are routine and well understood by UK lenders. Documentation needs to be clear.",
-  },
-  {
-    q: "Can I remortgage from South Africa?",
-    a: "Yes. Common as a fix end approaches.",
-  },
-  {
-    q: "How long does it take?",
-    a: "Six to twelve weeks from application to offer. Slightly longer than for most expat markets.",
-  },
-  {
-    q: "Do I need to come back to the UK to sign?",
-    a: "No. South African Commissioner of Oaths or notary documents are accepted, as is notarisation through the British High Commission.",
+    q: 'How long does the application take?',
+    a: 'Typically 12-16 weeks for South Africa cases (slightly longer than Gulf cases due to documentation and verification).',
   },
 ];
 
@@ -104,9 +99,15 @@ const schemas = [
   breadcrumbSchema([
     { name: 'Home', path: '/' },
     { name: 'UK Mortgages for Expats', path: '/expat-mortgages' },
+    { name: 'Countries' },
     { name: 'South Africa' },
   ]),
   articleSchema({ headline: h1, description }),
+  serviceSchema({
+    serviceType: 'UK Mortgage Brokerage for British Expats in South Africa',
+    name: h1,
+    description,
+  }),
 ];
 ---
 
@@ -115,7 +116,7 @@ const schemas = [
   description={description}
   h1={h1}
   subheadline={subheadline}
-  eyebrow="Hub · South Africa expat mortgages"
+  eyebrow="COUNTRY · AFRICA"
   schemas={schemas}
   relatedPages={relatedPages}
 >
@@ -125,21 +126,22 @@ const schemas = [
     <div class="hub-section-inner">
       <h2 id="who-this-is-for">Who this page is for</h2>
       <p>
-        If you are a British national living in South Africa and you want a
-        mortgage on UK property, this page is for you.
+        If you are a British national living and working in South Africa
+        and you want a UK mortgage, this page is for you. Common situations
+        we see:
       </p>
+      <ul>
+        <li>A British national working in financial services in Johannesburg or Cape Town.</li>
+        <li>A British national in mining or natural resources, often based in Johannesburg with field rotations.</li>
+        <li>A British national in tech (the Cape Town tech scene has grown significantly), often working for international employers remotely.</li>
+        <li>A British national in tourism, hospitality, or wine industry, often Cape-based.</li>
+        <li>A British national who has dual UK-SA citizenship and is moving between the two countries.</li>
+        <li>A British-born SA resident planning a return to the UK and buying ahead of the move.</li>
+      </ul>
       <p>
-        That includes buying a UK home while you are still based in
-        Johannesburg, Cape Town, Durban, or elsewhere, building a <a href="/expat-mortgages/buy-to-let">UK
-        buy-to-let portfolio</a> remotely, remortgaging an existing UK property
-        as your fix ends, and planning a return to the UK in the next year
-        or two.
-      </p>
-      <p>
-        The British expat community in South Africa includes long-term
-        residents, dual citizens, and professionals on work assignments.
-        Many are also planning a return to the UK and remortgaging or
-        buying ahead of that move.
+        South Africa is a major two-way emigration corridor for the UK.
+        Cases here are often complicated by dual residency, dual passports,
+        and the rand's volatility.
       </p>
     </div>
   </section>
@@ -148,153 +150,143 @@ const schemas = [
 
   <section class="hub-section">
     <div class="hub-section-inner">
-      <h2 id="currency-picture">The currency picture</h2>
+      <h2 id="lender-view">What UK lenders think of South Africa</h2>
       <p>
-        You earn in South African rand. UK lenders convert ZAR income to
-        sterling for affordability. Most apply a haircut of around 20
-        percent, which means a 1,500,000 ZAR package is treated as roughly
-        1,200,000 ZAR before the rate kicks in.
+        South Africa sits in the middle band of country risk for UK expat
+        lenders. It is not a restricted country, but the rand's volatility
+        and the country's macro position make some lenders more cautious
+        than they are for Gulf or Western Europe applicants.
       </p>
       <p>
-        A smaller group of specialist lenders, accessed through brokers with
-        the right relationships, do not apply a haircut at all. This is the
-        most important variable on <a href="/expat-mortgages/rates">what you can borrow</a> from South Africa.
+        Around 8-12 lenders in the expat space lend to British nationals
+        resident in South Africa. The specialist lenders who work in this
+        space are well-equipped for it.
+      </p>
+      <p>Where South Africa typically needs more careful handling:</p>
+      <ul>
+        <li>Currency haircut treatment is harsher than for hard currencies.</li>
+        <li>Some lenders limit South Africa exposure or apply tighter LTV caps.</li>
+        <li>Dual-passport applicants need careful handling around residency declarations.</li>
+      </ul>
+    </div>
+  </section>
+
+  <section class="hub-section">
+    <div class="hub-section-inner">
+      <h2 id="zar-income">How rand income is treated, and why this matters more here</h2>
+      <p>
+        The South African rand (ZAR) is a volatile emerging-market
+        currency. It has lost significant ground against sterling over the
+        past decade and continues to fluctuate widely.
       </p>
       <p>
-        The rand has been one of the more volatile major currencies against
-        sterling, which means lenders treat ZAR income with more caution
-        than USD, EUR, or AED. Some lenders apply heavier haircuts than the
-        standard 20 percent for ZAR specifically. Lender choice matters
-        more here than in most other countries.
+        Most mainstream expat lenders apply a haircut of 25-30 percent to
+        ZAR income (deeper than the standard 20 percent for hard
+        currencies). A few lenders cap ZAR-denominated borrowing entirely.
       </p>
       <p>
-        Try the <a href="/tools/expat-mortgage-calculator">expat mortgage calculator</a>
+        This is the single biggest issue for British expats in South Africa
+        applying for UK mortgages. The haircut alone can knock 30-40
+        percent off maximum borrowing power versus a hard-currency
+        applicant on the same gross salary.
+      </p>
+      <p>
+        A small group of specialist lenders apply no haircut to ZAR income.
+        Access to these lenders is the most important conversion lever for
+        South Africa cases. We work with several of them. Try the
+        <a href="/tools/expat-mortgage-calculator">expat mortgage calculator</a>
         to see what each scenario means for your income.
       </p>
     </div>
   </section>
 
   <PullQuote>
-    Lender choice matters more here than in most other countries.
+    Currency haircut treatment is the biggest single lever for South Africa
+    cases. Lender selection is everything.
   </PullQuote>
 
   <section class="hub-section">
     <div class="hub-section-inner">
-      <h2 id="common-situations">Common situations</h2>
-      <p>British expats applying from South Africa usually fall into one of these:</p>
-      <ul>
-        <li>
-          <strong>Mining, energy, and resources</strong> at Anglo American,
-          BHP, and the broader sector. Senior professional roles, often well
-          documented.
-        </li>
-        <li>
-          <strong>Banking and financial services</strong> in Johannesburg
-          and Cape Town at Standard Bank, FirstRand, and the international
-          firms.
-        </li>
-        <li>
-          <strong>Healthcare</strong> at private hospital groups and pharma.
-          Doctors and specialists are particularly common in this profile.
-        </li>
-        <li>
-          <strong>Tech and product roles</strong> in Cape Town at
-          Naspers/Prosus and the broader Cape Town tech cluster.
-        </li>
-        <li>
-          <strong>Wine, agriculture, and food</strong> in the Western Cape.
-        </li>
-        <li>
-          <strong>Tourism and hospitality</strong> management at the lodge
-          groups, hotel chains, and broader sector.
-        </li>
-      </ul>
-    </div>
-  </section>
-
-  <section class="hub-section">
-    <div class="hub-section-inner">
-      <h2 id="lender-requirements">What lenders want to see</h2>
-      <p>The <a href="/expat-mortgages/process">standard documentation pack</a> from a South Africa-based applicant:</p>
-      <ul>
-        <li>Three months of South African bank statements showing salary credits.</li>
-        <li>Three months of payslips.</li>
-        <li>The most recent two years of SARS IT3(a) employment income tax certificates and ITA34 assessments.</li>
-        <li>Employment contract or letter from your employer.</li>
-        <li>Evidence of South African residency (ID book or smart card, plus visa documentation if not a citizen).</li>
-        <li>Proof of UK address history and any UK property already owned.</li>
-        <li>Two years of audited accounts if you are self-employed or run a business.</li>
-      </ul>
+      <h2 id="deposit-rates">Deposit and rates</h2>
       <p>
-        South Africa has reasonable documentation but the system is
-        paper-based in places. Lenders sometimes ask for additional
-        verification beyond what is needed in other countries.
+        Deposits for British expats in South Africa typically sit at 30-40
+        percent. The deposit floor is higher than for hard-currency Gulf
+        applicants because of the country and currency factors. Stronger
+        applicants in standard situations may access 30 percent.
+      </p>
+      <p>
+        <a href="/expat-mortgages/rates">Expat rates</a> from South Africa
+        are typically 0.4 to 0.8 percent above the equivalent UK-resident
+        product, slightly wider than for hard-currency applicants.
       </p>
     </div>
   </section>
 
   <section class="hub-section">
     <div class="hub-section-inner">
-      <h2 id="how-lenders-view">How lenders view South Africa-based applicants</h2>
+      <h2 id="dual-passport">The dual-passport advantage</h2>
       <p>
-        UK expat lenders that are active in South Africa are comfortable
-        with the country, but the lender pool is smaller than for most
-        other expat markets. Currency volatility is the main reason. Some
-        lenders apply heavier haircuts on ZAR income, others avoid the rand
-        entirely.
+        A meaningful share of British expats in South Africa hold both UK
+        and South African passports. From a UK lender's perspective, dual
+        UK citizenship simplifies the case considerably. The applicant is a
+        UK citizen resident in South Africa, not a foreign national
+        applying from abroad.
       </p>
       <p>
-        The right lender for a South Africa-based applicant is one with
-        current experience of ZAR income, current ZAR-GBP exchange rates
-        priced into the haircut sensibly, and a willingness to underwrite
-        South African employer documentation efficiently. The wrong lender
-        will either decline or apply a haircut that makes the loan size
-        uneconomic.
-      </p>
-      <p>
-        Senior professionals at large international employers are generally
-        well received. Smaller employers and self-employed applicants face
-        more scrutiny.
+        Some lenders treat dual-citizen returning expats more favourably on
+        the LTV and rate side. The key documentation: UK passport, UK NI
+        number, prior UK address history if any, and a clean credit
+        position.
       </p>
     </div>
   </section>
 
-  <PullQuote>
-    The right lender for a South Africa-based applicant prices the haircut
-    sensibly.
-  </PullQuote>
+  <section class="hub-section">
+    <div class="hub-section-inner">
+      <h2 id="returning">The returning-to-UK path</h2>
+      <p>
+        A large portion of cases from South Africa are British or
+        dual-passport expats planning a return to the UK. The currency
+        volatility often pushes the timing decision: when the rand is weak,
+        the UK property looks expensive in ZAR terms, but the case is the
+        same case. We help clients think through whether to apply pre-move
+        or post-move based on their specific income, deposit, and timing.
+        See our
+        <a href="/expat-mortgages/returning-to-uk">returning to the UK</a>
+        guide for more.
+      </p>
+    </div>
+  </section>
 
   <section class="hub-section">
     <div class="hub-section-inner">
-      <h2 id="pitfalls">Common pitfalls</h2>
-      <p>A few things trip up South Africa-based applications more than they should:</p>
-      <ul>
-        <li>
-          <strong>Excessive haircut.</strong> Some lenders apply 30 to 40
-          percent to ZAR income rather than the standard 20 percent. Worth
-          knowing in advance.
-        </li>
-        <li>
-          <strong>Currency timing on remortgage.</strong> ZAR-GBP can move
-          10 to 15 percent in a few months. Planning ahead matters more
-          than in most countries.
-        </li>
-        <li>
-          <strong><a href="/expat-mortgages/deposit">Source of deposit on Reserve Bank approvals.</a></strong>
-          Funds taken out of South Africa under the Reserve Bank annual
-          allowance need clear documentation.
-        </li>
-        <li>
-          <strong>Self-employment through trusts.</strong> South African
-          business structures often involve family trusts. Lenders sometimes
-          find these complex to underwrite.
-        </li>
-        <li>
-          <strong>AML on cross-border transfers.</strong> Money moving from
-          ZAR to GBP, often through multiple steps, needs a clean paper
-          trail.
-        </li>
-      </ul>
+      <h2 id="situations">Common situations from South Africa</h2>
+      <p>
+        <strong>SA-resident dual-passport buying UK property
+        pre-return.</strong> The most common case. UK passport, ZAR
+        income, UK property purchase planned around the move. Lender
+        selection critical.
+      </p>
+      <p>
+        <strong>SA-only-passport British emigrant.</strong> Where the
+        applicant is a British national without an SA passport, the case
+        is treated as standard expat in South Africa. Slightly tighter
+        pool than dual-passport cases.
+      </p>
+      <p>
+        <strong>Buy-to-let from South Africa.</strong> Less common than
+        from the Gulf but a steady minority. Currency haircut implications
+        more severe here. See our
+        <a href="/expat-mortgages/buy-to-let">expat BTL</a> guide for
+        broader context.
+      </p>
+      <p>
+        <strong>Returning emigrant of long standing.</strong> A British-born
+        person who emigrated to SA decades ago and is now planning to come
+        back. Often retired or near retirement. The case structure is
+        different (income from pension, savings, property income) and
+        lender selection reflects this.
+      </p>
     </div>
   </section>
 
