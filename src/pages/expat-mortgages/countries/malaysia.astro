@@ -1,0 +1,305 @@
+---
+import HubLayout from '../../../layouts/HubLayout.astro';
+import PullQuote from '../../../components/PullQuote.astro';
+import MidPageCta from '../../../components/MidPageCta.astro';
+import { breadcrumbSchema, articleSchema, serviceSchema } from '../../../lib/schema';
+import RiskWarning from '../../../components/RiskWarning.astro';
+import TerritorialScope from '../../../components/TerritorialScope.astro';
+
+const title = 'UK Mortgages for British Expats in Malaysia';
+const description =
+  'UK mortgages for British expats in Malaysia. MM2H visa applicants, ringgit income treatment, deposits, rates, and lender appetite for KL-based expats.';
+const h1 = 'UK Mortgages for British Expats in Malaysia';
+const subheadline =
+  'A clear guide to UK mortgages when you live and work in Malaysia. What you can borrow, how lenders treat ringgit income, the MM2H angle, and how we find the right lender for your situation.';
+
+const relatedPages = [
+  {
+    eyebrow: 'Hub',
+    title: 'UK Mortgages for Expats',
+    description:
+      'British nationals living abroad. Country-by-country lender appetite, currency haircuts, and timelines.',
+    href: '/expat-mortgages',
+  },
+  {
+    eyebrow: 'Hub',
+    title: 'UK Mortgages with Foreign Income',
+    description:
+      'How lenders treat non-sterling income. The 20% standard haircut and direct access to no-haircut lenders.',
+    href: '/uk-mortgage-foreign-income',
+  },
+  {
+    eyebrow: 'Country',
+    title: 'UK Mortgages for British Expats in Singapore',
+    description:
+      'Singapore-based expats. SGD income, EP/PR profiles, and lender appetite for Singapore.',
+    href: '/expat-mortgages/countries/singapore',
+  },
+  {
+    eyebrow: 'Country',
+    title: 'UK Mortgages for British Expats in Hong Kong',
+    description:
+      'Hong Kong-based expats. HKD income, finance employer profiles, and lender appetite for Hong Kong.',
+    href: '/expat-mortgages/countries/hong-kong',
+  },
+  {
+    eyebrow: 'Country',
+    title: 'UK Mortgages for British Expats in Thailand',
+    description:
+      'Thailand-based expats. Baht income, Elite Visa profiles, and the retiree segment.',
+    href: '/expat-mortgages/countries/thailand',
+  },
+  {
+    eyebrow: 'Country',
+    title: 'UK Mortgages for British Expats in Japan',
+    description:
+      'Japan-based expats. Yen income, Tokyo finance and tech profiles, and lender appetite for Japan.',
+    href: '/expat-mortgages/countries/japan',
+  },
+];
+
+const faqs = [
+  {
+    q: 'Can I get a UK mortgage if I live in Malaysia?',
+    a: 'Yes. Around 8-11 lenders in the expat space lend to British nationals in Malaysia.',
+  },
+  {
+    q: 'How is my MYR income treated?',
+    a: 'MYR is soft currency. Haircuts of 25-30 percent apply at most lenders. A few specialist lenders apply lighter haircuts.',
+  },
+  {
+    q: 'Does MM2H help my application?',
+    a: 'It establishes residency. The underlying income source determines affordability. MM2H holders typically have clean offshore income profiles.',
+  },
+  {
+    q: 'Are oil and gas contracts treated favourably?',
+    a: 'Yes. Major oil and gas employers are well-known to UK lenders and underwrite cleanly. Hard currency income components further simplify the case.',
+  },
+  {
+    q: 'Is East Malaysia treated differently?',
+    a: 'Sometimes. A few lenders apply tighter criteria for Sabah and Sarawak-based applicants. We will tell you which lenders are unaffected.',
+  },
+  {
+    q: 'What deposit will I need?',
+    a: 'Typically 25-35 percent. Hard currency income or oil and gas profiles access the lower end.',
+  },
+  {
+    q: 'Do I need to be in the UK to apply?',
+    a: 'No. The formal advice meeting takes place in the UK.',
+  },
+  {
+    q: 'How long does the application take?',
+    a: 'Typically 12-14 weeks.',
+  },
+];
+
+const faqSchema = {
+  '@context': 'https://schema.org',
+  '@type': 'FAQPage',
+  mainEntity: faqs.map((f) => ({
+    '@type': 'Question',
+    name: f.q,
+    acceptedAnswer: { '@type': 'Answer', text: f.a },
+  })),
+};
+const schemas = [
+  breadcrumbSchema([
+    { name: 'Home', path: '/' },
+    { name: 'UK Mortgages for Expats', path: '/expat-mortgages' },
+    { name: 'Countries' },
+    { name: 'Malaysia' },
+  ]),
+  articleSchema({ headline: h1, description }),
+  serviceSchema({
+    serviceType: 'UK Mortgage Brokerage for British Expats in Malaysia',
+    name: h1,
+    description,
+  }),
+];
+---
+
+<HubLayout
+  title={title}
+  description={description}
+  h1={h1}
+  subheadline={subheadline}
+  eyebrow="COUNTRY · ASIA"
+  schemas={schemas}
+  relatedPages={relatedPages}
+>
+  <RiskWarning type="residential" />
+  <TerritorialScope />
+  <section class="hub-section">
+    <div class="hub-section-inner">
+      <h2 id="who-this-is-for">Who this page is for</h2>
+      <p>
+        If you are a British national living and working in Malaysia and you
+        want a UK mortgage, this page is for you. Common situations we see:
+      </p>
+      <ul>
+        <li>A British national working in oil and gas in Kuala Lumpur or East Malaysia (Sabah, Sarawak), often for supermajors, Petronas-affiliated entities, or oilfield services.</li>
+        <li>A British national working in financial services in KL.</li>
+        <li>A British national working for a multinational with a Southeast Asia regional HQ in Malaysia.</li>
+        <li>A British national on the Malaysia My Second Home (MM2H) programme, living in Malaysia long-term with offshore or pension income.</li>
+        <li>A British national who retired or semi-retired to Malaysia, often Penang or KL.</li>
+        <li>A British national married to a Malaysian citizen and living in Malaysia.</li>
+      </ul>
+      <p>
+        Malaysia has a long-established British expat community,
+        particularly in oil and gas. The MM2H programme makes it a popular
+        semi-retirement and second-home destination.
+      </p>
+    </div>
+  </section>
+
+  <MidPageCta variant="hero" />
+
+  <section class="hub-section">
+    <div class="hub-section-inner">
+      <h2 id="lender-view">What UK lenders think of Malaysia</h2>
+      <p>
+        Malaysia sits in the middle band of the expat lender pool. Around
+        8-11 lenders consider British nationals resident in Malaysia.
+      </p>
+      <p>Where Malaysia needs careful handling:</p>
+      <ul>
+        <li>Malaysian ringgit is treated as a soft currency by most lenders, with deeper haircuts than for hard currencies.</li>
+        <li>Some lenders restrict East Malaysia-based applicants more than Peninsular Malaysia applicants.</li>
+        <li>The MM2H programme creates a specific case profile that some lenders are familiar with and others need explanation on.</li>
+      </ul>
+    </div>
+  </section>
+
+  <section class="hub-section">
+    <div class="hub-section-inner">
+      <h2 id="myr-income">How ringgit income is treated</h2>
+      <p>
+        Malaysian ringgit (MYR) is treated as soft currency by most
+        lenders. Haircuts of 25-30 percent are common. A handful of
+        specialist lenders apply lighter haircuts.
+      </p>
+      <p>
+        Many British expats in Malaysia, particularly in oil and gas, are
+        paid partly or entirely in USD or GBP into offshore accounts.
+        This income is treated as hard currency regardless of country of
+        residence. Try the
+        <a href="/tools/expat-mortgage-calculator">expat mortgage calculator</a>
+        to see what each scenario means for your income.
+      </p>
+    </div>
+  </section>
+
+  <section class="hub-section">
+    <div class="hub-section-inner">
+      <h2 id="mm2h">The MM2H visa angle</h2>
+      <p>
+        Malaysia My Second Home (MM2H) is a long-term residency programme
+        requiring proof of liquid assets and offshore income. From a UK
+        lender's perspective:
+      </p>
+      <ul>
+        <li>MM2H holders typically have substantial offshore income or pension income.</li>
+        <li>The case is usually deposit-driven because MM2H is often a retirement or semi-retirement structure.</li>
+        <li>The income evidence is straightforward when paid in hard currency to an offshore account.</li>
+      </ul>
+      <p>
+        MM2H cases are usually clean to place when the income source is
+        documented and stable.
+      </p>
+    </div>
+  </section>
+
+  <section class="hub-section">
+    <div class="hub-section-inner">
+      <h2 id="oil-gas">The oil and gas employer angle</h2>
+      <p>
+        A large share of British expats in Malaysia work in oil and gas.
+        Major employer profiles (Shell, ExxonMobil, Chevron, oilfield
+        service companies, Petronas-affiliated joint ventures) underwrite
+        cleanly. Many are paid partly in hard currency, simplifying the
+        haircut picture.
+      </p>
+      <p>
+        East Malaysia (Sabah, Sarawak) cases sometimes need additional
+        verification because the employers are less internationally known
+        and the location is occasionally treated as higher-risk by lenders.
+      </p>
+    </div>
+  </section>
+
+  <section class="hub-section">
+    <div class="hub-section-inner">
+      <h2 id="deposit-rates">Deposit and rates</h2>
+      <p>
+        Deposits for British expats in Malaysia typically sit at 25-35
+        percent. Strong oil and gas profiles with hard currency income
+        access 25-30 percent. MYR-only income or East Malaysia profiles
+        may need 30-35 percent.
+      </p>
+      <p>
+        <a href="/expat-mortgages/rates">Expat rates</a> from Malaysia are
+        typically 0.4 to 0.7 percent above the equivalent UK-resident
+        product.
+      </p>
+    </div>
+  </section>
+
+  <PullQuote>
+    Malaysia cases split into hard-currency oil and gas profiles and
+    softer-currency local employer profiles. The haircut treatment is the
+    dividing line.
+  </PullQuote>
+
+  <section class="hub-section">
+    <div class="hub-section-inner">
+      <h2 id="situations">Common situations from Malaysia</h2>
+      <p>
+        <strong>KL-based oil and gas worker on hard currency
+        income.</strong> Common case. Strong employer, USD or GBP offshore
+        income, accumulated deposit. Deposits 25-30 percent.
+      </p>
+      <p>
+        <strong>MM2H semi-retiree.</strong> Pension or investment income,
+        strong deposit, often a smaller UK property purchase. Cleanest
+        case structure.
+      </p>
+      <p>
+        <strong>KL multinational employee on MYR salary.</strong> Soft
+        currency haircut applies. Lender selection matters.
+      </p>
+      <p>
+        <strong>East Malaysia oil and gas worker.</strong> Slightly tighter
+        lender pool. Hard currency offshore income simplifies the case.
+      </p>
+      <p>
+        <strong>Returning to the UK from Malaysia.</strong> Apply 3-4
+        months before the move. Income source switches from MYR or USD to
+        GBP at the point of return. See our
+        <a href="/expat-mortgages/returning-to-uk">returning to the UK</a>
+        guide for more.
+      </p>
+    </div>
+  </section>
+
+  <MidPageCta />
+
+  <section class="hub-section">
+    <div class="hub-section-inner">
+      <h2 id="faqs">Common questions</h2>
+      <div class="faq">
+        {faqs.map((f) => (
+          <>
+            <h3>{f.q}</h3>
+            <p>{f.a}</p>
+          </>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <script
+    type="application/ld+json"
+    is:inline
+    set:html={JSON.stringify(faqSchema)}
+  />
+</HubLayout>

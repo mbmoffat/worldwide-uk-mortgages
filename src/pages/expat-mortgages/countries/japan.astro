@@ -1,0 +1,301 @@
+---
+import HubLayout from '../../../layouts/HubLayout.astro';
+import PullQuote from '../../../components/PullQuote.astro';
+import MidPageCta from '../../../components/MidPageCta.astro';
+import { breadcrumbSchema, articleSchema, serviceSchema } from '../../../lib/schema';
+import RiskWarning from '../../../components/RiskWarning.astro';
+import TerritorialScope from '../../../components/TerritorialScope.astro';
+
+const title = 'UK Mortgages for British Expats in Japan';
+const description =
+  'UK mortgages for British expats in Japan. Yen income treatment, Tokyo finance and tech employer profiles, deposits, rates, and lender appetite.';
+const h1 = 'UK Mortgages for British Expats in Japan';
+const subheadline =
+  "A clear guide to UK mortgages when you live and work in Japan. What you can borrow, how lenders treat yen income, what deposit you'll need, and how we find the right lender for your situation.";
+
+const relatedPages = [
+  {
+    eyebrow: 'Hub',
+    title: 'UK Mortgages for Expats',
+    description:
+      'British nationals living abroad. Country-by-country lender appetite, currency haircuts, and timelines.',
+    href: '/expat-mortgages',
+  },
+  {
+    eyebrow: 'Hub',
+    title: 'UK Mortgages with Foreign Income',
+    description:
+      'How lenders treat non-sterling income. The 20% standard haircut and direct access to no-haircut lenders.',
+    href: '/uk-mortgage-foreign-income',
+  },
+  {
+    eyebrow: 'Country',
+    title: 'UK Mortgages for British Expats in Hong Kong',
+    description:
+      'Hong Kong-based expats. HKD income, finance employer profiles, and lender appetite for Hong Kong.',
+    href: '/expat-mortgages/countries/hong-kong',
+  },
+  {
+    eyebrow: 'Country',
+    title: 'UK Mortgages for British Expats in Singapore',
+    description:
+      'Singapore-based expats. SGD income, EP/PR profiles, and lender appetite for Singapore.',
+    href: '/expat-mortgages/countries/singapore',
+  },
+  {
+    eyebrow: 'Country',
+    title: 'UK Mortgages for British Expats in Thailand',
+    description:
+      'Thailand-based expats. Baht income, Elite Visa profiles, and the retiree segment.',
+    href: '/expat-mortgages/countries/thailand',
+  },
+  {
+    eyebrow: 'Country',
+    title: 'UK Mortgages for British Expats in Malaysia',
+    description:
+      'Malaysia-based expats. MM2H visa, ringgit income, and lender appetite for KL applicants.',
+    href: '/expat-mortgages/countries/malaysia',
+  },
+];
+
+const faqs = [
+  {
+    q: 'Can I get a UK mortgage if I live in Japan?',
+    a: 'Yes. Around 10-12 lenders in the expat space lend to Japan-resident British nationals.',
+  },
+  {
+    q: 'How is my JPY income treated?',
+    a: 'JPY is hard currency. Standard 20 percent haircut applies at most lenders. Some specialist lenders apply no haircut.',
+  },
+  {
+    q: 'Will my Tokyo finance bonus count as income?',
+    a: 'Variably. Some lenders include bonus with a discount, others exclude it entirely. We will tell you which lenders fit your specific bonus profile.',
+  },
+  {
+    q: 'Will my stock-based compensation count?',
+    a: 'Sometimes. Lender treatment of RSUs and ESPP varies. Some include with a discount, others exclude.',
+  },
+  {
+    q: 'What deposit will I need?',
+    a: 'Typically 25-30 percent. Strong employer profiles access the lower end.',
+  },
+  {
+    q: 'Do I need to be in the UK to apply?',
+    a: 'No. The formal advice meeting takes place in the UK.',
+  },
+  {
+    q: 'How long does the application take?',
+    a: 'Typically 10-14 weeks.',
+  },
+  {
+    q: 'Can English teachers apply?',
+    a: 'Yes. The case profile is more deposit-driven because of the lower income base, but applications are workable with good deposit and stable employment history.',
+  },
+];
+
+const faqSchema = {
+  '@context': 'https://schema.org',
+  '@type': 'FAQPage',
+  mainEntity: faqs.map((f) => ({
+    '@type': 'Question',
+    name: f.q,
+    acceptedAnswer: { '@type': 'Answer', text: f.a },
+  })),
+};
+const schemas = [
+  breadcrumbSchema([
+    { name: 'Home', path: '/' },
+    { name: 'UK Mortgages for Expats', path: '/expat-mortgages' },
+    { name: 'Countries' },
+    { name: 'Japan' },
+  ]),
+  articleSchema({ headline: h1, description }),
+  serviceSchema({
+    serviceType: 'UK Mortgage Brokerage for British Expats in Japan',
+    name: h1,
+    description,
+  }),
+];
+---
+
+<HubLayout
+  title={title}
+  description={description}
+  h1={h1}
+  subheadline={subheadline}
+  eyebrow="COUNTRY · ASIA"
+  schemas={schemas}
+  relatedPages={relatedPages}
+>
+  <RiskWarning type="residential" />
+  <TerritorialScope />
+  <section class="hub-section">
+    <div class="hub-section-inner">
+      <h2 id="who-this-is-for">Who this page is for</h2>
+      <p>
+        If you are a British national living and working in Japan and you
+        want a UK mortgage, this page is for you. Common situations we see:
+      </p>
+      <ul>
+        <li>A British national working in finance, banking, or asset management in Tokyo, often for a global investment bank, hedge fund, or asset manager.</li>
+        <li>A British national working in tech for a Japan-based subsidiary of a major employer (Google Japan, Meta, Amazon, Apple, Microsoft) or a Japanese tech company.</li>
+        <li>A British national working as a translator, consultant, or in international media.</li>
+        <li>A British national teaching English (JET, eikaiwa, university) on a more modest salary.</li>
+        <li>A British national married to a Japanese citizen and living in Japan long-term.</li>
+        <li>A British national who has built a career in Japan over many years and is now looking at UK property as an investment or future home.</li>
+      </ul>
+      <p>
+        Japan has a long-established British expat community concentrated
+        in Tokyo. Cases vary widely by employer profile and income level.
+      </p>
+    </div>
+  </section>
+
+  <MidPageCta variant="hero" />
+
+  <section class="hub-section">
+    <div class="hub-section-inner">
+      <h2 id="lender-view">What UK lenders think of Japan</h2>
+      <p>
+        Japan sits firmly in the lender comfort zone. Stable economy,
+        mature banking, transparent tax reporting. Around 10-12 expat
+        lenders lend to Japan-resident British nationals.
+      </p>
+      <p>Where Japan varies:</p>
+      <ul>
+        <li>Tokyo finance and tech employees: cleanest profile, well-understood employers.</li>
+        <li>English teachers and lower-paid roles: smaller income base, deposit-driven cases.</li>
+        <li>Long-tenured Japan residents: often strong deposits accumulated, sometimes with permanent residency.</li>
+      </ul>
+    </div>
+  </section>
+
+  <section class="hub-section">
+    <div class="hub-section-inner">
+      <h2 id="jpy-income">How Japanese yen income is treated</h2>
+      <p>
+        Japanese yen (JPY) is treated as hard currency by all expat
+        lenders. The standard 20 percent haircut applies at most lenders.
+        A handful of specialist lenders apply no haircut to JPY income.
+      </p>
+      <p>
+        Tokyo finance compensation is often heavily bonus-weighted. Some
+        lenders include bonus in affordability with a discount; others
+        exclude it. For finance roles where bonus is 30-50 percent of
+        total comp, lender selection on this point can swing maximum
+        borrowing materially. Try the
+        <a href="/tools/expat-mortgage-calculator">expat mortgage calculator</a>
+        to model the impact for your income.
+      </p>
+    </div>
+  </section>
+
+  <section class="hub-section">
+    <div class="hub-section-inner">
+      <h2 id="tokyo-finance">The Tokyo finance employer angle</h2>
+      <p>
+        A large share of British expats in Japan work in Tokyo finance.
+        Major employers (Goldman Sachs, Morgan Stanley, JPMorgan, Citi,
+        Nomura, MUFG, SMBC) are well-known to UK lenders and underwrite
+        cleanly. The case structure usually centres on:
+      </p>
+      <ul>
+        <li>Base salary (well-understood, included in full).</li>
+        <li>Cash bonus (treated variably by lender).</li>
+        <li>Stock-based compensation, RSUs (treated variably, often with a discount).</li>
+        <li>Allowances (housing, schooling) - typically excluded from affordability but useful for deposit.</li>
+      </ul>
+    </div>
+  </section>
+
+  <section class="hub-section">
+    <div class="hub-section-inner">
+      <h2 id="tokyo-tech">The Tokyo tech employer angle</h2>
+      <p>
+        Tech sector cases are similar in structure to finance. Major
+        employer profiles (Google, Meta, Amazon, Apple) are well-known.
+        Stock comp is often a meaningful portion of total comp and the
+        lender treatment determines case strength.
+      </p>
+    </div>
+  </section>
+
+  <section class="hub-section">
+    <div class="hub-section-inner">
+      <h2 id="deposit-rates">Deposit and rates</h2>
+      <p>
+        Deposits for British expats in Japan typically sit at 25-30
+        percent. Strong finance and tech employer profiles access the
+        lower end. Lower-income profiles or longer-tenured Japan residents
+        may need 30-35 percent.
+      </p>
+      <p>
+        <a href="/expat-mortgages/rates">Expat rates</a> from Japan are
+        typically 0.3 to 0.6 percent above the equivalent UK-resident
+        product.
+      </p>
+    </div>
+  </section>
+
+  <PullQuote>
+    Japan cases split sharply by employer profile. Tokyo finance and tech
+    are cleanest; lower-paid roles need stronger deposit.
+  </PullQuote>
+
+  <section class="hub-section">
+    <div class="hub-section-inner">
+      <h2 id="situations">Common situations from Japan</h2>
+      <p>
+        <strong>Tokyo investment bank or asset manager.</strong> Common
+        high-income profile. Strong employer, substantial bonus and stock
+        comp. Lender selection on bonus and stock treatment is critical.
+        Deposits 25-30 percent.
+      </p>
+      <p>
+        <strong>Tokyo tech employee on stock-heavy package.</strong>
+        Similar profile to finance with a different income mix. Same
+        lender selection considerations.
+      </p>
+      <p>
+        <strong>Long-tenured Japan resident with permanent
+        residency.</strong> Often a different case profile - long
+        employment history, accumulated deposit, sometimes a different
+        employer than the original move-out reason. Cleanest cases when
+        deposit is strong.
+      </p>
+      <p>
+        <strong>English teacher on modest salary.</strong> More
+        deposit-driven case. Smaller income, lender pool tighter, but
+        workable with good deposit and stable employment.
+      </p>
+      <p>
+        <strong>Returning to the UK from Japan.</strong> Common after
+        several years in finance or tech. Apply 3-4 months before the
+        move. Income source switches from JPY to GBP at the point of
+        return.
+      </p>
+    </div>
+  </section>
+
+  <MidPageCta />
+
+  <section class="hub-section">
+    <div class="hub-section-inner">
+      <h2 id="faqs">Common questions</h2>
+      <div class="faq">
+        {faqs.map((f) => (
+          <>
+            <h3>{f.q}</h3>
+            <p>{f.a}</p>
+          </>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <script
+    type="application/ld+json"
+    is:inline
+    set:html={JSON.stringify(faqSchema)}
+  />
+</HubLayout>

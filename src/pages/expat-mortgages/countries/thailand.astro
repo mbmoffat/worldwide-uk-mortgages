@@ -1,0 +1,290 @@
+---
+import HubLayout from '../../../layouts/HubLayout.astro';
+import PullQuote from '../../../components/PullQuote.astro';
+import MidPageCta from '../../../components/MidPageCta.astro';
+import { breadcrumbSchema, articleSchema, serviceSchema } from '../../../lib/schema';
+import RiskWarning from '../../../components/RiskWarning.astro';
+import TerritorialScope from '../../../components/TerritorialScope.astro';
+
+const title = 'UK Mortgages for British Expats in Thailand';
+const description =
+  'UK mortgages for British expats in Thailand. Thai baht income treatment, Elite Visa applicants, deposits, rates, and the retiree segment.';
+const h1 = 'UK Mortgages for British Expats in Thailand';
+const subheadline =
+  "A clear guide to UK mortgages when you live and work in Thailand. What you can borrow, how lenders treat baht income, what deposit you'll need, and how we find the right lender for your situation.";
+
+const relatedPages = [
+  {
+    eyebrow: 'Hub',
+    title: 'UK Mortgages for Expats',
+    description:
+      'British nationals living abroad. Country-by-country lender appetite, currency haircuts, and timelines.',
+    href: '/expat-mortgages',
+  },
+  {
+    eyebrow: 'Hub',
+    title: 'UK Mortgages with Foreign Income',
+    description:
+      'How lenders treat non-sterling income. The 20% standard haircut and direct access to no-haircut lenders.',
+    href: '/uk-mortgage-foreign-income',
+  },
+  {
+    eyebrow: 'Country',
+    title: 'UK Mortgages for British Expats in Hong Kong',
+    description:
+      'Hong Kong-based expats. HKD income, finance employer profiles, and lender appetite for Hong Kong.',
+    href: '/expat-mortgages/countries/hong-kong',
+  },
+  {
+    eyebrow: 'Country',
+    title: 'UK Mortgages for British Expats in Singapore',
+    description:
+      'Singapore-based expats. SGD income, EP/PR profiles, and lender appetite for Singapore.',
+    href: '/expat-mortgages/countries/singapore',
+  },
+  {
+    eyebrow: 'Country',
+    title: 'UK Mortgages for British Expats in Malaysia',
+    description:
+      'Malaysia-based expats. MM2H visa, ringgit income, and lender appetite for KL applicants.',
+    href: '/expat-mortgages/countries/malaysia',
+  },
+  {
+    eyebrow: 'Country',
+    title: 'UK Mortgages for British Expats in Japan',
+    description:
+      'Japan-based expats. Yen income, Tokyo finance and tech profiles, and lender appetite for Japan.',
+    href: '/expat-mortgages/countries/japan',
+  },
+];
+
+const faqs = [
+  {
+    q: 'Can I get a UK mortgage if I live in Thailand?',
+    a: 'Yes. Around 8-10 lenders in the expat space lend to British nationals in Thailand.',
+  },
+  {
+    q: 'How is my Thai baht income treated?',
+    a: 'THB is treated as soft currency. Haircuts of 25-30 percent apply at most lenders. A few specialist lenders apply lighter haircuts.',
+  },
+  {
+    q: 'Is offshore income easier to use?',
+    a: 'Yes. If you are paid in GBP, USD, or EUR into an offshore account, the income is treated as hard currency regardless of where you live.',
+  },
+  {
+    q: 'Does the Thailand Privilege Visa help my application?',
+    a: 'Indirectly. The visa itself is not income; it provides residency. The underlying income source determines the case profile. Privilege Visa holders often have clean offshore income profiles.',
+  },
+  {
+    q: 'Can I apply on UK pension income?',
+    a: 'Yes. UK pensions are treated as GBP hard currency. The case is usually deposit-driven.',
+  },
+  {
+    q: 'What deposit will I need?',
+    a: 'Typically 30-40 percent. Hard currency offshore income can access 25-30 percent.',
+  },
+  {
+    q: 'Do I need to be in the UK to apply?',
+    a: 'No. The formal advice meeting takes place in the UK.',
+  },
+  {
+    q: 'How long does the application take?',
+    a: 'Typically 12-16 weeks. Document certification and translation can extend the timeline for Thailand cases.',
+  },
+];
+
+const faqSchema = {
+  '@context': 'https://schema.org',
+  '@type': 'FAQPage',
+  mainEntity: faqs.map((f) => ({
+    '@type': 'Question',
+    name: f.q,
+    acceptedAnswer: { '@type': 'Answer', text: f.a },
+  })),
+};
+const schemas = [
+  breadcrumbSchema([
+    { name: 'Home', path: '/' },
+    { name: 'UK Mortgages for Expats', path: '/expat-mortgages' },
+    { name: 'Countries' },
+    { name: 'Thailand' },
+  ]),
+  articleSchema({ headline: h1, description }),
+  serviceSchema({
+    serviceType: 'UK Mortgage Brokerage for British Expats in Thailand',
+    name: h1,
+    description,
+  }),
+];
+---
+
+<HubLayout
+  title={title}
+  description={description}
+  h1={h1}
+  subheadline={subheadline}
+  eyebrow="COUNTRY · ASIA"
+  schemas={schemas}
+  relatedPages={relatedPages}
+>
+  <RiskWarning type="residential" />
+  <TerritorialScope />
+  <section class="hub-section">
+    <div class="hub-section-inner">
+      <h2 id="who-this-is-for">Who this page is for</h2>
+      <p>
+        If you are a British national living and working in Thailand and you
+        want a UK mortgage, this page is for you. Common situations we see:
+      </p>
+      <ul>
+        <li>A British national working in tourism, hospitality, or property management, often Phuket, Koh Samui, or Bangkok.</li>
+        <li>A British national working remotely from Thailand for a UK or international employer, often in tech, consulting, or design.</li>
+        <li>A British national on the Thailand Privilege (formerly Elite) Visa, living in Thailand long-term with offshore income.</li>
+        <li>A British national who retired or semi-retired to Thailand, living on UK pension income.</li>
+        <li>A British national running a business in Thailand, often a hospitality or property venture.</li>
+        <li>A British national married to a Thai citizen and living in Thailand long-term.</li>
+      </ul>
+      <p>
+        Thailand has a long-established British expat community, but the
+        cases are structurally different from Gulf or European markets.
+        Thai baht income, offshore structures, and visa status all matter.
+      </p>
+    </div>
+  </section>
+
+  <MidPageCta variant="hero" />
+
+  <section class="hub-section">
+    <div class="hub-section-inner">
+      <h2 id="lender-view">What UK lenders think of Thailand</h2>
+      <p>
+        Thailand sits in the middle band of the expat lender pool. Around
+        8-10 lenders consider British nationals resident in Thailand,
+        fewer than for Gulf or European markets.
+      </p>
+      <p>Where Thailand needs careful handling:</p>
+      <ul>
+        <li>Thai baht is treated as a soft currency by most lenders, with deeper haircuts than for hard currencies.</li>
+        <li>Thai-source income from Thai employers can be hard to verify to UK lender standards. Documentation in English plus certified translations are usually required.</li>
+        <li>Visa status matters more than in many other markets. Long-term visa holders (Elite Visa, retirement visa) with offshore income often have cleaner cases than short-term work visa holders on Thai income.</li>
+      </ul>
+    </div>
+  </section>
+
+  <section class="hub-section">
+    <div class="hub-section-inner">
+      <h2 id="thb-income">How Thai baht income is treated</h2>
+      <p>
+        Thai baht (THB) is treated as a soft currency by most lenders.
+        Haircuts of 25-30 percent are common, deeper than the 20 percent
+        applied to hard currencies. A small group of specialist lenders
+        apply lighter haircuts to THB income, which can materially shift
+        maximum borrowing for Thai-income applicants.
+      </p>
+      <p>
+        For applicants with offshore income (paid into a UK or
+        international account, even if you live in Thailand), the haircut
+        treatment depends on the source currency, not the country of
+        residence. Income paid in GBP, USD, or EUR into an offshore
+        account is treated as hard currency. Try the
+        <a href="/tools/expat-mortgage-calculator">expat mortgage calculator</a>
+        to see what each scenario means for your income.
+      </p>
+    </div>
+  </section>
+
+  <section class="hub-section">
+    <div class="hub-section-inner">
+      <h2 id="elite-visa">The Thailand Privilege (Elite) Visa angle</h2>
+      <p>
+        A meaningful share of British expats in Thailand are on the
+        Thailand Privilege Visa (formerly Elite Visa), which provides
+        long-term residency without requiring Thai-source income. From a
+        UK lender's perspective:
+      </p>
+      <ul>
+        <li>Thailand Privilege holders typically have offshore income, which simplifies the affordability calculation.</li>
+        <li>The visa itself is not income-generating, so what matters is the underlying income source.</li>
+        <li>Documentation is usually cleaner because the income is in a hard currency from a non-Thai source.</li>
+      </ul>
+      <p>This profile is generally the cleanest Thailand case to place.</p>
+    </div>
+  </section>
+
+  <section class="hub-section">
+    <div class="hub-section-inner">
+      <h2 id="deposit-rates">Deposit and rates</h2>
+      <p>
+        Deposits for British expats in Thailand typically sit at 30-40
+        percent. The deposit floor is higher than for Gulf or European
+        markets because of the soft currency and country factors. Stronger
+        profiles with offshore hard-currency income access the lower end.
+      </p>
+      <p>
+        <a href="/expat-mortgages/rates">Expat rates</a> from Thailand are
+        typically 0.5 to 0.8 percent above the equivalent UK-resident
+        product, slightly wider than for hard-currency markets.
+      </p>
+    </div>
+  </section>
+
+  <PullQuote>
+    Thailand cases vary more by income source than by country. Offshore
+    hard-currency income makes the case cleaner.
+  </PullQuote>
+
+  <section class="hub-section">
+    <div class="hub-section-inner">
+      <h2 id="situations">Common situations from Thailand</h2>
+      <p>
+        <strong>Remote worker on offshore income.</strong> Working for a
+        UK or international employer, paid in GBP or USD into an offshore
+        account, living in Thailand. The cleanest case profile. Hard
+        currency haircut applies. Deposits 25-30 percent.
+      </p>
+      <p>
+        <strong>Thailand Privilege Visa holder with offshore
+        income.</strong> Similar to the remote worker profile but
+        typically older, often with accumulated savings. Strong deposit
+        makes the case very clean.
+      </p>
+      <p>
+        <strong>Retiree on UK pension.</strong> Pension income is treated
+        as GBP hard currency regardless of residence. Deposit-driven case
+        profile.
+      </p>
+      <p>
+        <strong>Thai employer income.</strong> More complex. THB income
+        with deeper haircut. Lender selection critical.
+      </p>
+      <p>
+        <strong>Business owner running a Thai venture.</strong> Most
+        complex profile. Two to three years of accounts, often offshore
+        profit extraction structures, careful tax position. Bespoke lender
+        approach needed.
+      </p>
+    </div>
+  </section>
+
+  <MidPageCta />
+
+  <section class="hub-section">
+    <div class="hub-section-inner">
+      <h2 id="faqs">Common questions</h2>
+      <div class="faq">
+        {faqs.map((f) => (
+          <>
+            <h3>{f.q}</h3>
+            <p>{f.a}</p>
+          </>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <script
+    type="application/ld+json"
+    is:inline
+    set:html={JSON.stringify(faqSchema)}
+  />
+</HubLayout>
