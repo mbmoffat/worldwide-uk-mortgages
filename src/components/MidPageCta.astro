@@ -49,8 +49,12 @@ const {
     }
   }
 
+  .cta-block:has(+ .contact) {
+    padding-bottom: 1rem !important;
+  }
+
   .cta-block + .contact {
-    padding-top: 2rem !important;
+    padding-top: 1rem !important;
   }
 
   /* Hero variant breaks out of the constrained content column so the
@@ -83,7 +87,7 @@ const {
     font-family: var(--font-body);
     font-size: 0.9375rem;
     color: #6B6358;
-    margin: 1.25rem 0 0;
+    margin: 1.75rem 0 0;
     line-height: 1.5;
   }
 </style>
