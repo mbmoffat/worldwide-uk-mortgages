@@ -124,10 +124,23 @@ const schemas = [
                 Enter a property price to see the breakdown.
               </p>
             </div>
-            <p class="calc-illustrative-note">
-              Figures are illustrative. Actual lending decisions depend on
-              lender criteria, your circumstances, and the property.
-            </p>
+            <div class="calc-warning-block">
+              <p class="calc-warning-lead">
+                This calculator provides a general guide only and does not
+                constitute financial advice. Stamp duty rules and rates may
+                change. Always confirm current rates with your Solicitor.
+              </p>
+              <p class="calc-warning-source">
+                *Calculations based on published rates effective from 1
+                April 2025. Source:
+                <a href="https://www.gov.uk/stamp-duty-land-tax" target="_blank" rel="noopener">https://www.gov.uk/stamp-duty-land-tax</a>
+              </p>
+              <ul class="calc-warning-list">
+                <li>This information is a guide only and should not be relied on as a recommendation or advice that any particular mortgage is suitable for you.</li>
+                <li>All mortgages are subject to the applicant(s) meeting the eligibility criteria of lenders.</li>
+                <li>Make an appointment to receive mortgage advice suitable for your needs and circumstances.</li>
+              </ul>
+            </div>
           </div>
         </div>
       </div>
@@ -192,6 +205,61 @@ const schemas = [
           </a>
           is the authoritative source. For complex cases, take advice from a
           conveyancer.
+        </p>
+      </div>
+    </section>
+
+    <section class="sdlt-explainer calc-disclaimer-section">
+      <div class="sdlt-inner sdlt-inner--narrow">
+        <h2 id="disclaimer">Disclaimer</h2>
+        <p>
+          Mortgage One is a mortgage broker and does not provide legal or
+          tax advice. This Stamp Duty Calculator and all accompanying
+          information are provided for general informational purposes only
+          and do not constitute personal advice, legal advice, or tax
+          advice.
+        </p>
+        <p>
+          While reasonable care is taken to reflect current Stamp Duty
+          Land Tax legislation, rates, thresholds, and reliefs are subject
+          to change and may apply differently depending on individual
+          circumstances, transaction structure, and the law in force at
+          the date of completion.
+        </p>
+        <p>
+          The calculator provides an estimate only and does not account
+          for all possible reliefs, exemptions, or surcharges, including
+          (without limitation) replacement of a main residence, higher
+          rates for additional properties, multiple dwellings relief,
+          mixed-use transactions, company purchases, or non-UK residency
+          rules.
+        </p>
+        <p>
+          Mortgage One does not guarantee the accuracy, completeness, or
+          applicability of the calculator results and accepts no liability
+          for any loss, cost, or consequence arising from reliance on the
+          calculator or the information provided. If there is any
+          difference between the calculator output and a calculation
+          provided by a conveyancer or accountant, the conveyancer or
+          accountant's calculation should be treated as definitive.
+        </p>
+        <p>
+          This information is provided as a guide only and should not be
+          relied upon as a recommendation or advice that any particular
+          mortgage is suitable for you.
+        </p>
+        <p>
+          It is essential for users to consult a qualified solicitor or
+          accountant to verify Stamp Duty Land Tax obligations and ensure
+          accuracy for their individual transactions.
+        </p>
+        <p>
+          All mortgages are subject to the applicant(s) meeting the
+          eligibility criteria of lenders.
+        </p>
+        <p>
+          You may make an appointment to receive mortgage advice that is
+          suitable for your needs and circumstances.
         </p>
       </div>
     </section>
@@ -614,13 +682,43 @@ const schemas = [
     border-top: 1px solid var(--border);
   }
 
-  .calc-illustrative-note {
+  .calc-warning-block {
     font-family: var(--font-sans);
     font-size: 0.85rem;
-    font-style: italic;
     color: var(--muted);
-    text-align: center;
     line-height: 1.5;
     margin: 1rem 0 0;
+    text-align: center;
+  }
+
+  .calc-warning-block .calc-warning-lead,
+  .calc-warning-block .calc-warning-source {
+    font-style: italic;
+    margin: 0 0 0.75rem;
+  }
+
+  .calc-warning-block .calc-warning-list {
+    list-style: disc inside;
+    padding: 0;
+    margin: 0;
+    text-align: left;
+    display: inline-block;
+  }
+
+  .calc-warning-block .calc-warning-list li {
+    margin: 0 0 0.375rem;
+  }
+
+  .calc-warning-block .calc-warning-list li:last-child {
+    margin-bottom: 0;
+  }
+
+  .calc-warning-block a {
+    color: inherit;
+    text-decoration: underline;
+  }
+
+  .calc-warning-block a:hover {
+    color: var(--accent);
   }
 </style>
