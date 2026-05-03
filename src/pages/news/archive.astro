@@ -1,0 +1,108 @@
+---
+import T7Layout from '../../layouts/T7Layout.astro';
+import MidPageCta from '../../components/MidPageCta.astro';
+import ContactForm from '../../components/ContactForm.astro';
+import RiskWarning from '../../components/RiskWarning.astro';
+import TerritorialScope from '../../components/TerritorialScope.astro';
+import { breadcrumbSchema } from '../../lib/schema';
+import { getCollection } from 'astro:content';
+
+const title = 'News Archive - UK Mortgages Worldwide';
+const description =
+  'Every news article from UK Mortgages Worldwide. Lender criteria, rate movements, and policy developments affecting expat and non-resident borrowers.';
+
+const articles = (await getCollection('news')).sort(
+  (a, b) => b.data.pubDate.valueOf() - a.data.pubDate.valueOf(),
+);
+
+const fmt = (d: Date) =>
+  d.toLocaleDateString('en-GB', {
+    day: '2-digit',
+    month: 'long',
+    year: 'numeric',
+  });
+
+const schemas = [
+  breadcrumbSchema([
+    { name: 'Home', path: '/' },
+    { name: 'News', path: '/news' },
+    { name: 'Archive' },
+  ]),
+];
+---
+
+<T7Layout
+  title={title}
+  description={description}
+  h1="News Archive"
+  eyebrow="ALL ARTICLES"
+  schemas={schemas}
+>
+  <RiskWarning type="residential" />
+  <TerritorialScope />
+
+  <ul class="news-archive">
+    {articles.map((a) => (
+      <li class="news-archive-row">
+        <span class="news-archive-date">{fmt(a.data.pubDate)}</span>
+        <a class="news-archive-title" href={`/news/${a.slug}`}>{a.data.title}</a>
+        <p class="news-archive-desc">{a.data.description}</p>
+      </li>
+    ))}
+  </ul>
+
+  <MidPageCta />
+
+  <ContactForm />
+</T7Layout>
+
+<style is:global>
+  .t7-body .news-archive {
+    list-style: none;
+    padding: 0;
+    margin: 2rem 0 3rem;
+  }
+
+  .t7-body .news-archive-row {
+    margin: 0 0 1.5rem;
+    padding-bottom: 1.5rem;
+    border-bottom: 1px solid var(--border);
+  }
+
+  .t7-body .news-archive-row:last-child {
+    border-bottom: none;
+  }
+
+  .news-archive-date {
+    display: block;
+    font-family: var(--font-sans);
+    font-size: 0.75rem;
+    font-weight: 500;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    color: var(--muted);
+    margin: 0 0 0.375rem;
+  }
+
+  .news-archive-title {
+    font-family: var(--font-body);
+    font-size: 1.0625rem;
+    font-weight: 500;
+    color: var(--accent);
+    text-decoration: none;
+    line-height: 1.4;
+  }
+
+  .news-archive-title:hover {
+    color: var(--accent-hover);
+    text-decoration: underline;
+  }
+
+  .t7-body .news-archive-desc {
+    margin: 0.25rem 0 0;
+    font-size: 0.9375rem;
+    color: var(--muted);
+    line-height: 1.5;
+    letter-spacing: 0;
+  }
+</style>

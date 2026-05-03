@@ -1,5 +1,10 @@
 ---
 import T7Layout from '../layouts/T7Layout.astro';
+import { getCollection } from 'astro:content';
+
+const newsArticles = (await getCollection('news')).sort(
+  (a, b) => b.data.pubDate.valueOf() - a.data.pubDate.valueOf(),
+);
 
 const title = 'Sitemap';
 const description =
@@ -82,6 +87,17 @@ const groups = [
       { label: 'Buying UK Property from Overseas', href: '/guides/buying-uk-property-from-overseas' },
       { label: 'Expat First-Time Buyer', href: '/expat-mortgages/first-time-buyer' },
       { label: 'Expat BTL Rates', href: '/expat-mortgages/buy-to-let/rates' },
+    ],
+  },
+  {
+    heading: 'News',
+    links: [
+      { label: 'Latest News', href: '/news' },
+      { label: 'News Archive', href: '/news/archive' },
+      ...newsArticles.map((a) => ({
+        label: a.data.title,
+        href: `/news/${a.slug}`,
+      })),
     ],
   },
   {

@@ -68,6 +68,33 @@ export function serviceSchema(opts: {
   };
 }
 
+export function newsArticleSchema(opts: {
+  headline: string;
+  description: string;
+  datePublished: string | Date;
+  dateModified?: string | Date;
+  url?: string;
+}) {
+  const toIso = (d: string | Date) =>
+    typeof d === 'string' ? d : d.toISOString();
+  return {
+    '@context': 'https://schema.org',
+    '@type': 'NewsArticle',
+    headline: opts.headline,
+    description: opts.description,
+    datePublished: toIso(opts.datePublished),
+    dateModified: toIso(opts.dateModified ?? opts.datePublished),
+    author: { '@type': 'Organization', name: SITE_NAME, url: SITE_URL },
+    publisher: {
+      '@type': 'Organization',
+      name: SITE_NAME,
+      logo: { '@type': 'ImageObject', url: `${SITE_URL}/favicon.svg` },
+    },
+    ...(opts.url ? { mainEntityOfPage: opts.url } : {}),
+    image: `${SITE_URL}/og-default.png`,
+  };
+}
+
 export function faqPageSchema(faqs: { q: string; a: string }[]) {
   return {
     '@context': 'https://schema.org',

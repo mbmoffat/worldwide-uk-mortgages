@@ -1,0 +1,83 @@
+---
+import { getCollection, type CollectionEntry } from 'astro:content';
+import T7Layout from '../../layouts/T7Layout.astro';
+import MidPageCta from '../../components/MidPageCta.astro';
+import ContactForm from '../../components/ContactForm.astro';
+import RiskWarning from '../../components/RiskWarning.astro';
+import TerritorialScope from '../../components/TerritorialScope.astro';
+import { breadcrumbSchema, newsArticleSchema, SITE_URL } from '../../lib/schema';
+
+export async function getStaticPaths() {
+  const articles = await getCollection('news');
+  return articles.map((article) => ({
+    params: { slug: article.slug },
+    props: { article },
+  }));
+}
+
+interface Props {
+  article: CollectionEntry<'news'>;
+}
+
+const { article } = Astro.props;
+const { Content } = await article.render();
+const { title, description, pubDate, hideRiskWarning } = article.data;
+
+const fmt = (d: Date) =>
+  d.toLocaleDateString('en-GB', {
+    day: '2-digit',
+    month: 'long',
+    year: 'numeric',
+  });
+
+const url = `${SITE_URL}/news/${article.slug}`;
+
+const schemas = [
+  breadcrumbSchema([
+    { name: 'Home', path: '/' },
+    { name: 'News', path: '/news' },
+    { name: title },
+  ]),
+  newsArticleSchema({
+    headline: title,
+    description,
+    datePublished: pubDate,
+    url,
+  }),
+];
+---
+
+<T7Layout
+  title={title}
+  description={description}
+  h1={title}
+  eyebrow="NEWS"
+  schemas={schemas}
+>
+  {!hideRiskWarning && (
+    <>
+      <RiskWarning type="residential" />
+      <TerritorialScope />
+    </>
+  )}
+
+  <p class="news-article-date">{fmt(pubDate)}</p>
+
+  <Content />
+
+  <MidPageCta />
+
+  <ContactForm />
+</T7Layout>
+
+<style is:global>
+  .t7-body .news-article-date {
+    font-family: var(--font-sans);
+    font-size: 0.8125rem;
+    font-weight: 500;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    color: var(--muted);
+    margin: 0 0 1.5rem;
+  }
+</style>
