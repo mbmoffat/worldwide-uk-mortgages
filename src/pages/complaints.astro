@@ -4,14 +4,14 @@ import MidPageCta from '../components/MidPageCta.astro';
 import ContactForm from '../components/ContactForm.astro';
 import { breadcrumbSchema } from '../lib/schema';
 
-const title = 'Complaints Procedure';
+const title = 'Complaints Procedure and Risk Warnings';
 const description =
-  'How to raise a complaint with UK Mortgages Worldwide, what happens next, and how to refer a complaint to the Financial Ombudsman Service.';
+  'How to raise a complaint with Mortgage One, what happens next, your rights with the Financial Ombudsman Service, and our risk warnings.';
 
 const schemas = [
   breadcrumbSchema([
     { name: 'Home', path: '/' },
-    { name: 'Complaints Procedure' },
+    { name: 'Complaints Procedure and Risk Warnings' },
   ]),
 ];
 ---
@@ -19,65 +19,134 @@ const schemas = [
 <T7Layout
   title={title}
   description={description}
-  h1="Complaints Procedure"
+  h1="Complaints Procedure and Risk Warnings"
   eyebrow="LEGAL"
   schemas={schemas}
 >
   <p>
-    UK Mortgages Worldwide takes complaints seriously. If something has
-    gone wrong with the service we have provided, we want to know.
+    At Mortgage One, we are committed to providing the highest standards
+    of service. If at any point you become dissatisfied or concerned with
+    the advice or service you have received, we encourage you to let us
+    know as soon as possible so we can put things right.
+  </p>
+  <p>
+    This complaints procedure outlines how you can make a complaint, what
+    you can expect from us, and your rights under the Financial Conduct
+    Authority rules.
   </p>
 
-  <h2>How to raise a complaint</h2>
-  <p>You can raise a complaint with us by any of the following means:</p>
+  <h2>How to Make a Complaint</h2>
+  <p>You may register a complaint with us by any of the following methods:</p>
+
+  <p>
+    <strong>In writing:</strong><br />
+    Quilter Financial Planning<br />
+    Complaints Department<br />
+    Sunderland, SR43 4JR
+  </p>
+
+  <p>
+    <strong>By phone:</strong><br />
+    0808 171 2626
+  </p>
+
+  <p>
+    <strong>By email:</strong><br />
+    <a href="mailto:QFPcomplaints@quilter.com">QFPcomplaints@quilter.com</a>
+  </p>
+
+  <p>
+    Please include your full name, contact details, and a clear
+    description of your concern. If your complaint relates to advice or
+    services provided by Mortgage One or your adviser, it will be handled
+    through Quilter's centralised complaints team in line with Financial
+    Conduct Authority rules.
+  </p>
+
+  <h2>What Happens Next</h2>
+  <p>Upon receipt of your complaint:</p>
   <ul>
-    <li>Email: enquiry@ukmortgagesworldwide.com</li>
-    <li>Post: Mortgage One, 555-557 Cranbrook Road, Gants Hill, Ilford, Essex, England IG2 6HE</li>
-    <li>Phone: 01202 155992</li>
+    <li>We will acknowledge your complaint within 5 working days.</li>
+    <li>A full investigation will be undertaken in line with Quilter Financial Planning's internal complaints procedures.</li>
+    <li>We aim to provide a final written response within 8 weeks of receiving your complaint. If we cannot respond in full within that time, we will write to you explaining the delay, setting out your right to refer your complaint to the Financial Ombudsman Service (FOS).</li>
   </ul>
+
+  <h2>Your Rights: The Financial Ombudsman Service</h2>
   <p>
-    Please include your name, contact details, the nature of the
-    complaint, and any relevant dates or reference numbers.
+    If you are not satisfied with our final response or if we have not
+    issued a final response within 8 weeks, you may be entitled to refer
+    your complaint to the Financial Ombudsman Service.
+  </p>
+  <p>
+    You must do this within six months of the date of our final response.
+  </p>
+  <p>
+    You can contact the Financial Ombudsman Service using the details
+    below:
   </p>
 
-  <h2>What happens next</h2>
   <p>
-    We will acknowledge your complaint promptly, usually within 5 working
-    days. We will then investigate and aim to provide a final response
-    within 8 weeks. If our investigation takes longer than 8 weeks, we
-    will write to you explaining the delay and setting out the next steps.
+    <strong>Address:</strong><br />
+    Financial Ombudsman Service<br />
+    Exchange Tower<br />
+    London E14 9SR
   </p>
 
-  <h2>Financial Ombudsman Service</h2>
   <p>
-    If you are not satisfied with our final response, or if 8 weeks have
-    passed without a final response, you may refer your complaint to the
-    Financial Ombudsman Service. The Financial Ombudsman Service is a
-    free, independent service for resolving disputes between consumers
-    and financial services firms.
-  </p>
-  <ul>
-    <li>Website: <a href="https://www.financial-ombudsman.org.uk" target="_blank" rel="noopener">https://www.financial-ombudsman.org.uk</a></li>
-    <li>Phone: 0800 023 4567</li>
-    <li>Address: Financial Ombudsman Service, Exchange Tower, London E14 9SR</li>
-  </ul>
-  <p>
-    You must usually refer a complaint to the Financial Ombudsman Service
-    within six months of receiving our final response.
+    <strong>Email:</strong><br />
+    <a href="mailto:complaint.info@financial-ombudsman.org.uk">complaint.info@financial-ombudsman.org.uk</a>
   </p>
 
-  <h2>Financial Services Compensation Scheme</h2>
   <p>
-    In the event that we are unable to meet our obligations, you may be
-    entitled to compensation from the Financial Services Compensation
-    Scheme. Mortgage advice and arrangement is covered up to 100% of the
-    first £85,000 per eligible person, per firm. Insurance advice and
-    arrangement is covered up to 100% of the claim with no upper limit.
-    Eligibility criteria apply.
+    <strong>Website:</strong><br />
+    <a href="https://www.financial-ombudsman.org.uk" target="_blank" rel="noopener">https://www.financial-ombudsman.org.uk</a>
   </p>
-  <ul>
-    <li>Website: <a href="https://www.fscs.org.uk" target="_blank" rel="noopener">https://www.fscs.org.uk</a></li>
-  </ul>
+
+  <p>
+    <strong>Please note:</strong> Some products, such as Business
+    Buy-to-Let mortgages or unregulated loans, are not covered by the
+    Financial Ombudsman Service. We will tell you if your product is not
+    eligible when you raise your complaint.
+  </p>
+
+  <h2>Additional Information</h2>
+  <p>
+    A summary of Quilter's internal complaints procedures is available
+    free of charge on request. We will provide a copy when we acknowledge
+    your complaint or at any point you request one.
+  </p>
+  <p>
+    This process is governed by the rules of the Financial Conduct
+    Authority. You can check the regulatory status of our firm on the
+    Financial Conduct Authority register at
+    <a href="https://register.fca.org.uk/s/" target="_blank" rel="noopener">https://register.fca.org.uk/s/</a>
+  </p>
+
+  <h2>Risk Warning Statement</h2>
+  <p>
+    Your home may be repossessed if you do not keep up repayments on your
+    mortgage.
+  </p>
+  <p>
+    If you are thinking of consolidating existing borrowing, you should
+    be aware that you may be extending the term of the debt and
+    increasing the total amount you repay.
+  </p>
+  <p>
+    Buy-to-let mortgages are not usually regulated by the Financial
+    Conduct Authority.
+  </p>
+  <p>
+    Mortgage One is only able to provide regulated mortgage advice to
+    clients who are physically present in the UK at the time the advice
+    is given.
+  </p>
+  <p>
+    The information provided on this website is for guidance purposes
+    only and does not constitute advice. Full mortgage advice will be
+    given following a detailed assessment of your individual
+    circumstances.
+  </p>
 
   <MidPageCta variant="hero" />
 
