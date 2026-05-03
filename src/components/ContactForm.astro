@@ -53,6 +53,14 @@
 
       <button type="submit" class="btn contact-submit">Send an enquiry</button>
 
+      <p class="form-privacy-disclosure">
+        By sending this enquiry, you agree to your details being used by
+        Mortgage One to respond to your enquiry. We will not share your
+        details with third parties for marketing purposes. For full details
+        of how we handle your data, see the
+        <a href="https://www.quilter.com/important-information/privacy-notices/appointed-representative-privacy-notice/" target="_blank" rel="noopener">Quilter Appointed Representative Privacy Notice</a>.
+      </p>
+
       <div class="contact-trust">
         <p>A mortgage broker will usually respond immediately.</p>
       </div>
@@ -155,6 +163,25 @@
 
   .contact-form .contact-submit {
     margin-top: 0.5rem;
+  }
+
+  .form-privacy-disclosure {
+    font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+    font-size: 0.8rem;
+    color: rgba(26, 22, 18, 0.65);
+    text-align: center;
+    line-height: 1.5;
+    margin: 1rem auto 0;
+    max-width: 52ch;
+  }
+
+  .form-privacy-disclosure a {
+    color: rgba(26, 22, 18, 0.65);
+    text-decoration: underline;
+  }
+
+  .form-privacy-disclosure a:hover {
+    color: var(--accent);
   }
 
   .contact-trust {
