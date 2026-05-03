@@ -1,0 +1,40 @@
+---
+const approverDate = '[APPROVAL DATE TBD]';
+---
+
+<div class="compliance-footer">
+  <p class="risk-line">
+    Your home may be repossessed if you do not keep up repayments on your mortgage. Most buy-to-let mortgages are not regulated by the Financial Conduct Authority.
+  </p>
+  <p>
+    UK Mortgages Worldwide is operated by Mortgage One, a trading style of Sandsea Capital Ltd, an appointed representative of Quilter Financial Services Limited, which is authorised and regulated by the Financial Conduct Authority. FCA Register No. 440703. Mortgage One FCA Register No. 1031867.
+  </p>
+  <p>
+    Sandsea Capital Ltd is registered in England and Wales, Company No. 11374947. Registered office: 555-557 Cranbrook Road, Gants Hill, Ilford, Essex IG2 6HE.
+  </p>
+  <p class="approver">Approver: Quilter Financial Services Limited, {approverDate}.</p>
+</div>
+
+<style>
+  .compliance-footer {
+    max-width: 820px;
+    margin: 0 auto;
+    padding: 1.5rem 1rem 2rem;
+    border-top: 1px solid rgba(139, 35, 49, 0.15);
+  }
+  .compliance-footer p {
+    font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+    font-size: 0.8rem;
+    line-height: 1.5;
+    color: rgba(26, 22, 18, 0.65);
+    margin: 0 0 0.75rem;
+    text-align: center;
+  }
+  .compliance-footer p:last-child {
+    margin-bottom: 0;
+  }
+  .compliance-footer .risk-line {
+    font-style: italic;
+    margin-bottom: 1rem;
+  }
+</style>

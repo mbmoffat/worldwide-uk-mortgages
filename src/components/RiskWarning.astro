@@ -1,0 +1,52 @@
+---
+interface Props {
+  type?: 'residential' | 'btl' | 'fees' | 'residential-fees' | 'btl-fees';
+}
+const { type = 'residential' } = Astro.props;
+
+const lines: Record<string, string[]> = {
+  residential: [
+    'Your home may be repossessed if you do not keep up repayments on your mortgage.'
+  ],
+  btl: [
+    'Most buy-to-let mortgages are not regulated by the Financial Conduct Authority. Your property may be repossessed if you do not keep up repayments.'
+  ],
+  fees: [
+    'A fee may be charged for mortgage advice. The amount will depend on your circumstances and will be agreed with you before any work is undertaken.'
+  ],
+  'residential-fees': [
+    'Your home may be repossessed if you do not keep up repayments on your mortgage.',
+    'A fee may be charged for mortgage advice. The amount will depend on your circumstances and will be agreed with you before any work is undertaken.'
+  ],
+  'btl-fees': [
+    'Most buy-to-let mortgages are not regulated by the Financial Conduct Authority. Your property may be repossessed if you do not keep up repayments.',
+    'A fee may be charged for mortgage advice. The amount will depend on your circumstances and will be agreed with you before any work is undertaken.'
+  ]
+};
+
+const messages = lines[type];
+---
+
+<div class="risk-warning">
+  {messages.map((line) => <p>{line}</p>)}
+</div>
+
+<style>
+  .risk-warning {
+    max-width: 820px;
+    margin: 1.5rem auto 2rem;
+    padding: 0 1rem;
+  }
+  .risk-warning p {
+    font-family: 'Lora', Georgia, serif;
+    font-style: italic;
+    font-size: 0.9rem;
+    line-height: 1.5;
+    color: rgba(26, 22, 18, 0.6);
+    margin: 0 0 0.5rem;
+    text-align: center;
+  }
+  .risk-warning p:last-child {
+    margin-bottom: 0;
+  }
+</style>
