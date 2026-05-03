@@ -975,8 +975,12 @@ const guides = [
         }
       }
 
+      .risk-warning:has(+ .territorial-scope) {
+        margin-bottom: 0 !important;
+      }
+
       .risk-warning + .territorial-scope {
-        margin-top: -2rem;
+        margin-top: 0 !important;
       }
     </style>
 
