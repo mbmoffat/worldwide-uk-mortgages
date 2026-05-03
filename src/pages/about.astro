@@ -1,10 +1,12 @@
 ---
 import T7Layout from '../layouts/T7Layout.astro';
+import MidPageCta from '../components/MidPageCta.astro';
+import ContactForm from '../components/ContactForm.astro';
+import { breadcrumbSchema } from '../lib/schema';
 
 const title = 'About';
 const description =
-  'UK Mortgages Worldwide is a UK-based introducer for specialist mortgages. We pass enquiries to FCA-authorised brokers.';
-import { breadcrumbSchema } from '../lib/schema';
+  'UK Mortgages Worldwide is a UK mortgage broker specialising in expats, non-UK residents, and people with foreign income.';
 
 const schemas = [
   breadcrumbSchema([
@@ -14,12 +16,62 @@ const schemas = [
 ];
 ---
 
-<T7Layout title={title} description={description} h1="About UK Mortgages Worldwide" schemas={schemas}>
+<T7Layout
+  title={title}
+  description={description}
+  h1="About UK Mortgages Worldwide"
+  eyebrow="ABOUT"
+  schemas={schemas}
+>
   <p>
-    We are a UK-based introducer for specialist mortgages. Our role is to
-    receive your enquiry and pass it to an FCA-authorised mortgage broker who
-    works with cases like yours. We do not provide regulated mortgage advice.
-    The broker who handles your case will.
+    UK Mortgages Worldwide is a UK mortgage broker specialising in expats,
+    non-UK residents, and people with foreign income.
   </p>
-  <p>PLACEHOLDER: more content to be added.</p>
+
+  <h2>Why this site exists</h2>
+  <p>
+    Most UK mortgage advice is built for UK residents on PAYE income. The
+    moment a client lives abroad, earns in a foreign currency, or holds a
+    non-UK passport, the high-street lender list collapses. Standard
+    practice across the industry is to apply a 20% haircut to non-GBP
+    income, then turn the case down because the affordability no longer
+    works.
+  </p>
+  <p>
+    There is a better way. A small group of specialist lenders take foreign
+    income at face value, lend to non-UK residents on standard rates, and
+    treat expat applicants as a category they actually want to serve.
+    Knowing which lender to approach for which situation is the entire job.
+  </p>
+  <p>
+    This site exists to put that knowledge in front of the people searching
+    for it, in plain language, without lender lists or generic advice that
+    does not survive contact with a real case.
+  </p>
+
+  <h2>How enquiries work</h2>
+  <p>
+    When you send an enquiry, it lands with our team at Mortgage One. A
+    broker reviews the case, picks up the phone or replies on WhatsApp,
+    and walks you through what is achievable. There is no panel and no
+    third-party handover. The person reading your enquiry is the person
+    who will arrange your mortgage.
+  </p>
+
+  <h2>Firm details</h2>
+  <p>
+    UK Mortgages Worldwide is a trading style of Sandsea Capital Ltd, an
+    appointed representative of Quilter Financial Services Limited, which
+    is authorised and regulated by the Financial Conduct Authority. FCA
+    Register No. 440703.
+  </p>
+  <ul>
+    <li>FCA Register No. 1031867</li>
+    <li>Sandsea Capital Ltd, Company No. 11374947</li>
+    <li>Registered office: 555-557 Cranbrook Road, Gants Hill, Ilford, Essex IG2 6HE</li>
+  </ul>
+
+  <MidPageCta variant="hero" heading="Talk to a broker" />
+
+  <ContactForm />
 </T7Layout>

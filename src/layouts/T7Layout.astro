@@ -5,16 +5,18 @@ interface Props {
   title: string;
   description?: string;
   h1: string;
+  eyebrow?: string;
   lead?: string;
   schemas?: Record<string, any>[];
 }
 
-const { title, description, h1, lead, schemas = [] } = Astro.props;
+const { title, description, h1, eyebrow, lead, schemas = [] } = Astro.props;
 ---
 
 <Layout title={title} description={description} schemas={schemas}>
   <article class="t7">
     <div class="t7-inner">
+      {eyebrow && <p class="eyebrow">{eyebrow}</p>}
       <h1>{h1}</h1>
       {lead && <p class="t7-lead">{lead}</p>}
       <div class="t7-body">
