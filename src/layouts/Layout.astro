@@ -23,6 +23,10 @@ const mortgages = [
   { label: 'UK Mortgages with Foreign Income', href: '/uk-mortgage-foreign-income' },
   { label: 'UK Mortgages Living Abroad', href: '/uk-mortgage-living-abroad' },
   { label: 'Foreign Nationals in UK', href: '/uk-mortgage-for-foreign-nationals' },
+  { label: 'Skilled Worker Visa', href: '/uk-mortgage-for-foreign-nationals/skilled-worker-visa', child: true },
+  { label: 'Spouse Visa', href: '/uk-mortgage-for-foreign-nationals/spouse-visa', child: true },
+  { label: 'Without ILR', href: '/uk-mortgage-for-foreign-nationals/without-ilr', child: true },
+  { label: 'BNO Visa', href: '/uk-mortgage-for-foreign-nationals/bno-visa', child: true },
   { label: 'Seafarer Mortgages', href: '/seafarer-mortgages' },
   { label: 'Expat Buy-to-Let', href: '/expat-mortgages/buy-to-let' },
   { label: 'Non-UK Resident Buy-to-Let', href: '/non-uk-resident-mortgages/buy-to-let' },
@@ -128,7 +132,11 @@ const guides = [
             </button>
             <div class="nav-dropdown-menu" id="nav-mortgages-menu" role="menu">
               {mortgages.map((item) => (
-                <a href={item.href} role="menuitem">{item.label}</a>
+                <a
+                  href={item.href}
+                  role="menuitem"
+                  class:list={[item.child && 'nav-dropdown-child']}
+                >{item.label}</a>
               ))}
             </div>
           </div>
@@ -579,6 +587,11 @@ const guides = [
         max-height: 70vh;
         overflow-y: auto;
         overscroll-behavior: contain;
+      }
+
+      .nav-dropdown-menu a.nav-dropdown-child {
+        padding-left: 2rem;
+        font-weight: 400;
       }
 
       @media (max-width: 720px) {
