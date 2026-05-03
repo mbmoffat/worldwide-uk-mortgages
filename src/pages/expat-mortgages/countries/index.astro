@@ -1,0 +1,78 @@
+---
+import T7Layout from '../../../layouts/T7Layout.astro';
+import MidPageCta from '../../../components/MidPageCta.astro';
+import ContactForm from '../../../components/ContactForm.astro';
+import RiskWarning from '../../../components/RiskWarning.astro';
+import TerritorialScope from '../../../components/TerritorialScope.astro';
+import { breadcrumbSchema, articleSchema } from '../../../lib/schema';
+
+const title = 'All Countries';
+const description =
+  'Country-specific UK mortgage guides for British expats. Lender appetite, currency treatment, deposits, and rates by country of residence.';
+
+const schemas = [
+  breadcrumbSchema([
+    { name: 'Home', path: '/' },
+    { name: 'UK Mortgages for Expats', path: '/expat-mortgages' },
+    { name: 'Countries' },
+  ]),
+  articleSchema({ headline: 'All Countries', description }),
+];
+
+const entries = [
+  { href: '/expat-mortgages/countries/australia', label: 'Australia', desc: 'British nationals in Australia, AUD income, lender appetite for ANZ-resident applicants.' },
+  { href: '/expat-mortgages/countries/bahrain', label: 'Bahrain', desc: 'British expats in Bahrain, tax-free BHD income, the Saudi commuter angle.' },
+  { href: '/expat-mortgages/countries/canada', label: 'Canada', desc: 'British expats in Canada, CAD income, lender appetite for Canadian-resident applicants.' },
+  { href: '/expat-mortgages/countries/dubai', label: 'Dubai / UAE', desc: 'British expats in the UAE, tax-free AED income, the largest Gulf expat market.' },
+  { href: '/expat-mortgages/countries/france', label: 'France', desc: 'British expats in France, euro income, French tax position, Paris finance employers.' },
+  { href: '/expat-mortgages/countries/germany', label: 'Germany', desc: 'British expats in Germany, euro income, lender appetite and EU residency.' },
+  { href: '/expat-mortgages/countries/hong-kong', label: 'Hong Kong', desc: "British expats in Hong Kong, HKD income, the city's banking and finance sector." },
+  { href: '/expat-mortgages/countries/ireland', label: 'Ireland', desc: 'British expats in Ireland, euro income, Common Travel Area, near-resident lender treatment.' },
+  { href: '/expat-mortgages/countries/japan', label: 'Japan', desc: 'British expats in Japan, yen income, Tokyo finance and tech employer profiles.' },
+  { href: '/expat-mortgages/countries/kuwait', label: 'Kuwait', desc: 'British expats in Kuwait, tax-free KWD income, the returning-to-UK timing path.' },
+  { href: '/expat-mortgages/countries/malaysia', label: 'Malaysia', desc: 'British expats in Malaysia, MM2H visa, oil and gas employer profiles.' },
+  { href: '/expat-mortgages/countries/netherlands', label: 'Netherlands', desc: 'British expats in the Netherlands, euro income, Amsterdam tech and finance.' },
+  { href: '/expat-mortgages/countries/new-zealand', label: 'New Zealand', desc: 'British expats in New Zealand, NZD income, lender appetite for ANZ-resident applicants.' },
+  { href: '/expat-mortgages/countries/norway', label: 'Norway', desc: 'British expats in Norway, NOK income, oil and gas employer profile.' },
+  { href: '/expat-mortgages/countries/oman', label: 'Oman', desc: 'British expats in Oman, tax-free OMR income, oil and gas long-tenured cases.' },
+  { href: '/expat-mortgages/countries/portugal', label: 'Portugal', desc: 'British expats in Portugal, NHR tax regime, D7 and D8 visa angles.' },
+  { href: '/expat-mortgages/countries/qatar', label: 'Qatar', desc: 'British expats in Qatar, tax-free QAR income, oil and gas employers.' },
+  { href: '/expat-mortgages/countries/saudi-arabia', label: 'Saudi Arabia', desc: 'British expats in Saudi Arabia, tax-free SAR income, Aramco and major employers.' },
+  { href: '/expat-mortgages/countries/singapore', label: 'Singapore', desc: 'British expats in Singapore, SGD income, finance and professional services.' },
+  { href: '/expat-mortgages/countries/south-africa', label: 'South Africa', desc: 'British expats in South Africa, ZAR currency volatility, dual-passport advantage.' },
+  { href: '/expat-mortgages/countries/spain', label: 'Spain', desc: 'British expats in Spain, euro income, Beckham Law and autonomo angles.' },
+  { href: '/expat-mortgages/countries/switzerland', label: 'Switzerland', desc: 'British expats in Switzerland, CHF income, banking and pharma employers.' },
+  { href: '/expat-mortgages/countries/thailand', label: 'Thailand', desc: 'British expats in Thailand, THB income, Thailand Privilege Visa, retirees.' },
+  { href: '/expat-mortgages/countries/usa', label: 'USA', desc: 'British expats in the USA, USD income, lender appetite for US-resident applicants.' },
+];
+---
+
+<T7Layout
+  title={title}
+  description={description}
+  h1="All Countries"
+  eyebrow="COUNTRIES"
+  schemas={schemas}
+>
+  <RiskWarning type="residential" />
+  <TerritorialScope />
+  <p class="t7-lead">
+    We work with British expats across the world. Each country page covers
+    the lender appetite, currency haircut treatment, deposit norms, and
+    rate bands specific to that location. If your country is not listed,
+    send an enquiry and we will tell you what is achievable.
+  </p>
+
+  <div class="guides-list">
+    {entries.map((e) => (
+      <div class="guides-entry">
+        <a href={e.href} class="guides-entry-link">{e.label}</a>
+        <p class="guides-entry-desc">{e.desc}</p>
+      </div>
+    ))}
+  </div>
+
+  <MidPageCta />
+
+  <ContactForm />
+</T7Layout>

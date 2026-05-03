@@ -189,6 +189,8 @@ const guides = [
               <span class="nav-dropdown-caret" aria-hidden="true">▾</span>
             </button>
             <div class="nav-dropdown-menu nav-dropdown-menu--scroll" id="nav-countries-menu" role="menu">
+              <a href="/expat-mortgages/countries" role="menuitem">All Countries</a>
+              <div class="nav-dropdown-separator" aria-hidden="true"></div>
               {countryRegions.map((group) => (
                 <>
                   <p class="nav-dropdown-heading" aria-hidden="true">{group.region}</p>
@@ -626,6 +628,17 @@ const guides = [
       }
 
       .nav-dropdown-menu > .nav-dropdown-heading:first-child {
+        padding-top: 0;
+      }
+
+      .nav-dropdown-separator {
+        height: 1px;
+        background: var(--border);
+        margin: 0.5rem 0;
+        border: 0;
+      }
+
+      .nav-dropdown-separator + .nav-dropdown-heading {
         padding-top: 0;
       }
 
