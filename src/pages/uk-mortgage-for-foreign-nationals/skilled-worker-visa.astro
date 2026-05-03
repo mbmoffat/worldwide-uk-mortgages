@@ -1,0 +1,206 @@
+---
+import HubLayout from '../../layouts/HubLayout.astro';
+import PullQuote from '../../components/PullQuote.astro';
+import MidPageCta from '../../components/MidPageCta.astro';
+import { breadcrumbSchema, articleSchema } from '../../lib/schema';
+
+const title = 'UK Mortgages on a Skilled Worker Visa';
+const description =
+  'Buying or remortgaging in the UK while on a Skilled Worker visa. How lenders treat visa time remaining, deposit, and foreign income.';
+const h1 = 'UK Mortgages on a Skilled Worker Visa';
+const subheadline = description;
+
+const relatedPages = [
+  {
+    eyebrow: 'Hub',
+    title: 'UK Mortgages for Foreign Nationals',
+    description:
+      'Foreign nationals living in the UK who want to buy or remortgage. Visa types, deposits, and lender appetite.',
+    href: '/uk-mortgage-for-foreign-nationals',
+  },
+  {
+    eyebrow: 'Visa-Holder Mortgages',
+    title: 'UK Mortgages on a Spouse Visa',
+    description:
+      'Spouse visa applications, jointly with a British partner or alone. Lender appetite and deposit expectations.',
+    href: '/uk-mortgage-for-foreign-nationals/spouse-visa',
+  },
+  {
+    eyebrow: 'Visa-Holder Mortgages',
+    title: 'UK Mortgages Without ILR',
+    description:
+      'How UK mortgage applications work for visa holders without Indefinite Leave to Remain.',
+    href: '/uk-mortgage-for-foreign-nationals/without-ilr',
+  },
+  {
+    eyebrow: 'Hub',
+    title: 'UK Mortgages with Foreign Income',
+    description:
+      'How lenders treat non-sterling income. The 20% standard haircut and access to no-haircut lenders.',
+    href: '/uk-mortgage-foreign-income',
+  },
+  {
+    eyebrow: 'Guide',
+    title: 'No UK Credit History',
+    description:
+      'How specialist lenders assess applications without a recent UK credit footprint.',
+    href: '/expat-mortgages/no-uk-credit-history',
+  },
+];
+
+const schemas = [
+  breadcrumbSchema([
+    { name: 'Home', path: '/' },
+    { name: 'UK Mortgages for Foreign Nationals', path: '/uk-mortgage-for-foreign-nationals' },
+    { name: title },
+  ]),
+  articleSchema({ headline: h1, description }),
+];
+---
+
+<HubLayout
+  title={title}
+  description={description}
+  h1={h1}
+  subheadline={subheadline}
+  eyebrow="Visa-Holder Mortgages"
+  schemas={schemas}
+  relatedPages={relatedPages}
+>
+  <section class="hub-section">
+    <div class="hub-section-inner">
+      <p>
+        You moved to the UK on a Skilled Worker visa. You have a job, you have
+        UK income, your salary on paper supports the mortgage you want. Then
+        you walk into the bank and the conversation goes sideways.
+      </p>
+      <p>
+        This is one of the most misunderstood corners of the UK mortgage
+        market. Plenty of lenders will work with Skilled Worker visa holders.
+        Several do it well. But the high street consumer experience is uneven,
+        and applications get declined for reasons that do not reflect the
+        wider lender landscape.
+      </p>
+      <p>
+        The three things that matter most are how long you have left on your
+        visa, how much deposit you have, and which lenders are open to your
+        particular profile.
+      </p>
+    </div>
+  </section>
+
+  <PullQuote>
+    Skilled Worker visa applications get declined for the wrong reasons every
+    week. The right lender, approached the right way, sees the case very
+    differently.
+  </PullQuote>
+
+  <section class="hub-section">
+    <div class="hub-section-inner">
+      <h2 id="visa-time-remaining">Visa time remaining</h2>
+      <p>
+        Most UK lenders want a minimum amount of time left on your visa before
+        they will lend. The thresholds vary:
+      </p>
+      <ul>
+        <li>Some high street lenders want 12 months remaining</li>
+        <li>Others want 24 months</li>
+        <li>A small number have no minimum and assess on overall profile</li>
+        <li>A handful will work with visas already in renewal</li>
+      </ul>
+      <p>
+        If your visa renews next year, this is not necessarily a barrier. It
+        depends on which lender sees the application.
+      </p>
+    </div>
+  </section>
+
+  <section class="hub-section">
+    <div class="hub-section-inner">
+      <h2 id="deposit-expectations">Deposit expectations</h2>
+      <p>
+        A Skilled Worker visa holder will usually need a larger deposit than a
+        British buyer with the same income. The practical bands are:
+      </p>
+      <ul>
+        <li>5 to 10 per cent is possible with a small number of lenders, usually with conditions</li>
+        <li>15 to 25 per cent broadens the lender pool considerably</li>
+        <li>25 per cent and above opens specialist private bank options for larger loans</li>
+      </ul>
+      <p>
+        The deposit you bring does not just affect the rate. It affects which
+        lenders are available to you at all.
+      </p>
+    </div>
+  </section>
+
+  <section class="hub-section">
+    <div class="hub-section-inner">
+      <h2 id="lender-categories">Lender categories</h2>
+      <p>Three broad groups consider Skilled Worker visa holders.</p>
+      <p>
+        <strong>High street.</strong> Halifax, NatWest, Nationwide, Coventry,
+        HSBC and Santander all have Skilled Worker visa criteria. Each one is
+        different. A profile one declines, another accepts.
+      </p>
+      <p>
+        <strong>Specialists.</strong> A smaller pool of lenders that focus on
+        non-standard income or visa profiles. Often higher rates but
+        materially broader criteria.
+      </p>
+      <p>
+        <strong>Private banks.</strong> For loans typically £500,000 and
+        above, or high-earning professionals in specific industries. A
+        different model entirely, but worth knowing about for the right case.
+      </p>
+    </div>
+  </section>
+
+  <section class="hub-section">
+    <div class="hub-section-inner">
+      <h2 id="foreign-income-wrinkle">The foreign income wrinkle</h2>
+      <p>
+        If part of your income is paid in a foreign currency, paid by a
+        foreign entity, or earned during periods spent outside the UK, you
+        have moved into haircut territory. Many high street lenders apply a
+        20 per cent reduction to that income before assessment. A small
+        number do not. This single lever can change the borrowing figure by
+        tens of thousands of pounds.
+      </p>
+      <p>
+        It applies most often to bonuses, equity, allowances paid by an
+        overseas parent company, or income earned during postings abroad.
+      </p>
+    </div>
+  </section>
+
+  <section class="hub-section">
+    <div class="hub-section-inner">
+      <h2 id="how-the-process-works">What the process looks like</h2>
+      <p>
+        We take the basic facts. Visa type and time remaining, employer,
+        income, deposit, target property and price. We map them against
+        current lender criteria. The output is usually three to five lenders
+        worth approaching in order of fit.
+      </p>
+      <p>
+        A first conversation tells you whether the application is viable and
+        what borrowing figure is realistic. No commitment, no charge.
+      </p>
+    </div>
+  </section>
+
+  <section class="hub-section">
+    <div class="hub-section-inner">
+      <h2 id="who-this-is-for">Who this page is for</h2>
+      <p>
+        You are in the UK on a Skilled Worker visa. You either want to buy a
+        UK property, or you already own one and want to remortgage. You want
+        to know whether the application will work, what borrowing is
+        realistic, and which lender to approach.
+      </p>
+    </div>
+  </section>
+
+  <MidPageCta variant="hero" />
+</HubLayout>

@@ -1,0 +1,230 @@
+---
+import HubLayout from '../../layouts/HubLayout.astro';
+import PullQuote from '../../components/PullQuote.astro';
+import MidPageCta from '../../components/MidPageCta.astro';
+import { breadcrumbSchema, articleSchema } from '../../lib/schema';
+
+const title = 'UK Mortgages on a BNO Visa';
+const description =
+  'UK mortgage applications for British National Overseas visa holders from Hong Kong. Lender appetite, deposit, HKD savings and income, and the routes that work.';
+const h1 = 'UK Mortgages on a BNO Visa';
+const subheadline = description;
+
+const relatedPages = [
+  {
+    eyebrow: 'Hub',
+    title: 'UK Mortgages for Foreign Nationals',
+    description:
+      'Foreign nationals living in the UK who want to buy or remortgage. Visa types, deposits, and lender appetite.',
+    href: '/uk-mortgage-for-foreign-nationals',
+  },
+  {
+    eyebrow: 'Visa-Holder Mortgages',
+    title: 'UK Mortgages on a Skilled Worker Visa',
+    description:
+      'Skilled Worker visa applications. Visa time remaining, deposit, and which lenders are open to your profile.',
+    href: '/uk-mortgage-for-foreign-nationals/skilled-worker-visa',
+  },
+  {
+    eyebrow: 'Visa-Holder Mortgages',
+    title: 'UK Mortgages Without ILR',
+    description:
+      'How UK mortgage applications work for visa holders without Indefinite Leave to Remain.',
+    href: '/uk-mortgage-for-foreign-nationals/without-ilr',
+  },
+  {
+    eyebrow: 'Country',
+    title: 'UK Mortgages from Hong Kong',
+    description:
+      'UK mortgage applications for Hong Kong-based applicants. Lender appetite, deposits, and the process.',
+    href: '/expat-mortgages/countries/hong-kong',
+  },
+  {
+    eyebrow: 'Hub',
+    title: 'UK Mortgages with Foreign Income',
+    description:
+      'How lenders treat non-sterling income. The 20% standard haircut and access to no-haircut lenders.',
+    href: '/uk-mortgage-foreign-income',
+  },
+];
+
+const schemas = [
+  breadcrumbSchema([
+    { name: 'Home', path: '/' },
+    { name: 'UK Mortgages for Foreign Nationals', path: '/uk-mortgage-for-foreign-nationals' },
+    { name: title },
+  ]),
+  articleSchema({ headline: h1, description }),
+];
+---
+
+<HubLayout
+  title={title}
+  description={description}
+  h1={h1}
+  subheadline={subheadline}
+  eyebrow="Visa-Holder Mortgages"
+  schemas={schemas}
+  relatedPages={relatedPages}
+>
+  <section class="hub-section">
+    <div class="hub-section-inner">
+      <p>
+        The British National Overseas visa, opened in 2021 to Hong Kong
+        residents holding BNO status, is one of the cleanest visa-to-mortgage
+        pathways available in the UK market. Lenders generally view BNO
+        applicants favourably, and a meaningful subset have built specific
+        criteria around the route. The 5 plus 1 pathway to British
+        citizenship is well understood across the industry, and several
+        lenders will treat BNO applications close to standard residential
+        terms with the right deposit.
+      </p>
+      <p>
+        There are still details to navigate, particularly around HKD savings
+        used as deposit and HKD income still being earned. But this is one
+        of the friendlier corners of the visa-mortgage market.
+      </p>
+    </div>
+  </section>
+
+  <PullQuote>
+    BNO is one of the few visa categories where the lender pool has actively
+    grown. The right lender treats the route to citizenship as the headline,
+    not the visa as a footnote.
+  </PullQuote>
+
+  <section class="hub-section">
+    <div class="hub-section-inner">
+      <h2 id="why-bno-is-well-regarded">Why BNO is well regarded by lenders</h2>
+      <p>Three reasons.</p>
+      <p>
+        The pathway is clear. Five years on the BNO visa, then ILR, then one
+        more year to citizenship. Lenders can see a five to six year horizon
+        to settled status, which is materially longer than most other visa
+        routes offer at the start.
+      </p>
+      <p>
+        The applicants tend to be well-evidenced. BNO arrivals from Hong
+        Kong are typically employed in skilled roles, often with savings and
+        clear income documentation. The risk profile is favourable.
+      </p>
+      <p>
+        The political backing is unambiguous. The visa was created
+        specifically to welcome BNO holders to settle in the UK. Lenders
+        read that as a stable route.
+      </p>
+    </div>
+  </section>
+
+  <section class="hub-section">
+    <div class="hub-section-inner">
+      <h2 id="deposit-and-hkd-savings">Deposit, including HKD savings</h2>
+      <p>
+        A meaningful share of BNO applicants arrive with savings denominated
+        in HKD. Lenders will accept HKD savings as deposit, with two
+        practical considerations.
+      </p>
+      <p>
+        <strong>Provenance.</strong> Larger sums need a clear paper trail.
+        Bank statements showing accumulation, sale of HK property,
+        employment income over time. The standard anti-money laundering
+        work, slightly more involved when the funds originated overseas.
+      </p>
+      <p>
+        <strong>Conversion.</strong> Funds usually need to be converted to
+        GBP and visible in a UK account before completion. Some lenders
+        accept evidence of HKD savings with a planned transfer. Most prefer
+        the funds already in a UK account.
+      </p>
+      <p>
+        Deposit thresholds for BNO applicants follow the wider non-ILR
+        pattern. 5 to 10 per cent is workable with a small lender pool. 15
+        to 25 per cent broadens the pool considerably. 25 per cent and
+        above opens specialist and private bank options.
+      </p>
+    </div>
+  </section>
+
+  <section class="hub-section">
+    <div class="hub-section-inner">
+      <h2 id="hkd-income">HKD income and the foreign income wrinkle</h2>
+      <p>
+        If you have moved to the UK on the BNO visa and have stopped earning
+        in HKD, your income is treated as standard UK income.
+        Straightforward.
+      </p>
+      <p>
+        If part of your income is still paid in HKD, paid by an HK entity,
+        or earned during periods spent in Hong Kong, the foreign income
+        rules apply. Most high street lenders apply a 20 per cent reduction
+        to that income before assessment. A small number do not. For BNO
+        applicants with continuing HK income, this is often the single
+        biggest lever on the borrowing figure.
+      </p>
+    </div>
+  </section>
+
+  <section class="hub-section">
+    <div class="hub-section-inner">
+      <h2 id="lenders-that-work-well">Lenders that work well for BNO</h2>
+      <p>
+        Without naming the full list, the lender groupings that come up
+        most often are:
+      </p>
+      <p>
+        <strong>International high street.</strong> Banks with strong Hong
+        Kong heritage are notably comfortable with BNO applications. Their
+        criteria are often broader than mainstream UK lenders for this
+        profile.
+      </p>
+      <p>
+        <strong>Specialist UK lenders.</strong> A small number have
+        published BNO-specific criteria and are well set up for the
+        application type, particularly for cases with HKD income or larger
+        deposits.
+      </p>
+      <p>
+        <strong>Mainstream high street.</strong> Most major UK lenders will
+        consider BNO applicants. Criteria vary widely on visa time
+        remaining and income source.
+      </p>
+      <p>
+        The right starting point depends on the deposit, the income source,
+        and the target borrowing.
+      </p>
+    </div>
+  </section>
+
+  <section class="hub-section">
+    <div class="hub-section-inner">
+      <h2 id="how-the-process-works">What the process looks like</h2>
+      <p>
+        We take the basic facts. Time on the BNO visa, employment and
+        income breakdown, savings and provenance, deposit available in GBP
+        versus HKD, target property and price. We map that against current
+        lender criteria and come back with the three to five lenders worth
+        approaching in order.
+      </p>
+      <p>
+        A first conversation establishes whether the application is viable,
+        what borrowing is realistic, and what the lender will want to see,
+        particularly around overseas-sourced funds.
+      </p>
+    </div>
+  </section>
+
+  <section class="hub-section">
+    <div class="hub-section-inner">
+      <h2 id="who-this-is-for">Who this page is for</h2>
+      <p>
+        You hold a BNO visa or are about to. You want to buy a UK property,
+        either as an established UK resident or as part of the move from
+        Hong Kong. You want to know which lenders work well for BNO, how
+        HKD savings and income will be treated, and what the application
+        will require.
+      </p>
+    </div>
+  </section>
+
+  <MidPageCta variant="hero" />
+</HubLayout>

@@ -1,0 +1,233 @@
+---
+import HubLayout from '../../layouts/HubLayout.astro';
+import PullQuote from '../../components/PullQuote.astro';
+import MidPageCta from '../../components/MidPageCta.astro';
+import { breadcrumbSchema, articleSchema } from '../../lib/schema';
+
+const title = 'UK Mortgages Without Indefinite Leave to Remain';
+const description =
+  'How UK mortgage applications work for visa holders without ILR. Lender criteria, deposit thresholds, visa time remaining, and the routes that work.';
+const h1 = 'UK Mortgages Without Indefinite Leave to Remain';
+const subheadline = description;
+
+const relatedPages = [
+  {
+    eyebrow: 'Hub',
+    title: 'UK Mortgages for Foreign Nationals',
+    description:
+      'Foreign nationals living in the UK who want to buy or remortgage. Visa types, deposits, and lender appetite.',
+    href: '/uk-mortgage-for-foreign-nationals',
+  },
+  {
+    eyebrow: 'Visa-Holder Mortgages',
+    title: 'UK Mortgages on a Skilled Worker Visa',
+    description:
+      'Skilled Worker visa applications. Visa time remaining, deposit, and which lenders are open to your profile.',
+    href: '/uk-mortgage-for-foreign-nationals/skilled-worker-visa',
+  },
+  {
+    eyebrow: 'Visa-Holder Mortgages',
+    title: 'UK Mortgages on a Spouse Visa',
+    description:
+      'Spouse visa applications, jointly with a British partner or alone. Lender appetite and deposit expectations.',
+    href: '/uk-mortgage-for-foreign-nationals/spouse-visa',
+  },
+  {
+    eyebrow: 'Visa-Holder Mortgages',
+    title: 'UK Mortgages on a BNO Visa',
+    description:
+      'British National Overseas visa mortgage applications. HKD savings and income, lender appetite, and deposit.',
+    href: '/uk-mortgage-for-foreign-nationals/bno-visa',
+  },
+  {
+    eyebrow: 'Hub',
+    title: 'UK Mortgages with Foreign Income',
+    description:
+      'How lenders treat non-sterling income. The 20% standard haircut and access to no-haircut lenders.',
+    href: '/uk-mortgage-foreign-income',
+  },
+];
+
+const schemas = [
+  breadcrumbSchema([
+    { name: 'Home', path: '/' },
+    { name: 'UK Mortgages for Foreign Nationals', path: '/uk-mortgage-for-foreign-nationals' },
+    { name: title },
+  ]),
+  articleSchema({ headline: h1, description }),
+];
+---
+
+<HubLayout
+  title={title}
+  description={description}
+  h1={h1}
+  subheadline={subheadline}
+  eyebrow="Visa-Holder Mortgages"
+  schemas={schemas}
+  relatedPages={relatedPages}
+>
+  <section class="hub-section">
+    <div class="hub-section-inner">
+      <p>
+        ILR is the threshold most UK lenders use to sort applicants into two
+        boxes. With ILR, you are treated as a standard residential applicant.
+        Without it, you are non-standard. That sounds like a barrier and it
+        sometimes feels like one, but plenty of lenders work with non-ILR
+        applicants and several do it well.
+      </p>
+      <p>
+        The decision is rarely about whether you can borrow. It is about
+        which lender will see your application without applying restrictions
+        that make the borrowing too small or the rate too expensive.
+      </p>
+    </div>
+  </section>
+
+  <PullQuote>
+    Without ILR, the lender shortlist gets shorter, but it does not
+    disappear. The work is finding the lenders that lend on profiles like
+    yours and structuring the case for them.
+  </PullQuote>
+
+  <section class="hub-section">
+    <div class="hub-section-inner">
+      <h2 id="why-ilr-matters">Why ILR matters to lenders</h2>
+      <p>
+        Lenders care about ILR for one reason: it tells them that the
+        applicant has a permanent right to remain in the UK. If you have
+        ILR, they assume you will be here to repay the loan. Without ILR,
+        they have to make a judgement about visa duration, renewal
+        likelihood, and the strength of your reasons for staying.
+      </p>
+      <p>
+        Some lenders make that judgement quickly and open-mindedly. Others
+        apply blanket rules. The difference between a confident "yes" and an
+        automated "no" is usually which lender you approach, not the
+        underlying facts of your application.
+      </p>
+    </div>
+  </section>
+
+  <section class="hub-section">
+    <div class="hub-section-inner">
+      <h2 id="which-visas">Which visas lenders will consider</h2>
+      <p>The lender appetite is broadly:</p>
+      <ul>
+        <li><strong>Skilled Worker visa.</strong> Widely considered. Most high street lenders have published criteria.</li>
+        <li><strong>Spouse and partner visas.</strong> Widely considered, particularly with a British partner on the application.</li>
+        <li><strong>BNO visa.</strong> Considered by a growing number of lenders. HSBC and certain specialists are particularly comfortable.</li>
+        <li><strong>Global Talent visa.</strong> Considered by mainstream lenders, often viewed favourably.</li>
+        <li><strong>Tier 1 Investor (legacy).</strong> Specialist territory, often via private banks for larger loans.</li>
+        <li><strong>Student visa.</strong> Very limited. Specialist only.</li>
+        <li><strong>Graduate visa.</strong> Limited. Specialist only.</li>
+        <li><strong>Health and Care Worker visa.</strong> Considered by a meaningful subset, criteria similar to Skilled Worker.</li>
+      </ul>
+      <p>
+        If your visa is not on this list, that is what the first conversation
+        is for. There are usually options.
+      </p>
+    </div>
+  </section>
+
+  <section class="hub-section">
+    <div class="hub-section-inner">
+      <h2 id="visa-time-remaining">Visa time remaining</h2>
+      <p>
+        This is the single biggest variable for non-ILR applications. The
+        benchmarks across the lender market are:
+      </p>
+      <ul>
+        <li>12 months remaining: a reasonable number of mainstream lenders will engage</li>
+        <li>24 months remaining: the pool widens significantly</li>
+        <li>Less than 12 months: smaller pool, but workable with the right lender and a clear renewal pathway</li>
+        <li>Visa in renewal: a small group of lenders will still consider, particularly with strong supporting context</li>
+      </ul>
+      <p>
+        The pool of lenders shrinks as the time remaining shrinks. It does
+        not disappear.
+      </p>
+    </div>
+  </section>
+
+  <section class="hub-section">
+    <div class="hub-section-inner">
+      <h2 id="deposit-by-visa">Deposit by visa profile</h2>
+      <p>Deposit expectations vary by visa type and time remaining:</p>
+      <ul>
+        <li>5 per cent: possible for some Spouse visa joint applications and a small group of Skilled Worker cases</li>
+        <li>10 per cent: workable for most well-evidenced visa applications with adequate time remaining</li>
+        <li>15 to 25 per cent: opens the broader mainstream lender pool, including high street names</li>
+        <li>25 per cent and above: specialist lender and private bank options for larger or non-standard cases</li>
+      </ul>
+      <p>
+        A bigger deposit does more for a non-ILR application than it does
+        for an ILR one. Each band increase changes which lenders are
+        practically available.
+      </p>
+    </div>
+  </section>
+
+  <section class="hub-section">
+    <div class="hub-section-inner">
+      <h2 id="high-street-vs-specialist">High street versus specialist</h2>
+      <p>
+        Most non-ILR applications can be placed with a high street lender if
+        the profile fits. Specialist lenders exist to take the cases the
+        high street will not, usually on broader criteria but at higher
+        rates. Private banks consider larger loans for high earners or
+        significant deposits.
+      </p>
+      <p>
+        The right route depends on the case. We work top down, starting
+        with high street where realistic, moving to specialists or private
+        only where the profile or borrowing requirement points there.
+      </p>
+    </div>
+  </section>
+
+  <section class="hub-section">
+    <div class="hub-section-inner">
+      <h2 id="foreign-income-consideration">The foreign income consideration</h2>
+      <p>
+        If part of your income is paid in a foreign currency, paid by a
+        foreign entity, or earned during periods spent outside the UK, you
+        are also in foreign income territory. Most high street lenders apply
+        a 20 per cent reduction to that income before assessment. A small
+        number do not. For visa holders with significant overseas-paid
+        income, this is often the largest single lever on the borrowing
+        figure.
+      </p>
+    </div>
+  </section>
+
+  <section class="hub-section">
+    <div class="hub-section-inner">
+      <h2 id="how-the-process-works">What the process looks like</h2>
+      <p>
+        We take the basic facts. Visa type and time remaining, income
+        breakdown, deposit, target property and price. We map them against
+        the current lender market and come back with the three to five
+        lenders worth approaching, in order.
+      </p>
+      <p>
+        A first conversation tells you whether the application is viable,
+        what borrowing is realistic, and what the lender will want to see.
+      </p>
+    </div>
+  </section>
+
+  <section class="hub-section">
+    <div class="hub-section-inner">
+      <h2 id="who-this-is-for">Who this page is for</h2>
+      <p>
+        You are in the UK on a visa, you do not yet have ILR, and you want
+        to buy or remortgage. You want to know which lenders will consider
+        your application, how much you can borrow, and what the application
+        will require.
+      </p>
+    </div>
+  </section>
+
+  <MidPageCta variant="hero" />
+</HubLayout>
