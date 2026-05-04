@@ -106,8 +106,8 @@ const faqSchema = {
 const schemas = [
   breadcrumbSchema([
     { name: 'Home', path: '/' },
-    { name: 'Lenders' },
-    { name: 'NatWest International' },
+    { name: 'Lenders', path: '/lenders' },
+    { name: 'NatWest International', path: '/lenders/natwest-international' },
   ]),
   serviceSchema({
     serviceType: 'International Mortgage Lender Information',

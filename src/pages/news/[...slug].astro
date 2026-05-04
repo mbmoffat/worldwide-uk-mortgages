@@ -36,7 +36,7 @@ const schemas = [
   breadcrumbSchema([
     { name: 'Home', path: '/' },
     { name: 'News', path: '/news' },
-    { name: title },
+    { name: title, path: `/news/${article.slug}` },
   ]),
   newsArticleSchema({
     headline: title,

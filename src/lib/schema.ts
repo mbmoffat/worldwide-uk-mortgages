@@ -1,7 +1,7 @@
 export const SITE_URL = 'https://ukmortgagesworldwide.com';
 export const SITE_NAME = 'UK Mortgages Worldwide';
 
-type Crumb = { name: string; path?: string };
+type Crumb = { name: string; path: string };
 
 export function organizationSchema() {
   return {
@@ -24,7 +24,7 @@ export function breadcrumbSchema(items: Crumb[]) {
       '@type': 'ListItem',
       position: idx + 1,
       name: it.name,
-      ...(it.path ? { item: `${SITE_URL}${it.path}` } : {}),
+      item: `${SITE_URL}${it.path}`,
     })),
   };
 }
