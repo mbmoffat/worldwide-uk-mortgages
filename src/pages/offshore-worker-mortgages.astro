@@ -1,0 +1,375 @@
+---
+import HubLayout from '../layouts/HubLayout.astro';
+import PullQuote from '../components/PullQuote.astro';
+import MidPageCta from '../components/MidPageCta.astro';
+import { breadcrumbSchema, serviceSchema } from '../lib/schema';
+import RiskWarning from '../components/RiskWarning.astro';
+import TerritorialScope from '../components/TerritorialScope.astro';
+
+const title = 'Offshore Oil and Gas Worker Mortgages | UK Mortgages Worldwide';
+const description =
+  'UK mortgages for offshore oil and gas workers, covering rotational rota income, day rates, and FIFO non-resident cases paid in foreign currency.';
+const h1 = 'Offshore Oil and Gas Worker Mortgages';
+const subheadline =
+  'UK mortgages for offshore workers across the UK Continental Shelf, Norwegian sector, Middle East, West Africa, and Asia-Pacific. How rotational rota income, day rates, and FIFO foreign currency salary are handled.';
+
+const relatedPages = [
+  {
+    eyebrow: 'Hub',
+    title: 'UK Mortgages for Non-UK Residents',
+    description:
+      'For UK nationals working FIFO internationally with no UK tax footprint. Foreign currency income accepted.',
+    href: '/non-uk-resident-mortgages',
+  },
+  {
+    eyebrow: 'Hub',
+    title: 'UK Mortgages with Foreign Income',
+    description:
+      'How lenders treat USD, AUD, NOK, and other non-sterling income. The 20% haircut and no-haircut access.',
+    href: '/uk-mortgage-foreign-income',
+  },
+  {
+    eyebrow: 'Hub',
+    title: 'Seafarer Mortgages',
+    description:
+      'For offshore workers operating from vessels rather than fixed installations. SED and rotation patterns covered.',
+    href: '/seafarer-mortgages',
+  },
+];
+
+const faqs = [
+  {
+    q: 'I am a contractor through my own limited company. How will my income be assessed?',
+    a: 'The right lender uses your last one to two years of company accounts plus your director\'s salary. Some accept retained profit on top, which significantly increases borrowing capacity. The wrong lender uses generic contractor rules and under-lends.',
+  },
+  {
+    q: 'I work FIFO in Australia and am paid in AUD. Can I apply for a UK mortgage?',
+    a: 'Yes. Specialist non-resident lenders accept AUD income at full GBP equivalent value. We will need 12 months of payslips and bank statements showing the income.',
+  },
+  {
+    q: 'I am between contracts right now. Will that be a problem?',
+    a: 'Not if the rolling pattern of contracts shows normal industry rota. Lenders look at the 12 to 24 month picture, not the single day of application.',
+  },
+  {
+    q: 'I work in coal or thermal coal-adjacent roles. Will lenders work with me?',
+    a: 'Some lenders will not. Others lend normally. We know which is which and will identify the right route for your specific role.',
+  },
+  {
+    q: 'I am moving from oil and gas to offshore wind. How does that change things?',
+    a: 'Offshore wind is currently treated more favourably by lenders given ESG mandates. The transition itself can sometimes work in your favour from a lender selection perspective.',
+  },
+  {
+    q: 'Can I apply for a buy-to-let mortgage to invest while I am on rota?',
+    a: 'Yes. This is a common case. The UK rental income covers the mortgage and your offshore earnings fund the deposit.',
+  },
+];
+
+const faqSchema = {
+  '@context': 'https://schema.org',
+  '@type': 'FAQPage',
+  mainEntity: faqs.map((f) => ({
+    '@type': 'Question',
+    name: f.q,
+    acceptedAnswer: { '@type': 'Answer', text: f.a },
+  })),
+};
+
+const schemas = [
+  breadcrumbSchema([
+    { name: 'Home', path: '/' },
+    {
+      name: 'Offshore Oil and Gas Worker Mortgages',
+      path: '/offshore-worker-mortgages',
+    },
+  ]),
+  serviceSchema({
+    serviceType: 'UK Mortgages for Offshore Oil and Gas Workers',
+    name: h1,
+    description,
+  }),
+];
+---
+
+<HubLayout
+  title={title}
+  description={description}
+  h1={h1}
+  subheadline={subheadline}
+  eyebrow="Hub · Offshore worker mortgages"
+  ctaHeading="Speak to a specialist mortgage broker"
+  schemas={schemas}
+  relatedPages={relatedPages}
+>
+  <RiskWarning type="residential" />
+  <TerritorialScope />
+
+  <section class="hub-section">
+    <div class="hub-section-inner">
+      <h2 id="who-this-is-for">Who this page is for</h2>
+      <p>
+        Offshore work pays well, but the patterns that come with it
+        confuse mainstream UK lenders. Rotational rota work. Day rates
+        rather than salary. Income paid through limited companies,
+        umbrellas, or directly. Foreign currency for international
+        postings. Most high street lenders cannot model the income
+        properly and apply rules that significantly under-lend or
+        decline outright.
+      </p>
+      <p>
+        We work with offshore workers across the UK Continental Shelf,
+        Norwegian sector, Middle East, West Africa, and Asia-Pacific.
+        Whether you are a North Sea drilling supervisor on a 28/28 rota
+        or a UK national working FIFO in Australia or Angola, we know
+        which lenders accept offshore income in full and which apply
+        rules built for the energy transition era.
+      </p>
+    </div>
+  </section>
+
+  <MidPageCta variant="hero" />
+
+  <section class="hub-section">
+    <div class="hub-section-inner">
+      <h2 id="rotational-work-patterns">Rotational work patterns lenders need to handle</h2>
+      <p>
+        Offshore workers do not have a Monday-to-Friday work pattern.
+        The actual work pattern depends on the operator, the asset, and
+        the role.
+      </p>
+      <p>
+        <strong>28 days on, 28 days off.</strong> Standard for many
+        North Sea and West African roles. Income is paid for time
+        worked, often at a day rate.
+      </p>
+      <p>
+        <strong>14 days on, 21 days off.</strong> Common in the
+        Norwegian sector. Day rates higher to reflect the working
+        weight.
+      </p>
+      <p>
+        <strong>6 weeks on, 6 weeks off.</strong> Used in some
+        long-haul offshore postings, particularly Middle East or
+        Asia-Pacific.
+      </p>
+      <p>
+        <strong>Project-based mobilisation.</strong> Specialist
+        contractors mobilising for specific projects rather than
+        against a fixed rota. Income highly variable across the
+        calendar but often very high during work periods.
+      </p>
+      <p>
+        Lenders need to read this as a continuous career with
+        predictable annual income, not as fragmented employment.
+      </p>
+    </div>
+  </section>
+
+  <section class="hub-section">
+    <div class="hub-section-inner">
+      <h2 id="income-complications">Income complications</h2>
+      <p>
+        <strong>Day rates rather than salary.</strong> Many offshore
+        workers, particularly contractors, are paid a day rate rather
+        than an annual salary. Lenders need to see day rates evidenced
+        over 12 to 24 months and converted to a reliable annual figure
+        based on rota patterns.
+      </p>
+      <p>
+        <strong>Offshore allowance and hardship pay.</strong>
+        Significant uplifts on top of base pay for time spent offshore.
+        Treatment varies by lender. Some accept the gross figure,
+        others discount it or ignore it.
+      </p>
+      <p>
+        <strong>Foreign currency for international postings.</strong>
+        UK nationals working FIFO internationally are often paid in
+        USD, AUD, or NOK. UK lenders apply a 20% currency haircut as
+        standard. A handful of
+        <a href="/uk-mortgage-foreign-income">specialist lenders</a>
+        accept the full value when properly evidenced.
+      </p>
+      <p>
+        <strong>Limited company structures.</strong> Many UK offshore
+        contractors run their income through a personal service
+        company. Lenders need to assess directors' salary, dividends,
+        and retained profit, and treat the company correctly under
+        HMRC rules.
+      </p>
+      <p>
+        <strong>Umbrella company employment.</strong> Some offshore
+        contractors are paid through umbrella companies. Income is
+        technically PAYE but the working pattern is contracting.
+        Lenders treat this differently.
+      </p>
+      <p>
+        <strong>Income gaps between contracts.</strong> Contractors
+        working between assignments may have weeks or months without
+        income. Lenders need to see that the gaps are normal industry
+        pattern, not unemployment.
+      </p>
+      <p>
+        <strong>Energy transition exposure.</strong> Lenders post-2014
+        are cautious about oil and gas exposure given commodity price
+        volatility. Some will not lend at all to offshore workers in
+        roles tied to coal or specific oil and gas areas. Others lend
+        normally.
+      </p>
+    </div>
+  </section>
+
+  <PullQuote>
+    Lenders need to read this as a continuous career with predictable
+    annual income, not as fragmented employment.
+  </PullQuote>
+
+  <section class="hub-section">
+    <div class="hub-section-inner">
+      <h2 id="common-situations">Common situations we handle</h2>
+      <p>
+        <strong>UK contractor through limited company.</strong> Day
+        rate work, paid through a personal service company. Mortgage
+        assessment uses dividends plus salary, or in some cases
+        retained profit, depending on the lender.
+      </p>
+      <p>
+        <strong>UK PAYE worker on rotation.</strong> Permanent employee
+        on a UK platform or rig, paid PAYE with offshore allowance.
+        Treatment is closer to standard PAYE but with rota-specific
+        income complications.
+      </p>
+      <p>
+        <strong>UK national, international FIFO.</strong> Working out
+        of Australia, Angola, Brunei, or similar, often on USD or AUD
+        pay with no UK tax footprint. Treated as
+        <a href="/non-uk-resident-mortgages">non-UK resident</a>
+        for mortgage purposes. Specialist lenders required.
+      </p>
+      <p>
+        <strong>Energy transition.</strong> Workers moving from oil
+        and gas to offshore wind. Income similar but lender treatment
+        differs as offshore wind sits more comfortably with current
+        ESG-focused lenders.
+      </p>
+      <p>
+        <strong>Self-employed sole trader.</strong> Less common but
+        does exist. SA302 evidence required across two to three years.
+      </p>
+    </div>
+  </section>
+
+  <section class="hub-section">
+    <div class="hub-section-inner">
+      <h2 id="what-we-can-arrange">What we can arrange</h2>
+      <p>
+        <strong>UK residential mortgages</strong> for UK-based
+        offshore workers, including contractors, PAYE employees, and
+        limited company directors.
+      </p>
+      <p>
+        <strong>Buy-to-let mortgages</strong> for offshore workers
+        building a UK rental portfolio while working a rota or based
+        abroad. Common case for FIFO workers in particular.
+      </p>
+      <p>
+        <strong>Non-resident mortgages</strong> for UK nationals
+        working internationally. Foreign currency income accepted, no
+        UK tax footprint accepted.
+      </p>
+      <p>
+        <strong>Limited company buy-to-let</strong> for portfolio
+        offshore worker landlords or those holding UK property in a UK
+        limited company for tax efficiency.
+      </p>
+      <p>
+        <strong>Contractor mortgages</strong> assessed on day rate
+        rather than annualised income, where the right lender allows.
+      </p>
+    </div>
+  </section>
+
+  <section class="hub-section">
+    <div class="hub-section-inner">
+      <h2 id="how-affordability-is-assessed">How affordability is assessed</h2>
+      <p>
+        A specialist lender that understands offshore income will
+        typically:
+      </p>
+      <ul>
+        <li>
+          Accept day rate income converted to annual based on actual
+          rota worked.
+        </li>
+        <li>
+          Accept offshore allowance and hardship pay at full value.
+        </li>
+        <li>
+          Accept limited company income using dividends plus salary,
+          with retained profit considered.
+        </li>
+        <li>
+          Accept foreign currency income at full GBP equivalent
+          without haircut.
+        </li>
+        <li>
+          Treat rotational gaps as normal industry pattern, not
+          unemployment.
+        </li>
+        <li>
+          Look through to underlying income rather than applying
+          generic contractor rules.
+        </li>
+      </ul>
+      <p>
+        A mainstream UK lender, by contrast, often applies generic
+        contractor rules that miss the offshore profile, applies the
+        currency haircut, and discounts allowances. The same income
+        packaged correctly with the right lender often unlocks 25% to
+        40% more borrowing.
+      </p>
+    </div>
+  </section>
+
+  <PullQuote>
+    The same income packaged correctly with the right lender often
+    unlocks 25% to 40% more borrowing.
+  </PullQuote>
+
+  <MidPageCta />
+
+  <section class="hub-section">
+    <div class="hub-section-inner">
+      <h2 id="faqs">Common questions</h2>
+      <div class="faq">
+        {faqs.map((f) => (
+          <>
+            <h3>{f.q}</h3>
+            <p>{f.a}</p>
+          </>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <section class="hub-section">
+    <div class="hub-section-inner">
+      <h2 id="what-happens-next">What happens next</h2>
+      <p>
+        We start with a no-obligation conversation about your work
+        pattern, your income structure, and what you want to buy. From
+        there we identify the lender or lenders whose criteria match
+        your case, prepare the application, and manage it to
+        completion.
+      </p>
+      <p>
+        You will not be passed around. The same broker who takes your
+        initial call manages your case to offer.
+      </p>
+    </div>
+  </section>
+
+  <script
+    type="application/ld+json"
+    is:inline
+    set:html={JSON.stringify(faqSchema)}
+  />
+</HubLayout>

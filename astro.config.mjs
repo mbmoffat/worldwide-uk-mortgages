@@ -16,7 +16,7 @@ export default defineConfig({
         if (item.url === 'https://ukmortgagesworldwide.com/') {
           item.changefreq = 'daily';
           item.priority = 1.0;
-        } else if (item.url.match(/\/expat-mortgages\/?$|\/non-uk-resident-mortgages\/?$|\/uk-mortgage-foreign-income\/?$|\/uk-mortgage-living-abroad\/?$|\/seafarer-mortgages\/?$|\/uk-mortgage-for-foreign-nationals\/?$|\/expat-mortgages\/buy-to-let\/?$/)) {
+        } else if (item.url.match(/\/expat-mortgages\/?$|\/non-uk-resident-mortgages\/?$|\/uk-mortgage-foreign-income\/?$|\/uk-mortgage-living-abroad\/?$|\/seafarer-mortgages\/?$|\/uk-mortgage-for-foreign-nationals\/?$|\/expat-mortgages\/buy-to-let\/?$|\/airline-pilot-mortgages\/?$|\/offshore-worker-mortgages\/?$|\/international-teacher-mortgages\/?$/)) {
           // Hub pages
           item.changefreq = 'weekly';
           item.priority = 0.9;

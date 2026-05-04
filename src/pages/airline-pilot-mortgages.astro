@@ -1,0 +1,348 @@
+---
+import HubLayout from '../layouts/HubLayout.astro';
+import PullQuote from '../components/PullQuote.astro';
+import MidPageCta from '../components/MidPageCta.astro';
+import { breadcrumbSchema, serviceSchema } from '../lib/schema';
+import RiskWarning from '../components/RiskWarning.astro';
+import TerritorialScope from '../components/TerritorialScope.astro';
+
+const title = 'Airline Pilot and Cabin Crew Mortgages | UK Mortgages Worldwide';
+const description =
+  'UK mortgages for airline pilots and cabin crew, covering allowances, foreign currency salary, and Middle East-based aircrew on tax-free contracts.';
+const h1 = 'Airline Pilot and Cabin Crew Mortgages';
+const subheadline =
+  'UK mortgages for pilots and cabin crew across UK, European, and Middle East carriers. How allowances, foreign currency salary, type rating debt, and tax-free Gulf packages are handled by lenders that understand aviation.';
+
+const relatedPages = [
+  {
+    eyebrow: 'Hub',
+    title: 'UK Mortgages for Non-UK Residents',
+    description:
+      'For aircrew based abroad with no UK tax footprint. Foreign currency income and overseas address profiles.',
+    href: '/non-uk-resident-mortgages',
+  },
+  {
+    eyebrow: 'Hub',
+    title: 'UK Mortgages with Foreign Income',
+    description:
+      'How lenders treat AED, QAR, USD, EUR, and other non-sterling salaries. The 20% haircut and no-haircut access.',
+    href: '/uk-mortgage-foreign-income',
+  },
+  {
+    eyebrow: 'Hub',
+    title: 'UK Mortgages for Expats',
+    description:
+      'British nationals living abroad. What lenders look for and how a broker handles country and currency.',
+    href: '/expat-mortgages',
+  },
+];
+
+const faqs = [
+  {
+    q: 'I am a first officer with type rating debt. Can I still apply for a mortgage?',
+    a: 'Yes. The right lender treats type rating debt correctly and looks at your forward earnings trajectory. We work with lenders who lend regularly to junior pilots.',
+  },
+  {
+    q: 'My salary is in AED with Emirates. Will I face a 20% currency haircut?',
+    a: 'Not with the right lender. We work with specialist lenders who accept AED, QAR, and other currencies at full GBP equivalent value with no haircut.',
+  },
+  {
+    q: 'My base salary is modest but my total earnings are much higher. Will lenders see the full picture?',
+    a: 'With the right lender, yes. We package the case using 12 to 24 months of payslips showing productivity pay, sector pay, and allowances. Mainstream lenders often miss this. Specialists do not.',
+  },
+  {
+    q: 'I am based in Dubai with no UK address. Can I buy a UK property?',
+    a: 'Yes. Non-resident UK mortgages are routinely available to Middle East-based aircrew. We will need proof of identity and address through your overseas residency documentation.',
+  },
+  {
+    q: 'I am cabin crew rather than a pilot. Are mortgages harder to arrange?',
+    a: 'The income is lower so the borrowing capacity is lower. The principles are the same. We work with cabin crew across UK and overseas carriers regularly.',
+  },
+  {
+    q: 'I am returning to a UK carrier from overseas. How long do I need to be back before I can apply?',
+    a: 'Some lenders accept day-one applications when you have a signed UK contract. Others want three to six months of UK employment first. We will identify the right route for your timing.',
+  },
+];
+
+const faqSchema = {
+  '@context': 'https://schema.org',
+  '@type': 'FAQPage',
+  mainEntity: faqs.map((f) => ({
+    '@type': 'Question',
+    name: f.q,
+    acceptedAnswer: { '@type': 'Answer', text: f.a },
+  })),
+};
+
+const schemas = [
+  breadcrumbSchema([
+    { name: 'Home', path: '/' },
+    {
+      name: 'Airline Pilot and Cabin Crew Mortgages',
+      path: '/airline-pilot-mortgages',
+    },
+  ]),
+  serviceSchema({
+    serviceType: 'UK Mortgages for Airline Pilots and Cabin Crew',
+    name: h1,
+    description,
+  }),
+];
+---
+
+<HubLayout
+  title={title}
+  description={description}
+  h1={h1}
+  subheadline={subheadline}
+  eyebrow="Hub · Aircrew mortgages"
+  ctaHeading="Speak to a specialist mortgage broker"
+  schemas={schemas}
+  relatedPages={relatedPages}
+>
+  <RiskWarning type="residential" />
+  <TerritorialScope />
+
+  <section class="hub-section">
+    <div class="hub-section-inner">
+      <h2 id="who-this-is-for">Who this page is for</h2>
+      <p>
+        Pilots and cabin crew sit at an awkward intersection for UK
+        lenders. Salaries paid abroad. Allowances that can equal base
+        pay. Tax structures that vary by country of base. Career
+        patterns that include type rating debt at the start and command
+        upgrade leaps later. Most high street lenders apply rules built
+        for nine-to-five PAYE workers and miss what is actually a
+        stable, well-paid profession.
+      </p>
+      <p>
+        We work with pilots and cabin crew across UK carriers, European
+        carriers, and Middle East operators including Emirates, Etihad,
+        and Qatar Airways. Whether you are a UK-based pilot looking at
+        a residential mortgage between rosters or a Dubai-based first
+        officer building a UK buy-to-let portfolio, we know which
+        lenders understand your income and how to present the case so
+        they accept it in full.
+      </p>
+    </div>
+  </section>
+
+  <MidPageCta variant="hero" />
+
+  <section class="hub-section">
+    <div class="hub-section-inner">
+      <h2 id="how-aircrew-income-is-structured">How aircrew income is structured differently</h2>
+      <p>
+        Income for pilots and cabin crew has features that mainstream
+        lenders struggle with.
+      </p>
+      <p>
+        <strong>Base salary.</strong> Often modest relative to total
+        earnings. A line captain on a UK short-haul carrier might earn
+        £80,000 base. Total earnings, including productivity, sector
+        pay, and allowances, can exceed £130,000. Lenders that ignore
+        the variable element underestimate the true income materially.
+      </p>
+      <p>
+        <strong>Allowances and per diems.</strong> Sector pay, layover
+        allowances, hotac differentials, and meal allowances are paid
+        in addition to base salary. UK tax treatment varies. Lender
+        treatment varies more. Some accept allowances at full value
+        when evidenced by 12 to 24 months of payslips. Others ignore
+        them entirely.
+      </p>
+      <p>
+        <strong>Foreign currency salary.</strong> Pilots and cabin crew
+        based outside the UK are paid in local currency. Middle East
+        carriers pay in AED or QAR. Asian carriers pay in HKD or SGD.
+        European carriers pay in EUR or local currency. UK lenders
+        typically apply a 20% currency haircut. A handful of
+        <a href="/uk-mortgage-foreign-income">specialist lenders</a>
+        apply none.
+      </p>
+      <p>
+        <strong>Tax-free salary.</strong> UAE and Qatar-based aircrew
+        pay no income tax. The headline GBP equivalent salary is
+        therefore the net figure, not the gross. Lenders that insist
+        on grossing up for affordability calculations sometimes handle
+        this incorrectly, which costs the applicant borrowing
+        capacity.
+      </p>
+      <p>
+        <strong>Type rating debt.</strong> Many junior pilots carry
+        £80,000 to £100,000 of training debt, often paid back through
+        salary deductions. Lenders need to see this commitment
+        correctly classified as repayment rather than as ongoing
+        affordability drag.
+      </p>
+      <p>
+        <strong>Command upgrade and type ratings.</strong> Income
+        jumps significantly at command upgrade and on transitioning to
+        wide-body aircraft. Forward-looking income can be evidenced by
+        signed contracts and operator policy, but only with lenders
+        who understand the industry.
+      </p>
+    </div>
+  </section>
+
+  <PullQuote>
+    Lenders that ignore the variable element underestimate the true
+    income materially.
+  </PullQuote>
+
+  <section class="hub-section">
+    <div class="hub-section-inner">
+      <h2 id="common-situations">Common situations we handle</h2>
+      <p>
+        <strong>UK pilot, UK based.</strong> Standard residential and
+        buy-to-let mortgages, with the focus on full credit for
+        variable income, allowances, and command pay. The right lender
+        choice often unlocks 25% to 35% more borrowing than the high
+        street.
+      </p>
+      <p>
+        <strong>UK national, foreign carrier.</strong> Pilots and
+        cabin crew based in Dubai, Doha, Abu Dhabi, Singapore, or Hong
+        Kong building a UK property portfolio. Foreign currency
+        income, no UK tax footprint, often no UK address. Specialist
+        <a href="/non-uk-resident-mortgages">non-resident lenders</a>
+        accept this profile in full.
+      </p>
+      <p>
+        <strong>Returning UK pilot.</strong> Aircrew returning to a
+        UK base after an overseas posting. Lenders usually want six
+        to twelve months of UK employment history. We know which ones
+        accept the overseas role as continuous employment when the
+        move is to a UK carrier.
+      </p>
+      <p>
+        <strong>Junior pilot with type rating debt.</strong> First
+        officers within the first three years of their commercial
+        career. Heavily debt-leveraged but with strong forward income.
+        We work with lenders who treat the debt correctly and
+        understand the industry trajectory.
+      </p>
+      <p>
+        <strong>Cabin crew with multiple income sources.</strong>
+        Cabin crew often supplement base pay with seasonal allowances,
+        language pay, and occasional second jobs. Each lender treats
+        this differently. Choosing correctly is the difference between
+        an offer and a decline.
+      </p>
+    </div>
+  </section>
+
+  <section class="hub-section">
+    <div class="hub-section-inner">
+      <h2 id="what-we-can-arrange">What we can arrange</h2>
+      <p>
+        <strong>UK residential mortgages</strong> for UK-based pilots
+        and cabin crew, with full credit for productivity, sector pay,
+        and allowances.
+      </p>
+      <p>
+        <strong>Buy-to-let mortgages</strong> for aircrew building a
+        UK rental portfolio while working from a UK or overseas base.
+        The most common case for Middle East-based aircrew.
+      </p>
+      <p>
+        <strong>Limited company buy-to-let</strong> for aircrew with
+        three or more UK rental properties or those holding UK
+        property through a UK limited company.
+      </p>
+      <p>
+        <strong>Non-resident mortgages</strong> for UK nationals based
+        overseas with foreign carriers. Specialist lenders accept
+        tax-free salary, foreign currency income, and overseas
+        address profiles in full.
+      </p>
+      <p>
+        <strong>Higher loan-to-value lending</strong> for first-time
+        buyer aircrew, including those with type rating debt, where
+        the case fits the right lender's criteria.
+      </p>
+    </div>
+  </section>
+
+  <section class="hub-section">
+    <div class="hub-section-inner">
+      <h2 id="how-affordability-is-assessed">How affordability is assessed</h2>
+      <p>
+        A specialist lender that understands aircrew income will
+        typically:
+      </p>
+      <ul>
+        <li>
+          Accept 100% of base salary at full GBP equivalent value with
+          no currency haircut.
+        </li>
+        <li>
+          Accept productivity, sector pay, and allowances backed by
+          12 to 24 months of payslips.
+        </li>
+        <li>
+          Accept tax-free salary at the net rate without grossing up
+          incorrectly.
+        </li>
+        <li>
+          Treat type rating debt as repayment rather than ongoing
+          affordability drag.
+        </li>
+        <li>
+          Accept foreign carrier employment for non-resident
+          applicants without requiring a UK employment trail.
+        </li>
+      </ul>
+      <p>
+        A mainstream UK lender, by contrast, often applies the
+        currency haircut, ignores allowances, and either declines or
+        significantly under-lends to aircrew based abroad. The same
+        applicant against the same income profile can borrow
+        materially more from the right lender.
+      </p>
+    </div>
+  </section>
+
+  <PullQuote>
+    The same applicant against the same income profile can borrow
+    materially more from the right lender.
+  </PullQuote>
+
+  <MidPageCta />
+
+  <section class="hub-section">
+    <div class="hub-section-inner">
+      <h2 id="faqs">Common questions</h2>
+      <div class="faq">
+        {faqs.map((f) => (
+          <>
+            <h3>{f.q}</h3>
+            <p>{f.a}</p>
+          </>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <section class="hub-section">
+    <div class="hub-section-inner">
+      <h2 id="what-happens-next">What happens next</h2>
+      <p>
+        We start with a no-obligation conversation about your role,
+        your base, and what you want to buy. From there we identify
+        the lender or lenders whose criteria match your case, prepare
+        the application, and manage it to completion.
+      </p>
+      <p>
+        You will not be passed around. The same broker who takes your
+        initial call manages your case to offer.
+      </p>
+    </div>
+  </section>
+
+  <script
+    type="application/ld+json"
+    is:inline
+    set:html={JSON.stringify(faqSchema)}
+  />
+</HubLayout>

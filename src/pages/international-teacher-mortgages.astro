@@ -1,0 +1,355 @@
+---
+import HubLayout from '../layouts/HubLayout.astro';
+import PullQuote from '../components/PullQuote.astro';
+import MidPageCta from '../components/MidPageCta.astro';
+import { breadcrumbSchema, serviceSchema } from '../lib/schema';
+import RiskWarning from '../components/RiskWarning.astro';
+import TerritorialScope from '../components/TerritorialScope.astro';
+
+const title = 'International School Teacher Mortgages | UK Mortgages Worldwide';
+const description =
+  'UK mortgages for international school teachers, covering tax-free salary, accommodation packages, and overseas-based teachers building UK property portfolios.';
+const h1 = 'International School Teacher Mortgages';
+const subheadline =
+  'UK mortgages for international school teachers across the Middle East, Europe, Asia, and Africa. How tax-free salary, school-provided housing, and overseas residency are handled by lenders that read the package correctly.';
+
+const relatedPages = [
+  {
+    eyebrow: 'Hub',
+    title: 'UK Mortgages for Expats',
+    description:
+      'British nationals living abroad. What lenders look for and how a broker handles country and currency.',
+    href: '/expat-mortgages',
+  },
+  {
+    eyebrow: 'Hub',
+    title: 'UK Mortgages with Foreign Income',
+    description:
+      'How lenders treat AED, SAR, SGD, and other non-sterling salaries. The 20% haircut and no-haircut access.',
+    href: '/uk-mortgage-foreign-income',
+  },
+  {
+    eyebrow: 'Hub',
+    title: 'UK Mortgages for Non-UK Residents',
+    description:
+      'For teachers with no current UK tax footprint. Smaller lender pool, larger deposits, and broker-led placement.',
+    href: '/non-uk-resident-mortgages',
+  },
+];
+
+const faqs = [
+  {
+    q: 'I am paid in AED in Dubai with no income tax. How do lenders see my salary?',
+    a: 'Specialist lenders accept your tax-free AED salary at full GBP equivalent value as your net annual income. Mainstream lenders often try to gross it up incorrectly or apply a currency haircut. We use the lenders that read this correctly.',
+  },
+  {
+    q: 'My school provides my apartment. Does that affect my affordability?',
+    a: 'Indirectly yes. Lenders look at your saving capacity and your total income. Provided housing means more disposable income, which strengthens your case with lenders that understand the package.',
+  },
+  {
+    q: 'I have moved schools four times in ten years. Will lenders see that as job-hopping?',
+    a: 'Some will. Specialist lenders for international teachers see this as normal professional mobility within the sector. We use the latter.',
+  },
+  {
+    q: 'I do not have a UK address. Can I still buy a UK property?',
+    a: 'Yes. Non-resident UK mortgages are available to teachers based abroad. We need proof of identity and address through your overseas documentation.',
+  },
+  {
+    q: 'I am returning to the UK after eight years abroad. How long do I need to be back before I can apply?',
+    a: 'Some lenders accept day-one applications with a signed UK employment contract. Others want three to six months of UK history first. The right route depends on your specific situation.',
+  },
+  {
+    q: 'Can I use my overseas savings as deposit?',
+    a: 'Yes, with the right paper trail. Lenders need to see the source of the savings, normally through bank statements showing the income that funded them.',
+  },
+];
+
+const faqSchema = {
+  '@context': 'https://schema.org',
+  '@type': 'FAQPage',
+  mainEntity: faqs.map((f) => ({
+    '@type': 'Question',
+    name: f.q,
+    acceptedAnswer: { '@type': 'Answer', text: f.a },
+  })),
+};
+
+const schemas = [
+  breadcrumbSchema([
+    { name: 'Home', path: '/' },
+    {
+      name: 'International School Teacher Mortgages',
+      path: '/international-teacher-mortgages',
+    },
+  ]),
+  serviceSchema({
+    serviceType: 'UK Mortgages for International School Teachers',
+    name: h1,
+    description,
+  }),
+];
+---
+
+<HubLayout
+  title={title}
+  description={description}
+  h1={h1}
+  subheadline={subheadline}
+  eyebrow="Hub · International teacher mortgages"
+  ctaHeading="Speak to a specialist mortgage broker"
+  schemas={schemas}
+  relatedPages={relatedPages}
+>
+  <RiskWarning type="residential" />
+  <TerritorialScope />
+
+  <section class="hub-section">
+    <div class="hub-section-inner">
+      <h2 id="who-this-is-for">Who this page is for</h2>
+      <p>
+        International school teachers occupy a strong but underserved
+        position in the UK mortgage market. Salary in foreign currency,
+        often tax-free. Accommodation usually provided. Strong saving
+        capacity. Frequent moves between schools across multiple
+        countries. UK property as the long-term asset class of choice.
+        Most high street lenders look at the headline GBP figure, miss
+        the saving capacity, miss the tax position, and under-lend to
+        a profession that is, financially, often in a stronger
+        position than UK-based equivalents.
+      </p>
+      <p>
+        We work with international teachers across the Middle East,
+        Europe, Asia, and Africa. Whether you are a UK head of
+        department in Dubai building a UK buy-to-let portfolio or a
+        returning teacher buying your first UK home after ten years
+        overseas, we know which lenders treat international teaching
+        income correctly and how to package the case.
+      </p>
+    </div>
+  </section>
+
+  <MidPageCta variant="hero" />
+
+  <section class="hub-section">
+    <div class="hub-section-inner">
+      <h2 id="why-income-is-misunderstood">Why international teaching income is misunderstood</h2>
+      <p>
+        <strong>Salary in foreign currency.</strong> International
+        teachers are paid in local currency, which varies dramatically
+        by region. AED in the Gulf. SGD or HKD in Asia. EUR in Europe.
+        USD in some regions. UK lenders typically apply a 20% currency
+        haircut. A handful of
+        <a href="/uk-mortgage-foreign-income">specialist lenders</a>
+        accept the full value.
+      </p>
+      <p>
+        <strong>Tax-free salary in some regions.</strong> Teachers
+        based in the UAE, Qatar, Saudi Arabia, Bahrain, and Brunei
+        pay no income tax. The headline GBP equivalent is therefore
+        the net figure. Lenders that gross it up incorrectly
+        under-lend. Lenders that accept it net at the right rate lend
+        correctly.
+      </p>
+      <p>
+        <strong>Accommodation provided.</strong> Most international
+        school packages include housing, either as a school apartment
+        or a housing allowance. This means the teacher's savings rate
+        is often dramatically higher than the headline salary
+        suggests. Lenders that ignore the housing benefit miss this.
+      </p>
+      <p>
+        <strong>Tuition allowance for own children.</strong>
+        International schools often provide free or discounted tuition
+        for teachers' children, typically worth £20,000 to £40,000 per
+        child per year. This is a real economic benefit but is rarely
+        captured by lender affordability assessments.
+      </p>
+      <p>
+        <strong>Annual flight allowance.</strong> Most contracts
+        include flights home once a year. Real benefit but not income.
+      </p>
+      <p>
+        <strong>Career mobility.</strong> International teachers often
+        move every two to three years between schools and countries.
+        Lenders looking at employment history see fragmented work. The
+        actual pattern is continuous professional employment in a
+        recognised global sector.
+      </p>
+      <p>
+        <strong>No UK tax footprint while abroad.</strong> Teachers
+        based abroad are typically not UK tax resident. This affects
+        which lenders will work with them and how affordability is
+        assessed.
+      </p>
+      <p>
+        <strong>UK pension gap.</strong> Teachers abroad do not
+        contribute to UK state pension or to the Teachers Pension
+        Scheme. This affects long-term financial planning but is not
+        directly a lender concern.
+      </p>
+    </div>
+  </section>
+
+  <PullQuote>
+    Most high street lenders look at the headline GBP figure, miss the
+    saving capacity, miss the tax position, and under-lend to a
+    profession that is, financially, often in a stronger position than
+    UK-based equivalents.
+  </PullQuote>
+
+  <section class="hub-section">
+    <div class="hub-section-inner">
+      <h2 id="common-situations">Common situations we handle</h2>
+      <p>
+        <strong>UK national, Gulf-based.</strong> Teachers in
+        <a href="/expat-mortgages/countries/dubai">Dubai</a>, Abu
+        Dhabi, <a href="/expat-mortgages/countries/qatar">Doha</a>,
+        Riyadh, or
+        <a href="/expat-mortgages/countries/bahrain">Bahrain</a>. AED,
+        QAR, SAR, BHD income, tax-free, often single-occupancy
+        housing provided. Strong buy-to-let case while abroad.
+      </p>
+      <p>
+        <strong>UK national, Asia-based.</strong> Teachers in
+        <a href="/expat-mortgages/countries/singapore">Singapore</a>,
+        <a href="/expat-mortgages/countries/hong-kong">Hong Kong</a>,
+        Bangkok, or Kuala Lumpur. SGD, HKD, THB, or MYR income,
+        taxed but at favourable rates compared to UK. Often higher
+        saving capacity than headline.
+      </p>
+      <p>
+        <strong>UK national, Europe-based.</strong> Teachers in
+        <a href="/expat-mortgages/countries/switzerland">Switzerland</a>,
+        <a href="/expat-mortgages/countries/germany">Germany</a>,
+        <a href="/expat-mortgages/countries/france">France</a>,
+        <a href="/expat-mortgages/countries/spain">Spain</a>, or Italy.
+        EUR income, taxed at local rates. Stronger UK lender appetite
+        than non-EU postings.
+      </p>
+      <p>
+        <strong>Returning UK teacher.</strong> Teacher returning to a
+        UK position after five to fifteen years abroad. Often has
+        substantial overseas savings as deposit but limited recent UK
+        credit history.
+      </p>
+      <p>
+        <strong>Spouse with international teacher.</strong> Trailing
+        spouse who may or may not have separate income. Joint
+        application typically uses the teacher's salary as primary
+        income.
+      </p>
+    </div>
+  </section>
+
+  <section class="hub-section">
+    <div class="hub-section-inner">
+      <h2 id="what-we-can-arrange">What we can arrange</h2>
+      <p>
+        <strong>UK residential mortgages</strong> for UK-based
+        teachers and returning international teachers buying their
+        main home.
+      </p>
+      <p>
+        <strong>Buy-to-let mortgages</strong> for international
+        teachers building a UK rental portfolio while working abroad.
+        The most common case we handle in this segment.
+      </p>
+      <p>
+        <strong>Non-resident mortgages</strong> for UK nationals
+        teaching overseas with no current UK tax footprint. Specialist
+        lenders accept the full income profile.
+      </p>
+      <p>
+        <strong>Limited company buy-to-let</strong> for teachers with
+        multiple properties or those who want to hold UK property in
+        a UK limited company for tax efficiency.
+      </p>
+      <p>
+        <strong>First-time buyer mortgages</strong> for teachers who
+        have spent their early career abroad and are now buying their
+        first UK property.
+      </p>
+    </div>
+  </section>
+
+  <section class="hub-section">
+    <div class="hub-section-inner">
+      <h2 id="how-affordability-is-assessed">How affordability is assessed</h2>
+      <p>
+        A specialist lender that understands international teaching
+        income will typically:
+      </p>
+      <ul>
+        <li>
+          Accept salary at full GBP equivalent value with no currency
+          haircut.
+        </li>
+        <li>
+          Accept tax-free salary at the net rate without incorrect
+          grossing up.
+        </li>
+        <li>
+          Recognise housing allowance or provided accommodation as
+          freeing income for saving and affordability.
+        </li>
+        <li>
+          Treat international career mobility as continuous teaching
+          employment.
+        </li>
+        <li>
+          Accept overseas address and identity documentation for
+          non-UK resident applications.
+        </li>
+      </ul>
+      <p>
+        A mainstream UK lender, by contrast, often applies the
+        currency haircut, ignores housing benefits, treats career
+        moves as employment instability, and either declines or
+        significantly under-lends.
+      </p>
+    </div>
+  </section>
+
+  <PullQuote>
+    Lenders that accept it net at the right rate lend correctly.
+  </PullQuote>
+
+  <MidPageCta />
+
+  <section class="hub-section">
+    <div class="hub-section-inner">
+      <h2 id="faqs">Common questions</h2>
+      <div class="faq">
+        {faqs.map((f) => (
+          <>
+            <h3>{f.q}</h3>
+            <p>{f.a}</p>
+          </>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <section class="hub-section">
+    <div class="hub-section-inner">
+      <h2 id="what-happens-next">What happens next</h2>
+      <p>
+        We start with a no-obligation conversation about where you
+        teach, your career history, and what you want to buy. From
+        there we identify the lender or lenders whose criteria match
+        your case, prepare the application, and manage it to
+        completion.
+      </p>
+      <p>
+        You will not be passed around. The same broker who takes your
+        initial call manages your case to offer.
+      </p>
+    </div>
+  </section>
+
+  <script
+    type="application/ld+json"
+    is:inline
+    set:html={JSON.stringify(faqSchema)}
+  />
+</HubLayout>

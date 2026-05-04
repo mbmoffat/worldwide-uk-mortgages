@@ -1,0 +1,311 @@
+---
+import HubLayout from '../../layouts/HubLayout.astro';
+import PullQuote from '../../components/PullQuote.astro';
+import MidPageCta from '../../components/MidPageCta.astro';
+import { breadcrumbSchema, serviceSchema } from '../../lib/schema';
+import RiskWarning from '../../components/RiskWarning.astro';
+import TerritorialScope from '../../components/TerritorialScope.astro';
+
+const title = 'Superyacht Crew Mortgages | UK Mortgages Worldwide';
+const description =
+  'UK mortgages for superyacht crew, including NDA-handled cases and applications built on foreign currency yacht crew income paid offshore.';
+const h1 = 'Superyacht Crew Mortgages';
+const subheadline =
+  'UK mortgages for stewardesses, deckhands, engineers, captains, chefs, and pursers across the global superyacht fleet. How NDAs, foreign currency salary, and offshore-paid income are handled.';
+
+const relatedPages = [
+  {
+    eyebrow: 'Hub',
+    title: 'Seafarer Mortgages',
+    description:
+      'The wider seafarer mortgage hub covering merchant navy, offshore, cruise, and yacht crew.',
+    href: '/seafarer-mortgages',
+  },
+  {
+    eyebrow: 'Hub',
+    title: 'Cruise Ship Crew Mortgages',
+    description:
+      'USD-paid cruise crew, rotational contracts, and applications built without a UK address.',
+    href: '/seafarer-mortgages/cruise-ship-crew',
+  },
+  {
+    eyebrow: 'Hub',
+    title: 'UK Mortgages with Foreign Income',
+    description:
+      'How lenders treat non-sterling income. The 20% haircut and no-haircut lender access.',
+    href: '/uk-mortgage-foreign-income',
+  },
+];
+
+const faqs = [
+  {
+    q: 'I cannot disclose my employer’s name. Is that a problem?',
+    a: 'No. We arrange mortgages routinely for crew under NDA. We work with redacted documentation, management company references, and accountant verification. The lenders we use understand the industry and accept this evidence.',
+  },
+  {
+    q: 'I have no UK address. Can I still apply for a UK mortgage?',
+    a: 'Yes. Specialist lenders accept applications from crew with no current UK residential address, provided we can verify identity and current address through alternative documentation.',
+  },
+  {
+    q: 'Will my tips count towards what I can borrow?',
+    a: 'Often yes, when properly evidenced. We need bank statements showing the tip income hitting your account and ideally payslip references where the cruise or charter season tips are recorded.',
+  },
+  {
+    q: 'I am paid in euros into a Jersey account. Will lenders accept this?',
+    a: 'Yes, with the right lender. We need a clear paper trail from your employer to the receiving account. Foreign currency income is accepted at full GBP equivalent value by the specialist lenders we work with.',
+  },
+  {
+    q: 'Can I buy a UK property while continuing to work on the yacht?',
+    a: 'Yes. This is the most common case we handle. The mortgage can be residential or buy-to-let depending on whether you intend to live in the property between contracts or rent it out.',
+  },
+];
+
+const faqSchema = {
+  '@context': 'https://schema.org',
+  '@type': 'FAQPage',
+  mainEntity: faqs.map((f) => ({
+    '@type': 'Question',
+    name: f.q,
+    acceptedAnswer: { '@type': 'Answer', text: f.a },
+  })),
+};
+
+const schemas = [
+  breadcrumbSchema([
+    { name: 'Home', path: '/' },
+    { name: 'Seafarer Mortgages', path: '/seafarer-mortgages' },
+    { name: 'Superyacht Crew', path: '/seafarer-mortgages/superyacht-crew' },
+  ]),
+  serviceSchema({
+    serviceType: 'UK Mortgages for Superyacht Crew',
+    name: h1,
+    description,
+  }),
+];
+---
+
+<HubLayout
+  title={title}
+  description={description}
+  h1={h1}
+  subheadline={subheadline}
+  eyebrow="Hub · Superyacht crew"
+  ctaHeading="Speak to a specialist mortgage broker"
+  schemas={schemas}
+  relatedPages={relatedPages}
+>
+  <RiskWarning type="residential" />
+  <TerritorialScope />
+
+  <section class="hub-section">
+    <div class="hub-section-inner">
+      <h2 id="who-this-is-for">Who this page is for</h2>
+      <p>
+        The superyacht industry runs on its own rules. Crew are paid in
+        foreign currency. Contracts move with the boat. Owners are often
+        ultra-high-net-worth individuals whose names cannot leave the deck.
+        None of that is well understood by mainstream UK lenders.
+      </p>
+      <p>
+        We work with stewardesses, deckhands, engineers, captains, chefs,
+        and pursers across the global superyacht fleet. Whether you are
+        saving for a UK property to live in between charters or building a
+        buy-to-let portfolio while you work the Med season, we know how
+        lenders read your situation and which ones can lend against it.
+      </p>
+    </div>
+  </section>
+
+  <MidPageCta variant="hero" />
+
+  <section class="hub-section">
+    <div class="hub-section-inner">
+      <h2 id="ndas-and-confidentiality">NDAs and confidentiality</h2>
+      <p>
+        A material proportion of our superyacht enquiries involve NDAs.
+        Crew on private yachts often sign agreements that prevent them
+        from disclosing the owner's name, the yacht's name, or the
+        location of the boat at any given time.
+      </p>
+      <p>
+        This matters for a mortgage application because lenders normally
+        want to see employer details, contract terms, and source of funds.
+        We work routinely with clients under NDA and know how to package
+        an application so the lender gets what it needs without breaching
+        the client's obligations to the owner.
+      </p>
+      <p>
+        In practice this means working with management companies, redacted
+        contracts, accountant references, and bank statements rather than
+        a named employer letter. The point is not what cannot be shared.
+        The point is that lenders accept this is normal in the industry
+        when the case is presented properly.
+      </p>
+    </div>
+  </section>
+
+  <PullQuote>
+    The point is not what cannot be shared. The point is that lenders
+    accept this is normal in the industry when the case is presented
+    properly.
+  </PullQuote>
+
+  <section class="hub-section">
+    <div class="hub-section-inner">
+      <h2 id="income-complications">Income complications lenders need to handle</h2>
+      <p>
+        Superyacht crew income is structured differently to almost any
+        other profession.
+      </p>
+      <p>
+        <strong>Salary paid in foreign currency.</strong> Most crew are
+        paid in EUR or USD. UK lenders apply a haircut to
+        <a href="/uk-mortgage-foreign-income">foreign currency income</a>,
+        typically 20%, before they assess affordability. A handful of
+        specialist lenders apply no haircut at all when the case is
+        built correctly. The difference can be tens of thousands of
+        pounds of borrowing capacity on the same income.
+      </p>
+      <p>
+        <strong>Salary paid offshore.</strong> Income is often paid into
+        a Jersey, Isle of Man, or international account rather than
+        directly into a UK bank. Lenders need a clear paper trail from
+        employer to the account holding the funds.
+      </p>
+      <p>
+        <strong>Tips and gratuities.</strong> On charter yachts, tips
+        can equal or exceed base salary across a season. Lenders treat
+        this income inconsistently. Some accept a two-year average
+        backed by bank statements. Others ignore it entirely. Choosing
+        the right lender is the single biggest variable in how much you
+        can borrow.
+      </p>
+      <p>
+        <strong>No fixed UK address.</strong> Crew often have no UK
+        residential address while working. This affects credit search
+        and identity verification. We know which lenders can complete
+        a case using a family member's address, a managed property, or
+        the address of a UK accountant.
+      </p>
+      <p>
+        <strong>Multiple employers per year.</strong> Yacht hopping is
+        common. Lenders looking at employment history see what looks
+        like job-hopping rather than a normal industry pattern.
+        Presenting the case correctly closes that gap.
+      </p>
+    </div>
+  </section>
+
+  <section class="hub-section">
+    <div class="hub-section-inner">
+      <h2 id="what-we-can-arrange">What we can arrange</h2>
+      <p>
+        <strong>UK residential mortgages</strong> for crew planning to
+        base themselves in the UK between contracts or after leaving the
+        industry. Specialist lenders we work with accept yacht crew
+        income in full, including foreign currency, offshore-paid
+        salary, and tips backed by evidence.
+      </p>
+      <p>
+        <strong>Buy-to-let mortgages</strong> for crew building a UK
+        property portfolio while working abroad. This is the most common
+        reason superyacht crew approach us. Sea earnings fund the
+        deposit. UK rental income covers the mortgage. The asset
+        compounds while you work.
+      </p>
+      <p>
+        <strong>Portfolio and limited company structures</strong> for
+        crew with three or more properties or those holding UK property
+        through a UK limited company for tax efficiency.
+      </p>
+      <p>
+        <strong>Short-let mortgages</strong> for crew buying in coastal
+        locations they intend to use themselves between contracts and
+        let on platforms like Airbnb when away.
+      </p>
+    </div>
+  </section>
+
+  <section class="hub-section">
+    <div class="hub-section-inner">
+      <h2 id="how-affordability-is-assessed">How affordability is assessed</h2>
+      <p>
+        A specialist lender that recognises yacht crew income will
+        typically:
+      </p>
+      <ul>
+        <li>
+          Accept 100% of base salary, converted to GBP, with no foreign
+          currency haircut.
+        </li>
+        <li>
+          Accept a two-year average of tips and gratuities, backed by
+          payslips and bank statements.
+        </li>
+        <li>
+          Accept salary paid into an offshore account, provided a clear
+          paper trail exists from employer to account.
+        </li>
+        <li>
+          Use ENG1 medical and STCW certification as evidence of
+          profession and ongoing employability.
+        </li>
+        <li>
+          Treat short fixed-term contracts as continuous employment when
+          the pattern is consistent across the previous two to three
+          years.
+        </li>
+      </ul>
+      <p>
+        A mainstream UK lender, by contrast, typically applies the 20%
+        currency haircut, ignores tips entirely, and treats short
+        contracts as evidence of employment instability. The same
+        applicant can borrow materially more from one lender than the
+        other against an identical income.
+      </p>
+    </div>
+  </section>
+
+  <PullQuote>
+    The same applicant can borrow materially more from one lender than
+    the other against an identical income.
+  </PullQuote>
+
+  <MidPageCta />
+
+  <section class="hub-section">
+    <div class="hub-section-inner">
+      <h2 id="faqs">Common questions</h2>
+      <div class="faq">
+        {faqs.map((f) => (
+          <>
+            <h3>{f.q}</h3>
+            <p>{f.a}</p>
+          </>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <section class="hub-section">
+    <div class="hub-section-inner">
+      <h2 id="what-happens-next">What happens next</h2>
+      <p>
+        We start with a no-obligation call to understand your situation,
+        the property you have in mind, and the timing. From there we
+        identify the lender or lenders whose criteria your case fits,
+        prepare the application, and manage it through to completion.
+      </p>
+      <p>
+        You will not be passed around. The same broker who takes your
+        initial call manages your case to offer.
+      </p>
+    </div>
+  </section>
+
+  <script
+    type="application/ld+json"
+    is:inline
+    set:html={JSON.stringify(faqSchema)}
+  />
+</HubLayout>

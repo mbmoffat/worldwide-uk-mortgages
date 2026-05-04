@@ -1,0 +1,320 @@
+---
+import HubLayout from '../../layouts/HubLayout.astro';
+import PullQuote from '../../components/PullQuote.astro';
+import MidPageCta from '../../components/MidPageCta.astro';
+import { breadcrumbSchema, serviceSchema } from '../../lib/schema';
+import RiskWarning from '../../components/RiskWarning.astro';
+import TerritorialScope from '../../components/TerritorialScope.astro';
+
+const title = 'Cruise Ship Crew Mortgages | UK Mortgages Worldwide';
+const description =
+  'UK mortgages for cruise ship crew paid in USD on rotational contracts, including cases where the applicant has no current UK address.';
+const h1 = 'Cruise Ship Crew Mortgages';
+const subheadline =
+  'UK mortgages for cruise crew across the major lines, from junior staff to senior officers. How USD pay, six-to-nine-month rotations, and no-UK-address profiles are handled.';
+
+const relatedPages = [
+  {
+    eyebrow: 'Hub',
+    title: 'Seafarer Mortgages',
+    description:
+      'The wider seafarer mortgage hub covering merchant navy, offshore, cruise, and yacht crew.',
+    href: '/seafarer-mortgages',
+  },
+  {
+    eyebrow: 'Hub',
+    title: 'Superyacht Crew Mortgages',
+    description:
+      'Yacht crew applications, NDA-handled cases, and offshore-paid foreign currency income.',
+    href: '/seafarer-mortgages/superyacht-crew',
+  },
+  {
+    eyebrow: 'Hub',
+    title: 'UK Mortgages with Foreign Income',
+    description:
+      'How lenders treat non-sterling income. The 20% haircut and no-haircut lender access.',
+    href: '/uk-mortgage-foreign-income',
+  },
+];
+
+const faqs = [
+  {
+    q: 'I am between contracts right now. Can I still apply?',
+    a: 'Yes. Lenders look at the rolling pattern of your contracts, not whether you are mid-contract on the day of application. Your last two years of contract history is usually the key evidence.',
+  },
+  {
+    q: 'My salary is paid in USD. Will I be hit with a 20% haircut?',
+    a: 'Not with the right lender. Specialist lenders accept USD at full GBP equivalent value. We know which ones do and which do not.',
+  },
+  {
+    q: 'I do not have a UK address. Can I still apply for a mortgage?',
+    a: 'Yes. Specialist lenders accept applications from cruise crew with no UK residential address, provided we can verify your identity and current address through alternative documentation.',
+  },
+  {
+    q: 'I work for two different cruise lines across the year. Does that count against me?',
+    a: 'Not when presented correctly. Multiple employers within the same industry across the same time period can be packaged as continuous employment, which is how it actually functions in your career.',
+  },
+  {
+    q: 'I want to buy a UK property to rent out while I work. Is that possible?',
+    a: 'Yes. This is the most common case we handle. Buy-to-let mortgages are available to cruise crew with the right lender match, funded by your sea earnings as deposit and serviced by UK rental income.',
+  },
+];
+
+const faqSchema = {
+  '@context': 'https://schema.org',
+  '@type': 'FAQPage',
+  mainEntity: faqs.map((f) => ({
+    '@type': 'Question',
+    name: f.q,
+    acceptedAnswer: { '@type': 'Answer', text: f.a },
+  })),
+};
+
+const schemas = [
+  breadcrumbSchema([
+    { name: 'Home', path: '/' },
+    { name: 'Seafarer Mortgages', path: '/seafarer-mortgages' },
+    { name: 'Cruise Ship Crew', path: '/seafarer-mortgages/cruise-ship-crew' },
+  ]),
+  serviceSchema({
+    serviceType: 'UK Mortgages for Cruise Ship Crew',
+    name: h1,
+    description,
+  }),
+];
+---
+
+<HubLayout
+  title={title}
+  description={description}
+  h1={h1}
+  subheadline={subheadline}
+  eyebrow="Hub · Cruise ship crew"
+  ctaHeading="Speak to a specialist mortgage broker"
+  schemas={schemas}
+  relatedPages={relatedPages}
+>
+  <RiskWarning type="residential" />
+  <TerritorialScope />
+
+  <section class="hub-section">
+    <div class="hub-section-inner">
+      <h2 id="who-this-is-for">Who this page is for</h2>
+      <p>
+        Cruise ship crew face a specific set of challenges when applying
+        for a UK mortgage. Long contracts at sea. Pay packets in US
+        dollars. No fixed UK address. Income gaps between rotations. Most
+        high street lenders cannot make sense of any of it.
+      </p>
+      <p>
+        We work regularly with cruise crew across the major lines, from
+        junior staff to senior officers. Whether you are buying your first
+        UK property between contracts or building a portfolio funded by
+        your sea earnings, we know how lenders need cruise crew
+        applications presented and which ones will lend against the
+        income.
+      </p>
+    </div>
+  </section>
+
+  <MidPageCta variant="hero" />
+
+  <section class="hub-section">
+    <div class="hub-section-inner">
+      <h2 id="how-cruise-contracts-affect-lending">How cruise contracts affect lending</h2>
+      <p>
+        A typical cruise contract runs for six to nine months on board
+        followed by six to twelve weeks of leave. Income is paid only
+        during contracted months. The pattern repeats two or three times
+        a year across multiple consecutive years.
+      </p>
+      <p>
+        Mainstream UK lenders read this pattern as fragmented employment.
+        A specialist lender treats it correctly, as a continuous career
+        with predictable income across the rolling year. The difference
+        at point of application is often the difference between an offer
+        and a decline.
+      </p>
+      <p>Key features of cruise crew income that need handling:</p>
+      <p>
+        <strong>USD-denominated pay.</strong> Most cruise lines pay in
+        US dollars regardless of nationality. UK lenders convert at
+        their own rate and most then apply a 20% currency haircut on
+        top. A handful of
+        <a href="/uk-mortgage-foreign-income">specialist lenders</a>
+        accept USD income at full value with no haircut.
+      </p>
+      <p>
+        <strong>Paid only during contract.</strong> Lenders need to see
+        that the unpaid weeks between contracts are accounted for in
+        your file. This is normally evidenced by historical contract
+        patterns, savings behaviour, and a clean account record across
+        gap periods.
+      </p>
+      <p>
+        <strong>Paid into an international account.</strong> Many crew
+        have salaries paid into home-country accounts. Funds are then
+        transferred to the UK in lump sums. Lenders need a clear chain
+        of evidence from employer to UK account.
+      </p>
+      <p>
+        <strong>Multiple employers across cruise lines.</strong> Crew
+        often move between lines for better contracts. Each contract is
+        a separate employment in a lender's eyes. We know how to package
+        this as a continuous career.
+      </p>
+    </div>
+  </section>
+
+  <PullQuote>
+    Mainstream UK lenders read this pattern as fragmented employment. A
+    specialist lender treats it correctly, as a continuous career with
+    predictable income across the rolling year.
+  </PullQuote>
+
+  <section class="hub-section">
+    <div class="hub-section-inner">
+      <h2 id="address-and-residency">Address and residency</h2>
+      <p>
+        A cruise crew member working a nine-month contract has no UK
+        address for most of the year. This creates issues with:
+      </p>
+      <ul>
+        <li>Lender credit search, which relies on UK address history.</li>
+        <li>Identity verification.</li>
+        <li>Proof of address documentation.</li>
+        <li>Council tax and utility bill records.</li>
+      </ul>
+      <p>
+        Specialist lenders accept UK property addresses through family,
+        partners, or UK-based accountants. We know which lenders can
+        run a credit search where the applicant has no formal UK
+        residency in the previous three years and which ones cannot.
+      </p>
+    </div>
+  </section>
+
+  <section class="hub-section">
+    <div class="hub-section-inner">
+      <h2 id="confidentiality-and-discretion">Confidentiality and discretion</h2>
+      <p>
+        Some senior officers and specialised crew are subject to
+        confidentiality clauses around their employer or specific
+        operations. We handle these cases routinely. Where redacted
+        contracts or alternative employer evidence is needed, we know
+        which lenders accept the alternative documentation and how to
+        present it.
+      </p>
+    </div>
+  </section>
+
+  <section class="hub-section">
+    <div class="hub-section-inner">
+      <h2 id="what-we-can-arrange">What we can arrange</h2>
+      <p>
+        <strong>UK residential mortgages</strong> for cruise crew
+        planning to settle in the UK either between contracts or after
+        leaving the industry. Either base yourself in a property you
+        own outright or use it as a UK base while you continue at sea.
+      </p>
+      <p>
+        <strong>Buy-to-let mortgages</strong> for crew building UK
+        property as an investment while continuing to work cruise
+        contracts. This is the most common case we see. Sea earnings
+        fund the deposit. UK rental income covers the mortgage. The
+        portfolio grows while you work.
+      </p>
+      <p>
+        <strong>First Homes and Help to Buy schemes</strong> are
+        available to cruise crew on the same terms as land-based UK
+        workers, provided the affordability assessment treats your
+        income correctly.
+      </p>
+      <p>
+        <strong>Limited company buy-to-let</strong> for crew with
+        multiple properties or those who want to hold UK property in a
+        UK limited company for tax efficiency.
+      </p>
+    </div>
+  </section>
+
+  <section class="hub-section">
+    <div class="hub-section-inner">
+      <h2 id="how-affordability-is-assessed">How affordability is assessed</h2>
+      <p>
+        A specialist lender for cruise crew will typically:
+      </p>
+      <ul>
+        <li>
+          Accept 100% of contracted salary at the GBP equivalent
+          without a currency haircut.
+        </li>
+        <li>
+          Accept the rolling pattern of contracts as continuous
+          employment.
+        </li>
+        <li>
+          Accept salary paid into a non-UK account provided the paper
+          trail is clean.
+        </li>
+        <li>
+          Use historical contract evidence to project forward income
+          reliability.
+        </li>
+        <li>
+          Allow shore leave gaps in income provided the pattern is
+          consistent.
+        </li>
+      </ul>
+      <p>
+        A mainstream UK lender will, in most cases, decline the case at
+        affordability stage. The same applicant, presented to the right
+        lender by a broker who knows the criteria, can borrow
+        significantly more than they expect.
+      </p>
+    </div>
+  </section>
+
+  <PullQuote>
+    The same applicant, presented to the right lender by a broker who
+    knows the criteria, can borrow significantly more than they expect.
+  </PullQuote>
+
+  <MidPageCta />
+
+  <section class="hub-section">
+    <div class="hub-section-inner">
+      <h2 id="faqs">Common questions</h2>
+      <div class="faq">
+        {faqs.map((f) => (
+          <>
+            <h3>{f.q}</h3>
+            <p>{f.a}</p>
+          </>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <section class="hub-section">
+    <div class="hub-section-inner">
+      <h2 id="what-happens-next">What happens next</h2>
+      <p>
+        We start with a no-obligation conversation about your situation,
+        what you want to buy, and when. From there we identify the
+        lender or lenders that fit your case, prepare the application,
+        and manage it through to completion.
+      </p>
+      <p>
+        You will not be passed around. The same broker who takes your
+        initial call manages your case to offer.
+      </p>
+    </div>
+  </section>
+
+  <script
+    type="application/ld+json"
+    is:inline
+    set:html={JSON.stringify(faqSchema)}
+  />
+</HubLayout>
