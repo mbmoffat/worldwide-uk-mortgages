@@ -3,6 +3,8 @@ title: "Renters' Rights Act: What's Changed for Overseas Landlords"
 description: "The Renters' Rights Act came into force on 1 May 2026. What overseas BTL landlords need to know, the 31 May deadline, and what it means for mortgages."
 pubDate: 2026-05-05
 tags: ["renters rights act", "buy-to-let", "expat landlords", "regulation"]
+riskType: btl
+lead: "The Renters' Rights Act 2025 came into force in England on 1 May 2026. It is the most significant overhaul of the private rented sector since the Housing Act 1988, and it applies to overseas landlords on the same basis as UK-resident landlords. If you let a property in England from abroad, the rules you operated under last week are not the rules you operate under this week."
 sources:
   - "https://www.gov.uk/government/publications/the-renters-rights-act-information-sheet-2026"
   - "https://www.legislation.gov.uk/ukpga/2025/26/contents"
@@ -11,8 +13,6 @@ sources:
   - "https://www.loc.gov/item/global-legal-monitor/2026-04-29/england-and-wales-renters-will-gain-new-rights-in-may"
   - "https://www.natwest.com/mortgages/buy-to-let/buy-to-let-mortgage-guide/renters-rights-act.html"
 ---
-
-The Renters' Rights Act 2025 came into force in England on 1 May 2026. It is the most significant overhaul of the private rented sector since the Housing Act 1988, and it applies to overseas landlords on the same basis as UK-resident landlords. If you let a property in England from abroad, the rules you operated under last week are not the rules you operate under this week.
 
 Below is what changed, what you need to do this month, and what this means for anyone planning a buy-to-let purchase or remortgage from overseas.
 

@@ -21,7 +21,7 @@ interface Props {
 
 const { article } = Astro.props;
 const { Content } = await article.render();
-const { title, description, pubDate, hideRiskWarning } = article.data;
+const { title, description, pubDate, hideRiskWarning, riskType, lead } = article.data;
 
 const fmt = (d: Date) =>
   d.toLocaleDateString('en-GB', {
@@ -52,11 +52,12 @@ const schemas = [
   description={description}
   h1={title}
   eyebrow="NEWS"
+  lead={lead}
   schemas={schemas}
 >
   {!hideRiskWarning && (
     <>
-      <RiskWarning type="residential" />
+      <RiskWarning type={riskType} />
       <TerritorialScope />
     </>
   )}
