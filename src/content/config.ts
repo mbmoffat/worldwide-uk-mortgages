@@ -10,6 +10,7 @@ const news = defineCollection({
     imageAlt: z.string().optional(),
     tags: z.array(z.string()).optional(),
     hideRiskWarning: z.boolean().optional(),
+    sources: z.array(z.string().url()).optional(),
   }),
 });
 
