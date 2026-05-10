@@ -1,0 +1,12 @@
+{
+  "redirects": [
+    {
+      "source": "/:path*",
+      "has": [
+        { "type": "host", "value": "www.ukmortgagesworldwide.com" }
+      ],
+      "destination": "https://ukmortgagesworldwide.com/:path*",
+      "permanent": true
+    }
+  ]
+}
