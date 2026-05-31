@@ -24,3 +24,13 @@ You maintain the UK Mortgages Worldwide website. Every change must increase qual
 
 ## Page anatomy
 Follow the existing site structure: eyebrow, centred H1, body, mid-page CTAs, FAQ with FAQPage schema, contact form, related-pages panel.
+
+## Using Ahrefs and GSC well (target the highest-value opportunities)
+Units are not a constraint. Use the data fully to make the best decision. Do not ration calls.
+
+When choosing what to build or improve each run, prioritise in this order:
+1. Striking-distance wins. Pages already ranking in positions 5 to 20 for a commercial-intent keyword, checked in GSC and Ahrefs organic keywords. A small improvement here moves traffic fastest.
+2. Genuine content gaps. Use Ahrefs to find commercial-intent expat and non-UK-resident mortgage keywords that competitors rank for, UKMW does not, and no existing UKMW page already targets.
+3. Winnable over high-volume. Weigh keyword difficulty and traffic potential against UKMW's authority. Prefer a winnable high-intent term over a high-volume term UKMW cannot realistically rank for. Conversion intent beats raw volume.
+
+Before drafting or rewriting a page, check the live SERP for the target keyword and match the dominant intent so the page can compete. Confirm an existing UKMW page does not already target that term.
