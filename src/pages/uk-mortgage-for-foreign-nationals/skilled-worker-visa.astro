@@ -12,6 +12,51 @@ const description =
 const h1 = 'UK Mortgages on a Skilled Worker Visa';
 const subheadline = description;
 
+const faqs = [
+  {
+    q: 'Can I get a UK mortgage on a Skilled Worker visa?',
+    a: 'Yes. Many UK lenders accept Skilled Worker visa holders. The pool is narrower than for settled residents, but several high street and specialist lenders have specific criteria for this visa type. The three key factors are how long you have left on your visa, your deposit, and your income profile.',
+  },
+  {
+    q: 'Is a Skilled Worker visa mortgage the same as a Tier 2 visa mortgage?',
+    a: 'Yes. The Tier 2 visa was renamed the Skilled Worker visa in December 2020. The mortgage market now refers to the current name, but the underlying criteria apply to the same group of borrowers. If you held a Tier 2 visa before the rename and have since converted, your earlier visa history is not an issue.',
+  },
+  {
+    q: 'How long must I have left on my Skilled Worker visa to get a mortgage?',
+    a: 'Most high street lenders want at least 12 to 24 months remaining. Some will lend to applicants who are mid-renewal. A small number have no minimum and assess on overall profile. If your visa is due for renewal within 12 months, a broker who knows which lenders are flexible at that point will save you a decline on your credit file.',
+  },
+  {
+    q: 'What deposit do I need on a Skilled Worker visa?',
+    a: 'Five to ten per cent is possible with a small number of lenders. Fifteen to twenty-five per cent broadens the pool considerably. Twenty-five per cent and above opens specialist options for larger loans. Deposit also determines which rate bands are available, not just which lenders will consider you.',
+  },
+  {
+    q: 'Will applying for a mortgage affect my Skilled Worker visa or ILR application?',
+    a: 'No. A mortgage is a separate financial transaction with no connection to your visa or settlement application. Lenders do not notify the Home Office, and taking out a mortgage does not affect your immigration status or your path to Indefinite Leave to Remain.',
+  },
+  {
+    q: 'Can I use foreign currency income for a Skilled Worker visa mortgage?',
+    a: 'Yes, but most high street lenders apply a 20 per cent reduction to foreign currency income before assessing affordability. A small number of specialist lenders do not apply this haircut. For applicants with bonuses paid by an overseas parent company, or income earned during postings abroad, this can move the borrowing figure materially.',
+  },
+  {
+    q: 'Can I get a buy-to-let mortgage on a Skilled Worker visa?',
+    a: 'Yes. The buy-to-let lender pool for Skilled Worker visa holders is smaller than for residential mortgages, but several lenders do accept this profile. Assessment focuses on rental yield and overall financial standing rather than visa time remaining specifically.',
+  },
+  {
+    q: 'How long does a Skilled Worker visa mortgage take to complete?',
+    a: 'A straightforward residential case typically completes in 10 to 14 weeks from initial enquiry to completion. The application usually takes four to six weeks to reach offer once submitted to the lender, assuming documentation is in order from the start.',
+  },
+];
+
+const faqSchema = {
+  '@context': 'https://schema.org',
+  '@type': 'FAQPage',
+  mainEntity: faqs.map((f) => ({
+    '@type': 'Question',
+    name: f.q,
+    acceptedAnswer: { '@type': 'Answer', text: f.a },
+  })),
+};
+
 const relatedPages = [
   {
     eyebrow: 'Hub',
@@ -84,6 +129,12 @@ const schemas = [
         Several do it well. But the high street consumer experience is uneven,
         and applications get declined for reasons that do not reflect the
         wider lender landscape.
+      </p>
+      <p>
+        The Skilled Worker visa replaced the Tier 2 (General) visa in
+        December 2020. The mortgage criteria are essentially the same for
+        both names. If you are searching for a Tier 2 visa mortgage, the
+        information on this page applies to you.
       </p>
       <p>
         The three things that matter most are how long you have left on your
@@ -207,4 +258,26 @@ const schemas = [
       </p>
     </div>
   </section>
+
+  <MidPageCta />
+
+  <section class="hub-section">
+    <div class="hub-section-inner">
+      <h2 id="faqs">Frequently asked questions</h2>
+      <div class="faq">
+        {faqs.map((f) => (
+          <>
+            <h3>{f.q}</h3>
+            <p>{f.a}</p>
+          </>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <script
+    type="application/ld+json"
+    is:inline
+    set:html={JSON.stringify(faqSchema)}
+  />
 </HubLayout>
