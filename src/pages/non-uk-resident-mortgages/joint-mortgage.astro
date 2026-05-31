@@ -1,0 +1,412 @@
+---
+import HubLayout from '../../layouts/HubLayout.astro';
+import PullQuote from '../../components/PullQuote.astro';
+import MidPageCta from '../../components/MidPageCta.astro';
+import { breadcrumbSchema, articleSchema } from '../../lib/schema';
+import RiskWarning from '../../components/RiskWarning.astro';
+import TerritorialScope from '../../components/TerritorialScope.astro';
+
+const title = 'Joint UK Mortgage When One Applicant Lives Abroad';
+const description =
+  'How UK joint mortgage applications work when one applicant is a non-UK resident. Income treatment, deposit, stamp duty, and finding the right lender for a mixed-residency couple.';
+const h1 = 'Joint UK Mortgage When One Applicant Lives Abroad';
+const subheadline =
+  'How lenders assess a UK mortgage application where one applicant is a non-UK resident. Income treatment, deposit requirements, the stamp duty surcharge, and how to structure the case.';
+
+const relatedPages = [
+  {
+    eyebrow: 'Hub',
+    title: 'UK Mortgages for Non-UK Residents',
+    description:
+      'Foreign nationals and British expats living outside the UK. Deposit, rates, and lender pool explained.',
+    href: '/non-uk-resident-mortgages',
+  },
+  {
+    eyebrow: 'Hub',
+    title: 'UK Mortgages for Expats',
+    description:
+      'British nationals living abroad. Country-by-country lender appetite, currency haircuts, and timelines.',
+    href: '/expat-mortgages',
+  },
+  {
+    eyebrow: 'Hub',
+    title: 'UK Mortgages with Foreign Income',
+    description:
+      'How lenders treat non-sterling income. The standard haircut and access to no-haircut lenders.',
+    href: '/uk-mortgage-foreign-income',
+  },
+  {
+    eyebrow: 'Guide',
+    title: 'No UK Credit History',
+    description:
+      'How specialist lenders assess applications without a recent UK credit footprint.',
+    href: '/expat-mortgages/no-uk-credit-history',
+  },
+  {
+    eyebrow: 'Calculator',
+    title: 'Stamp Duty Calculator',
+    description:
+      'Work out your stamp duty liability including the non-resident surcharge.',
+    href: '/tools/stamp-duty-calculator',
+  },
+];
+
+const faqs = [
+  {
+    q: 'Can we get a UK mortgage if my partner lives abroad?',
+    a: 'Yes. Specialist lenders handle joint applications where one applicant is a non-UK resident regularly. The lender pool is narrower than for two UK residents, but it is well-established and active.',
+  },
+  {
+    q: "Does my partner's country of residence matter?",
+    a: 'Yes. Lenders have different appetites for different countries. Major expat destinations such as the UAE, Australia, Singapore, the USA, Hong Kong, Qatar, and Canada are broadly accepted. More unusual or restricted jurisdictions narrow the lender pool further.',
+  },
+  {
+    q: "Will my partner's foreign income be counted?",
+    a: "It depends on the lender. Most specialist lenders apply a haircut of around 20% to foreign currency income. Some accept the gross amount without reduction. A few lenders rely only on the UK-resident applicant's income and treat the non-resident income as a supporting detail.",
+  },
+  {
+    q: 'Does the stamp duty surcharge apply when only one of us is non-resident?',
+    a: 'Yes. In England and Wales, if any buyer is a non-UK resident at completion, the 2% non-resident SDLT surcharge applies to the full purchase price. It is not pro-rated. If the non-resident applicant becomes UK resident within 12 months of completion, the surcharge can be reclaimed from HMRC within two years.',
+  },
+  {
+    q: 'What deposit do we need for a joint application?',
+    a: "Where the UK-resident income alone supports the loan and the non-UK resident's income is secondary, a 20% to 25% deposit is achievable with some lenders. Where both incomes are needed and the non-UK resident's country of residence is less familiar to lenders, 25% to 35% is more typical.",
+  },
+  {
+    q: 'What if my partner has no UK credit history?',
+    a: "Specialist lenders accept alternative credit evidence for applicants without a UK credit footprint. A thin file is manageable when the UK-resident's income supports the loan and the overseas applicant's financial conduct can be evidenced through other means.",
+  },
+  {
+    q: 'Can we both be named on the title deeds if one of us lives abroad?',
+    a: 'Yes. Joint ownership where one owner is a non-UK resident is standard. Ownership and mortgage are separate matters: both applicants can be on the title while the mortgage is assessed on the residency and income criteria described on this page.',
+  },
+  {
+    q: 'What if both of us live outside the UK?',
+    a: 'If both applicants are non-UK residents, the application falls into the standard non-UK resident or expat mortgage market. The lender pool may differ slightly depending on both applicants\' countries and currencies, but the process is the same in most respects.',
+  },
+  {
+    q: 'Can we apply if my partner is a British expat rather than a foreign national?',
+    a: 'Yes. A British national living abroad and a UK resident buying together is a mixed-residency application in the same way. Whether the non-resident applicant is British or a foreign national matters less than where they live and what currency they earn.',
+  },
+];
+
+const faqSchema = {
+  '@context': 'https://schema.org',
+  '@type': 'FAQPage',
+  mainEntity: faqs.map((f) => ({
+    '@type': 'Question',
+    name: f.q,
+    acceptedAnswer: { '@type': 'Answer', text: f.a },
+  })),
+};
+const schemas = [
+  breadcrumbSchema([
+    { name: 'Home', path: '/' },
+    { name: 'UK Mortgages for Non-UK Residents', path: '/non-uk-resident-mortgages' },
+    { name: 'Joint Mortgage with Non-UK Resident', path: '/non-uk-resident-mortgages/joint-mortgage' },
+  ]),
+  articleSchema({ headline: h1, description }),
+];
+---
+
+<HubLayout
+  title={title}
+  description={description}
+  h1={h1}
+  subheadline={subheadline}
+  eyebrow="Situation · Joint Application"
+  schemas={schemas}
+  relatedPages={relatedPages}
+>
+  <RiskWarning type="residential" />
+  <TerritorialScope />
+  <section class="hub-section">
+    <div class="hub-section-inner">
+      <h2 id="who-this-is-for">Who this page is for</h2>
+      <p>
+        You are applying for a UK mortgage with a partner or spouse who is not
+        a UK resident. One of you lives in the UK and one does not, or both of
+        you are based outside the UK. You want to know how lenders treat the
+        application, which lender pool applies, and what the practical
+        obstacles are.
+      </p>
+      <p>Common situations this covers:</p>
+      <ul>
+        <li>A UK resident buying with a partner who is posted or living abroad.</li>
+        <li>A UK national buying with a foreign national partner who lives outside the UK.</li>
+        <li>Two British nationals buying together where one has moved abroad.</li>
+        <li>Two people both living outside the UK buying UK property jointly.</li>
+      </ul>
+      <p>
+        For lenders, the key variable is not nationality but residency. Where
+        each applicant currently lives, what currency they earn in, and
+        whether the UK-resident income alone can support the loan are the
+        three questions that drive lender selection.
+      </p>
+    </div>
+  </section>
+
+  <MidPageCta variant="hero" />
+
+  <section class="hub-section">
+    <div class="hub-section-inner">
+      <h2 id="how-lenders-assess">How lenders assess a mixed-residency application</h2>
+      <p>
+        Lenders generally take one of two approaches to a joint application
+        where one applicant is a non-UK resident.
+      </p>
+      <p>
+        <strong>The UK-resident income leads.</strong> The lender assesses
+        the application primarily on the UK-resident applicant's income and
+        treats the non-UK resident as a co-borrower. The non-resident's income
+        is either included with a haircut for currency risk or set aside
+        entirely. The non-resident's presence on the application is disclosed
+        and assessed for credit purposes, but borrowing capacity comes
+        principally from the UK-resident.
+      </p>
+      <p>
+        <strong>Both incomes are assessed together.</strong> The lender
+        treats it as a standard joint application but applies specialist
+        non-resident criteria to the overseas applicant's income. A haircut
+        of around 20% is typical on foreign currency income. Both applicants'
+        credit history and residency are scrutinised fully.
+      </p>
+      <p>
+        The first approach gives access to a wider lender pool and is
+        preferable where the UK-resident income alone supports the loan you
+        need. The second gives more borrowing capacity but narrows the pool
+        to specialist lenders.
+      </p>
+      <p>
+        In practice, most mixed-residency cases land with a specialist
+        lender regardless of approach. Many mainstream lenders either
+        decline joint applications with a non-UK resident or apply criteria
+        that make the application unworkable.
+      </p>
+    </div>
+  </section>
+
+  <PullQuote>
+    Where the UK-resident income alone supports the loan, the lender pool
+    is wider and the case is simpler to place.
+  </PullQuote>
+
+  <section class="hub-section">
+    <div class="hub-section-inner">
+      <h2 id="income">Income: two applicants, two sets of rules</h2>
+      <p>
+        For the UK-resident applicant, income is assessed as normal. PAYE
+        employment, self-employed accounts, contractor day rates, and dividend
+        income all follow standard lender treatment.
+      </p>
+      <p>
+        For the non-UK resident applicant, foreign income typically attracts
+        a haircut. Most specialist lenders reduce the stated foreign currency
+        income by around 20% to account for exchange rate risk. Some lenders
+        apply a larger reduction for less liquid currencies. Some, particularly
+        those with no-haircut products for certain professions, accept the full
+        foreign income amount.
+      </p>
+      <p>
+        Currencies that are broadly accepted include USD, EUR, AED, CHF, SGD,
+        HKD, and AUD. Income in other currencies, particularly those with
+        limited liquidity or a history of exchange rate volatility, faces more
+        lender resistance.
+      </p>
+      <p>
+        Employment type also matters. Salaried employment abroad is usually
+        easier for lenders to assess than self-employment. Contractor income,
+        director income, or income from multiple sources requires more lender
+        flexibility to accommodate. The
+        <a href="/uk-mortgage-foreign-income">foreign income mortgage page</a>
+        covers how lenders treat each income type in more detail.
+      </p>
+    </div>
+  </section>
+
+  <section class="hub-section">
+    <div class="hub-section-inner">
+      <h2 id="deposit">Deposit requirements</h2>
+      <p>
+        The deposit required depends on how the application is structured and
+        how much the lender relies on the non-UK resident's income.
+      </p>
+      <p>
+        Where the UK-resident applicant's income supports the loan and the
+        non-UK resident is a secondary party, some lenders accept a deposit
+        in the 20% to 25% range, closer to standard residential terms.
+      </p>
+      <p>
+        Where both incomes are needed and the lender works with the non-UK
+        resident's income under specialist criteria, the typical deposit
+        is 25% to 35%. The exact figure depends on the non-UK resident's
+        country of residence and the lender's appetite for that jurisdiction.
+      </p>
+      <p>
+        Lenders also look at where the deposit is coming from. A deposit held
+        in a foreign account needs to be sourced and evidenced in the same
+        way as any other cross-border asset. Some lenders have requirements
+        about which accounts the deposit must pass through before completion.
+        See our guide to
+        <a href="/expat-mortgages/deposit">expat mortgage deposit requirements</a>
+        for more on this.
+      </p>
+    </div>
+  </section>
+
+  <section class="hub-section">
+    <div class="hub-section-inner">
+      <h2 id="stamp-duty">Stamp duty: the surcharge that catches joint buyers out</h2>
+      <p>
+        This is the most important practical point for mixed-residency joint
+        applications, and the one most often overlooked.
+      </p>
+      <p>
+        In England and Wales, the 2% non-resident SDLT surcharge applies to
+        the entire purchase if any buyer is a non-UK resident at completion.
+        Being non-UK resident for SDLT purposes means having spent fewer
+        than 183 days in the UK in the 12 months before the date of completion.
+      </p>
+      <p>
+        The surcharge is not pro-rated. If one of two joint buyers is non-UK
+        resident, the full 2% surcharge applies to the whole transaction.
+      </p>
+      <p>
+        For a £400,000 purchase, that is £8,000 of additional tax on top of
+        the standard SDLT liability. For a £600,000 purchase, it is £12,000.
+        Build this into the budget before committing to a price.
+      </p>
+      <p>
+        There is a refund mechanism: if the non-resident buyer becomes UK
+        resident within 12 months of completion, HMRC will refund the surcharge
+        on application. The application must be made within two years of
+        completion. Where a partner is planning to move to the UK shortly
+        after purchase, the timing of completion relative to the move date
+        is worth examining carefully.
+      </p>
+      <p>
+        Use the
+        <a href="/tools/stamp-duty-calculator">stamp duty calculator</a>
+        to work out the full liability for your purchase price and situation.
+      </p>
+    </div>
+  </section>
+
+  <PullQuote>
+    If any buyer is a non-UK resident at completion, the 2% surcharge applies
+    to the whole transaction, not a proportional share of it.
+  </PullQuote>
+
+  <section class="hub-section">
+    <div class="hub-section-inner">
+      <h2 id="credit-history">Credit history</h2>
+      <p>
+        UK lenders check UK credit files. For the UK-resident applicant, this
+        is straightforward. For the non-UK resident, the UK credit file may
+        be thin or absent if they have been living abroad for some time.
+      </p>
+      <p>
+        How much this matters depends on the application structure. Where the
+        UK-resident income alone supports the loan and the non-UK resident's
+        income is not needed for affordability, a thin credit file on the
+        overseas applicant is less likely to be decisive. Lenders who work in
+        this space expect it.
+      </p>
+      <p>
+        Where both incomes are used and the non-UK resident is a full
+        co-borrower, lenders want more evidence. Some accept overseas credit
+        reports from the country of residence. Some ask for bank statements
+        showing financial conduct over 12 to 24 months. Some require a minimum
+        UK credit footprint regardless.
+      </p>
+      <p>
+        Our guide to
+        <a href="/expat-mortgages/no-uk-credit-history">mortgages with no UK credit history</a>
+        covers what specialist lenders will look for in place of a UK credit file.
+      </p>
+    </div>
+  </section>
+
+  <section class="hub-section">
+    <div class="hub-section-inner">
+      <h2 id="both-non-resident">When both applicants are non-UK residents</h2>
+      <p>
+        If both of you live outside the UK, the application falls into the
+        standard non-UK resident or expat mortgage market rather than the
+        mixed-residency space.
+      </p>
+      <p>
+        This is a well-established market with around 15 to 20 active
+        specialist lenders. The same principles apply: deposits of 25% to 40%,
+        foreign income with a currency haircut, and a process led by a
+        specialist broker who knows which lenders are open for your specific
+        country and currency combination.
+      </p>
+      <p>
+        If both applicants are British nationals living abroad, the
+        <a href="/expat-mortgages">expat mortgages</a> hub covers the criteria
+        in full. If either applicant is a non-British national living abroad,
+        the <a href="/non-uk-resident-mortgages">non-UK resident mortgages</a>
+        hub is the right starting point.
+      </p>
+    </div>
+  </section>
+
+  <section class="hub-section">
+    <div class="hub-section-inner">
+      <h2 id="how-we-help">How we help</h2>
+      <p>
+        Mixed-residency mortgage applications need a broker who regularly
+        places this type of case. Two reasons.
+      </p>
+      <p>
+        <strong>The lender pool is not obvious.</strong> Many mainstream
+        lenders decline a joint application with a non-UK resident applicant
+        without explaining why or pointing you elsewhere. The specialist
+        lenders who handle these cases routinely are not always visible from
+        a standard mortgage comparison.
+      </p>
+      <p>
+        <strong>Application structure matters.</strong> Whether the case
+        leads on the UK-resident's income or is presented as a full joint
+        application, and which lender receives it, affects the terms
+        significantly. A case placed with the wrong lender gets declined or
+        offered on worse terms than necessary.
+      </p>
+      <p>
+        We take the initial facts, identify which lenders are worth
+        approaching for your specific country and currency combination, and
+        handle the application end-to-end. That includes advising on stamp
+        duty timing if the non-UK resident is planning to move to the UK and
+        a surcharge refund might be available.
+      </p>
+    </div>
+  </section>
+
+  <MidPageCta />
+
+  <section class="hub-section">
+    <div class="hub-section-inner">
+      <h2 id="faqs">Common questions</h2>
+      <div class="faq">
+        {faqs.map((f) => (
+          <>
+            <h3>{f.q}</h3>
+            <p>{f.a}</p>
+          </>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <PullQuote>
+    The right approach depends on which income leads and which country the
+    non-UK resident calls home.
+  </PullQuote>
+
+  <script
+    type="application/ld+json"
+    is:inline
+    set:html={JSON.stringify(faqSchema)}
+  />
+</HubLayout>
