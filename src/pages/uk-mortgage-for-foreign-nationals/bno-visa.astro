@@ -6,11 +6,12 @@ import { breadcrumbSchema, articleSchema } from '../../lib/schema';
 import RiskWarning from '../../components/RiskWarning.astro';
 import TerritorialScope from '../../components/TerritorialScope.astro';
 
-const title = 'UK Mortgages on a BNO Visa';
+const title = 'BNO Visa Mortgage: UK Home Buying for Hong Kong Arrivals';
 const description =
-  'UK mortgage applications for British National Overseas visa holders from Hong Kong. Lender appetite, deposit, HKD savings and income, and the routes that work.';
-const h1 = 'UK Mortgages on a BNO Visa';
-const subheadline = description;
+  'How to get a UK mortgage on a BNO visa. Which lenders accept Hong Kong BNO holders, how HKD savings and income are treated, and what deposit you need.';
+const h1 = 'BNO Visa Mortgage: UK Home Buying for Hong Kong Arrivals';
+const subheadline =
+  'How to get a UK mortgage on a BNO visa. Which lenders accept Hong Kong arrivals, how HKD savings and income are treated, what deposit you need, and how the process works from first conversation to offer.';
 
 const relatedPages = [
   {
@@ -50,6 +51,50 @@ const relatedPages = [
   },
 ];
 
+const faqs = [
+  {
+    q: 'Can I get a UK mortgage on a BNO visa?',
+    a: 'Yes. BNO is one of the most favourably viewed visa routes by UK lenders. Several specialist and high-street lenders accept BNO applicants, some on near-standard residential terms.',
+  },
+  {
+    q: 'What deposit do I need on a BNO visa?',
+    a: 'Five to ten per cent is workable with a small lender pool. Fifteen to twenty-five per cent broadens it considerably. Above twenty-five per cent opens specialist and private bank options.',
+  },
+  {
+    q: 'Can I use HKD savings as a deposit?',
+    a: 'Yes. Lenders accept HKD-denominated savings as deposit, subject to the standard AML provenance checks and conversion to GBP before completion.',
+  },
+  {
+    q: 'How is HKD income treated by lenders?',
+    a: 'If you have moved to UK employment, your income is treated as standard UK income. If part of your income is still paid in HKD, most lenders apply a twenty per cent haircut before assessment. A small number do not.',
+  },
+  {
+    q: 'How long must I have been in the UK to apply for a mortgage?',
+    a: 'No fixed minimum, but most mainstream lenders want at least three months of UK employment history. Specialist lenders are more flexible for recent arrivals.',
+  },
+  {
+    q: 'Does my BNO visa need a certain amount of time remaining?',
+    a: 'Most lenders want at least two to three years remaining, or a renewal in progress. The five-plus-one route to citizenship is well understood and typically gives lenders enough confidence.',
+  },
+  {
+    q: 'Can I buy a buy-to-let property on a BNO visa?',
+    a: 'Yes, with a buy-to-let mortgage. The lender pool is smaller than for residential, but several BTL lenders accept BNO applicants.',
+  },
+  {
+    q: 'Does getting a UK mortgage affect my BNO settlement application?',
+    a: 'No. A mortgage is a financial product, not an immigration document. The two processes are entirely separate.',
+  },
+];
+
+const faqSchema = {
+  '@context': 'https://schema.org',
+  '@type': 'FAQPage',
+  mainEntity: faqs.map((f) => ({
+    '@type': 'Question',
+    name: f.q,
+    acceptedAnswer: { '@type': 'Answer', text: f.a },
+  })),
+};
 const schemas = [
   breadcrumbSchema([
     { name: 'Home', path: '/' },
@@ -231,4 +276,26 @@ const schemas = [
       </p>
     </div>
   </section>
+
+  <MidPageCta />
+
+  <section class="hub-section">
+    <div class="hub-section-inner">
+      <h2 id="faqs">Frequently asked questions</h2>
+      <div class="faq">
+        {faqs.map((f) => (
+          <>
+            <h3>{f.q}</h3>
+            <p>{f.a}</p>
+          </>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <script
+    type="application/ld+json"
+    is:inline
+    set:html={JSON.stringify(faqSchema)}
+  />
 </HubLayout>
