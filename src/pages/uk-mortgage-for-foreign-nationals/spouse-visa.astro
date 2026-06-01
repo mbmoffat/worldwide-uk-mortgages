@@ -12,6 +12,47 @@ const description =
 const h1 = 'UK Mortgages on a Spouse Visa';
 const subheadline = description;
 
+const faqs = [
+  {
+    q: 'Can I get a mortgage on a Spouse visa?',
+    a: 'Yes. Spouse visa holders can get UK mortgages. Many high street lenders consider applications from Spouse visa holders, particularly joint applications where one applicant is a British citizen or settled resident. The key factors are how much time is left on your visa, your deposit, and whether you are buying jointly or alone.',
+  },
+  {
+    q: 'Can I get a joint mortgage on a Spouse visa with a British partner?',
+    a: 'Yes, and this is the most straightforward route. Where one applicant is a British citizen or holds ILR, most high street lenders treat the application close to a standard residential case. Halifax, NatWest, Nationwide, HSBC, Santander, Barclays and Coventry all consider this profile. The visa holder\'s income is included in the household total, and deposit requirements typically sit at mainstream levels.',
+  },
+  {
+    q: 'Can I get a mortgage on a Spouse visa in my own name only?',
+    a: 'Yes, though the pool of lenders is smaller. Lenders will look at how much visa time is remaining, your income source and stability, and your deposit. A sole application with three or more years remaining on a five-year route, steady UK income and a 15 per cent deposit is workable with the right lender. The closer you are to a visa renewal, the shorter the lender shortlist becomes.',
+  },
+  {
+    q: 'How much visa time remaining do I need for a Spouse visa mortgage?',
+    a: 'Most lenders want at least 12 months remaining on your current visa. Some require 24 months. A small number will consider applications where the visa is already in renewal, particularly where the renewal is straightforward and a British partner is on the application. The 5-year and 10-year routes to ILR are both understood by mainstream lenders.',
+  },
+  {
+    q: 'What deposit do I need for a mortgage on a Spouse visa?',
+    a: 'For joint applications with a British or settled partner, five to ten per cent is possible with some lenders. Sole Spouse visa applications usually require 15 per cent or more to access mainstream lenders. A larger deposit increases both the number of lenders available and the rates on offer.',
+  },
+  {
+    q: 'Which lenders accept mortgage applications from Spouse visa holders?',
+    a: 'The high street lender pool is reasonably wide for Spouse visa applicants, particularly for joint applications. Halifax, NatWest, Nationwide, HSBC, Santander, Barclays and Coventry all consider this visa type. Some specialist lenders fill gaps where the high street will not lend, typically at higher rates. The right lender depends on the specific application rather than one blanket recommendation.',
+  },
+  {
+    q: 'Will getting a mortgage affect my visa or ILR application?',
+    a: 'No. A mortgage is a separate financial transaction with no connection to your visa or settlement application. Lenders do not notify the Home Office, and taking out a mortgage does not affect your immigration status or your route to Indefinite Leave to Remain.',
+  },
+];
+
+const faqSchema = {
+  '@context': 'https://schema.org',
+  '@type': 'FAQPage',
+  mainEntity: faqs.map((f) => ({
+    '@type': 'Question',
+    name: f.q,
+    acceptedAnswer: { '@type': 'Answer', text: f.a },
+  })),
+};
+
 const relatedPages = [
   {
     eyebrow: 'Hub',
@@ -210,4 +251,26 @@ const schemas = [
       </p>
     </div>
   </section>
+
+  <MidPageCta />
+
+  <section class="hub-section">
+    <div class="hub-section-inner">
+      <h2 id="faqs">Frequently asked questions</h2>
+      <div class="faq">
+        {faqs.map((f) => (
+          <>
+            <h3>{f.q}</h3>
+            <p>{f.a}</p>
+          </>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <script
+    type="application/ld+json"
+    is:inline
+    set:html={JSON.stringify(faqSchema)}
+  />
 </HubLayout>

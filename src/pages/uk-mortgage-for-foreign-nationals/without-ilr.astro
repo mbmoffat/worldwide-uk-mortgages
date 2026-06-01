@@ -6,11 +6,52 @@ import { breadcrumbSchema, articleSchema } from '../../lib/schema';
 import RiskWarning from '../../components/RiskWarning.astro';
 import TerritorialScope from '../../components/TerritorialScope.astro';
 
-const title = 'UK Mortgages Without Indefinite Leave to Remain';
+const title = 'UK Mortgages Without ILR';
 const description =
   'How UK mortgage applications work for visa holders without ILR. Lender criteria, deposit thresholds, visa time remaining, and the routes that work.';
 const h1 = 'UK Mortgages Without Indefinite Leave to Remain';
 const subheadline = description;
+
+const faqs = [
+  {
+    q: 'Can I get a UK mortgage without ILR?',
+    a: 'Yes. Not having ILR narrows the lender pool but does not close it. Many UK lenders work with visa holders on Skilled Worker, Spouse, BNO, Global Talent and similar visas. The application has to be structured for the right lender, but a well-placed case is achievable for most visa types with adequate time remaining and a reasonable deposit.',
+  },
+  {
+    q: 'Does ILR make it easier to get a UK mortgage?',
+    a: 'Yes. With ILR, most lenders treat you as a standard residential applicant. Without ILR, you are assessed under non-standard criteria. That said, many lenders have specific non-ILR criteria and lend on sensible terms to visa holders. The difference is mainly in which lenders are available and how they assess the application, not whether a mortgage is possible at all.',
+  },
+  {
+    q: 'How much visa time remaining do I need to get a mortgage without ILR?',
+    a: '12 months remaining on your current visa is the threshold for a reasonable number of mainstream lenders. 24 months opens the pool further. Below 12 months, the pool shrinks but does not disappear. Some lenders will consider applications where the visa is mid-renewal, particularly with a strong renewal track record. The pool of available lenders changes at each of these benchmarks.',
+  },
+  {
+    q: 'What deposit do I need for a mortgage without ILR?',
+    a: 'Five to ten per cent is possible for some visa profiles, particularly Spouse visa joint applications and certain Skilled Worker cases. Fifteen per cent is workable for most well-evidenced applications with adequate visa time remaining. Twenty-five per cent and above opens specialist lender and private bank options. A larger deposit does more for a non-ILR application than it does for an ILR one, because each band change affects which lenders are practically available.',
+  },
+  {
+    q: 'Can I get a buy-to-let mortgage without ILR?',
+    a: 'Yes. The buy-to-let lender pool for non-ILR applicants is smaller than for residential mortgages, but options exist. Assessment tends to focus on rental yield and overall financial standing rather than visa time remaining as the primary metric. Specialist lenders are more commonly involved than on residential applications.',
+  },
+  {
+    q: 'Will applying for a mortgage affect my ILR application?',
+    a: 'No. A mortgage is a separate financial transaction with no connection to your immigration application. Lenders do not notify the Home Office and taking out a mortgage does not affect your path to Indefinite Leave to Remain. A mortgage is often viewed positively as evidence of roots and financial stability.',
+  },
+  {
+    q: 'Which visa types can get a UK mortgage without ILR?',
+    a: 'The most commonly considered visas are Skilled Worker, Spouse and partner visas, BNO visa, Global Talent visa, and Health and Care Worker visa. Student and Graduate visas have a much smaller lender pool. If your visa type is not listed, there are usually still options. A specialist broker will map your visa type against current lender criteria before any application is submitted.',
+  },
+];
+
+const faqSchema = {
+  '@context': 'https://schema.org',
+  '@type': 'FAQPage',
+  mainEntity: faqs.map((f) => ({
+    '@type': 'Question',
+    name: f.q,
+    acceptedAnswer: { '@type': 'Answer', text: f.a },
+  })),
+};
 
 const relatedPages = [
   {
@@ -234,4 +275,26 @@ const schemas = [
       </p>
     </div>
   </section>
+
+  <MidPageCta />
+
+  <section class="hub-section">
+    <div class="hub-section-inner">
+      <h2 id="faqs">Frequently asked questions</h2>
+      <div class="faq">
+        {faqs.map((f) => (
+          <>
+            <h3>{f.q}</h3>
+            <p>{f.a}</p>
+          </>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <script
+    type="application/ld+json"
+    is:inline
+    set:html={JSON.stringify(faqSchema)}
+  />
 </HubLayout>
