@@ -1,0 +1,408 @@
+---
+import HubLayout from '../layouts/HubLayout.astro';
+import PullQuote from '../components/PullQuote.astro';
+import MidPageCta from '../components/MidPageCta.astro';
+import { breadcrumbSchema, serviceSchema } from '../lib/schema';
+import RiskWarning from '../components/RiskWarning.astro';
+import TerritorialScope from '../components/TerritorialScope.astro';
+
+const title = 'Locum Doctor Mortgages';
+const description =
+  'UK mortgages for locum doctors. How day-rate income, contract gaps, limited company structures, and international placements are handled by lenders that understand medical careers.';
+const h1 = 'Locum Doctor Mortgages';
+const subheadline =
+  'UK mortgages for locum doctors in the NHS, private sector, and overseas. How variable day-rate income, contract gaps, umbrella company and limited company structures, and international placements are handled by lenders that read a medical career correctly.';
+
+const relatedPages = [
+  {
+    eyebrow: 'Hub',
+    title: 'UK Mortgages for Expats',
+    description:
+      'British nationals living abroad. What lenders look for and how a broker handles country and currency.',
+    href: '/expat-mortgages',
+  },
+  {
+    eyebrow: 'Hub',
+    title: 'UK Mortgages with Foreign Income',
+    description:
+      'How lenders treat AED, AUD, NZD, and other non-sterling salaries. The 20% haircut and no-haircut access.',
+    href: '/uk-mortgage-foreign-income',
+  },
+  {
+    eyebrow: 'Hub',
+    title: 'UK Mortgages for Non-UK Residents',
+    description:
+      'For doctors based abroad with no current UK tax footprint. Specialist lenders accept overseas address and foreign currency income.',
+    href: '/non-uk-resident-mortgages',
+  },
+  {
+    eyebrow: 'Hub',
+    title: 'International School Teacher Mortgages',
+    description:
+      'How tax-free salary, accommodation allowances, and overseas residency are handled. Useful context for doctors in similar postings.',
+    href: '/international-teacher-mortgages',
+  },
+];
+
+const faqs = [
+  {
+    q: 'I have worked locum for two years with some gaps between placements. Will lenders accept my income?',
+    a: 'A specialist lender will look at your average earnings over the last 12 to 24 months rather than requiring a continuous payslip trail. Gaps of a few weeks between placements are normal in locum medicine and treated as such. Sustained gaps of three months or more need explaining. A broker packages this correctly so the lender sees the pattern rather than isolated gaps.',
+  },
+  {
+    q: 'I work through my own limited company. How does that change the assessment?',
+    a: 'The right lender assesses company director income using your last one to two years of accounts, your director salary, and in many cases your retained profit or dividends. Some lenders add retained profit to assess your true borrowing capacity. The wrong lender uses generic self-employed rules and under-lends. The difference in borrowing power can be material.',
+  },
+  {
+    q: 'I am a locum based in Australia or New Zealand. Can I get a UK mortgage from there?',
+    a: 'Yes. Specialist non-resident lenders work with UK doctors based in Australia and New Zealand regularly. You need proof of identity, an overseas address, and payslips showing your income. AUD and NZD income is accepted at full GBP equivalent or with a small currency haircut depending on the lender.',
+  },
+  {
+    q: 'I work in the Middle East on a tax-free contract. How do lenders treat my salary?',
+    a: 'Specialist lenders accept tax-free salaries at full net value without grossing them up incorrectly for affordability purposes. Mainstream lenders often apply the wrong tax grossing calculation to a net salary, which reduces the borrowing figure significantly. We use the lenders that handle this correctly.',
+  },
+  {
+    q: 'I am returning to the UK after several years working abroad. Can I apply before I start my UK job?',
+    a: 'Some lenders accept applications from returning doctors with a signed UK contract in place. Others want a few months of UK employment history first. The right route depends on your timeline and target property. We will identify which lender works for your specific situation.',
+  },
+  {
+    q: 'I work for multiple NHS trusts in a year. Does that look like job-hopping?',
+    a: 'No, to a lender that understands medicine. Working across multiple trusts is the normal pattern for locum doctors. Specialist lenders see continuous medical employment across trusts. General lenders sometimes see instability. We use the ones that read it correctly.',
+  },
+  {
+    q: 'I am a GP locum paid per session. How does session pay work in a mortgage application?',
+    a: 'Session-based income is assessed on the same average-earnings basis as day-rate income. The lender needs to see 12 to 24 months of session payments, typically through bank statements or a letter from the surgery confirming your regular pattern.',
+  },
+  {
+    q: 'Can I use overseas savings as a deposit?',
+    a: 'Yes, with the right paper trail. Lenders need to see the source of the savings through bank statements showing the income that funded them. For doctors who have worked abroad and saved in a foreign currency, a brief note on the currency conversion history helps.',
+  },
+];
+
+const faqSchema = {
+  '@context': 'https://schema.org',
+  '@type': 'FAQPage',
+  mainEntity: faqs.map((f) => ({
+    '@type': 'Question',
+    name: f.q,
+    acceptedAnswer: { '@type': 'Answer', text: f.a },
+  })),
+};
+
+const schemas = [
+  breadcrumbSchema([
+    { name: 'Home', path: '/' },
+    {
+      name: 'Locum Doctor Mortgages',
+      path: '/locum-doctor-mortgages',
+    },
+  ]),
+  serviceSchema({
+    serviceType: 'UK Mortgages for Locum Doctors',
+    name: h1,
+    description,
+  }),
+];
+---
+
+<HubLayout
+  title={title}
+  description={description}
+  h1={h1}
+  subheadline={subheadline}
+  eyebrow="Hub · Locum doctor mortgages"
+  ctaHeading="Speak to a specialist mortgage broker"
+  schemas={schemas}
+  relatedPages={relatedPages}
+>
+  <RiskWarning type="residential" />
+  <TerritorialScope />
+
+  <section class="hub-section">
+    <div class="hub-section-inner">
+      <h2 id="who-this-is-for">Who this page is for</h2>
+      <p>
+        Locum doctors occupy an awkward position in the UK mortgage
+        market. Medically qualified, often highly paid, and with strong
+        long-term earning potential. But income that most mortgage
+        lenders are not built to assess: variable day rates, short
+        contracts, periods between placements, multiple employers in a
+        single tax year, and in many cases a company director or
+        umbrella structure rather than straightforward PAYE employment.
+      </p>
+      <p>
+        Add in the significant number of UK doctors who work locum
+        placements abroad, in Australia, New Zealand, Canada, the
+        Middle East, or elsewhere, and you have a borrower profile
+        that mainstream lenders repeatedly misread.
+      </p>
+      <p>
+        We work with locum doctors across NHS and private settings,
+        UK-based and overseas. Whether you are a registrar doing
+        locum shifts between rotations, a GP working sessions across
+        several practices, a consultant with a rolling day-rate
+        contract, or a doctor currently abroad building a UK property
+        portfolio, we know which lenders understand medical income and
+        how to package the case so it underwrites correctly.
+      </p>
+    </div>
+  </section>
+
+  <MidPageCta variant="hero" />
+
+  <section class="hub-section">
+    <div class="hub-section-inner">
+      <h2 id="why-income-is-misunderstood">Why locum income is misunderstood</h2>
+      <p>
+        <strong>Day rates are not annual salary.</strong> Locum doctors
+        are typically paid day rates or session fees rather than a
+        guaranteed annual salary. Mainstream lenders want a consistent
+        payslip trail from a single employer. Locum income does not
+        look like that. A specialist lender averages earnings over
+        12 to 24 months and treats locum medicine as continuous
+        professional employment.
+      </p>
+      <p>
+        <strong>Gaps between contracts.</strong> Most locum doctors
+        have periods between placements, whether a week off after a
+        busy block, an extended holiday, or a gap while moving between
+        regions or hospitals. A mainstream lender may read a bank
+        statement and flag the gap as instability. A specialist lender
+        looks at the rolling annual income picture instead.
+      </p>
+      <p>
+        <strong>Multiple employers in a tax year.</strong> A locum
+        doctor working across three or four NHS trusts in a year
+        will have multiple P45s, P60s, and PAYE references. A
+        general-purpose lender treating this as multiple job-hops
+        misunderstands the pattern entirely. Medical sector lenders
+        recognise it immediately.
+      </p>
+      <p>
+        <strong>Limited company and umbrella structures.</strong> Many
+        locum doctors work through their own limited companies or
+        through umbrella companies rather than as direct NHS employees.
+        The income assessment is fundamentally different from PAYE:
+        it uses company accounts, director salary, dividends, and in
+        some cases retained profit. Getting this wrong
+        can reduce a borrowing figure substantially.
+      </p>
+      <p>
+        <strong>IR35 and its effects.</strong> IR35 rules govern
+        whether a locum doctor can be engaged as a contractor or must
+        be treated as an employee. The NHS off-payroll rules have
+        shifted many hospital locums onto PAYE. The income may look
+        different depending on which engagement structure applies.
+        Lenders familiar with the space understand the distinction.
+      </p>
+      <p>
+        <strong>International placements and foreign currency.</strong>
+        Many UK doctors work abroad, often for several years, before
+        returning. AUD income from Australia, NZD from New Zealand,
+        AED from the UAE: all require a lender that accepts
+        <a href="/uk-mortgage-foreign-income">non-sterling income</a>
+        correctly. Standard lenders apply a 20% currency haircut.
+        A small number of specialist lenders apply none.
+      </p>
+      <p>
+        <strong>Tax-free salary in some markets.</strong> UK doctors
+        working in the UAE, Qatar, Saudi Arabia, Bahrain, or Kuwait
+        pay no local income tax. Their headline salary is a net
+        figure. Lenders that incorrectly gross it up for affordability
+        purposes under-lend to doctors who are, in reality, building
+        considerable savings capacity.
+      </p>
+    </div>
+  </section>
+
+  <PullQuote>
+    A specialist lender averages earnings over 12 to 24 months and
+    treats locum medicine as continuous professional employment.
+  </PullQuote>
+
+  <section class="hub-section">
+    <div class="hub-section-inner">
+      <h2 id="common-situations">Common situations we handle</h2>
+      <p>
+        <strong>UK-based NHS locum.</strong> A doctor working shifts
+        across NHS trusts via an agency or directly, paid by PAYE or
+        through an umbrella company. The core case is establishing
+        consistent earnings over 12 to 24 months and choosing a
+        lender that accepts the multi-employer pattern. We arrange
+        residential and buy-to-let mortgages for this profile
+        regularly.
+      </p>
+      <p>
+        <strong>GP locum.</strong> A GP working sessions across
+        multiple practices, often self-employed and registered with
+        NHS England as a GP performer. Session income is variable
+        week to week but consistent over the year. Lenders
+        familiar with primary care understand the pattern. Those
+        that are not will misread the bank statement.
+      </p>
+      <p>
+        <strong>Consultant with rolling day-rate contract.</strong>
+        A senior doctor on a day-rate NHS or private contract, often
+        working through their own limited company. High earning
+        capacity, but the company director income structure requires
+        a lender willing to use company accounts and retained
+        profit alongside director salary.
+      </p>
+      <p>
+        <strong>Doctor working abroad.</strong> A UK national working
+        in Australia, New Zealand, Canada, or the Middle East,
+        building a UK property portfolio while abroad. Income in
+        a foreign currency, no current UK address, often no
+        recent UK tax return. Specialist
+        <a href="/non-uk-resident-mortgages">non-resident lenders</a>
+        handle this profile. The most common case in this segment
+        is an
+        <a href="/expat-mortgages">expat</a> doctor buying UK
+        buy-to-let to hold while working abroad and to return to.
+      </p>
+      <p>
+        <strong>Returning doctor.</strong> A UK doctor who has spent
+        several years working abroad and is now returning to a UK
+        NHS position. Often has strong overseas savings as a deposit
+        but limited recent UK credit history and possibly no UK
+        address for several years. Some lenders accept day-one
+        applications on a signed UK contract. Others want a few
+        months of UK employment first.
+      </p>
+      <p>
+        <strong>Foundation or core trainee.</strong> A doctor in
+        postgraduate training whose salary is set by NHS England
+        pay scales. PAYE, lower income, but highly predictable
+        future earnings. The challenge here is affordability at
+        current income rather than income complexity. The right
+        lender treats the profession's earnings trajectory as a
+        genuine factor.
+      </p>
+    </div>
+  </section>
+
+  <section class="hub-section">
+    <div class="hub-section-inner">
+      <h2 id="what-we-can-arrange">What we can arrange</h2>
+      <p>
+        <strong>UK residential mortgages</strong> for locum doctors
+        buying their main home in the UK, whether currently working
+        in the UK or returning from abroad.
+      </p>
+      <p>
+        <strong>Buy-to-let mortgages</strong> for doctors building
+        a UK rental portfolio, either while working in the UK or
+        from an overseas base. The most common case for doctors
+        currently working abroad.
+      </p>
+      <p>
+        <strong>Non-resident mortgages</strong> for UK nationals
+        working abroad with no current UK tax footprint. Specialist
+        lenders accept foreign currency income and overseas address
+        documentation in full.
+      </p>
+      <p>
+        <strong>Limited company buy-to-let</strong> for locum doctors
+        who hold or intend to hold UK property through a limited
+        company, typically for tax efficiency on portfolios of two
+        or more properties.
+      </p>
+      <p>
+        <strong>First-time buyer mortgages</strong> for doctors who
+        have spent their early career in training or working abroad
+        and are now buying their first UK property.
+      </p>
+    </div>
+  </section>
+
+  <section class="hub-section">
+    <div class="hub-section-inner">
+      <h2 id="how-affordability-is-assessed">How affordability is assessed</h2>
+      <p>
+        A specialist lender that understands medical locum income will
+        typically:
+      </p>
+      <ul>
+        <li>
+          Average earnings over 12 to 24 months rather than requiring
+          continuous employment with a single employer.
+        </li>
+        <li>
+          Accept multi-trust and multi-agency income as continuous
+          professional employment in the same sector.
+        </li>
+        <li>
+          Assess company director income using accounts and director
+          salary, with some including retained profit.
+        </li>
+        <li>
+          Accept umbrella company income through payslips at the
+          received rate rather than applying extra discount.
+        </li>
+        <li>
+          Accept foreign currency income at full GBP equivalent or with
+          a reduced haircut for common currencies.
+        </li>
+        <li>
+          Accept tax-free overseas salaries at net value without
+          incorrect grossing up.
+        </li>
+        <li>
+          Accept overseas address documentation for non-resident
+          applicants without requiring a UK bank statement trail.
+        </li>
+      </ul>
+      <p>
+        A mainstream UK lender, by contrast, often requires a standard
+        payslip trail, cannot handle multi-employer income, applies a
+        generic self-employed multiplier to company director income,
+        and applies the full 20% currency haircut on top. The same
+        doctor, the same income, can borrow materially more from the
+        right lender.
+      </p>
+    </div>
+  </section>
+
+  <PullQuote>
+    The same doctor, the same income, can borrow materially more from
+    the right lender.
+  </PullQuote>
+
+  <MidPageCta />
+
+  <section class="hub-section">
+    <div class="hub-section-inner">
+      <h2 id="faqs">Common questions</h2>
+      <div class="faq">
+        {faqs.map((f) => (
+          <>
+            <h3>{f.q}</h3>
+            <p>{f.a}</p>
+          </>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <section class="hub-section">
+    <div class="hub-section-inner">
+      <h2 id="what-happens-next">What happens next</h2>
+      <p>
+        We start with a no-obligation conversation about your role,
+        your income structure, and what you want to buy. From there we
+        identify the lender or lenders whose criteria match your case,
+        prepare the application, and manage it through to completion.
+      </p>
+      <p>
+        You will not be passed around. The same broker who takes your
+        initial call manages your case to offer.
+      </p>
+    </div>
+  </section>
+
+  <script
+    type="application/ld+json"
+    is:inline
+    set:html={JSON.stringify(faqSchema)}
+  />
+</HubLayout>
