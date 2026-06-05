@@ -1,0 +1,457 @@
+---
+import HubLayout from '../../layouts/HubLayout.astro';
+import PullQuote from '../../components/PullQuote.astro';
+import MidPageCta from '../../components/MidPageCta.astro';
+import { breadcrumbSchema, articleSchema } from '../../lib/schema';
+import RiskWarning from '../../components/RiskWarning.astro';
+import TerritorialScope from '../../components/TerritorialScope.astro';
+
+const title = 'UK Mortgage With Pre-Settled Status';
+const description =
+  'Can you get a UK mortgage with pre-settled status? Yes. How EU Settlement Scheme pre-settled status is treated by lenders, what deposit you need, and how the application works.';
+const h1 = 'Pre-Settled Status Mortgage: Getting a UK Home Loan';
+const subheadline =
+  'Can you get a UK mortgage with pre-settled status? Yes. This page explains how EU Settlement Scheme pre-settled status is treated by lenders, what deposit is typically needed, how it differs from settled status, and what the application looks like.';
+
+const relatedPages = [
+  {
+    eyebrow: 'Hub',
+    title: 'UK Mortgages for Foreign Nationals',
+    description:
+      'Foreign nationals living in the UK who want to buy or remortgage. Visa types, deposits, and lender appetite.',
+    href: '/uk-mortgage-for-foreign-nationals',
+  },
+  {
+    eyebrow: 'Visa-Holder Mortgages',
+    title: 'UK Mortgages Without ILR',
+    description:
+      'How UK mortgage applications work for visa holders without Indefinite Leave to Remain.',
+    href: '/uk-mortgage-for-foreign-nationals/without-ilr',
+  },
+  {
+    eyebrow: 'Visa-Holder Mortgages',
+    title: 'UK Mortgages on a Skilled Worker Visa',
+    description:
+      'Skilled Worker visa applications. Visa time remaining, deposit, and which lenders are open to your profile.',
+    href: '/uk-mortgage-for-foreign-nationals/skilled-worker-visa',
+  },
+  {
+    eyebrow: 'Country',
+    title: 'UK Mortgages from France',
+    description:
+      'UK mortgage applications for France-based applicants. Lender appetite, deposits, and the process.',
+    href: '/expat-mortgages/countries/france',
+  },
+  {
+    eyebrow: 'Hub',
+    title: 'UK Mortgages with Foreign Income',
+    description:
+      'How lenders treat non-sterling income. The 20% standard haircut and access to no-haircut lenders.',
+    href: '/uk-mortgage-foreign-income',
+  },
+];
+
+const faqs = [
+  {
+    q: 'Can I get a UK mortgage with pre-settled status?',
+    a: 'Yes. Pre-settled status is well-recognised across the UK mortgage market. Most mainstream and specialist lenders will consider an application from someone with pre-settled status, and for applicants with a reasonable deposit and at least a year of UK employment the application is straightforward.',
+  },
+  {
+    q: 'Is pre-settled status treated the same as settled status by lenders?',
+    a: 'Not always identically, but the practical gap is smaller than most applicants expect. Settled status and ILR open the full lender pool with standard deposits. Pre-settled status is treated similarly to a long-term visa: a wide lender pool, with some lenders requiring a slightly higher deposit or checking the expiry date more carefully.',
+  },
+  {
+    q: 'What deposit do I need with pre-settled status?',
+    a: 'Ten to fifteen per cent is workable for most pre-settled applicants with strong employment and credit history. A larger deposit broadens the lender pool and can improve rate access. The five per cent deposits routinely available to settled or ILR holders are rarely accessible on pre-settled status.',
+  },
+  {
+    q: 'Can my pre-settled status expire before my mortgage term ends?',
+    a: 'Since May 2023, UK government rules mean pre-settled status cannot expire automatically. If you do not apply for settled status before your pre-settled status reaches its end date, it is automatically extended. Lenders are generally aware of this change, which reduces their concern about expiry mid-mortgage.',
+  },
+  {
+    q: 'How do I prove pre-settled status to a lender?',
+    a: 'Via the UK Visas and Immigration share code system, which generates a digital confirmation of your immigration status. Most lenders accept this code as the primary verification. Some also ask for a screenshot of the confirmation page alongside the code itself.',
+  },
+  {
+    q: 'What if my partner has settled status and I have pre-settled?',
+    a: 'A joint application where one applicant has settled status, ILR, or British citizenship typically opens the full lender pool. The stronger applicant\'s status leads the assessment. This is one of the most effective routes for pre-settled applicants buying with a settled partner.',
+  },
+  {
+    q: 'Can I get a buy-to-let mortgage with pre-settled status?',
+    a: 'Yes. Several buy-to-let lenders accept pre-settled applicants. The BTL lender pool is slightly smaller than for residential, but options are available. Standard expat BTL and foreign national BTL criteria apply.',
+  },
+  {
+    q: 'Will getting a mortgage affect my settled status application?',
+    a: 'No. A mortgage is a financial product with no connection to your immigration application. Lenders do not notify the Home Office. Getting a mortgage has no bearing on your settled status application.',
+  },
+  {
+    q: 'How much time must remain on my pre-settled status?',
+    a: 'Most lenders want at least two years remaining. Some are more flexible, particularly for applicants who are already close to qualifying for settled status. Given the automatic extension rules introduced in 2023, some lenders are less focused on the precise expiry date than they were previously.',
+  },
+  {
+    q: 'Does getting settled status change my existing mortgage?',
+    a: 'No. Converting from pre-settled to settled status has no automatic effect on an existing mortgage. You do not need to notify your lender or remortgage. Settled status does strengthen your position if you subsequently refinance, because the full lender pool becomes available.',
+  },
+];
+
+const faqSchema = {
+  '@context': 'https://schema.org',
+  '@type': 'FAQPage',
+  mainEntity: faqs.map((f) => ({
+    '@type': 'Question',
+    name: f.q,
+    acceptedAnswer: { '@type': 'Answer', text: f.a },
+  })),
+};
+const schemas = [
+  breadcrumbSchema([
+    { name: 'Home', path: '/' },
+    { name: 'UK Mortgages for Foreign Nationals', path: '/uk-mortgage-for-foreign-nationals' },
+    { name: title, path: '/uk-mortgage-for-foreign-nationals/pre-settled-status' },
+  ]),
+  articleSchema({ headline: h1, description }),
+];
+---
+
+<HubLayout
+  title={title}
+  description={description}
+  h1={h1}
+  subheadline={subheadline}
+  eyebrow="Visa-Holder Mortgages"
+  schemas={schemas}
+  relatedPages={relatedPages}
+>
+  <RiskWarning type="residential" />
+  <TerritorialScope />
+  <section class="hub-section">
+    <div class="hub-section-inner">
+      <p>
+        Pre-settled status, granted under the EU Settlement Scheme to EU,
+        EEA, and Swiss nationals with less than five years of continuous UK
+        residence, is one of the better-recognised immigration statuses in the
+        UK mortgage market. Most lenders understand the route clearly: the
+        holder has the right to live and work in the UK, cannot have their
+        status removed without notice, and can apply for full settled status
+        once they reach five years of continuous residence.
+      </p>
+      <p>
+        The result is a wide and competitive lender pool. Pre-settled status
+        applicants are not restricted to a handful of specialist lenders.
+        With a reasonable deposit and at least a year of UK employment, most
+        applicants will find a range of mainstream and specialist lenders
+        willing to proceed.
+      </p>
+    </div>
+  </section>
+
+  <PullQuote>
+    Pre-settled status applicants are not restricted to a handful of
+    specialist lenders. With a reasonable deposit and a year of UK
+    employment, the lender pool is wide and competitive.
+  </PullQuote>
+
+  <section class="hub-section">
+    <div class="hub-section-inner">
+      <h2 id="who-this-is-for">Who this page is for</h2>
+      <p>
+        You hold EU Settlement Scheme pre-settled status. You live and work
+        in the UK. You want to buy a property or remortgage, and you want to
+        know how your immigration status is treated by lenders, what deposit
+        you need, and what the application involves.
+      </p>
+      <p>
+        If you have already reached settled status or ILR, see
+        <a href="/uk-mortgage-for-foreign-nationals">UK mortgages for foreign nationals</a>
+        instead. If you live outside the UK and want to buy UK property from
+        abroad, see <a href="/non-uk-resident-mortgages">non-UK resident mortgages</a>.
+      </p>
+    </div>
+  </section>
+
+  <MidPageCta variant="hero" />
+
+  <section class="hub-section">
+    <div class="hub-section-inner">
+      <h2 id="can-i-get-a-mortgage">Can I get a UK mortgage with pre-settled status?</h2>
+      <p>
+        Yes. Pre-settled status is a recognised immigration status with a
+        clear right to remain, and UK lenders treat it accordingly. The lender
+        pool is narrower than for settled status or Indefinite Leave to Remain,
+        but it is wide by any reasonable measure.
+      </p>
+      <p>
+        The application is assessed on the standard affordability and
+        credit checks that apply to any mortgage. Pre-settled status
+        introduces two additional factors.
+      </p>
+      <p>
+        <strong>Time remaining on pre-settled status.</strong> Lenders
+        check how long your pre-settled status has to run. Most want at
+        least two years remaining. Some are flexible on this, particularly
+        given the government's 2023 automatic extension rules (see below).
+        Applicants who are already approaching their five-year settled status
+        application often find lenders more relaxed about the remaining
+        term.
+      </p>
+      <p>
+        <strong>Deposit size.</strong> Standard five per cent deposits are
+        rarely available on pre-settled status. Most lenders want ten to
+        fifteen per cent as a working minimum. A higher deposit broadens the
+        pool and can improve rate access.
+      </p>
+      <p>
+        Beyond these two factors, the assessment is the same as for a
+        standard UK residential application.
+      </p>
+    </div>
+  </section>
+
+  <section class="hub-section">
+    <div class="hub-section-inner">
+      <h2 id="pre-vs-settled">Pre-settled status versus settled status: what the difference means</h2>
+      <p>
+        Settled status (and ILR) is the highest category. Lenders treat
+        it as equivalent to British citizenship for mortgage purposes. The
+        full lender pool is available, standard deposits apply, and there is
+        no immigration-related premium on rates.
+      </p>
+      <p>
+        Pre-settled status sits below settled status in lender appetite, but
+        the gap is narrower than most applicants expect. In practice:
+      </p>
+      <ul>
+        <li>
+          The lender pool is wide. Most mainstream and specialist lenders
+          accept pre-settled applicants. A small number do not.
+        </li>
+        <li>
+          Deposits tend to be slightly higher than for settled or ILR
+          applicants. Ten to fifteen per cent rather than five per cent.
+        </li>
+        <li>
+          Rate premiums are generally small. Most pre-settled applicants
+          access rates that are broadly comparable to settled status
+          applicants at the same loan-to-value and income.
+        </li>
+        <li>
+          Lenders check the time remaining on pre-settled status, which
+          is not a check that applies to settled applicants.
+        </li>
+      </ul>
+      <p>
+        The practical outcome is that most pre-settled applicants with
+        ten per cent deposit and stable UK employment are mortgage-ready.
+      </p>
+    </div>
+  </section>
+
+  <section class="hub-section">
+    <div class="hub-section-inner">
+      <h2 id="deposit">Deposit requirements</h2>
+      <p>
+        Deposit is the variable that most affects which lenders are
+        available and at what rate.
+      </p>
+      <p>
+        <strong>Ten per cent.</strong> Workable for applicants with
+        strong profiles: at least one to two years of continuous UK
+        employment, a clean credit file, and stable income. The lender
+        pool is reasonable at this level.
+      </p>
+      <p>
+        <strong>Fifteen per cent.</strong> A comfortable working level
+        for most pre-settled applicants. The pool broadens and rate
+        options improve.
+      </p>
+      <p>
+        <strong>Twenty-five per cent and above.</strong> Opens specialist
+        and private bank options in addition to the mainstream pool.
+      </p>
+      <p>
+        The importance of deposit size for pre-settled applicants is
+        slightly higher than for settled or ILR holders. A pre-settled
+        applicant with fifteen per cent deposit will generally access
+        a better range of lenders and rates than one with ten per cent,
+        and the uplift is meaningful enough to be worth waiting for if
+        circumstances allow.
+      </p>
+      <p>
+        For deposit source documentation, the standard AML requirements
+        apply. If any part of the deposit is held in a non-UK account
+        or denominated in a foreign currency, bank statements showing
+        accumulation over time and a clear source are required.
+      </p>
+    </div>
+  </section>
+
+  <PullQuote>
+    A pre-settled applicant with fifteen per cent deposit will access a
+    better range of lenders and rates than one with ten per cent. The
+    uplift is worth waiting for if circumstances allow.
+  </PullQuote>
+
+  <section class="hub-section">
+    <div class="hub-section-inner">
+      <h2 id="may-2023-rules">The May 2023 rules change and what it means for lenders</h2>
+      <p>
+        Until 2023, there was a concern among some lenders that pre-settled
+        status could simply expire if the holder did not apply for settled
+        status in time. This created an underwriting question: what happens
+        to the mortgage if the borrower loses their right to remain?
+      </p>
+      <p>
+        In May 2023 the UK government changed the rules. Pre-settled
+        status can no longer expire automatically. If a holder does not apply
+        for settled status before their pre-settled status end date, the
+        status is automatically extended until they do apply. They will
+        receive notification before any change.
+      </p>
+      <p>
+        This change has broadly reduced lender concern about the expiry
+        risk. A number of lenders that had previously been cautious about
+        pre-settled applications have become more open. The more pressing
+        assessment factor now is straightforwardly the time remaining,
+        as a proxy for how close the applicant is to achieving settled
+        status.
+      </p>
+    </div>
+  </section>
+
+  <section class="hub-section">
+    <div class="hub-section-inner">
+      <h2 id="what-lenders-check">What lenders check</h2>
+      <p>
+        The checks for a pre-settled status mortgage are:
+      </p>
+      <ul>
+        <li>
+          <strong>Status confirmation.</strong> Via the UK Visas and
+          Immigration share code system. This is the digital
+          equivalent of a BRP card for pre-settled and settled
+          status holders.
+        </li>
+        <li>
+          <strong>Time remaining.</strong> The date the pre-settled
+          status was granted and when it runs to. Most lenders want
+          at least two years remaining.
+        </li>
+        <li>
+          <strong>UK residence and employment period.</strong>
+          Most lenders want at least one year of continuous UK
+          employment, ideally with the same employer.
+        </li>
+        <li>
+          <strong>UK credit history.</strong> Lenders rely on UK
+          credit reference agency data. EU nationals who arrived
+          recently may have a thinner UK credit file. This is workable
+          but the pool narrows for applicants with less than one year
+          of UK credit history.
+        </li>
+        <li>
+          <strong>Standard affordability.</strong> Income, outgoings,
+          existing debts, and the loan-to-value of the property.
+        </li>
+        <li>
+          <strong>Deposit source.</strong> As for any applicant. Funds
+          from EU bank accounts need statements showing accumulation
+          and source. An AML-clean deposit from a UK account is the
+          simplest presentation.
+        </li>
+      </ul>
+    </div>
+  </section>
+
+  <section class="hub-section">
+    <div class="hub-section-inner">
+      <h2 id="joint-applications">Joint applications: buying with a settled or ILR partner</h2>
+      <p>
+        A joint application where one party has settled status, ILR,
+        or British citizenship opens the full lender pool. Several
+        lenders that require settled status as a sole applicant will
+        lend on standard terms in a joint application where the
+        co-applicant is settled or British.
+      </p>
+      <p>
+        This is one of the most effective routes for pre-settled
+        applicants. Where one partner is pre-settled and the other is
+        settled or a UK citizen, the mortgage options available
+        are close to identical to those available to a settled
+        sole applicant.
+      </p>
+      <p>
+        The affordability calculation uses both incomes, and both
+        applicants are on the title deeds and the mortgage. The
+        application and documentation requirements are slightly
+        higher but the lender pool and rate access typically
+        justify it.
+      </p>
+    </div>
+  </section>
+
+  <section class="hub-section">
+    <div class="hub-section-inner">
+      <h2 id="foreign-income">EU income or recent arrival: the foreign income consideration</h2>
+      <p>
+        Most pre-settled applicants have been living and working in the
+        UK for at least a year and are paid in sterling. For these
+        applicants, income is assessed as standard UK income.
+      </p>
+      <p>
+        Where part of your income is paid in euros or another currency,
+        or paid by an employer based in an EU member state, the
+        <a href="/uk-mortgage-foreign-income">foreign income rules</a>
+        apply. Most lenders apply a reduction to foreign-currency income
+        before assessment. A small number of specialist lenders do not.
+        For applicants with continuing EU-sourced income, lender choice
+        on this point can have a material effect on the borrowing amount.
+      </p>
+    </div>
+  </section>
+
+  <section class="hub-section">
+    <div class="hub-section-inner">
+      <h2 id="process">What the process looks like</h2>
+      <p>
+        We take the relevant details: time on pre-settled status, UK
+        employment history, income, deposit available and its source,
+        target property and price, credit history outline. We map that
+        against current lender criteria and come back with the three
+        to five lenders worth approaching in order of fit.
+      </p>
+      <p>
+        A first conversation is enough to establish whether the
+        application is straightforward, what borrowing is realistic, and
+        what documentation the lender will want, particularly around
+        status confirmation and deposit source.
+      </p>
+      <p>
+        A typical pre-settled status residential mortgage completes in
+        eight to twelve weeks from first conversation to completion. The
+        timeline is broadly the same as for a standard UK application.
+      </p>
+    </div>
+  </section>
+
+  <MidPageCta />
+
+  <section class="hub-section">
+    <div class="hub-section-inner">
+      <h2 id="faqs">Frequently asked questions</h2>
+      <div class="faq">
+        {faqs.map((f) => (
+          <>
+            <h3>{f.q}</h3>
+            <p>{f.a}</p>
+          </>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <script
+    type="application/ld+json"
+    is:inline
+    set:html={JSON.stringify(faqSchema)}
+  />
+</HubLayout>
