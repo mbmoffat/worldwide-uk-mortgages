@@ -1,5 +1,6 @@
 ---
 import HubLayout from '../../layouts/HubLayout.astro';
+import MidPageCta from '../../components/MidPageCta.astro';
 import { breadcrumbSchema } from '../../lib/schema';
 import RiskWarning from '../../components/RiskWarning.astro';
 import TerritorialScope from '../../components/TerritorialScope.astro';
@@ -177,6 +178,8 @@ const currencies = [
       </div>
     </div>
   </section>
+
+  <MidPageCta heading="Ready to borrow more? Talk to a specialist broker" ctaNote="A specialist broker can access no-haircut lenders directly. Most respond the same day." />
 
   <style is:global>
     .calc-inner {
