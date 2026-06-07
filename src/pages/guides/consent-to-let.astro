@@ -1,0 +1,409 @@
+---
+import HubLayout from '../../layouts/HubLayout.astro';
+import PullQuote from '../../components/PullQuote.astro';
+import MidPageCta from '../../components/MidPageCta.astro';
+import { breadcrumbSchema, articleSchema } from '../../lib/schema';
+import RiskWarning from '../../components/RiskWarning.astro';
+import TerritorialScope from '../../components/TerritorialScope.astro';
+
+const title = 'Consent to Let: A Guide for UK Homeowners Moving Abroad';
+const description =
+  'What consent to let is, how to apply, how long it lasts, and what to do when it runs out. A plain guide for UK homeowners renting out their home while living overseas.';
+const h1 = 'Consent to Let: A Guide for UK Homeowners Moving Abroad';
+const subheadline =
+  'What consent to let is, how your lender handles the application, how long permission typically runs, and what your options are when the consent period ends.';
+
+const relatedPages = [
+  {
+    eyebrow: 'Hub',
+    title: 'UK Mortgages for Expats',
+    description:
+      'British nationals living abroad. Country-by-country lender appetite, currency haircuts, and timelines.',
+    href: '/expat-mortgages',
+  },
+  {
+    eyebrow: 'Hub',
+    title: 'Expat Buy-to-Let Mortgages',
+    description:
+      'UK buy-to-let mortgages for British nationals living abroad. ICR, deposits, and the lender pool.',
+    href: '/expat-mortgages/buy-to-let',
+  },
+  {
+    eyebrow: 'Guide',
+    title: 'Expat Remortgaging',
+    description:
+      'Switching your UK mortgage from abroad. Timing, lender choice, and how a broker handles it.',
+    href: '/expat-mortgages/remortgage',
+  },
+  {
+    eyebrow: 'Guide',
+    title: 'Non-Resident Landlord Scheme',
+    description:
+      'How UK rental income is taxed when you live abroad, and how to register to receive rent without withholding.',
+    href: '/guides/non-resident-landlord-scheme',
+  },
+  {
+    eyebrow: 'Guide',
+    title: 'Buy-to-Let from Abroad',
+    description:
+      'Practical guide to UK BTL applications when you live overseas. Documentation, lenders, and timelines.',
+    href: '/expat-mortgages/buy-to-let-from-abroad',
+  },
+];
+
+const faqs = [
+  {
+    q: 'What is consent to let?',
+    a: 'Consent to let is written permission from your residential mortgage lender to rent out your property. Your mortgage contract almost certainly requires you to live in the property as your main residence. Renting it out without permission puts you in breach of those conditions. Consent to let is the formal permission that removes that breach for an agreed period.',
+  },
+  {
+    q: 'Do I need consent to let to rent out my home?',
+    a: 'Yes, if you have a residential mortgage. Renting without permission breaches your mortgage terms. In serious cases lenders can demand repayment of the outstanding mortgage. In practice most lenders prefer to grant consent rather than take action, but the risk of renting unlawfully is real and worth avoiding.',
+  },
+  {
+    q: 'What are valid reasons for consent to let?',
+    a: 'The most commonly accepted reasons are: relocating abroad for work, a short-term posting or secondment, a military or diplomatic posting, moving temporarily to care for a family member, and relationship breakdown requiring one party to leave. Lenders are less likely to grant consent where the move appears permanent and there is no clear intention to return. In that scenario, remortgaging to a buy-to-let product is usually the more appropriate route.',
+  },
+  {
+    q: 'How long does consent to let last?',
+    a: 'Most lenders grant consent to let for a fixed period, typically 12 to 24 months. Some grant a shorter initial period and then review. Lenders differ on whether they extend at the end of the term. If you expect to be abroad for longer than 24 months, or if your return date is uncertain, a buy-to-let remortgage gives more certainty than relying on consent to let renewals.',
+  },
+  {
+    q: 'How much does consent to let cost?',
+    a: 'Many lenders grant consent to let at no charge, or for a small administrative fee. Some charge a rate increase on the mortgage for the consent period, typically a small percentage-point premium. The precise terms vary by lender and product. Check with your lender before you apply.',
+  },
+  {
+    q: 'What happens when consent to let expires?',
+    a: 'You have three options: contact the lender before expiry and request an extension, return to the property as your main residence, or remortgage to a buy-to-let product. If you remain abroad after consent expires without taking one of these steps, you are again in breach of the mortgage conditions.',
+  },
+  {
+    q: 'Can I get consent to let from Halifax, Nationwide, NatWest, Barclays or HSBC?',
+    a: 'All of these lenders have consent to let processes. The terms, duration, and any rate conditions differ between lenders and can change. Contact your lender directly to find out the current terms for your specific product. If your lender refuses consent or the terms are unfavourable, a buy-to-let remortgage with a specialist expat lender is usually available.',
+  },
+  {
+    q: 'Should I get consent to let or remortgage to buy-to-let from the start?',
+    a: 'For a short posting of one to two years where you will definitely return: consent to let is often simpler. For anything longer, or where your return date is unclear, a buy-to-let remortgage is usually the cleaner solution. It gives a fixed rate for the full term, removes the uncertainty of consent renewals, and positions the property correctly for the long term. A specialist broker can model both options for your situation.',
+  },
+  {
+    q: 'Does consent to let affect my buy-to-let tax position?',
+    a: 'Consent to let does not change the tax treatment of your rental income. Whether your property is on a residential mortgage with consent or a buy-to-let mortgage, rental income is taxable in the UK, and you must register with the Non-Resident Landlord Scheme if you live outside the UK. The mortgage interest tax relief position is the same under either arrangement for a personally-held property.',
+  },
+];
+
+const faqSchema = {
+  '@context': 'https://schema.org',
+  '@type': 'FAQPage',
+  mainEntity: faqs.map((f) => ({
+    '@type': 'Question',
+    name: f.q,
+    acceptedAnswer: { '@type': 'Answer', text: f.a },
+  })),
+};
+
+const schemas = [
+  breadcrumbSchema([
+    { name: 'Home', path: '/' },
+    { name: 'Guides', path: '/guides' },
+    { name: 'Consent to Let', path: '/guides/consent-to-let' },
+  ]),
+  articleSchema({ headline: h1, description }),
+];
+---
+
+<HubLayout
+  title={title}
+  description={description}
+  h1={h1}
+  subheadline={subheadline}
+  eyebrow="GUIDE · CONSENT TO LET"
+  schemas={schemas}
+  relatedPages={relatedPages}
+>
+  <RiskWarning type="btl" />
+  <TerritorialScope />
+
+  <section class="hub-section">
+    <div class="hub-section-inner">
+      <h2 id="who-this-is-for">Who this page is for</h2>
+      <p>
+        If you own a UK property with a residential mortgage and you are
+        moving abroad, this page is for you. Common situations include a
+        work relocation for one to three years, a longer-term expat role
+        with an uncertain return date, or a permanent move where you want
+        to keep the UK property as a rental investment.
+      </p>
+      <p>
+        This page covers what consent to let is, how to apply for it, how
+        long it typically lasts, and what your options are when the consent
+        period runs out. It also covers the point at which a
+        <a href="/expat-mortgages/buy-to-let">buy-to-let remortgage</a>
+        becomes the better answer.
+      </p>
+      <p>
+        If you are a foreign national rather than a UK national, the same
+        principles apply. The
+        <a href="/non-uk-resident-mortgages">non-UK resident mortgage</a>
+        pages cover your specific lender pool and criteria.
+      </p>
+    </div>
+  </section>
+
+  <section class="hub-section">
+    <div class="hub-section-inner">
+      <h2 id="what-it-is">What consent to let is</h2>
+      <p>
+        Consent to let is written permission from your residential mortgage
+        lender to rent out your property. Your mortgage contract almost
+        certainly contains a condition requiring you to live in the property
+        as your main residence. Letting the property without permission
+        breaches that condition.
+      </p>
+      <p>
+        The breach matters. In serious cases a lender can demand full
+        repayment of the outstanding mortgage. In practice, most lenders
+        prefer to grant consent rather than take action, because a
+        performing mortgage is better than a repossession. But the legal
+        position is clear, and renting without permission carries real risk.
+      </p>
+      <p>
+        Consent to let is a temporary arrangement. It does not change your
+        mortgage product. The loan stays on its existing rate, term, and
+        conditions. The lender simply agrees, for a fixed period, not to
+        treat the letting as a breach.
+      </p>
+    </div>
+  </section>
+
+  <section class="hub-section">
+    <div class="hub-section-inner">
+      <h2 id="why-lenders-require-it">Why lenders require it</h2>
+      <p>
+        Residential mortgages and buy-to-let mortgages are different
+        products. They are priced differently, assessed differently, and
+        subject to different regulatory requirements. A residential mortgage
+        is underwritten on the assumption that you live in the property and
+        pay the mortgage from your income. A buy-to-let mortgage is
+        underwritten partly on the rental income the property generates.
+      </p>
+      <p>
+        When you rent out a residential property without telling the lender,
+        they are exposed to risk they have not priced for. The property is
+        now occupied by someone other than the borrower. The insurer may be
+        unaware. The lender has no rental income data. And the mortgage
+        conditions are being breached.
+      </p>
+      <p>
+        Consent to let exists as a middle ground. It lets you rent the
+        property without taking out a new mortgage, while giving the lender
+        visibility of what is happening.
+      </p>
+    </div>
+  </section>
+
+  <MidPageCta variant="hero" />
+
+  <section class="hub-section">
+    <div class="hub-section-inner">
+      <h2 id="how-to-apply">How to apply for consent to let</h2>
+      <p>
+        Contact your lender directly. Most have a consent to let process
+        through their online portal, a dedicated phone line, or a written
+        application. The application is usually straightforward.
+      </p>
+      <p>What you will typically need to provide:</p>
+      <ul>
+        <li>Your current address abroad, or your intended address if you are applying before you leave.</li>
+        <li>The reason for renting (work relocation, posting, and so on).</li>
+        <li>The expected duration of the let.</li>
+        <li>Confirmation that your buildings insurance covers a rented property (standard home insurance often does not, and a landlord policy is usually required).</li>
+        <li>Supporting evidence in some cases, such as an employer letter confirming the relocation or a letter of confirmation for a posting.</li>
+      </ul>
+      <p>
+        Processing times vary. Most lenders respond within a few days to
+        two weeks. Apply before you leave the UK if possible. Applying from
+        abroad adds minor complexity but is not a problem.
+      </p>
+    </div>
+  </section>
+
+  <PullQuote>
+    Apply for consent to let before your tenants move in, not after. Renting
+    without permission is a breach of your mortgage conditions from the first
+    day.
+  </PullQuote>
+
+  <section class="hub-section">
+    <div class="hub-section-inner">
+      <h2 id="valid-reasons">Valid reasons lenders typically accept</h2>
+      <p>
+        Lenders have discretion over whether to grant consent to let and on
+        what terms. Reasons they commonly accept include:
+      </p>
+      <ul>
+        <li>Relocation abroad for work (the most common reason).</li>
+        <li>A short-term posting or secondment, whether employer-arranged or voluntary.</li>
+        <li>A military or diplomatic posting abroad.</li>
+        <li>Moving temporarily to care for a family member in another country.</li>
+        <li>A relationship breakdown requiring one party to vacate, where the property will be sold or returned to once the situation resolves.</li>
+      </ul>
+      <p>
+        Lenders are generally more cautious where the move appears
+        permanent. If you have sold your furniture, bought a property
+        abroad, and have no specific return date, the lender may conclude
+        that a buy-to-let remortgage is more appropriate than consent to
+        let. That is not unreasonable. Consent to let is designed for
+        temporary situations.
+      </p>
+    </div>
+  </section>
+
+  <section class="hub-section">
+    <div class="hub-section-inner">
+      <h2 id="how-long-it-lasts">How long consent to let lasts</h2>
+      <p>
+        Most lenders grant consent to let for a fixed period. The most
+        common range is 12 to 24 months, though some lenders grant shorter
+        initial periods and review at the end.
+      </p>
+      <p>
+        At the end of the consent period, the lender will typically ask
+        what has changed. If you have returned to the UK and are living in
+        the property again, no further action is needed. If you are still
+        abroad and still letting the property, you will need to either
+        request an extension or move to a buy-to-let mortgage.
+      </p>
+      <p>
+        Whether a lender extends consent to let depends on the lender and
+        the circumstances. Some extend routinely for a further period.
+        Others will not, on the basis that a longer-term rental position
+        should be on a buy-to-let product. It is worth asking your lender
+        about their extension policy before your initial consent period
+        expires.
+      </p>
+    </div>
+  </section>
+
+  <PullQuote>
+    If you expect to be abroad for longer than two years, or your return
+    date is uncertain, a buy-to-let remortgage is usually the cleaner
+    answer from the start.
+  </PullQuote>
+
+  <section class="hub-section">
+    <div class="hub-section-inner">
+      <h2 id="when-consent-expires">What happens when consent expires</h2>
+      <p>
+        You have three options when your consent to let period ends.
+      </p>
+      <p>
+        <strong>Return to the property.</strong> If you are back in the UK
+        and living in the property as your main residence, the consent
+        period has served its purpose and no further action is needed.
+      </p>
+      <p>
+        <strong>Apply for an extension.</strong> Contact your lender before
+        the expiry date. Do not wait until after. Lenders differ on whether
+        they extend, for how long, and on what terms. Some extensions are
+        granted at the original rate. Others come with a rate adjustment.
+      </p>
+      <p>
+        <strong>Remortgage to a buy-to-let product.</strong> If you are
+        still abroad and intend to remain so, remortgaging to an
+        <a href="/expat-mortgages/buy-to-let">expat buy-to-let mortgage</a>
+        is the right long-term position. It gives you a fixed rate for the
+        full term, removes the uncertainty of consent renewals, and
+        correctly positions the mortgage for a rental property held by a
+        non-resident.
+      </p>
+      <p>
+        If the consent period expires and you take none of these steps, you
+        are again in breach of your mortgage conditions without permission.
+      </p>
+    </div>
+  </section>
+
+  <section class="hub-section">
+    <div class="hub-section-inner">
+      <h2 id="consent-vs-btl">Consent to let vs. buy-to-let remortgage: which is right</h2>
+      <p>
+        The right choice depends on how long you will be abroad and how
+        certain your return is.
+      </p>
+
+      <h3>Consent to let works well when</h3>
+      <ul>
+        <li>You are going abroad for a fixed posting of one to two years and you are confident you will return.</li>
+        <li>Your current mortgage product has a rate that is better than what you could get on a fresh buy-to-let remortgage.</li>
+        <li>You do not want to go through a full remortgage application mid-posting.</li>
+        <li>The property is your intended main residence when you return.</li>
+      </ul>
+
+      <h3>A buy-to-let remortgage is usually better when</h3>
+      <ul>
+        <li>You expect to be abroad for more than two years, or your return date is unclear.</li>
+        <li>Your current mortgage fix is ending anyway, making a remortgage natural.</li>
+        <li>You want certainty over the mortgage rate and terms for the full period you are abroad.</li>
+        <li>Your existing lender is unwilling to grant consent to let, or is granting it only on unfavourable terms.</li>
+        <li>You are planning to build a UK rental portfolio rather than return to owner-occupation.</li>
+      </ul>
+
+      <p>
+        The rate difference between a residential mortgage with consent and
+        an expat buy-to-let mortgage is often smaller than people assume.
+        For the right applicant with the right lender, the certainty and
+        correct product fit of a buy-to-let remortgage outweighs the
+        short-term convenience of consent to let.
+      </p>
+      <p>
+        See our <a href="/expat-mortgages/remortgage">expat remortgaging guide</a>
+        for a full explanation of the remortgage process from abroad.
+      </p>
+    </div>
+  </section>
+
+  <section class="hub-section">
+    <div class="hub-section-inner">
+      <h2 id="non-resident-landlord">Non-Resident Landlord Scheme</h2>
+      <p>
+        Whether you are on consent to let or a buy-to-let mortgage, if
+        you live outside the UK and receive UK rental income, the
+        Non-Resident Landlord Scheme applies. Under the default rules,
+        your letting agent deducts 20% basic-rate tax from your rent before
+        paying you.
+      </p>
+      <p>
+        Registering with the scheme using form NRL1 allows you to receive
+        rent gross and settle any UK tax owed through self-assessment after
+        the tax year. For most expat landlords this is materially better
+        cash flow.
+      </p>
+      <p>
+        See our <a href="/guides/non-resident-landlord-scheme">Non-Resident Landlord Scheme guide</a>
+        and the <a href="/guides/nrl1-form-explained">NRL1 form explained</a>
+        page for the practical steps.
+      </p>
+    </div>
+  </section>
+
+  <MidPageCta />
+
+  <section class="hub-section">
+    <div class="hub-section-inner">
+      <h2 id="faqs">Frequently asked questions</h2>
+      <div class="faq">
+        {faqs.map((f) => (
+          <>
+            <h3>{f.q}</h3>
+            <p>{f.a}</p>
+          </>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <script
+    type="application/ld+json"
+    is:inline
+    set:html={JSON.stringify(faqSchema)}
+  />
+</HubLayout>
