@@ -6,14 +6,21 @@ import { breadcrumbSchema, serviceSchema } from '../lib/schema';
 import RiskWarning from '../components/RiskWarning.astro';
 import TerritorialScope from '../components/TerritorialScope.astro';
 
-const title = 'Offshore Oil and Gas Worker Mortgages';
+const title = 'UK Mortgages for Offshore Oil and Gas Contractors and Workers';
 const description =
-  'UK mortgages for offshore oil and gas workers, covering rotational rota income, day rates, and FIFO non-resident cases paid in foreign currency.';
-const h1 = 'Offshore Oil and Gas Worker Mortgages';
+  'UK mortgages for offshore oil and gas contractors and workers. Day rates, limited company income, rotational rota, and FIFO foreign currency salary assessed correctly by a specialist broker.';
+const h1 = 'UK Mortgages for Offshore Oil and Gas Contractors and Workers';
 const subheadline =
-  'UK mortgages for offshore workers across the UK Continental Shelf, Norwegian sector, Middle East, West Africa, and Asia-Pacific. How rotational rota income, day rates, and FIFO foreign currency salary are handled.';
+  'UK mortgages for offshore oil and gas contractors, PAYE workers, and FIFO international employees across the UK Continental Shelf, Norwegian sector, Middle East, West Africa, and Asia-Pacific. How day rates, limited company income, and foreign currency salary are handled.';
 
 const relatedPages = [
+  {
+    eyebrow: 'Hub',
+    title: 'UK Mortgages for Expats',
+    description:
+      'British nationals living abroad, including FIFO international workers. Country-by-country lender appetite and currency handling.',
+    href: '/expat-mortgages',
+  },
   {
     eyebrow: 'Hub',
     title: 'UK Mortgages for Non-UK Residents',
@@ -78,12 +85,12 @@ const schemas = [
   breadcrumbSchema([
     { name: 'Home', path: '/' },
     {
-      name: 'Offshore Oil and Gas Worker Mortgages',
+      name: 'Offshore Oil and Gas Contractor and Worker Mortgages',
       path: '/offshore-worker-mortgages',
     },
   ]),
   serviceSchema({
-    serviceType: 'UK Mortgages for Offshore Oil and Gas Workers',
+    serviceType: 'UK Mortgages for Offshore Oil and Gas Contractors and Workers',
     name: h1,
     description,
   }),
