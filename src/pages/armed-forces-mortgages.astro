@@ -1,0 +1,469 @@
+---
+import HubLayout from '../layouts/HubLayout.astro';
+import PullQuote from '../components/PullQuote.astro';
+import MidPageCta from '../components/MidPageCta.astro';
+import { breadcrumbSchema, serviceSchema } from '../lib/schema';
+import RiskWarning from '../components/RiskWarning.astro';
+import TerritorialScope from '../components/TerritorialScope.astro';
+
+const title = 'Armed Forces Mortgages: Forces Help to Buy and Specialist Lenders';
+const description =
+  'UK mortgages for armed forces personnel. How the Forces Help to Buy scheme works, how military pay and allowances are assessed, and what changes when you are posted overseas.';
+const h1 = 'UK Mortgages for Armed Forces Personnel';
+const subheadline =
+  'UK mortgages for serving and recently-separated armed forces personnel across the Army, Royal Navy, RAF, and Royal Marines. How Forces Help to Buy works, how base pay, X-Factor, and allowances are treated, and what to do when a posting order moves you overseas.';
+
+const relatedPages = [
+  {
+    eyebrow: 'Hub',
+    title: 'UK Mortgages for Expats',
+    description:
+      'British nationals living abroad, including service personnel posted overseas. Country-by-country lender appetite.',
+    href: '/expat-mortgages',
+  },
+  {
+    eyebrow: 'Hub',
+    title: 'UK Mortgages Living Abroad',
+    description:
+      'Getting a UK mortgage while resident outside the UK. Lender requirements and how the process differs from a standard application.',
+    href: '/uk-mortgage-living-abroad',
+  },
+  {
+    eyebrow: 'Hub',
+    title: 'Offshore Worker Mortgages',
+    description:
+      'Specialist mortgages for offshore oil and gas contractors and FIFO workers. Day rates, rotational income, and foreign currency pay.',
+    href: '/offshore-worker-mortgages',
+  },
+  {
+    eyebrow: 'Hub',
+    title: 'Seafarer Mortgages',
+    description:
+      'Merchant navy, offshore, and superyacht crew. Rotation patterns and how lenders assess seafarer income.',
+    href: '/seafarer-mortgages',
+  },
+  {
+    eyebrow: 'Hub',
+    title: 'UK Mortgages with Foreign Income',
+    description:
+      'How lenders treat non-sterling income when you are paid overseas. The standard haircut and access to no-haircut lenders.',
+    href: '/uk-mortgage-foreign-income',
+  },
+];
+
+const faqs = [
+  {
+    q: 'Can I get a UK mortgage while serving in the armed forces?',
+    a: 'Yes. Several specialist and mainstream lenders accept serving personnel, including those in service accommodation or posted abroad. The key is finding lenders who understand military pay structures and address history.',
+  },
+  {
+    q: 'What is the Forces Help to Buy scheme?',
+    a: 'Forces Help to Buy is a UK Government scheme that allows eligible regular service personnel to borrow a portion of their annual salary interest-free to use toward a property deposit or moving costs. The advance is repaid through salary deductions over time. It is used alongside a standard mortgage from a lender.',
+  },
+  {
+    q: 'Do all mortgage lenders accept Forces Help to Buy?',
+    a: 'No. Some lenders are not familiar with the scheme or do not know how to structure the application correctly when part of the deposit is an MOD advance. A specialist broker will know which lenders work well with it.',
+  },
+  {
+    q: 'How is my military pay assessed for a mortgage?',
+    a: 'Lenders should use your total pensionable pay, which includes basic pay and the X-Factor addition. Some lenders also accept operational allowances and other supplements, though treatment varies. The key is a lender who understands military pay rather than applying a generic income formula.',
+  },
+  {
+    q: 'I live in barracks. Will that cause problems with my credit file?',
+    a: 'It can. Service addresses, BFPO addresses, and short periods at different addresses are common for military personnel and can produce a thin or unusual credit profile. This does not reflect creditworthiness. Specialist lenders know this and assess the application accordingly.',
+  },
+  {
+    q: 'I am posted overseas. Can I still buy a UK property?',
+    a: 'Yes. Personnel posted to Germany, Cyprus, Brunei, or any overseas garrison are treated as British expats for mortgage purposes. A non-resident or expat mortgage is the appropriate route. Lenders who accept overseas postings as part of normal military service are available.',
+  },
+  {
+    q: 'Can I get a buy-to-let mortgage while in the forces?',
+    a: 'Yes. Many serving personnel buy investment property while in service accommodation. The rental income covers the mortgage and the property provides a base to return to or hold as an asset. Lenders assess this in the same way as any non-resident buy-to-let application.',
+  },
+  {
+    q: 'I am leaving the forces shortly. Can I apply now?',
+    a: 'It depends on timing. Some lenders accept applications with confirmed civilian employment lined up. Others want you to have started your new role. A conversation before you leave service is worthwhile so you know what is possible and when.',
+  },
+  {
+    q: 'My partner is posted overseas but I am buying alone. Is that straightforward?',
+    a: 'A sole UK-resident applicant is assessed normally. The fact that a spouse or partner is serving overseas does not typically affect the application. Joint applications where one party is overseas are assessed under non-resident mortgage rules for that applicant.',
+  },
+];
+
+const faqSchema = {
+  '@context': 'https://schema.org',
+  '@type': 'FAQPage',
+  mainEntity: faqs.map((f) => ({
+    '@type': 'Question',
+    name: f.q,
+    acceptedAnswer: { '@type': 'Answer', text: f.a },
+  })),
+};
+
+const schemas = [
+  breadcrumbSchema([
+    { name: 'Home', path: '/' },
+    { name: 'Armed Forces Mortgages', path: '/armed-forces-mortgages' },
+  ]),
+  serviceSchema({
+    serviceType: 'UK Mortgages for Armed Forces Personnel',
+    name: h1,
+    description,
+  }),
+];
+---
+
+<HubLayout
+  title={title}
+  description={description}
+  h1={h1}
+  subheadline={subheadline}
+  eyebrow="Hub · Armed forces mortgages"
+  ctaHeading="Speak to a specialist mortgage broker"
+  schemas={schemas}
+  relatedPages={relatedPages}
+>
+  <RiskWarning type="residential" />
+  <TerritorialScope />
+
+  <section class="hub-section">
+    <div class="hub-section-inner">
+      <h2 id="who-this-is-for">Who this page is for</h2>
+      <p>
+        Serving personnel and recently-separated veterans across the British
+        Army, Royal Navy, RAF, and Royal Marines who want to buy UK property.
+        The page also covers partners and spouses buying in the UK while a
+        service member is posted overseas.
+      </p>
+      <p>
+        Military employment sits awkwardly in mainstream mortgage applications.
+        Service addresses, non-standard pay structures, operational allowances,
+        and overseas postings all create friction with automated lender systems
+        designed around civilian employment. Most high street lenders apply
+        generic income rules that miss significant portions of military pay
+        and flag normal military address history as a risk.
+      </p>
+      <p>
+        The right lender reads a military application correctly. That means
+        looking past the address history, understanding total military
+        remuneration, and knowing how Forces Help to Buy fits alongside a
+        conventional mortgage product.
+      </p>
+    </div>
+  </section>
+
+  <MidPageCta variant="hero" />
+
+  <section class="hub-section">
+    <div class="hub-section-inner">
+      <h2 id="forces-help-to-buy">The Forces Help to Buy scheme</h2>
+      <p>
+        Forces Help to Buy is a UK Government scheme that allows eligible
+        regular service personnel to borrow a portion of their annual salary
+        interest-free to use toward a deposit or moving costs when buying
+        a home. The advance is repaid through deductions from salary over
+        a set period. It does not replace a mortgage. It reduces the
+        cash deposit the borrower needs to fund from savings.
+      </p>
+      <p>
+        In practice, a Forces Help to Buy advance lowers the deposit
+        barrier considerably for first-time buyers or for personnel who
+        need to move home due to a new posting. Combined with a mortgage
+        from a lender that understands the scheme, it makes home ownership
+        achievable much earlier in a military career than it would otherwise be.
+      </p>
+      <p>
+        The complication is on the lender side. Not all mortgage lenders
+        are familiar with Forces Help to Buy. Some do not know how to
+        categorise the MOD advance when assessing the deposit, or flag it
+        as a loan reducing affordability when it should be treated as
+        part of the deposit package. Choosing a lender who handles FHTB
+        applications routinely avoids this problem.
+      </p>
+    </div>
+  </section>
+
+  <PullQuote>
+    Forces Help to Buy lowers the deposit barrier considerably for first-time
+    buyers, but only if the mortgage lender knows how to structure the
+    application correctly.
+  </PullQuote>
+
+  <section class="hub-section">
+    <div class="hub-section-inner">
+      <h2 id="how-military-pay-is-assessed">How military pay is assessed</h2>
+      <p>
+        Military pay has a structure that most mainstream lenders do not
+        encounter day to day. The components that matter for mortgage
+        affordability are:
+      </p>
+      <p>
+        <strong>Basic pay.</strong> The base rate for the rank and service
+        length. This is the starting point and the component all lenders
+        will accept.
+      </p>
+      <p>
+        <strong>X-Factor.</strong> An addition to basic pay that compensates
+        for the particular demands of military service, including separation
+        from family, risk, and restrictions on personal freedom that civilian
+        employment does not carry. The X-Factor is pensionable pay and should
+        be included in a mortgage affordability assessment. Some lenders do
+        not recognise it as a distinct component and process it incorrectly.
+      </p>
+      <p>
+        <strong>Operational allowances.</strong> Supplements paid for
+        deployment to operational theatres or high-threat environments.
+        These are irregular and lenders typically treat them conservatively,
+        either excluding them entirely or averaging across a two-year
+        history. The outcome depends on the lender.
+      </p>
+      <p>
+        <strong>Accommodation and food deductions.</strong> Service
+        personnel living in single living accommodation or married quarters
+        have charges deducted from pay for accommodation and food. Net
+        take-home pay is therefore lower than total remuneration. A lender
+        assessing gross income rather than net correctly reflects the
+        actual financial position. Worth checking how the lender handles
+        this when comparing affordability across products.
+      </p>
+    </div>
+  </section>
+
+  <section class="hub-section">
+    <div class="hub-section-inner">
+      <h2 id="service-address-and-credit">Service addresses and credit history</h2>
+      <p>
+        One of the most common friction points for serving personnel is
+        address history. A typical military career involves multiple moves
+        between barracks, bases, quarters, and BFPO addresses, often at
+        short intervals. UK lenders and credit reference agencies are built
+        around continuous residential address history at stable addresses.
+        A credit file showing regular movement through service addresses
+        looks unusual to an automated system.
+      </p>
+      <p>
+        This does not indicate poor credit management. It indicates normal
+        military service. Specialist lenders who work regularly with armed
+        forces applications understand this and assess the application on
+        its actual merits rather than the address pattern.
+      </p>
+      <p>
+        Electoral roll registration at a long-term family address or a parent's
+        address is useful where possible, as it gives the credit file a stable
+        anchor. But it is not essential. Lenders who know the military market
+        do not penalise address complexity caused by postings.
+      </p>
+    </div>
+  </section>
+
+  <section class="hub-section">
+    <div class="hub-section-inner">
+      <h2 id="posted-overseas">Being posted overseas</h2>
+      <p>
+        Service personnel posted to overseas garrisons, training
+        establishments, or exchange roles with allied forces are treated
+        as British expats for mortgage purposes. A UK national not resident
+        in the UK at the time of application falls into the
+        <a href="/expat-mortgages/">expat mortgage</a> or
+        <a href="/uk-mortgage-living-abroad/">UK mortgage while living abroad</a>
+        category, and a specialist set of lenders applies.
+      </p>
+      <p>
+        The posted-overseas scenario has some specific characteristics that
+        distinguish it from a civilian expat application.
+      </p>
+      <p>
+        <strong>Employment continuity.</strong> A posting order does not
+        break employment. The applicant is still continuously employed by
+        the Ministry of Defence, which is a highly stable employer.
+        Lenders who understand military applications see this as a
+        strength rather than a complication.
+      </p>
+      <p>
+        <strong>Return date.</strong> Postings are typically for defined
+        periods. A clear return date to the UK gives lenders confidence
+        about the future residential position of the borrower.
+      </p>
+      <p>
+        <strong>Currency.</strong> Some overseas postings include an
+        element of local currency supplement. Where pay is partly or
+        fully in a non-sterling currency, standard
+        <a href="/uk-mortgage-foreign-income/">foreign income rules</a> apply.
+      </p>
+      <p>
+        Buying a UK residential property while posted overseas and planning
+        to move in on return is treated as an expat residential mortgage
+        rather than buy-to-let, even if the property is rented out on a
+        temporary basis during the posting. Lender appetite and documentation
+        requirements vary and a broker conversation before applying is useful.
+      </p>
+    </div>
+  </section>
+
+  <PullQuote>
+    A Ministry of Defence posting order does not break employment. Lenders
+    who work with military applications see continuous MOD employment as
+    a significant strength, not a complication.
+  </PullQuote>
+
+  <section class="hub-section">
+    <div class="hub-section-inner">
+      <h2 id="common-situations">Common situations we handle</h2>
+      <p>
+        <strong>First-time buyer using Forces Help to Buy.</strong>
+        Serving personnel in their first years of service, using the FHTB
+        advance to reduce the cash deposit required. Lender selection
+        must account for FHTB compatibility. Common and very workable
+        with the right lender.
+      </p>
+      <p>
+        <strong>Buying a UK home while posted overseas.</strong> Personnel
+        on a Germany, Cyprus, or similar posting who want to buy in the
+        UK to move into on return, or to let during the posting.
+        Treated as an expat residential or buy-to-let application.
+        Specialist non-resident lenders required.
+      </p>
+      <p>
+        <strong>Buy-to-let while in service accommodation.</strong>
+        Personnel living in barracks or quarters who want to build a
+        rental portfolio. Common, particularly in the mid-career phase.
+        UK rental income covers the mortgage while service accommodation
+        keeps living costs low.
+      </p>
+      <p>
+        <strong>Approaching end of service.</strong> Personnel within
+        two to three years of terminal date, or veterans who have
+        recently left. Lenders need to understand that military pensions
+        begin relatively early and that resettlement employment may be
+        well-paid. Some lenders are conservative with applicants who
+        have not yet secured civilian employment. Others assess the full
+        picture.
+      </p>
+      <p>
+        <strong>Sole UK application while spouse is posted overseas.</strong>
+        One party applying for a UK mortgage while the other is on an
+        overseas posting. Assessed as a sole UK-resident application with
+        standard criteria. Clean and manageable in most cases.
+      </p>
+      <p>
+        <strong>Joint application with overseas-posted party.</strong>
+        Both parties on the application but one is currently abroad.
+        The overseas applicant is treated under expat or non-resident
+        mortgage rules. Lenders who accept joint applications across
+        residency statuses are required.
+      </p>
+    </div>
+  </section>
+
+  <section class="hub-section">
+    <div class="hub-section-inner">
+      <h2 id="what-we-can-arrange">What we can arrange</h2>
+      <p>
+        <strong>UK residential mortgages</strong> for serving personnel
+        in the UK, including Forces Help to Buy-compatible products,
+        first-time buyer applications, and moves triggered by posting orders.
+      </p>
+      <p>
+        <strong>Buy-to-let mortgages</strong> for serving personnel in
+        service accommodation who want to build a UK rental portfolio.
+        The rental income typically covers the mortgage without the need
+        to demonstrate personal income beyond deposit sourcing.
+      </p>
+      <p>
+        <strong>Expat and non-resident mortgages</strong> for personnel
+        posted overseas who want to buy UK property during the posting.
+        Specialist lenders with non-resident acceptance and Forces
+        employment understanding.
+      </p>
+      <p>
+        <strong>Remortgages</strong> for veterans who bought on military
+        terms and now want to access mainstream products, or for personnel
+        coming to the end of a fixed rate whose circumstances have changed.
+      </p>
+    </div>
+  </section>
+
+  <section class="hub-section">
+    <div class="hub-section-inner">
+      <h2 id="how-affordability-is-assessed">How a specialist lender assesses military affordability</h2>
+      <p>
+        A lender who works regularly with armed forces applications will
+        typically:
+      </p>
+      <ul>
+        <li>
+          Include basic pay and X-Factor as total pensionable pay in the
+          income assessment.
+        </li>
+        <li>
+          Understand accommodation and food charges as deductions from gross
+          pay rather than external costs.
+        </li>
+        <li>
+          Treat BFPO addresses and regular moves as normal military service
+          history, not as adverse credit risk.
+        </li>
+        <li>
+          Recognise a Forces Help to Buy advance as a legitimate deposit
+          contribution from the MOD rather than a third-party loan.
+        </li>
+        <li>
+          Accept overseas postings as MOD employment continuity rather than
+          as an unexplained residential gap.
+        </li>
+        <li>
+          Consider operational allowances where a two-year history supports
+          the likelihood of continued receipt.
+        </li>
+      </ul>
+      <p>
+        Applying to a mainstream lender without specialist military
+        knowledge typically produces a lower borrowing figure or a
+        decline, even where the financial position is strong. The same
+        case with the right lender frequently results in a straightforward
+        application.
+      </p>
+    </div>
+  </section>
+
+  <MidPageCta />
+
+  <section class="hub-section">
+    <div class="hub-section-inner">
+      <h2 id="faqs">Common questions</h2>
+      <div class="faq">
+        {faqs.map((f) => (
+          <>
+            <h3>{f.q}</h3>
+            <p>{f.a}</p>
+          </>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <section class="hub-section">
+    <div class="hub-section-inner">
+      <h2 id="what-happens-next">What happens next</h2>
+      <p>
+        We start with a conversation about your service status, your pay
+        structure, and what you want to buy. From there we identify
+        which lenders are best placed for your specific situation,
+        whether that is a Forces Help to Buy-compatible product, a
+        non-resident application during an overseas posting, or a
+        buy-to-let while you are in service accommodation.
+      </p>
+      <p>
+        We understand military employment and work with specialist
+        lenders who do too. Use the form below or send a message
+        directly.
+      </p>
+    </div>
+  </section>
+
+  <script
+    type="application/ld+json"
+    is:inline
+    set:html={JSON.stringify(faqSchema)}
+  />
+</HubLayout>
