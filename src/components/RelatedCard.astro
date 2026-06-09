@@ -7,9 +7,13 @@ interface Props {
 }
 
 const { eyebrow, title, description, href } = Astro.props;
+const normHref =
+  href.startsWith('/') && !href.endsWith('/') && !href.includes('#') && !href.includes('?')
+    ? `${href}/`
+    : href;
 ---
 
-<a class="related-card" href={href}>
+<a class="related-card" href={normHref}>
   <span class="related-card-eyebrow">{eyebrow}</span>
   <h3 class="related-card-title">{title}</h3>
   <p class="related-card-desc">{description}</p>
