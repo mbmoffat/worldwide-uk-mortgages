@@ -2,6 +2,7 @@
 title: "Returning Home from the Gulf: How to Plan the UK Mortgage"
 description: "Practical guidance for British expats returning from the UAE, Saudi Arabia, Qatar or elsewhere in the Gulf and applying for a UK mortgage on the way home."
 pubDate: 2026-05-03
+sources: []
 ---
 
 For British expats heading home from the Gulf, the mortgage question rarely waits until the move. Most clients we speak with want to know what is achievable months before they arrive. The good news is that returning from the Middle East often puts applicants in a stronger position than they expect, particularly on income strength and deposit. The harder part is sequencing the application around the move itself.

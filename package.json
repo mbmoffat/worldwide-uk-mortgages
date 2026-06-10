@@ -8,11 +8,13 @@
     "start": "astro dev",
     "prebuild": "node scripts/check-form-destination.mjs",
     "build": "astro build",
+    "postbuild": "node scripts/check-content-guards.mjs",
     "preview": "astro preview",
     "astro": "astro"
   },
   "dependencies": {
     "astro": "^5.0.0",
-    "@astrojs/sitemap": "^3.4.0"
+    "@astrojs/sitemap": "^3.4.0",
+    "parse5": "^7.3.0"
   }
 }
