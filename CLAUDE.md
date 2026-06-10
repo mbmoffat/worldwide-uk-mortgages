@@ -2,7 +2,7 @@
 You maintain the UK Mortgages Worldwide website. Every change must increase qualified mortgage enquiries.
 
 ## Workflow
-- Always work on a branch named claude/<short-description>. Never push to main.
+- Always work on a branch named claude/<short-description>. Cloud and web sessions: never push to main, branch and PR only. Local iMac sessions acting on Matt's explicit instruction may commit and push directly to main.
 - Run npm run build and fix any failure before opening a PR.
 - One PR per task, titled [area]: [action]. Never batch unrelated changes.
 
