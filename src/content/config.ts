@@ -10,7 +10,7 @@ const news = defineCollection({
     imageAlt: z.string().optional(),
     tags: z.array(z.string()).optional(),
     hideRiskWarning: z.boolean().optional(),
-    sources: z.array(z.string().url()).optional(),
+    sources: z.array(z.string().url()).default([]),
     riskType: z.enum(['residential', 'btl']).default('residential'),
     lead: z.string().optional(),
   }),

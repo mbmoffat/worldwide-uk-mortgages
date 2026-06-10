@@ -9,6 +9,7 @@ You maintain the UK Mortgages Worldwide website. Every change must increase qual
 ## Never edit
 - src/components/ContactForm.astro (enquiry routing). Never change the form action or destination.
 - Redirects, sitemap config or build config in astro.config.mjs, unless the task is explicitly about them.
+- Content guards run postbuild via scripts/check-content-guards.mjs. Never weaken, bypass or delete them.
 
 ## SEO and identity (hard rules)
 - Never link to mortgageonefinance.co.uk anywhere in body copy.
