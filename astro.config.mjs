@@ -6,12 +6,16 @@ export const SITE_SHORTNAME = 'UK Mortgages Worldwide';
 
 export default defineConfig({
   site: 'https://ukmortgagesworldwide.com',
+  trailingSlash: 'never',
   integrations: [
     sitemap({
       changefreq: 'weekly',
       priority: 0.7,
       lastmod: new Date(),
       serialize(item) {
+        if (item.url !== 'https://ukmortgagesworldwide.com/') {
+          item.url = item.url.replace(/\/$/, '');
+        }
         // Per-page priority and changefreq overrides based on URL pattern
         if (item.url === 'https://ukmortgagesworldwide.com/') {
           item.changefreq = 'daily';
