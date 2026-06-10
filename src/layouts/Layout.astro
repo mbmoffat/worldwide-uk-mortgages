@@ -22,104 +22,104 @@ const ogImage = new URL('/og-default.png', Astro.site).toString();
 const currentYear = new Date().getFullYear();
 
 const mortgages = [
-  { label: 'UK Mortgages for Expats', href: '/expat-mortgages/' },
-  { label: 'UK Mortgages for Non-UK Residents', href: '/non-uk-resident-mortgages/' },
-  { label: 'UK Mortgages with Foreign Income', href: '/uk-mortgage-foreign-income/' },
-  { label: 'UK Mortgages Living Abroad', href: '/uk-mortgage-living-abroad/' },
-  { label: 'Seafarer Mortgages', href: '/seafarer-mortgages/' },
-  { label: 'Superyacht Crew', href: '/seafarer-mortgages/superyacht-crew/', child: true },
-  { label: 'Cruise Ship Crew', href: '/seafarer-mortgages/cruise-ship-crew/', child: true },
-  { label: 'Airline Pilot and Cabin Crew', href: '/airline-pilot-mortgages/' },
-  { label: 'Offshore Oil and Gas Workers', href: '/offshore-worker-mortgages/' },
-  { label: 'International School Teachers', href: '/international-teacher-mortgages/' },
-  { label: 'Locum Doctors', href: '/locum-doctor-mortgages/' },
-  { label: 'Expat Buy-to-Let', href: '/expat-mortgages/buy-to-let/' },
-  { label: 'Non-UK Resident Buy-to-Let', href: '/non-uk-resident-mortgages/buy-to-let/' },
-  { label: 'Foreign Nationals in UK', href: '/uk-mortgage-for-foreign-nationals/' },
-  { label: 'Skilled Worker Visa', href: '/uk-mortgage-for-foreign-nationals/skilled-worker-visa/', child: true },
-  { label: 'Spouse Visa', href: '/uk-mortgage-for-foreign-nationals/spouse-visa/', child: true },
-  { label: 'Without ILR', href: '/uk-mortgage-for-foreign-nationals/without-ilr/', child: true },
-  { label: 'BNO Visa', href: '/uk-mortgage-for-foreign-nationals/bno-visa/', child: true },
+  { label: 'UK Mortgages for Expats', href: '/expat-mortgages' },
+  { label: 'UK Mortgages for Non-UK Residents', href: '/non-uk-resident-mortgages' },
+  { label: 'UK Mortgages with Foreign Income', href: '/uk-mortgage-foreign-income' },
+  { label: 'UK Mortgages Living Abroad', href: '/uk-mortgage-living-abroad' },
+  { label: 'Seafarer Mortgages', href: '/seafarer-mortgages' },
+  { label: 'Superyacht Crew', href: '/seafarer-mortgages/superyacht-crew', child: true },
+  { label: 'Cruise Ship Crew', href: '/seafarer-mortgages/cruise-ship-crew', child: true },
+  { label: 'Airline Pilot and Cabin Crew', href: '/airline-pilot-mortgages' },
+  { label: 'Offshore Oil and Gas Workers', href: '/offshore-worker-mortgages' },
+  { label: 'International School Teachers', href: '/international-teacher-mortgages' },
+  { label: 'Locum Doctors', href: '/locum-doctor-mortgages' },
+  { label: 'Expat Buy-to-Let', href: '/expat-mortgages/buy-to-let' },
+  { label: 'Non-UK Resident Buy-to-Let', href: '/non-uk-resident-mortgages/buy-to-let' },
+  { label: 'Foreign Nationals in UK', href: '/uk-mortgage-for-foreign-nationals' },
+  { label: 'Skilled Worker Visa', href: '/uk-mortgage-for-foreign-nationals/skilled-worker-visa', child: true },
+  { label: 'Spouse Visa', href: '/uk-mortgage-for-foreign-nationals/spouse-visa', child: true },
+  { label: 'Without ILR', href: '/uk-mortgage-for-foreign-nationals/without-ilr', child: true },
+  { label: 'BNO Visa', href: '/uk-mortgage-for-foreign-nationals/bno-visa', child: true },
 ];
 
 const countryRegions = [
   {
     region: 'EUROPE',
     items: [
-      { label: 'France', href: '/expat-mortgages/countries/france/' },
-      { label: 'Germany', href: '/expat-mortgages/countries/germany/' },
-      { label: 'Ireland', href: '/expat-mortgages/countries/ireland/' },
-      { label: 'Netherlands', href: '/expat-mortgages/countries/netherlands/' },
-      { label: 'Norway', href: '/expat-mortgages/countries/norway/' },
-      { label: 'Portugal', href: '/expat-mortgages/countries/portugal/' },
-      { label: 'Spain', href: '/expat-mortgages/countries/spain/' },
-      { label: 'Switzerland', href: '/expat-mortgages/countries/switzerland/' },
+      { label: 'France', href: '/expat-mortgages/countries/france' },
+      { label: 'Germany', href: '/expat-mortgages/countries/germany' },
+      { label: 'Ireland', href: '/expat-mortgages/countries/ireland' },
+      { label: 'Netherlands', href: '/expat-mortgages/countries/netherlands' },
+      { label: 'Norway', href: '/expat-mortgages/countries/norway' },
+      { label: 'Portugal', href: '/expat-mortgages/countries/portugal' },
+      { label: 'Spain', href: '/expat-mortgages/countries/spain' },
+      { label: 'Switzerland', href: '/expat-mortgages/countries/switzerland' },
     ],
   },
   {
     region: 'GULF',
     items: [
-      { label: 'Bahrain', href: '/expat-mortgages/countries/bahrain/' },
-      { label: 'Dubai / UAE', href: '/expat-mortgages/countries/dubai/' },
-      { label: 'Kuwait', href: '/expat-mortgages/countries/kuwait/' },
-      { label: 'Oman', href: '/expat-mortgages/countries/oman/' },
-      { label: 'Qatar', href: '/expat-mortgages/countries/qatar/' },
-      { label: 'Saudi Arabia', href: '/expat-mortgages/countries/saudi-arabia/' },
+      { label: 'Bahrain', href: '/expat-mortgages/countries/bahrain' },
+      { label: 'Dubai / UAE', href: '/expat-mortgages/countries/dubai' },
+      { label: 'Kuwait', href: '/expat-mortgages/countries/kuwait' },
+      { label: 'Oman', href: '/expat-mortgages/countries/oman' },
+      { label: 'Qatar', href: '/expat-mortgages/countries/qatar' },
+      { label: 'Saudi Arabia', href: '/expat-mortgages/countries/saudi-arabia' },
     ],
   },
   {
     region: 'ASIA-PACIFIC',
     items: [
-      { label: 'Australia', href: '/expat-mortgages/countries/australia/' },
-      { label: 'Hong Kong', href: '/expat-mortgages/countries/hong-kong/' },
-      { label: 'Japan', href: '/expat-mortgages/countries/japan/' },
-      { label: 'Malaysia', href: '/expat-mortgages/countries/malaysia/' },
-      { label: 'New Zealand', href: '/expat-mortgages/countries/new-zealand/' },
-      { label: 'Singapore', href: '/expat-mortgages/countries/singapore/' },
-      { label: 'Thailand', href: '/expat-mortgages/countries/thailand/' },
+      { label: 'Australia', href: '/expat-mortgages/countries/australia' },
+      { label: 'Hong Kong', href: '/expat-mortgages/countries/hong-kong' },
+      { label: 'Japan', href: '/expat-mortgages/countries/japan' },
+      { label: 'Malaysia', href: '/expat-mortgages/countries/malaysia' },
+      { label: 'New Zealand', href: '/expat-mortgages/countries/new-zealand' },
+      { label: 'Singapore', href: '/expat-mortgages/countries/singapore' },
+      { label: 'Thailand', href: '/expat-mortgages/countries/thailand' },
     ],
   },
   {
     region: 'AMERICAS',
     items: [
-      { label: 'Canada', href: '/expat-mortgages/countries/canada/' },
-      { label: 'USA', href: '/expat-mortgages/countries/usa/' },
+      { label: 'Canada', href: '/expat-mortgages/countries/canada' },
+      { label: 'USA', href: '/expat-mortgages/countries/usa' },
     ],
   },
   {
     region: 'OTHERS',
     items: [
-      { label: 'South Africa', href: '/expat-mortgages/countries/south-africa/' },
+      { label: 'South Africa', href: '/expat-mortgages/countries/south-africa' },
     ],
   },
 ];
 
 const calculators = [
-  { label: 'Stamp Duty Calculator', href: '/tools/stamp-duty-calculator/' },
-  { label: 'Expat Mortgage Calculator', href: '/tools/expat-mortgage-calculator/' },
+  { label: 'Stamp Duty Calculator', href: '/tools/stamp-duty-calculator' },
+  { label: 'Expat Mortgage Calculator', href: '/tools/expat-mortgage-calculator' },
 ];
 
 const guides = [
-  { label: 'All Guides', href: '/guides/' },
-  { label: 'Expat Mortgage Rates', href: '/expat-mortgages/rates/' },
-  { label: 'Expat Mortgage Deposit', href: '/expat-mortgages/deposit/' },
-  { label: 'The Application Process', href: '/expat-mortgages/process/' },
-  { label: 'Expat Remortgaging', href: '/expat-mortgages/remortgage/' },
-  { label: 'Expat Mortgage Broker', href: '/expat-mortgage-broker/' },
-  { label: 'Expat First-Time Buyer', href: '/expat-mortgages/first-time-buyer/' },
-  { label: 'Buy-to-Let from Abroad', href: '/expat-mortgages/buy-to-let-from-abroad/' },
-  { label: 'Expat BTL Rates', href: '/expat-mortgages/buy-to-let/rates/' },
-  { label: 'Non-Resident Landlord Scheme', href: '/guides/non-resident-landlord-scheme/' },
-  { label: 'NRL1 Form Explained', href: '/guides/nrl1-form-explained/' },
-  { label: 'Buying UK Property from Overseas', href: '/guides/buying-uk-property-from-overseas/' },
-  { label: 'Superyacht Crew Mortgages', href: '/seafarer-mortgages/superyacht-crew/' },
-  { label: 'Cruise Ship Crew Mortgages', href: '/seafarer-mortgages/cruise-ship-crew/' },
-  { label: 'Airline Pilot and Cabin Crew Mortgages', href: '/airline-pilot-mortgages/' },
-  { label: 'Offshore Oil and Gas Worker Mortgages', href: '/offshore-worker-mortgages/' },
-  { label: 'International School Teacher Mortgages', href: '/international-teacher-mortgages/' },
-  { label: 'Locum Doctor Mortgages', href: '/locum-doctor-mortgages/' },
-  { label: 'Returning to the UK', href: '/expat-mortgages/returning-to-uk/' },
-  { label: 'No UK Credit History', href: '/expat-mortgages/no-uk-credit-history/' },
+  { label: 'All Guides', href: '/guides' },
+  { label: 'Expat Mortgage Rates', href: '/expat-mortgages/rates' },
+  { label: 'Expat Mortgage Deposit', href: '/expat-mortgages/deposit' },
+  { label: 'The Application Process', href: '/expat-mortgages/process' },
+  { label: 'Expat Remortgaging', href: '/expat-mortgages/remortgage' },
+  { label: 'Expat Mortgage Broker', href: '/expat-mortgage-broker' },
+  { label: 'Expat First-Time Buyer', href: '/expat-mortgages/first-time-buyer' },
+  { label: 'Buy-to-Let from Abroad', href: '/expat-mortgages/buy-to-let-from-abroad' },
+  { label: 'Expat BTL Rates', href: '/expat-mortgages/buy-to-let/rates' },
+  { label: 'Non-Resident Landlord Scheme', href: '/guides/non-resident-landlord-scheme' },
+  { label: 'NRL1 Form Explained', href: '/guides/nrl1-form-explained' },
+  { label: 'Buying UK Property from Overseas', href: '/guides/buying-uk-property-from-overseas' },
+  { label: 'Superyacht Crew Mortgages', href: '/seafarer-mortgages/superyacht-crew' },
+  { label: 'Cruise Ship Crew Mortgages', href: '/seafarer-mortgages/cruise-ship-crew' },
+  { label: 'Airline Pilot and Cabin Crew Mortgages', href: '/airline-pilot-mortgages' },
+  { label: 'Offshore Oil and Gas Worker Mortgages', href: '/offshore-worker-mortgages' },
+  { label: 'International School Teacher Mortgages', href: '/international-teacher-mortgages' },
+  { label: 'Locum Doctor Mortgages', href: '/locum-doctor-mortgages' },
+  { label: 'Returning to the UK', href: '/expat-mortgages/returning-to-uk' },
+  { label: 'No UK Credit History', href: '/expat-mortgages/no-uk-credit-history' },
 ];
 ---
 
@@ -204,7 +204,7 @@ const guides = [
               <span class="nav-dropdown-caret" aria-hidden="true">▾</span>
             </button>
             <div class="nav-dropdown-menu nav-dropdown-menu--scroll" id="nav-countries-menu" role="menu">
-              <a href="/expat-mortgages/countries/" role="menuitem">All Countries</a>
+              <a href="/expat-mortgages/countries" role="menuitem">All Countries</a>
               <div class="nav-dropdown-separator" aria-hidden="true"></div>
               {countryRegions.map((group) => (
                 <>
@@ -253,8 +253,8 @@ const guides = [
             </div>
           </div>
 
-          <a href="/news/">News</a>
-          <a href="/about/">About</a>
+          <a href="/news">News</a>
+          <a href="/about">About</a>
           <a class="nav-cta" href="#contact-form">Contact</a>
         </nav>
       </div>
@@ -275,14 +275,14 @@ const guides = [
           </div>
           <div class="footer-disclosure">
             <ul class="footer-links">
-              <li><a href="/about/">About</a></li>
-              <li><a href="/contact/">Contact</a></li>
-              <li><a href="/sitemap/">Sitemap</a></li>
-              <li><a href="/complaints/">Complaints</a></li>
+              <li><a href="/about">About</a></li>
+              <li><a href="/contact">Contact</a></li>
+              <li><a href="/sitemap">Sitemap</a></li>
+              <li><a href="/complaints">Complaints</a></li>
             </ul>
             <ul class="footer-links">
               <li><a href="https://www.quilter.com/important-information/privacy-notices/appointed-representative-privacy-notice/" target="_blank" rel="noopener">Privacy Notice</a></li>
-              <li><a href="/terms/">Terms and Conditions</a></li>
+              <li><a href="/terms">Terms and Conditions</a></li>
             </ul>
           </div>
         </div>

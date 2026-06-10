@@ -34,3 +34,6 @@ When choosing what to build or improve each run, prioritise in this order:
 3. Winnable over high-volume. Weigh keyword difficulty and traffic potential against UKMW's authority. Prefer a winnable high-intent term over a high-volume term UKMW cannot realistically rank for. Conversion intent beats raw volume.
 
 Before drafting or rewriting a page, check the live SERP for the target keyword and match the dominant intent so the page can compete. Confirm an existing UKMW page does not already target that term.
+
+## URL policy
+Canonical form is non-www with no trailing slash. Never add trailing slashes to internal links. The edge 308s enforce this, do not rely on them.

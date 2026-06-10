@@ -8,8 +8,8 @@ interface Props {
 
 const { eyebrow, title, description, href } = Astro.props;
 const normHref =
-  href.startsWith('/') && !href.endsWith('/') && !href.includes('#') && !href.includes('?')
-    ? `${href}/`
+  href.startsWith('/') && href !== '/' && href.endsWith('/') && !href.includes('#') && !href.includes('?')
+    ? href.replace(/\/$/, '')
     : href;
 ---
 
