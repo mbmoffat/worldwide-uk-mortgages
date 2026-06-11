@@ -11,6 +11,7 @@
 //   G4 FAQ count          - FAQPage mainEntity count matches rendered questions
 //   G5 Sources presence   - every news md defines `sources` as an array
 //   G6 Internal 404s      - every internal /href resolves to a built file
+//   G7 Trailing slashes   - no internal /href ends with a trailing slash
 //
 // HTML is parsed with parse5 (spec-compliant) rather than regex so the
 // DOM scoping for G1 and G4 is reliable.
@@ -359,6 +360,33 @@ function resolvesInDist(path) {
     candidates.push(`${rel}.html`); // file format
   }
   return candidates.some((c) => distFileSet.has(c));
+}
+
+// G7: no internal href carries a trailing slash. Canonical URL form is
+// non-www with no trailing slash; the edge 308s every slashed form to it,
+// so a slashed internal link forces a redirect on every click and crawl.
+// A href is internal if it starts with "/" and not "//". Query and fragment
+// are stripped before testing. The site root "/" is the only allowed slash.
+{
+  const offenders = [];
+  for (const page of pages) {
+    const anchors = findAll(page.doc, (el) => el.tagName === 'a');
+    for (const a of anchors) {
+      const href = getAttr(a, 'href');
+      if (!href) continue;
+      const h = href.trim();
+      if (!h.startsWith('/') || h.startsWith('//')) continue; // internal only
+      const path = h.split('#')[0].split('?')[0];
+      if (path === '/') continue; // root is the only allowed slash
+      if (path.endsWith('/')) offenders.push(`${page.rel}  ->  ${href}`);
+    }
+  }
+  const failures = [];
+  if (offenders.length) {
+    failures.push(`${offenders.length} trailing-slash internal links`);
+    failures.push(...offenders.slice(0, 20));
+  }
+  record('G7', 'trailing-slash internal links', failures);
 }
 
 // --- report -----------------------------------------------------------------

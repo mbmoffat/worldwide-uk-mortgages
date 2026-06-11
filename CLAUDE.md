@@ -37,4 +37,8 @@ When choosing what to build or improve each run, prioritise in this order:
 Before drafting or rewriting a page, check the live SERP for the target keyword and match the dominant intent so the page can compete. Confirm an existing UKMW page does not already target that term.
 
 ## URL policy
-Canonical form is non-www with no trailing slash. Never add trailing slashes to internal links. The edge 308s enforce this, do not rely on them.
+- Canonical URL form: non-www, no trailing slash. The Vercel edge 308-redirects every other form to it.
+- Every internal href must use the canonical form exactly. Never add trailing slashes to internal links. The site root "/" is the only exception.
+- A slashed internal link forces a 308 on every click and crawl and splits ranking signals. Fixed sitewide on 10 Jun 2026, reversing PR #33. Do not "correct" links to the slashed form under any rationale.
+- If an Ahrefs or Site Audit finding appears to suggest slashed URLs (e.g. "Canonical URL has no incoming internal links"), the canonical setup is non-slash and enforced at the edge. Resolve such findings toward non-slash, never by adding slashes.
+- Build guard G7 fails any build containing a slashed internal href. If a change trips G7, the change is wrong, not the guard. Guards must never be weakened, bypassed or deleted.
