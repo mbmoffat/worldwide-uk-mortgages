@@ -6,7 +6,7 @@ import RiskWarning from '../../../components/RiskWarning.astro';
 import TerritorialScope from '../../../components/TerritorialScope.astro';
 import { breadcrumbSchema, articleSchema } from '../../../lib/schema';
 
-const title = 'All Countries';
+const title = 'UK Expat Mortgage Country Guides';
 const description =
   'Country-specific UK mortgage guides for British expats. Lender appetite, currency treatment, deposits, and rates by country of residence.';
 
@@ -16,7 +16,7 @@ const schemas = [
     { name: 'UK Mortgages for Expats', path: '/expat-mortgages' },
     { name: 'Countries', path: '/expat-mortgages/countries' },
   ]),
-  articleSchema({ headline: 'All Countries', description }),
+  articleSchema({ headline: 'UK Expat Mortgage Country Guides', description }),
 ];
 
 const entries = [
@@ -50,7 +50,7 @@ const entries = [
 <T7Layout
   title={title}
   description={description}
-  h1="All Countries"
+  h1="UK Expat Mortgage Country Guides"
   eyebrow="COUNTRIES"
   schemas={schemas}
 >
