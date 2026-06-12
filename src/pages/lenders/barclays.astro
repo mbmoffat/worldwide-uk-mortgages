@@ -1,0 +1,379 @@
+---
+import HubLayout from '../../layouts/HubLayout.astro';
+import PullQuote from '../../components/PullQuote.astro';
+import MidPageCta from '../../components/MidPageCta.astro';
+import { breadcrumbSchema, serviceSchema } from '../../lib/schema';
+import RiskWarning from '../../components/RiskWarning.astro';
+import TerritorialScope from '../../components/TerritorialScope.astro';
+
+const title = 'Barclays Non-UK Resident Mortgage: A Practical Guide';
+const description =
+  'What Barclays offers non-UK residents and expats, where it differs from dedicated offshore lenders, and which borrower profiles it suits best.';
+const h1 = 'Barclays Mortgages for Non-UK Residents: A Practical Guide';
+const subheadline =
+  "What Barclays actually offers non-UK residents wanting a UK mortgage, how it differs from dedicated offshore lenders such as HSBC Expat and NatWest International, and which borrower profiles it suits best. An independent guide written for British nationals abroad and overseas-based buyers considering a Barclays application.";
+
+const relatedPages = [
+  {
+    eyebrow: 'Hub',
+    title: 'UK Mortgages for Non-UK Residents',
+    description:
+      'Foreign nationals or British expats wanting a UK mortgage on UK property. The lender pool, deposits, and rates explained.',
+    href: '/non-uk-resident-mortgages',
+  },
+  {
+    eyebrow: 'Hub',
+    title: 'UK Mortgages for Expats',
+    description:
+      'British nationals living abroad. Country-by-country lender appetite, currency haircuts, and timelines.',
+    href: '/expat-mortgages',
+  },
+  {
+    eyebrow: 'Lender',
+    title: 'HSBC Expat Mortgages',
+    description:
+      'What HSBC Expat lends on, who qualifies, rates and deposits, and where HSBC sits in the wider expat lender landscape.',
+    href: '/lenders/hsbc-expat',
+  },
+  {
+    eyebrow: 'Lender',
+    title: 'NatWest International Mortgages',
+    description:
+      'What NatWest International lends on, who qualifies, and where NatWest sits in the wider expat lender landscape.',
+    href: '/lenders/natwest-international',
+  },
+  {
+    eyebrow: 'Lender',
+    title: 'Skipton International Mortgages',
+    description:
+      'What Skipton International lends on, who qualifies, and where Skipton sits in the wider expat lender landscape.',
+    href: '/lenders/skipton-international',
+  },
+];
+
+const faqs = [
+  {
+    q: 'Does Barclays offer mortgages to non-UK residents?',
+    a: 'Barclays UK mortgages are primarily designed for UK-resident borrowers. Barclays does not operate a dedicated offshore expat mortgage subsidiary in the way that HSBC Expat and NatWest International do. Some applicants with strong UK connections may be considered in limited circumstances.',
+  },
+  {
+    q: "What is the difference between Barclays UK and Barclays Private Bank for mortgages?",
+    a: "Barclays UK serves the mainstream residential mortgage market for UK residents. Barclays Private Bank serves high-net-worth international clients, with entry thresholds that are higher than standard mortgage products. They operate separately, with different eligibility requirements and processes.",
+  },
+  {
+    q: 'Can I use my existing Barclays account to help with a mortgage application?',
+    a: 'An existing Barclays banking relationship may support a mortgage application in terms of documentation, but it does not itself make a non-resident eligible for a UK residential mortgage through Barclays. Eligibility depends on residency status and wider criteria.',
+  },
+  {
+    q: 'What deposit do I need for a Barclays mortgage?',
+    a: 'Standard Barclays residential mortgages typically require at least 10 to 15% deposit for UK residents. Non-resident applicants face higher requirements where Barclays does consider them.',
+  },
+  {
+    q: 'Does Barclays apply a haircut to foreign currency income?',
+    a: 'Yes, where Barclays considers foreign currency income, a reduction is applied to account for currency risk. The treatment varies by currency and is broadly in line with other mainstream UK lenders.',
+  },
+  {
+    q: 'Can I apply for a Barclays mortgage via a broker?',
+    a: 'Yes. Specialist brokers with expat and non-resident experience can access Barclays where it is appropriate, and can compare Barclays against dedicated offshore lenders to find the right fit.',
+  },
+  {
+    q: 'Are there better alternatives to Barclays for non-UK residents?',
+    a: 'Often yes. HSBC Expat, NatWest International, Skipton International, and a range of specialist lenders have built products and underwriting specifically for non-UK-resident borrowers. Most expat and non-resident applicants find the specialist lenders are better suited to their situation.',
+  },
+  {
+    q: 'What if I am a high-net-worth client?',
+    a: "Barclays Private Bank is the relevant arm for HNW clients. Entry thresholds are significantly higher than for standard mortgages. If you do not meet that bar, the specialist expat lenders are usually the better starting point.",
+  },
+  {
+    q: 'Can I buy to let through Barclays as a non-resident?',
+    a: 'Barclays UK buy-to-let products are generally available to UK-resident landlords. Non-resident buy-to-let applicants typically have more success with dedicated expat BTL lenders.',
+  },
+  {
+    q: 'How long does a mortgage application take?',
+    a: 'Standard UK mortgage timelines apply: typically six to ten weeks from application to completion, depending on complexity and the conveyancing chain.',
+  },
+];
+
+const faqSchema = {
+  '@context': 'https://schema.org',
+  '@type': 'FAQPage',
+  mainEntity: faqs.map((f) => ({
+    '@type': 'Question',
+    name: f.q,
+    acceptedAnswer: { '@type': 'Answer', text: f.a },
+  })),
+};
+const schemas = [
+  breadcrumbSchema([
+    { name: 'Home', path: '/' },
+    { name: 'Lenders', path: '/lenders' },
+    { name: 'Barclays Non-UK Resident Mortgage', path: '/lenders/barclays' },
+  ]),
+  serviceSchema({
+    serviceType: 'UK Non-Resident Mortgage Lender Information',
+    name: h1,
+    description,
+  }),
+];
+---
+
+<HubLayout
+  title={title}
+  description={description}
+  h1={h1}
+  subheadline={subheadline}
+  eyebrow="LENDER · BARCLAYS"
+  schemas={schemas}
+  relatedPages={relatedPages}
+>
+  <RiskWarning type="residential" />
+  <TerritorialScope />
+  <section class="hub-section">
+    <div class="hub-section-inner">
+      <h2 id="who-this-is-for">Who this page is for</h2>
+      <p>
+        If you are a <a href="/non-uk-resident-mortgages">non-UK resident</a> or a
+        <a href="/expat-mortgages">British national living abroad</a> and have wondered whether
+        Barclays is an option for your UK mortgage, this page is for you.
+      </p>
+      <p>
+        Barclays is one of the UK's largest banks and a familiar name to many
+        British expatriates who banked with Barclays before moving overseas. The
+        common assumption is that an existing Barclays relationship translates
+        into mortgage access. Understanding what Barclays actually offers
+        non-residents, and where the limits sit, is worth doing before pursuing
+        an application.
+      </p>
+      <p>
+        This page covers what Barclays does and does not lend on for
+        non-UK-resident borrowers, how it differs from lenders that have built
+        dedicated offshore products for this market, and which borrower profiles
+        are most likely to find Barclays a viable option. Independent guide, not
+        a Barclays product page.
+      </p>
+    </div>
+  </section>
+
+  <section class="hub-section">
+    <div class="hub-section-inner">
+      <h2 id="what-barclays-is">What Barclays is, and what it is not</h2>
+      <p>
+        Barclays UK is the high-street mortgage lender serving UK-resident
+        borrowers. Its standard residential and buy-to-let mortgage range is
+        designed for people with a UK address and UK income.
+      </p>
+      <p>
+        Unlike HSBC Expat (a Jersey-based subsidiary) and NatWest International
+        (an offshore arm also based in the Channel Islands), Barclays does not
+        operate a dedicated expat mortgage subsidiary with purpose-built criteria
+        for non-UK-resident borrowers. This distinction matters for
+        applicants weighing up their options.
+      </p>
+      <p>
+        Barclays Private Bank is a separate operation within Barclays Group. It
+        serves high-net-worth international clients and can provide bespoke
+        mortgage lending, but the entry thresholds and minimum wealth levels are
+        substantially higher than those of the standard mortgage market.
+      </p>
+    </div>
+  </section>
+
+  <MidPageCta variant="hero" />
+
+  <section class="hub-section">
+    <div class="hub-section-inner">
+      <h2 id="who-qualifies">Who Barclays might consider</h2>
+      <p>
+        Because Barclays does not have a standard offshore expat product, the
+        situations in which Barclays is a realistic option for non-UK residents
+        are more limited than for dedicated lenders. Profiles that may be
+        considered include:
+      </p>
+      <ul>
+        <li>Applicants with very strong UK connections: existing Barclays Premier or wealth management relationships, UK income alongside foreign income, or UK-based employment even while temporarily abroad.</li>
+        <li>Joint applicants where one party is a UK resident and the other is not, subject to the specific product criteria.</li>
+        <li>High-net-worth clients who meet Barclays Private Bank thresholds and are seeking bespoke lending terms.</li>
+        <li>Returning expatriates who are in the process of re-establishing UK residency.</li>
+      </ul>
+      <p>
+        For a straightforward non-UK-resident purchase with foreign income and
+        no UK address, Barclays UK's standard products are generally not the
+        right fit. The dedicated offshore lenders in this market have
+        underwriting specifically built for that scenario.
+      </p>
+    </div>
+  </section>
+
+  <section class="hub-section">
+    <div class="hub-section-inner">
+      <h2 id="loan-parameters">Property and loan parameters</h2>
+      <p>Where Barclays UK does consider non-resident applicants:</p>
+      <ul>
+        <li>UK residential property for owner-occupation, typically with a strong UK connection.</li>
+        <li>Standard loan-to-value ratios, often more conservative than those available to UK residents.</li>
+        <li>Fixed and tracker mortgage products broadly similar to those available to UK-resident borrowers.</li>
+        <li>Foreign currency income subject to a haircut to account for currency risk.</li>
+      </ul>
+      <p>What Barclays UK typically does not do:</p>
+      <ul>
+        <li>Straightforward expat or non-resident applications where the borrower has no UK ties or income.</li>
+        <li>Buy-to-let for non-UK-resident landlords through standard products.</li>
+        <li>Borrowers from certain higher-risk jurisdictions.</li>
+        <li>Cases where the entire income is in a foreign currency with no UK anchor.</li>
+      </ul>
+    </div>
+  </section>
+
+  <PullQuote>
+    Barclays does not have a dedicated offshore expat mortgage product. For
+    most non-UK-resident borrowers, the specialist expat lenders are better
+    starting points.
+  </PullQuote>
+
+  <section class="hub-section">
+    <div class="hub-section-inner">
+      <h2 id="barclays-vs-specialist">How Barclays compares with dedicated expat lenders</h2>
+      <p>
+        The key difference is infrastructure. Lenders like
+        <a href="/lenders/hsbc-expat">HSBC Expat</a>,
+        <a href="/lenders/natwest-international">NatWest International</a>, and
+        <a href="/lenders/skipton-international">Skipton International</a> have offshore
+        subsidiaries with underwriting teams that handle non-resident cases
+        daily. Their criteria, documentation requirements, and approved-country
+        lists are built around the realities of expat borrowing.
+      </p>
+      <p>
+        Barclays UK's underwriting is calibrated for UK residents. Where it does
+        consider non-resident applicants, the process is less familiar territory
+        for the teams involved, which can translate into longer timelines and
+        more queries than a dedicated specialist lender would generate.
+      </p>
+      <p>
+        For applicants with entirely foreign income and no UK base, the
+        specialist offshore lenders are almost always the better starting
+        point, both for acceptance probability and for processing
+        efficiency.
+      </p>
+    </div>
+  </section>
+
+  <section class="hub-section">
+    <div class="hub-section-inner">
+      <h2 id="barclays-private-bank">Barclays Private Bank: when it is relevant</h2>
+      <p>
+        Barclays Private Bank operates separately from the standard mortgage
+        range and is the route for international clients who meet its wealth and
+        income thresholds. It can provide bespoke mortgage structuring, greater
+        flexibility on income types, and lending into a wider range of
+        countries than the standard Barclays product.
+      </p>
+      <p>
+        Entry thresholds are set at a level that makes Private Bank relevant
+        mainly to clients with significant investable assets or very high
+        incomes. For applicants who do not meet those thresholds, the mainstream
+        expat lenders remain the appropriate channel.
+      </p>
+      <p>
+        Worth noting: even if you do qualify for Barclays Private Bank, it is
+        worth comparing the terms against what specialist expat lenders offer.
+        Private bank pricing is not always more competitive than the best
+        intermediary-only specialist rates.
+      </p>
+    </div>
+  </section>
+
+  <section class="hub-section">
+    <div class="hub-section-inner">
+      <h2 id="how-to-approach">How to approach a Barclays application</h2>
+      <p>
+        If you have an existing Barclays relationship and want to explore whether
+        it extends to mortgage access, the most efficient route is via a
+        specialist broker who deals with Barclays regularly and can give you an
+        early indication of fit.
+      </p>
+      <p>What we add:</p>
+      <p>
+        <strong>Honest assessment of fit.</strong> We know quickly whether a
+        particular non-resident profile is likely to work with Barclays or
+        whether a specialist offshore lender is the better answer. That
+        assessment happens before any credit footprint is left.
+      </p>
+      <p>
+        <strong>Parallel comparison.</strong> We can model Barclays alongside
+        HSBC Expat, NatWest International, Skipton, and specialist lenders
+        simultaneously. If Barclays turns out to be the right answer, that will
+        be clear. If a specialist lender offers better criteria or rate, that
+        will be clear too.
+      </p>
+      <p>
+        <strong>Packaging.</strong> Cases presented to Barclays with the right
+        documentation and framing process more smoothly than self-applied cases.
+        Non-resident files are less routine for Barclays underwriters than for
+        the specialist offshore lenders.
+      </p>
+      <p>
+        <strong>Access to intermediary-only rates and lenders.</strong> Several
+        specialist expat lenders only accept broker-introduced cases. A
+        direct comparison with Barclays requires access to those rates, which
+        are not publicly visible.
+      </p>
+    </div>
+  </section>
+
+  <section class="hub-section">
+    <div class="hub-section-inner">
+      <h2 id="pitfalls">Common pitfalls</h2>
+      <p>
+        <strong>Assuming a Barclays current account means mortgage access.</strong>
+        A banking relationship does not determine mortgage eligibility.
+        Residential mortgage decisions are made on income, deposit, residency
+        status, and affordability assessment.
+      </p>
+      <p>
+        <strong>Applying without checking fit first.</strong>
+        An unsuccessful application with Barclays can leave a credit footprint.
+        Checking fit via a broker before applying avoids unnecessary marks.
+      </p>
+      <p>
+        <strong>Overlooking the specialist expat lenders.</strong>
+        HSBC Expat, NatWest International, and Skipton International have
+        criteria and processes designed specifically for non-resident borrowers.
+        For most expat and non-resident applications, they are worth comparing
+        against Barclays before committing to a route.
+      </p>
+      <p>
+        <strong>Confusing Barclays UK with Barclays Private Bank.</strong>
+        Two different operations with different entry points. Making sure you are
+        talking to the right part of Barclays for your profile matters.
+      </p>
+      <p>
+        <strong>Not accounting for foreign income treatment.</strong>
+        Where Barclays does consider foreign income, a haircut applies. This
+        affects borrowing capacity and should be modelled before deciding which
+        lender to pursue.
+      </p>
+    </div>
+  </section>
+
+  <MidPageCta />
+
+  <section class="hub-section">
+    <div class="hub-section-inner">
+      <h2 id="faqs">Common questions</h2>
+      <div class="faq">
+        {faqs.map((f) => (
+          <>
+            <h3>{f.q}</h3>
+            <p>{f.a}</p>
+          </>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <script
+    type="application/ld+json"
+    is:inline
+    set:html={JSON.stringify(faqSchema)}
+  />
+</HubLayout>
