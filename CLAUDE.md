@@ -18,6 +18,12 @@ You maintain the UK Mortgages Worldwide website. Every change must increase qual
 - Every new page must earn its place. Check existing pages first. No cannibalising or duplicating.
 - Strengthen internal links to and from any page you create or edit.
 
+### Firm name on operational pages (regulatory disclosure)
+- Operational pages (about, contact, complaints, terms) MUST name Mortgage One, a trading style of Sandsea Capital Ltd, an appointed representative of Quilter Financial Services Limited. This is a regulatory firm-disclosure requirement.
+- The "keep UKMW visual identity distinct, do not reuse Mortgage One artwork or wordmark" rule applies to visual design only (hero art, logo, wordmark, colours). It does NOT mean removing the Mortgage One firm name from operational page copy or disclosures.
+- Marketing pages (hubs, country, situation, guide, news) use anonymous editorial "we" and do not name Mortgage One in body copy. Operational pages are the exception and must name it.
+- PR #40 wrongly stripped Mortgage One from the complaints page citing the visual-identity rule. Reverted. Do not repeat.
+
 ## House style
 - British English. No em-dashes. No double hyphens. No semicolons. Restrained commas.
 - SEO titles and meta descriptions: capitalise major words.
