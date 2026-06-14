@@ -1,0 +1,587 @@
+---
+import HubLayout from '../../layouts/HubLayout.astro';
+import PullQuote from '../../components/PullQuote.astro';
+import MidPageCta from '../../components/MidPageCta.astro';
+import { breadcrumbSchema, articleSchema } from '../../lib/schema';
+import RiskWarning from '../../components/RiskWarning.astro';
+import TerritorialScope from '../../components/TerritorialScope.astro';
+
+const title = 'Self-Employed Expat Mortgage UK';
+const description =
+  'Self-employed and living abroad? How UK mortgages work for freelancers, contractors, and company directors working outside the UK. Income rules, documentation, and lender pool explained.';
+const h1 = 'Self-Employed Expat Mortgage UK';
+const subheadline =
+  'Being self-employed and living abroad stacks two complications onto any UK mortgage application. This page explains how lenders assess self-employed income when you are outside the UK, what documentation you need, and how the lender pool differs from a standard expat or resident application.';
+
+const relatedPages = [
+  {
+    eyebrow: 'Hub',
+    title: 'UK Mortgages for Expats',
+    description:
+      'British nationals living abroad. Country-by-country lender appetite, currency haircuts, and timelines.',
+    href: '/expat-mortgages',
+  },
+  {
+    eyebrow: 'Guide',
+    title: 'Expat Mortgage Process',
+    description:
+      'What happens from first conversation to completion, and what to prepare at each stage.',
+    href: '/expat-mortgages/process',
+  },
+  {
+    eyebrow: 'Hub',
+    title: 'UK Mortgages with Foreign Income',
+    description:
+      'How lenders treat non-sterling income. The 20% standard haircut and access to no-haircut lenders.',
+    href: '/uk-mortgage-foreign-income',
+  },
+  {
+    eyebrow: 'Guide',
+    title: 'Expat Mortgage Deposit Requirements',
+    description:
+      'How much deposit you need, what counts as deposit money, and how thresholds shift the rate you pay.',
+    href: '/expat-mortgages/deposit',
+  },
+  {
+    eyebrow: 'Hub',
+    title: 'Expat Buy-to-Let Mortgages',
+    description:
+      'UK buy-to-let mortgages for British nationals living abroad. ICR, deposits, and lender pool.',
+    href: '/expat-mortgages/buy-to-let',
+  },
+];
+
+const faqs = [
+  {
+    q: 'Can I get a UK mortgage as a self-employed expat?',
+    a: 'Yes. Self-employed expats do get UK mortgages. The process involves more documentation and the lender pool is narrower than for employed expats, but the market is active and specialist lenders place these cases regularly.',
+  },
+  {
+    q: 'How many years of self-employment history do I need?',
+    a: 'Most lenders want two years of trading history with accounts to match. Some specialist lenders consider one year on very strong profiles. Applications with less than a year of trading history are generally not viable in the current market.',
+  },
+  {
+    q: 'Which income figure do lenders use for self-employed applications?',
+    a: 'It depends on how you trade. For sole traders, net profit from tax returns. For limited company directors, usually salary plus dividends. For contractors, some lenders use the contract day rate rather than accounts. The figure used varies between lenders and is one of the most significant differences between them for self-employed cases.',
+  },
+  {
+    q: 'Do I need UK tax returns if I live abroad?',
+    a: 'Not necessarily, though most lenders want filed accounts of some form. Foreign country tax returns are accepted by specialist lenders alongside accounts certified by an accountant. Where you have UK-sourced income, UK self-assessment returns are required. Where income is entirely foreign, the foreign tax records and accounts form the evidence.',
+  },
+  {
+    q: 'Does my foreign income get a haircut if I am self-employed?',
+    a: 'Usually yes. The standard reduction most lenders apply to foreign-currency income applies equally to self-employed income. Some specialist lenders do not apply a reduction. For larger self-employed incomes in currencies where this makes a material difference, lender choice on this point is important.',
+  },
+  {
+    q: 'Can I use dividends from my company as income?',
+    a: 'Yes, though lenders vary significantly on how they assess dividend income. Some use salary plus dividends averaged over two years. Some use the lower of the two years. Some use salary only. Some accept the most recent year if it is clearly higher. The right lender depends on your income shape.',
+  },
+  {
+    q: 'What if I have had a gap in self-employment?',
+    a: 'A gap is workable if it was short and explainable, particularly if it occurred during contract transition or restructuring. A longer gap with no clear explanation makes the case harder. The treatment depends on when the gap occurred and how established the trading history was before it.',
+  },
+  {
+    q: 'Can IT contractors living abroad get UK mortgages?',
+    a: 'Yes. IT contractors are one of the largest groups of self-employed expat applicants. The contractor route is handled by specialist lenders who use the contract day rate rather than limited company accounts. The day-rate approach often supports higher borrowing than a standard accounts-based assessment, which is why lender selection matters.',
+  },
+  {
+    q: 'How much deposit do I need as a self-employed expat?',
+    a: 'Usually 25% minimum, with 30% being a more comfortable entry point for the lender pool. Self-employed status narrows the lender pool, and a larger deposit compensates by opening more options. This is more pronounced if you also have a thin UK credit file or are in the early years of trading.',
+  },
+  {
+    q: 'Is a limited company director treated differently from a sole trader?',
+    a: 'Yes. The income figure used, the documentation required, and the lender pool all differ. For directors with a mix of salary, dividends, and retained profit, the right lender and the right presentation of income can make a significant difference to the amount available.',
+  },
+];
+
+const faqSchema = {
+  '@context': 'https://schema.org',
+  '@type': 'FAQPage',
+  mainEntity: faqs.map((f) => ({
+    '@type': 'Question',
+    name: f.q,
+    acceptedAnswer: { '@type': 'Answer', text: f.a },
+  })),
+};
+const schemas = [
+  breadcrumbSchema([
+    { name: 'Home', path: '/' },
+    { name: 'UK Mortgages for Expats', path: '/expat-mortgages' },
+    { name: 'Self-Employed Expat Mortgage', path: '/expat-mortgages/self-employed' },
+  ]),
+  articleSchema({ headline: h1, description }),
+];
+---
+
+<HubLayout
+  title={title}
+  description={description}
+  h1={h1}
+  subheadline={subheadline}
+  eyebrow="Situation · Self-Employed Abroad"
+  schemas={schemas}
+  relatedPages={relatedPages}
+>
+  <RiskWarning type="residential" />
+  <TerritorialScope />
+  <section class="hub-section">
+    <div class="hub-section-inner">
+      <h2 id="the-situation">The situation</h2>
+      <p>
+        You are self-employed and living outside the UK. You want a UK mortgage,
+        either to buy a property or remortgage an existing one. You have read that
+        lenders treat self-employed income differently from PAYE income, and you
+        want to know what that means when you are already living abroad.
+      </p>
+      <p>
+        Two separate complications stack here. Lenders apply stricter documentation
+        requirements to self-employed income than to salaried income. And lenders
+        apply additional checks to expat applications that resident applications
+        do not face. When both apply to the same person, the documentation
+        requirement goes up and the lender pool narrows. The market exists and
+        specialist lenders place these cases regularly. But the route is not the
+        same as a standard application, and the lender you approach matters
+        more than in almost any other scenario.
+      </p>
+    </div>
+  </section>
+
+  <MidPageCta variant="hero" />
+
+  <section class="hub-section">
+    <div class="hub-section-inner">
+      <h2 id="who-this-affects">Who this typically affects</h2>
+      <p>
+        Self-employed status in the context of mortgage applications covers a
+        range of working arrangements. The most common among expat applicants are:
+      </p>
+      <p>
+        <strong>Sole traders working internationally.</strong> Consultants,
+        freelancers, and independent professionals who bill clients directly
+        and file as sole traders. Common in creative industries, IT, consulting,
+        and professional services.
+      </p>
+      <p>
+        <strong>Contractors on fixed-term or rolling contracts.</strong> Particularly
+        IT contractors, engineers, and project managers who work through their own
+        limited companies or personal service companies. Whether a contractor
+        is treated as self-employed or employed depends on the contract structure
+        and whether IR35 applies.
+      </p>
+      <p>
+        <strong>Limited company directors with significant ownership.</strong>
+        If you own 25% or more of the shares in a company, most lenders treat you
+        as self-employed for mortgage purposes, regardless of how you are contracted.
+        British expats who set up a UK or foreign limited company before moving
+        abroad, or after, frequently fall into this category.
+      </p>
+      <p>
+        <strong>Partners in professional firms.</strong> Partners in law firms,
+        accountancy practices, medical partnerships, and similar structures where
+        income is profit-share rather than salary.
+      </p>
+      <p>
+        <strong>Business owners living and working abroad.</strong> UK nationals
+        who have relocated and run a foreign business, or who retained ownership
+        of a UK business while living elsewhere, and are drawing income from it.
+      </p>
+    </div>
+  </section>
+
+  <section class="hub-section">
+    <div class="hub-section-inner">
+      <h2 id="how-lenders-define-self-employment">How lenders define self-employment</h2>
+      <p>
+        For mortgage purposes, the definition of self-employment is set by the
+        lender's criteria, not by employment law or HMRC rules. Most lenders use
+        the following triggers.
+      </p>
+      <p>
+        <strong>Company directorship.</strong> Owning 20% to 25% or more of the
+        shares in a company, combined with a director role, is treated as
+        self-employment by most lenders, whether the company is UK or
+        foreign-registered.
+      </p>
+      <p>
+        <strong>Sole trading.</strong> Filing as a sole trader is treated as
+        self-employment by all lenders.
+      </p>
+      <p>
+        <strong>Partnership income.</strong> Partnership profit shares are
+        treated as self-employed income.
+      </p>
+      <p>
+        <strong>Umbrella company contractors.</strong> Contractors paid via an
+        umbrella company are sometimes treated as employed, depending on the
+        lender. Contractors paid through their own personal service company are
+        treated as self-employed company directors.
+      </p>
+      <p>
+        Getting this classification right at the start of the process matters.
+        The income figure used and the documentation required differ substantially
+        between employment types, and misclassifying the application at the outset
+        can send the case to the wrong lender.
+      </p>
+    </div>
+  </section>
+
+  <PullQuote>
+    The right lender for a self-employed expat depends on both how you trade
+    and where you live. The combination narrows the field.
+  </PullQuote>
+
+  <section class="hub-section">
+    <div class="hub-section-inner">
+      <h2 id="income-calculation">How income is calculated</h2>
+      <p>
+        The income figure used for the mortgage application depends on how you trade.
+        This is where self-employed applications differ most significantly from
+        each other, and where lender choice has the biggest impact on the amount
+        available.
+      </p>
+      <p>
+        <strong>Sole traders.</strong> Most lenders use the net profit figure from
+        two years of tax returns, averaged, or the lower of the two years. Some
+        use the most recent year if the trend is clearly upward. Net profit is
+        after all business expenses are deducted.
+      </p>
+      <p>
+        <strong>Limited company directors.</strong> Income is typically assessed
+        as salary plus dividends, usually averaged over two years. Some lenders
+        also add back a share of retained profit, particularly lenders who use a
+        salary-plus-net-profit approach. The variation between lenders on this
+        point is the widest of any income type: the same director with the same
+        accounts can produce very different borrowing amounts depending on which
+        lender is approached.
+      </p>
+      <p>
+        <strong>Contractors.</strong> Some specialist lenders use the contract
+        day rate or week rate to assess income rather than limited company accounts.
+        A day rate annualised over a standard working year typically produces a
+        higher income figure than two years of averaged limited company accounts,
+        which matters for borrowing capacity. This route only works with lenders
+        that offer a contractor income calculation and is one reason the lender
+        matching step is critical.
+      </p>
+      <p>
+        <strong>Partners.</strong> Partnership profit shares over the last two
+        years, from partnership accounts, usually averaged.
+      </p>
+    </div>
+  </section>
+
+  <section class="hub-section">
+    <div class="hub-section-inner">
+      <h2 id="trading-history">Trading history and the two-year rule</h2>
+      <p>
+        Most lenders require at least two years of trading history in the current
+        business structure. This is the minimum evidence base they need to assess
+        income stability.
+      </p>
+      <p>
+        Two years of accounts means two filed tax returns or sets of company
+        accounts covering two complete trading periods. Applications with one
+        year of history have fewer options, though specialist lenders occasionally
+        consider these on strong profiles with larger deposits, particularly where
+        the new venture is clearly in the same field as prior employment.
+      </p>
+      <p>
+        Structure changes reset the clock for many lenders. Moving from sole
+        trader to limited company is a common change. From the lender's
+        perspective, the limited company has only existed since the change, even
+        if you have traded personally for years beforehand. Some lenders accept
+        combined history across structures. Others require the full two years in
+        the current structure.
+      </p>
+      <p>
+        For expats, the trading history is often in a foreign jurisdiction, which
+        adds documentation requirements but does not in itself disqualify the
+        application. Two years of accounts from a Singapore private limited
+        company, a UAE free zone entity, or a French SARL are all acceptable to
+        specialist lenders, with documentation requirements that vary by
+        jurisdiction.
+      </p>
+    </div>
+  </section>
+
+  <section class="hub-section">
+    <div class="hub-section-inner">
+      <h2 id="foreign-income-layer">Foreign self-employment income and the currency layer</h2>
+      <p>
+        The <a href="/uk-mortgage-foreign-income">foreign income rules</a> apply
+        to self-employed income as they do to employment income. If your income is
+        in a currency other than sterling, most lenders apply a reduction to allow
+        for currency risk. The standard reduction is 20%, meaning a UAE dirham
+        income of 500,000 AED per year is assessed as if it were 80% of its
+        sterling equivalent.
+      </p>
+      <p>
+        Some specialist lenders do not apply the currency reduction at all. This
+        is particularly relevant for self-employed applicants because the income
+        figure is already subject to lender variation. A 20% reduction on top of
+        an income figure that is already lower than the gross earning can reduce
+        the assessed income materially. Finding a no-haircut lender can
+        significantly change the mortgage available to a self-employed expat
+        earning in a major currency.
+      </p>
+      <p>
+        The currency question and the self-employment question interact. A
+        no-haircut lender that uses the director's salary-plus-dividends approach
+        may produce a very different borrowing result from a 20%-reduction lender
+        that averages two years of net profit. Getting both questions right
+        simultaneously, for the same application, is why a broker with
+        current knowledge of lender appetite across both dimensions is essential.
+      </p>
+    </div>
+  </section>
+
+  <section class="hub-section">
+    <div class="hub-section-inner">
+      <h2 id="documentation">Documentation for self-employed expat applications</h2>
+      <p>
+        The documentation pack for a self-employed expat application is the most
+        demanding of any mortgage application type. Self-employment and expat
+        status layer requirements.
+      </p>
+
+      <h3>For all self-employed expat applicants</h3>
+      <ul>
+        <li>UK passport.</li>
+        <li>Proof of current address abroad.</li>
+        <li>Visa or residency permit in the country of residence.</li>
+        <li>Two years of filed accounts (company accounts or tax returns, depending on structure).</li>
+        <li>Accountant reference letter confirming income, trading structure, and status.</li>
+        <li>Six to twelve months of personal and business bank statements.</li>
+        <li>Evidence of tax compliance in the country of residence.</li>
+      </ul>
+
+      <h3>For sole traders</h3>
+      <ul>
+        <li>Two years of SA302s (if UK-registered for self-assessment) or the foreign-country equivalent tax return.</li>
+        <li>Tax year overviews covering the same periods.</li>
+        <li>Business bank statements alongside personal statements.</li>
+      </ul>
+
+      <h3>For limited company directors</h3>
+      <ul>
+        <li>Two years of company accounts.</li>
+        <li>Two years of personal tax returns or SA302s where filed.</li>
+        <li>Confirmation of dividend history from the company accounts.</li>
+        <li>Evidence of your shareholding percentage.</li>
+        <li>Director loan account balance if material.</li>
+      </ul>
+
+      <h3>For contractors</h3>
+      <ul>
+        <li>Current contract in full, showing day or week rate and term.</li>
+        <li>Track record of contract renewals, ideally over two years.</li>
+        <li>Limited company accounts or umbrella payslips, depending on structure.</li>
+        <li>CV showing relevant employment and contract history.</li>
+      </ul>
+
+      <h3>For foreign business owners</h3>
+      <ul>
+        <li>Company accounts from the foreign jurisdiction, typically requiring certified translation if not in English.</li>
+        <li>Evidence of company ownership and structure.</li>
+        <li>Tax returns filed in the country of operation.</li>
+        <li>Accountant letter from a professional in the relevant jurisdiction, ideally one familiar with both UK and local requirements.</li>
+      </ul>
+    </div>
+  </section>
+
+  <PullQuote>
+    The documentation pack for a self-employed expat is the most demanding of
+    any mortgage application type. Preparation before approaching a lender is
+    not optional.
+  </PullQuote>
+
+  <section class="hub-section">
+    <div class="hub-section-inner">
+      <h2 id="what-helps">What helps a self-employed expat application</h2>
+      <p>
+        <strong>Longer trading history.</strong> Two years is the minimum. Three
+        is stronger. Four or more removes almost all income history concerns.
+      </p>
+      <p>
+        <strong>Consistent or rising income.</strong> Two years of growing income
+        is better than two years where the second is lower. Some lenders use the
+        lower of the two years, which is particularly punishing if income dipped
+        in the most recent period.
+      </p>
+      <p>
+        <strong>A larger deposit.</strong> A 30% to 35%
+        <a href="/expat-mortgages/deposit">deposit</a> compensates for the
+        narrowed lender pool. Many self-employed expats find a larger deposit is
+        the most effective lever available to them.
+      </p>
+      <p>
+        <strong>A UK-qualified accountant.</strong> Lenders prefer accounts and
+        tax records prepared by a UK-qualified accountant, even if the business
+        is foreign. A UK accountant who understands both jurisdictions and can
+        produce documentation in a format lenders recognise is a material
+        advantage over relying on foreign-language accounts alone.
+      </p>
+      <p>
+        <strong>Clean tax affairs in both jurisdictions.</strong> Tax compliance
+        in both the country of residence and the UK (where applicable) gives
+        lenders confidence. Outstanding tax liabilities or undisclosed obligations
+        complicate the application.
+      </p>
+      <p>
+        <strong>Structural consistency.</strong> Remaining in the same trading
+        structure over the two-year period is better than switching between
+        sole trader and limited company within the window being assessed.
+      </p>
+    </div>
+  </section>
+
+  <section class="hub-section">
+    <div class="hub-section-inner">
+      <h2 id="complications">Common complications</h2>
+      <p>
+        <strong>Income dropped in the most recent year.</strong> Many lenders use
+        the lower of two years. A significant dip in the most recent period can
+        reduce the available mortgage substantially. Some lenders use an average,
+        which softens the impact. The right lender depends on the income profile.
+      </p>
+      <p>
+        <strong>Mixed income sources.</strong> Self-employed income combined with
+        foreign PAYE employment is common for expats who do both. Lenders handle
+        this differently. Some use one income stream. Some combine them.
+        Documentation requirements double.
+      </p>
+      <p>
+        <strong>Retained profit in the company.</strong> Profit left in the
+        company that has not been drawn as salary or dividends is treated
+        differently by different lenders. Some allow retained profit to support
+        the application. Others use only income that has been drawn and declared.
+      </p>
+      <p>
+        <strong>Very recent move to self-employment.</strong> Moving from
+        employment to self-employment at around the same time as relocating abroad
+        is a double complication: the self-employed history is short and the
+        expat status is new. This is workable but the lender pool narrows
+        significantly.
+      </p>
+      <p>
+        <strong>Dual tax residency.</strong> Being tax resident in two countries
+        simultaneously creates complexity in the documentation pack. Applications
+        where the tax position is genuinely complex need a broker who can
+        package the case clearly so the underwriter sees the full picture
+        without confusion.
+      </p>
+    </div>
+  </section>
+
+  <MidPageCta />
+
+  <section class="hub-section">
+    <div class="hub-section-inner">
+      <h2 id="process">How the application process works</h2>
+      <p>
+        The <a href="/expat-mortgages/process">overall expat mortgage process</a>
+        applies. Self-employed applications typically add time in two specific stages.
+      </p>
+      <p>
+        <strong>Step 1: Documentation audit before application.</strong> A
+        self-employed expat application benefits from a documentation review
+        before anything goes near a lender. The broker checks what two years of
+        accounts show, what income figure is likely to be used, and whether
+        there are gaps or complications that need addressing in advance.
+      </p>
+      <p>
+        <strong>Step 2: Lender selection.</strong> This is more important for
+        self-employed cases than for almost any other type. The income figure
+        used, the currency policy, and the documentation requirements differ
+        significantly between lenders. Mapping the current lender criteria to
+        the specific applicant profile is the step that determines both the
+        income figure and the rate available.
+      </p>
+      <p>
+        <strong>Step 3: Decision in principle.</strong> Returned within 24 to
+        72 hours at most lenders. For self-employed cases, the DIP may include
+        specific conditions about the accounts and income evidence required.
+      </p>
+      <p>
+        <strong>Step 4: Documentation gathering.</strong> This takes longer for
+        self-employed expats than for almost any other applicant type. Accounts
+        from a foreign jurisdiction may need certified translation. Accountant
+        letters need to cover specific questions. Budget three to four weeks for
+        this stage and start early.
+      </p>
+      <p>
+        <strong>Step 5: Full application and underwriting.</strong> Manual
+        underwriting is standard for self-employed expat cases. Two to six weeks
+        is typical. More complex cases can take longer.
+      </p>
+      <p>
+        <strong>Step 6: Mortgage offer and completion.</strong> Standard process
+        from offer to completion, handled by the conveyancer.
+      </p>
+      <p>
+        An overall timeline of 12 to 16 weeks from first conversation to
+        completion is realistic for a well-prepared case. Poorly prepared
+        documentation is the most common cause of delay and of declined
+        applications that would otherwise have succeeded.
+      </p>
+    </div>
+  </section>
+
+  <section class="hub-section">
+    <div class="hub-section-inner">
+      <h2 id="why-broker-matters">Why a specialist broker matters</h2>
+      <p>
+        Self-employed expat cases are the most broker-dependent category in the
+        expat mortgage market, for three connected reasons.
+      </p>
+      <p>
+        <strong>Income calculation varies the most between lenders.</strong>
+        For a salaried expat, most lenders use the same income with a haircut
+        or without. For a self-employed expat, different lenders use different
+        income figures from the same accounts. The range between the best and
+        worst outcomes for the same applicant is larger here than in any other
+        category.
+      </p>
+      <p>
+        <strong>Documentation packaging matters more than usual.</strong>
+        Self-employed expat cases succeed or fail based on how the accounts and
+        income history are presented. An underwriter who can clearly see what
+        the income was, how it was earned, and why it is reliable will lend.
+        A broker who places these cases regularly prepares the pack in the format
+        that works for the specific lender.
+      </p>
+      <p>
+        <strong>The lender pool changes.</strong> Which lenders accept
+        self-employed expat applications and on what terms shifts regularly.
+        A broker actively placing these cases tracks the current position. A
+        direct approach to a lender that does not accept the specific profile
+        wastes time and may leave a credit footprint that affects subsequent
+        applications.
+      </p>
+      <p>
+        We place self-employed expat cases regularly and match each profile to
+        the lenders most likely to offer on the terms that work.
+      </p>
+    </div>
+  </section>
+
+  <section class="hub-section">
+    <div class="hub-section-inner">
+      <h2 id="faqs">Common questions</h2>
+      <div class="faq">
+        {faqs.map((f) => (
+          <>
+            <h3>{f.q}</h3>
+            <p>{f.a}</p>
+          </>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <script
+    type="application/ld+json"
+    is:inline
+    set:html={JSON.stringify(faqSchema)}
+  />
+</HubLayout>
