@@ -1,0 +1,390 @@
+---
+import HubLayout from '../../../layouts/HubLayout.astro';
+import PullQuote from '../../../components/PullQuote.astro';
+import MidPageCta from '../../../components/MidPageCta.astro';
+import { breadcrumbSchema, articleSchema, serviceSchema } from '../../../lib/schema';
+import RiskWarning from '../../../components/RiskWarning.astro';
+import TerritorialScope from '../../../components/TerritorialScope.astro';
+
+const title = 'UK Mortgages for British Expats in Italy';
+const description =
+  'UK mortgages for British expats in Italy. Euro income treatment, Italian tax position, deposits, rates, and lender appetite for Milan and beyond.';
+const h1 = 'UK Mortgages for British Expats in Italy';
+const subheadline =
+  "A clear guide to UK mortgages when you live and work in Italy. What you can borrow, how lenders treat euro income, the Italian tax and residency picture, and how we find the right lender for your situation.";
+
+const relatedPages = [
+  {
+    eyebrow: 'Hub',
+    title: 'UK Mortgages for Expats',
+    description:
+      'British nationals living abroad. Country-by-country lender appetite, currency haircuts, and timelines.',
+    href: '/expat-mortgages',
+  },
+  {
+    eyebrow: 'Hub',
+    title: 'UK Mortgages with Foreign Income',
+    description:
+      'How lenders treat non-sterling income. The 20% standard haircut and direct access to no-haircut lenders.',
+    href: '/uk-mortgage-foreign-income',
+  },
+  {
+    eyebrow: 'Country',
+    title: 'UK Mortgages for British Expats in France',
+    description:
+      'France-based expats. Euro income, French tax position, and lender appetite for Paris and regional applicants.',
+    href: '/expat-mortgages/countries/france',
+  },
+  {
+    eyebrow: 'Country',
+    title: 'UK Mortgages for British Expats in Spain',
+    description:
+      'Spain-based expats. Euro income, Beckham Law, autonomo cases, and lender appetite for Madrid and Barcelona.',
+    href: '/expat-mortgages/countries/spain',
+  },
+  {
+    eyebrow: 'Country',
+    title: 'UK Mortgages for British Expats in Switzerland',
+    description:
+      'Switzerland-based expats. CHF income, banking and pharma employers, and lender appetite for Geneva and Zurich.',
+    href: '/expat-mortgages/countries/switzerland',
+  },
+];
+
+const faqs = [
+  {
+    q: 'Can I get a UK mortgage if I live in Italy?',
+    a: 'Yes. Around 10 to 13 lenders in the expat space lend to Italy-resident British nationals. Italy is a well-regarded country in the lender pool.',
+  },
+  {
+    q: 'How is my euro income treated?',
+    a: 'Euro is treated as hard currency. The standard 20 percent haircut applies at most lenders. A handful of specialist lenders apply no haircut, which can significantly increase your borrowing capacity.',
+  },
+  {
+    q: 'Will the lender want my Italian tax return?',
+    a: "Yes. Most lenders want at least the most recent Dichiarazione dei Redditi (or the CU certificate from your employer) plus three to six months of buste paga and bank statements.",
+  },
+  {
+    q: 'Am I treated differently as a partita IVA or self-employed?',
+    a: 'Yes. Self-employed cases under partita IVA need two to three years of Italian tax returns. The lender pool is slightly tighter than for salaried applicants, but most cases are workable with the right lender.',
+  },
+  {
+    q: "Does Italy's Flat Tax regime (Regime dei Nuovi Residenti) affect my application?",
+    a: "It can. The lump-sum substitutive tax on foreign income means that some income may not appear on a standard Italian tax return. Lenders need to understand the structure. Presentation matters and we handle this regularly.",
+  },
+  {
+    q: 'What deposit will I need?',
+    a: 'Typically 25 to 35 percent. Salaried employees of established Italian or international employers access the lower end. Self-employed or complex tax structures may need 30 to 35 percent.',
+  },
+  {
+    q: 'Do I need to be in the UK to apply?',
+    a: 'No. The formal advice meeting takes place in the UK by phone or video.',
+  },
+  {
+    q: 'How long does the application take?',
+    a: 'Typically 10 to 14 weeks. Document translation and certification through Italian notaries can add time compared with other European cases.',
+  },
+  {
+    q: 'Can I use Italian rental income to support the application?',
+    a: 'Sometimes. A small number of lenders consider Italian rental income with proper tax documentation. Most do not. We will tell you upfront which lenders apply here.',
+  },
+];
+
+const faqSchema = {
+  '@context': 'https://schema.org',
+  '@type': 'FAQPage',
+  mainEntity: faqs.map((f) => ({
+    '@type': 'Question',
+    name: f.q,
+    acceptedAnswer: { '@type': 'Answer', text: f.a },
+  })),
+};
+const schemas = [
+  breadcrumbSchema([
+    { name: 'Home', path: '/' },
+    { name: 'UK Mortgages for Expats', path: '/expat-mortgages' },
+    { name: 'Countries', path: '/expat-mortgages/countries' },
+    { name: 'Italy', path: '/expat-mortgages/countries/italy' },
+  ]),
+  articleSchema({ headline: h1, description }),
+  serviceSchema({
+    serviceType: 'UK Mortgage Brokerage for British Expats in Italy',
+    name: h1,
+    description,
+  }),
+];
+---
+
+<HubLayout
+  title={title}
+  description={description}
+  h1={h1}
+  subheadline={subheadline}
+  eyebrow="COUNTRY · EUROPE"
+  schemas={schemas}
+  relatedPages={relatedPages}
+>
+  <RiskWarning type="residential" />
+  <TerritorialScope />
+  <section class="hub-section">
+    <div class="hub-section-inner">
+      <h2 id="who-this-is-for">Who this page is for</h2>
+      <p>
+        If you are a British national living and working in Italy and you
+        want a UK mortgage, this page is for you. Common situations we see:
+      </p>
+      <ul>
+        <li>A British national working in finance, asset management, or banking in Milan, Italy's financial capital.</li>
+        <li>A British national working in fashion, luxury goods, or design for a Milan or Italian regional employer.</li>
+        <li>A British national working in manufacturing, engineering, aerospace, or energy for a large Italian corporate or multinational.</li>
+        <li>A British national working remotely from Italy for a UK or international employer, often under partita IVA or direct employment.</li>
+        <li>A British national who retired to Tuscany, Umbria, the Italian Lakes, or the southern coast and is looking at UK property for family reasons or as an investment.</li>
+        <li>A British national who relocated to Italy post-Brexit and has obtained Italian residency under the Withdrawal Agreement or a subsequent permit.</li>
+        <li>A British national using Italy's Flat Tax regime (Regime dei Nuovi Residenti) as a high-net-worth resident.</li>
+      </ul>
+      <p>
+        Italy is a significant British expat destination, particularly for
+        lifestyle-driven retirees and professionals in finance, fashion, and
+        luxury industries. Tax position and employment structure are usually
+        the key variables in lender selection.
+      </p>
+    </div>
+  </section>
+
+  <MidPageCta variant="hero" />
+
+  <section class="hub-section">
+    <div class="hub-section-inner">
+      <h2 id="lender-view">What UK lenders think of Italy</h2>
+      <p>
+        Italy sits inside the lender comfort zone. It is an EU country with
+        a mature banking sector, transparent tax reporting through the IRPEF
+        system, and a well-established British expat community. Around 10 to
+        13 expat lenders lend to Italy-resident British nationals.
+      </p>
+      <p>Where Italy cases vary:</p>
+      <ul>
+        <li>Salaried employees of large Italian or international employers: clean, well-understood profile.</li>
+        <li>Partita IVA (self-employed or freelance): more documentation needed, two to three years of tax filings, lender pool slightly narrower.</li>
+        <li>Retirees on UK pensions or investment income: deposit-driven cases, smaller but workable lender pool.</li>
+        <li>Flat Tax regime holders: lenders unfamiliar with the structure need careful briefing. Lender selection is the key factor.</li>
+        <li>SRL or other limited company structures: treated similarly to UK limited company directors, with two to three years of company accounts.</li>
+      </ul>
+    </div>
+  </section>
+
+  <section class="hub-section">
+    <div class="hub-section-inner">
+      <h2 id="eur-income">How euro income is treated</h2>
+      <p>
+        The euro is treated as hard currency by all expat lenders. The
+        standard 20 percent currency haircut applies at most lenders. A
+        handful of specialist lenders apply no haircut to euro income, which
+        can increase borrowing capacity materially.
+      </p>
+      <p>
+        Italian income tax (IRPEF) uses progressive rates and includes
+        significant social contributions (contributi previdenziali). Some
+        lenders calculate affordability on gross income; others on net-of-Italian-tax.
+        For higher earners the difference is meaningful. Try the
+        <a href="/tools/expat-mortgage-calculator">expat mortgage calculator</a>
+        to model the impact on your figures.
+      </p>
+    </div>
+  </section>
+
+  <section class="hub-section">
+    <div class="hub-section-inner">
+      <h2 id="tax-residency">The Italian tax and residency picture</h2>
+      <p>
+        Italy treats tax residency strictly. British nationals who spend
+        more than 183 days in Italy in a calendar year, or who have their
+        principal residence or economic interests there, become Italian
+        tax residents. Most British expats in Italy fall into Italian tax
+        residency.
+      </p>
+      <p>
+        The main Italian tax documents UK lenders look for are:
+      </p>
+      <ul>
+        <li>Dichiarazione dei Redditi (annual income tax return, via Form 730 or Modello Redditi PF).</li>
+        <li>CU (Certificazione Unica) from an Italian employer, the equivalent of a UK P60.</li>
+        <li>Buste paga (monthly payslips) for employed applicants.</li>
+        <li>Estratti conto (bank statements) showing salary or income deposits.</li>
+        <li>For partita IVA: two to three years of IRPEF returns plus accountant confirmation of net income.</li>
+      </ul>
+      <p>
+        Italy has a double taxation agreement with the UK, which handles
+        most overlap between Italian and UK tax obligations. Cleanest cases:
+        a salaried PAYE employee of a recognised Italian or international
+        employer, with Italian tax filings in order and no overlapping UK
+        income that complicates the picture.
+      </p>
+    </div>
+  </section>
+
+  <section class="hub-section">
+    <div class="hub-section-inner">
+      <h2 id="flat-tax">The Italian Flat Tax regime</h2>
+      <p>
+        Italy's Regime dei Nuovi Residenti allows new tax residents who
+        have not been Italian tax residents in at least nine of the previous
+        ten years to pay a single annual lump-sum substitutive tax on all
+        foreign-source income, in place of ordinary IRPEF on that income.
+        The regime is available for up to fifteen years. Additional family
+        members can be included at a lower per-person amount.
+      </p>
+      <p>
+        From a UK mortgage lender's perspective, this regime matters
+        because:
+      </p>
+      <ul>
+        <li>Foreign income subject to the flat tax may not appear on a standard Dichiarazione dei Redditi in the way lenders expect.</li>
+        <li>Some lenders are unfamiliar with the structure and may initially decline without proper briefing.</li>
+        <li>Presentation of the income and tax documentation is critical. The case is workable with the right lender and the right preparation.</li>
+      </ul>
+      <p>
+        If you are using the Flat Tax regime, we will tell you upfront which
+        lenders are comfortable with it and how to present the income.
+      </p>
+    </div>
+  </section>
+
+  <PullQuote>
+    Italy cases vary significantly by employment type. A Milan finance
+    employee on PAYE and a partita IVA lifestyle entrepreneur are very
+    different profiles for lenders.
+  </PullQuote>
+
+  <section class="hub-section">
+    <div class="hub-section-inner">
+      <h2 id="deposit-rates">Deposit and rates</h2>
+      <p>
+        Deposits for British expats in Italy typically sit at 25 to 35
+        percent. Salaried applicants in clear-cut situations access the
+        lower end. Self-employed, complex tax structures, or Flat Tax regime
+        holders may need 30 to 35 percent.
+      </p>
+      <p>
+        <a href="/expat-mortgages/rates">Expat rates</a> from Italy are
+        typically 0.3 to 0.6 percent above the equivalent UK-resident
+        product. Italy is comparable to France and Spain in terms of rate
+        treatment for euro-income applicants.
+      </p>
+    </div>
+  </section>
+
+  <section class="hub-section">
+    <div class="hub-section-inner">
+      <h2 id="milan-employers">The Milan finance and fashion employer angle</h2>
+      <p>
+        Milan is Italy's commercial and financial capital. A significant
+        share of British expats in Italy work there, in finance, banking,
+        asset management, luxury goods, fashion, or consulting.
+      </p>
+      <p>
+        Salaried employees of major international employers recognised by
+        UK lenders underwrite cleanly. For employees of smaller Italian
+        employers or newer companies, verification takes longer because
+        the lender may need to research the employer independently.
+      </p>
+      <p>
+        For fashion, luxury, or design roles, income structures can involve
+        bonus or commission elements. Lenders vary in how they treat bonus
+        income: some average it over two to three years, others disregard
+        it entirely. Lender selection matters when a meaningful share of
+        your income is variable.
+      </p>
+    </div>
+  </section>
+
+  <section class="hub-section">
+    <div class="hub-section-inner">
+      <h2 id="partita-iva">The partita IVA angle</h2>
+      <p>
+        A significant share of British expats in Italy work under
+        partita IVA, the standard Italian structure for freelancers and
+        self-employed professionals. UK lenders treat this similarly to a
+        UK sole trader or limited company director: they want two to three
+        years of accounts and a consistent income history.
+      </p>
+      <p>
+        What they will ask for:
+      </p>
+      <ul>
+        <li>Two to three years of Dichiarazione dei Redditi showing the partita IVA income.</li>
+        <li>Commercialista (accountant) confirmation of current income position.</li>
+        <li>Estratti conto showing regular income flows.</li>
+        <li>For regime forfettario (simplified flat-rate regime for lower-turnover self-employed): the tax return is simpler but the income presentation still needs clarity.</li>
+      </ul>
+      <p>
+        Three or more years of consistent partita IVA income opens up most
+        of the expat lender pool. Two years is workable but the choice of
+        lender matters.
+      </p>
+    </div>
+  </section>
+
+  <section class="hub-section">
+    <div class="hub-section-inner">
+      <h2 id="situations">Common situations from Italy</h2>
+      <p>
+        <strong>Milan finance employee buying first UK property.</strong>
+        Cleanest profile. Large employer, predictable PAYE income, euro
+        treated as hard currency. Deposits typically 25 to 30 percent.
+      </p>
+      <p>
+        <strong>Partita IVA in Italy buying UK investment property.</strong>
+        Two to three years of accounts needed. Lender selection is the
+        difference between a smooth application and unnecessary delays.
+      </p>
+      <p>
+        <strong>Tuscany or Umbria retiree.</strong> Pension and investment
+        income, often a UK pension and some Italian assets. Deposit-driven
+        affordability. Smaller lender pool but workable cases, particularly
+        at lower loan-to-value.
+      </p>
+      <p>
+        <strong>Flat Tax regime resident.</strong> Typically a higher-net-worth
+        applicant with foreign-source income. Presentation and lender selection
+        are the critical variables.
+      </p>
+      <p>
+        <strong>Returning to the UK from Italy.</strong> Common path back,
+        particularly after a fixed-term posting. Apply three to four months
+        before the planned move. Income switches from euro to sterling at the
+        point of return. See our
+        <a href="/expat-mortgages/returning-to-uk">returning to the UK</a>
+        guide for more.
+      </p>
+      <p>
+        <strong>Buy-to-let from Italy.</strong> Standard
+        <a href="/expat-mortgages/buy-to-let">expat buy-to-let</a> pattern.
+        Euro income haircut applies to Italian income used in the rental
+        affordability calculation.
+      </p>
+    </div>
+  </section>
+
+  <MidPageCta />
+
+  <section class="hub-section">
+    <div class="hub-section-inner">
+      <h2 id="faqs">Common questions</h2>
+      <div class="faq">
+        {faqs.map((f) => (
+          <>
+            <h3>{f.q}</h3>
+            <p>{f.a}</p>
+          </>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <script
+    type="application/ld+json"
+    is:inline
+    set:html={JSON.stringify(faqSchema)}
+  />
+</HubLayout>
