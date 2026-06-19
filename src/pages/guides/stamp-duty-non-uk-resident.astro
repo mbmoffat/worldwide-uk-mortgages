@@ -1,0 +1,416 @@
+---
+import HubLayout from '../../layouts/HubLayout.astro';
+import PullQuote from '../../components/PullQuote.astro';
+import MidPageCta from '../../components/MidPageCta.astro';
+import { breadcrumbSchema, articleSchema } from '../../lib/schema';
+import RiskWarning from '../../components/RiskWarning.astro';
+import TerritorialScope from '../../components/TerritorialScope.astro';
+
+const title = 'Non-UK Resident Stamp Duty: The 2% Surcharge Explained';
+const description =
+  'The additional 2% SDLT surcharge for non-UK resident buyers. Who pays it, how it stacks with other rates, worked examples, and when a rebate is available.';
+const h1 = 'Non-UK Resident Stamp Duty Explained';
+const subheadline =
+  'If you buy UK property and have not been resident in the UK for the 12 months before purchase, a 2% stamp duty surcharge applies on top of standard rates and any buy-to-let or second-home surcharge. This guide explains who pays it, how the surcharges stack, and when a rebate is available.';
+
+const relatedPages = [
+  {
+    eyebrow: 'Tool',
+    title: 'Stamp Duty Calculator',
+    description:
+      'Calculate UK SDLT including the 2% non-resident surcharge and the additional dwelling surcharge for any purchase price.',
+    href: '/tools/stamp-duty-calculator',
+  },
+  {
+    eyebrow: 'Guide',
+    title: 'Buying UK Property from Overseas',
+    description:
+      'The full process from finding a property to completion when you live abroad. Documentation, timelines, and costs.',
+    href: '/guides/buying-uk-property-from-overseas',
+  },
+  {
+    eyebrow: 'Hub',
+    title: 'UK Mortgages for Non-UK Residents',
+    description:
+      'Foreign nationals or British expats wanting a UK mortgage on UK property. Lender pool, deposits, and rates explained.',
+    href: '/non-uk-resident-mortgages',
+  },
+  {
+    eyebrow: 'Hub',
+    title: 'UK Mortgages for Expats',
+    description:
+      'British nationals living abroad. Country-by-country lender appetite, currency haircuts, and timelines.',
+    href: '/expat-mortgages',
+  },
+  {
+    eyebrow: 'Hub',
+    title: 'Non-Resident Buy-to-Let Mortgages',
+    description:
+      'BTL on UK property from outside the UK. Lender pool, deposits, ICR stress tests, and limited company structures.',
+    href: '/non-uk-resident-mortgages/buy-to-let',
+  },
+];
+
+const faqs = [
+  {
+    q: 'Does the 2% non-resident surcharge apply to first-time buyers?',
+    a: 'Yes. Non-UK residents who are buying their first UK property can still apply for first-time buyer relief on the standard SDLT rates, but the 2% non-resident surcharge applies on top. A non-UK resident first-time buyer pays more SDLT than a UK-resident first-time buyer buying the same property.',
+  },
+  {
+    q: 'Does the surcharge apply to buy-to-let purchases?',
+    a: 'Yes. If you are buying a UK investment property as a non-UK resident, both the higher rates for additional dwellings (HRAD) surcharge and the 2% non-resident surcharge apply. The combined effect is significant. Use the stamp duty calculator to see the exact figure for your purchase price.',
+  },
+  {
+    q: 'My partner is a UK resident. Do we still pay the surcharge?',
+    a: 'Yes. If any buyer on the application is a non-UK resident, the 2% surcharge applies to the whole purchase. Mixed-residency joint purchases are caught by this rule. There is no partial relief where one buyer is UK resident and the other is not.',
+  },
+  {
+    q: 'What counts as a day in the UK for the 183-day test?',
+    a: 'You must be in the UK at the end of the day (midnight) for it to count as a UK day. Days of arrival and departure are treated differently: arrival days usually count, departure days generally do not. Short but regular visits add up quickly, and total days should be calculated carefully if you are close to the 183-day boundary.',
+  },
+  {
+    q: 'Does the surcharge apply in Scotland and Wales?',
+    a: 'No. Property purchases in Scotland are subject to Land and Buildings Transaction Tax (LBTT) administered by Revenue Scotland, which does not include a non-resident surcharge. Wales has Land Transaction Tax (LTT) administered by the Welsh Revenue Authority, which also does not include a non-resident surcharge. The 2% non-resident surcharge applies to England and Northern Ireland only.',
+  },
+  {
+    q: 'Can I get the 2% back if I move to the UK?',
+    a: 'Yes, in certain circumstances. If you bought UK residential property as a non-UK resident, the property was purchased for use as your main home (not a buy-to-let), and you become UK resident within 2 years of completion, you can claim a rebate of the 2% surcharge by amending your SDLT return with HMRC. The claim must be made within 2 years of the purchase.',
+  },
+  {
+    q: 'When is the stamp duty paid?',
+    a: 'SDLT is due within 14 days of completion. Your solicitor normally handles the payment and files the SDLT return on your behalf, using funds you have transferred to them. It is not possible to defer or stage the payment.',
+  },
+  {
+    q: 'I live abroad but this is my only UK property. Do I still pay the surcharge?',
+    a: 'The 2% non-resident surcharge is based on residency status, not on whether the property is an additional dwelling. If you do not meet the UK residency test (fewer than 183 days in the UK in the 12 months before purchase), the 2% applies regardless of how many UK properties you own or whether this is your first.',
+  },
+];
+
+const faqSchema = {
+  '@context': 'https://schema.org',
+  '@type': 'FAQPage',
+  mainEntity: faqs.map((f) => ({
+    '@type': 'Question',
+    name: f.q,
+    acceptedAnswer: { '@type': 'Answer', text: f.a },
+  })),
+};
+const schemas = [
+  breadcrumbSchema([
+    { name: 'Home', path: '/' },
+    { name: 'Guides', path: '/guides' },
+    { name: 'Non-UK Resident Stamp Duty', path: '/guides/stamp-duty-non-uk-resident' },
+  ]),
+  articleSchema({ headline: h1, description }),
+];
+---
+
+<HubLayout
+  title={title}
+  description={description}
+  h1={h1}
+  subheadline={subheadline}
+  eyebrow="GUIDE · STAMP DUTY"
+  ctaHeading="Speak to a specialist mortgage broker"
+  schemas={schemas}
+  relatedPages={relatedPages}
+>
+  <RiskWarning type="residential" />
+  <TerritorialScope />
+  <section class="hub-section">
+    <div class="hub-section-inner">
+      <h2 id="who-this-is-for">Who this page is for</h2>
+      <p>
+        If you are buying UK property as a non-UK resident, the stamp
+        duty bill will be higher than for an equivalent UK-resident buyer.
+        This page explains why, by how much, and what options you have.
+      </p>
+      <p>
+        This applies to British expats living abroad, foreign nationals
+        buying UK property, and anyone else whose UK presence falls below
+        the residency threshold in the year before purchase.
+      </p>
+      <p>
+        For the exact figure on your purchase, use the
+        <a href="/tools/stamp-duty-calculator">stamp duty calculator</a>,
+        which handles all surcharge combinations.
+      </p>
+    </div>
+  </section>
+
+  <MidPageCta variant="hero" />
+
+  <section class="hub-section">
+    <div class="hub-section-inner">
+      <h2 id="what-is-the-surcharge">What the 2% surcharge is</h2>
+      <p>
+        Introduced in April 2021, the non-UK resident SDLT surcharge adds
+        2 percentage points to the Stamp Duty Land Tax rate that applies
+        to each portion of the purchase price. In practical terms, this
+        means the total SDLT bill increases by an amount equivalent to 2%
+        of the purchase price.
+      </p>
+      <p>
+        On a £300,000 property, the surcharge adds £6,000 to the SDLT
+        due. On a £500,000 property, it adds £10,000. This is on top of
+        whatever standard SDLT would otherwise apply, and on top of any
+        additional dwelling surcharge if the property is a buy-to-let or
+        second home.
+      </p>
+      <p>
+        The surcharge applies in England and Northern Ireland. Property
+        in Scotland is subject to Land and Buildings Transaction Tax
+        (LBTT), and property in Wales is subject to Land Transaction Tax
+        (LTT). Neither LBTT nor LTT currently includes a non-resident
+        surcharge.
+      </p>
+    </div>
+  </section>
+
+  <section class="hub-section">
+    <div class="hub-section-inner">
+      <h2 id="residency-test">Are you non-UK resident for SDLT purposes?</h2>
+      <p>
+        SDLT uses its own residency test, which is separate from your UK
+        income tax residency status.
+      </p>
+      <p>
+        The test is straightforward: if you were present in the UK on
+        fewer than 183 days in the 12-month period ending on the
+        completion date of your purchase, you are non-UK resident for
+        SDLT purposes and the 2% surcharge applies.
+      </p>
+      <p>
+        What counts as a day in the UK: you must be in the UK at
+        midnight. Days of arrival typically count. Days of departure
+        typically do not. Regular short visits, even of a week or two at
+        a time, accumulate. If you visit the UK frequently for family or
+        business reasons, the total should be calculated before assuming
+        you fall below 183 days.
+      </p>
+      <p>
+        If you are close to the 183-day boundary, the timing of a
+        purchase completion can affect whether the surcharge applies. A
+        solicitor or tax adviser can confirm your position.
+      </p>
+    </div>
+  </section>
+
+  <PullQuote>
+    The non-UK resident surcharge adds 2% to the total purchase price.
+    On a £500,000 property, that is £10,000 before any other SDLT is
+    considered.
+  </PullQuote>
+
+  <section class="hub-section">
+    <div class="hub-section-inner">
+      <h2 id="stacking">How surcharges stack</h2>
+      <p>
+        SDLT has several distinct surcharge layers, and they combine for
+        non-resident buyers purchasing investment property.
+      </p>
+      <p>
+        <strong>Standard SDLT.</strong> The base SDLT rate applies to all
+        residential property purchases. The rate rises through bands as
+        the purchase price increases.
+      </p>
+      <p>
+        <strong>Higher rates for additional dwellings (HRAD).</strong>
+        A separate surcharge applies if you already own another property
+        anywhere in the world (in most cases), or if you are buying an
+        investment property. This surcharge adds a further percentage to
+        the base rate at each band.
+      </p>
+      <p>
+        <strong>Non-resident surcharge.</strong> An additional 2
+        percentage points on top, if you do not meet the UK residency
+        test described above.
+      </p>
+      <p>
+        For a <a href="/non-uk-resident-mortgages/buy-to-let">non-UK resident buying a buy-to-let</a>
+        property in England, all three layers apply together. The total
+        SDLT is materially higher than for a UK-resident buyer of the
+        same property. Use the
+        <a href="/tools/stamp-duty-calculator">stamp duty calculator</a>
+        to model your specific purchase.
+      </p>
+    </div>
+  </section>
+
+  <section class="hub-section">
+    <div class="hub-section-inner">
+      <h2 id="joint-purchases">Joint purchases: mixed residency</h2>
+      <p>
+        If you are buying with a partner or spouse, and one of you is
+        UK resident while the other is not, the 2% non-resident surcharge
+        applies to the whole transaction.
+      </p>
+      <p>
+        There is no partial relief or apportionment for joint
+        applications where residency statuses differ. If any buyer is
+        non-UK resident, the surcharge applies as if all buyers were
+        non-UK resident.
+      </p>
+      <p>
+        This catches a common scenario: a UK national living abroad
+        buying UK property jointly with a UK-resident partner or family
+        member. The couple as a whole pays the non-resident surcharge.
+      </p>
+      <p>
+        For more on mixed-residency mortgage applications, see the
+        <a href="/non-uk-resident-mortgages/joint-mortgage">joint mortgage page</a>,
+        which covers the income treatment and lender pool for these cases.
+      </p>
+    </div>
+  </section>
+
+  <section class="hub-section">
+    <div class="hub-section-inner">
+      <h2 id="first-time-buyers">First-time buyers and non-residents</h2>
+      <p>
+        First-time buyer SDLT relief is available to non-UK residents who
+        are genuinely buying their first UK property and who otherwise
+        qualify for the relief.
+      </p>
+      <p>
+        The relief reduces the standard SDLT on the first portion of the
+        purchase price. The 2% non-resident surcharge is then applied on
+        top of the reduced standard rate.
+      </p>
+      <p>
+        Net result: a non-UK resident first-time buyer pays less SDLT
+        than a non-UK resident buying a subsequent property, but pays
+        more than a UK-resident first-time buyer of the same property.
+        For more on buying your first UK property as an expat, see the
+        <a href="/expat-mortgages/first-time-buyer">expat first-time buyer page</a>.
+      </p>
+    </div>
+  </section>
+
+  <PullQuote>
+    If any buyer is non-UK resident, the 2% surcharge applies to the
+    whole transaction, regardless of the other buyer's residency status.
+  </PullQuote>
+
+  <section class="hub-section">
+    <div class="hub-section-inner">
+      <h2 id="rebate">The rebate: becoming UK resident after buying</h2>
+      <p>
+        The non-resident SDLT surcharge can be reclaimed in one specific
+        set of circumstances: if you buy UK property as a non-UK resident
+        for use as your main home, then become UK resident within 2 years
+        of completion, you can claim a rebate of the 2% surcharge.
+      </p>
+      <p>The conditions for a refund claim are:</p>
+      <ul>
+        <li>
+          The property was purchased as your main residence, not as a
+          buy-to-let or second home.
+        </li>
+        <li>
+          You become UK resident (that is, you are present in the UK on
+          at least 183 days in any continuous 365-day period) within 2
+          years of completion.
+        </li>
+        <li>
+          The refund claim is made within 2 years of the purchase
+          completion date.
+        </li>
+      </ul>
+      <p>
+        The claim is made by amending the SDLT return with HMRC. A
+        solicitor or tax adviser can handle this.
+      </p>
+      <p>
+        This rebate is most relevant to expats returning to the UK, or to
+        people in the process of relocating who have bought before their
+        UK presence reaches 183 days. For more on buying around a
+        return to the UK, see the
+        <a href="/expat-mortgages/returning-to-uk">returning to the UK page</a>.
+      </p>
+    </div>
+  </section>
+
+  <section class="hub-section">
+    <div class="hub-section-inner">
+      <h2 id="scotland-wales">Scotland and Wales</h2>
+      <p>
+        If you are buying property in Scotland, LBTT applies. Revenue
+        Scotland administers LBTT and it does not include a non-resident
+        surcharge. There is an Additional Dwelling Supplement (ADS) in
+        Scotland for purchases of additional residential properties, but
+        this applies regardless of residency status.
+      </p>
+      <p>
+        If you are buying in Wales, LTT applies. The Welsh Revenue
+        Authority administers LTT and it does not include a non-resident
+        surcharge. Wales has higher residential rates for additional
+        dwellings, but again these are not residency-dependent.
+      </p>
+      <p>
+        Buyers looking at property across England, Scotland, or Wales
+        should confirm which regime applies to the property they are
+        buying before calculating the full tax cost. The
+        <a href="/tools/stamp-duty-calculator">stamp duty calculator</a>
+        covers England and Northern Ireland (SDLT).
+      </p>
+    </div>
+  </section>
+
+  <section class="hub-section">
+    <div class="hub-section-inner">
+      <h2 id="budget-this-early">Budget this before you make an offer</h2>
+      <p>
+        The non-resident SDLT cost is substantial and should be
+        calculated before making an offer, not after. An offer accepted
+        at a price that does not account for the full SDLT bill can lead
+        to a funding shortfall at completion.
+      </p>
+      <p>
+        The full cost of purchasing UK property as a non-UK resident
+        typically includes:
+      </p>
+      <ul>
+        <li>SDLT including the 2% non-resident surcharge (and HRAD surcharge if a BTL or second home).</li>
+        <li>Solicitor fees for conveyancing.</li>
+        <li>Survey and lender valuation fees.</li>
+        <li>Mortgage arrangement and broker fees.</li>
+        <li>Foreign exchange costs if your funds are in a non-sterling currency.</li>
+      </ul>
+      <p>
+        Use the <a href="/tools/stamp-duty-calculator">stamp duty calculator</a>
+        for the SDLT element. For the mortgage side of a purchase,
+        speak with a <a href="/expat-mortgage-broker">specialist expat mortgage broker</a>
+        who works regularly with non-resident purchases.
+      </p>
+    </div>
+  </section>
+
+  <MidPageCta />
+
+  <section class="hub-section">
+    <div class="hub-section-inner">
+      <h2 id="faqs">Common questions</h2>
+      <div class="faq">
+        {faqs.map((f) => (
+          <>
+            <h3>{f.q}</h3>
+            <p>{f.a}</p>
+          </>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <PullQuote>
+    On a £500,000 non-resident buy-to-let purchase, the combined
+    non-resident and additional dwelling surcharges add tens of thousands
+    to the SDLT bill. Calculate before offering.
+  </PullQuote>
+
+  <script
+    type="application/ld+json"
+    is:inline
+    set:html={JSON.stringify(faqSchema)}
+  />
+</HubLayout>
