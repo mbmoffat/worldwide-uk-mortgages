@@ -1,0 +1,438 @@
+---
+import HubLayout from '../../../layouts/HubLayout.astro';
+import PullQuote from '../../../components/PullQuote.astro';
+import MidPageCta from '../../../components/MidPageCta.astro';
+import { breadcrumbSchema, articleSchema } from '../../../lib/schema';
+import RiskWarning from '../../../components/RiskWarning.astro';
+import TerritorialScope from '../../../components/TerritorialScope.astro';
+
+const title = 'UK Mortgages for British Expats in India';
+const description =
+  'A practical guide to UK mortgages when you live and work in India. How lenders treat INR income, what deposit you need, and how a specialist broker finds the right lender for India-based applicants.';
+const h1 = 'UK Mortgages for British Expats in India';
+const subheadline =
+  'A practical guide to UK mortgages when you live and work in India. How lenders treat INR income, what deposit you need, which documentation Indian-based applicants must provide, and how we find the right lender for your situation.';
+
+const relatedPages = [
+  {
+    eyebrow: 'Hub',
+    title: 'UK Mortgages for Expats',
+    description:
+      'British nationals living abroad. Country-by-country lender appetite, currency haircuts, and timelines.',
+    href: '/expat-mortgages',
+  },
+  {
+    eyebrow: 'Hub',
+    title: 'UK Mortgages with Foreign Income',
+    description:
+      'How lenders treat non-sterling income. The standard haircut and how no-haircut lenders change the numbers.',
+    href: '/uk-mortgage-foreign-income',
+  },
+  {
+    eyebrow: 'Country',
+    title: 'UK Mortgages for British Expats in Singapore',
+    description:
+      'Singapore-based expats. SGD income, finance and professional services employer profiles.',
+    href: '/expat-mortgages/countries/singapore',
+  },
+  {
+    eyebrow: 'Country',
+    title: 'UK Mortgages for British Expats in Dubai',
+    description:
+      'British expats in the UAE. Tax-free AED income and the largest Gulf expat market.',
+    href: '/expat-mortgages/countries/dubai',
+  },
+  {
+    eyebrow: 'Country',
+    title: 'UK Mortgages for British Expats in Hong Kong',
+    description:
+      'Hong Kong-based expats. HKD income, finance employer profiles, and lender appetite.',
+    href: '/expat-mortgages/countries/hong-kong',
+  },
+  {
+    eyebrow: 'Guide',
+    title: 'UK Expat Mortgage Process',
+    description:
+      'What happens at each stage of a UK mortgage application from abroad, and what to prepare.',
+    href: '/expat-mortgages/process',
+  },
+];
+
+const faqs = [
+  {
+    q: 'Can I get a UK mortgage while living in India?',
+    a: 'Yes. British nationals based in India can apply for UK mortgages. The lender pool that accepts India-based applicants with INR income is smaller than for the Gulf or Singapore, but it is active and covers residential and buy-to-let cases.',
+  },
+  {
+    q: 'How does INR income affect how much I can borrow?',
+    a: 'Most lenders apply a currency haircut to INR income before calculating affordability. The haircut varies by lender but is typically around 25 percent. A smaller group of specialist lenders accessible through brokers apply no haircut, which can increase borrowing significantly. Try the expat mortgage calculator to see what each scenario means for your figures.',
+  },
+  {
+    q: 'Will UK lenders accept my Form 16?',
+    a: 'Yes. Form 16 is the Indian tax summary issued annually by your employer and is widely understood by expat lenders. It is the standard way to evidence income for salaried applicants in India and does not need translation.',
+  },
+  {
+    q: 'What deposit do I need?',
+    a: 'The working assumption for India-based applicants is 25 percent minimum for residential, 25 to 30 percent for buy-to-let. A larger deposit reduces the lender pool constraint and often unlocks better rates.',
+  },
+  {
+    q: 'Is it harder to get a UK mortgage from India than from the UAE or Singapore?',
+    a: 'The lender pool is somewhat smaller. This is because INR is treated as an emerging market currency and carries more lender caution than AED, SGD, or HKD. The practical effect is that broker involvement matters more here than in those markets.',
+  },
+  {
+    q: 'Can I use my Indian bank statements as income evidence?',
+    a: 'Yes. Statements from major Indian private-sector banks are accepted. The account should clearly show regular salary credits. Some lenders prefer English-language statements, which most large Indian private banks produce as standard.',
+  },
+  {
+    q: 'Can I remortgage from India when my UK fix ends?',
+    a: 'Yes. This is one of the most common reasons India-based applicants contact a broker. If you bought as a UK resident before moving and are now approaching a fix end, the non-resident lender pool applies and a remortgage is straightforward in most cases.',
+  },
+  {
+    q: 'Do I need to travel to the UK to complete the mortgage?',
+    a: 'No. Document notarisation can be handled by the British High Commission offices in Delhi, Mumbai, Chennai, or Kolkata, or by an authorised notary public in India. Most lenders accept remotely notarised documents.',
+  },
+  {
+    q: 'How do time zones affect the application?',
+    a: 'IST is 4.5 to 5.5 hours ahead of UK time depending on the season. UK lender offices operate during hours that overlap with early morning in India, so most communication happens by email. Expect one working day per exchange rather than same-day replies.',
+  },
+  {
+    q: 'I am self-employed and based in India. Can I apply?',
+    a: 'Yes, but self-employed India-based applicants face more scrutiny than salaried ones. Lenders want two to three years of accounts, an accountant reference, and clear evidence of consistent income. The currency challenge applies equally. An experienced broker is essential for self-employed cases from India.',
+  },
+];
+
+const faqSchema = {
+  '@context': 'https://schema.org',
+  '@type': 'FAQPage',
+  mainEntity: faqs.map((f) => ({
+    '@type': 'Question',
+    name: f.q,
+    acceptedAnswer: { '@type': 'Answer', text: f.a },
+  })),
+};
+const schemas = [
+  breadcrumbSchema([
+    { name: 'Home', path: '/' },
+    { name: 'UK Mortgages for Expats', path: '/expat-mortgages' },
+    { name: 'India', path: '/expat-mortgages/countries' },
+  ]),
+  articleSchema({ headline: h1, description }),
+];
+---
+
+<HubLayout
+  title={title}
+  description={description}
+  h1={h1}
+  subheadline={subheadline}
+  eyebrow="Hub · India expat mortgages"
+  schemas={schemas}
+  relatedPages={relatedPages}
+>
+  <RiskWarning type="residential" />
+  <TerritorialScope />
+  <section class="hub-section">
+    <div class="hub-section-inner">
+      <h2 id="who-this-is-for">Who this page is for</h2>
+      <p>
+        If you are a British national living or working in India and you want
+        a mortgage on UK property, this page is for you.
+      </p>
+      <p>
+        That covers buying a UK home while you are based in India, building a
+        UK buy-to-let portfolio remotely, <a href="/expat-mortgages/remortgage">remortgaging a UK property</a> as a
+        fix ends, and planning a move back to the UK in the coming years.
+        India is home to a substantial British professional community across
+        Mumbai, Delhi, Bengaluru, Hyderabad, and Chennai, and many of those
+        professionals hold or want to hold UK property.
+      </p>
+      <p>
+        It also covers joint applications where one applicant is in India and
+        one is in the UK, and cases where the India posting is time-limited
+        and a <a href="/expat-mortgages/returning-to-uk">return to the UK</a> is already in view.
+      </p>
+    </div>
+  </section>
+
+  <MidPageCta variant="hero" />
+
+  <section class="hub-section">
+    <div class="hub-section-inner">
+      <h2 id="currency-picture">The currency picture</h2>
+      <p>
+        You earn in Indian rupees. UK lenders convert that income to sterling
+        for affordability purposes. Most lenders apply a currency haircut,
+        typically around 25 percent, to account for the exchange rate and
+        currency risk. So a gross INR package equivalent to £100,000 is
+        treated as roughly £75,000 before income multiples are applied.
+      </p>
+      <p>
+        A smaller group of specialist lenders, accessible through brokers
+        with the right relationships, do not apply a haircut at all. For
+        India-based applicants, accessing these lenders can make a
+        meaningful difference to the loan available. It is the most
+        important variable in <a href="/expat-mortgages/rates">what you can borrow</a>.
+      </p>
+      <p>
+        The rupee has historically been a weaker currency against sterling
+        than the currencies of the Gulf, Singapore, or Hong Kong. Lenders
+        are aware of this, and it partly explains the somewhat smaller pool
+        of lenders willing to accept INR income compared to AED, SGD, or
+        HKD. The practical difference is manageable through broker placement,
+        but it is worth knowing early.
+      </p>
+      <p>
+        Try the <a href="/tools/expat-mortgage-calculator">expat mortgage calculator</a>
+        to see what each scenario means for your income.
+      </p>
+    </div>
+  </section>
+
+  <PullQuote>
+    Accessing a no-haircut lender from India can change the loan available
+    by £80,000 or more on a typical professional salary.
+  </PullQuote>
+
+  <section class="hub-section">
+    <div class="hub-section-inner">
+      <h2 id="common-situations">Common applicant profiles</h2>
+      <p>British nationals applying from India usually fall into one of these groups:</p>
+      <ul>
+        <li>
+          <strong>Banking and financial services.</strong> British
+          professionals at international banks and financial institutions in
+          Mumbai's Bandra Kurla Complex. Base plus bonus is standard. Bonus
+          treatment is the biggest variable in borrowing capacity, as it is
+          across the expat market.
+        </li>
+        <li>
+          <strong>Management consulting.</strong> Large international
+          consulting firms have British expat populations in Delhi and
+          Mumbai. Income is typically well-documented and lender-friendly.
+        </li>
+        <li>
+          <strong>Technology and engineering.</strong> British professionals
+          at global technology companies based in Bengaluru and Hyderabad.
+          RSU and equity components are common and treated differently
+          across lenders.
+        </li>
+        <li>
+          <strong>Oil and gas and energy.</strong> British engineers and
+          managers in India's energy sector, often on long-term contracts
+          with large multinationals.
+        </li>
+        <li>
+          <strong>International schools and education.</strong> British
+          teachers at international schools in Mumbai, Delhi, Bengaluru,
+          and Chennai. Long-term contracts and a straightforward income
+          profile.
+        </li>
+        <li>
+          <strong>Diplomatic and public sector.</strong> British High
+          Commission staff and development sector professionals. Usually
+          sterling or dollar income, which simplifies the currency picture
+          significantly.
+        </li>
+        <li>
+          <strong>Entrepreneurs and business owners.</strong> British
+          nationals running India-based businesses, either founded there or
+          as part of a UK parent company. <a href="/expat-mortgages/self-employed">Self-employed packaging</a>
+          applies, with the added complexity of INR income.
+        </li>
+      </ul>
+    </div>
+  </section>
+
+  <section class="hub-section">
+    <div class="hub-section-inner">
+      <h2 id="lender-requirements">What lenders want to see</h2>
+      <p>
+        The <a href="/expat-mortgages/process">standard documentation pack</a> for an India-based applicant
+        typically includes:
+      </p>
+
+      <h3>Income evidence</h3>
+      <ul>
+        <li>
+          <strong>Form 16.</strong> The annual tax summary issued by your
+          employer showing total income paid and tax deducted at source.
+          This is the Indian equivalent of a P60 and is accepted directly
+          by experienced expat lenders.
+        </li>
+        <li>
+          Three to six months of Indian payslips.
+        </li>
+        <li>
+          Three to six months of bank statements showing salary credits.
+          English-language statements from major private-sector banks are
+          the cleanest option.
+        </li>
+        <li>
+          Employment contract or a letter from your employer confirming
+          role, salary, and contract duration.
+        </li>
+        <li>
+          For <a href="/expat-mortgages/self-employed">self-employed applicants</a>: two to three years of accounts
+          and an accountant reference.
+        </li>
+      </ul>
+
+      <h3>Identity and residency</h3>
+      <ul>
+        <li>UK passport.</li>
+        <li>Proof of India address (utility bill or official bank statement).</li>
+        <li>India employment visa or relevant residency documentation.</li>
+        <li>Tax residency confirmation.</li>
+      </ul>
+
+      <h3>UK financial history</h3>
+      <ul>
+        <li>UK bank statements if you hold a UK account.</li>
+        <li>UK credit report and any previous UK address history.</li>
+        <li>Details of any existing UK property already owned.</li>
+      </ul>
+
+      <p>
+        Most lenders also require proof of deposit source. If your deposit
+        funds are held in India, bank statements tracing the funds back to
+        salary or a documented asset sale are standard.
+      </p>
+    </div>
+  </section>
+
+  <section class="hub-section">
+    <div class="hub-section-inner">
+      <h2 id="how-lenders-view">How lenders view India-based applicants</h2>
+      <p>
+        India sits in a mid-tier position for UK expat lenders. It is a
+        well-documented and English-speaking business environment, which
+        helps. Form 16 is a clean and readable tax document. Major Indian
+        private banks produce clear English-language statements. These are
+        genuine positives.
+      </p>
+      <p>
+        The currency is the main constraint. INR has historically depreciated
+        against sterling and is classified by most lenders as an
+        emerging-market currency. This means the accepting lender pool is
+        smaller than for India's near-peers in the expat mortgage market,
+        such as Singapore or Hong Kong. Roughly 8 to 12 lenders actively
+        consider India-based applicants with INR income, compared to 15 to
+        20 for Singapore or the Gulf.
+      </p>
+      <p>
+        Within that pool, there is real variation. Some lenders only accept
+        salaried applicants in well-known global employer roles. Others
+        accept a broader range of India-based income. A broker who places
+        India cases regularly knows which lenders are currently open to
+        which profiles.
+      </p>
+      <p>
+        Applicants whose India salary is paid in sterling or USD by a
+        foreign employer face a simpler currency picture. The India-based
+        diplomatic and development sector typically falls into this category,
+        as do some multinationals that pay globally-mobile staff in a
+        base currency.
+      </p>
+    </div>
+  </section>
+
+  <PullQuote>
+    Form 16 is well understood by experienced expat lenders and needs no
+    translation.
+  </PullQuote>
+
+  <section class="hub-section">
+    <div class="hub-section-inner">
+      <h2 id="pitfalls">Common pitfalls</h2>
+      <ul>
+        <li>
+          <strong>Going direct to a high-street lender.</strong> Several
+          mainstream UK lenders do not accept India-based applicants at
+          all, or only do so through a specific international arm. An
+          unguided direct application risks a decline that leaves a footprint
+          on your credit file.
+        </li>
+        <li>
+          <strong>Underestimating the haircut effect.</strong> A 25 percent
+          haircut on INR income is significant. Running affordability
+          numbers without accounting for it leads to realistic disappointment
+          later. Run the numbers with the haircut first, then look at
+          no-haircut lenders if you need to close the gap.
+        </li>
+        <li>
+          <strong>Indian bank statements from nationalised banks.</strong>
+          Statements from India's nationalised banks can be harder for
+          lenders to process, particularly when formatting differs from
+          the standard. Accounts held with large private-sector banks produce
+          cleaner statements for this purpose.
+        </li>
+        <li>
+          <strong>Bonus and variable pay discounted.</strong> If a
+          meaningful portion of your India package is bonus, the lender you
+          choose matters. Lenders handle bonus income differently, and the
+          difference in borrowing can be large.
+        </li>
+        <li>
+          <strong>Time zone delays compressing the timeline.</strong> Add
+          one working day to each communication step in the application
+          process. Plan accordingly.
+        </li>
+        <li>
+          <strong><a href="/expat-mortgages/deposit">Source of deposit complexity.</a></strong> Funds accumulated
+          in India and held in INR need a clear audit trail back to
+          documented income. Lenders ask for it; having it ready
+          avoids delays.
+        </li>
+      </ul>
+    </div>
+  </section>
+
+  <section class="hub-section">
+    <div class="hub-section-inner">
+      <h2 id="notarisation">Notarising documents from India</h2>
+      <p>
+        UK lenders sometimes require documents to be certified by an
+        authorised professional. From India, two routes are available.
+      </p>
+      <p>
+        The British High Commission offices in New Delhi, Mumbai, Chennai,
+        and Kolkata can notarise documents for UK legal purposes. Appointments
+        are available through the official BHC website and the turnaround
+        is typically a few days.
+      </p>
+      <p>
+        Registered Indian notaries public are accepted by some lenders as
+        an alternative. The lender or broker will confirm which route is
+        acceptable before you arrange anything.
+      </p>
+      <p>
+        For most India-based applications, there is no need to travel to
+        the UK for any part of the mortgage process. Completion is
+        handled through your UK solicitor, who manages the legal exchange
+        and completion by post and digital signing where the lender permits.
+      </p>
+    </div>
+  </section>
+
+  <MidPageCta />
+
+  <section class="hub-section">
+    <div class="hub-section-inner">
+      <h2 id="faqs">Common questions</h2>
+      <div class="faq">
+        {faqs.map((f) => (
+          <>
+            <h3>{f.q}</h3>
+            <p>{f.a}</p>
+          </>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <script
+    type="application/ld+json"
+    is:inline
+    set:html={JSON.stringify(faqSchema)}
+  />
+</HubLayout>
