@@ -1,0 +1,427 @@
+---
+import HubLayout from '../../layouts/HubLayout.astro';
+import PullQuote from '../../components/PullQuote.astro';
+import MidPageCta from '../../components/MidPageCta.astro';
+import { breadcrumbSchema, articleSchema } from '../../lib/schema';
+import RiskWarning from '../../components/RiskWarning.astro';
+import TerritorialScope from '../../components/TerritorialScope.astro';
+
+const title = 'Non-UK Resident Mortgage Rates: What to Expect';
+const description =
+  'UK mortgage rates for non-UK residents explained. Why non-resident rates differ, what to expect by deposit and profile, and how a specialist broker finds the sharpest rate.';
+const h1 = 'Non-UK Resident Mortgage Rates: What to Expect';
+const subheadline =
+  'A clear guide to how UK mortgage rates work for non-UK residents, why the rate you pay differs from a standard UK rate, which factors move the number, and how we secure the most competitive rate your profile allows.';
+
+const relatedPages = [
+  {
+    eyebrow: 'Hub',
+    title: 'UK Mortgages for Non-UK Residents',
+    description:
+      'The full picture on UK mortgages for foreign nationals and British expats. Lender pool, deposits, documents, and process.',
+    href: '/non-uk-resident-mortgages',
+  },
+  {
+    eyebrow: 'Guide',
+    title: 'UK Expat Mortgage Rates',
+    description:
+      'Rates specifically for British nationals living abroad. Why they differ, how currency affects pricing, and what to expect by profile.',
+    href: '/expat-mortgages/rates',
+  },
+  {
+    eyebrow: 'Hub',
+    title: 'Non-UK Resident Buy-to-Let',
+    description:
+      'Buy-to-let mortgages on UK property for non-residents. ICR stress tests, limited company structures, and lender pool.',
+    href: '/non-uk-resident-mortgages/buy-to-let',
+  },
+  {
+    eyebrow: 'Hub',
+    title: 'Joint Mortgages with a Non-UK Resident',
+    description:
+      'How lenders treat mixed-residency applications, and how the stamp duty surcharge applies when one buyer lives abroad.',
+    href: '/non-uk-resident-mortgages/joint-mortgage',
+  },
+  {
+    eyebrow: 'Guide',
+    title: 'Non-UK Resident Stamp Duty',
+    description:
+      'The 2% SDLT surcharge for non-residents: who it applies to, how it stacks, and when a rebate is available.',
+    href: '/guides/stamp-duty-non-uk-resident',
+  },
+  {
+    eyebrow: 'Tool',
+    title: 'Expat Mortgage Calculator',
+    description:
+      'Estimate what you can borrow after the currency haircut is applied to your overseas income.',
+    href: '/tools/expat-mortgage-calculator',
+  },
+];
+
+const faqs = [
+  {
+    q: 'Are non-resident mortgage rates always higher than UK-resident rates?',
+    a: 'Yes, in practice. The gap varies by lender, deposit size, and income currency, but a non-UK resident with a clean profile will typically pay around 0.25 to 0.75 percentage points more than the equivalent UK-resident rate at the same loan-to-value. A small number of specialist lenders price more keenly on large loans or very strong profiles.',
+  },
+  {
+    q: 'Can I get a high-street mortgage rate as a non-UK resident?',
+    a: 'Very occasionally, for very strong profiles through the international arms of large UK banks. More often, the best available rate comes from a specialist non-resident lender, most of whom are intermediary-only and not directly accessible.',
+  },
+  {
+    q: 'Does my country of residence affect the rate?',
+    a: 'Indirectly, mostly through currency. The currency you earn in affects how lenders treat your income and how they price the risk, which in turn affects the rate. Some lenders also have country exclusion lists or add a margin for applicants in certain jurisdictions. Country of residence itself is less important than the currency and documentation picture.',
+  },
+  {
+    q: 'Does a bigger deposit lower my rate?',
+    a: 'Yes, meaningfully. The jump from a 25% deposit to 35% typically unlocks a noticeably better rate tier, and the gap to UK-resident pricing narrows. Above 40% to 50% deposit, some non-resident borrowers can access rates close to those available to UK residents on equivalent products.',
+  },
+  {
+    q: 'Is the rate different for British expats compared to foreign nationals?',
+    a: 'Not significantly as a rule. Both groups sit in the same non-resident lender pool. The difference is more in which specific lenders will consider each group than in the headline rates those lenders offer. Practically, foreign nationals face a slightly smaller lender pool in certain scenarios, which may translate to marginally less competition on rate.',
+  },
+  {
+    q: 'Are buy-to-let rates higher than residential rates?',
+    a: 'Yes. Non-resident buy-to-let rates typically sit 0.5 to 1 percentage point above non-resident residential rates at the same loan-to-value, mirroring the standard UK differential between owner-occupier and investment lending.',
+  },
+  {
+    q: 'Can I lock in a rate before completion?',
+    a: 'Yes. Most non-resident lenders allow a rate hold from the time a mortgage offer is issued, typically for three to six months. This protects against rate rises during the conveyancing period.',
+  },
+  {
+    q: 'How do I compare rates without applying to multiple lenders?',
+    a: 'Through a specialist broker. A broker working in this market accesses the relevant lenders and runs a comparison without triggering hard credit searches at each one. Each hard search leaves a footprint on your credit file, so shopping around directly has a real cost that broker access avoids.',
+  },
+  {
+    q: 'Can I remortgage to a better rate from abroad when my current fix ends?',
+    a: 'Yes. Non-resident remortgages are straightforward when the paperwork is in order. Many non-residents remortgage at fix end to secure a better rate, release equity, or convert from residential to buy-to-let. The process is similar to the original application.',
+  },
+  {
+    q: 'What is the best rate I can realistically get as a non-UK resident?',
+    a: 'The best available rate on a non-resident case is typically within 0.25 to 0.5 percentage points of the best equivalent UK-resident product, on a very clean profile with a 35% or more deposit and a major-currency income. Most profiles land somewhere in the middle of the non-resident rate range rather than at the bottom. The single strongest lever is matching the right lender to your specific profile.',
+  },
+];
+
+const faqSchema = {
+  '@context': 'https://schema.org',
+  '@type': 'FAQPage',
+  mainEntity: faqs.map((f) => ({
+    '@type': 'Question',
+    name: f.q,
+    acceptedAnswer: { '@type': 'Answer', text: f.a },
+  })),
+};
+const schemas = [
+  breadcrumbSchema([
+    { name: 'Home', path: '/' },
+    { name: 'UK Mortgages for Non-UK Residents', path: '/non-uk-resident-mortgages' },
+    { name: 'Non-UK Resident Mortgage Rates', path: '/non-uk-resident-mortgages/rates' },
+  ]),
+  articleSchema({ headline: h1, description }),
+];
+---
+
+<HubLayout
+  title={title}
+  description={description}
+  h1={h1}
+  subheadline={subheadline}
+  eyebrow="GUIDE · NON-UK RESIDENT MORTGAGE RATES"
+  schemas={schemas}
+  relatedPages={relatedPages}
+>
+  <RiskWarning type="residential" />
+  <TerritorialScope />
+  <section class="hub-section">
+    <div class="hub-section-inner">
+      <h2 id="who-this-is-for">Who this page is for</h2>
+      <p>
+        If you live outside the UK and want a clear picture of what
+        rate you will pay on a UK mortgage, this page is for you. That
+        includes <a href="/uk-mortgage-for-foreign-nationals">foreign nationals</a> who have never
+        lived in the UK and want to buy or invest in UK property, and British
+        nationals living abroad who want to buy, remortgage, or build a
+        UK portfolio from their new country.
+      </p>
+      <p>
+        Non-resident mortgage rates are not a single figure. The rate you
+        end up paying depends on deposit size, income currency, property
+        type, and which lenders are considered for your profile. This page
+        explains why, and what you can do to minimise the gap.
+      </p>
+      <p>
+        If you are specifically a British national living abroad, the
+        <a href="/expat-mortgages/rates">expat mortgage rates</a> page
+        covers the same ground from a British-expat angle. Both groups
+        sit in broadly the same lender pool.
+      </p>
+    </div>
+  </section>
+
+  <section class="hub-section">
+    <div class="hub-section-inner">
+      <h2 id="why-different">Why non-resident rates differ from UK-resident rates</h2>
+      <p>
+        UK lenders price non-resident mortgages higher than equivalent
+        UK-resident mortgages for two structural reasons.
+      </p>
+      <p>
+        The first is currency risk. When a lender accepts income in a
+        currency other than sterling, it carries the risk that the
+        borrower's purchasing power in sterling will erode if the
+        exchange rate moves against them. Lenders price that risk into
+        the rate, typically adding 0.25 to 0.75 percentage points
+        compared to a sterling-income equivalent, depending on the
+        currency and the lender's own risk appetite at the time of
+        application.
+      </p>
+      <p>
+        The second is operational cost and lender pool concentration.
+        Non-resident applications take longer to underwrite, involve
+        more identity and document checking, and sit with specialist
+        underwriting teams. The pool of lenders willing to lend to
+        non-residents is smaller than the standard UK mortgage market.
+        Fewer competing lenders means less downward pressure on rates.
+      </p>
+      <p>
+        Together, these factors mean a <a href="/non-uk-resident-mortgages">non-resident
+        mortgage</a> typically costs around 0.3 to 1 percentage point more
+        than the equivalent residential rate at the same loan-to-value.
+        Where exactly a given case lands in that range depends on the
+        specific profile.
+      </p>
+    </div>
+  </section>
+
+  <MidPageCta variant="hero" />
+
+  <section class="hub-section">
+    <div class="hub-section-inner">
+      <h2 id="what-drives-rate">What drives the rate you actually get</h2>
+      <p>Five factors do most of the work.</p>
+      <p>
+        <strong>Deposit size.</strong> This is the most powerful lever
+        available to a non-resident borrower. The minimum deposit for most
+        non-resident residential applications is 25%, but 30 to 35% is the
+        working reality that unlocks meaningfully better pricing. Above 40%,
+        the gap to UK-resident rates narrows substantially. If you are close
+        to a threshold, it is usually worth stretching to clear it before
+        applying.
+      </p>
+      <p>
+        <strong>Income currency.</strong> Major currencies that track or are
+        pegged to the dollar are widely accepted and carry the lightest
+        haircut. EUR and USD are universally accepted. GCC currencies such
+        as AED, QAR, and SAR are well-priced by lenders that actively seek
+        Gulf-based applicants. Currencies from smaller or higher-volatility
+        economies face a larger deduction, and some lenders exclude them
+        entirely. Which currencies a lender accepts changes over time.
+      </p>
+      <p>
+        <strong>Income source and structure.</strong> A salaried employee
+        of a large international employer is the cleanest income profile.
+        Self-employed applicants, company directors, and contractors require
+        two to three years of accounts and more careful preparation before
+        submission. Bonus and equity components are treated differently by
+        different lenders, and some exclude them from affordability
+        calculations altogether.
+      </p>
+      <p>
+        <strong>Property type and location.</strong> Standard residential
+        properties in established UK markets are priced straightforwardly.
+        New-build flats, ex-local authority properties, and properties in
+        less-liquid markets face higher rates or reduced lender appetite.
+      </p>
+      <p>
+        <strong>Lender selection.</strong> This is where most rate variation
+        lives, and where specialist knowledge matters most. The same
+        applicant presenting the same loan to different lenders can receive
+        materially different rates. Several of the best-priced lenders in
+        this market are intermediary-only and cannot be reached by direct
+        application. Without broker access, you simply cannot see them.
+      </p>
+    </div>
+  </section>
+
+  <PullQuote>
+    The same applicant can get materially different rates from different
+    lenders for exactly the same loan. Lender selection is the biggest
+    rate variable a borrower can influence.
+  </PullQuote>
+
+  <section class="hub-section">
+    <div class="hub-section-inner">
+      <h2 id="product-types">Fixed, tracker, or variable</h2>
+      <p>
+        Most non-resident borrowers take a fixed rate for the same
+        reason UK residents do: certainty of payment matters more than
+        the probability of outperforming the market on a tracker.
+      </p>
+      <p>
+        Two-year and five-year fixed products dominate non-resident
+        applications. Two-year fixes give flexibility to remortgage as
+        the profile improves. For example, a borrower who starts on a
+        25% deposit may be able to access sharper pricing at the
+        two-year mark if the property has risen in value and the
+        loan-to-value has improved. Five-year products give longer rate
+        certainty, often with a slightly wider spread to the two-year
+        rate, but reduce the frequency of re-engaging with the
+        remortgage process from abroad, which is more involved than
+        remortgaging as a UK resident.
+      </p>
+      <p>
+        Tracker and variable products are available but are rarely
+        chosen on non-resident applications. They may suit borrowers
+        with a clear plan to redeem or sell within one to two years.
+      </p>
+    </div>
+  </section>
+
+  <section class="hub-section">
+    <div class="hub-section-inner">
+      <h2 id="rate-by-profile">What rate to expect by profile</h2>
+      <p>
+        These are general working assumptions, not guarantees. Real
+        pricing moves with the market and with the specific lender.
+      </p>
+      <p>
+        A foreign national based in Singapore or Hong Kong, salaried
+        by a major employer, with a 35% deposit on a London or prime
+        regional flat: typically toward the lower end of the
+        non-resident range, often close to mainstream UK high-street
+        residential pricing.
+      </p>
+      <p>
+        A British national living in the UAE earning in AED, 25%
+        deposit on a UK family home: middle of the non-resident range,
+        with scope to improve if the deposit reaches 30 to 35% or a
+        no-haircut lender is accessed through a broker.
+      </p>
+      <p>
+        A foreign national in Europe with EUR income and no previous
+        UK property history, 30% deposit: middle to lower end of the
+        non-resident range. EUR income is well-accepted and priced
+        competitively by most non-resident lenders.
+      </p>
+      <p>
+        An applicant earning in a currency outside the main accepted
+        list, 25% deposit, self-employed: higher end of the non-resident
+        range, with fewer lenders competing. The quality and
+        completeness of documentation makes a significant difference at
+        this end of the market.
+      </p>
+      <p>
+        A high-net-worth applicant with a larger loan and a 40% or
+        more deposit, major-currency income: potentially able to access
+        private bank pricing, which can be competitive for larger loans
+        even at non-resident status.
+      </p>
+    </div>
+  </section>
+
+  <PullQuote>
+    On a £500,000 mortgage over a five-year fix, the difference between
+    the top and bottom of the non-resident rate range represents a
+    meaningful sum in interest. Getting the right lender matters.
+  </PullQuote>
+
+  <section class="hub-section">
+    <div class="hub-section-inner">
+      <h2 id="broker-matters">Why a broker matters more on rate than most realise</h2>
+      <p>
+        Direct-to-lender applications work for UK residents because
+        the high-street lender pool is large and rates are publicly
+        visible. For non-residents, neither of those things is true.
+      </p>
+      <p>
+        First, most of the lenders who price non-resident cases most
+        competitively are intermediary-only. They do not take direct
+        applications. A non-resident borrower applying direct never
+        reaches them.
+      </p>
+      <p>
+        Second, the mainstream lenders that do accept non-residents
+        directly tend to be the most conservative on rate and criteria.
+        Applying direct to a high-street bank means working within the
+        narrowest set of options at the highest prices in the market.
+      </p>
+      <p>
+        A specialist <a href="/expat-mortgage-broker">mortgage broker</a> active in
+        this market has current working relationships with the full
+        non-resident lender panel. They know which lenders are competing
+        keenly for which profiles right now, which have tightened their
+        criteria, and which are currently offering sharp pricing for
+        your currency and country. That intelligence is current. No
+        published guide or comparison site can replicate it.
+      </p>
+      <p>
+        The cost of using a broker is typically covered by the lender's
+        procuration fee rather than charged separately to the borrower.
+        A reputable broker explains their fee position clearly before
+        doing any work.
+      </p>
+    </div>
+  </section>
+
+  <section class="hub-section">
+    <div class="hub-section-inner">
+      <h2 id="how-to-get-best-rate">How to get the best rate available to you</h2>
+      <p>
+        Three practical steps compress the rate gap to UK-resident
+        pricing as far as your situation allows.
+      </p>
+      <p>
+        A larger deposit if it is available to you. The difference
+        between a 25% and a 35% deposit is the most reliable rate
+        lever for a non-resident applicant, and the one most worth
+        prioritising before you approach a lender.
+      </p>
+      <p>
+        A clean, complete documentation pack ready before submission.
+        Lenders underwrite non-resident cases cautiously, and incomplete
+        or inconsistent documentation creates delays and sometimes worse
+        pricing. Three months of payslips or equivalent income evidence,
+        three months of bank statements, two years of tax records, your
+        employment contract, and a clear paper trail on deposit funds.
+        We will tell you exactly what each lender will want before you
+        submit anything.
+      </p>
+      <p>
+        The right lender match from the start. We work in this market
+        every month and know which lenders are best-priced for which
+        profiles right now. Lender pricing shifts faster than any
+        published guide reflects. A 30-minute conversation tells you
+        which lenders are worth approaching, which are not, and what
+        rate range you can realistically expect given your specific
+        position.
+      </p>
+      <p>
+        Use the
+        <a href="/tools/expat-mortgage-calculator">mortgage calculator</a>
+        to estimate what you can borrow after the currency haircut is
+        applied to your income.
+      </p>
+    </div>
+  </section>
+
+  <MidPageCta />
+
+  <section class="hub-section">
+    <div class="hub-section-inner">
+      <h2 id="faqs">Common questions</h2>
+      <div class="faq">
+        {faqs.map((f) => (
+          <>
+            <h3>{f.q}</h3>
+            <p>{f.a}</p>
+          </>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <script
+    type="application/ld+json"
+    is:inline
+    set:html={JSON.stringify(faqSchema)}
+  />
+</HubLayout>
