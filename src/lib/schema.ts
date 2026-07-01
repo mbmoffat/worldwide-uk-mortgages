@@ -1,5 +1,6 @@
 export const SITE_URL = 'https://ukmortgagesworldwide.com';
 export const SITE_NAME = 'UK Mortgages Worldwide';
+export const SITE_BRAND = 'Mortgage One - UK Mortgages Worldwide';
 
 type Crumb = { name: string; path: string };
 
@@ -7,7 +8,8 @@ export function organizationSchema() {
   return {
     '@context': 'https://schema.org',
     '@type': 'Organization',
-    name: SITE_NAME,
+    name: SITE_BRAND,
+    alternateName: 'Mortgage One',
     url: SITE_URL,
     logo: `${SITE_URL}/favicon.svg`,
     description:
