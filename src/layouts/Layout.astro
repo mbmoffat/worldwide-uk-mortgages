@@ -1,5 +1,6 @@
 ---
 import { SITE_NAME } from '../../astro.config.mjs';
+import { SITE_BRAND } from '../lib/schema';
 import ComplianceFooter from '../components/ComplianceFooter.astro';
 
 interface Props {
@@ -138,7 +139,7 @@ const guides = [
     {description && <meta name="description" content={description} />}
 
     <meta property="og:type" content="website" />
-    <meta property="og:site_name" content={SITE_NAME} />
+    <meta property="og:site_name" content={SITE_BRAND} />
     <meta property="og:title" content={socialTitle} />
     {socialDescription && <meta property="og:description" content={socialDescription} />}
     <meta property="og:url" content={canonicalURL} />
@@ -169,7 +170,8 @@ const guides = [
     <header class="site-header">
       <div class="header-inner">
         <a class="brand" href="/">
-          <span class="logo-wordmark">UK Mortgages Worldwide</span>
+          <span class="logo-wordmark">Mortgage One</span>
+          <span class="logo-slogan">UK Mortgages Worldwide</span>
         </a>
         <nav class="site-nav" aria-label="Primary">
           <div class="nav-dropdown">
@@ -490,6 +492,9 @@ const guides = [
         text-decoration: none;
         color: var(--text);
         line-height: 1;
+        display: inline-flex;
+        flex-direction: column;
+        gap: 0.2rem;
       }
 
       .brand:hover {
@@ -503,6 +508,15 @@ const guides = [
         font-size: 1.5rem;
         letter-spacing: -0.01em;
         color: #1A1612;
+        line-height: 1;
+      }
+
+      .logo-slogan {
+        font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+        font-weight: 500;
+        font-size: 0.75rem;
+        letter-spacing: 0.02em;
+        color: var(--muted);
         line-height: 1;
       }
 
