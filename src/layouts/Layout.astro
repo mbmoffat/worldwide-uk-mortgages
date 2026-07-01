@@ -489,12 +489,13 @@ const guides = [
       }
 
       .brand {
+        display: inline-flex;
+        flex-direction: column;
+        align-items: stretch;
+        width: fit-content;
         text-decoration: none;
         color: var(--text);
         line-height: 1;
-        display: inline-block;
-        width: fit-content;
-        text-align: left;
       }
 
       .brand:hover {
@@ -514,16 +515,13 @@ const guides = [
 
       .logo-slogan {
         display: block;
-        width: 100%;
-        box-sizing: border-box;
         font-family: var(--font-sans);
         font-weight: 400;
-        text-transform: none;
-        font-size: 0.82rem; /* tunable */
+        font-size: 0.8rem;
         line-height: 1;
         margin-top: 4px;
-        letter-spacing: normal;
-        white-space: normal;
+        text-transform: none;
+        white-space: nowrap;
         text-align: justify;
         text-align-last: justify;
         color: var(--muted);
