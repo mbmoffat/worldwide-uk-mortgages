@@ -1,0 +1,361 @@
+---
+import HubLayout from '../../layouts/HubLayout.astro';
+import PullQuote from '../../components/PullQuote.astro';
+import MidPageCta from '../../components/MidPageCta.astro';
+import { breadcrumbSchema, articleSchema } from '../../lib/schema';
+import RiskWarning from '../../components/RiskWarning.astro';
+import TerritorialScope from '../../components/TerritorialScope.astro';
+
+const title = 'UK Expat and Non-Resident Property Statistics 2026';
+const description =
+  'Sourced statistics on British expats abroad, overseas buyers in the UK property market, non-resident stamp duty, and UK buy-to-let lending. Fully cited, 2026.';
+const h1 = 'UK Expat and Non-Resident Property Statistics 2026';
+const subheadline =
+  'A citable statistics roundup covering British nationals living abroad, overseas buyer activity in the UK property market, non-resident stamp duty, and UK buy-to-let lending. Every figure below is drawn from a named public source, linked at first mention.';
+
+const relatedPages = [
+  {
+    eyebrow: 'Hub',
+    title: 'UK Mortgages for Expats',
+    description:
+      'British nationals living abroad. Country-by-country lender appetite, currency haircuts, and timelines.',
+    href: '/expat-mortgages',
+  },
+  {
+    eyebrow: 'Hub',
+    title: 'UK Mortgages for Non-UK Residents',
+    description:
+      'Foreign nationals or British expats wanting a UK mortgage on UK property. Lender pool, deposits, and rates explained.',
+    href: '/non-uk-resident-mortgages',
+  },
+  {
+    eyebrow: 'Guide',
+    title: 'Non-UK Resident Stamp Duty',
+    description:
+      'The 2% SDLT surcharge for non-UK resident buyers. Who pays it, how it stacks, and when a rebate applies.',
+    href: '/guides/stamp-duty-non-uk-resident',
+  },
+  {
+    eyebrow: 'Guide',
+    title: 'Buying UK Property from Overseas',
+    description:
+      'The full process from finding a property to completion when you live abroad.',
+    href: '/guides/buying-uk-property-from-overseas',
+  },
+  {
+    eyebrow: 'Hub',
+    title: 'Non-Resident Buy-to-Let Mortgages',
+    description:
+      'BTL on UK property from outside the UK. Lender pool, deposits, ICR stress tests, and limited company structures.',
+    href: '/non-uk-resident-mortgages/buy-to-let',
+  },
+];
+
+const faqs = [
+  {
+    q: 'How many British people currently live abroad?',
+    a: 'The most widely used estimate, published by the Office for National Statistics, is around 5.5 million British citizens living outside the UK, roughly 8% of all UK nationals. ONS is clear that this figure is uncertain, because not every British national abroad registers with a local authority or a UK consulate.',
+  },
+  {
+    q: 'Is overseas buyer interest in UK property rising or falling?',
+    a: 'Falling. Overseas-based house-hunters made up just 1.0% of all prospective buyers in Great Britain in the first quarter of 2025, the lowest share since Hamptons started recording this data in 2008, and down from 2.0% in 2015.',
+  },
+  {
+    q: 'How much extra stamp duty does a non-UK resident pay?',
+    a: 'An additional 2% surcharge applies to UK residential purchases by non-UK residents, on top of standard rates and any additional-dwelling surcharge. See our full non-UK resident stamp duty guide and calculator for worked examples.',
+  },
+  {
+    q: 'Is UK buy-to-let lending growing or shrinking?',
+    a: 'Growing on the latest data. New buy-to-let lending rose sharply through 2025 compared with 2024, in both the number and value of loans advanced, according to UK Finance figures.',
+  },
+  {
+    q: 'What share of UK property is owned by non-UK residents?',
+    a: 'Analysis of HM Land Registry data found 181,701 titles in England and Wales registered to individuals giving an overseas correspondence address, around 0.7% of all registered titles.',
+  },
+  {
+    q: 'Where do the figures on this page come from?',
+    a: 'Every figure is drawn from a named public source: the Office for National Statistics, HM Land Registry, UK Finance, gov.uk, or published property market research from Hamptons. Each is linked at first mention.',
+  },
+  {
+    q: 'How often is this page updated?',
+    a: 'We review it as the underlying data providers publish new releases. The figures on this page were last compiled in 2026 and each carries the date of the data it reflects.',
+  },
+  {
+    q: 'Can I cite or link to this page?',
+    a: 'Yes. This page exists as a citable reference. Please link back to this page as your source if you use the figures elsewhere.',
+  },
+];
+
+const faqSchema = {
+  '@context': 'https://schema.org',
+  '@type': 'FAQPage',
+  mainEntity: faqs.map((f) => ({
+    '@type': 'Question',
+    name: f.q,
+    acceptedAnswer: { '@type': 'Answer', text: f.a },
+  })),
+};
+const schemas = [
+  breadcrumbSchema([
+    { name: 'Home', path: '/' },
+    { name: 'Guides', path: '/guides' },
+    { name: 'UK Expat and Non-Resident Property Statistics', path: '/guides/uk-expat-property-statistics' },
+  ]),
+  articleSchema({
+    headline: h1,
+    description,
+    datePublished: '2026-07-03',
+    dateModified: '2026-07-03',
+  }),
+];
+---
+
+<HubLayout
+  title={title}
+  description={description}
+  h1={h1}
+  subheadline={subheadline}
+  eyebrow="GUIDE · STATISTICS 2026"
+  schemas={schemas}
+  relatedPages={relatedPages}
+>
+  <RiskWarning type="residential" />
+  <TerritorialScope />
+  <section class="hub-section">
+    <div class="hub-section-inner">
+      <h2 id="who-this-is-for">Who this page is for</h2>
+      <p>
+        This page is a reference, not a sales page. It brings together
+        publicly available data on British nationals living abroad, overseas
+        buyer activity in the UK property market, non-resident stamp duty,
+        and UK buy-to-let lending, in one place.
+      </p>
+      <p>
+        It is aimed at journalists, researchers, other advisers, and anyone
+        who wants a sourced starting point rather than an anecdote. Every
+        figure links to the original data or report it comes from. Where a
+        figure has a date attached (most of them do), that date is the period
+        the data covers, not the date we last checked it.
+      </p>
+    </div>
+  </section>
+
+  <section class="hub-section">
+    <div class="hub-section-inner">
+      <h2 id="how-many-brits-abroad">How many British people live abroad</h2>
+      <p>
+        The most widely cited estimate for British nationals living outside
+        the UK is around
+        <a href="https://www.ons.gov.uk/aboutus/transparencyandgovernance/freedomofinformationfoi/britishcitizensresidingabroad" target="_blank" rel="noopener">5.5 million people</a>,
+        roughly 8% of all UK nationals. The Office for National Statistics
+        (ONS) is upfront that this figure carries real uncertainty, since
+        Britons abroad are not required to register with a local authority or
+        a UK consulate, so no single dataset counts them directly.
+      </p>
+      <p>What the flow data shows more precisely:</p>
+      <ul>
+        <li>
+          An estimated
+          <a href="https://www.ons.gov.uk/peoplepopulationandcommunity/populationandmigration/internationalmigration/bulletins/longterminternationalmigrationprovisional/yearendingdecember2025" target="_blank" rel="noopener">246,000 people left the UK</a>
+          in the year ending December 2025, slightly down on the 257,000
+          estimated to have left the year before.
+        </li>
+        <li>
+          Between 2021 and 2024,
+          <a href="https://www.ons.gov.uk/peoplepopulationandcommunity/populationandmigration/internationalmigration/articles/ukemigrationexplainedwhatweknowaboutbritsmovingabroad/2026-05-21" target="_blank" rel="noopener">992,000 British nationals emigrated</a>,
+          around 679 people a day, with roughly three-quarters of them under
+          the age of 35.
+        </li>
+        <li>
+          Net British emigration is currently running at around minus
+          136,000 a year: more Britons leaving the UK long-term than
+          returning.
+        </li>
+      </ul>
+      <p>
+        ONS notes the typical emigrating Briton looks less like a retiree
+        and more like a working-age professional or student, which lines up
+        with what we see in <a href="/expat-mortgages">expat mortgage enquiries</a>: career moves and employer
+        relocations drive most cases, not retirement.
+      </p>
+    </div>
+  </section>
+
+  <PullQuote>
+    Around 5.5 million British citizens live abroad, an estimate the ONS
+    itself flags as uncertain, because no single dataset counts them
+    directly.
+  </PullQuote>
+
+  <section class="hub-section">
+    <div class="hub-section-inner">
+      <h2 id="overseas-buyer-share">How much of the UK property market is overseas buyers</h2>
+      <p>
+        Overseas buyer interest in UK property has fallen sharply and is now
+        at its lowest recorded level, according to research from estate
+        agency Hamptons.
+      </p>
+      <ul>
+        <li>
+          Overseas-based house-hunters made up just
+          <a href="https://www.hamptons.co.uk/articles/overseas-house-hunters-in-britain-hit-record-low" target="_blank" rel="noopener">1.0% of all prospective buyers</a>
+          in Great Britain in the first quarter of 2025, the lowest share
+          since Hamptons' records began in 2008, down from 2.0% in 2015.
+        </li>
+        <li>
+          In Prime Central London specifically, overseas applicants fell to
+          2.9% of house-hunters in Q1 2025, down from 4.0% in 2024, 5.7% a
+          decade earlier, and a peak of 7.9% in 2009.
+        </li>
+        <li>
+          Buyer composition has shifted alongside the fall. North American
+          buyers, mostly American, made up a record 16% of international
+          buyers in Q1 2025, more than double the 6% recorded in 2008.
+        </li>
+        <li>
+          The share of overseas buyers looking specifically for a second
+          home or a buy-to-let has dropped from 30% in 2019 to 19% in Q1
+          2025. Hamptons links this to higher stamp duty costs and the end
+          of the non-dom tax regime.
+        </li>
+      </ul>
+      <p>
+        Separately, an analysis of
+        <a href="https://www.centreforpublicdata.org/property-data-overseas-individuals" target="_blank" rel="noopener">HM Land Registry data by the Centre for Public Data</a>
+        found 181,701 titles in England and Wales registered to individuals
+        giving an overseas correspondence address, around 0.7% of all
+        registered titles. That is a stock figure (existing ownership), not
+        a flow figure (new purchases), so it should not be read alongside
+        the Hamptons house-hunter percentages above as if they measure the
+        same thing.
+      </p>
+    </div>
+  </section>
+
+  <PullQuote>
+    Overseas buyers made up just 1.0% of prospective UK property buyers in
+    Q1 2025, the lowest share on record since Hamptons began tracking the
+    data in 2008.
+  </PullQuote>
+
+  <section class="hub-section">
+    <div class="hub-section-inner">
+      <h2 id="non-resident-stamp-duty">The non-resident stamp duty surcharge</h2>
+      <p>
+        Since 1 April 2021, an additional 2% Stamp Duty Land Tax surcharge
+        has applied to UK residential purchases by non-UK residents, on top
+        of standard rates and any existing surcharge. For a non-resident
+        buying an additional property, this stacks with the 5%
+        additional-dwelling surcharge, a combined 7 percentage points above
+        the base rate on the first taxable band.
+      </p>
+      <p>
+        We cover the mechanics, worked examples, and rebate rules in full on
+        the <a href="/guides/stamp-duty-non-uk-resident">non-UK resident stamp duty guide</a>, and you can
+        model any purchase price on the <a href="/tools/stamp-duty-calculator">stamp duty calculator</a>.
+      </p>
+    </div>
+  </section>
+
+  <section class="hub-section">
+    <div class="hub-section-inner">
+      <h2 id="buy-to-let-lending">UK buy-to-let lending activity</h2>
+      <p>
+        Buy-to-let lending picked up through 2025, based on figures from UK
+        Finance, the UK banking and finance industry body.
+      </p>
+      <ul>
+        <li>
+          58,347 new buy-to-let mortgages were advanced in Q1 2025, worth
+          £10.5 billion, up 38.6% by number and 46.8% by value on Q1 2024.
+        </li>
+        <li>
+          Momentum continued through the year: more than 59,000 BTL loans
+          were advanced in Q4 2025, 18.2% more than the same quarter of the
+          previous year.
+        </li>
+        <li>
+          1.46 million BTL mortgages were on fixed rates at the end of
+          2025, up 2% year-on-year, while the number on variable rates fell
+          9.8% to 466,000.
+        </li>
+        <li>
+          Around 4.7 million households in the UK privately rent, roughly 1
+          in 5 (19%) of all households.
+        </li>
+        <li>
+          A record 33,598 buy-to-let companies were incorporated in the
+          first half of 2025 alone, continuing the shift toward limited
+          company buy-to-let structures.
+        </li>
+      </ul>
+      <p>
+        For how this applies to non-resident and expat landlords
+        specifically, see <a href="/non-uk-resident-mortgages/buy-to-let">non-UK resident buy-to-let mortgages</a> and
+        <a href="/expat-mortgages/buy-to-let">expat buy-to-let mortgages</a>.
+      </p>
+    </div>
+  </section>
+
+  <section class="hub-section">
+    <div class="hub-section-inner">
+      <h2 id="sources">Sources</h2>
+      <ul>
+        <li>
+          <a href="https://www.ons.gov.uk/aboutus/transparencyandgovernance/freedomofinformationfoi/britishcitizensresidingabroad" target="_blank" rel="noopener">Office for National Statistics — British citizens residing abroad</a>
+        </li>
+        <li>
+          <a href="https://www.ons.gov.uk/peoplepopulationandcommunity/populationandmigration/internationalmigration/bulletins/longterminternationalmigrationprovisional/yearendingdecember2025" target="_blank" rel="noopener">Office for National Statistics — Long-term international migration, provisional, year ending December 2025</a>
+        </li>
+        <li>
+          <a href="https://www.ons.gov.uk/peoplepopulationandcommunity/populationandmigration/internationalmigration/articles/ukemigrationexplainedwhatweknowaboutbritsmovingabroad/2026-05-21" target="_blank" rel="noopener">Office for National Statistics — UK emigration explained: what we know about Brits moving abroad</a>
+        </li>
+        <li>
+          <a href="https://www.hamptons.co.uk/articles/overseas-house-hunters-in-britain-hit-record-low" target="_blank" rel="noopener">Hamptons — Overseas house hunters in Britain hit record low</a>
+        </li>
+        <li>
+          <a href="https://www.centreforpublicdata.org/property-data-overseas-individuals" target="_blank" rel="noopener">Centre for Public Data — Property in England &amp; Wales registered to overseas individuals (HM Land Registry data)</a>
+        </li>
+        <li>
+          <a href="https://www.gov.uk/guidance/rates-of-stamp-duty-land-tax-for-non-uk-residents" target="_blank" rel="noopener">gov.uk — Rates of Stamp Duty Land Tax for non-UK residents</a>
+        </li>
+        <li>
+          <a href="https://www.ukfinance.org.uk/data-and-research/data/buy-to-let-lending" target="_blank" rel="noopener">UK Finance — Buy-to-let lending data</a>
+        </li>
+      </ul>
+      <p>
+        This page is for general information only and is not financial,
+        legal, or tax advice. Figures are third-party data compiled by
+        UK Mortgages Worldwide; we do not control or guarantee their
+        ongoing accuracy, and each source may revise its own figures over
+        time. Always check the original source for the latest published
+        data before relying on a specific number.
+      </p>
+    </div>
+  </section>
+
+  <MidPageCta
+    heading="Talk to a specialist about your situation"
+    ctaNote="A mortgage broker will usually respond immediately."
+  />
+
+  <section class="hub-section">
+    <div class="hub-section-inner">
+      <h2 id="faqs">Common questions</h2>
+      <div class="faq">
+        {faqs.map((f) => (
+          <>
+            <h3>{f.q}</h3>
+            <p>{f.a}</p>
+          </>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <script
+    type="application/ld+json"
+    is:inline
+    set:html={JSON.stringify(faqSchema)}
+  />
+</HubLayout>
