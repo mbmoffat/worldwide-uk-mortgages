@@ -1,0 +1,452 @@
+---
+import HubLayout from '../../layouts/HubLayout.astro';
+import PullQuote from '../../components/PullQuote.astro';
+import MidPageCta from '../../components/MidPageCta.astro';
+import { breadcrumbSchema, articleSchema } from '../../lib/schema';
+import RiskWarning from '../../components/RiskWarning.astro';
+import TerritorialScope from '../../components/TerritorialScope.astro';
+
+const title = 'UK Holiday Let Mortgages for Expats';
+const description =
+  'How UK holiday let mortgages work for British expats living abroad. Rental income assessment, lender criteria, deposit requirements, and the current tax position.';
+const h1 = 'UK Holiday Let Mortgages for British Expats';
+const subheadline =
+  'How lenders assess UK holiday let applications from British nationals living abroad, what makes the criteria different from standard buy-to-let, and how to approach the application from overseas.';
+
+const relatedPages = [
+  {
+    eyebrow: 'Hub',
+    title: 'UK Mortgages for Expats',
+    description:
+      'British nationals living abroad. Country-by-country lender appetite, currency haircuts, and timelines.',
+    href: '/expat-mortgages',
+  },
+  {
+    eyebrow: 'Hub',
+    title: 'Expat Buy-to-Let Mortgages',
+    description:
+      'UK buy-to-let mortgages for British expats. ICR, deposits, lender pool, and how income is assessed.',
+    href: '/expat-mortgages/buy-to-let',
+  },
+  {
+    eyebrow: 'Guide',
+    title: 'Buy-to-Let from Abroad',
+    description:
+      'How British expats build UK investment portfolios from overseas. Conveyancing, currency, and lenders.',
+    href: '/expat-mortgages/buy-to-let-from-abroad',
+  },
+  {
+    eyebrow: 'Guide',
+    title: 'Non-UK Resident Stamp Duty',
+    description:
+      'The 2% SDLT surcharge: who pays it, how it stacks with the additional dwelling surcharge, and when a rebate applies.',
+    href: '/guides/stamp-duty-non-uk-resident',
+  },
+  {
+    eyebrow: 'Guide',
+    title: 'Non-Resident Landlord Scheme',
+    description:
+      'How UK rental income is taxed when you live abroad, and how to register to receive rent without withholding.',
+    href: '/guides/non-resident-landlord-scheme',
+  },
+];
+
+const faqs = [
+  {
+    q: 'Can I get a UK holiday let mortgage as a British expat?',
+    a: 'Yes. A number of specialist lenders offer holiday let mortgages to British nationals living abroad, though the lender pool is narrower than for standard expat buy-to-let. The application process follows the same broad pattern as other expat mortgage applications: proof of identity, income evidence, and property documentation, handled largely by post or digital submission from overseas.',
+  },
+  {
+    q: 'How is holiday let rental income assessed differently from buy-to-let?',
+    a: 'Standard buy-to-let mortgages are assessed on long-term rental income from an assured shorthold tenancy. Holiday let lenders instead assess affordability against projected short-term rental income, typically based on an expected occupancy rate across the year. Because occupancy varies seasonally and is harder to guarantee, lenders generally require a stronger projected yield to clear their interest cover ratio test. A specialist broker can identify which lenders use which assessment approach for your property and location.',
+  },
+  {
+    q: 'What deposit do I need?',
+    a: 'Holiday let mortgage deposits for expats are broadly in line with expat buy-to-let deposits: typically 25% to 35%. The precise minimum depends on the lender, property type, and your overall profile. Coastal, rural, and well-known leisure locations generally attract better lender appetite than more unusual or remote properties.',
+  },
+  {
+    q: 'Are holiday let mortgage rates higher than standard buy-to-let rates?',
+    a: 'Usually, yes. Holiday let mortgage rates carry a premium over standard residential buy-to-let rates, and the additional expat layer adds a further premium. The combined effect is that expat holiday let rates sit noticeably above UK-resident holiday let rates. The rate difference reflects the narrower lender pool, the income assessment complexity, and the non-resident risk assessment.',
+  },
+  {
+    q: 'What changed with the Furnished Holiday Lettings tax regime?',
+    a: 'The Furnished Holiday Lettings tax regime was abolished from 6 April 2025. Before that date, properties meeting the FHL criteria benefited from specific tax advantages, including full mortgage interest deductibility, capital allowances on furniture and equipment, and favourable treatment for pension contributions. Since abolition, UK holiday let properties are taxed in the same way as any other residential let. This has reduced the post-tax return for some holiday let investors, but has not changed the lending criteria lenders use to assess mortgage applications.',
+  },
+  {
+    q: 'Can I use the property myself when I visit the UK?',
+    a: 'Yes, most holiday let mortgages permit personal use by the owner. However, the balance between personal use and letting periods affects the rental income projection used by the lender, and some lenders specify limits on owner occupancy. Any extended personal use reduces the income the property can generate, which affects the ICR calculation. Confirm with the lender what personal use is permitted under their product terms.',
+  },
+  {
+    q: 'How does Stamp Duty work for an expat buying a UK holiday let?',
+    a: 'An expat buying a UK holiday let will typically pay three layers of SDLT: the standard residential rate for the purchase price band, the additional 5% surcharge that applies to second properties and investment purchases, and the 2% non-resident surcharge that applies to buyers who have spent fewer than 183 days in the UK in the 12 months before completion. The combined surcharge layer alone is 7%, on top of the standard SDLT rate. Use our stamp duty calculator for an exact figure.',
+  },
+  {
+    q: 'Can I buy a holiday let through a limited company?',
+    a: 'Yes, some lenders accept holiday let applications from limited companies, including those with non-resident directors. The limited company pool is narrower than for personal name applications. Given the change to the FHL tax regime, the tax advantage of the limited company structure for holiday lets now mirrors what applies to other buy-to-let properties rather than the more generous pre-2025 FHL treatment. An accountant who works with non-resident landlords can model which structure makes sense for your situation.',
+  },
+  {
+    q: 'Do I need to visit the UK to complete the purchase?',
+    a: 'In most cases, no. Document signing can be handled by a notary in your country of residence, and the conveyancing proceeds through your UK solicitor. Some lenders require identity verification that cannot be done entirely by post or video, but most expat holiday let applications are completed without the buyer returning to the UK. Budget two to four weeks for notarisation and document transit.',
+  },
+  {
+    q: 'What types of property do holiday let lenders accept?',
+    a: 'Most holiday let lenders prefer standard residential property: houses and flats in locations with demonstrable short-term rental demand. Properties in recognised leisure destinations tend to attract the widest lender appetite. Unusual structures such as log cabins, park homes, or properties with restrictive planning conditions may fall outside standard holiday let lending criteria. Confirm with a broker before committing to a purchase.',
+  },
+];
+
+const faqSchema = {
+  '@context': 'https://schema.org',
+  '@type': 'FAQPage',
+  mainEntity: faqs.map((f) => ({
+    '@type': 'Question',
+    name: f.q,
+    acceptedAnswer: { '@type': 'Answer', text: f.a },
+  })),
+};
+const schemas = [
+  breadcrumbSchema([
+    { name: 'Home', path: '/' },
+    { name: 'UK Mortgages for Expats', path: '/expat-mortgages' },
+    { name: 'Holiday Let Mortgages', path: '/expat-mortgages/holiday-let' },
+  ]),
+  articleSchema({ headline: h1, description }),
+];
+---
+
+<HubLayout
+  title={title}
+  description={description}
+  h1={h1}
+  subheadline={subheadline}
+  eyebrow="Situation · Holiday Let"
+  schemas={schemas}
+  relatedPages={relatedPages}
+>
+  <RiskWarning type="btl" />
+  <TerritorialScope />
+
+  <section class="hub-section">
+    <div class="hub-section-inner">
+      <h2 id="who-this-is-for">Who this page is for</h2>
+      <p>
+        If you are a British national living abroad and you want to buy a UK
+        holiday let property, this page explains how the mortgage works, how
+        lenders assess the application, and what makes this different from a
+        standard expat buy-to-let.
+      </p>
+      <p>
+        Common situations include an expat buying a property in a UK leisure
+        destination as a long-term investment, an expat wanting a UK base for
+        family visits that also generates rental income when not in personal
+        use, and an expat building a UK property portfolio that includes
+        short-term rental alongside longer-term buy-to-let.
+      </p>
+      <p>
+        If you are a foreign national rather than a British expat, the same
+        principles apply. The broader <a href="/non-uk-resident-mortgages/buy-to-let">non-UK resident buy-to-let</a>
+        page covers your lender pool and criteria.
+      </p>
+    </div>
+  </section>
+
+  <section class="hub-section">
+    <div class="hub-section-inner">
+      <h2 id="what-is-holiday-let-mortgage">What a holiday let mortgage is</h2>
+      <p>
+        A holiday let mortgage is a distinct mortgage product, separate from
+        both a residential mortgage and a standard buy-to-let mortgage. It is
+        designed for properties let on a short-term basis to holidaymakers or
+        short-stay guests, rather than on long-term assured shorthold tenancies.
+      </p>
+      <p>
+        The key difference is in how lenders assess affordability. A standard
+        buy-to-let mortgage is assessed against projected monthly rental income
+        from a long-term let. A holiday let mortgage is assessed against
+        projected short-term rental income, which is typically calculated by
+        the lender using an expected occupancy rate applied to a nightly or
+        weekly rate for the area and property type.
+      </p>
+      <p>
+        Because short-term income is more variable than long-term rental
+        income, and because occupancy cannot be guaranteed, holiday let
+        lending generally requires a stronger rental yield relative to the
+        loan size. In popular leisure destinations, holiday let gross yields
+        are often higher than long-term rental yields, which means the income
+        can still support the ICR test. In less established short-term rental
+        markets, the income projections may be less persuasive to lenders.
+      </p>
+    </div>
+  </section>
+
+  <MidPageCta variant="hero" />
+
+  <section class="hub-section">
+    <div class="hub-section-inner">
+      <h2 id="expat-lender-pool">The lender pool for expat holiday let</h2>
+      <p>
+        The lender pool for an expat holiday let mortgage is the intersection
+        of two narrower pools: lenders that offer holiday let products, and
+        lenders that accept non-resident borrowers. Not all lenders do both.
+      </p>
+      <p>
+        The number of lenders actively placing expat holiday let business at
+        any given time is smaller than the pool for expat standard buy-to-let.
+        Specialist lenders and private banks with established international
+        client bases are the most consistent route. Some mainstream lenders
+        with holiday let products restrict applications to UK residents.
+      </p>
+      <p>
+        Lender preferences vary by:
+      </p>
+      <ul>
+        <li>Country of residence (most common expat markets are accepted; emerging-market jurisdictions narrow the pool further).</li>
+        <li>Currency of income (sterling, USD, EUR, and AED widely accepted; more unusual currencies reduce lender choice).</li>
+        <li>Property location and type (established leisure destinations with strong short-term rental history attract the widest lender appetite).</li>
+        <li>Portfolio size (some lenders are comfortable with experienced landlords, others prefer first-time holiday let investors).</li>
+        <li>Personal name versus limited company structure.</li>
+      </ul>
+      <p>
+        Because the pool is small and lender appetite shifts, using a broker
+        who works with expat holiday let cases regularly is the most efficient
+        way to identify the right lender for your specific profile and property.
+      </p>
+    </div>
+  </section>
+
+  <section class="hub-section">
+    <div class="hub-section-inner">
+      <h2 id="rental-income-assessment">How rental income is assessed</h2>
+      <p>
+        Holiday let lenders use a projected income figure rather than a
+        guaranteed rent. The projection is typically based on an occupancy
+        assumption applied to the expected nightly or weekly rate for the
+        property, adjusted for the local short-term rental market.
+      </p>
+      <p>
+        Some lenders commission an independent valuation report that includes
+        a short-term rental assessment for the specific property. Others use
+        in-house models based on location and property type. For properties
+        with a letting history, actual income data is useful evidence, though
+        some lenders will use only their modelled figures.
+      </p>
+      <p>
+        The interest cover ratio test for holiday let is applied to this
+        projected income figure. Because the projection is less certain than
+        a long-term tenancy agreement, lenders build in conservatism at the
+        assessment stage.
+      </p>
+      <p>
+        Personal income from employment or self-employment is treated as a
+        supplementary check rather than the primary lending basis. The 20%
+        currency haircut that applies to non-sterling income in expat lending
+        generally applies here too, so your personal income contribution to
+        affordability is assessed on a discounted basis.
+      </p>
+    </div>
+  </section>
+
+  <PullQuote>
+    In popular leisure destinations, short-term rental yields often exceed
+    long-term rental yields. The income can support the ICR test even after
+    the conservative occupancy assumptions lenders apply.
+  </PullQuote>
+
+  <section class="hub-section">
+    <div class="hub-section-inner">
+      <h2 id="deposit">Deposit requirements</h2>
+      <p>
+        Expat holiday let deposits sit broadly in line with expat buy-to-let
+        deposits: 25% is the theoretical minimum at the strongest lenders for
+        the strongest applicants, but 30% to 35% is the more reliable working
+        assumption for most cases.
+      </p>
+      <p>
+        As with standard expat buy-to-let, a larger deposit typically unlocks
+        better rates and access to a wider lender pool. For expat holiday let
+        specifically, a deposit toward the upper end of the range also
+        demonstrates to the lender that the purchase decision is well-funded,
+        which can be persuasive given the income assessment uncertainties.
+      </p>
+      <p>
+        Deposits transferred from overseas need to pass source-of-funds
+        checks. Lenders and conveyancers will want to trace the deposit to its
+        origin, whether that is savings, a property sale, employment income
+        accumulation, or another clear source. Start this documentation early.
+      </p>
+    </div>
+  </section>
+
+  <section class="hub-section">
+    <div class="hub-section-inner">
+      <h2 id="fhl-tax-changes">The tax position after the FHL abolition</h2>
+      <p>
+        The Furnished Holiday Lettings tax regime was abolished from 6 April
+        2025. Until that date, properties meeting specific letting conditions
+        qualified for a range of tax advantages: full deductibility of
+        mortgage interest against rental income, capital allowances on
+        furniture and equipment, and treatment of income as relevant earnings
+        for pension purposes.
+      </p>
+      <p>
+        Since abolition, holiday let properties are taxed on the same basis
+        as any other residential rental property. Mortgage interest relief is
+        restricted to the 20% basic rate tax credit that applies to all
+        residential lets held in personal names. Capital allowances on
+        fixtures and fittings are no longer available in the same way, though
+        capital gains tax reliefs for landlords still apply.
+      </p>
+      <p>
+        The practical effect for expat holiday let investors is that the
+        post-tax return from personal-name holiday let ownership has reduced
+        compared with the pre-2025 position. This has prompted some investors
+        to model the limited company route, where mortgage interest remains
+        fully deductible as a business expense. Whether the limited company
+        route makes sense depends on the specific tax situation, including the
+        home-country tax treatment of UK rental income.
+      </p>
+      <p>
+        Any modelling of the post-FHL tax position should be done with an
+        accountant experienced in non-resident landlord taxation. The
+        interaction between UK tax and the tax rules of your country of
+        residence adds complexity that varies significantly by jurisdiction.
+      </p>
+    </div>
+  </section>
+
+  <section class="hub-section">
+    <div class="hub-section-inner">
+      <h2 id="stamp-duty">Stamp Duty implications</h2>
+      <p>
+        An expat buying a UK holiday let property typically pays SDLT in
+        three layers on top of the standard rate bands.
+      </p>
+      <p>
+        The <strong>5% additional dwelling surcharge</strong> applies because
+        the property is not the buyer's main residence and is an investment
+        purchase. This surcharge has applied since October 2021.
+      </p>
+      <p>
+        The <strong>2% non-resident surcharge</strong> applies to buyers who
+        have spent fewer than 183 days in the UK in the 12 months before
+        completion. Most expats fall into this category.
+      </p>
+      <p>
+        The combined surcharge layer of 7% is applied on top of the
+        standard SDLT rate for the relevant price band. For a £400,000
+        purchase the total SDLT bill is materially higher than a UK-resident
+        buyer would pay on the same property.
+      </p>
+      <p>
+        Use our <a href="/tools/stamp-duty-calculator">stamp duty calculator</a>
+        to model the exact cost for your purchase price. See our
+        <a href="/guides/stamp-duty-non-uk-resident">non-resident SDLT guide</a>
+        for the full breakdown of how the surcharges stack.
+      </p>
+    </div>
+  </section>
+
+  <PullQuote>
+    An expat buying a UK holiday let property pays the standard SDLT bands,
+    the 5% additional dwelling surcharge, and the 2% non-resident surcharge.
+    Model the total cost early.
+  </PullQuote>
+
+  <section class="hub-section">
+    <div class="hub-section-inner">
+      <h2 id="making-the-application">Making the application from abroad</h2>
+      <p>
+        The practical process for an expat holiday let application mirrors
+        the broader expat buy-to-let process. The application is managed
+        through a UK broker; you provide documents from your country of
+        residence; completion happens via a UK conveyancer with documents
+        notarised locally.
+      </p>
+      <p>What lenders will want to see:</p>
+      <ul>
+        <li>Identity documents, typically passport plus proof of current address in your country of residence.</li>
+        <li>Income evidence: payslips or employment contract for salaried applicants, accounts and tax returns for self-employed applicants.</li>
+        <li>Bank statements showing salary credit and deposit funds.</li>
+        <li>For applicants with an existing UK property portfolio, mortgage statements and tenancy schedules.</li>
+        <li>Property-specific documentation once a purchase is in progress: the valuation report with short-term rental assessment, and any existing letting history if relevant.</li>
+      </ul>
+      <p>
+        Allow two to four weeks for notarisation of documents from abroad.
+        The typical timeline from mortgage application to offer is six to
+        ten weeks. Total completion time from property offer to exchange is
+        usually ten to fourteen weeks.
+      </p>
+    </div>
+  </section>
+
+  <section class="hub-section">
+    <div class="hub-section-inner">
+      <h2 id="non-resident-landlord">Non-Resident Landlord Scheme</h2>
+      <p>
+        If you live outside the UK and receive UK rental income from a
+        holiday let, the Non-Resident Landlord Scheme applies in the same
+        way as for any other UK rental property.
+      </p>
+      <p>
+        Under the default rules, your letting agent or management company
+        deducts 20% basic-rate tax from your net rental income before
+        paying it to you. Registering with the NRL Scheme using form NRL1
+        allows you to receive rent gross, paying any UK tax due through
+        self-assessment after the end of the tax year. For most expat
+        landlords this is the better cash-flow position.
+      </p>
+      <p>
+        See our <a href="/guides/non-resident-landlord-scheme">Non-Resident Landlord Scheme guide</a>
+        for the registration process and how it interacts with your UK tax
+        position.
+      </p>
+    </div>
+  </section>
+
+  <section class="hub-section">
+    <div class="hub-section-inner">
+      <h2 id="why-broker">Why a specialist broker matters here</h2>
+      <p>
+        Expat holiday let sits at the intersection of three specialisms:
+        expat lending, holiday let lending, and non-resident landlord
+        taxation. Most standard mortgage brokers handle one of these at
+        most.
+      </p>
+      <p>
+        A broker who works with expat property investors regularly will
+        know which of the smaller holiday let lender pool accept
+        non-resident applicants, which have the most favourable income
+        assessment methodology for the property type and location, and
+        which limited company lenders are comfortable with non-resident
+        directors if the company route is relevant.
+      </p>
+      <p>
+        Going direct to a lender without this guidance typically results
+        in either a decline from a lender that does not accept expats or
+        a worse rate than the market offers. Each decline leaves a
+        footprint on the credit file.
+      </p>
+    </div>
+  </section>
+
+  <MidPageCta />
+
+  <section class="hub-section">
+    <div class="hub-section-inner">
+      <h2 id="faqs">Common questions</h2>
+      <div class="faq">
+        {faqs.map((f) => (
+          <>
+            <h3>{f.q}</h3>
+            <p>{f.a}</p>
+          </>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <script
+    type="application/ld+json"
+    is:inline
+    set:html={JSON.stringify(faqSchema)}
+  />
+</HubLayout>
