@@ -8,6 +8,11 @@
       ],
       "destination": "https://ukmortgagesworldwide.com/:path*",
       "permanent": true
+    },
+    {
+      "source": "/expat-mortgages/buy-to-let-from-abroad",
+      "destination": "/expat-mortgages/buy-to-let",
+      "permanent": true
     }
   ]
 }
