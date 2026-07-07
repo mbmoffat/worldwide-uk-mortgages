@@ -8,10 +8,10 @@ import TerritorialScope from '../../components/TerritorialScope.astro';
 
 const title = 'Expat Buy-to-Let Mortgages';
 const description =
-  'UK buy-to-let mortgages for British expats. What lenders look for, how rental income is assessed, and how a specialist broker finds the right fit.';
+  'UK buy-to-let mortgages for British expats, including buying and managing a portfolio entirely from overseas. Lenders, ICR, deposits, and the broker process.';
 const h1 = 'Expat Buy-to-Let Mortgages';
 const subheadline =
-  'UK buy-to-let mortgages for British nationals living abroad. What lenders look for, how rental income is assessed, and how a specialist broker finds the right fit.';
+  'UK buy-to-let mortgages for British nationals living abroad, including building or expanding a portfolio without setting foot in the UK. What lenders look for, how rental income is assessed, how currency and conveyancing work from overseas, and how a specialist broker finds the right fit.';
 
 const relatedPages = [
   {
@@ -49,6 +49,13 @@ const relatedPages = [
       'The 2% SDLT surcharge, how it stacks with the additional dwelling surcharge, and when a rebate is available.',
     href: '/guides/stamp-duty-non-uk-resident',
   },
+  {
+    eyebrow: 'Guide',
+    title: 'Buying UK Property from Overseas',
+    description:
+      'The full purchase process from finding a property to completion when you live abroad.',
+    href: '/guides/buying-uk-property-from-overseas',
+  },
 ];
 
 const faqs = [
@@ -83,6 +90,18 @@ const faqs = [
   {
     q: 'Can I get a 75% LTV expat BTL?',
     a: 'Yes, often. 75% LTV is the standard maximum for expat BTL across most of the lender pool. A few lenders go to 80% for specific applicant profiles. Higher LTVs come with higher rate premiums.',
+  },
+  {
+    q: 'Do I need to come to the UK to complete the purchase?',
+    a: 'No. You sign the completion documents with a notary public in your country of residence, who certifies them for use in the UK. Some embassies and consulates also handle this. Budget two to four weeks for round-trip notarisation.',
+  },
+  {
+    q: 'How do I manage currency risk on my deposit?',
+    a: 'Most expat deposits start in a foreign currency and need converting to sterling before completion. A forward contract with an FX broker locks the rate ahead of completion and removes timing risk. Converting at exchange or in tranches are the other common approaches.',
+  },
+  {
+    q: 'Can I remortgage an expat BTL from abroad?',
+    a: 'Yes. This is common as fixed terms end. The process runs the same way as the original application: broker-led, with documents signed and certified from wherever you live.',
   },
 ];
 
@@ -144,7 +163,16 @@ const schemas = [
           <a href="/guides/consent-to-let">consent to let guide</a>, which
           explains the first step before a BTL remortgage becomes necessary.
         </li>
+        <li>
+          A UK national restructuring an existing portfolio into a limited
+          company while living abroad.
+        </li>
       </ul>
+      <p>
+        None of this requires a trip back to the UK. Applications,
+        conveyancing, and completion are all routinely handled while you
+        stay wherever you live.
+      </p>
       <p>
         The lender pool, criteria, and process are similar to expat
         residential mortgages with a few BTL-specific differences. This
@@ -154,6 +182,21 @@ const schemas = [
         If you are a foreign national rather than a UK expat, see our
         <a href="/non-uk-resident-mortgages/buy-to-let">non-UK resident buy-to-let</a>
         page instead.
+      </p>
+    </div>
+  </section>
+
+  <section class="hub-section">
+    <div class="hub-section-inner">
+      <h2 id="why-it-works">Why build a UK portfolio from abroad</h2>
+      <p>
+        UK buy-to-let from overseas has been a durable strategy for British
+        expats for two reasons in particular. It gives you a
+        sterling-denominated asset and income stream in a market you
+        already understand, rather than local property in a jurisdiction
+        with unfamiliar rules. And it builds income and a base for an
+        eventual return to the UK, or for family who study or work here in
+        the meantime.
       </p>
     </div>
   </section>
@@ -321,6 +364,75 @@ const schemas = [
         rent payment before passing it to you. The
         <a href="/guides/nrl1-form-explained">NRL1 form</a> is how you
         register.
+      </p>
+    </div>
+  </section>
+
+  <section class="hub-section">
+    <div class="hub-section-inner">
+      <h2 id="currency-timing">Currency timing on your deposit</h2>
+      <p>
+        A practical issue specific to buying from abroad. Most expat
+        deposits sit in a foreign currency, not sterling. Converting to
+        pounds at the wrong moment can move the effective deposit
+        materially: a 10% adverse currency move on an £80,000 deposit is
+        £8,000 of unintended cost.
+      </p>
+      <p>Three common approaches:</p>
+      <ul>
+        <li>
+          <strong>Convert at exchange.</strong> Lock the rate the day you
+          commit to the purchase. Simple, but you take whatever the rate
+          is that day.
+        </li>
+        <li>
+          <strong>Forward contract.</strong> An FX broker locks a rate for
+          delivery at completion. Common for larger transactions and the
+          cleanest way to remove timing risk, for a small spread.
+        </li>
+        <li>
+          <strong>Convert in tranches.</strong> Spread the conversion over
+          the weeks or months ahead of the expected purchase, smoothing the
+          rate.
+        </li>
+      </ul>
+      <p>
+        For most BTL purchases, a forward contract via a reputable FX
+        broker is worth setting up before you start seriously looking at
+        property.
+      </p>
+    </div>
+  </section>
+
+  <section class="hub-section">
+    <div class="hub-section-inner">
+      <h2 id="conveyancing">Conveyancing and signing from abroad</h2>
+      <p>
+        The legal side of a UK purchase happens in the UK regardless of
+        where you live, which raises a few practical points from overseas.
+      </p>
+      <p>
+        <strong>Solicitor selection.</strong> Use a UK conveyancer used to
+        working with non-resident clients. Most established firms are.
+      </p>
+      <p>
+        <strong>Signing documents.</strong> You sign with a notary public
+        in your country of residence, who certifies the document for use
+        in the UK. Some embassies and consulates also handle this. Budget
+        two to four weeks for round-trip notarisation.
+      </p>
+      <p>
+        <strong>Time zones.</strong> UK office hours rarely match Asia or
+        the US West Coast. Email and WhatsApp tend to work better than
+        scheduled calls.
+      </p>
+      <p>
+        <strong>Anti-money-laundering checks.</strong> Standard UK
+        conveyancing AML applies: source of funds, identity verification,
+        and PEP checks. From abroad, this typically needs more supporting
+        documentation than from a UK-resident position, so it is worth
+        starting early. Our <a href="/guides/buying-uk-property-from-overseas">guide to buying UK property from overseas</a>
+        covers the wider purchase timeline in full.
       </p>
     </div>
   </section>
