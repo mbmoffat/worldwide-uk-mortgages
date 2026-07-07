@@ -1,5 +1,6 @@
 ---
 title: "Renters' Rights Act: What's Changed for Overseas Landlords"
+seoTitle: "Renters' Rights Act: Landlord Guide"
 description: "The Renters' Rights Act came into force on 1 May 2026. What overseas BTL landlords need to know, the 31 May deadline, and what it means for mortgages."
 pubDate: 2026-05-05
 tags: ["renters rights act", "buy-to-let", "expat landlords", "regulation"]
