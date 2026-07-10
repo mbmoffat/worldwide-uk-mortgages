@@ -1,0 +1,420 @@
+---
+import HubLayout from '../../layouts/HubLayout.astro';
+import PullQuote from '../../components/PullQuote.astro';
+import MidPageCta from '../../components/MidPageCta.astro';
+import { breadcrumbSchema, articleSchema } from '../../lib/schema';
+import RiskWarning from '../../components/RiskWarning.astro';
+import TerritorialScope from '../../components/TerritorialScope.astro';
+
+const title = 'UK Visa and Immigration Statistics for Mortgage Applicants 2026';
+const description =
+  'Sourced Home Office and EU Settlement Scheme statistics on work visas, family visas, settlement grants and the BN(O) route, set against how UK mortgage lenders treat each status. Fully cited, 2026.';
+const h1 = 'UK Visa and Immigration Statistics for Mortgage Applicants 2026';
+const subheadline =
+  'A citable statistics roundup on the visa and immigration routes that matter most to UK mortgage applicants: work visas, family visas, the EU Settlement Scheme, settlement and Indefinite Leave to Remain, and the Hong Kong BN(O) route. Every figure below is drawn from a named public source, linked at first mention.';
+
+const relatedPages = [
+  {
+    eyebrow: 'Hub',
+    title: 'UK Mortgages for Foreign Nationals',
+    description:
+      'Foreign nationals living in the UK who want to buy or remortgage. Visa types, deposits, and lender appetite.',
+    href: '/uk-mortgage-for-foreign-nationals',
+  },
+  {
+    eyebrow: 'Visa-Holder Mortgages',
+    title: 'UK Mortgages on a Skilled Worker Visa',
+    description:
+      'Skilled Worker visa applications. Visa time remaining, deposit, and which lenders are open to your profile.',
+    href: '/uk-mortgage-for-foreign-nationals/skilled-worker-visa',
+  },
+  {
+    eyebrow: 'Visa-Holder Mortgages',
+    title: 'UK Mortgages on a Spouse Visa',
+    description:
+      'Spouse visa applications, jointly with a British partner or alone. Lender appetite and deposit expectations.',
+    href: '/uk-mortgage-for-foreign-nationals/spouse-visa',
+  },
+  {
+    eyebrow: 'Visa-Holder Mortgages',
+    title: 'BNO Visa Mortgage',
+    description:
+      'How to get a UK mortgage on a BNO visa. Lender appetite, HKD savings and income, and deposit expectations.',
+    href: '/uk-mortgage-for-foreign-nationals/bno-visa',
+  },
+  {
+    eyebrow: 'Visa-Holder Mortgages',
+    title: 'Pre-Settled Status Mortgage',
+    description:
+      'How EU Settlement Scheme pre-settled status is treated by lenders, what deposit you need, and how the application works.',
+    href: '/uk-mortgage-for-foreign-nationals/pre-settled-status',
+  },
+  {
+    eyebrow: 'Visa-Holder Mortgages',
+    title: 'UK Mortgages Without ILR',
+    description:
+      'How UK mortgage applications work for visa holders without Indefinite Leave to Remain.',
+    href: '/uk-mortgage-for-foreign-nationals/without-ilr',
+  },
+];
+
+const faqs = [
+  {
+    q: 'How many work visas were granted to the UK in 2025?',
+    a: '168,471 work visas were granted to main applicants across all work categories in the year ending December 2025, a 19% fall on the year before and down 50% on the peak recorded in the year ending December 2023, according to Home Office immigration statistics.',
+  },
+  {
+    q: 'Are Skilled Worker visa numbers rising or falling?',
+    a: 'Falling sharply. Grants on Skilled Worker routes excluding Health and Care totalled around 48,000 in the year ending December 2025, down 36% year on year, following Immigration White Paper changes to skill thresholds introduced in July 2025.',
+  },
+  {
+    q: 'How many people hold status under the EU Settlement Scheme?',
+    a: 'Around 5.8 million people had been granted status as at 31 March 2026: 4.52 million with settled status and 1.30 million with pre-settled status, out of 8.88 million applications received since the scheme opened, according to Home Office EU Settlement Scheme statistics.',
+  },
+  {
+    q: 'How many Indefinite Leave to Remain grants are made each year?',
+    a: 'There were 491,453 grants of indefinite leave in the year ending September 2025, of which 67% (330,745) were EU Settlement Scheme settled status grants and 32% (158,137) were settlement grants on other routes, according to Home Office statistics.',
+  },
+  {
+    q: 'How many people have moved to the UK on a BN(O) visa?',
+    a: '179,258 out-of-country BN(O) visas had been granted since the route opened in January 2021 to the end of March 2025, with around 163,400 people having arrived in the UK, according to Home Office immigration statistics.',
+  },
+  {
+    q: 'Is the qualifying period for settlement (ILR) changing?',
+    a: 'A change is proposed but not yet in force. The government consulted between November 2025 and February 2026 on extending the standard qualifying period for settlement from 5 to 10 years, with a longer period proposed for some lower-skilled work routes. As of this page’s last review, no Statement of Changes implementing the new rules had been laid before Parliament.',
+  },
+  {
+    q: 'Where do the figures on this page come from?',
+    a: 'Every figure is drawn from a named public source: Home Office immigration system statistics and EU Settlement Scheme statistics, both published on gov.uk. Each is linked at first mention.',
+  },
+  {
+    q: 'Can I cite or link to this page?',
+    a: 'Yes. This page exists as a citable reference. Please link back to this page as your source if you use the figures elsewhere.',
+  },
+];
+
+const faqSchema = {
+  '@context': 'https://schema.org',
+  '@type': 'FAQPage',
+  mainEntity: faqs.map((f) => ({
+    '@type': 'Question',
+    name: f.q,
+    acceptedAnswer: { '@type': 'Answer', text: f.a },
+  })),
+};
+const schemas = [
+  breadcrumbSchema([
+    { name: 'Home', path: '/' },
+    { name: 'Guides', path: '/guides' },
+    { name: 'UK Visa and Immigration Statistics', path: '/guides/uk-visa-immigration-statistics' },
+  ]),
+  articleSchema({
+    headline: h1,
+    description,
+    datePublished: '2026-07-10',
+    dateModified: '2026-07-10',
+  }),
+];
+---
+
+<HubLayout
+  title={title}
+  description={description}
+  h1={h1}
+  subheadline={subheadline}
+  eyebrow="GUIDE · STATISTICS 2026"
+  schemas={schemas}
+  relatedPages={relatedPages}
+>
+  <RiskWarning type="residential" />
+  <TerritorialScope />
+  <section class="hub-section">
+    <div class="hub-section-inner">
+      <h2 id="who-this-is-for">Who this page is for</h2>
+      <p>
+        This page is a reference, not a sales page. It brings together
+        publicly available Home Office and EU Settlement Scheme statistics
+        on the visa and immigration routes that shape a UK mortgage
+        application, in one place.
+      </p>
+      <p>
+        It is aimed at journalists, researchers, other advisers, and anyone
+        who wants a sourced starting point rather than an anecdote. Every
+        figure links to the original release it comes from. Where a figure
+        has a period attached (most of them do), that is the period the data
+        covers, not the date we last checked it. For how each visa route is
+        actually treated by lenders, see our <a href="/uk-mortgage-for-foreign-nationals">UK mortgages for foreign nationals</a> hub.
+      </p>
+    </div>
+  </section>
+
+  <section class="hub-section">
+    <div class="hub-section-inner">
+      <h2 id="work-visas">Work visas, including Skilled Worker</h2>
+      <p>
+        Work visa volumes fell sharply through 2025, according to Home
+        Office <a href="https://www.gov.uk/government/statistics/immigration-system-statistics-year-ending-december-2025/why-do-people-come-to-the-uk-work" target="_blank" rel="noopener">immigration system statistics, year ending December 2025</a>.
+      </p>
+      <ul>
+        <li>
+          168,471 work visas were granted to main applicants across all
+          work categories, down 19% on the year ending December 2024 and
+          down 50% on the peak recorded in the year ending December 2023.
+        </li>
+        <li>
+          Grants on Skilled Worker routes excluding Health and Care totalled
+          around 48,000, down 36% year on year.
+        </li>
+        <li>
+          Applications for the Skilled Worker and Health and Care Worker
+          routes fell from 228,917 for main applicants in the year ending
+          December 2023 to 55,704 in the year ending December 2025, and the
+          refusal rate rose from 7% to 19% over the same period.
+        </li>
+        <li>
+          Immigration White Paper changes to skill and salary thresholds,
+          which removed over 100 occupations from eligibility, took effect
+          from 22 July 2025 and are the main driver of the decline in the
+          second half of the year.
+        </li>
+      </ul>
+      <p>
+        For how the <a href="/uk-mortgage-for-foreign-nationals/skilled-worker-visa">Skilled Worker visa</a> is treated in a mortgage application specifically, including visa
+        time remaining and deposit thresholds, see our dedicated guide.
+      </p>
+    </div>
+  </section>
+
+  <PullQuote>
+    168,471 work visas were granted to main applicants in the year ending
+    December 2025, down 50% on the peak recorded two years earlier.
+  </PullQuote>
+
+  <section class="hub-section">
+    <div class="hub-section-inner">
+      <h2 id="family-visas">Family and partner visas</h2>
+      <p>
+        Family-related visa grants also fell, according to the same Home
+        Office <a href="https://www.gov.uk/government/statistics/immigration-system-statistics-year-ending-december-2025/why-do-people-come-to-the-uk-family" target="_blank" rel="noopener">release covering family visas</a>.
+      </p>
+      <ul>
+        <li>
+          67,000 family-related visas were granted in the year ending
+          December 2025, 22% fewer than the year before.
+        </li>
+        <li>
+          Partner visa grants fell by more than a quarter, down 27% to
+          41,000, with the sharpest declines among nationalities that have
+          historically accounted for the largest share of grants.
+        </li>
+        <li>
+          72,435 family visa extensions of stay were granted, up 16% on the
+          year before, with 99% of those extensions issued to applicants
+          recorded as partners.
+        </li>
+      </ul>
+      <p>
+        For how a <a href="/uk-mortgage-for-foreign-nationals/spouse-visa">spouse or partner visa</a> is assessed by UK lenders, including
+        joint applications with a British or settled partner, see our
+        spouse visa guide.
+      </p>
+    </div>
+  </section>
+
+  <section class="hub-section">
+    <div class="hub-section-inner">
+      <h2 id="eu-settlement-scheme">The EU Settlement Scheme</h2>
+      <p>
+        The EU Settlement Scheme remains the largest single grant of status
+        in UK immigration history, according to the Home Office
+        <a href="https://www.gov.uk/government/collections/eu-settlement-scheme-statistics" target="_blank" rel="noopener">EU Settlement Scheme statistics collection</a>.
+      </p>
+      <ul>
+        <li>
+          8.88 million applications had been received as at 31 March 2026,
+          of which 8.77 million had been concluded.
+        </li>
+        <li>
+          Around 5.8 million people had been granted status: 4.52 million
+          holding settled status and 1.30 million holding pre-settled
+          status as at 31 March 2026.
+        </li>
+        <li>
+          103,820 grants of settled status had been made through the
+          scheme's automated conversion process by March 2026, up from
+          87,000 at the end of 2025, as pre-settled status holders reach
+          their five-year point.
+        </li>
+      </ul>
+      <p>
+        Settled status is treated by most lenders in the same way as a UK
+        citizen. Pre-settled status is treated more like a long-term visa.
+        See our <a href="/uk-mortgage-for-foreign-nationals/pre-settled-status">pre-settled status mortgage guide</a> for how that plays out in
+        practice.
+      </p>
+    </div>
+  </section>
+
+  <PullQuote>
+    5.8 million people hold status under the EU Settlement Scheme, 1.3
+    million of them on pre-settled status rather than the settled status
+    most lenders treat as equivalent to a UK citizen.
+  </PullQuote>
+
+  <section class="hub-section">
+    <div class="hub-section-inner">
+      <h2 id="settlement-and-ilr">Settlement and Indefinite Leave to Remain</h2>
+      <p>
+        Settlement, formally Indefinite Leave to Remain, is the status most
+        lenders treat as removing visa-related restrictions altogether.
+        Home Office
+        <a href="https://www.gov.uk/government/statistics/immigration-system-statistics-year-ending-december-2025/how-many-indefinite-leave-to-remain-settlement-and-euss-settled-status-and-citizenship-grants-have-been-issued-in-the-uk" target="_blank" rel="noopener">settlement statistics</a> show:
+      </p>
+      <ul>
+        <li>
+          491,453 grants of indefinite leave were made in the year ending
+          September 2025.
+        </li>
+        <li>
+          67% (330,745) were EU Settlement Scheme settled status grants and
+          32% (158,137) were settlement grants on other immigration routes.
+        </li>
+        <li>
+          Settlement grants have been rising broadly since 2017. In the
+          year ending Q2 2025 there were around 163,000 grants of
+          settlement, up 18% on the year before.
+        </li>
+      </ul>
+      <p>
+        A proposed change would affect how long applicants wait to reach
+        this point. See <a href="#policy-change">policy change to watch</a> below.
+      </p>
+    </div>
+  </section>
+
+  <section class="hub-section">
+    <div class="hub-section-inner">
+      <h2 id="bno-route">The Hong Kong BN(O) route</h2>
+      <p>
+        The BN(O) visa, opened to British National (Overseas) status
+        holders from Hong Kong in January 2021, is one of the largest
+        single-country migration routes of the past decade. Figures are
+        from Home Office
+        <a href="https://www.gov.uk/government/statistics/immigration-system-statistics-year-ending-march-2025/how-many-people-come-to-the-uk-via-safe-and-legal-humanitarian-routes" target="_blank" rel="noopener">immigration system statistics</a>.
+      </p>
+      <ul>
+        <li>
+          179,258 out-of-country BN(O) visas had been granted from the
+          scheme's launch to the end of March 2025, with around 163,400
+          people having arrived in the UK.
+        </li>
+        <li>
+          14,424 out-of-country grants were made in the year ending March
+          2025 alone, though annual volumes have fallen every year since
+          the scheme's first-year peak of 75,579 grants.
+        </li>
+        <li>
+          9,804 grants of settlement had been made to applicants whose most
+          recent leave was on the BN(O) route since the scheme began, with
+          8,682 of those in the 12 months to March 2026, as the first
+          cohort of arrivals reaches its five-year point.
+        </li>
+      </ul>
+      <p>
+        BN(O) is generally well regarded by UK lenders because of its clear
+        five-plus-one route to citizenship. See our
+        <a href="/uk-mortgage-for-foreign-nationals/bno-visa">BNO visa mortgage guide</a> for how HKD savings and income are treated.
+      </p>
+    </div>
+  </section>
+
+  <section class="hub-section">
+    <div class="hub-section-inner">
+      <h2 id="policy-change">Policy change to watch: the settlement qualifying period</h2>
+      <p>
+        The government ran a consultation, <a href="https://www.gov.uk/government/consultations/earned-settlement" target="_blank" rel="noopener">Earned Settlement</a>, between 20
+        November 2025 and 12 February 2026, proposing to extend the
+        standard qualifying period for settlement from five years to ten,
+        with a longer period floated for some lower-skilled work routes.
+        The consultation drew more than 200,000 responses.
+      </p>
+      <p>
+        As of this page's last review, the government's formal response had
+        not been published and no Statement of Changes implementing the
+        proposal had been laid before Parliament. The existing five-year
+        route remains in force. Applicants close to their settlement date
+        should check the current position directly on gov.uk rather than
+        relying on secondary commentary, since this is an active and
+        widely discussed area of policy.
+      </p>
+      <p>
+        A longer qualifying period would extend the time an applicant
+        spends on a work or family visa before reaching the settled status
+        that gives access to the widest UK mortgage lender pool. It would
+        not affect anyone who has already been granted settlement.
+      </p>
+    </div>
+  </section>
+
+  <section class="hub-section">
+    <div class="hub-section-inner">
+      <h2 id="sources">Sources</h2>
+      <ul>
+        <li>
+          <a href="https://www.gov.uk/government/statistics/immigration-system-statistics-year-ending-december-2025" target="_blank" rel="noopener">Home Office &mdash; Immigration system statistics, year ending December 2025</a>
+        </li>
+        <li>
+          <a href="https://www.gov.uk/government/statistics/immigration-system-statistics-year-ending-december-2025/why-do-people-come-to-the-uk-work" target="_blank" rel="noopener">Home Office &mdash; Why do people come to the UK? Work</a>
+        </li>
+        <li>
+          <a href="https://www.gov.uk/government/statistics/immigration-system-statistics-year-ending-december-2025/why-do-people-come-to-the-uk-family" target="_blank" rel="noopener">Home Office &mdash; Why do people come to the UK? Family</a>
+        </li>
+        <li>
+          <a href="https://www.gov.uk/government/statistics/immigration-system-statistics-year-ending-december-2025/how-many-indefinite-leave-to-remain-settlement-and-euss-settled-status-and-citizenship-grants-have-been-issued-in-the-uk" target="_blank" rel="noopener">Home Office &mdash; Indefinite Leave to Remain, settlement and EUSS settled status grants</a>
+        </li>
+        <li>
+          <a href="https://www.gov.uk/government/collections/eu-settlement-scheme-statistics" target="_blank" rel="noopener">Home Office &mdash; EU Settlement Scheme statistics collection</a>
+        </li>
+        <li>
+          <a href="https://www.gov.uk/government/statistics/immigration-system-statistics-year-ending-march-2025/how-many-people-come-to-the-uk-via-safe-and-legal-humanitarian-routes" target="_blank" rel="noopener">Home Office &mdash; How many people come to the UK via safe and legal (humanitarian) routes, including BN(O)</a>
+        </li>
+        <li>
+          <a href="https://www.gov.uk/government/consultations/earned-settlement" target="_blank" rel="noopener">Home Office &mdash; Earned Settlement consultation</a>
+        </li>
+      </ul>
+      <p>
+        This page is for general information only and is not financial,
+        legal, or immigration advice. Figures are third-party data
+        compiled by UK Mortgages Worldwide; we do not control or guarantee
+        their ongoing accuracy, and each source may revise its own figures
+        over time. Always check the original source for the latest
+        published data before relying on a specific number.
+      </p>
+    </div>
+  </section>
+
+  <MidPageCta
+    heading="Talk to a specialist about your visa or status"
+    ctaNote="A mortgage broker will usually respond immediately."
+  />
+
+  <section class="hub-section">
+    <div class="hub-section-inner">
+      <h2 id="faqs">Common questions</h2>
+      <div class="faq">
+        {faqs.map((f) => (
+          <>
+            <h3>{f.q}</h3>
+            <p>{f.a}</p>
+          </>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <script
+    type="application/ld+json"
+    is:inline
+    set:html={JSON.stringify(faqSchema)}
+  />
+</HubLayout>
