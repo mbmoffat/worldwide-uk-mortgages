@@ -2,6 +2,7 @@
 import Layout from '../../layouts/Layout.astro';
 import MidPageCta from '../../components/MidPageCta.astro';
 import ContactForm from '../../components/ContactForm.astro';
+import RelatedCard from '../../components/RelatedCard.astro';
 
 const title = 'Stamp Duty Calculator';
 const description =
@@ -26,6 +27,74 @@ const schemas = [
       'Calculate UK stamp duty (SDLT) for residents and non-residents. Includes the 2% non-resident surcharge and 5% additional dwelling surcharge.',
   },
 ];
+
+const relatedPages = [
+  {
+    eyebrow: 'Guide',
+    title: 'Non-UK Resident Stamp Duty Explained',
+    description:
+      'The 2% surcharge in full. Who pays it, how it stacks with other rates, worked examples, and when a rebate is available.',
+    href: '/guides/stamp-duty-non-uk-resident',
+  },
+  {
+    eyebrow: 'Hub',
+    title: 'Non-UK Resident Mortgages',
+    description:
+      'UK mortgages for buyers who are not resident in the UK. Lender pool, deposit requirements, and the application process.',
+    href: '/non-uk-resident-mortgages',
+  },
+  {
+    eyebrow: 'Guide',
+    title: 'Non-UK Resident Buy-to-Let',
+    description:
+      'Buy-to-let mortgages for non-resident landlords. How the 5% surcharge and rental income assessment work together.',
+    href: '/non-uk-resident-mortgages/buy-to-let',
+  },
+  {
+    eyebrow: 'Tool',
+    title: 'Expat Mortgage Calculator',
+    description:
+      'Calculate how much you can borrow as a UK expat, comparing standard and no-haircut treatment of foreign income.',
+    href: '/tools/expat-mortgage-calculator',
+  },
+];
+
+const faqs = [
+  {
+    q: 'Do non-UK residents pay more stamp duty than UK residents?',
+    a: 'Yes. Non-UK residents pay a 2% surcharge on top of the standard rates, applied to the whole price including the 0% band. UK residents do not pay this surcharge, though other surcharges such as the 5% additional dwelling charge can still apply to either group.',
+  },
+  {
+    q: 'How do I know if I count as a non-UK resident for stamp duty?',
+    a: 'HMRC uses a 12-month look-back test. If you have spent fewer than 183 days in the UK during the 12 months before completion, you are treated as non-UK resident for SDLT purposes, regardless of your nationality or visa status.',
+  },
+  {
+    q: 'Can the 2% surcharge and the 5% additional dwelling surcharge both apply?',
+    a: 'Yes. A non-UK resident buying a second home or a buy-to-let property pays both surcharges on top of the standard rates, so 7 percentage points are added across every band. This is the most common scenario for expat and overseas buy-to-let purchases.',
+  },
+  {
+    q: 'Can I get the 2% surcharge back?',
+    a: 'Possibly. If you become UK resident within 12 months of completion, you can reclaim the 2% portion from HMRC. The claim must be made within two years of the completion date, so keep a record of the days you spend in the UK after you buy.',
+  },
+  {
+    q: 'Does this calculator cover every stamp duty relief and surcharge?',
+    a: 'No. It covers the standard bands, first-time buyer relief, the 5% additional dwelling surcharge, and the 2% non-resident surcharge. It does not account for multiple dwellings relief, mixed-use transactions, or company purchases. For those situations, speak to a conveyancer or use HMRC\'s own calculator alongside this one.',
+  },
+  {
+    q: 'When is stamp duty actually due?',
+    a: 'Stamp duty is due within 14 days of completion. Your conveyancer normally files the SDLT return and arranges payment as part of the completion process, so in practice it is settled at the same time as the rest of the transaction.',
+  },
+];
+
+const faqSchema = {
+  '@context': 'https://schema.org',
+  '@type': 'FAQPage',
+  mainEntity: faqs.map((f) => ({
+    '@type': 'Question',
+    name: f.q,
+    acceptedAnswer: { '@type': 'Answer', text: f.a },
+  })),
+};
 ---
 
 <Layout title={title} description={description} schemas={schemas}>
@@ -271,8 +340,44 @@ const schemas = [
 
     <MidPageCta />
 
+    <section class="hub-section">
+      <div class="hub-section-inner">
+        <h2 id="faqs">Frequently asked questions</h2>
+        <div class="faq">
+          {faqs.map((f) => (
+            <>
+              <h3>{f.q}</h3>
+              <p>{f.a}</p>
+            </>
+          ))}
+        </div>
+      </div>
+    </section>
+
     <ContactForm />
+
+    <section class="related-pages-section" aria-labelledby="related-pages-heading">
+      <div class="hub-section-inner">
+        <h2 id="related-pages-heading">Related pages</h2>
+        <div class="related-pages-grid">
+          {relatedPages.map((p) => (
+            <RelatedCard
+              eyebrow={p.eyebrow}
+              title={p.title}
+              description={p.description}
+              href={p.href}
+            />
+          ))}
+        </div>
+      </div>
+    </section>
   </article>
+
+  <script
+    type="application/ld+json"
+    is:inline
+    set:html={JSON.stringify(faqSchema)}
+  />
 </Layout>
 
 <script is:inline>
