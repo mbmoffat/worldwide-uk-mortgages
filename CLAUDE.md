@@ -48,3 +48,6 @@ Before drafting or rewriting a page, check the live SERP for the target keyword 
 - A slashed internal link forces a 308 on every click and crawl and splits ranking signals. Fixed sitewide on 10 Jun 2026, reversing PR #33. Do not "correct" links to the slashed form under any rationale.
 - If an Ahrefs or Site Audit finding appears to suggest slashed URLs (e.g. "Canonical URL has no incoming internal links"), the canonical setup is non-slash and enforced at the edge. Resolve such findings toward non-slash, never by adding slashes.
 - Build guard G7 fails any build containing a slashed internal href. If a change trips G7, the change is wrong, not the guard. Guards must never be weakened, bypassed or deleted.
+
+## Topic exclusions
+- UK mortgage rate statistics (Bank of England base rate history, average UK mortgage rate, UK mortgage rate history and close variants) belongs to advice.mortgageonefinance.co.uk, not UKMW. Never build, rebuild or propose a UKMW page targeting this cluster. PR #77 was closed for this reason. Do not treat the absence of this page as a content gap.
