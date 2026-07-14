@@ -61,6 +61,39 @@ const schemas = [
   },
 ];
 
+const faqs = [
+  {
+    q: 'How accurate is this calculator?',
+    a: 'It gives a working estimate using a 4.5x income multiplier, the conservative base most expat lenders use. Your actual borrowing capacity depends on your outgoings, deposit, credit history, and the specific lender, so treat the figures as a starting point rather than an offer.',
+  },
+  {
+    q: 'Why do lenders apply a currency haircut to foreign income?',
+    a: 'A haircut protects the lender against exchange rate movements between application and any future default. Most mainstream lenders discount non-sterling income by 20 to 25 percent before running affordability, even when your income is stable and well evidenced.',
+  },
+  {
+    q: 'Which lenders do not apply a haircut?',
+    a: 'A small group of specialist expat lenders assess strong, well-evidenced foreign income at full value. Which one fits depends on your currency, employer type, and residency status, which is why a broker who knows the current lender criteria makes a material difference to what you can borrow.',
+  },
+  {
+    q: 'Does this calculator work for buy-to-let borrowing?',
+    a: 'No. Buy-to-let affordability is based on rental income and lender ICR stress tests rather than a multiple of your personal income. See our expat buy-to-let hub for how that assessment works.',
+  },
+  {
+    q: 'My income is already in GBP. Does the haircut still apply?',
+    a: 'No haircut applies to sterling income. The haircut is specifically for non-sterling income converted to GBP. If you are paid in GBP but live outside the UK, your case is assessed as a non-resident application instead, which has its own criteria.',
+  },
+];
+
+const faqSchema = {
+  '@context': 'https://schema.org',
+  '@type': 'FAQPage',
+  mainEntity: faqs.map((f) => ({
+    '@type': 'Question',
+    name: f.q,
+    acceptedAnswer: { '@type': 'Answer', text: f.a },
+  })),
+};
+
 const currencies = [
   { code: 'USD', name: 'US Dollar' },
   { code: 'EUR', name: 'Euro' },
@@ -180,6 +213,26 @@ const currencies = [
   </section>
 
   <MidPageCta heading="Ready to borrow more? Talk to a specialist broker" ctaNote="A specialist broker can access no-haircut lenders directly. Most respond the same day." />
+
+  <section class="hub-section">
+    <div class="hub-section-inner">
+      <h2 id="faqs">Common questions</h2>
+      <div class="faq">
+        {faqs.map((f) => (
+          <>
+            <h3>{f.q}</h3>
+            <p>{f.a}</p>
+          </>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <script
+    type="application/ld+json"
+    is:inline
+    set:html={JSON.stringify(faqSchema)}
+  />
 
   <style is:global>
     .calc-inner {
