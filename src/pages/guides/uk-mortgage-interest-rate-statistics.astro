@@ -1,0 +1,319 @@
+---
+import HubLayout from '../../layouts/HubLayout.astro';
+import PullQuote from '../../components/PullQuote.astro';
+import MidPageCta from '../../components/MidPageCta.astro';
+import { breadcrumbSchema, articleSchema } from '../../lib/schema';
+import RiskWarning from '../../components/RiskWarning.astro';
+import TerritorialScope from '../../components/TerritorialScope.astro';
+
+const title = 'UK Mortgage Rate Statistics 2026';
+const description =
+  'Sourced Bank of England base rate history and current average UK mortgage rates, set in context for expat and non-resident buyers. Fully cited, 2026.';
+const h1 = 'Bank of England Base Rate and UK Mortgage Rate Statistics 2026';
+const subheadline =
+  'A citable statistics roundup on the Bank of England base rate cycle since 2020 and where average UK mortgage rates stand today, with what each move means for buyers and remortgagers living outside the UK. Every figure below is drawn from a named public source, linked at first mention.';
+
+const relatedPages = [
+  {
+    eyebrow: 'Guide',
+    title: 'UK Expat Mortgage Rates',
+    description:
+      'Why expat rates sit above standard residential pricing, and what to expect by profile.',
+    href: '/expat-mortgages/rates',
+  },
+  {
+    eyebrow: 'Guide',
+    title: 'Non-UK Resident Mortgage Rates',
+    description:
+      'How UK mortgage rates work for non-UK residents, and what moves the number.',
+    href: '/non-uk-resident-mortgages/rates',
+  },
+  {
+    eyebrow: 'Hub',
+    title: 'UK Mortgages for Expats',
+    description:
+      'British nationals living abroad. Country-by-country lender appetite, currency haircuts, and timelines.',
+    href: '/expat-mortgages',
+  },
+  {
+    eyebrow: 'Guide',
+    title: 'Expat Remortgaging',
+    description:
+      'Switching your UK mortgage from abroad. Timing, lender choice, and how a broker handles it.',
+    href: '/expat-mortgages/remortgage',
+  },
+  {
+    eyebrow: 'Tool',
+    title: 'Expat Mortgage Calculator',
+    description:
+      'Compare borrowing capacity across 14 currencies. See haircut and no-haircut scenarios.',
+    href: '/tools/expat-mortgage-calculator',
+  },
+];
+
+const faqs = [
+  {
+    q: 'What is the Bank of England base rate right now?',
+    a: 'Bank Rate stood at 3.75% as at the Monetary Policy Committee meeting on 17 June 2026, held on a 7-2 vote. It has been held at that level since the last cut in December 2025.',
+  },
+  {
+    q: 'How much has Bank Rate fallen from its recent peak?',
+    a: 'Bank Rate has fallen 1.5 percentage points from its post-2008 peak of 5.25% in August 2023 to 3.75% by December 2025, in a series of quarter-point cuts through the easing cycle that began in August 2024.',
+  },
+  {
+    q: 'What was the lowest Bank Rate on record recently?',
+    a: '0.1%, an emergency setting introduced in March 2020 in response to the coronavirus pandemic and held until the Bank started raising rates again in December 2021 to tackle rising inflation.',
+  },
+  {
+    q: 'What is the average UK mortgage rate today?',
+    a: 'The average two-year and five-year fixed mortgage rates both stood at 5.52% on 13 July 2026, according to Moneyfacts, their lowest level since the start of March 2026 and the largest single-month fall in fixed pricing since October 2024.',
+  },
+  {
+    q: 'Does a Bank Rate hold mean fixed mortgage rates stay still too?',
+    a: 'No. Fixed mortgage rates are priced mainly off swap rates, which move on interest rate expectations rather than the current Bank Rate itself, so fixed pricing can fall or rise between MPC meetings even when Bank Rate is held. Tracker and variable-rate mortgages move directly and immediately with Bank Rate changes.',
+  },
+  {
+    q: 'How does this affect expats and non-UK residents specifically?',
+    a: "Base rate and swap rate movements feed through to the whole UK mortgage market, expat and non-resident pricing included, on top of the currency and lender-pool premium those borrowers already pay. See our expat mortgage rates and non-UK resident mortgage rates guides for how that premium is currently sitting.",
+  },
+  {
+    q: 'Where do the figures on this page come from?',
+    a: 'Every figure is drawn from a named public source: the Bank of England, for Bank Rate history and Monetary Policy Committee decisions, and Moneyfacts, for average quoted mortgage rates. Each is linked at first mention.',
+  },
+  {
+    q: 'Can I cite or link to this page?',
+    a: 'Yes. This page exists as a citable reference. Please link back to this page as your source if you use the figures elsewhere.',
+  },
+];
+
+const faqSchema = {
+  '@context': 'https://schema.org',
+  '@type': 'FAQPage',
+  mainEntity: faqs.map((f) => ({
+    '@type': 'Question',
+    name: f.q,
+    acceptedAnswer: { '@type': 'Answer', text: f.a },
+  })),
+};
+const schemas = [
+  breadcrumbSchema([
+    { name: 'Home', path: '/' },
+    { name: 'Guides', path: '/guides' },
+    { name: 'UK Bank Rate and Mortgage Rate Statistics', path: '/guides/uk-mortgage-interest-rate-statistics' },
+  ]),
+  articleSchema({
+    headline: h1,
+    description,
+    datePublished: '2026-07-14',
+    dateModified: '2026-07-14',
+  }),
+];
+---
+
+<HubLayout
+  title={title}
+  description={description}
+  h1={h1}
+  subheadline={subheadline}
+  eyebrow="GUIDE · STATISTICS 2026"
+  schemas={schemas}
+  relatedPages={relatedPages}
+>
+  <RiskWarning type="residential" />
+  <TerritorialScope />
+  <section class="hub-section">
+    <div class="hub-section-inner">
+      <h2 id="who-this-is-for">Who this page is for</h2>
+      <p>
+        This page is a reference, not a sales page. It sets out the Bank of
+        England base rate cycle since 2020 and where average UK mortgage
+        rates stand today, using only publicly published figures.
+      </p>
+      <p>
+        It is aimed at journalists, researchers, other advisers, and anyone
+        who wants a sourced starting point rather than an anecdote, including
+        anyone timing a purchase or remortgage from outside the UK. For how
+        rate movements interact with the expat and non-resident premium
+        specifically, see our <a href="/expat-mortgages/rates">expat mortgage rates</a> and
+        <a href="/non-uk-resident-mortgages/rates">non-UK resident mortgage rates</a> guides.
+      </p>
+    </div>
+  </section>
+
+  <section class="hub-section">
+    <div class="hub-section-inner">
+      <h2 id="bank-rate-history">The Bank Rate cycle since 2020</h2>
+      <p>
+        Bank Rate is set by the Bank of England's Monetary Policy Committee
+        (MPC) and is the single biggest driver of UK borrowing costs over
+        time. Its <a href="https://www.bankofengland.co.uk/boeapps/database/Bank-Rate.asp" target="_blank" rel="noopener">full rate history is published by the Bank of England</a>. The
+        headline moves over the past six years:
+      </p>
+      <ul>
+        <li>
+          <strong>March 2020:</strong> cut to 0.1% as an emergency measure at
+          the start of the coronavirus pandemic, an all-time low.
+        </li>
+        <li>
+          <strong>December 2021:</strong> raised to 0.25%, the first increase
+          of the tightening cycle, as inflation began to rise.
+        </li>
+        <li>
+          <strong>February 2022</strong> onward: a further series of
+          increases through 2022 and 2023 as the MPC worked to bring down
+          double-digit inflation.
+        </li>
+        <li>
+          <strong>August 2023:</strong> Bank Rate peaked at 5.25%, its
+          highest level since 2008, and was held there for around a year.
+        </li>
+        <li>
+          <strong>August 2024:</strong> the MPC <a href="https://www.bankofengland.co.uk/monetary-policy-summary-and-minutes/2024/august-2024" target="_blank" rel="noopener">cut Bank Rate to 5%</a>, the first
+          reduction of the easing cycle and the start of a run of
+          quarter-point cuts.
+        </li>
+        <li>
+          <strong>December 2025:</strong> the MPC <a href="https://www.bankofengland.co.uk/monetary-policy-summary-and-minutes/2025/december-2025" target="_blank" rel="noopener">cut Bank Rate to 3.75%</a>,
+          completing a 1.5 percentage point reduction from the August 2023
+          peak across six quarter-point steps.
+        </li>
+        <li>
+          <strong>2026 to date:</strong> the MPC has held Bank Rate at 3.75%
+          at every meeting so far, most recently on <a href="https://www.bankofengland.co.uk/monetary-policy-summary-and-minutes/2026/june-2026" target="_blank" rel="noopener">17 June 2026, on a 7-2
+          vote</a>, with two members preferring a 0.25 point rise.
+        </li>
+      </ul>
+    </div>
+  </section>
+
+  <PullQuote>
+    Bank Rate has fallen 1.5 percentage points since its 2023 peak of 5.25%,
+    but has now been held at 3.75% at every Monetary Policy Committee
+    meeting so far in 2026.
+  </PullQuote>
+
+  <section class="hub-section">
+    <div class="hub-section-inner">
+      <h2 id="average-mortgage-rates">Where average UK mortgage rates stand</h2>
+      <p>
+        Bank Rate sets the direction of travel, but fixed mortgage pricing
+        moves separately, off swap rates and lender competition rather than
+        Bank Rate itself. The clearest published tracker of actual pricing
+        is Moneyfacts, which <a href="https://www.mortgagefinancegazette.com/uncategorised/fixed-rates-see-biggest-monthly-reduction-since-october-2024-moneyfacts-13-07-2026/" target="_blank" rel="noopener">reported on 13 July 2026</a> that:
+      </p>
+      <ul>
+        <li>
+          The average two-year fixed mortgage rate fell 0.16 percentage
+          points over the month to 5.52%, its lowest level since the start
+          of March 2026.
+        </li>
+        <li>
+          The average five-year fixed mortgage rate fell 0.11 percentage
+          points over the same period, also settling at 5.52%.
+        </li>
+        <li>
+          Both falls were the largest single-month reduction in average
+          fixed pricing since October 2024.
+        </li>
+      </ul>
+      <p>
+        Rates vary by loan-to-value as well as by term. Lower-deposit
+        borrowers pay more than borrowers with larger equity or deposit,
+        and that gap widens or narrows as lenders reprice their ranges.
+      </p>
+      <p>
+        For how this general market pricing interacts with the additional
+        premium a non-resident or expat borrower typically pays, see our
+        <a href="/expat-mortgages/rates">expat mortgage rates</a> and
+        <a href="/non-uk-resident-mortgages/rates">non-UK resident mortgage rates</a> guides,
+        which cover the current expat and non-resident range specifically.
+      </p>
+    </div>
+  </section>
+
+  <section class="hub-section">
+    <div class="hub-section-inner">
+      <h2 id="what-it-means">What this means if you're buying or remortgaging from abroad</h2>
+      <p>
+        Two practical points follow from the data above for anyone applying
+        from outside the UK.
+      </p>
+      <p>
+        First, a Bank Rate hold does not mean mortgage pricing is standing
+        still. Fixed rates can and do move between MPC meetings, so an
+        offer secured this month is not automatically the same as an offer
+        available next month. Anyone with a
+        <a href="/expat-mortgages/remortgage">fix ending soon</a> benefits
+        from starting the process early rather than waiting for a specific
+        Bank Rate decision.
+      </p>
+      <p>
+        Second, tracker and variable products move directly with Bank Rate,
+        while fixed products do not. For a borrower managing repayments in
+        a foreign currency, a fixed rate removes one layer of uncertainty
+        on top of the currency exposure that already exists, which is part
+        of why <a href="/expat-mortgages/rates">most expat and non-resident borrowers choose a fixed product</a>.
+      </p>
+    </div>
+  </section>
+
+  <section class="hub-section">
+    <div class="hub-section-inner">
+      <h2 id="sources">Sources</h2>
+      <ul>
+        <li>
+          <a href="https://www.bankofengland.co.uk/boeapps/database/Bank-Rate.asp" target="_blank" rel="noopener">Bank of England &mdash; Bank Rate history and data</a>
+        </li>
+        <li>
+          <a href="https://www.bankofengland.co.uk/monetary-policy/the-interest-rate-bank-rate" target="_blank" rel="noopener">Bank of England &mdash; Interest rates and Bank Rate: our latest decision</a>
+        </li>
+        <li>
+          <a href="https://www.bankofengland.co.uk/monetary-policy-summary-and-minutes/2024/august-2024" target="_blank" rel="noopener">Bank of England &mdash; Bank Rate reduced to 5%, August 2024 Monetary Policy Summary</a>
+        </li>
+        <li>
+          <a href="https://www.bankofengland.co.uk/monetary-policy-summary-and-minutes/2025/december-2025" target="_blank" rel="noopener">Bank of England &mdash; Bank Rate reduced to 3.75%, December 2025 Monetary Policy Summary</a>
+        </li>
+        <li>
+          <a href="https://www.bankofengland.co.uk/monetary-policy-summary-and-minutes/2026/june-2026" target="_blank" rel="noopener">Bank of England &mdash; Bank Rate maintained at 3.75%, June 2026 Monetary Policy Summary</a>
+        </li>
+        <li>
+          <a href="https://www.mortgagefinancegazette.com/uncategorised/fixed-rates-see-biggest-monthly-reduction-since-october-2024-moneyfacts-13-07-2026/" target="_blank" rel="noopener">Moneyfacts, reported by Mortgage Finance Gazette &mdash; Fixed rates see biggest monthly reduction since October 2024</a>
+        </li>
+      </ul>
+      <p>
+        This page is for general information only and is not financial
+        advice. Figures are third-party data compiled by UK Mortgages
+        Worldwide. We do not control or guarantee their ongoing accuracy,
+        and each source may revise its own figures over time. Mortgage
+        rates change frequently. Always check the original source, or speak
+        to a broker, for the current position before relying on a specific
+        number.
+      </p>
+    </div>
+  </section>
+
+  <MidPageCta
+    heading="Talk to a specialist about timing your application"
+    ctaNote="A mortgage broker will usually respond immediately."
+  />
+
+  <section class="hub-section">
+    <div class="hub-section-inner">
+      <h2 id="faqs">Common questions</h2>
+      <div class="faq">
+        {faqs.map((f) => (
+          <>
+            <h3>{f.q}</h3>
+            <p>{f.a}</p>
+          </>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <script
+    type="application/ld+json"
+    is:inline
+    set:html={JSON.stringify(faqSchema)}
+  />
+</HubLayout>
