@@ -13,6 +13,15 @@ sources:
   - "https://theindependentlandlord.com/rra-transition/"
   - "https://www.loc.gov/item/global-legal-monitor/2026-04-29/england-and-wales-renters-will-gain-new-rights-in-may"
   - "https://www.natwest.com/mortgages/buy-to-let/buy-to-let-mortgage-guide/renters-rights-act.html"
+faqs:
+  - q: "Does the Act apply to my Scottish property?"
+    a: "No. The Renters' Rights Act 2025 applies to England only. Scotland operates under the Housing (Scotland) Act 2025, which is a separate regime."
+  - q: "I am an expat with one rental property managed by an agent. What do I actually need to do?"
+    a: "Confirm in writing with your agent that the Information Sheet has been served on your tenants by 31 May 2026, and ask them to send you a dated copy of the email and PDF. Next, prepare for personal database registration in late 2026. Your agent will brief you when the timing is confirmed."
+  - q: "Can I still use a fixed term?"
+    a: "No. From 1 May 2026, all assured tenancies are periodic. Existing fixed terms ended on the commencement date. Attempting to enforce a fixed term clause carries a civil penalty under new Section 16E of the Housing Act 1988."
+  - q: "Will lenders pull back from non-resident BTL because of this?"
+    a: "No major lender has withdrawn from the non-resident or expat BTL market specifically because of the Act. Pricing and criteria are moving for other reasons, including swap rate volatility and PRA risk-appetite limits. The Act is a factor in underwriting, not a threshold change in lender willingness."
 ---
 
 Below is what changed, what you need to do this month, and what this means for anyone planning a buy-to-let purchase or remortgage from overseas.
@@ -67,23 +76,5 @@ First, longer possession timelines and the loss of Section 21 are now part of ho
 Second, compliance costs are rising. The Information Sheet, the database registration in late 2026, and the longer-term EPC and Decent Homes obligations are all real numbers in the gross-to-net rental yield calculation. Lenders factor those into the rental affordability picture.
 
 Third, anyone with a fixed rate maturing in the next six to twelve months should be planning the remortgage now rather than at expiry. The reasons are unrelated to the Renters' Rights Act, but the Act has prompted a wave of paperwork that overseas landlords are unwise to combine with a last-minute remortgage application.
-
-## Common questions
-
-**Does the Act apply to my Scottish property?**
-
-No. The Renters' Rights Act 2025 applies to England only. Scotland operates under the Housing (Scotland) Act 2025, which is a separate regime.
-
-**I am an expat with one rental property managed by an agent. What do I actually need to do?**
-
-Confirm in writing with your agent that the Information Sheet has been served on your tenants by 31 May 2026, and ask them to send you a dated copy of the email and PDF. Next, prepare for personal database registration in late 2026. Your agent will brief you when the timing is confirmed.
-
-**Can I still use a fixed term?**
-
-No. From 1 May 2026, all assured tenancies are periodic. Existing fixed terms ended on the commencement date. Attempting to enforce a fixed term clause carries a civil penalty under new Section 16E of the Housing Act 1988.
-
-**Will lenders pull back from non-resident BTL because of this?**
-
-No major lender has withdrawn from the non-resident or expat BTL market specifically because of the Act. Pricing and criteria are moving for other reasons, including swap rate volatility and PRA risk-appetite limits. The Act is a factor in underwriting, not a threshold change in lender willingness.
 
 If you are an overseas-based landlord planning a UK buy-to-let purchase or a remortgage in 2026, we can take you through how the new framework affects the case before you put an application in.
