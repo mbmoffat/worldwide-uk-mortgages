@@ -14,6 +14,7 @@ const news = defineCollection({
     sources: z.array(z.string().url()).default([]),
     riskType: z.enum(['residential', 'btl']).default('residential'),
     lead: z.string().optional(),
+    faqs: z.array(z.object({ q: z.string(), a: z.string() })).optional(),
   }),
 });
 
