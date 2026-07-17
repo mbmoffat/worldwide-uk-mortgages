@@ -1,0 +1,350 @@
+---
+import HubLayout from '../../layouts/HubLayout.astro';
+import PullQuote from '../../components/PullQuote.astro';
+import MidPageCta from '../../components/MidPageCta.astro';
+import { breadcrumbSchema, articleSchema } from '../../lib/schema';
+import RiskWarning from '../../components/RiskWarning.astro';
+import TerritorialScope from '../../components/TerritorialScope.astro';
+
+const title = 'UK Rental Market and Landlord Statistics 2026';
+const description =
+  'Sourced ONS, HomeLet, UK Finance and government landlord survey statistics on UK rents, buy-to-let lending, and landlord portfolio structure. Fully cited, 2026.';
+const h1 = 'UK Rental Market and Landlord Statistics 2026';
+const subheadline =
+  'A citable statistics roundup on the UK private rental market: rent levels and growth, buy-to-let lending and mortgage stock, and how UK landlord portfolios are structured between individual and company ownership. Every figure below is drawn from a named public source, linked at first mention.';
+
+const relatedPages = [
+  {
+    eyebrow: 'Hub',
+    title: 'Expat Buy-to-Let Mortgages',
+    description:
+      'UK buy-to-let mortgages for British expats. ICR rules, deposit thresholds, and lender pool for non-resident landlords.',
+    href: '/expat-mortgages/buy-to-let',
+  },
+  {
+    eyebrow: 'Hub',
+    title: 'Non-Resident Buy-to-Let Mortgages',
+    description:
+      'BTL on UK property from outside the UK. Lender pool, deposits, ICR stress tests, and limited company structures.',
+    href: '/non-uk-resident-mortgages/buy-to-let',
+  },
+  {
+    eyebrow: 'Guide',
+    title: 'Non-Resident Landlord Scheme',
+    description:
+      'How UK rental income is taxed when you live abroad, and how to register to receive rent without withholding.',
+    href: '/guides/non-resident-landlord-scheme',
+  },
+  {
+    eyebrow: 'Guide',
+    title: 'Expat BTL Rates',
+    description:
+      'What rates UK expats can expect on buy-to-let mortgages and what drives the rate.',
+    href: '/expat-mortgages/buy-to-let/rates',
+  },
+  {
+    eyebrow: 'Guide',
+    title: 'UK Expat and Non-Resident Property Statistics 2026',
+    description:
+      'Sourced statistics on British expats abroad, overseas buyers, non-resident stamp duty, and UK buy-to-let lending.',
+    href: '/guides/uk-expat-property-statistics',
+  },
+];
+
+const faqs = [
+  {
+    q: 'How much has UK rent risen?',
+    a: 'Average UK private rents rose 3.3% in the 12 months to May 2026 (provisional), according to the Office for National Statistics, down from 3.5% in the 12 months to April 2026 and continuing a broad slowdown in rent inflation since late 2024.',
+  },
+  {
+    q: 'What is the average UK rent?',
+    a: 'The HomeLet Rental Index put the average rent for a new UK tenancy at £1,353 in June 2026, up 3.4% year on year. Excluding London the figure was £1,157, up 2.7%. In Greater London the average was £2,181, up 5.0%, the strongest annual growth of any region.',
+  },
+  {
+    q: 'Is UK buy-to-let lending growing?',
+    a: 'Yes on the latest figures. UK Finance recorded 58,272 new buy-to-let loans in the first quarter of 2026, worth £10.8 billion, with buy-to-let remortgaging up 11.1% year on year.',
+  },
+  {
+    q: 'How many buy-to-let mortgages are outstanding in the UK?',
+    a: '1.47 million fixed-rate buy-to-let mortgages were outstanding at the end of the first quarter of 2026, up 1.4% year on year, alongside 453,000 on variable rates, down 9.5%. Outstanding buy-to-let balances stood above £313 billion, according to UK Finance.',
+  },
+  {
+    q: 'What share of UK landlords own through a limited company?',
+    a: 'Individual landlords account for around 81% of tenancies in England, companies for around 15%, and a mix of both for the remainder, according to the government-commissioned English Private Landlord Survey. Company landlords hold materially larger portfolios than individual landlords on average.',
+  },
+  {
+    q: 'Is the average landlord portfolio getting bigger?',
+    a: 'Industry research points that way. A Pegasus Insight survey reported in July 2026 put the average landlord portfolio at 7.3 properties, and the average limited company landlord portfolio at 15.3 properties, up from 12.8 at the end of 2025. This is a different, more professionalised sample than the government landlord survey, so the two figures should not be read as measuring the same population.',
+  },
+  {
+    q: 'Where do the figures on this page come from?',
+    a: 'Every figure is drawn from a named public source: the Office for National Statistics, HomeLet, UK Finance, the Ministry of Housing, Communities and Local Government, and published industry research from Pegasus Insight. Each is linked at first mention.',
+  },
+  {
+    q: 'Can I cite or link to this page?',
+    a: 'Yes. This page exists as a citable reference. Please link back to this page as your source if you use the figures elsewhere.',
+  },
+];
+
+const faqSchema = {
+  '@context': 'https://schema.org',
+  '@type': 'FAQPage',
+  mainEntity: faqs.map((f) => ({
+    '@type': 'Question',
+    name: f.q,
+    acceptedAnswer: { '@type': 'Answer', text: f.a },
+  })),
+};
+const schemas = [
+  breadcrumbSchema([
+    { name: 'Home', path: '/' },
+    { name: 'Guides', path: '/guides' },
+    { name: 'UK Rental Market and Landlord Statistics', path: '/guides/uk-rental-market-statistics' },
+  ]),
+  articleSchema({
+    headline: h1,
+    description,
+    datePublished: '2026-07-17',
+    dateModified: '2026-07-17',
+  }),
+];
+---
+
+<HubLayout
+  title={title}
+  description={description}
+  h1={h1}
+  subheadline={subheadline}
+  eyebrow="GUIDE · STATISTICS 2026"
+  schemas={schemas}
+  relatedPages={relatedPages}
+>
+  <RiskWarning type="btl" />
+  <TerritorialScope />
+  <section class="hub-section">
+    <div class="hub-section-inner">
+      <h2 id="who-this-is-for">Who this page is for</h2>
+      <p>
+        This page is a reference, not a sales page. It brings together
+        publicly available data on UK rent levels, buy-to-let lending, and
+        how UK landlord portfolios are structured, in one place.
+      </p>
+      <p>
+        It is aimed at journalists, researchers, other advisers, and
+        landlords who want a sourced starting point rather than an anecdote.
+        Every figure links to the original release it comes from. Where a
+        figure has a period attached (most of them do), that is the period
+        the data covers, not the date we last checked it. For how this plays
+        out in a mortgage application specifically, see our
+        <a href="/expat-mortgages/buy-to-let">expat buy-to-let</a> and
+        <a href="/non-uk-resident-mortgages/buy-to-let">non-resident buy-to-let</a> hubs.
+      </p>
+    </div>
+  </section>
+
+  <section class="hub-section">
+    <div class="hub-section-inner">
+      <h2 id="rent-levels">UK rent levels and rental growth</h2>
+      <p>
+        Rent inflation has slowed through 2026 but rents are still rising,
+        according to the Office for National Statistics
+        <a href="https://www.ons.gov.uk/economy/inflationandpriceindices/bulletins/privaterentandhousepricesuk/may2026" target="_blank" rel="noopener">Private rent and house prices, UK bulletin</a>.
+      </p>
+      <ul>
+        <li>
+          Average UK private rents rose 3.3% in the 12 months to May 2026
+          (provisional), down from 3.5% in the 12 months to April 2026.
+        </li>
+        <li>
+          By nation: England £1,442 a month (up 3.4%), Wales £836 (up 4.7%),
+          and Scotland £1,009 (up 1.0%).
+        </li>
+        <li>
+          Within England, annual rent inflation was highest in the North
+          East (5.9%) and lowest in London (2.0%).
+        </li>
+      </ul>
+      <p>
+        The <a href="https://homelet.co.uk/homelet-rental-index" target="_blank" rel="noopener">HomeLet Rental Index</a>, compiled from tenant referencing data
+        across more than 5,000 UK letting agents, gives a similar picture
+        with a different methodology:
+      </p>
+      <ul>
+        <li>
+          The average rent agreed on a new UK tenancy was £1,353 in June
+          2026, up 3.4% on June 2025.
+        </li>
+        <li>
+          Excluding London, the average was £1,157, up 2.7% year on year.
+        </li>
+        <li>
+          In Greater London specifically, the average was £2,181, up 5.0%
+          year on year, the strongest annual growth of any UK region.
+        </li>
+      </ul>
+      <p>
+        ONS and HomeLet measure rent differently (a stock of existing
+        tenancies against new tenancies agreed each month), so the two data
+        sets will not match exactly, but both point the same way: rent
+        growth has cooled from its post-pandemic peak without reversing.
+      </p>
+    </div>
+  </section>
+
+  <PullQuote>
+    UK rents rose 3.3% in the 12 months to May 2026, the ONS reports, down
+    from 3.5% the month before and part of a broader slowdown in rent
+    inflation since late 2024.
+  </PullQuote>
+
+  <section class="hub-section">
+    <div class="hub-section-inner">
+      <h2 id="btl-lending">Buy-to-let lending and mortgage stock</h2>
+      <p>
+        Buy-to-let lending continued to grow into 2026, based on
+        <a href="https://www.ukfinance.org.uk/data-and-research/data/buy-to-let-lending" target="_blank" rel="noopener">UK Finance buy-to-let lending data</a>.
+      </p>
+      <ul>
+        <li>
+          58,272 new buy-to-let loans were advanced in the first quarter of
+          2026, worth £10.8 billion.
+        </li>
+        <li>
+          Remortgaging drove much of the growth: 39,160 buy-to-let
+          remortgage loans completed in the quarter, up 11.1% year on year.
+        </li>
+        <li>
+          1.47 million buy-to-let mortgages were outstanding on fixed rates
+          at the end of Q1 2026, up 1.4% year on year, against 453,000 on
+          variable rates, down 9.5%. Outstanding buy-to-let balances stood
+          above £313 billion.
+        </li>
+        <li>
+          Buy-to-let arrears remain low: 8,960 buy-to-let mortgages were in
+          arrears greater than 2.5% of the outstanding balance, down 560 on
+          the previous quarter, an arrears rate of 0.47% of all buy-to-let
+          mortgages.
+        </li>
+      </ul>
+      <p>
+        For the longer lending trend through 2025, including household and
+        overseas buyer figures, see our
+        <a href="/guides/uk-expat-property-statistics">UK expat and non-resident property statistics</a> page.
+      </p>
+    </div>
+  </section>
+
+  <section class="hub-section">
+    <div class="hub-section-inner">
+      <h2 id="portfolio-structure">How UK landlord portfolios are structured</h2>
+      <p>
+        The most detailed government data on landlord portfolios comes from
+        the <a href="https://www.gov.uk/government/publications/english-private-landlord-survey-segmenting-the-business-models-of-private-landlords/main-report-english-private-landlord-survey-segmenting-the-business-models-of-private-landlords" target="_blank" rel="noopener">English Private Landlord Survey: segmenting the business models of
+        private landlords</a>, commissioned by the Ministry of Housing,
+        Communities and Local Government and published in December 2025.
+      </p>
+      <ul>
+        <li>
+          45% of landlords owned a single rental property, representing 21%
+          of tenancies. 38% owned between two and four properties (30% of
+          tenancies), and 17% owned five or more (49% of tenancies).
+        </li>
+        <li>
+          Individual landlords accounted for around 81% of tenancies,
+          companies for around 15%, and a mix of both for the remaining 3%.
+        </li>
+        <li>
+          Portfolio size differs sharply by structure: 86% of individual
+          landlords owned between one and four properties, and 48% owned
+          only one. Among company landlords, 56% owned five or more
+          properties, including 13% owning 25 or more, and only 14% owned
+          just one.
+        </li>
+        <li>
+          Landlords with a buy-to-let mortgage were more likely to hold
+          multiple properties: 63% owned more than one, against 40% of
+          landlords with other borrowing and 46% with no borrowing at all.
+        </li>
+      </ul>
+      <p>
+        Separately, industry research points to portfolios growing further.
+        A <a href="https://www.propertyinvestortoday.co.uk/breaking-news/2026/07/average-size-of-landlord-portfolios-grows/" target="_blank" rel="noopener">Pegasus Insight survey reported in July 2026</a> put the average
+        landlord portfolio at 7.3 properties, and the average limited
+        company landlord portfolio at 15.3 properties, up from 12.8 at the
+        end of 2025, with around two-thirds of those company landlords'
+        holdings now owned through a corporate structure. This is a
+        different, more professionalised sample than the government survey
+        above, so the two figures describe different populations rather
+        than a single trend line.
+      </p>
+      <p>
+        For how a UK limited company structure works for a non-resident or
+        expat landlord specifically, see the SPV sections on our
+        <a href="/non-uk-resident-mortgages/buy-to-let">non-resident buy-to-let</a> and
+        <a href="/expat-mortgages/buy-to-let">expat buy-to-let</a> pages.
+      </p>
+    </div>
+  </section>
+
+  <PullQuote>
+    Company landlords hold far larger portfolios than individual landlords:
+    56% own five or more properties, against 48% of individual landlords who
+    own just one, the government's landlord survey found.
+  </PullQuote>
+
+  <section class="hub-section">
+    <div class="hub-section-inner">
+      <h2 id="sources">Sources</h2>
+      <ul>
+        <li>
+          <a href="https://www.ons.gov.uk/economy/inflationandpriceindices/bulletins/privaterentandhousepricesuk/may2026" target="_blank" rel="noopener">Office for National Statistics — Private rent and house prices, UK: May 2026</a>
+        </li>
+        <li>
+          <a href="https://homelet.co.uk/homelet-rental-index" target="_blank" rel="noopener">HomeLet Rental Index</a>
+        </li>
+        <li>
+          <a href="https://www.ukfinance.org.uk/data-and-research/data/buy-to-let-lending" target="_blank" rel="noopener">UK Finance — Buy-to-let lending data</a>
+        </li>
+        <li>
+          <a href="https://www.gov.uk/government/publications/english-private-landlord-survey-segmenting-the-business-models-of-private-landlords/main-report-english-private-landlord-survey-segmenting-the-business-models-of-private-landlords" target="_blank" rel="noopener">Ministry of Housing, Communities and Local Government / NatCen — English Private Landlord Survey: segmenting the business models of private landlords</a>
+        </li>
+        <li>
+          <a href="https://www.propertyinvestortoday.co.uk/breaking-news/2026/07/average-size-of-landlord-portfolios-grows/" target="_blank" rel="noopener">Property Investor Today — Average size of landlord portfolios grows (Pegasus Insight research)</a>
+        </li>
+      </ul>
+      <p>
+        This page is for general information only and is not financial,
+        legal, or tax advice. Figures are third-party data compiled by
+        UK Mortgages Worldwide; we do not control or guarantee their
+        ongoing accuracy, and each source may revise its own figures over
+        time. Always check the original source for the latest published
+        data before relying on a specific number.
+      </p>
+    </div>
+  </section>
+
+  <MidPageCta
+    heading="Talk to a specialist about a buy-to-let purchase or remortgage"
+    ctaNote="A mortgage broker will usually respond immediately."
+  />
+
+  <section class="hub-section">
+    <div class="hub-section-inner">
+      <h2 id="faqs">Common questions</h2>
+      <div class="faq">
+        {faqs.map((f) => (
+          <>
+            <h3>{f.q}</h3>
+            <p>{f.a}</p>
+          </>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <script
+    type="application/ld+json"
+    is:inline
+    set:html={JSON.stringify(faqSchema)}
+  />
+</HubLayout>
