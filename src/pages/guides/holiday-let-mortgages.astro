@@ -1,0 +1,342 @@
+---
+import HubLayout from '../../layouts/HubLayout.astro';
+import PullQuote from '../../components/PullQuote.astro';
+import MidPageCta from '../../components/MidPageCta.astro';
+import { breadcrumbSchema, articleSchema } from '../../lib/schema';
+import RiskWarning from '../../components/RiskWarning.astro';
+import TerritorialScope from '../../components/TerritorialScope.astro';
+
+const title = 'Holiday Let Mortgages for Expats and Non-UK Residents';
+const description =
+  'How UK holiday let mortgages work for British expats and non-UK resident buyers. How lenders assess seasonal income, how the tax position differs from standard buy-to-let, and how the process works from abroad.';
+const h1 = 'Holiday Let Mortgages for Expats and Non-UK Residents';
+const subheadline =
+  'What a UK holiday let mortgage is, how it differs from a standard buy-to-let mortgage, how lenders assess seasonal rental income, and what changes when you apply from outside the UK.';
+
+const relatedPages = [
+  {
+    eyebrow: 'Hub',
+    title: 'Expat Buy-to-Let Mortgages',
+    description:
+      'UK buy-to-let mortgages for British nationals living abroad. ICR, deposits, and the lender pool.',
+    href: '/expat-mortgages/buy-to-let',
+  },
+  {
+    eyebrow: 'Hub',
+    title: 'Non-Resident Buy-to-Let Mortgages',
+    description:
+      'BTL on UK property from outside the UK. Lender pool, deposits, ICR, and limited company structures.',
+    href: '/non-uk-resident-mortgages/buy-to-let',
+  },
+  {
+    eyebrow: 'Guide',
+    title: 'Expat BTL Rates',
+    description:
+      'What rates UK expats can expect on buy-to-let mortgages and what drives the rate.',
+    href: '/expat-mortgages/buy-to-let/rates',
+  },
+  {
+    eyebrow: 'Guide',
+    title: 'Consent to Let',
+    description:
+      'What consent to let is, how to apply, how long it lasts, and what to do when it runs out.',
+    href: '/guides/consent-to-let',
+  },
+  {
+    eyebrow: 'Guide',
+    title: 'Non-Resident Landlord Scheme',
+    description:
+      'How UK rental income is taxed when you live abroad, and how to register to receive rent without withholding.',
+    href: '/guides/non-resident-landlord-scheme',
+  },
+  {
+    eyebrow: 'Guide',
+    title: 'UK Rental Market and Landlord Statistics 2026',
+    description:
+      'Sourced ONS, HomeLet, UK Finance and government landlord survey statistics on UK rents, buy-to-let lending, and landlord portfolio structure.',
+    href: '/guides/uk-rental-market-statistics',
+  },
+];
+
+const faqs = [
+  {
+    q: 'What is a holiday let mortgage?',
+    a: 'A holiday let mortgage is a specialist buy-to-let product for a property let out short-term to holidaymakers, typically through a booking platform or letting agency, rather than to a single tenant on an assured shorthold tenancy. Lenders treat it as a distinct product from standard buy-to-let because the income pattern, usage, and risk profile are different.',
+  },
+  {
+    q: 'How is a holiday let mortgage different from a standard buy-to-let mortgage?',
+    a: 'Three things differ. Income assessment looks at seasonal or average achievable rental income rather than a single fixed monthly rent. The lender pool is smaller, because fewer lenders offer holiday let products at all. And many lenders expect the property to be actively marketed for short-term letting and may restrict or ask about personal use of the property by the owner.',
+  },
+  {
+    q: 'Can a British expat get a UK holiday let mortgage?',
+    a: 'Yes, through the lenders that operate in this niche and also accept non-resident applicants. The pool is narrower than for expat standard buy-to-let, because it sits at the intersection of two specialist categories. A broker who knows which lenders combine both appetites saves considerable time.',
+  },
+  {
+    q: 'Can a non-UK national buy a UK holiday let?',
+    a: 'Yes, in principle, though the lender pool for foreign nationals on holiday let products is narrower still. Strong deposit, clean documentation, and a well-located property in an established holiday letting market all help.',
+  },
+  {
+    q: 'How do lenders assess income on a holiday let?',
+    a: 'Most ask for a projected income figure, usually based on a letting agent estimate or an independent assessment, reflecting a realistic average across the year rather than peak-season pricing. This projected figure is then tested against the mortgage in a similar way to the interest cover ratio (ICR) test used for standard buy-to-let.',
+  },
+  {
+    q: 'Has the tax treatment of holiday lets changed?',
+    a: 'Yes. The furnished holiday lettings tax regime, which previously gave holiday lets more favourable tax treatment than standard rental property, was withdrawn from April 2025. Furnished holiday lets are now broadly taxed in the same way as other rental property. This is a significant change from how holiday lets were taxed previously, and it is worth discussing with an accountant before you buy or remortgage, since it affects the return you can expect from the property.',
+  },
+  {
+    q: 'What deposit do I need for a holiday let mortgage?',
+    a: 'Expect to put down meaningfully more than on a standard residential purchase, and typically somewhat more than on a standard buy-to-let, reflecting the smaller lender pool and the seasonal nature of the income. The exact figure depends on the lender, the property, and your residency status.',
+  },
+  {
+    q: 'Can I use the property myself as well as letting it?',
+    a: 'Many lenders allow a limited amount of personal use, but the property still needs to be genuinely available for holiday letting for most of the year. Policies vary by lender, so this is worth confirming before you commit to a property, particularly if personal use matters to you.',
+  },
+  {
+    q: 'What about mortgages for serviced accommodation?',
+    a: 'Serviced accommodation is a related but distinct niche: a property let short-term on a more business-like basis, often year-round through a management company, rather than seasonally to holidaymakers. Some holiday let lenders also consider serviced accommodation, and some do not. It is a smaller, more specialist corner of the same broader market and worth raising with your broker if it fits your plans.',
+  },
+  {
+    q: 'Do I need a management company?',
+    a: 'Not always required by the lender, but running a holiday let from abroad without a local letting agent or management company managing turnovers, cleaning, and guest communication is impractical for most non-resident owners in practice.',
+  },
+];
+
+const faqSchema = {
+  '@context': 'https://schema.org',
+  '@type': 'FAQPage',
+  mainEntity: faqs.map((f) => ({
+    '@type': 'Question',
+    name: f.q,
+    acceptedAnswer: { '@type': 'Answer', text: f.a },
+  })),
+};
+
+const schemas = [
+  breadcrumbSchema([
+    { name: 'Home', path: '/' },
+    { name: 'Guides', path: '/guides' },
+    { name: 'Holiday Let Mortgages', path: '/guides/holiday-let-mortgages' },
+  ]),
+  articleSchema({ headline: h1, description }),
+];
+---
+
+<HubLayout
+  title={title}
+  description={description}
+  h1={h1}
+  subheadline={subheadline}
+  eyebrow="GUIDE · HOLIDAY LET MORTGAGES"
+  schemas={schemas}
+  relatedPages={relatedPages}
+>
+  <RiskWarning type="btl" />
+  <TerritorialScope />
+
+  <section class="hub-section">
+    <div class="hub-section-inner">
+      <h2 id="who-this-is-for">Who this page is for</h2>
+      <p>
+        If you are a British expat or a non-UK resident considering a UK
+        property to let out to holidaymakers rather than to a long-term
+        tenant, this page is for you. That covers a British national
+        living abroad who wants a sterling-denominated holiday let
+        investment in a market they know well, and a foreign national
+        buying a UK holiday property as part of a wider portfolio.
+      </p>
+      <p>
+        This page covers what a holiday let mortgage is, how it differs
+        from a <a href="/expat-mortgages/buy-to-let">standard expat buy-to-let mortgage</a>,
+        how lenders assess the income, and what the tax position looks
+        like since the furnished holiday lettings regime changed.
+      </p>
+    </div>
+  </section>
+
+  <section class="hub-section">
+    <div class="hub-section-inner">
+      <h2 id="what-it-is">What a holiday let mortgage is</h2>
+      <p>
+        A holiday let mortgage funds a property let out short-term to
+        holidaymakers, typically for periods of a few nights to a few
+        weeks, through a booking platform, a letting agency, or a
+        management company. It sits apart from a standard residential
+        mortgage, which assumes owner-occupation, and from a standard
+        buy-to-let mortgage, which assumes a single tenant on a
+        longer-term tenancy.
+      </p>
+      <p>
+        Lenders treat holiday lets as a distinct product because the
+        income pattern is different. Rent on a standard buy-to-let
+        arrives as a fixed monthly figure. Income on a holiday let varies
+        by season, occupancy, and local demand, and is usually assessed
+        as an average or a projected figure rather than a fixed rent.
+      </p>
+    </div>
+  </section>
+
+  <section class="hub-section">
+    <div class="hub-section-inner">
+      <h2 id="how-it-differs">How a holiday let mortgage differs from standard buy-to-let</h2>
+      <p>Three things typically differ.</p>
+      <p>
+        <strong>Income assessment.</strong> Standard buy-to-let lending
+        stress-tests a fixed monthly rent through an interest cover
+        ratio (ICR). Holiday let lending works from a projected average
+        income, usually supported by a letting agent estimate or an
+        independent assessment, reflecting a realistic year-round figure
+        rather than peak-season pricing.
+      </p>
+      <p>
+        <strong>Lender pool.</strong> Fewer lenders offer holiday let
+        mortgages than standard buy-to-let mortgages. Within that smaller
+        pool, fewer still accept non-resident applicants, so the
+        available choice for an expat or foreign national buyer narrows
+        further.
+      </p>
+      <p>
+        <strong>Personal use.</strong> Many lenders allow the owner some
+        personal use of the property, but expect it to be genuinely
+        available for holiday letting for most of the year. Policies on
+        exactly how much personal use is acceptable vary by lender.
+      </p>
+    </div>
+  </section>
+
+  <MidPageCta variant="hero" />
+
+  <PullQuote>
+    Holiday let lending sits at the intersection of two specialist
+    categories for a non-resident applicant. The lender pool that offers
+    both is considerably narrower than either alone.
+  </PullQuote>
+
+  <section class="hub-section">
+    <div class="hub-section-inner">
+      <h2 id="expat-considerations">Expat and non-resident considerations</h2>
+      <p>
+        Applying for a holiday let mortgage while living abroad adds the
+        same broad considerations as any other expat or non-resident UK
+        mortgage: currency of income, proof of overseas residency, and a
+        deposit sourced and documented to the standard UK lenders expect.
+      </p>
+      <p>
+        The narrower part is lender choice. A holiday let product and a
+        non-resident acceptance policy do not always sit at the same
+        lender, so working out which lenders combine both appetites is
+        the main practical hurdle. This is squarely
+        <a href="/expat-mortgage-broker">specialist broker</a> territory
+        rather than something to work through directly with a single
+        high-street lender.
+      </p>
+      <p>
+        Property location also matters more here than on a standard
+        buy-to-let. Lenders and letting agents both favour established
+        holiday letting markets with a track record of demand, which
+        supports a more reliable income projection than an unproven
+        location.
+      </p>
+    </div>
+  </section>
+
+  <section class="hub-section">
+    <div class="hub-section-inner">
+      <h2 id="tax-treatment">The tax position has changed</h2>
+      <p>
+        Furnished holiday lets previously benefited from a distinct tax
+        regime that treated them more favourably than standard rental
+        property, including how mortgage interest and certain costs were
+        relieved against tax. That regime was withdrawn from April 2025.
+        Furnished holiday lets are now broadly taxed in line with other
+        rental property.
+      </p>
+      <p>
+        This is a meaningful change from how holiday lets were commonly
+        understood to be taxed, and it affects the net return a holiday
+        let can be expected to generate. If you live outside the UK, you
+        will also need to consider the
+        <a href="/guides/non-resident-landlord-scheme">Non-Resident Landlord Scheme</a>,
+        which applies to UK rental income of any kind received while
+        living abroad. Speak to an accountant familiar with current
+        rules before committing to a holiday let purchase, since the tax
+        position is a material part of the investment case.
+      </p>
+    </div>
+  </section>
+
+  <section class="hub-section">
+    <div class="hub-section-inner">
+      <h2 id="serviced-accommodation">Serviced accommodation: a related niche</h2>
+      <p>
+        Serviced accommodation is a related but distinct category: a
+        property let short-term on a more business-like basis, often
+        through a management company, sometimes year-round rather than
+        seasonally, and sometimes targeted at business travellers and
+        relocating professionals rather than holidaymakers.
+      </p>
+      <p>
+        Some lenders that offer holiday let mortgages also consider
+        serviced accommodation, and some do not. It is a smaller and
+        more specialist corner of the same broader short-let market. If
+        you are weighing holiday letting against a serviced accommodation
+        model, raise both with your broker at the outset, since the
+        lender shortlist can differ between the two.
+      </p>
+    </div>
+  </section>
+
+  <section class="hub-section">
+    <div class="hub-section-inner">
+      <h2 id="common-situations">Common situations</h2>
+      <p>
+        <strong>The British expat buying a first holiday let.</strong>
+        A UK national living abroad wanting a sterling-denominated
+        holiday letting investment in a market they already know, often
+        a coastal or rural area they visit or have a family connection
+        to.
+      </p>
+      <p>
+        <strong>The existing landlord diversifying.</strong> An expat or
+        non-resident with an established standard buy-to-let portfolio
+        adding a holiday let for yield diversification, having weighed
+        the higher management involvement against the return.
+      </p>
+      <p>
+        <strong>The foreign national building a UK portfolio.</strong>
+        An overseas-based investor adding a holiday let alongside
+        standard buy-to-let property as part of a broader UK investment
+        spread.
+      </p>
+      <p>
+        <strong>The former main residence converted to a holiday let.</strong>
+        An owner who has moved abroad and, rather than a standard
+        <a href="/guides/consent-to-let">consent to let</a> or buy-to-let
+        remortgage, wants to let the property short-term instead. This
+        needs a specific holiday let product and lender sign-off, not
+        just standard consent to let.
+      </p>
+    </div>
+  </section>
+
+  <MidPageCta />
+
+  <section class="hub-section">
+    <div class="hub-section-inner">
+      <h2 id="faqs">Frequently asked questions</h2>
+      <div class="faq">
+        {faqs.map((f) => (
+          <>
+            <h3>{f.q}</h3>
+            <p>{f.a}</p>
+          </>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <script
+    type="application/ld+json"
+    is:inline
+    set:html={JSON.stringify(faqSchema)}
+  />
+</HubLayout>
