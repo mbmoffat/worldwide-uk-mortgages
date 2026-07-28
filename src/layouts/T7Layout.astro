@@ -1,5 +1,13 @@
 ---
 import Layout from './Layout.astro';
+import RelatedCard from '../components/RelatedCard.astro';
+
+interface RelatedPage {
+  eyebrow: string;
+  title: string;
+  description: string;
+  href: string;
+}
 
 interface Props {
   title: string;
@@ -8,9 +16,20 @@ interface Props {
   eyebrow?: string;
   lead?: string;
   schemas?: Record<string, any>[];
+  relatedPages?: RelatedPage[];
+  relatedPagesHeading?: string;
 }
 
-const { title, description, h1, eyebrow, lead, schemas = [] } = Astro.props;
+const {
+  title,
+  description,
+  h1,
+  eyebrow,
+  lead,
+  schemas = [],
+  relatedPages = [],
+  relatedPagesHeading = 'Related pages',
+} = Astro.props;
 ---
 
 <Layout title={title} description={description} schemas={schemas}>
@@ -24,6 +43,24 @@ const { title, description, h1, eyebrow, lead, schemas = [] } = Astro.props;
       </div>
     </div>
   </article>
+
+  {relatedPages.length > 0 && (
+    <section class="related-pages-section" aria-labelledby="related-pages-heading">
+      <div class="hub-section-inner">
+        <h2 id="related-pages-heading">{relatedPagesHeading}</h2>
+        <div class="related-pages-grid">
+          {relatedPages.map((p) => (
+            <RelatedCard
+              eyebrow={p.eyebrow}
+              title={p.title}
+              description={p.description}
+              href={p.href}
+            />
+          ))}
+        </div>
+      </div>
+    </section>
+  )}
 </Layout>
 
 <style is:global>
