@@ -1,0 +1,332 @@
+---
+import HubLayout from '../../layouts/HubLayout.astro';
+import PullQuote from '../../components/PullQuote.astro';
+import MidPageCta from '../../components/MidPageCta.astro';
+import { breadcrumbSchema, articleSchema } from '../../lib/schema';
+import RiskWarning from '../../components/RiskWarning.astro';
+import TerritorialScope from '../../components/TerritorialScope.astro';
+
+const title = 'Let to Buy Mortgages for Expats';
+const description =
+  'How a let to buy mortgage works for British expats and non-UK residents keeping a UK property as a rental while buying their next UK home.';
+const h1 = 'Let to Buy Mortgages for Expats and Non-UK Residents';
+const subheadline =
+  'What a let to buy mortgage is, how it differs from consent to let and a standalone buy-to-let remortgage, and how it works for a returning expat or non-UK resident buying a new UK home while keeping the old one as a rental.';
+
+const relatedPages = [
+  {
+    eyebrow: 'Guide',
+    title: 'Consent to Let',
+    description:
+      'What consent to let is, how to apply, how long it lasts, and what to do when it runs out.',
+    href: '/guides/consent-to-let',
+  },
+  {
+    eyebrow: 'Guide',
+    title: 'Returning to the UK',
+    description:
+      'Mortgages for returning expats. When to apply, what evidence you need, and how to time completion.',
+    href: '/expat-mortgages/returning-to-uk',
+  },
+  {
+    eyebrow: 'Hub',
+    title: 'Expat Buy-to-Let Mortgages',
+    description:
+      'UK buy-to-let mortgages for British nationals living abroad. ICR, deposits, and the lender pool.',
+    href: '/expat-mortgages/buy-to-let',
+  },
+  {
+    eyebrow: 'Hub',
+    title: 'Non-Resident Buy-to-Let Mortgages',
+    description:
+      'BTL on UK property from outside the UK. Lender pool, deposits, ICR, and limited company structures.',
+    href: '/non-uk-resident-mortgages/buy-to-let',
+  },
+  {
+    eyebrow: 'Guide',
+    title: 'Expat Remortgaging',
+    description:
+      'Switching your UK mortgage from abroad. Timing, lender choice, and how a broker handles it.',
+    href: '/expat-mortgages/remortgage',
+  },
+  {
+    eyebrow: 'Guide',
+    title: 'Non-Resident Landlord Scheme',
+    description:
+      'How UK rental income is taxed when you live abroad, and how to register to receive rent without withholding.',
+    href: '/guides/non-resident-landlord-scheme',
+  },
+];
+
+const faqs = [
+  {
+    q: 'What is a let to buy mortgage?',
+    a: 'Let to buy describes two linked transactions completed together. You remortgage your current UK property onto a buy-to-let product so it can be rented out, and at the same time take out a new mortgage to buy the property you are moving to. The two deals are usually coordinated to complete on the same day, because the lender on the new purchase often wants to see the letting arrangement on the old property confirmed first.',
+  },
+  {
+    q: 'How is let to buy different from consent to let?',
+    a: 'Consent to let is temporary permission from your existing residential lender to rent out your current home without changing the mortgage itself. Let to buy goes further. It replaces the mortgage on your current home with a dedicated buy-to-let product, and pairs that with a new mortgage on a second property you are buying to live in. If you are not buying a new home at the same time, you want consent to let or a standalone buy-to-let remortgage rather than let to buy.',
+  },
+  {
+    q: 'How is let to buy different from a standalone buy-to-let remortgage?',
+    a: 'A standalone buy-to-let remortgage only touches the existing property. Let to buy pairs that remortgage with a live purchase of a new main residence, usually timed to complete together. The rental income and the equity released on the old property are often part of what makes the new purchase affordable, so the two applications are assessed with reference to each other rather than in isolation.',
+  },
+  {
+    q: 'Can a British expat use let to buy?',
+    a: 'Yes. It comes up most often for expats returning to the UK who already let out, or plan to let out, their previous UK home and want to buy a new UK home to live in rather than sell the old one. It can also suit an expat still living abroad who wants to secure a future UK home now while keeping the existing property let, though the new purchase usually needs to be structured as a second home or buy-to-let rather than a residential mortgage until the applicant is UK resident again.',
+  },
+  {
+    q: 'Can a non-UK resident use let to buy?',
+    a: 'Yes, most commonly a non-UK national who already owns a UK buy-to-let property and is now moving to the UK to live, and wants to buy their own home while keeping the existing rental. The residential purchase is assessed as a UK-resident application once the move is confirmed, while the existing property moves onto or stays on a buy-to-let mortgage.',
+  },
+  {
+    q: 'Do the two mortgages have to be with the same lender?',
+    a: 'No. Some lenders offer a joined-up let to buy product covering both sides. Many applicants use two different lenders instead, one for the buy-to-let remortgage and one for the new residential purchase, chosen separately for the best fit on each side. A broker coordinating both applications keeps the timing aligned either way.',
+  },
+  {
+    q: 'Does rental income from the old property help me afford the new one?',
+    a: 'Not usually in a direct sense. The buy-to-let side is assessed mainly on the rental income the old property can achieve, tested against an interest cover ratio in the normal way. The new residential purchase is assessed on your personal income and deposit, in the same way as any other home purchase. The connection between the two is mainly about timing and equity, since funds released from the old property at remortgage can contribute to the deposit on the new one.',
+  },
+  {
+    q: 'What happens to my Non-Resident Landlord Scheme obligations?',
+    a: 'They continue to apply for as long as you live outside the UK and receive UK rental income, regardless of whether the letting arrangement started as consent to let or a full let to buy remortgage. See our Non-Resident Landlord Scheme guide for how registration works.',
+  },
+  {
+    q: 'Do I pay the additional dwelling stamp duty surcharge on the new purchase?',
+    a: 'Usually yes, because you will own two properties at completion. The surcharge can sometimes be reclaimed later if the old property is sold within the qualifying window, though that is less likely to apply in a genuine let to buy, since the whole point of the structure is to keep the old property rather than sell it. Non-UK residents may also face the separate non-resident surcharge on top. Model the exact figures with a solicitor or our stamp duty calculator before committing.',
+  },
+];
+
+const faqSchema = {
+  '@context': 'https://schema.org',
+  '@type': 'FAQPage',
+  mainEntity: faqs.map((f) => ({
+    '@type': 'Question',
+    name: f.q,
+    acceptedAnswer: { '@type': 'Answer', text: f.a },
+  })),
+};
+
+const schemas = [
+  breadcrumbSchema([
+    { name: 'Home', path: '/' },
+    { name: 'Guides', path: '/guides' },
+    { name: 'Let to Buy Mortgages', path: '/guides/let-to-buy-mortgages' },
+  ]),
+  articleSchema({ headline: h1, description }),
+];
+---
+
+<HubLayout
+  title={title}
+  description={description}
+  h1={h1}
+  subheadline={subheadline}
+  eyebrow="GUIDE · LET TO BUY MORTGAGES"
+  schemas={schemas}
+  relatedPages={relatedPages}
+>
+  <RiskWarning type="btl" />
+  <TerritorialScope />
+
+  <section class="hub-section">
+    <div class="hub-section-inner">
+      <h2 id="who-this-is-for">Who this page is for</h2>
+      <p>
+        If you already own a UK property, live outside the UK or are
+        returning to the UK, and want to buy a new UK home to live in
+        while keeping your existing property as a rental, this page is
+        for you. The most common case is a British expat coming back to
+        the UK who does not want to sell the home they let out while they
+        were abroad. It also covers a non-UK resident who already holds a
+        UK buy-to-let property and is now moving to the UK to live.
+      </p>
+      <p>
+        This page explains what a let to buy mortgage is, how it differs
+        from
+        <a href="/guides/consent-to-let">consent to let</a>
+        and from a standalone
+        <a href="/expat-mortgages/buy-to-let">buy-to-let remortgage</a>,
+        and how the two linked transactions are typically structured and
+        assessed.
+      </p>
+    </div>
+  </section>
+
+  <section class="hub-section">
+    <div class="hub-section-inner">
+      <h2 id="what-it-is">What a let to buy mortgage is</h2>
+      <p>
+        Let to buy is not a single product. It describes two mortgage
+        transactions carried out together. Your current UK property moves
+        from a residential mortgage onto a buy-to-let mortgage, so it can
+        be let out. At the same time, you take out a new mortgage to buy
+        the property you are moving to.
+      </p>
+      <p>
+        The two deals are usually timed to complete on the same day. The
+        lender on the new purchase often wants confirmation that the old
+        property is genuinely being let, rather than simply vacated, and
+        the equity released from remortgaging the old property is often
+        part of the funding for the new one. That interdependence is what
+        separates let to buy from two mortgages that happen to be
+        arranged around the same time by coincidence.
+      </p>
+    </div>
+  </section>
+
+  <section class="hub-section">
+    <div class="hub-section-inner">
+      <h2 id="how-it-differs">
+        How let to buy differs from consent to let and a standard BTL remortgage
+      </h2>
+      <p>
+        <strong>Consent to let</strong> keeps your existing residential
+        mortgage in place and simply adds permission to rent the property
+        out, usually for a fixed period. Nothing changes about the
+        mortgage product itself, and there is no new purchase involved.
+        It suits a temporary posting abroad where you plan to move back
+        into the same property later.
+      </p>
+      <p>
+        <strong>A standalone buy-to-let remortgage</strong> replaces the
+        residential mortgage on your current property with a buy-to-let
+        product, on its own, with no linked purchase. It suits someone
+        who wants to keep the old property as a long-term rental but is
+        not buying anywhere else at the same time.
+      </p>
+      <p>
+        <strong>Let to buy</strong> combines the buy-to-let remortgage
+        with a live purchase of a new main residence, coordinated to
+        complete together. If you are not buying a new home right now,
+        you want one of the two options above rather than let to buy.
+      </p>
+    </div>
+  </section>
+
+  <MidPageCta variant="hero" />
+
+  <section class="hub-section">
+    <div class="hub-section-inner">
+      <h2 id="how-lenders-assess-it">How lenders assess a let to buy case</h2>
+      <p>
+        The two sides of a let to buy transaction are underwritten
+        separately, even though they are coordinated to complete
+        together.
+      </p>
+      <p>
+        <strong>The buy-to-let side.</strong> The old property is
+        assessed mainly on the rental income it can achieve, tested
+        against an interest cover ratio in the same way as any other
+        buy-to-let remortgage. The equity you hold in the property acts
+        as the deposit equivalent for this side of the deal.
+      </p>
+      <p>
+        <strong>The new purchase side.</strong> The new property is
+        assessed as a standard residential (or, for an applicant not yet
+        UK resident, an expat or non-resident) mortgage, based on your
+        personal income, the deposit you are putting down, and normal
+        affordability checks. Funds released from remortgaging the old
+        property can contribute to that deposit.
+      </p>
+      <p>
+        Some lenders offer both sides as a single coordinated let to buy
+        product. Others are approached separately for each side, with a
+        broker keeping the timing aligned so neither completion is left
+        waiting on the other.
+      </p>
+    </div>
+  </section>
+
+  <PullQuote>
+    The two sides of a let to buy transaction are underwritten
+    separately, but the timing has to line up. That coordination is
+    where most of the practical difficulty sits.
+  </PullQuote>
+
+  <section class="hub-section">
+    <div class="hub-section-inner">
+      <h2 id="expat-considerations">Expat and non-resident considerations</h2>
+      <p>
+        For a returning expat, the buy-to-let side of a let to buy case
+        often starts life as
+        <a href="/guides/consent-to-let">consent to let</a>
+        while still abroad, then converts to a full buy-to-let
+        remortgage once the decision to keep the property long-term is
+        made. If you are still weighing whether to keep the old property
+        at all, our
+        <a href="/expat-mortgages/returning-to-uk">returning to the UK guide</a>
+        covers the wider timing questions around a UK move.
+      </p>
+      <p>
+        For a non-UK resident who already owns a UK rental property, the
+        new residential purchase is generally assessed once your move to
+        the UK is confirmed and evidenced, in a similar way to how a
+        returning expat's new UK income and address are treated. Until
+        that point, a new UK property purchase is more likely to sit
+        alongside your existing rental as a second buy-to-let or second
+        home, rather than as a residential mortgage.
+      </p>
+      <p>
+        Whichever side of the border you are on when you start the
+        process, the practical work is the same: line up the buy-to-let
+        remortgage on the old property, the residential purchase on the
+        new one, and a completion date both lenders and both
+        transactions can meet.
+      </p>
+    </div>
+  </section>
+
+  <section class="hub-section">
+    <div class="hub-section-inner">
+      <h2 id="common-situations">Common situations</h2>
+      <p>
+        <strong>The returning expat who wants to keep the old home.</strong>
+        Moved abroad on
+        <a href="/guides/consent-to-let">consent to let</a>, now returning
+        to the UK, and wants to buy a new home to live in rather than
+        move back into the property that has been let out. The old
+        property converts to a full buy-to-let mortgage as part of the
+        purchase of the new one.
+      </p>
+      <p>
+        <strong>The non-resident landlord relocating to the UK.</strong>
+        Already owns a UK buy-to-let property bought while living
+        abroad, and is now moving to the UK for work or family reasons.
+        Wants their own home to live in while keeping the existing
+        property as an investment rather than selling it.
+      </p>
+      <p>
+        <strong>The expat securing a future UK base.</strong> Still
+        living and working abroad, wants to buy a UK property now to
+        use on visits or hand to family, while keeping the current UK
+        home let out. This case usually needs the new purchase
+        structured as a second home or buy-to-let rather than a
+        residential mortgage, since the applicant is not yet UK
+        resident.
+      </p>
+    </div>
+  </section>
+
+  <MidPageCta />
+
+  <section class="hub-section">
+    <div class="hub-section-inner">
+      <h2 id="faqs">Frequently asked questions</h2>
+      <div class="faq">
+        {faqs.map((f) => (
+          <>
+            <h3>{f.q}</h3>
+            <p>{f.a}</p>
+          </>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <script
+    type="application/ld+json"
+    is:inline
+    set:html={JSON.stringify(faqSchema)}
+  />
+</HubLayout>
