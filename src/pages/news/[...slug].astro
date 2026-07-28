@@ -21,8 +21,17 @@ interface Props {
 
 const { article } = Astro.props;
 const { Content } = await article.render();
-const { title, seoTitle, description, pubDate, hideRiskWarning, riskType, lead, faqs } =
-  article.data;
+const {
+  title,
+  seoTitle,
+  description,
+  pubDate,
+  hideRiskWarning,
+  riskType,
+  lead,
+  faqs,
+  relatedPages,
+} = article.data;
 
 const fmt = (d: Date) =>
   d.toLocaleDateString('en-GB', {
@@ -56,6 +65,7 @@ const schemas = [
   eyebrow="NEWS"
   lead={lead}
   schemas={schemas}
+  relatedPages={relatedPages}
 >
   {!hideRiskWarning && (
     <>

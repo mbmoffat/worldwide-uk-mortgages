@@ -22,6 +22,19 @@ faqs:
     a: "No. From 1 May 2026, all assured tenancies are periodic. Existing fixed terms ended on the commencement date. Attempting to enforce a fixed term clause carries a civil penalty under new Section 16E of the Housing Act 1988."
   - q: "Will lenders pull back from non-resident BTL because of this?"
     a: "No major lender has withdrawn from the non-resident or expat BTL market specifically because of the Act. Pricing and criteria are moving for other reasons, including swap rate volatility and PRA risk-appetite limits. The Act is a factor in underwriting, not a threshold change in lender willingness."
+relatedPages:
+  - eyebrow: "Guide"
+    title: "Non-Resident Landlord Scheme"
+    description: "How UK rental income is taxed when you live abroad, and how to register to receive rent without withholding."
+    href: "/guides/non-resident-landlord-scheme"
+  - eyebrow: "Hub"
+    title: "Expat Buy-to-Let Mortgages"
+    description: "UK buy-to-let mortgages for British nationals living abroad. ICR, deposits, and lender pool."
+    href: "/expat-mortgages/buy-to-let"
+  - eyebrow: "Guide"
+    title: "Expat Remortgaging"
+    description: "Switching your UK mortgage from abroad. When to start, what lenders look for, and how the process differs."
+    href: "/expat-mortgages/remortgage"
 ---
 
 Below is what changed, what you need to do this month, and what this means for anyone planning a buy-to-let purchase or remortgage from overseas.

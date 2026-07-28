@@ -4,6 +4,28 @@ seoTitle: "Returning From the Gulf: UK Mortgage Guide"
 description: "Practical guidance for British expats returning from the UAE, Saudi Arabia, Qatar and the wider Gulf, applying for a UK mortgage on the way home."
 pubDate: 2026-05-03
 sources: []
+faqs:
+  - q: "Should I apply for a UK mortgage before I move home from the Gulf, or wait until I arrive?"
+    a: "Both routes work. Applying as a non-resident before the move is faster if you want to complete close to your arrival date. Waiting until you have a UK address, payslips and bank statements opens up the resident lender pool and often better pricing, but takes three to four months, or six weeks with the right specialist lender."
+  - q: "Will lenders reduce my Gulf salary when working out how much I can borrow?"
+    a: "Most mainstream lenders apply a haircut of around 20 percent to non-sterling income before running affordability, sometimes more. A smaller group of specialist lenders take Gulf income at face value with no haircut, which can be the difference between a viable purchase and a refused application for high earners."
+  - q: "I have been out of the UK for years. Will a thin credit history stop me getting a mortgage?"
+    a: "No. Specialist expat lenders weigh income strength, deposit, employment history and overseas credit references rather than relying on a UK credit file alone. The footprint rebuilds quickly once you are on the electoral roll and running a UK current account."
+  - q: "Can I use savings held in a Gulf bank account as my deposit?"
+    a: "Yes, but lenders want a clear paper trail showing the source, such as salary credits or an end-of-service gratuity payment. Large lump sums without an obvious source attract closer scrutiny under anti-money-laundering checks, and moving funds to a UK account before completion takes planning."
+relatedPages:
+  - eyebrow: "Guide"
+    title: "Returning to the UK"
+    description: "Buying or remortgaging UK property when you are returning to the UK after time abroad."
+    href: "/expat-mortgages/returning-to-uk"
+  - eyebrow: "Guide"
+    title: "No UK Credit History"
+    description: "How specialist lenders assess applications without a recent UK credit footprint."
+    href: "/expat-mortgages/no-uk-credit-history"
+  - eyebrow: "Guide"
+    title: "Expat Mortgage Deposit Requirements"
+    description: "How much deposit you need, what counts as deposit money, and how thresholds shift the rate you pay."
+    href: "/expat-mortgages/deposit"
 ---
 
 For British expats heading home from the Gulf, the mortgage question rarely waits until the move. Most clients we speak with want to know what is achievable months before they arrive. The good news is that returning from the Middle East often puts applicants in a stronger position than they expect, particularly on income strength and deposit. The harder part is sequencing the application around the move itself.

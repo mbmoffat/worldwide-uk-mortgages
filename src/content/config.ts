@@ -15,6 +15,16 @@ const news = defineCollection({
     riskType: z.enum(['residential', 'btl']).default('residential'),
     lead: z.string().optional(),
     faqs: z.array(z.object({ q: z.string(), a: z.string() })).optional(),
+    relatedPages: z
+      .array(
+        z.object({
+          eyebrow: z.string(),
+          title: z.string(),
+          description: z.string(),
+          href: z.string(),
+        })
+      )
+      .optional(),
   }),
 });
 
