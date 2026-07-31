@@ -1,0 +1,392 @@
+---
+import HubLayout from '../../layouts/HubLayout.astro';
+import PullQuote from '../../components/PullQuote.astro';
+import MidPageCta from '../../components/MidPageCta.astro';
+import { breadcrumbSchema, articleSchema } from '../../lib/schema';
+import RiskWarning from '../../components/RiskWarning.astro';
+import TerritorialScope from '../../components/TerritorialScope.astro';
+
+const title = 'Joint Borrower Sole Proprietor Mortgages for UK Expats';
+const description =
+  'How a British expat can act as a joint borrower on a UK mortgage without being on the title. Income treatment, ownership, and the stamp duty position explained.';
+const h1 = 'Joint Borrower Sole Proprietor Mortgages for UK Expats';
+const subheadline =
+  'How a British expat living abroad can be added to a UK mortgage to help a family member afford a home, without becoming a legal owner of the property. Income treatment, ownership, and the stamp duty position explained.';
+
+const relatedPages = [
+  {
+    eyebrow: 'Hub',
+    title: 'UK Mortgages for Expats',
+    description:
+      'British nationals living abroad. Country-by-country lender appetite, currency haircuts, and timelines.',
+    href: '/expat-mortgages',
+  },
+  {
+    eyebrow: 'Hub',
+    title: 'UK Mortgages for Non-UK Residents',
+    description:
+      'Foreign nationals or British expats wanting a UK mortgage on UK property. The lender pool, deposits, and rates explained.',
+    href: '/non-uk-resident-mortgages',
+  },
+  {
+    eyebrow: 'Situation',
+    title: 'Joint Mortgage With a Non-UK Resident',
+    description:
+      'When both applicants go on the title and the mortgage. How this differs from a joint borrower sole proprietor structure.',
+    href: '/non-uk-resident-mortgages/joint-mortgage',
+  },
+  {
+    eyebrow: 'Situation',
+    title: 'UK Expat First-Time Buyer Mortgages',
+    description:
+      'How British expats buy their first UK property from abroad, including buying to help family.',
+    href: '/expat-mortgages/first-time-buyer',
+  },
+  {
+    eyebrow: 'Guide',
+    title: 'Non-UK Resident Stamp Duty',
+    description:
+      'The 2% SDLT surcharge explained: who pays it, how it stacks with other rates, and when a rebate is available.',
+    href: '/guides/stamp-duty-non-uk-resident',
+  },
+  {
+    eyebrow: 'Calculator',
+    title: 'Stamp Duty Calculator',
+    description:
+      'Work out the stamp duty liability on a purchase, including the non-resident surcharge where it applies.',
+    href: '/tools/stamp-duty-calculator',
+  },
+];
+
+const faqs = [
+  {
+    q: 'What is a joint borrower sole proprietor mortgage?',
+    a: 'A mortgage structure where two or more people are named as borrowers responsible for the loan, but only one (or a subset) is registered as the legal owner of the property on the title. The additional borrower boosts the affordability assessment without acquiring any ownership stake.',
+  },
+  {
+    q: 'Can a British expat be the joint borrower on a UK mortgage?',
+    a: 'Yes. Being a non-UK resident does not prevent someone from acting as a joint borrower. The lender pool for this is narrower than for standard UK-resident joint borrower cases, because the lender needs to assess foreign income and residency alongside the affordability boost, but it is a recognised and workable structure.',
+  },
+  {
+    q: 'Does the expat joint borrower pay the non-resident stamp duty surcharge?',
+    a: 'Generally, no. The 2% non-resident SDLT surcharge is based on who is a purchaser of the property, meaning who acquires an interest in the land. In a genuine joint borrower sole proprietor structure, the non-resident co-borrower is not registered as an owner and does not acquire an interest, so they are not usually treated as a purchaser for stamp duty purposes. The sole proprietor\'s own residency status is what determines the surcharge. This is a general position and every transaction should be confirmed with a solicitor before exchange.',
+  },
+  {
+    q: 'Is this different from a standard joint mortgage with a non-resident?',
+    a: 'Yes. On a standard joint mortgage, both applicants go on the title as joint owners, and both are purchasers for stamp duty purposes. On a joint borrower sole proprietor mortgage, only the resident applicant is the owner. See our page on joint mortgages with a non-UK resident applicant for the standard structure.',
+  },
+  {
+    q: 'Will the expat co-borrower\'s foreign income be counted?',
+    a: 'It depends on the lender. Some lenders count the non-resident co-borrower\'s income at face value or with a currency haircut, similar to other non-resident applications. Others rely primarily on the UK-resident proprietor\'s income and use the co-borrower mainly as additional security. Lender choice affects how much affordability boost the structure actually provides.',
+  },
+  {
+    q: 'Does the expat co-borrower need a deposit?',
+    a: 'Not necessarily. In many cases the deposit comes entirely from the UK-resident proprietor or from a gift, with the expat acting purely as a co-borrower for affordability. Some lenders do want to see the source of any funds contributed by the co-borrower, in the same way as any other deposit source.',
+  },
+  {
+    q: 'Does the expat co-borrower need to be on the mortgage forever?',
+    a: 'No. Most lenders allow the co-borrower to be removed later through a remortgage or product transfer, once the sole proprietor\'s income supports the mortgage alone. This usually requires a fresh affordability assessment at that point.',
+  },
+  {
+    q: 'What happens if the sole proprietor cannot keep up repayments?',
+    a: 'The joint borrower is equally liable for the mortgage debt even though they have no ownership stake. This is a real financial commitment and lenders will assess the co-borrower\'s ability to cover the repayments if needed, not just the proprietor\'s.',
+  },
+  {
+    q: 'Does the expat co-borrower need a UK credit history?',
+    a: 'A UK credit footprint helps but is not always essential. Lenders who work with non-resident applications routinely assess co-borrowers with a thin or absent UK credit file using the wider evidence available, similar to any other expat application.',
+  },
+  {
+    q: 'Can two expats act as joint borrowers for one UK-resident proprietor?',
+    a: 'Some lenders allow more than one additional borrower on a joint borrower sole proprietor case, for example both parents supporting one child. This narrows the lender pool further and needs a specialist broker to identify who is currently offering it.',
+  },
+];
+
+const faqSchema = {
+  '@context': 'https://schema.org',
+  '@type': 'FAQPage',
+  mainEntity: faqs.map((f) => ({
+    '@type': 'Question',
+    name: f.q,
+    acceptedAnswer: { '@type': 'Answer', text: f.a },
+  })),
+};
+const schemas = [
+  breadcrumbSchema([
+    { name: 'Home', path: '/' },
+    { name: 'UK Mortgages for Expats', path: '/expat-mortgages' },
+    { name: 'Joint Borrower Sole Proprietor', path: '/expat-mortgages/joint-borrower-sole-proprietor' },
+  ]),
+  articleSchema({ headline: h1, description }),
+];
+---
+
+<HubLayout
+  title={title}
+  description={description}
+  h1={h1}
+  subheadline={subheadline}
+  eyebrow="Situation · Joint Borrower Sole Proprietor"
+  schemas={schemas}
+  relatedPages={relatedPages}
+>
+  <RiskWarning type="residential" />
+  <TerritorialScope />
+  <section class="hub-section">
+    <div class="hub-section-inner">
+      <h2 id="who-this-is-for">Who this page is for</h2>
+      <p>
+        You are a British expat living abroad and a family member back in the
+        UK, usually an adult child, wants to buy a home but cannot borrow
+        enough on their own income. You are willing to be added to the
+        mortgage to boost affordability, but you do not want to become a
+        legal owner of the property.
+      </p>
+      <p>Common situations this covers:</p>
+      <ul>
+        <li>An expat parent helping a UK-resident adult child buy a first home.</li>
+        <li>An expat sibling supporting a UK-resident sibling's purchase.</li>
+        <li>
+          A returning expat who wants to help a family member buy before
+          moving back to the UK themselves.
+        </li>
+      </ul>
+      <p>
+        This is a distinct structure from a standard joint mortgage, where
+        both applicants become co-owners. If you and a partner both intend to
+        own the property together, see our page on
+        <a href="/non-uk-resident-mortgages/joint-mortgage">joint mortgages with a non-UK resident applicant</a>
+        instead.
+      </p>
+    </div>
+  </section>
+
+  <MidPageCta variant="hero" />
+
+  <section class="hub-section">
+    <div class="hub-section-inner">
+      <h2 id="what-is-jbsp">What a joint borrower sole proprietor mortgage actually is</h2>
+      <p>
+        The name describes the split precisely. There are joint borrowers,
+        meaning everyone named is legally responsible for repaying the
+        mortgage. There is a sole proprietor, meaning only one person (or, in
+        some cases, a subset of the borrowers) is registered as the legal
+        owner on the title.
+      </p>
+      <p>
+        The effect is that a co-borrower's income can be used to strengthen
+        the affordability assessment without that co-borrower acquiring any
+        stake in the property, any liability for its upkeep as an owner, or
+        any entitlement to a share of its value if it is later sold.
+      </p>
+      <p>
+        This differs from a guarantor mortgage, where the guarantor's role is
+        typically limited to covering missed payments or offering additional
+        security, rather than being assessed as part of the core affordability
+        calculation.
+      </p>
+    </div>
+  </section>
+
+  <section class="hub-section">
+    <div class="hub-section-inner">
+      <h2 id="why-expats-use-it">Why expats use this structure</h2>
+      <p>
+        For a British expat wanting to help a family member onto the property
+        ladder, a joint borrower sole proprietor mortgage has three practical
+        advantages over other ways of helping.
+      </p>
+      <p>
+        <strong>You do not become an owner.</strong> That matters for capital
+        gains tax if the property is later sold, and it avoids the higher
+        rates for additional dwellings surcharge on stamp duty that applies
+        when a buyer already owns another property.
+      </p>
+      <p>
+        <strong>You are not one of the purchasers for stamp duty purposes.</strong>
+        The 2% non-resident SDLT surcharge, and the higher rates for
+        additional dwellings, are assessed against the people who acquire an
+        interest in the property. A co-borrower who is not on the title
+        generally does not acquire that interest. We cover this in more
+        detail below.
+      </p>
+      <p>
+        <strong>It is simpler to unwind.</strong> Because you have no
+        ownership stake, being removed from the mortgage later, once the
+        proprietor's income supports it alone, does not involve any transfer
+        of ownership or associated costs.
+      </p>
+    </div>
+  </section>
+
+  <PullQuote>
+    You take on the liability for the mortgage without acquiring any stake in
+    the property. That trade-off is the whole point of the structure.
+  </PullQuote>
+
+  <section class="hub-section">
+    <div class="hub-section-inner">
+      <h2 id="stamp-duty">The stamp duty position</h2>
+      <p>
+        This is the point most worth understanding before assuming the
+        non-resident surcharge applies just because you live abroad.
+      </p>
+      <p>
+        Stamp Duty Land Tax surcharges, including the 2% non-resident
+        surcharge and the higher rates for additional dwellings, are assessed
+        against the purchasers of the property: the people who acquire an
+        interest in the land under the transaction. A joint borrower who is
+        not registered as an owner on the title does not acquire that
+        interest, so they are generally not counted as a purchaser for these
+        purposes.
+      </p>
+      <p>
+        In practice, this means a genuine joint borrower sole proprietor
+        purchase is usually assessed on the UK-resident proprietor's own
+        circumstances: their residency status, and whether they already own
+        another property. The expat co-borrower's country of residence and
+        any other property they own overseas should not, of themselves, bring
+        the non-resident surcharge or the additional dwellings surcharge into
+        the transaction.
+      </p>
+      <p>
+        This is the general position and not a substitute for advice on your
+        specific transaction. Confirm the stamp duty treatment with your
+        solicitor before exchange, and use the
+        <a href="/tools/stamp-duty-calculator">stamp duty calculator</a>
+        to model the liability based on the proprietor's own position.
+      </p>
+    </div>
+  </section>
+
+  <section class="hub-section">
+    <div class="hub-section-inner">
+      <h2 id="income-and-lenders">How lenders treat the expat co-borrower's income</h2>
+      <p>
+        Lender approach to the co-borrower's foreign income varies more on a
+        joint borrower sole proprietor case than on a standard expat
+        application, because not every lender that offers this structure also
+        wants to underwrite a non-resident co-borrower's income in full.
+      </p>
+      <p>
+        Some lenders assess the co-borrower's foreign income with the same
+        currency haircut applied to any other non-resident applicant, typically
+        around 20%. Others give less weight to the co-borrower's income and
+        lean more heavily on the UK-resident proprietor's position, using the
+        co-borrower mainly to satisfy the lender's overall risk appetite rather
+        than to materially increase the loan size. A smaller number decline
+        non-resident co-borrowers on this structure altogether.
+      </p>
+      <p>
+        Which approach applies changes the practical benefit of adding an
+        expat co-borrower significantly, which is why lender selection matters
+        more here than on most expat cases. For general background on how
+        foreign income is assessed, see our
+        <a href="/uk-mortgage-foreign-income">foreign income mortgage page</a>.
+      </p>
+    </div>
+  </section>
+
+  <section class="hub-section">
+    <div class="hub-section-inner">
+      <h2 id="credit-and-liability">Credit history and liability</h2>
+      <p>
+        As a co-borrower, you are fully liable for the mortgage debt in the
+        same way as the proprietor, even though you hold no ownership stake.
+        Lenders will check your credit history and financial position as part
+        of the application, and missed payments affect your credit file in the
+        same way as any borrower's.
+      </p>
+      <p>
+        A thin or absent UK credit file is not usually a barrier. Lenders who
+        work with expat and non-resident applications are used to assessing
+        applicants on the wider financial picture. Our
+        <a href="/expat-mortgages/no-uk-credit-history">no UK credit history guide</a>
+        covers what specialist lenders look for in place of a UK credit file.
+      </p>
+      <p>
+        It is worth being clear with the family member you are helping about
+        what the liability means in practice: if repayments are missed, it
+        affects your credit position as much as theirs, and lenders will
+        pursue either borrower for the debt.
+      </p>
+    </div>
+  </section>
+
+  <section class="hub-section">
+    <div class="hub-section-inner">
+      <h2 id="coming-off-later">Coming off the mortgage later</h2>
+      <p>
+        Most joint borrower sole proprietor arrangements are not intended to
+        be permanent. The usual path is that the proprietor's own income grows
+        over a few years to the point where the mortgage can be supported
+        without the co-borrower, at which point the co-borrower can be removed
+        through a remortgage or a product transfer with the same lender.
+      </p>
+      <p>
+        Removing a co-borrower requires the lender to reassess affordability
+        based on the remaining borrower's income alone, and to confirm the
+        proprietor still meets the lender's standalone criteria at that point.
+        It is not automatic, and it is worth planning for at the outset rather
+        than assuming it will happen smoothly.
+      </p>
+    </div>
+  </section>
+
+  <section class="hub-section">
+    <div class="hub-section-inner">
+      <h2 id="how-we-help">How we help</h2>
+      <p>
+        Joint borrower sole proprietor cases with a non-resident co-borrower
+        sit at the intersection of two specialist areas: family-assisted
+        mortgages and expat or non-resident lending. Few lenders are strong in
+        both at once.
+      </p>
+      <p>
+        <strong>Lender selection matters more than on most cases.</strong>
+        Whether the co-borrower's foreign income is used to full effect,
+        given a haircut, or effectively ignored depends entirely on which
+        lender the case goes to. Choosing the wrong one can mean the structure
+        does not deliver the affordability boost the family actually needs.
+      </p>
+      <p>
+        <strong>We structure the application around the outcome you want.</strong>
+        That includes confirming the stamp duty position with the proprietor's
+        solicitor, checking the co-borrower's residency and income evidence
+        will satisfy the lender chosen, and planning for how and when the
+        co-borrower might come off the mortgage later.
+      </p>
+      <p>
+        We take the family's circumstances, identify which lenders currently
+        offer this structure to a non-resident co-borrower, and handle the
+        application end-to-end.
+      </p>
+    </div>
+  </section>
+
+  <MidPageCta />
+
+  <section class="hub-section">
+    <div class="hub-section-inner">
+      <h2 id="faqs">Common questions</h2>
+      <div class="faq">
+        {faqs.map((f) => (
+          <>
+            <h3>{f.q}</h3>
+            <p>{f.a}</p>
+          </>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <PullQuote>
+    Lender choice determines whether the expat co-borrower's income moves the
+    affordability needle or barely counts at all.
+  </PullQuote>
+
+  <script
+    type="application/ld+json"
+    is:inline
+    set:html={JSON.stringify(faqSchema)}
+  />
+</HubLayout>
