@@ -9,9 +9,7 @@ const FEES_LINE =
 
 const variants: Record<string, { disclaimer: string[]; fees?: string }> = {
   residential: {
-    disclaimer: [
-      'Your home may be repossessed if you do not keep up repayments on your mortgage.'
-    ]
+    disclaimer: []
   },
   btl: {
     disclaimer: [
@@ -24,9 +22,7 @@ const variants: Record<string, { disclaimer: string[]; fees?: string }> = {
     fees: FEES_LINE
   },
   'residential-fees': {
-    disclaimer: [
-      'Your home may be repossessed if you do not keep up repayments on your mortgage.'
-    ],
+    disclaimer: [],
     fees: FEES_LINE
   },
   'btl-fees': {
@@ -39,12 +35,15 @@ const variants: Record<string, { disclaimer: string[]; fees?: string }> = {
 };
 
 const variant = variants[type];
+const hasContent = variant.disclaimer.length > 0 || Boolean(variant.fees);
 ---
 
-<div class="risk-warning">
-  {variant.disclaimer.map((line) => <p class="risk-warning-line">{line}</p>)}
-  {variant.fees && <p class="risk-warning-fees">{variant.fees}</p>}
-</div>
+{hasContent && (
+  <div class="risk-warning">
+    {variant.disclaimer.map((line) => <p class="risk-warning-line">{line}</p>)}
+    {variant.fees && <p class="risk-warning-fees">{variant.fees}</p>}
+  </div>
+)}
 
 <style>
   .risk-warning {
