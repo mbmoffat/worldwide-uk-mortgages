@@ -1,0 +1,340 @@
+---
+import HubLayout from '../../layouts/HubLayout.astro';
+import PullQuote from '../../components/PullQuote.astro';
+import MidPageCta from '../../components/MidPageCta.astro';
+import { breadcrumbSchema, articleSchema } from '../../lib/schema';
+import RiskWarning from '../../components/RiskWarning.astro';
+import TerritorialScope from '../../components/TerritorialScope.astro';
+
+const title = 'UK House Price Statistics 2026';
+const description =
+  'Sourced ONS, HM Land Registry and Nationwide house price statistics for expats and overseas buyers. National, regional and affordability data. Fully cited, 2026.';
+const h1 = 'UK House Price Statistics 2026 for Expats and Overseas Buyers';
+const subheadline =
+  'A citable statistics roundup on UK house prices: the national average and growth rate, how prices vary across the four nations and English regions, and how affordable UK property is relative to earnings. Every figure below is drawn from a named public source, linked at first mention.';
+
+const relatedPages = [
+  {
+    eyebrow: 'Hub',
+    title: 'UK Mortgages for Expats',
+    description:
+      'British nationals living abroad. Country-by-country lender appetite, currency haircuts, and timelines.',
+    href: '/expat-mortgages',
+  },
+  {
+    eyebrow: 'Hub',
+    title: 'UK Mortgages for Non-UK Residents',
+    description:
+      'Foreign nationals or British expats wanting a UK mortgage on UK property. Lender pool, deposits, and rates explained.',
+    href: '/non-uk-resident-mortgages',
+  },
+  {
+    eyebrow: 'Guide',
+    title: 'Buying UK Property from Overseas',
+    description:
+      'The full process from finding a property to completion when you live abroad.',
+    href: '/guides/buying-uk-property-from-overseas',
+  },
+  {
+    eyebrow: 'Guide',
+    title: 'UK Expat and Non-Resident Property Statistics 2026',
+    description:
+      'Sourced statistics on British expats abroad, overseas buyers, non-resident stamp duty, and UK buy-to-let lending.',
+    href: '/guides/uk-expat-property-statistics',
+  },
+  {
+    eyebrow: 'Guide',
+    title: 'UK Rental Market and Landlord Statistics 2026',
+    description:
+      'Sourced ONS, HomeLet, UK Finance and government landlord survey statistics on UK rents and buy-to-let lending.',
+    href: '/guides/uk-rental-market-statistics',
+  },
+  {
+    eyebrow: 'Guide',
+    title: 'Non-UK Resident Stamp Duty',
+    description:
+      'The 2% SDLT surcharge for non-UK resident buyers. Who pays it, how it stacks, and when a rebate applies.',
+    href: '/guides/stamp-duty-non-uk-resident',
+  },
+];
+
+const faqs = [
+  {
+    q: 'What is the average house price in the UK right now?',
+    a: 'The official UK House Price Index, compiled by the Office for National Statistics and HM Land Registry, put the average UK house price at £271,000 in the 12 months to May 2026, up 2.7% year on year.',
+  },
+  {
+    q: 'Are UK house prices rising or falling?',
+    a: 'Rising, but growth has slowed through 2026. Annual growth was 2.7% to May 2026, down from a revised 3.9% to April 2026. The official statistics attribute part of this slowdown to a base effect, as the surge in transactions ahead of the April 2025 Stamp Duty Land Tax changes drops out of the year-on-year comparison.',
+  },
+  {
+    q: 'How much do house prices vary between the four UK nations?',
+    a: 'Substantially. On April 2026 data, Wales averaged £212,000 (up 3.5% year on year), Scotland £192,000 (up 2.8%), and Northern Ireland £198,000 in Q1 2026 (up 7.4%, the strongest of the four nations). London, the most expensive UK region by a wide margin, averaged £545,000 but was the only region to see an annual fall, down 1.2%.',
+  },
+  {
+    q: 'Which part of the UK has the strongest house price growth?',
+    a: 'On the official statistics, the North East of England had the strongest annual growth of any English region, up 9.9% in the 12 months to April 2026. Nationwide Building Society\'s own index similarly found Northern Ireland and the North of England outperforming the South through the first half of 2026.',
+  },
+  {
+    q: 'Are UK house prices affordable relative to earnings?',
+    a: 'Not by the ONS\'s own measure. The median home in England cost 7.6 times median full-time earnings in 2025, well above the 5-times ratio the ONS treats as its affordability threshold. London is the most stretched region, at 9.5 times earnings.',
+  },
+  {
+    q: 'Why do the ONS and Nationwide figures not match exactly?',
+    a: 'Different methodologies. The official UK House Price Index is based on completed property sales recorded with HM Land Registry, including cash purchases. Nationwide\'s index is based only on its own mortgage lending, so it reflects a narrower, mortgaged-only slice of the market. Both are legitimate, widely cited sources, but they are not directly comparable month to month.',
+  },
+  {
+    q: 'Where do the figures on this page come from?',
+    a: 'Every figure is drawn from a named public source: the Office for National Statistics and HM Land Registry\'s UK House Price Index, and Nationwide Building Society\'s House Price Index. Each is linked at first mention, with a full list in the Sources section below.',
+  },
+  {
+    q: 'How often is this page updated?',
+    a: 'We review it as the underlying data providers publish new releases. The figures on this page were last compiled in 2026 and each carries the date of the data it reflects.',
+  },
+];
+
+const faqSchema = {
+  '@context': 'https://schema.org',
+  '@type': 'FAQPage',
+  mainEntity: faqs.map((f) => ({
+    '@type': 'Question',
+    name: f.q,
+    acceptedAnswer: { '@type': 'Answer', text: f.a },
+  })),
+};
+const schemas = [
+  breadcrumbSchema([
+    { name: 'Home', path: '/' },
+    { name: 'Guides', path: '/guides' },
+    { name: 'UK House Price Statistics', path: '/guides/uk-house-price-statistics' },
+  ]),
+  articleSchema({
+    headline: h1,
+    description,
+    datePublished: '2026-08-04',
+    dateModified: '2026-08-04',
+  }),
+];
+---
+
+<HubLayout
+  title={title}
+  description={description}
+  h1={h1}
+  subheadline={subheadline}
+  eyebrow="GUIDE · STATISTICS 2026"
+  schemas={schemas}
+  relatedPages={relatedPages}
+>
+  <RiskWarning type="residential" />
+  <TerritorialScope />
+  <section class="hub-section">
+    <div class="hub-section-inner">
+      <h2 id="who-this-is-for">Who this page is for</h2>
+      <p>
+        This page is a reference, not a sales page. It brings together
+        publicly available data on UK house prices in one place: the
+        national average and how it is moving, the spread between the four
+        UK nations and English regions, and how affordable UK property is
+        relative to earnings.
+      </p>
+      <p>
+        It is aimed at British expats and overseas buyers weighing up
+        where and when to buy, journalists and researchers, other advisers,
+        and anyone who wants a sourced starting point rather than an
+        anecdote. Every figure links to the original data or report it
+        comes from. Where a figure has a date attached, that date is the
+        period the data covers, not the date we last checked it.
+      </p>
+    </div>
+  </section>
+
+  <section class="hub-section">
+    <div class="hub-section-inner">
+      <h2 id="national-average">The UK average house price and growth rate</h2>
+      <p>
+        The official measure of UK house prices is the
+        <a href="https://www.gov.uk/government/collections/uk-house-price-index-reports" target="_blank" rel="noopener">UK House Price Index</a>,
+        produced jointly by the Office for National Statistics (ONS) and
+        HM Land Registry from completed property transactions, including
+        cash purchases as well as mortgaged ones.
+      </p>
+      <ul>
+        <li>
+          The average UK house price was
+          <a href="https://www.gov.uk/government/statistics/uk-house-price-index-for-may-2026/uk-house-price-index-summary-may-2026" target="_blank" rel="noopener">£271,000 in the 12 months to May 2026</a>,
+          up 2.7% year on year.
+        </li>
+        <li>
+          That growth rate has slowed through 2026. Annual growth was a
+          revised 3.9% to April 2026 and, before that, close to static
+          earlier in the year.
+        </li>
+        <li>
+          The official statistics attribute part of the slowdown to a base
+          effect. Transactions surged ahead of the Stamp Duty Land Tax
+          changes that took effect on 1 April 2025, and as that surge
+          drops out of the rolling 12-month comparison, headline annual
+          growth cools even where the underlying market is stable.
+        </li>
+      </ul>
+      <p>
+        For context on how the non-resident Stamp Duty surcharge itself
+        works, see our <a href="/guides/stamp-duty-non-uk-resident">non-UK resident Stamp Duty guide</a>
+        and <a href="/tools/stamp-duty-calculator">Stamp Duty calculator</a>.
+      </p>
+    </div>
+  </section>
+
+  <PullQuote>
+    UK house prices rose 2.7% in the 12 months to May 2026, official
+    figures show, a slower pace than earlier in the year as a
+    Stamp-Duty-driven transaction surge drops out of the annual
+    comparison.
+  </PullQuote>
+
+  <section class="hub-section">
+    <div class="hub-section-inner">
+      <h2 id="regional-variation">How prices vary by nation and region</h2>
+      <p>
+        National averages hide wide regional variation, which matters for
+        overseas buyers who are not tied to a single UK location. On
+        <a href="https://www.gov.uk/government/news/uk-house-price-index-for-april-2026" target="_blank" rel="noopener">April 2026 UK House Price Index data</a>:
+      </p>
+      <ul>
+        <li>Wales averaged £212,000, up 3.5% on the year.</li>
+        <li>Scotland averaged £192,000, up 2.8% on the year.</li>
+        <li>Northern Ireland averaged £198,000 in Q1 2026, up 7.4% on the year, the strongest of the four UK nations.</li>
+        <li>London remained by far the most expensive region, averaging £545,000, but was the only region to record an annual fall, down 1.2%.</li>
+        <li>The North East of England had the strongest annual growth of any English region, up 9.9%.</li>
+      </ul>
+      <p>
+        Nationwide Building Society's own House Price Index, based on its
+        own mortgage lending rather than the full range of completed
+        sales, points the same way. Its
+        <a href="https://www.nationwide.co.uk/media/hpi/" target="_blank" rel="noopener">June 2026 report</a>
+        put the UK average at £277,484, up 2.2% annually and accelerating
+        from 1.7% in May. Across its 13 UK regions, every one recorded
+        positive annual growth in Q2 2026, but only Northern Ireland
+        exceeded 4% (up 8.6%). The North West and North of England both
+        grew 3.9%, while the Outer South East was the weakest performer,
+        up just 0.1%.
+      </p>
+      <p>
+        Both indices are legitimate, widely cited sources, but they use
+        different methodologies (completed Land Registry sales versus
+        Nationwide's own mortgage book) and are not directly comparable
+        month to month. Taken together, they point to the same broad
+        picture: modest UK-wide growth in 2026, with the North of England
+        and Northern Ireland outperforming London and the South East.
+      </p>
+    </div>
+  </section>
+
+  <MidPageCta variant="hero" />
+
+  <section class="hub-section">
+    <div class="hub-section-inner">
+      <h2 id="affordability">Affordability: house prices against earnings</h2>
+      <p>
+        Price level alone does not say much about affordability without
+        weighing it against local earnings. The ONS publishes exactly this
+        ratio each year in its
+        <a href="https://www.ons.gov.uk/peoplepopulationandcommunity/housing/bulletins/housingaffordabilityinenglandandwales/2025" target="_blank" rel="noopener">Housing affordability in England and Wales</a>
+        release, published 26 March 2026 and covering 2025.
+      </p>
+      <ul>
+        <li>The median home in England cost £300,000 in 2025, 7.6 times median full-time earnings of £39,300.</li>
+        <li>The ONS treats an area as affordable where average homes cost up to 5 times average local earnings, its own stated affordability threshold. England as a whole sits well above that line.</li>
+        <li>London is the most stretched region, with a house-price-to-earnings ratio of 9.5.</li>
+        <li>Affordability has eased slightly since the 2021 peak. Since then, median prices have risen around 5% cumulatively while earnings have risen around 25%, narrowing the gap without closing it.</li>
+      </ul>
+      <p>
+        For buyers weighing up where in the UK to purchase, the affordability
+        gap between London and the wider UK is one of the clearest
+        statistics available, and it lines up with the regional growth
+        pattern above: more of the price growth in 2026 has come from
+        regions starting from a lower, more affordable base.
+      </p>
+    </div>
+  </section>
+
+  <PullQuote>
+    The median English home cost 7.6 times median earnings in 2025, well
+    above the 5-times ratio the ONS treats as its own affordability
+    threshold. In London, the ratio reaches 9.5.
+  </PullQuote>
+
+  <section class="hub-section">
+    <div class="hub-section-inner">
+      <h2 id="new-build-note">A note on new build data</h2>
+      <p>
+        Readers comparing new build against existing property prices
+        should know that the ONS has, for now, paused publishing a
+        separate new build versus existing resold property price split
+        within the UK House Price Index. It cites insufficient verified
+        new build transaction volume in the most recent months of data to
+        produce a reliable result, since new build sales typically take
+        longer to register than resales. We have left this figure out of
+        the roundup above rather than estimate it, in line with keeping
+        every figure on this page traceable to a named public source.
+      </p>
+    </div>
+  </section>
+
+  <section class="hub-section">
+    <div class="hub-section-inner">
+      <h2 id="sources">Sources</h2>
+      <ul>
+        <li>
+          <a href="https://www.gov.uk/government/statistics/uk-house-price-index-for-may-2026/uk-house-price-index-summary-may-2026" target="_blank" rel="noopener">GOV.UK / ONS / HM Land Registry — UK House Price Index summary: May 2026</a>
+        </li>
+        <li>
+          <a href="https://www.gov.uk/government/news/uk-house-price-index-for-april-2026" target="_blank" rel="noopener">GOV.UK — UK House Price Index for April 2026</a>
+        </li>
+        <li>
+          <a href="https://www.ons.gov.uk/economy/inflationandpriceindices/bulletins/privaterentandhousepricesuk/may2026" target="_blank" rel="noopener">Office for National Statistics — Private rent and house prices, UK: May 2026</a>
+        </li>
+        <li>
+          <a href="https://www.nationwide.co.uk/media/hpi/" target="_blank" rel="noopener">Nationwide Building Society — House Price Index reports</a>
+        </li>
+        <li>
+          <a href="https://www.ons.gov.uk/peoplepopulationandcommunity/housing/bulletins/housingaffordabilityinenglandandwales/2025" target="_blank" rel="noopener">Office for National Statistics — Housing affordability in England and Wales: 2025</a>
+        </li>
+      </ul>
+      <p>
+        This page is for general information only and is not financial,
+        legal, or tax advice. Figures are third-party data compiled by
+        UK Mortgages Worldwide. We do not control or guarantee their
+        ongoing accuracy, and each source may revise its own figures over
+        time. Always check the original source for the latest published
+        data before relying on a specific number.
+      </p>
+    </div>
+  </section>
+
+  <MidPageCta
+    heading="Talk to a specialist about your situation"
+    ctaNote="A mortgage broker will usually respond immediately."
+  />
+
+  <section class="hub-section">
+    <div class="hub-section-inner">
+      <h2 id="faqs">Common questions</h2>
+      <div class="faq">
+        {faqs.map((f) => (
+          <>
+            <h3>{f.q}</h3>
+            <p>{f.a}</p>
+          </>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <script
+    type="application/ld+json"
+    is:inline
+    set:html={JSON.stringify(faqSchema)}
+  />
+</HubLayout>
