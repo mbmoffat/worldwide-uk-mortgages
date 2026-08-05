@@ -1,0 +1,292 @@
+---
+import HubLayout from '../../layouts/HubLayout.astro';
+import PullQuote from '../../components/PullQuote.astro';
+import MidPageCta from '../../components/MidPageCta.astro';
+import { breadcrumbSchema, articleSchema } from '../../lib/schema';
+import RiskWarning from '../../components/RiskWarning.astro';
+import TerritorialScope from '../../components/TerritorialScope.astro';
+
+const title = 'No Deposit Mortgages for Expats: 100% Mortgages Explained';
+const description =
+  'Three UK lenders offer 100% mortgages, but none are built for buyers living abroad. The deposit expats and non-UK residents really need, and how to cut it.';
+const h1 = 'No deposit mortgages for expats and overseas buyers';
+const subheadline =
+  'A no deposit mortgage lends the full purchase price of a home. Three UK lenders currently offer 100% mortgages: Skipton Building Society, April Mortgages and Gable. All are designed for buyers living in the UK. Expats and non-UK residents typically need a deposit of 15% to 25% instead.';
+
+const relatedPages = [
+  {
+    eyebrow: 'Hub',
+    title: 'UK Mortgages for Expats',
+    description:
+      'British nationals living abroad. Country-by-country lender appetite, currency haircuts, and timelines.',
+    href: '/expat-mortgages',
+  },
+  {
+    eyebrow: 'Guide',
+    title: 'Expat Mortgage Deposit Requirements',
+    description:
+      'How much deposit you actually need, what counts as deposit money, and where the real thresholds sit.',
+    href: '/expat-mortgages/deposit',
+  },
+  {
+    eyebrow: 'Guide',
+    title: 'Expat Mortgage Rates',
+    description:
+      'Why expat rates differ, what to expect by profile, and how deposit size and lender choice move the rate you pay.',
+    href: '/expat-mortgages/rates',
+  },
+  {
+    eyebrow: 'Hub',
+    title: 'UK Mortgages with Foreign Income',
+    description:
+      'How lenders treat non-sterling income. The 20% haircut, and which lenders use your full salary.',
+    href: '/uk-mortgage-foreign-income',
+  },
+  {
+    eyebrow: 'Hub',
+    title: 'UK Mortgages While Living Abroad',
+    description:
+      'Buying or remortgaging a UK property from overseas. Lender pool, deposits, and how the process runs.',
+    href: '/uk-mortgage-living-abroad',
+  },
+];
+
+const faqs = [
+  {
+    q: 'Can an expat apply for the Skipton Track Record mortgage?',
+    a: 'Not in practice. The product requires 12 months of on-time UK rent payments within the last 18 months, which rules out applicants renting abroad.',
+  },
+  {
+    q: 'What is the minimum deposit for a UK expat mortgage?',
+    a: 'Around 15% with a small group of lenders for strong British expat profiles. Most of the market opens at 20% to 25%, and non-UK residents should plan for 25% or more.',
+  },
+  {
+    q: 'Can my family gift my deposit from overseas?',
+    a: 'Yes. Most lenders accept gifted deposits from close family with a signed gift letter. Where the gift arrives from abroad, lenders usually ask for evidence of where the funds originated, so build in extra time.',
+  },
+  {
+    q: 'Can I use equity in a UK property instead of savings?',
+    a: 'Yes. A capital raising remortgage on a property you already own can release funds to use as the deposit on a new purchase, subject to affordability checks on the existing property.',
+  },
+  {
+    q: 'Do no deposit mortgages cost more?',
+    a: 'Yes. 100% products carry higher rates than loans at 75% loan to value, and every step of extra deposit generally buys a better rate.',
+  },
+];
+
+const faqSchema = {
+  '@context': 'https://schema.org',
+  '@type': 'FAQPage',
+  mainEntity: faqs.map((f) => ({
+    '@type': 'Question',
+    name: f.q,
+    acceptedAnswer: { '@type': 'Answer', text: f.a },
+  })),
+};
+const schemas = [
+  breadcrumbSchema([
+    { name: 'Home', path: '/' },
+    { name: 'UK Mortgages for Expats', path: '/expat-mortgages' },
+    { name: 'No Deposit Mortgages', path: '/expat-mortgages/no-deposit' },
+  ]),
+  articleSchema({ headline: h1, description }),
+];
+---
+
+<HubLayout
+  title={title}
+  description={description}
+  h1={h1}
+  subheadline={subheadline}
+  eyebrow="Expat Mortgages"
+  schemas={schemas}
+  relatedPages={relatedPages}
+>
+  <RiskWarning type="residential" />
+  <TerritorialScope />
+  <section class="hub-section">
+    <div class="hub-section-inner">
+      <h2 id="who-this-is-for">Who this page is for</h2>
+      <p>
+        Zero deposit lending returned to the UK in 2023 and has grown since. The
+        headline travels fast, and we hear it weekly from buyers in the Gulf,
+        Asia and Europe who want to know whether it applies to them. The short
+        answer is that it does not. The longer answer is that the
+        <a href="/expat-mortgages/deposit">deposit gap</a> is smaller than most
+        overseas buyers think.
+      </p>
+      <ul>
+        <li>
+          British expats renting abroad who have read about 100% mortgages and
+          want to know if they qualify.
+        </li>
+        <li>
+          Foreign nationals earning overseas and planning a UK purchase with
+          limited savings.
+        </li>
+        <li>
+          Buyers whose income is strong but whose deposit is the sticking point.
+        </li>
+        <li>
+          Owners of an existing UK property wondering whether its equity can
+          fund the next purchase.
+        </li>
+      </ul>
+    </div>
+  </section>
+
+  <MidPageCta variant="hero" />
+
+  <section class="hub-section">
+    <div class="hub-section-inner">
+      <h2 id="what-counts">What counts as a no deposit mortgage?</h2>
+      <p>
+        A no deposit mortgage, also called a 100% loan to value (LTV) mortgage,
+        lends the entire purchase price of the property. The buyer covers legal
+        fees and moving costs but brings no deposit. These products largely
+        disappeared after 2008 and returned in 2023 when Skipton Building
+        Society launched its Track Record mortgage. Two more lenders followed in
+        May 2025.
+      </p>
+    </div>
+  </section>
+
+  <section class="hub-section">
+    <div class="hub-section-inner">
+      <h2 id="which-lenders">Which UK lenders offer 100% mortgages in 2026?</h2>
+      <p>Three lenders currently offer true 100% products.</p>
+      <p>
+        <strong>Skipton Building Society.</strong> Its Track Record mortgage is
+        built for renters. Applicants must show 12 months of on-time rent
+        payments within the last 18 months, must not have owned a UK home in the
+        previous three years, and can borrow up to £600,000 on a five year fixed
+        rate.
+      </p>
+      <p>
+        <strong>April Mortgages.</strong> Lends to 100% on ten and 15 year fixed
+        rates, on houses only, with a minimum income of £24,000 and borrowing
+        capped at 4.49 times income.
+      </p>
+      <p>
+        <strong>Gable.</strong> Launched two five year fixed products in May
+        2025, including a lower rate for new build homes, with a minimum loan of
+        £125,000. In August 2026 Gable secured a funding line of up to £250
+        million to expand its no deposit and low deposit range over the next 12
+        months.
+      </p>
+      <p>
+        Rates on all three sit well above what buyers with a 25% deposit pay.
+        That premium is the price of the missing deposit. Our guide to
+        <a href="/expat-mortgages/rates">expat mortgage rates</a> shows how the
+        same trade-off works further down the LTV scale.
+      </p>
+    </div>
+  </section>
+
+  <section class="hub-section">
+    <div class="hub-section-inner">
+      <h2 id="from-abroad">Can you use a 100% mortgage while living abroad?</h2>
+      <p>
+        Realistically, no. Skipton's Track Record mortgage asks for a UK rental
+        payment history, which a tenant in Dubai or Singapore cannot show. April
+        and Gable underwrite UK resident applicants with sterling income. None
+        of the three products is designed for an application made from overseas.
+      </p>
+      <p>
+        <a href="/uk-mortgage-living-abroad">Expat and non-UK resident lending</a>
+        is a separate part of the market, served by a different group of
+        lenders, and every one of them expects a deposit. The useful question is
+        not where the 0% deals are. It is how small your deposit can be, and
+        which lender will make your income work hardest.
+      </p>
+    </div>
+  </section>
+
+  <PullQuote>
+    For overseas buyers the deposit is only half the story. The other half is
+    choosing a lender that uses 100% of your foreign income instead of 80% of
+    it.
+  </PullQuote>
+
+  <section class="hub-section">
+    <div class="hub-section-inner">
+      <h2 id="deposit-needed">What deposit do expats and non-UK residents actually need?</h2>
+      <p>
+        For British expats with a clean credit profile and income in a major
+        currency, deposits start at around 15% with a small group of lenders.
+        Between 20% and 25% opens most of the expat market and materially
+        improves the rate.
+      </p>
+      <p>
+        For foreign nationals and non-UK residents the comfortable norm is 25%,
+        with some lenders asking 30% to 40% depending on your country of
+        residence and the currency you earn in.
+      </p>
+      <p>
+        Currency treatment moves the numbers as much as the deposit does. Many
+        lenders discount <a href="/uk-mortgage-foreign-income">foreign income</a>
+        by 20% before calculating what you can borrow, to allow for exchange
+        rate movement. A lender that uses your full income can lend
+        substantially more from the same salary, which shrinks the deposit you
+        need for the same property. Being placed with the right lender on that
+        single point is often worth more than a year of extra saving.
+      </p>
+    </div>
+  </section>
+
+  <MidPageCta />
+
+  <section class="hub-section">
+    <div class="hub-section-inner">
+      <h2 id="cut-the-deposit">How can you cut the deposit you need?</h2>
+      <p>Four routes do most of the work.</p>
+      <p>
+        <strong>A gifted deposit</strong> from close family is accepted by
+        almost all expat lenders. The giver signs a letter confirming the money
+        is a gift with no repayment expected. Gifts sent from overseas usually
+        need paperwork showing where the funds came from, so allow time for
+        that.
+      </p>
+      <p>
+        <strong>Equity in a UK property you already own</strong> can be released
+        through a capital raising
+        <a href="/expat-mortgages/remortgage">remortgage</a> and used as the
+        deposit on the next purchase. For returning expats and existing owners
+        this is often the fastest route.
+      </p>
+      <p>
+        <strong>A joint application</strong> with a UK resident partner or
+        family member can open products and rates that a solo overseas applicant
+        cannot reach.
+      </p>
+      <p>
+        Finally, <strong>choosing a lender that takes 100% of your foreign
+        income</strong> raises your maximum loan without a penny of extra
+        deposit. If your savings are fixed, lender choice decides what you can
+        buy.
+      </p>
+    </div>
+  </section>
+
+  <section class="hub-section">
+    <div class="hub-section-inner">
+      <h2 id="faqs">Common questions</h2>
+      <div class="faq">
+        {faqs.map((f) => (
+          <>
+            <h3>{f.q}</h3>
+            <p>{f.a}</p>
+          </>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <MidPageCta />
+
+  <script
+    type="application/ld+json"
+    is:inline
+    set:html={JSON.stringify(faqSchema)}
+  />
+</HubLayout>
