@@ -1,0 +1,275 @@
+---
+import HubLayout from '../../layouts/HubLayout.astro';
+import PullQuote from '../../components/PullQuote.astro';
+import MidPageCta from '../../components/MidPageCta.astro';
+import { breadcrumbSchema, articleSchema } from '../../lib/schema';
+import RiskWarning from '../../components/RiskWarning.astro';
+import TerritorialScope from '../../components/TerritorialScope.astro';
+
+const title = 'Offshore Mortgages Explained';
+const description =
+  'What an offshore mortgage is, how it differs from a standard UK mortgage, and who uses one. A guide for expats and non-UK residents.';
+const h1 = 'Offshore Mortgages for Expats and Non-UK Residents';
+const subheadline =
+  'What the term "offshore mortgage" actually means, how it differs from a standard UK-resident mortgage, and how it relates to expat and non-UK resident mortgages more generally.';
+
+const relatedPages = [
+  {
+    eyebrow: 'Hub',
+    title: 'UK Mortgages for Expats',
+    description:
+      'British nationals living abroad. What lenders look for and how a broker handles country and currency.',
+    href: '/expat-mortgages',
+  },
+  {
+    eyebrow: 'Hub',
+    title: 'UK Mortgages for Non-UK Residents',
+    description:
+      'Foreign nationals living abroad. Smaller lender pool, larger deposits, and a broker-led process.',
+    href: '/non-uk-resident-mortgages',
+  },
+  {
+    eyebrow: 'Guide',
+    title: 'Can You Get a UK Mortgage if You Live Abroad?',
+    description:
+      'Common questions answered, what to expect, and how a specialist broker finds the right lender.',
+    href: '/uk-mortgage-living-abroad',
+  },
+  {
+    eyebrow: 'Hub',
+    title: 'UK Mortgages with Foreign Income',
+    description:
+      'How lenders treat non-sterling income. The standard haircut and no-haircut lender access.',
+    href: '/uk-mortgage-foreign-income',
+  },
+  {
+    eyebrow: 'Hub',
+    title: 'Offshore Oil and Gas Worker Mortgages',
+    description:
+      'Rotational rota income, day rates, and FIFO non-resident cases paid in foreign currency.',
+    href: '/offshore-worker-mortgages',
+  },
+  {
+    eyebrow: 'Guide',
+    title: 'Expat Mortgage Broker',
+    description:
+      'What an expat mortgage broker does and why direct-to-lender often goes wrong.',
+    href: '/expat-mortgage-broker',
+  },
+];
+
+const faqs = [
+  {
+    q: 'What is an offshore mortgage?',
+    a: 'An offshore mortgage is a UK mortgage arranged through the international or offshore banking arm of a lender, rather than its standard UK high street operation. The property being financed is usually still in the UK. What changes is which part of the lender handles the application, and often where that part of the lender is based and regulated.',
+  },
+  {
+    q: 'Is an offshore mortgage the same thing as an expat mortgage?',
+    a: 'In practice, yes, for most people searching the term. "Offshore mortgage" and "expat mortgage" describe overlapping ground: a UK mortgage for someone living outside the UK. Some lenders route non-resident applications through an international banking division based outside mainland UK, which is where the "offshore" label comes from. The underlying product and purpose are the same as a standard expat or non-UK resident mortgage.',
+  },
+  {
+    q: 'Do I need an offshore bank account to get an offshore mortgage?',
+    a: 'Not necessarily. Some lenders that work through an offshore or international banking arm also expect you to hold an account with them, while others do not. This varies by lender and is something a broker can confirm early, before you go through a lengthy application.',
+  },
+  {
+    q: 'Can a non-UK national get an offshore mortgage?',
+    a: 'Yes. Offshore mortgage lending is not restricted to British nationals. Foreign nationals living outside the UK who want to buy or remortgage UK property are considered on the same general basis as British expats, through the wider pool of lenders who work with non-resident applicants.',
+  },
+  {
+    q: 'Is an offshore mortgage regulated in the same way as a standard UK mortgage?',
+    a: 'The mortgage itself is secured on UK property in the usual way. Where a lender operates its offshore arm from a Crown Dependency or similar jurisdiction, that part of the lender may sit under a different local regulator rather than the UK Financial Conduct Authority. Working with an FCA-regulated broker to arrange the introduction keeps the advice and referral side of the process under UK regulatory protection, whichever lender you end up with.',
+  },
+  {
+    q: 'How is an offshore mortgage different from an offshore company mortgage?',
+    a: 'These are different things that share a word. An offshore mortgage, in the sense most people search for, is a standard UK mortgage arranged through an international banking arm for a person living abroad. An offshore company mortgage is a mortgage taken out by a company incorporated outside the UK to hold UK property, which is a more specialist corporate and tax structure. This page covers the former. If you are looking at buying UK property through an offshore company, that is a separate conversation involving specialist legal and tax advice alongside the mortgage itself.',
+  },
+  {
+    q: 'What about mortgages for people who work offshore, like oil rig or FIFO workers?',
+    a: 'That is a different use of the word "offshore" again, referring to where someone works rather than how the mortgage is structured. Our separate page on offshore oil and gas worker mortgages covers rotational income, day rates, and non-resident cases specific to that profession.',
+  },
+  {
+    q: 'Can I get an offshore mortgage for a buy-to-let property?',
+    a: 'Yes. Offshore or international banking arms that lend to non-residents typically offer both residential and buy-to-let products, in the same way the standard expat and non-UK resident mortgage market does. Our buy-to-let hubs cover the detail for each audience.',
+  },
+  {
+    q: 'How do I find the right offshore mortgage lender?',
+    a: 'The lenders who offer offshore or international mortgage products are not always easy to find through a general search, and several do not market heavily to retail customers. A specialist mortgage broker who works with expat and non-resident applications regularly can tell you quickly which lenders, offshore or otherwise, are likely to fit your situation.',
+  },
+];
+
+const faqSchema = {
+  '@context': 'https://schema.org',
+  '@type': 'FAQPage',
+  mainEntity: faqs.map((f) => ({
+    '@type': 'Question',
+    name: f.q,
+    acceptedAnswer: { '@type': 'Answer', text: f.a },
+  })),
+};
+
+const schemas = [
+  breadcrumbSchema([
+    { name: 'Home', path: '/' },
+    { name: 'Guides', path: '/guides' },
+    { name: 'Offshore Mortgages', path: '/guides/offshore-mortgages' },
+  ]),
+  articleSchema({ headline: h1, description }),
+];
+---
+
+<HubLayout
+  title={title}
+  description={description}
+  h1={h1}
+  subheadline={subheadline}
+  eyebrow="GUIDE · OFFSHORE MORTGAGES"
+  schemas={schemas}
+  relatedPages={relatedPages}
+>
+  <RiskWarning type="residential" />
+  <TerritorialScope />
+
+  <section class="hub-section">
+    <div class="hub-section-inner">
+      <h2 id="who-this-is-for">Who this page is for</h2>
+      <p>
+        If you have come across the term "offshore mortgage" while
+        researching a UK mortgage from abroad, this page explains what it
+        means and whether it is the right term for your situation. It is
+        written for British expats and non-UK residents who want a mortgage
+        on UK property and are trying to make sense of the different labels
+        lenders and brokers use for broadly the same market.
+      </p>
+      <p>
+        If you already know you want the full detail on lending criteria,
+        deposits, and rates, go straight to our
+        <a href="/expat-mortgages">expat mortgages</a> hub or our
+        <a href="/non-uk-resident-mortgages">non-UK resident mortgages</a>
+        hub. This page is the explainer that sits above both.
+      </p>
+    </div>
+  </section>
+
+  <section class="hub-section">
+    <div class="hub-section-inner">
+      <h2 id="what-it-is">What an offshore mortgage actually is</h2>
+      <p>
+        An offshore mortgage is a UK mortgage arranged through a lender's
+        international or offshore banking division rather than its
+        standard UK high street operation. The property being financed is
+        almost always still in the UK. What changes is which part of the
+        lender handles your application, and in some cases where that part
+        of the lender is based and regulated, commonly a Crown Dependency
+        such as Jersey, Guernsey, or the Isle of Man.
+      </p>
+      <p>
+        Several UK-linked banks and building societies serve expat and
+        non-resident customers through exactly this kind of international
+        banking arm, which is why the term "offshore" gets attached to what
+        is, from the borrower's point of view, a fairly ordinary UK
+        mortgage process.
+      </p>
+    </div>
+  </section>
+
+  <MidPageCta variant="hero" />
+
+  <section class="hub-section">
+    <div class="hub-section-inner">
+      <h2 id="not-to-be-confused-with">Two things this is not</h2>
+      <p>
+        <strong>An offshore company mortgage.</strong> Some searches for
+        "offshore mortgage" are actually looking for a mortgage taken out
+        by a company incorporated outside the UK to hold UK property. That
+        is a distinct corporate and tax structure, involves specialist
+        legal and tax advice, and is not the everyday expat or non-resident
+        mortgage this page covers.
+      </p>
+      <p>
+        <strong>A mortgage for someone who works offshore.</strong> Oil and
+        gas rig workers, FIFO contractors, and similar rotational-income
+        professions are sometimes described as "offshore workers", which is
+        a description of where someone works rather than how their
+        mortgage is arranged. That situation has its own considerations
+        around rota income and day rates, covered on our
+        <a href="/offshore-worker-mortgages">offshore oil and gas worker mortgages</a>
+        page.
+      </p>
+    </div>
+  </section>
+
+  <PullQuote>
+    An offshore mortgage and an expat mortgage usually describe the same
+    market from two different angles. What matters is which lenders will
+    actually consider your situation, not which label you searched.
+  </PullQuote>
+
+  <section class="hub-section">
+    <div class="hub-section-inner">
+      <h2 id="how-it-differs">How it differs from a standard UK-resident mortgage</h2>
+      <p>
+        Broadly, an offshore mortgage carries the same general differences
+        from a standard UK-resident mortgage as any expat or non-resident
+        mortgage does. Expect a smaller pool of willing lenders, a higher
+        deposit requirement than a UK resident would need, more thorough
+        documentation, and a process built around your circumstances abroad
+        rather than a standard high street application.
+      </p>
+      <p>
+        The specific figures for deposit, rate, and borrowing power depend
+        on your country of residence, your income currency, and the
+        property itself. Our <a href="/expat-mortgages/deposit">expat mortgage deposit</a>
+        and <a href="/expat-mortgages/rates">expat mortgage rates</a> pages
+        set out what to expect in more detail.
+      </p>
+    </div>
+  </section>
+
+  <section class="hub-section">
+    <div class="hub-section-inner">
+      <h2 id="who-uses-this">Who tends to use an offshore mortgage route</h2>
+      <p>
+        <strong>British expats</strong> who want to buy or remortgage UK
+        property while living and working abroad, and whose income arrives
+        in a foreign currency.
+      </p>
+      <p>
+        <strong>Foreign nationals</strong> who have never lived in the UK
+        but want to buy UK property as an investment or a future home.
+      </p>
+      <p>
+        <strong>Returning UK nationals</strong> who have been living abroad
+        and are starting the mortgage process ahead of moving back.
+      </p>
+      <p>
+        <strong>Applicants with more complex income</strong>, such as
+        multiple currencies, income from more than one country, or assets
+        held internationally, who find that an international or offshore
+        banking arm is better set up to assess their situation than a
+        standard domestic mortgage team.
+      </p>
+    </div>
+  </section>
+
+  <MidPageCta />
+
+  <section class="hub-section">
+    <div class="hub-section-inner">
+      <h2 id="faqs">Frequently asked questions</h2>
+      <div class="faq">
+        {faqs.map((f) => (
+          <>
+            <h3>{f.q}</h3>
+            <p>{f.a}</p>
+          </>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <script
+    type="application/ld+json"
+    is:inline
+    set:html={JSON.stringify(faqSchema)}
+  />
+</HubLayout>
