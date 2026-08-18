@@ -1,0 +1,260 @@
+---
+import HubLayout from '../../layouts/HubLayout.astro';
+import PullQuote from '../../components/PullQuote.astro';
+import MidPageCta from '../../components/MidPageCta.astro';
+import { breadcrumbSchema, serviceSchema } from '../../lib/schema';
+import RiskWarning from '../../components/RiskWarning.astro';
+import TerritorialScope from '../../components/TerritorialScope.astro';
+
+const title = 'Compare UK Expat Mortgage Lenders';
+const description =
+  'An independent comparison of the UK banks and offshore lenders serving expats and non-UK residents, and which profiles each tends to suit.';
+const h1 = 'UK Expat Mortgage Lenders Compared';
+const subheadline =
+  'Which lender fits your situation is not the same question as which one advertises the lowest headline rate. An independent, plain-English comparison of the main options for British expats and non-UK residents, and where each tends to work well.';
+
+const relatedPages = [
+  {
+    eyebrow: 'Hub',
+    title: 'UK Mortgages for Expats',
+    description:
+      'British nationals living abroad. Country-by-country lender appetite, currency haircuts, and timelines.',
+    href: '/expat-mortgages',
+  },
+  {
+    eyebrow: 'Hub',
+    title: 'UK Mortgages for Non-UK Residents',
+    description:
+      'Foreign nationals or British expats wanting a UK mortgage on UK property. The lender pool, deposits, and rates explained.',
+    href: '/non-uk-resident-mortgages',
+  },
+  {
+    eyebrow: 'Lender',
+    title: 'HSBC Expat Mortgages',
+    description:
+      'What HSBC Expat lends on, who qualifies, rates and deposits, and where HSBC sits in the wider expat lender landscape.',
+    href: '/lenders/hsbc-expat',
+  },
+  {
+    eyebrow: 'Lender',
+    title: 'NatWest International Mortgages',
+    description:
+      'What NatWest International lends on, who qualifies, and where NatWest sits in the wider expat lender landscape.',
+    href: '/lenders/natwest-international',
+  },
+  {
+    eyebrow: 'Lender',
+    title: 'Skipton International Mortgages',
+    description:
+      'What Skipton International lends on, who qualifies, and where Skipton sits in the wider expat lender landscape.',
+    href: '/lenders/skipton-international',
+  },
+  {
+    eyebrow: 'Lender',
+    title: 'Santander International Mortgages',
+    description:
+      'What Santander International lends on, who qualifies, and where Santander sits in the wider expat lender landscape.',
+    href: '/lenders/santander-international',
+  },
+  {
+    eyebrow: 'Lender',
+    title: 'Barclays Non-UK Resident Mortgage',
+    description:
+      'What Barclays offers non-UK residents, how it differs from dedicated offshore lenders, and which borrower profiles it suits.',
+    href: '/lenders/barclays',
+  },
+  {
+    eyebrow: 'Guide',
+    title: 'Expat Mortgage Broker',
+    description:
+      'What a specialist expat mortgage broker actually does, and why lender access matters more than any single application.',
+    href: '/expat-mortgage-broker',
+  },
+];
+
+const faqs = [
+  {
+    q: 'Which UK bank is best for an expat mortgage?',
+    a: 'There is no single best lender. It depends on your country of residence, income type, deposit size, and whether you already bank with one of the major names. A broker who can place cases with multiple lenders is usually the fastest way to find out which one fits.',
+  },
+  {
+    q: 'What is the difference between a major bank and a specialist offshore lender?',
+    a: 'Major banks such as HSBC and NatWest offer expat mortgages alongside a much wider retail and private banking business, often with better terms for existing Premier or relationship customers. Offshore specialists such as Skipton International and Santander International, based in Jersey or Guernsey, focus specifically on expat and non-resident lending and sometimes have more flexible underwriting for less standard profiles.',
+  },
+  {
+    q: 'Do all these lenders accept applicants from every country?',
+    a: 'No. Each lender maintains its own list of approved countries of residence, and these lists change. Most major expat hubs are covered by more than one lender, but availability by country should always be confirmed before you commit to one.',
+  },
+  {
+    q: 'Do I need to already bank with a lender to get their mortgage?',
+    a: 'Usually not, but existing banking customers, particularly Premier or relationship-managed clients, are often treated more favourably or offered a smoother process. Non-customers are still eligible in most cases, sometimes against stricter criteria.',
+  },
+  {
+    q: 'Is the lender with the biggest brand always the cheapest?',
+    a: 'No. Brand recognition and rate competitiveness are not the same thing. Specialist lenders sometimes beat major banks on rate or flexibility for a given profile, and sometimes do not. Comparing more than one lender is the only reliable way to know.',
+  },
+  {
+    q: 'Are there lenders beyond the five covered here?',
+    a: 'Yes. A number of intermediary-only specialist lenders serve the expat and non-resident market but do not accept applications directly from the public, so they do not have a public-facing product page to review. A broker with access to the wider panel can bring these into a comparison alongside the better-known names.',
+  },
+  {
+    q: 'Do these lenders all treat foreign income the same way?',
+    a: 'No. Most apply a reduction, commonly referred to as a haircut, to foreign currency income to allow for exchange rate risk, though the size of that reduction varies by lender and currency. A small number of specialist lenders apply little or no haircut on certain currencies.',
+  },
+  {
+    q: 'How do I compare lenders without applying to each one separately?',
+    a: 'A broker who works across this lender panel can model your situation against several lenders at once without triggering multiple credit searches, then take the strongest option forward. This is usually faster and less exposed to your credit file than approaching each lender in turn.',
+  },
+];
+
+const faqSchema = {
+  '@context': 'https://schema.org',
+  '@type': 'FAQPage',
+  mainEntity: faqs.map((f) => ({
+    '@type': 'Question',
+    name: f.q,
+    acceptedAnswer: { '@type': 'Answer', text: f.a },
+  })),
+};
+const schemas = [
+  breadcrumbSchema([
+    { name: 'Home', path: '/' },
+    { name: 'Lenders', path: '/lenders' },
+  ]),
+  serviceSchema({
+    serviceType: 'Mortgage Lender Comparison Information',
+    name: 'UK Expat and Non-UK Resident Mortgage Lender Comparison',
+    description,
+  }),
+];
+---
+
+<HubLayout
+  title={title}
+  description={description}
+  h1={h1}
+  subheadline={subheadline}
+  eyebrow="Hub · Lender comparison"
+  schemas={schemas}
+  relatedPages={relatedPages}
+>
+  <RiskWarning type="btl" />
+  <TerritorialScope />
+
+  <section class="hub-section">
+    <div class="hub-section-inner">
+      <h2 id="who-this-is-for">Who this page is for</h2>
+      <p>If you are comparing where to take a UK mortgage application as a British expat or a non-UK resident, this page brings the main options together in one place.</p>
+      <p>We have written independent guides to five of the lenders most commonly used in this market: HSBC Expat, NatWest International, Skipton International, Santander International, and Barclays. This page is the short version, comparing them against each other rather than one at a time, so you can work out which detailed guide to read next.</p>
+    </div>
+  </section>
+
+  <section class="hub-section">
+    <div class="hub-section-inner">
+      <h2 id="how-to-compare">How to actually compare expat mortgage lenders</h2>
+      <p>The headline rate is the number most people look at first, and it matters least on its own. It changes by deposit size, loan amount, and product term, and it is rarely the thing that determines whether an application succeeds at all. A handful of factors do more of that work:</p>
+      <ul>
+        <li><strong>Your country of residence.</strong> Every lender maintains its own approved-country list, and coverage varies between them. A lender that suits a colleague in Dubai will not necessarily consider an application from Kuala Lumpur.</li>
+        <li><strong>How your income is treated.</strong> Foreign currency income is usually reduced by a haircut before it counts towards affordability. The size of that reduction, and whether it applies at all, differs by lender and currency.</li>
+        <li><strong>Salaried versus self-employed.</strong> Some lenders are more comfortable with straightforward salaried employment; others take a broader view of self-employed, contractor, or business-owner income.</li>
+        <li><strong>Existing banking relationships.</strong> Premier or relationship-managed customers of the major banks are often treated more favourably than new-to-bank applicants.</li>
+        <li><strong>Property type and loan purpose.</strong> Residential, buy-to-let, first-time landlord, and higher-value lending are not all treated the same by every lender.</li>
+        <li><strong>Direct access versus broker-only.</strong> Some lenders take applications directly; others, particularly among the smaller specialists, only accept cases introduced through a broker.</li>
+      </ul>
+    </div>
+  </section>
+
+  <section class="hub-section">
+    <div class="hub-section-inner">
+      <h2 id="the-lenders">The main options at a glance</h2>
+      <p>
+        <strong>HSBC Expat</strong> is one of the largest and most established names in this market, with global reach and Premier-tier treatment for existing customers. It suits applicants who want a recognised international bank and can meet its income thresholds.
+        <a href="/lenders/hsbc-expat">Read the full HSBC Expat guide</a>.
+      </p>
+      <p>
+        <strong>NatWest International</strong> is the offshore arm of NatWest Group, based in Jersey, offering a similar major-bank proposition to HSBC Expat with its own approved-country list and Premier-tier distinction.
+        <a href="/lenders/natwest-international">Read the full NatWest International guide</a>.
+      </p>
+      <p>
+        <strong>Skipton International</strong>, the offshore arm of Skipton Building Society based in Guernsey, specialises specifically in expat and non-resident lending, including buy-to-let, and is generally comfortable with a wider range of applicant profiles than the major banks.
+        <a href="/lenders/skipton-international">Read the full Skipton International guide</a>.
+      </p>
+      <p>
+        <strong>Santander International</strong>, the Jersey-based offshore arm of the Santander Group, sits alongside Skipton as a dedicated expat and non-resident specialist, with existing Santander banking customers often seeing a smoother process.
+        <a href="/lenders/santander-international">Read the full Santander International guide</a>.
+      </p>
+      <p>
+        <strong>Barclays</strong> does not operate a dedicated offshore expat mortgage subsidiary in the way the other four do. It can still be a realistic option for some non-UK residents with strong UK connections, but the circumstances in which it applies are narrower.
+        <a href="/lenders/barclays">Read the full Barclays guide</a>.
+      </p>
+    </div>
+  </section>
+
+  <MidPageCta variant="hero" />
+
+  <PullQuote>
+    The lender with the biggest name is not automatically the one with the best answer for your situation.
+  </PullQuote>
+
+  <section class="hub-section">
+    <div class="hub-section-inner">
+      <h2 id="beyond-the-five">Beyond these five names</h2>
+      <p>These five cover a meaningful share of the expat and non-resident mortgage market, but they are not the whole of it. A number of specialist lenders in this space are intermediary-only, meaning they accept applications through a broker but not directly from the public, so they have no consumer-facing product page for us to review independently in the way we have for these five.</p>
+      <p>That matters in practice: a comparison limited to the lenders you can find and apply to yourself will always miss part of the market. Bringing a broker with panel access into the comparison closes that gap.</p>
+    </div>
+  </section>
+
+  <section class="hub-section">
+    <div class="hub-section-inner">
+      <h2 id="which-suits-which-profile">Which type of lender tends to suit which profile</h2>
+      <p>
+        <strong>Existing Premier or relationship-banking customers</strong> of HSBC, NatWest, or Santander often find their existing bank is a natural starting point, though not necessarily the cheapest.
+      </p>
+      <p>
+        <strong>First-time non-resident landlords</strong> sometimes find the major banks more restrictive here, and are better served by a specialist such as Skipton International.
+      </p>
+      <p>
+        <strong>Applicants earning in less common currencies, or wanting to avoid a large currency haircut,</strong> are more likely to find a workable answer among the specialist lenders and the wider broker-only panel than among the major banks.
+      </p>
+      <p>
+        <strong>Applicants with strong existing UK ties but living abroad only recently or briefly,</strong> may find Barclays worth checking alongside the dedicated expat lenders, though it will not suit everyone in this position.
+      </p>
+      <p>
+        <strong>Higher-value or private-banking-adjacent lending</strong> tends to be handled comfortably across all five, though pricing and service level vary.
+      </p>
+    </div>
+  </section>
+
+  <section class="hub-section">
+    <div class="hub-section-inner">
+      <h2 id="how-we-help">How we help you compare</h2>
+      <p>We are a mortgage broker, not any one of these lenders, so we have no reason to favour one name over another. What we add to this comparison:</p>
+      <p><strong>Simultaneous comparison.</strong> We can model your situation against several of these lenders, and the wider broker-only panel, without you needing to apply to each one separately or trigger multiple credit searches.</p>
+      <p><strong>Current criteria.</strong> Approved-country lists, income thresholds, and product availability change. We work with this panel regularly and know what is current, rather than what a page like this one said six months ago.</p>
+      <p><strong>Access to broker-only lenders.</strong> Several specialist lenders in this market only accept cases introduced through a broker, so a direct-to-lender comparison will always be incomplete.</p>
+      <p><strong>A fallback if the first choice does not work out.</strong> If your preferred lender declines or offers worse terms than expected, we can move to an alternative without restarting the process from scratch.</p>
+    </div>
+  </section>
+
+  <MidPageCta />
+
+  <section class="hub-section">
+    <div class="hub-section-inner">
+      <h2 id="faqs">Frequently asked questions</h2>
+      <div class="faq">
+        {faqs.map((f) => (
+          <>
+            <h3>{f.q}</h3>
+            <p>{f.a}</p>
+          </>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <script
+    type="application/ld+json"
+    is:inline
+    set:html={JSON.stringify(faqSchema)}
+  />
+</HubLayout>
