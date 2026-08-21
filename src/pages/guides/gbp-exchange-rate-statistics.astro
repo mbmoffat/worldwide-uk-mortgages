@@ -1,0 +1,340 @@
+---
+import HubLayout from '../../layouts/HubLayout.astro';
+import PullQuote from '../../components/PullQuote.astro';
+import MidPageCta from '../../components/MidPageCta.astro';
+import { breadcrumbSchema, articleSchema } from '../../lib/schema';
+import RiskWarning from '../../components/RiskWarning.astro';
+import TerritorialScope from '../../components/TerritorialScope.astro';
+
+const title = 'GBP Exchange Rate Statistics 2026';
+const description =
+  'Sourced 2026 GBP exchange rate data against the US dollar, euro, Australian dollar, Canadian dollar and Hong Kong dollar, for expats and overseas buyers. Fully cited.';
+const h1 = 'GBP Exchange Rate Statistics 2026 for Expats and Overseas Buyers';
+const subheadline =
+  'A citable data roundup on how sterling has moved in 2026 against the currencies expat and overseas buyers convert most often when funding a UK property: the US dollar, euro, Australian dollar, Canadian dollar and Hong Kong dollar. Every figure below is drawn from a named public source, linked at first mention.';
+
+const relatedPages = [
+  {
+    eyebrow: 'Hub',
+    title: 'UK Mortgages for Expats',
+    description:
+      'British nationals living abroad. Country-by-country lender appetite, currency haircuts, and timelines.',
+    href: '/expat-mortgages',
+  },
+  {
+    eyebrow: 'Hub',
+    title: 'UK Mortgages for Non-UK Residents',
+    description:
+      'Foreign nationals or British expats wanting a UK mortgage on UK property. Lender pool, deposits, and rates explained.',
+    href: '/non-uk-resident-mortgages',
+  },
+  {
+    eyebrow: 'Guide',
+    title: 'UK Mortgages with Foreign Income',
+    description:
+      'How lenders treat non-sterling income, and which lenders apply a currency haircut and which do not.',
+    href: '/uk-mortgage-foreign-income',
+  },
+  {
+    eyebrow: 'Guide',
+    title: 'Expat Mortgage Deposit Requirements',
+    description:
+      'How much deposit you need, what counts as deposit, and where the thresholds sit.',
+    href: '/expat-mortgages/deposit',
+  },
+  {
+    eyebrow: 'Tool',
+    title: 'Expat Mortgage Calculator',
+    description:
+      'Compare borrowing capacity across 14 currencies, with and without a lender currency haircut applied.',
+    href: '/tools/expat-mortgage-calculator',
+  },
+  {
+    eyebrow: 'Guide',
+    title: 'UK Expat and Non-Resident Property Statistics 2026',
+    description:
+      'Sourced statistics on British expats abroad, overseas buyers, non-resident stamp duty, and UK buy-to-let lending.',
+    href: '/guides/uk-expat-property-statistics',
+  },
+];
+
+const faqs = [
+  {
+    q: 'How much can the GBP/USD rate move in a single year?',
+    a: 'Meaningfully. In 2026 to date, GBP/USD has ranged between a low of 1.3165 (24 June) and a high of 1.3823 (27 January), a spread of around 5%, according to Bank of England reference rate data. A buyer converting a deposit at the low point of that range would have needed around 5% more dollars than a buyer converting at the high point.',
+  },
+  {
+    q: 'Does the exchange rate matter if I earn in a Gulf currency like AED, SAR or QAR?',
+    a: 'Yes, indirectly. The UAE dirham, Saudi riyal, Qatari riyal and Bahraini dinar have each been pegged to the US dollar for decades, so they do not move independently against sterling. In practice, GBP/USD movement is a reasonable proxy for how far a Gulf salary or deposit will stretch in sterling terms.',
+  },
+  {
+    q: 'Has sterling gained or lost ground against the euro in 2026?',
+    a: 'Gained, on the data to date. GBP/EUR has traded between 1.1410 and 1.1809 in 2026, an average of around 1.1564, with sterling up roughly 2% against the euro over the period, according to Bank of England reference rate data.',
+  },
+  {
+    q: 'Which of the currencies on this page moved the most against sterling in 2026?',
+    a: 'The Australian dollar. GBP/AUD ranged from 1.8767 up to 2.0180 in 2026, a spread of around 7.5%, with sterling down roughly 6.8% against the Australian dollar over the period on the data to date, according to Bank of England reference rate data.',
+  },
+  {
+    q: 'Why does exchange rate movement matter for a UK mortgage deposit or income sent from abroad?',
+    a: 'A UK mortgage deposit is usually quoted and paid in sterling, but many expat and non-resident buyers hold savings and income in another currency. Where you sit within a given year\'s trading range when you convert can change how far your money stretches by several percentage points, regardless of the property price itself. Lenders that assess foreign income separately apply their own currency treatment on top of this, which we cover in our foreign income guide.',
+  },
+  {
+    q: 'Can I fix an exchange rate ahead of a UK property purchase?',
+    a: 'Currency specialists and some banks offer forward contracts that lock in a rate ahead of completion, which removes the uncertainty this page illustrates. That is a currency transfer question rather than a mortgage one, so we would point you to a currency specialist alongside your mortgage broker rather than advise on it directly.',
+  },
+  {
+    q: 'Where does the exchange rate data on this page come from?',
+    a: 'Every figure is drawn from Bank of England daily reference exchange rates, as compiled and published by Pound Sterling Live\'s Bank of England spot rate history pages. Each is linked at first mention, with a full list in the Sources section below.',
+  },
+  {
+    q: 'How often is this page updated?',
+    a: 'We review it periodically through the year as the trading range develops. Figures reflect data to date for 2026 and carry the date range they cover rather than a single snapshot date.',
+  },
+];
+
+const faqSchema = {
+  '@context': 'https://schema.org',
+  '@type': 'FAQPage',
+  mainEntity: faqs.map((f) => ({
+    '@type': 'Question',
+    name: f.q,
+    acceptedAnswer: { '@type': 'Answer', text: f.a },
+  })),
+};
+const schemas = [
+  breadcrumbSchema([
+    { name: 'Home', path: '/' },
+    { name: 'Guides', path: '/guides' },
+    { name: 'GBP Exchange Rate Statistics', path: '/guides/gbp-exchange-rate-statistics' },
+  ]),
+  articleSchema({
+    headline: h1,
+    description,
+    datePublished: '2026-08-21',
+    dateModified: '2026-08-21',
+  }),
+];
+---
+
+<HubLayout
+  title={title}
+  description={description}
+  h1={h1}
+  subheadline={subheadline}
+  eyebrow="GUIDE · STATISTICS 2026"
+  schemas={schemas}
+  relatedPages={relatedPages}
+>
+  <RiskWarning type="residential" />
+  <TerritorialScope />
+  <section class="hub-section">
+    <div class="hub-section-inner">
+      <h2 id="who-this-is-for">Who this page is for</h2>
+      <p>
+        This page is a reference, not a sales page. It brings together
+        publicly available exchange rate data for the currencies UK
+        Mortgages Worldwide clients convert most often when funding a
+        deposit or servicing a UK mortgage from abroad, in one place.
+      </p>
+      <p>
+        It is aimed at British expats and overseas buyers weighing up
+        when to convert funds, journalists and researchers, other
+        advisers, and anyone who wants a sourced starting point rather
+        than an anecdote. Every figure links to the data it comes from.
+        This page covers currency exchange rates only. For how lenders
+        price a UK mortgage itself, see our <a href="/expat-mortgages/rates">expat mortgage rates guide</a>.
+      </p>
+    </div>
+  </section>
+
+  <section class="hub-section">
+    <div class="hub-section-inner">
+      <h2 id="gbp-usd">GBP/USD, and the US dollar-pegged Gulf currencies</h2>
+      <p>
+        GBP/USD is the reference point for the largest single block of UK
+        Mortgages Worldwide's country pages, since the UAE dirham, Saudi
+        riyal, Qatari riyal and Bahraini dinar have each been pegged to
+        the US dollar for decades. According to
+        <a href="https://www.poundsterlinglive.com/history/GBP-USD-2026" target="_blank" rel="noopener">Bank of England reference rate data compiled by Pound Sterling Live</a>:
+      </p>
+      <ul>
+        <li>GBP/USD reached a 2026 high of 1.3823 on 27 January.</li>
+        <li>It reached a 2026 low of 1.3165 on 24 June.</li>
+        <li>The average rate across 2026 to date has been around 1.3443, with sterling down roughly 1.1% over the period.</li>
+        <li>The spread between the yearly high and low is around 5%, meaning a deposit converted at the best point in the range was worth roughly 5% more in dollar terms than the same deposit converted at the worst point.</li>
+      </ul>
+      <p>
+        Because the dirham, riyal and dinar track the dollar so closely,
+        this range is a reasonable proxy for how far a Gulf-paid salary
+        or deposit will stretch in sterling terms. See our country pages
+        for <a href="/expat-mortgages/countries/dubai">Dubai</a>, <a href="/expat-mortgages/countries/qatar">Qatar</a>, <a href="/expat-mortgages/countries/saudi-arabia">Saudi Arabia</a> and <a href="/expat-mortgages/countries/bahrain">Bahrain</a> for how each is treated by lenders.
+      </p>
+    </div>
+  </section>
+
+  <PullQuote>
+    GBP/USD has ranged between 1.3165 and 1.3823 in 2026, a spread of
+    around 5%. That range carries through almost unchanged to the
+    dollar-pegged Gulf currencies.
+  </PullQuote>
+
+  <section class="hub-section">
+    <div class="hub-section-inner">
+      <h2 id="gbp-eur">GBP/EUR</h2>
+      <p>
+        The euro is the reference currency for expats across most of
+        continental Europe. On
+        <a href="https://www.poundsterlinglive.com/history/GBP-EUR-2026" target="_blank" rel="noopener">Bank of England reference rate data compiled by Pound Sterling Live</a>:
+      </p>
+      <ul>
+        <li>GBP/EUR reached a 2026 high of 1.1809.</li>
+        <li>It reached a 2026 low of 1.1410.</li>
+        <li>The average rate across 2026 to date has been around 1.1564, with sterling up roughly 2% against the euro over the period.</li>
+      </ul>
+      <p>
+        For lender appetite and income treatment in the largest eurozone
+        markets on our country pages, see
+        <a href="/expat-mortgages/countries/france">France</a>, <a href="/expat-mortgages/countries/germany">Germany</a>, <a href="/expat-mortgages/countries/spain">Spain</a> and <a href="/expat-mortgages/countries/ireland">Ireland</a>.
+      </p>
+    </div>
+  </section>
+
+  <MidPageCta variant="hero" />
+
+  <section class="hub-section">
+    <div class="hub-section-inner">
+      <h2 id="gbp-aud-cad">GBP/AUD and GBP/CAD</h2>
+      <p>
+        The Australian and Canadian dollars matter for two of UK
+        Mortgages Worldwide's largest expat country pages by search
+        interest. On
+        <a href="https://www.poundsterlinglive.com/history/GBP-AUD-2026" target="_blank" rel="noopener">Bank of England reference rate data compiled by Pound Sterling Live</a>:
+      </p>
+      <ul>
+        <li>GBP/AUD ranged from a 2026 low of 1.8767 to a high of 2.0180, a spread of around 7.5%, the widest of the currencies on this page.</li>
+        <li>The average GBP/AUD rate across 2026 to date has been around 1.9261, with sterling down roughly 6.8% against the Australian dollar over the period.</li>
+      </ul>
+      <p>
+        <a href="https://www.poundsterlinglive.com/history/GBP-CAD-2026" target="_blank" rel="noopener">GBP/CAD data over the same period</a> shows a narrower range:
+      </p>
+      <ul>
+        <li>GBP/CAD reached a 2026 high of 1.9025 on 6 July and a low of 1.8204 on 12 March.</li>
+        <li>The average rate across 2026 to date has been around 1.8506, with sterling up roughly 1.45% against the Canadian dollar over the period.</li>
+      </ul>
+      <p>
+        See our <a href="/expat-mortgages/countries/australia">Australia</a> and <a href="/expat-mortgages/countries/canada">Canada</a> country pages for how AUD and CAD income is treated by UK lenders.
+      </p>
+    </div>
+  </section>
+
+  <PullQuote>
+    Sterling's widest 2026 swing on this page has been against the
+    Australian dollar, ranging across roughly 7.5% between its yearly
+    low and high.
+  </PullQuote>
+
+  <section class="hub-section">
+    <div class="hub-section-inner">
+      <h2 id="gbp-hkd">GBP/HKD</h2>
+      <p>
+        Hong Kong is one of UK Mortgages Worldwide's largest expat
+        country pages, and the Hong Kong dollar is itself pegged to the
+        US dollar within a narrow trading band, which keeps GBP/HKD
+        movement closely correlated with GBP/USD. On
+        <a href="https://www.poundsterlinglive.com/history/GBP-HKD-2026" target="_blank" rel="noopener">Bank of England reference rate data compiled by Pound Sterling Live</a>:
+      </p>
+      <ul>
+        <li>GBP/HKD reached a 2026 high of 10.782.</li>
+        <li>It reached a 2026 low of 10.329.</li>
+        <li>The average rate across 2026 to date has been around 10.537.</li>
+      </ul>
+      <p>
+        See our <a href="/expat-mortgages/countries/hong-kong">Hong Kong country page</a> for how HKD income and savings are treated by lenders, including for
+        <a href="/uk-mortgage-for-foreign-nationals/bno-visa">BNO visa applicants</a>.
+      </p>
+    </div>
+  </section>
+
+  <section class="hub-section">
+    <div class="hub-section-inner">
+      <h2 id="why-it-matters">Why this matters for a UK mortgage deposit or income</h2>
+      <p>
+        A UK mortgage deposit is quoted and paid in sterling, but most
+        expat and non-resident buyers are saving or earning in another
+        currency first. The ranges above show that where you happen to
+        sit within a year's trading range when you convert can move the
+        sterling value of a fixed foreign-currency sum by several
+        percentage points, entirely separately from anything happening
+        to the property price or the mortgage itself.
+      </p>
+      <p>
+        Lenders that assess income paid in a foreign currency apply
+        their own separate treatment on top of this exchange rate risk,
+        which we cover in detail in our <a href="/uk-mortgage-foreign-income">UK mortgages with foreign income guide</a>. The two are related but
+        distinct: this page is about the market exchange rate itself,
+        not about how a specific lender discounts foreign income when
+        assessing what you can borrow.
+      </p>
+    </div>
+  </section>
+
+  <section class="hub-section">
+    <div class="hub-section-inner">
+      <h2 id="sources">Sources</h2>
+      <ul>
+        <li>
+          <a href="https://www.poundsterlinglive.com/history/GBP-USD-2026" target="_blank" rel="noopener">Pound Sterling Live &mdash; British Pound-U.S. Dollar History: 2026 (Bank of England reference rates)</a>
+        </li>
+        <li>
+          <a href="https://www.poundsterlinglive.com/history/GBP-EUR-2026" target="_blank" rel="noopener">Pound Sterling Live &mdash; British Pound-Euro History: 2026 (Bank of England reference rates)</a>
+        </li>
+        <li>
+          <a href="https://www.poundsterlinglive.com/history/GBP-AUD-2026" target="_blank" rel="noopener">Pound Sterling Live &mdash; British Pound-Australian Dollar History: 2026 (Bank of England reference rates)</a>
+        </li>
+        <li>
+          <a href="https://www.poundsterlinglive.com/history/GBP-CAD-2026" target="_blank" rel="noopener">Pound Sterling Live &mdash; British Pound-Canadian Dollar History: 2026 (Bank of England reference rates)</a>
+        </li>
+        <li>
+          <a href="https://www.poundsterlinglive.com/history/GBP-HKD-2026" target="_blank" rel="noopener">Pound Sterling Live &mdash; British Pound-Hong Kong Dollar History: 2026 (Bank of England reference rates)</a>
+        </li>
+        <li>
+          <a href="https://www.bankofengland.co.uk/boeapps/database/" target="_blank" rel="noopener">Bank of England &mdash; Interest &amp; exchange rates data (statistical database)</a>
+        </li>
+      </ul>
+      <p>
+        This page is for general information only and is not financial
+        advice. Figures are third-party data compiled by UK Mortgages
+        Worldwide from Bank of England reference exchange rates. We do
+        not control or guarantee their ongoing accuracy, and rates move
+        continuously. Always check a live rate with your bank or a
+        currency specialist before converting or transferring funds.
+      </p>
+    </div>
+  </section>
+
+  <MidPageCta
+    heading="Talk to a specialist about converting your deposit or income"
+    ctaNote="A mortgage broker will usually respond immediately."
+  />
+
+  <section class="hub-section">
+    <div class="hub-section-inner">
+      <h2 id="faqs">Common questions</h2>
+      <div class="faq">
+        {faqs.map((f) => (
+          <>
+            <h3>{f.q}</h3>
+            <p>{f.a}</p>
+          </>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <script
+    type="application/ld+json"
+    is:inline
+    set:html={JSON.stringify(faqSchema)}
+  />
+</HubLayout>
