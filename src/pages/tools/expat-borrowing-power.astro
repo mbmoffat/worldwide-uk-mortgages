@@ -1,0 +1,794 @@
+---
+import Layout from '../../layouts/Layout.astro';
+import MidPageCta from '../../components/MidPageCta.astro';
+import ContactForm from '../../components/ContactForm.astro';
+import RelatedCard from '../../components/RelatedCard.astro';
+import TerritorialScope from '../../components/TerritorialScope.astro';
+import { breadcrumbSchema, faqPageSchema, SITE_URL } from '../../lib/schema';
+
+const title = 'Expat Borrowing Power Tracker';
+const description =
+  'Live GBP exchange rate chart plus what your overseas salary supports in UK mortgage borrowing, with and without the 20% foreign currency haircut.';
+
+const faqs = [
+  {
+    q: 'Do all UK lenders apply a 20% haircut to foreign currency income?',
+    a: 'No. 20% is the most common deduction and some lenders use 25%. A small number apply no haircut to currencies they consider stable, typically USD, EUR and a handful of others. The list changes, so check before setting a budget.',
+  },
+  {
+    q: 'Which exchange rate will a lender use?',
+    a: 'Each lender uses its own rate on the day it assesses the application, usually a published mid-market or bank rate. It will not match this tracker exactly. Treat the figures here as a guide to scale, not a quote.',
+  },
+  {
+    q: 'Does the haircut apply to buy-to-let?',
+    a: "For buy-to-let the lender's main test is rental cover rather than salary, so the haircut matters less. It still applies where the lender has a minimum income requirement or uses your overseas earnings to top up rental cover.",
+  },
+];
+
+const schemas = [
+  breadcrumbSchema([
+    { name: 'Home', path: '/' },
+    { name: 'Calculators', path: '/tools' },
+    { name: 'Expat Borrowing Power Tracker', path: '/tools/expat-borrowing-power' },
+  ]),
+  {
+    '@context': 'https://schema.org',
+    '@type': 'WebApplication',
+    name: 'Expat Borrowing Power Tracker',
+    applicationCategory: 'FinanceApplication',
+    operatingSystem: 'Web',
+    url: `${SITE_URL}/tools/expat-borrowing-power`,
+    description,
+    offers: {
+      '@type': 'Offer',
+      price: '0',
+      priceCurrency: 'GBP',
+    },
+  },
+  faqPageSchema(faqs),
+];
+
+// Table rows are rendered at build time so the page is complete without
+// JavaScript. The rate-dependent cells are filled in on load.
+const currencies = [
+  { code: 'USD', name: 'US dollar', salary: 120000 },
+  { code: 'EUR', name: 'Euro', salary: 100000 },
+  { code: 'AED', name: 'UAE dirham', salary: 400000 },
+  { code: 'SGD', name: 'Singapore dollar', salary: 150000 },
+  { code: 'HKD', name: 'Hong Kong dollar', salary: 900000 },
+  { code: 'AUD', name: 'Australian dollar', salary: 160000 },
+];
+
+const relatedPages = [
+  {
+    eyebrow: 'Hub',
+    title: 'UK Mortgages for Expats',
+    description:
+      'The full picture for British expats buying or remortgaging in the UK. Lender pool, deposits, rates and the application process.',
+    href: '/expat-mortgages',
+  },
+  {
+    eyebrow: 'Hub',
+    title: 'UK Mortgages with Foreign Income',
+    description:
+      'How UK lenders assess non-sterling income, the haircut they apply, and which currencies they will lend against.',
+    href: '/uk-mortgage-foreign-income',
+  },
+  {
+    eyebrow: 'Guide',
+    title: 'Expat Buy-to-Let',
+    description:
+      'Buy-to-let from abroad. How rental cover is tested, where a minimum income requirement bites, and what deposit you need.',
+    href: '/expat-mortgages/buy-to-let',
+  },
+  {
+    eyebrow: 'Guide',
+    title: 'Expat Mortgage Deposit',
+    description:
+      'How much deposit an expat needs, where it can come from, and how to move it into sterling without losing value.',
+    href: '/expat-mortgages/deposit',
+  },
+  {
+    eyebrow: 'Country',
+    title: 'Expat Mortgages in Dubai and the UAE',
+    description:
+      'Dirham income, tax-free packages and the lenders that work with UAE-based British expats.',
+    href: '/expat-mortgages/countries/dubai',
+  },
+  {
+    eyebrow: 'Tool',
+    title: 'Expat Mortgage Calculator',
+    description:
+      'Work out borrowing capacity as a UK expat, comparing standard and no-haircut treatment of foreign income.',
+    href: '/tools/expat-mortgage-calculator',
+  },
+];
+---
+
+<Layout title={title} description={description} schemas={schemas}>
+  <article class="bpt">
+    <section class="hub-hero">
+      <div class="hub-section-inner">
+        <p class="eyebrow">Tools</p>
+        <h1>Expat Borrowing Power Tracker</h1>
+        <p class="bpt-answer">
+          Most UK lenders reduce foreign currency income by 20% before applying
+          their income multiple. A smaller number use the full figure. On an
+          overseas salary that gap can be worth tens of thousands of pounds of
+          borrowing. This tracker shows today's exchange rates and what your
+          salary supports either way.
+        </p>
+      </div>
+    </section>
+
+    <TerritorialScope />
+
+    <section class="hub-section">
+      <div class="hub-section-inner">
+        <p>
+          Exchange rates move every day and so does what your salary is worth in
+          sterling. The chart below tracks the pound against six currencies UK
+          expats and overseas buyers earn in most often. The table underneath
+          turns today's rate into a borrowing figure, with and without the
+          standard 20% haircut.
+        </p>
+      </div>
+    </section>
+
+    <section class="bpt-panel-section">
+      <div class="bpt-inner">
+        <h2 id="chart">GBP against six currencies, last 12 months</h2>
+        <div class="bpt-panel">
+          <div class="bpt-chart-wrap" id="bpt-chart-wrap">
+            <canvas id="bpt-chart" aria-label="Indexed exchange rate of the pound against six currencies over the last 12 months" role="img"></canvas>
+          </div>
+          <p class="bpt-loading" id="bpt-chart-loading">Loading live exchange rates.</p>
+          <p class="bpt-error" id="bpt-error" hidden>
+            Live rates are unavailable right now. Please try again shortly.
+          </p>
+        </div>
+        <p class="bpt-caption" id="bpt-caption">
+          Indexed to 100 at the start of the period. A line rising above 100
+          means the pound has strengthened against that currency, so the same
+          overseas salary buys fewer pounds. Source: European Central Bank
+          reference rates via Frankfurter. AED is derived from the USD rate
+          using the UAE central bank peg of 3.6725.
+        </p>
+      </div>
+    </section>
+
+    <section class="bpt-panel-section" id="bpt-table-section">
+      <div class="bpt-inner">
+        <h2 id="borrowing">What your salary supports today</h2>
+        <p class="bpt-rate-date" id="bpt-rate-date">Rates as at the latest published date.</p>
+        <div class="bpt-panel">
+          <div class="bpt-table-wrap">
+            <table class="bpt-table">
+              <thead>
+                <tr>
+                  <th scope="col">Currency</th>
+                  <th scope="col">Annual salary</th>
+                  <th scope="col" class="bpt-num">GBP today</th>
+                  <th scope="col" class="bpt-num">Borrowing with 20% haircut</th>
+                  <th scope="col" class="bpt-num">Borrowing without haircut</th>
+                  <th scope="col" class="bpt-num">Difference</th>
+                </tr>
+              </thead>
+              <tbody>
+                {currencies.map((c) => (
+                  <tr data-code={c.code}>
+                    <th scope="row">
+                      <span class="bpt-code">{c.code}</span>
+                      <span class="bpt-name">{c.name}</span>
+                    </th>
+                    <td>
+                      <label class="bpt-sr" for={`bpt-salary-${c.code}`}>
+                        Annual salary in {c.code}
+                      </label>
+                      <input
+                        id={`bpt-salary-${c.code}`}
+                        class="bpt-salary"
+                        type="number"
+                        inputmode="numeric"
+                        min="0"
+                        step="1000"
+                        value={c.salary}
+                        data-code={c.code}
+                      />
+                    </td>
+                    <td class="bpt-num" data-cell="gbp"></td>
+                    <td class="bpt-num" data-cell="with"></td>
+                    <td class="bpt-num" data-cell="without"></td>
+                    <td class="bpt-num bpt-diff" data-cell="diff"></td>
+                  </tr>
+                ))}
+              </tbody>
+            </table>
+          </div>
+        </div>
+        <p class="bpt-caption">
+          Based on a 4.5 times income multiple, which is a common lender
+          ceiling. Lender multiples, haircuts, stress tests and rates vary, so
+          these figures are an illustration only, not a lending decision or
+          advice. The exchange rates shown are the latest European Central Bank
+          reference rates and are not the rate a lender or bank will apply.
+        </p>
+      </div>
+    </section>
+
+    <section class="hub-section">
+      <div class="hub-section-inner">
+        <h2 id="why-the-haircut-matters">Why the haircut matters</h2>
+        <p>
+          When a lender assesses foreign currency income it usually knocks 20%
+          off the figure before doing anything else. The deduction is there to
+          absorb exchange rate movement over the life of the loan. Some lenders
+          go further and apply 25%. A few apply no haircut at all where the
+          currency is one they treat as stable.
+        </p>
+        <p>
+          The effect compounds. The haircut comes off income and the income
+          multiple is applied afterwards, so a 20% deduction on salary is a 20%
+          cut in the maximum loan. The table above shows the difference for your
+          salary at today's rate.
+        </p>
+        <p>
+          Which lenders apply no haircut, and to which currencies, changes
+          through the year. That is the first question to put to a broker before
+          you fix a budget.
+        </p>
+      </div>
+    </section>
+
+    <MidPageCta />
+
+    <section class="hub-section">
+      <div class="hub-section-inner">
+        <h2 id="pegged-currencies">Pegged currencies</h2>
+        <p>
+          The UAE dirham, Saudi riyal and Qatari riyal are pegged to the US
+          dollar by their central banks, at AED 3.6725, SAR 3.75 and QAR 3.64 to
+          one dollar. The European Central Bank does not publish reference rates
+          for them, so the tracker derives the dirham from the USD rate. Lenders
+          generally treat income in these currencies as they treat US dollar
+          income, and the haircut position is the same.
+        </p>
+      </div>
+    </section>
+
+    <section class="hub-section">
+      <div class="hub-section-inner">
+        <h2 id="faqs">Common questions</h2>
+        <div class="faq">
+          {faqs.map((f) => (
+            <>
+              <h3>{f.q}</h3>
+              <p>{f.a}</p>
+            </>
+          ))}
+        </div>
+      </div>
+    </section>
+
+    <section class="hub-section">
+      <div class="hub-section-inner">
+        <p class="bpt-sources">
+          Sources: European Central Bank euro foreign exchange reference rates,
+          served by Frankfurter (frankfurter.dev). Central Bank of the UAE,
+          Saudi Central Bank and Qatar Central Bank published US dollar pegs.
+        </p>
+      </div>
+    </section>
+
+    <MidPageCta />
+
+    <ContactForm />
+
+    <section class="related-pages-section" aria-labelledby="related-pages-heading">
+      <div class="hub-section-inner">
+        <h2 id="related-pages-heading">Related pages</h2>
+        <div class="related-pages-grid">
+          {relatedPages.map((p) => (
+            <RelatedCard
+              eyebrow={p.eyebrow}
+              title={p.title}
+              description={p.description}
+              href={p.href}
+            />
+          ))}
+        </div>
+      </div>
+    </section>
+  </article>
+
+  <script
+    is:inline
+    defer
+    src="https://cdn.jsdelivr.net/npm/chart.js@4.4.1/dist/chart.umd.min.js"
+  ></script>
+</Layout>
+
+<script is:inline>
+  (function () {
+    var HOSTS = ['https://api.frankfurter.dev', 'https://api.frankfurter.app'];
+    var SYMBOLS = 'USD,EUR,SGD,HKD,AUD';
+    var AED_PEG = 3.6725;
+    var MULTIPLE = 4.5;
+    var HAIRCUT = 0.8;
+    var FONT = "Inter, -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif";
+
+    var SERIES = [
+      { code: 'USD', colour: '#8B2331' },
+      { code: 'EUR', colour: '#2F4858' },
+      // AED is pegged to the dollar, so its indexed line sits exactly on USD.
+      // Dashed so both remain readable where they overlap.
+      { code: 'AED', colour: '#A07840', dash: [6, 4] },
+      { code: 'SGD', colour: '#3E6B57' },
+      { code: 'HKD', colour: '#6B5B7B' },
+      { code: 'AUD', colour: '#5C6B4A' },
+    ];
+
+    var chartWrap = document.getElementById('bpt-chart-wrap');
+    var loadingEl = document.getElementById('bpt-chart-loading');
+    var errorEl = document.getElementById('bpt-error');
+    var captionEl = document.getElementById('bpt-caption');
+    var tableSection = document.getElementById('bpt-table-section');
+    var rateDateEl = document.getElementById('bpt-rate-date');
+    var canvas = document.getElementById('bpt-chart');
+    if (!chartWrap || !errorEl || !tableSection || !canvas) return;
+
+    function fail() {
+      if (loadingEl) loadingEl.hidden = true;
+      chartWrap.hidden = true;
+      if (captionEl) captionEl.hidden = true;
+      tableSection.hidden = true;
+      errorEl.hidden = false;
+    }
+
+    function getJson(path, hostIndex) {
+      var i = hostIndex || 0;
+      if (i >= HOSTS.length) return Promise.reject(new Error('no host'));
+      return fetch(HOSTS[i] + path)
+        .then(function (res) {
+          if (!res.ok) throw new Error('status ' + res.status);
+          return res.json();
+        })
+        .catch(function () {
+          return getJson(path, i + 1);
+        });
+    }
+
+    function iso(d) {
+      return d.toISOString().slice(0, 10);
+    }
+
+    function fmtMoney(n) {
+      return '£' + (Math.round(n / 1000) * 1000).toLocaleString('en-GB');
+    }
+
+    function fmtDate(s) {
+      var parts = s.split('-');
+      var months = [
+        'January', 'February', 'March', 'April', 'May', 'June',
+        'July', 'August', 'September', 'October', 'November', 'December',
+      ];
+      return (
+        parseInt(parts[2], 10) + ' ' + months[parseInt(parts[1], 10) - 1] + ' ' + parts[0]
+      );
+    }
+
+    function fmtMonth(s) {
+      var parts = s.split('-');
+      var months = [
+        'Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun',
+        'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec',
+      ];
+      return months[parseInt(parts[1], 10) - 1] + ' ' + parts[0].slice(2);
+    }
+
+    // AED is not an ECB reference currency. It is pegged to the dollar by the
+    // UAE central bank, so it is derived rather than fetched.
+    function rateFor(code, row) {
+      if (code === 'AED') {
+        return row.USD == null ? null : row.USD * AED_PEG;
+      }
+      return row[code] == null ? null : row[code];
+    }
+
+    // --- table -------------------------------------------------------------
+
+    var latestRates = null;
+
+    function renderTable() {
+      if (!latestRates) return;
+      var rows = tableSection.querySelectorAll('tbody tr');
+      Array.prototype.forEach.call(rows, function (row) {
+        var code = row.getAttribute('data-code');
+        var rate = latestRates[code];
+        var input = row.querySelector('.bpt-salary');
+        var salary = parseFloat(input && input.value);
+        if (!rate || !isFinite(salary) || salary < 0) salary = 0;
+
+        var gbp = rate ? salary / rate : 0;
+        var without = gbp * MULTIPLE;
+        var withCut = gbp * HAIRCUT * MULTIPLE;
+        var diff = without - withCut;
+
+        row.querySelector('[data-cell="gbp"]').textContent = fmtMoney(gbp);
+        row.querySelector('[data-cell="with"]').textContent = fmtMoney(withCut);
+        row.querySelector('[data-cell="without"]').textContent = fmtMoney(without);
+        row.querySelector('[data-cell="diff"]').textContent = fmtMoney(diff);
+      });
+    }
+
+    tableSection.addEventListener('input', function (e) {
+      if (e.target && e.target.classList.contains('bpt-salary')) renderTable();
+    });
+
+    // --- chart -------------------------------------------------------------
+
+    function drawChart(payload) {
+      if (typeof Chart === 'undefined') return fail();
+
+      var dates = Object.keys(payload.rates).sort();
+      if (!dates.length) return fail();
+
+      var raw = {};
+      var carry = {};
+      SERIES.forEach(function (s) {
+        raw[s.code] = [];
+      });
+
+      dates.forEach(function (d) {
+        var row = payload.rates[d];
+        SERIES.forEach(function (s) {
+          var v = rateFor(s.code, row);
+          if (v == null) v = carry[s.code] == null ? null : carry[s.code];
+          if (v != null) carry[s.code] = v;
+          raw[s.code].push(v);
+        });
+      });
+
+      var datasets = SERIES.map(function (s) {
+        var values = raw[s.code];
+        var base = null;
+        for (var i = 0; i < values.length; i++) {
+          if (values[i] != null) {
+            base = values[i];
+            break;
+          }
+        }
+        return {
+          label: s.code,
+          data: values.map(function (v) {
+            return v == null || !base ? null : (v / base) * 100;
+          }),
+          borderColor: s.colour,
+          backgroundColor: s.colour,
+          borderDash: s.dash || [],
+          borderWidth: 2,
+          fill: false,
+          tension: 0.15,
+          pointRadius: 0,
+          pointHitRadius: 8,
+          spanGaps: true,
+        };
+      });
+
+      // Label the x axis once per month rather than once per trading day.
+      // The window opens mid-month, so that first partial month is skipped
+      // to stop its label colliding with the next one.
+      var monthTicks = {};
+      var seenMonth = {};
+      dates.forEach(function (d, i) {
+        var key = d.slice(0, 7);
+        if (seenMonth[key]) return;
+        seenMonth[key] = true;
+        if (parseInt(d.slice(8, 10), 10) <= 7) monthTicks[i] = fmtMonth(d);
+      });
+
+      if (loadingEl) loadingEl.hidden = true;
+
+      new Chart(canvas.getContext('2d'), {
+        type: 'line',
+        data: { labels: dates, datasets: datasets },
+        options: {
+          responsive: true,
+          maintainAspectRatio: false,
+          interaction: { mode: 'index', intersect: false },
+          plugins: {
+            legend: {
+              position: 'bottom',
+              labels: {
+                usePointStyle: true,
+                pointStyle: 'line',
+                boxWidth: 24,
+                padding: 16,
+                color: '#6B6358',
+                font: { family: FONT, size: 12 },
+              },
+            },
+            tooltip: {
+              backgroundColor: '#1A1612',
+              titleFont: { family: FONT, size: 12 },
+              bodyFont: { family: FONT, size: 12 },
+              padding: 10,
+              callbacks: {
+                title: function (items) {
+                  return items.length ? fmtDate(items[0].label) : '';
+                },
+                label: function (item) {
+                  var code = item.dataset.label;
+                  var rate = raw[code][item.dataIndex];
+                  var indexed = item.parsed.y;
+                  if (rate == null || indexed == null) return code + ' no data';
+                  return (
+                    code +
+                    ' ' +
+                    rate.toFixed(4) +
+                    ' per £1 · index ' +
+                    indexed.toFixed(1)
+                  );
+                },
+              },
+            },
+          },
+          scales: {
+            x: {
+              grid: { display: false },
+              ticks: {
+                autoSkip: false,
+                maxRotation: 0,
+                color: '#6B6358',
+                font: { family: FONT, size: 11 },
+                callback: function (value, index) {
+                  return monthTicks[index] || '';
+                },
+              },
+            },
+            y: {
+              title: {
+                display: true,
+                text: 'Indexed value (start = 100)',
+                color: '#6B6358',
+                font: { family: FONT, size: 11 },
+              },
+              grid: { color: '#E8E0D5' },
+              ticks: {
+                color: '#6B6358',
+                font: { family: FONT, size: 11 },
+              },
+            },
+          },
+        },
+      });
+    }
+
+    // --- load --------------------------------------------------------------
+
+    function load() {
+      var today = new Date();
+      var start = new Date(today.getTime() - 365 * 24 * 60 * 60 * 1000);
+      var seriesPath =
+        '/v1/' + iso(start) + '..' + iso(today) + '?base=GBP&symbols=' + SYMBOLS;
+      var latestPath = '/v1/latest?base=GBP&symbols=' + SYMBOLS;
+
+      Promise.all([getJson(seriesPath), getJson(latestPath)])
+        .then(function (results) {
+          var series = results[0];
+          var latest = results[1];
+          if (!series || !series.rates || !latest || !latest.rates) throw new Error('shape');
+
+          latestRates = {};
+          SERIES.forEach(function (s) {
+            latestRates[s.code] = rateFor(s.code, latest.rates);
+          });
+          if (rateDateEl && latest.date) {
+            rateDateEl.textContent = 'Rates as at ' + fmtDate(latest.date);
+          }
+          renderTable();
+          drawChart(series);
+        })
+        .catch(fail);
+    }
+
+    if (document.readyState === 'loading') {
+      document.addEventListener('DOMContentLoaded', load);
+    } else {
+      load();
+    }
+  })();
+</script>
+
+<style is:global>
+  .bpt-answer {
+    font-family: var(--font-body);
+    font-weight: 400;
+    font-size: 1.1875rem;
+    color: #1A1612;
+    line-height: 1.5;
+    letter-spacing: -0.01em;
+    max-width: 680px;
+    margin: 0 auto 1.5rem;
+    text-align: center;
+  }
+
+  .bpt-panel-section {
+    padding: 1rem 1.5rem 1.5rem;
+    background: var(--bg);
+  }
+
+  @media (min-width: 768px) {
+    .bpt-panel-section {
+      padding: 1.5rem 2rem 2rem;
+    }
+  }
+
+  @media (min-width: 1024px) {
+    .bpt-panel-section {
+      padding: 1.5rem 3rem 2rem;
+    }
+  }
+
+  .bpt-inner {
+    max-width: var(--wide-width);
+    margin: 0 auto;
+  }
+
+  .bpt-panel-section h2 {
+    margin: 1rem 0 0.75rem;
+    scroll-margin-top: 6rem;
+  }
+
+  .bpt-panel {
+    background: #FFFFFF;
+    border: 1px solid #E8E0D5;
+    border-radius: var(--radius-lg);
+    padding: 1.25rem;
+  }
+
+  @media (min-width: 768px) {
+    .bpt-panel {
+      padding: 1.75rem;
+    }
+  }
+
+  .bpt-chart-wrap {
+    position: relative;
+    height: 340px;
+  }
+
+  @media (min-width: 768px) {
+    .bpt-chart-wrap {
+      height: 420px;
+    }
+  }
+
+  .bpt-loading,
+  .bpt-error {
+    font-family: var(--font-sans);
+    font-size: 0.9375rem;
+    color: var(--muted);
+    text-align: center;
+    margin: 1rem 0 0;
+  }
+
+  .bpt-caption {
+    font-family: var(--font-sans);
+    font-size: 0.875rem;
+    line-height: 1.6;
+    color: var(--muted);
+    max-width: var(--content-width);
+    margin: 1rem 0 0;
+  }
+
+  .bpt-rate-date {
+    font-family: var(--font-sans);
+    font-size: 0.8125rem;
+    font-weight: 500;
+    text-transform: uppercase;
+    letter-spacing: 0.06em;
+    color: var(--muted);
+    margin: 0 0 0.75rem;
+  }
+
+  .bpt-table-wrap {
+    overflow-x: auto;
+  }
+
+  .bpt-table {
+    width: 100%;
+    min-width: 720px;
+    border-collapse: collapse;
+    font-family: var(--font-sans);
+    font-size: 0.9375rem;
+  }
+
+  .bpt-table th,
+  .bpt-table td {
+    text-align: left;
+    padding: 0.75rem 0.625rem;
+    border-bottom: 1px solid var(--border);
+    vertical-align: middle;
+  }
+
+  .bpt-table thead th {
+    font-weight: 500;
+    font-size: 0.75rem;
+    text-transform: uppercase;
+    letter-spacing: 0.06em;
+    color: var(--muted);
+    line-height: 1.4;
+  }
+
+  .bpt-table tbody th {
+    font-family: var(--font-sans);
+    font-weight: 500;
+    color: var(--text);
+  }
+
+  .bpt-table tbody tr:last-child th,
+  .bpt-table tbody tr:last-child td {
+    border-bottom: none;
+  }
+
+  .bpt-num {
+    text-align: right !important;
+    white-space: nowrap;
+  }
+
+  .bpt-diff {
+    color: var(--accent);
+    font-weight: 500;
+  }
+
+  .bpt-code {
+    display: block;
+    font-weight: 700;
+  }
+
+  .bpt-name {
+    display: block;
+    font-size: 0.8125rem;
+    color: var(--muted);
+  }
+
+  .bpt-salary {
+    font-family: var(--font-sans);
+    font-size: 0.9375rem;
+    color: var(--text);
+    background: #FFFFFF;
+    border: 1px solid #E8E0D5;
+    border-radius: 4px;
+    padding: 0.5rem 0.625rem;
+    width: 8.5rem;
+    transition: border-color 0.15s ease, box-shadow 0.15s ease;
+  }
+
+  .bpt-salary:focus {
+    outline: none;
+    border-color: var(--accent);
+    box-shadow: 0 0 0 3px var(--accent-soft);
+  }
+
+  .bpt-sr {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    padding: 0;
+    margin: -1px;
+    overflow: hidden;
+    clip: rect(0, 0, 0, 0);
+    white-space: nowrap;
+    border: 0;
+  }
+
+  .bpt-sources {
+    font-family: var(--font-sans) !important;
+    font-size: 0.8125rem !important;
+    line-height: 1.6 !important;
+    color: var(--muted) !important;
+    letter-spacing: 0 !important;
+    margin: 1rem 0 0 !important;
+  }
+</style>
