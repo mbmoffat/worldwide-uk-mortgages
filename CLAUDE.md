@@ -51,3 +51,9 @@ Before drafting or rewriting a page, check the live SERP for the target keyword 
 
 ## Topic exclusions
 - UK mortgage rate statistics (Bank of England base rate history, average UK mortgage rate, UK mortgage rate history and close variants) belongs to advice.mortgageonefinance.co.uk, not UKMW. Never build, rebuild or propose a UKMW page targeting this cluster. PR #77 was closed for this reason. Do not treat the absence of this page as a content gap.
+
+## Improver priorities (from 25 August 2026)
+Work in this order on each run. 1. Add a 35 to 50 word answer block directly under the H1 on any hub, situation or BTL page that lacks one: a direct answer to the page's primary query, one figure where a figure exists, no marketing language, styled like the page subheading. 2. Add contextual in-body links into /expat-mortgages/buy-to-let and /expat-mortgages/deposit from pages that mention buy-to-let or deposits without linking. 3. The general remit. Never add a page. Never touch /tools/expat-borrowing-power maths.
+
+## Page builder remit (from 25 August 2026)
+Every new page must serve the buy-to-let lane. Valid topics: expat and non-UK resident buy-to-let sub-topics (limited company BTL from overseas, rental cover for overseas landlords, portfolio landlords living abroad, HMO from overseas, remortgaging a UK BTL while abroad) or link-magnet reference assets with every figure from a named public source. Do not create country pages, residential pages or specialism pages. Before drafting, check GSC top keywords for existing pages and do not build a page whose primary query an existing page already earns impressions for. Every BTL page carries the two-line BTL body risk warning under the first body paragraph, verbatim from RiskWarning.astro btl variant. Open a PR, never merge.
