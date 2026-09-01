@@ -18,6 +18,11 @@
       "source": "/expat-mortgages/buy-to-let/rates",
       "destination": "/expat-mortgages/buy-to-let",
       "permanent": true
+    },
+    {
+      "source": "/non-uk-resident-mortgages/rates",
+      "destination": "/expat-mortgages/rates",
+      "permanent": true
     }
   ]
 }

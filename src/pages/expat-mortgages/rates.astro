@@ -6,12 +6,12 @@ import { breadcrumbSchema, articleSchema } from '../../lib/schema';
 import RiskWarning from '../../components/RiskWarning.astro';
 import TerritorialScope from '../../components/TerritorialScope.astro';
 
-const title = 'UK Expat Mortgage Rates: What to Expect';
+const title = 'UK Expat and Non-Resident Mortgage Rates: What to Expect';
 const description =
-  'How UK mortgage rates work for British expats, why expat rates differ, what to expect today, and how a specialist broker secures the best rate.';
-const h1 = 'UK Expat Mortgage Rates: What to Expect';
+  'How UK mortgage rates work for British expats and non-UK residents, why rates differ from standard residential pricing, what to expect today, and how a specialist broker secures the best rate.';
+const h1 = 'UK Expat and Non-Resident Mortgage Rates: What to Expect';
 const subheadline =
-  'How UK mortgage rates work for British expats, why expat rates differ from standard residential rates, what to expect from the market today, and how we secure the best available rate for your situation.';
+  'How UK mortgage rates work for British expats and non-UK residents, why rates differ from standard residential rates, what to expect from the market today, and how we secure the best available rate for your situation.';
 
 const relatedPages = [
   {
@@ -36,6 +36,13 @@ const relatedPages = [
     href: '/expat-mortgages/buy-to-let',
   },
   {
+    eyebrow: 'Hub',
+    title: 'Non-UK Resident Buy-to-Let',
+    description:
+      'Buy-to-let mortgages on UK property for non-residents. ICR stress tests, limited company structures, and lender pool.',
+    href: '/non-uk-resident-mortgages/buy-to-let',
+  },
+  {
     eyebrow: 'Guide',
     title: 'Expat Mortgage Deposit Requirements',
     description:
@@ -44,21 +51,25 @@ const relatedPages = [
   },
   {
     eyebrow: 'Guide',
-    title: 'Expat Remortgaging',
+    title: 'Non-UK Resident Stamp Duty',
     description:
-      'Switching your UK mortgage from abroad. When to start, what lenders look for, and how the process differs.',
-    href: '/expat-mortgages/remortgage',
+      'The 2% SDLT surcharge for non-residents: who it applies to, how it stacks, and when a rebate is available.',
+    href: '/guides/stamp-duty-non-uk-resident',
   },
 ];
 
 const faqs = [
   {
-    q: 'Are expat rates always higher than residential rates?',
+    q: 'Are expat and non-resident rates always higher than residential rates?',
     a: 'Yes, but the gap varies. Currently around 0.5 percentage points for clean profiles.',
   },
   {
-    q: 'Can I get a high-street rate as an expat?',
+    q: 'Can I get a high-street rate as an expat or non-resident?',
     a: "Sometimes, on the strongest profiles with HSBC, Halifax, Barclays, or NatWest's international arm. Most of the time no, and a specialist lender is the right answer.",
+  },
+  {
+    q: 'Is the rate different for British expats compared to foreign nationals?',
+    a: 'Not significantly as a rule. Both groups sit in broadly the same non-resident lender pool. The difference is more in which specific lenders will consider each group than in the headline rates those lenders offer. Foreign nationals sometimes face a slightly smaller lender pool in certain scenarios, which can translate to marginally less competition on rate.',
   },
   {
     q: 'Does my country affect the rate?',
@@ -107,7 +118,7 @@ const schemas = [
   breadcrumbSchema([
     { name: 'Home', path: '/' },
     { name: 'UK Mortgages for Expats', path: '/expat-mortgages' },
-    { name: 'Expat Mortgage Rates', path: '/expat-mortgages/rates' },
+    { name: 'Expat and Non-Resident Mortgage Rates', path: '/expat-mortgages/rates' },
   ]),
   articleSchema({ headline: h1, description }),
 ];
@@ -118,7 +129,7 @@ const schemas = [
   description={description}
   h1={h1}
   subheadline={subheadline}
-  eyebrow="GUIDE · EXPAT MORTGAGE RATES"
+  eyebrow="GUIDE · EXPAT AND NON-RESIDENT MORTGAGE RATES"
   schemas={schemas}
   relatedPages={relatedPages}
 >
@@ -142,27 +153,32 @@ const schemas = [
     <div class="hub-section-inner">
       <h2 id="who-this-is-for">Who this page is for</h2>
       <p>
-        If you are a British national living abroad and want to understand
-        what rate you will actually pay on a UK mortgage, this page is for
-        you. That includes anyone buying a UK home from overseas, building a
-        UK portfolio remotely, <a href="/expat-mortgages/remortgage">remortgaging an existing UK property</a> as a fix
+        If you are a British national living abroad, or a
+        <a href="/uk-mortgage-for-foreign-nationals">foreign national</a> who has
+        never lived in the UK, and want to understand what rate you will
+        actually pay on a UK mortgage, this page is for you. That includes
+        anyone buying a UK home from overseas, building a UK portfolio
+        remotely, <a href="/expat-mortgages/remortgage">remortgaging an existing UK property</a> as a fix
         ends, or just running the numbers ahead of a possible move.
       </p>
       <p>
-        Expat rates are not the same as standard residential rates, and they
-        are not a single number. The figure you end up paying depends on
-        country, currency, deposit size, lender, and product type. This page
-        explains why.
+        Expat and non-resident rates are not the same as standard
+        residential rates, and they are not a single number. The figure you
+        end up paying depends on country, currency, deposit size, lender,
+        and product type. This page explains why, for both groups, since
+        they sit in broadly the same lender pool. For the fuller picture on
+        non-resident mortgages generally, see our
+        <a href="/non-uk-resident-mortgages">non-UK resident mortgages</a> hub.
       </p>
     </div>
   </section>
 
   <section class="hub-section">
     <div class="hub-section-inner">
-      <h2 id="why-different">Why expat rates differ from residential rates</h2>
+      <h2 id="why-different">Why expat and non-resident rates differ from residential rates</h2>
       <p>
-        UK lenders price expat mortgages higher than equivalent UK-resident
-        mortgages for two reasons.
+        UK lenders price expat and non-resident mortgages higher than
+        equivalent UK-resident mortgages for two reasons.
       </p>
       <p>
         The first is currency risk. When a lender accepts non-sterling
@@ -310,6 +326,12 @@ const schemas = [
         that do price the currency risk heavily.
       </p>
       <p>
+        A foreign national based in Singapore, salaried by a major
+        employer, with a 35% deposit on a London flat: typically toward
+        the lower end of the range, often close to mainstream high-street
+        pricing.
+      </p>
+      <p>
         A British expat anywhere with a self-employed income through a
         personal company, 25% deposit: depends entirely on documentation.
         Two years of accounts and a clear pattern get you middle-of-range.
@@ -324,10 +346,10 @@ const schemas = [
       <p>
         Direct-to-lender applications work for UK residents because the
         high street is competitive on rate and most cases are vanilla.
-        Expat applications are different. The mainstream lenders that
-        accept expats often only do so reluctantly, and their rates reflect
-        that. The lenders that specialise in expats are mostly
-        intermediary-only, which means you cannot apply directly.
+        Expat and non-resident applications are different. The mainstream
+        lenders that accept them often only do so reluctantly, and their
+        rates reflect that. The lenders that specialise in this market are
+        mostly intermediary-only, which means you cannot apply directly.
       </p>
       <p>
         A broker with current, working relationships with the specialist
