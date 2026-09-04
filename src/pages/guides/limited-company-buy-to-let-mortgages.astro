@@ -1,0 +1,400 @@
+---
+import HubLayout from '../../layouts/HubLayout.astro';
+import PullQuote from '../../components/PullQuote.astro';
+import MidPageCta from '../../components/MidPageCta.astro';
+import { breadcrumbSchema, articleSchema } from '../../lib/schema';
+import RiskWarning from '../../components/RiskWarning.astro';
+import TerritorialScope from '../../components/TerritorialScope.astro';
+
+const title = 'Limited Company Buy-to-Let Mortgages From Overseas';
+const description =
+  'How British expats and overseas-based directors buy UK buy-to-let property through a limited company (SPV) while living abroad. Lender pool, structure, and the tax trade-off explained.';
+const h1 = 'Limited Company Buy-to-Let Mortgages From Overseas';
+const subheadline =
+  'How to buy or hold UK buy-to-let property through a limited company while you live outside the UK, whether you are a British expat building a portfolio or a foreign national investing from abroad. What an SPV is, how lenders treat an overseas-based director, and how the structure compares with buying in your personal name.';
+const answer =
+  'Yes. A number of specialist lenders accept limited company (SPV) buy-to-let applications from directors living outside the UK. The lender pool is narrower than for personal-name expat buy-to-let, and most lenders expect a dedicated property SPV rather than a trading company.';
+
+const relatedPages = [
+  {
+    eyebrow: 'Hub',
+    title: 'Expat Buy-to-Let Mortgages',
+    description:
+      'UK buy-to-let mortgages for British nationals living abroad. ICR, deposits, and the lender pool.',
+    href: '/expat-mortgages/buy-to-let',
+  },
+  {
+    eyebrow: 'Hub',
+    title: 'Non-Resident Buy-to-Let Mortgages',
+    description:
+      'BTL on UK property from outside the UK. Lender pool, deposits, ICR, and limited company structures.',
+    href: '/non-uk-resident-mortgages/buy-to-let',
+  },
+  {
+    eyebrow: 'Hub',
+    title: 'UK Mortgages for Expats',
+    description:
+      'British nationals living abroad. Country-by-country lender appetite, currency haircuts, and timelines.',
+    href: '/expat-mortgages',
+  },
+  {
+    eyebrow: 'Hub',
+    title: 'UK Mortgages for Non-UK Residents',
+    description:
+      'Foreign nationals or British expats wanting a UK mortgage on UK property. The lender pool, deposits, and rates explained.',
+    href: '/non-uk-resident-mortgages',
+  },
+  {
+    eyebrow: 'Guide',
+    title: 'Non-Resident Landlord Scheme',
+    description:
+      'How UK rental income is taxed when you live abroad, and how to register to receive rent without withholding.',
+    href: '/guides/non-resident-landlord-scheme',
+  },
+  {
+    eyebrow: 'Guide',
+    title: 'UK Rental Market and Landlord Statistics 2026',
+    description:
+      'Sourced ONS, HomeLet, UK Finance and government landlord survey statistics on UK rents, buy-to-let lending, and landlord portfolio structure.',
+    href: '/guides/uk-rental-market-statistics',
+  },
+];
+
+const faqs = [
+  {
+    q: 'Can I get a limited company buy-to-let mortgage from overseas?',
+    a: 'Yes. A number of specialist lenders accept applications from limited companies whose director lives outside the UK. Fewer lenders offer this than offer personal-name expat buy-to-let, so the shortlist is narrower and choosing the right lender matters more.',
+  },
+  {
+    q: 'What is an SPV and why do lenders want one?',
+    a: 'An SPV, or special purpose vehicle, is a limited company set up specifically to hold property, rather than a company that also trades in something else. Most buy-to-let lenders require or strongly prefer an SPV with the correct SIC codes, because it keeps the property asset separate from any other business activity and simplifies the lender\'s risk assessment.',
+  },
+  {
+    q: 'Does the company need to be UK-incorporated?',
+    a: 'Yes. Lenders expect a UK-incorporated limited company, even where the director or shareholder lives abroad and the deposit funds originate overseas.',
+  },
+  {
+    q: 'Why would an overseas landlord buy through a company rather than personally?',
+    a: 'The main reason is tax. Mortgage interest on a company-held buy-to-let is deducted from rental income before Corporation Tax, whereas mortgage interest tax relief on a personally held buy-to-let is restricted under Section 24 rules. For a higher-rate taxpayer with a growing portfolio, the company structure often comes out ahead once fees and administration are accounted for. It is a tax decision more than a mortgage decision.',
+  },
+  {
+    q: 'What does buying through a company cost that buying personally does not?',
+    a: 'Typically higher mortgage arrangement fees, annual accountancy costs for the company, and the extra administration of running a limited company. These costs are worth weighing against the tax position with an accountant before committing to a structure.',
+  },
+  {
+    q: 'How do lenders assess an overseas director\'s income?',
+    a: 'Lending is based primarily on the rental income the property will generate, tested through an interest cover ratio (ICR), rather than the director\'s personal salary. Where a lender does set a minimum personal income threshold to qualify at all, an overseas director\'s income is treated in a similar way to any other expat or non-resident applicant, including any currency considerations.',
+  },
+  {
+    q: 'Do I need a personal guarantee?',
+    a: 'Almost always, yes. Lenders typically require the director (or directors) to give a personal guarantee alongside the company mortgage, meaning you remain personally liable if the company cannot meet the repayments.',
+  },
+  {
+    q: 'Can more than one overseas director be on the same SPV?',
+    a: 'Yes, this is common for couples or family members building a portfolio together. Each director is usually assessed individually and typically each gives a personal guarantee.',
+  },
+  {
+    q: 'Can an existing personally held UK buy-to-let be transferred into a company?',
+    a: 'Yes, but it is treated as a sale from you to the company for tax purposes, which can trigger Capital Gains Tax and Stamp Duty Land Tax on the transfer, including the non-resident surcharge if it applies to you. This needs advice from an accountant before you commit, since the tax cost of transferring an existing property can outweigh the ongoing benefit of holding it in a company.',
+  },
+  {
+    q: 'Does a limited company structure affect the deposit or rate?',
+    a: 'Deposit requirements are broadly similar to personal-name expat and non-resident buy-to-let. Rates are typically a little higher, and the lender pool is smaller, which is the main practical trade-off against the tax treatment.',
+  },
+  {
+    q: 'Can a foreign national who has never lived in the UK use this structure?',
+    a: 'Yes. The same SPV approach is available to foreign national landlords living abroad, not only British expats. The company itself is still UK-incorporated regardless of where its directors are based.',
+  },
+];
+
+const faqSchema = {
+  '@context': 'https://schema.org',
+  '@type': 'FAQPage',
+  mainEntity: faqs.map((f) => ({
+    '@type': 'Question',
+    name: f.q,
+    acceptedAnswer: { '@type': 'Answer', text: f.a },
+  })),
+};
+
+const schemas = [
+  breadcrumbSchema([
+    { name: 'Home', path: '/' },
+    { name: 'Guides', path: '/guides' },
+    { name: 'Limited Company Buy-to-Let Mortgages From Overseas', path: '/guides/limited-company-buy-to-let-mortgages' },
+  ]),
+  articleSchema({ headline: h1, description }),
+];
+---
+
+<HubLayout
+  title={title}
+  description={description}
+  h1={h1}
+  subheadline={subheadline}
+  eyebrow="GUIDE · LIMITED COMPANY BUY-TO-LET"
+  schemas={schemas}
+  relatedPages={relatedPages}
+>
+  <RiskWarning type="btl" />
+  <section class="hub-section">
+    <div class="hub-section-inner">
+      <p
+        class="subheadline"
+        style="max-width: 680px; margin: 0 auto 1.5rem; text-align: center;"
+      >
+        {answer}
+      </p>
+    </div>
+  </section>
+  <TerritorialScope />
+
+  <section class="hub-section">
+    <div class="hub-section-inner">
+      <h2 id="who-this-is-for">Who this page is for</h2>
+      <p>
+        If you live outside the UK and want to buy or hold UK buy-to-let
+        property through a limited company rather than in your own name,
+        this page is for you. That covers a British expat building or
+        restructuring a portfolio from abroad, and a foreign national
+        investor who has never lived in the UK using a company to hold UK
+        rental property.
+      </p>
+      <p>
+        This page covers what a limited company, or SPV, buy-to-let
+        structure is, why overseas landlords use one, how lenders assess an
+        overseas-based director, and how the structure compares with
+        buying in your personal name. For the wider picture on expat and
+        non-resident buy-to-let, start with our
+        <a href="/expat-mortgages/buy-to-let">expat buy-to-let hub</a> or our
+        <a href="/non-uk-resident-mortgages/buy-to-let">non-resident buy-to-let hub</a>.
+      </p>
+    </div>
+  </section>
+
+  <section class="hub-section">
+    <div class="hub-section-inner">
+      <h2 id="what-is-an-spv">What a limited company buy-to-let structure is</h2>
+      <p>
+        Buying through a limited company means the property is owned by the
+        company, and the mortgage is a company mortgage rather than a
+        mortgage in your own name. Almost all buy-to-let lenders expect
+        this to be done through a special purpose vehicle, commonly called
+        an SPV: a company set up specifically to hold property, registered
+        with the SIC codes lenders look for, rather than a company that
+        also trades in something unrelated.
+      </p>
+      <p>
+        The company must be UK-incorporated. Where you live, and where the
+        director's personal income or deposit funds originate, does not
+        change that requirement.
+      </p>
+    </div>
+  </section>
+
+  <MidPageCta variant="hero" />
+
+  <section class="hub-section">
+    <div class="hub-section-inner">
+      <h2 id="why-overseas-landlords-use-it">Why overseas landlords use a company structure</h2>
+      <p>
+        The reason most overseas landlords consider a limited company is
+        tax, not the mortgage itself. Mortgage interest paid by a company
+        is deducted from rental income before Corporation Tax is worked
+        out. Mortgage interest on a personally held buy-to-let is
+        restricted under Section 24 rules, which particularly affects
+        higher-rate UK taxpayers. For a higher-rate taxpayer with a
+        portfolio, or one they intend to grow, a company structure often
+        works out more tax-efficient once the extra costs are accounted
+        for.
+      </p>
+      <p>
+        Those extra costs are real and worth weighing before you commit.
+        Company buy-to-let mortgages typically carry higher arrangement
+        fees than the equivalent personal-name product, and running a
+        limited company brings ongoing accountancy and administration
+        costs that a personally held property does not. This is a tax
+        decision as much as a mortgage decision, and worth discussing with
+        an accountant who understands your residence position before you
+        choose a structure.
+      </p>
+    </div>
+  </section>
+
+  <PullQuote>
+    This is a tax decision as much as a mortgage decision, and worth
+    discussing with an accountant before you choose a structure.
+  </PullQuote>
+
+  <section class="hub-section">
+    <div class="hub-section-inner">
+      <h2 id="how-lenders-assess-you">How lenders assess an overseas-based director</h2>
+      <p>
+        Company buy-to-let lending is assessed primarily on the rental
+        income the property will generate, using the same kind of interest
+        cover ratio (ICR) test applied to personal-name buy-to-let, rather
+        than on the director's personal salary. Where a lender also
+        applies a minimum personal income requirement to qualify for
+        company buy-to-let at all, an overseas director's income is
+        assessed in a similar way to any other expat or non-resident
+        applicant.
+      </p>
+      <p>
+        Almost all lenders in this space require a personal guarantee from
+        the director, or from each director where there is more than one.
+        That means you remain personally liable for the mortgage even
+        though the company is the legal borrower, so the protection a
+        company structure offers is about tax treatment rather than
+        personal liability.
+      </p>
+      <p>
+        The lender pool for overseas-director company buy-to-let is
+        smaller than for personal-name expat or non-resident buy-to-let.
+        Not every lender that accepts an overseas director for a standard
+        buy-to-let mortgage will also lend to that same director through a
+        company, so the two shortlists do not fully overlap.
+      </p>
+    </div>
+  </section>
+
+  <section class="hub-section">
+    <div class="hub-section-inner">
+      <h2 id="personal-vs-company">Personal name vs limited company from overseas</h2>
+      <p>Four things typically differ between the two routes.</p>
+      <p>
+        <strong>Tax treatment.</strong> Company mortgage interest is
+        deducted before Corporation Tax. Personal-name mortgage interest
+        relief is restricted under Section 24. This is usually the
+        deciding factor for higher-rate taxpayers.
+      </p>
+      <p>
+        <strong>Fees.</strong> Company buy-to-let mortgages typically carry
+        higher arrangement fees, and running the company adds ongoing
+        accountancy costs that a personal-name purchase does not have.
+      </p>
+      <p>
+        <strong>Lender pool.</strong> Fewer lenders offer overseas-director
+        company buy-to-let than offer personal-name expat or non-resident
+        buy-to-let, so the available choice is narrower.
+      </p>
+      <p>
+        <strong>Liability.</strong> Both routes usually leave you
+        personally exposed. A personal-name mortgage is a personal debt
+        by definition. A company mortgage almost always requires a
+        personal guarantee, so the practical liability is similar even
+        though the legal ownership differs.
+      </p>
+      <p>
+        There is no single right answer. Portfolio size, tax band, and how
+        long you intend to hold the property all affect which structure
+        suits you better, which is why this is worth modelling with an
+        accountant rather than deciding on the mortgage terms alone.
+      </p>
+    </div>
+  </section>
+
+  <section class="hub-section">
+    <div class="hub-section-inner">
+      <h2 id="moving-an-existing-property">Moving an existing property into a company</h2>
+      <p>
+        If you already own a UK buy-to-let personally and are considering
+        moving it into a company, be aware that this is treated as a sale
+        from you to the company for tax purposes. That can trigger
+        Capital Gains Tax on any increase in the property's value since
+        you bought it, and Stamp Duty Land Tax on the transfer, including
+        the <a href="/guides/stamp-duty-non-uk-resident">non-resident SDLT surcharge</a>
+        where it applies to you. These costs can be significant enough to
+        outweigh the ongoing tax advantage of company ownership, so this
+        needs proper advice from an accountant before you commit, rather
+        than being treated as a straightforward switch.
+      </p>
+      <p>
+        Buying a new property through a company from the outset does not
+        carry this transfer cost, which is one reason the company
+        structure is more commonly used for new purchases and portfolio
+        growth than for restructuring existing holdings.
+      </p>
+    </div>
+  </section>
+
+  <section class="hub-section">
+    <div class="hub-section-inner">
+      <h2 id="what-you-will-need">What you will usually need</h2>
+      <p>
+        Requirements vary by lender, but a company buy-to-let application
+        from an overseas director typically draws on:
+      </p>
+      <ul>
+        <li>
+          The SPV's company registration details, or details of a newly
+          formed SPV with the SIC codes the lender expects.
+        </li>
+        <li>
+          Identity and residency evidence for each director, in the same
+          way as a personal-name expat or non-resident application.
+        </li>
+        <li>
+          Income evidence for each director where the lender applies a
+          minimum personal income requirement.
+        </li>
+        <li>
+          Deposit source documentation, including for funds contributed
+          from overseas.
+        </li>
+        <li>
+          Details of any existing portfolio held personally or through
+          other companies.
+        </li>
+      </ul>
+      <p>
+        Once you are letting the property, register the company for the
+        <a href="/guides/non-resident-landlord-scheme">Non-Resident Landlord Scheme</a>
+        if the directors live outside the UK, so rent is not withheld
+        unnecessarily at source.
+      </p>
+    </div>
+  </section>
+
+  <section class="hub-section">
+    <div class="hub-section-inner">
+      <h2 id="how-we-help">How we help</h2>
+      <p>
+        Overseas-director company buy-to-let sits at the intersection of
+        two specialist areas: limited company buy-to-let lending, and
+        expat or non-resident lending. Not every lender that is strong in
+        one is also strong in the other, which is where a broker who
+        places these cases regularly earns their keep.
+      </p>
+      <p>
+        We take your circumstances, your portfolio plans, and your tax
+        position as your accountant has framed it, and identify which
+        current lenders will accept an overseas-based director on a
+        company buy-to-let mortgage. We handle the application from
+        wherever you live, including documents signed and certified
+        abroad.
+      </p>
+    </div>
+  </section>
+
+  <MidPageCta />
+
+  <section class="hub-section">
+    <div class="hub-section-inner">
+      <h2 id="faqs">Common questions</h2>
+      <div class="faq">
+        {faqs.map((f) => (
+          <>
+            <h3>{f.q}</h3>
+            <p>{f.a}</p>
+          </>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <script
+    type="application/ld+json"
+    is:inline
+    set:html={JSON.stringify(faqSchema)}
+  />
+</HubLayout>
