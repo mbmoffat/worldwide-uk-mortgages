@@ -1,0 +1,367 @@
+---
+import HubLayout from '../../layouts/HubLayout.astro';
+import PullQuote from '../../components/PullQuote.astro';
+import MidPageCta from '../../components/MidPageCta.astro';
+import { breadcrumbSchema, articleSchema } from '../../lib/schema';
+import RiskWarning from '../../components/RiskWarning.astro';
+import TerritorialScope from '../../components/TerritorialScope.astro';
+
+const title = 'HMO Mortgages for Overseas Landlords and Expats';
+const description =
+  'How British expats and non-UK residents get a mortgage on a UK house in multiple occupation. Lender pool, licensing evidence, and managing an HMO you cannot visit.';
+const h1 = 'HMO Mortgages for Overseas Landlords and Expats';
+const subheadline =
+  'How to buy or remortgage a UK house in multiple occupation (HMO) while you live outside the UK, whether you are a British expat landlord or a foreign national investor. Why HMO lending is narrower than standard buy-to-let, how living overseas narrows it further, and how compliance and management are handled from a distance.';
+const answer =
+  'Yes. A smaller pool of specialist lenders will consider an HMO mortgage where the applicant lives outside the UK. Lending is assessed on the rental income the rooms will generate and on evidence the property can be run and licensed compliantly, with day-to-day management usually handled by a UK agent on your behalf.';
+
+const relatedPages = [
+  {
+    eyebrow: 'Hub',
+    title: 'Expat Buy-to-Let Mortgages',
+    description:
+      'UK buy-to-let mortgages for British nationals living abroad. ICR, deposits, and the lender pool.',
+    href: '/expat-mortgages/buy-to-let',
+  },
+  {
+    eyebrow: 'Hub',
+    title: 'Non-Resident Buy-to-Let Mortgages',
+    description:
+      'BTL on UK property from outside the UK. Lender pool, deposits, ICR, and limited company structures.',
+    href: '/non-uk-resident-mortgages/buy-to-let',
+  },
+  {
+    eyebrow: 'Guide',
+    title: 'Limited Company Buy-to-Let Mortgages From Overseas',
+    description:
+      'SPV structure, how lenders assess an overseas-based director, and the tax trade-off against buying personally.',
+    href: '/guides/limited-company-buy-to-let-mortgages',
+  },
+  {
+    eyebrow: 'Guide',
+    title: 'Non-Resident Landlord Scheme',
+    description:
+      'How UK rental income is taxed when you live abroad, and how to register to receive rent without withholding.',
+    href: '/guides/non-resident-landlord-scheme',
+  },
+  {
+    eyebrow: 'Guide',
+    title: 'UK Rental Market and Landlord Statistics 2026',
+    description:
+      'Sourced ONS, HomeLet, UK Finance and government landlord survey statistics on UK rents, buy-to-let lending, and landlord portfolio structure.',
+    href: '/guides/uk-rental-market-statistics',
+  },
+  {
+    eyebrow: 'Hub',
+    title: 'UK Mortgages for Expats',
+    description:
+      'British nationals living abroad. Country-by-country lender appetite, currency haircuts, and timelines.',
+    href: '/expat-mortgages',
+  },
+];
+
+const faqs = [
+  {
+    q: 'Can I get an HMO mortgage while living overseas?',
+    a: 'Yes. Fewer lenders offer HMO mortgages than standard buy-to-let, and fewer still will lend to an applicant living outside the UK, so the shortlist is narrower on both counts. A broker who works across both niches can identify which current lenders overlap.',
+  },
+  {
+    q: 'What counts as an HMO?',
+    a: 'Broadly, a property let to three or more tenants from more than one household who share facilities such as a kitchen or bathroom. Larger HMOs, particularly those let to five or more people, usually need a licence from the local council, and some council areas require licensing at a lower threshold under an additional or selective licensing scheme.',
+  },
+  {
+    q: 'Why is HMO lending treated differently from standard buy-to-let?',
+    a: 'Lenders see an HMO as a higher-management, higher-income property. It typically produces stronger rental income than a single-let, which can support a larger loan, but it also carries licensing, fire safety, and management obligations that a standard buy-to-let does not, so lenders look more closely at how the property will be run.',
+  },
+  {
+    q: 'How do lenders assess rental income on an overseas HMO application?',
+    a: 'Through an interest cover ratio (ICR) test, in the same way as standard buy-to-let, but based on the combined room-by-room rental income the HMO is expected to achieve rather than a single tenancy rent.',
+  },
+  {
+    q: 'Who manages the property if I am not in the UK?',
+    a: 'Almost all overseas HMO landlords use a UK letting or management agent to handle tenants, safety certificates, licensing renewals, and day-to-day issues. Lenders generally expect to see this kind of arrangement in place, since an HMO needs more hands-on management than a single-let property.',
+  },
+  {
+    q: 'Do I need to visit the property or the UK to get an HMO mortgage from abroad?',
+    a: 'Not usually. Valuations are carried out by a UK surveyor, and identity, income, and deposit documents can typically be certified and signed from wherever you live. Your solicitor and broker handle the process on your behalf.',
+  },
+  {
+    q: 'Can I buy an overseas HMO through a limited company?',
+    a: 'Yes. Many overseas HMO landlords use an SPV for the same tax reasons that apply to standard company buy-to-let. See our guide to limited company buy-to-let mortgages from overseas for how lenders assess an overseas-based director and the trade-off against buying personally.',
+  },
+  {
+    q: 'Does an HMO cost more to run than a standard buy-to-let?',
+    a: 'Yes. Beyond the mortgage, an HMO carries licensing fees, fire safety and compliance costs, and typically higher management agent fees given the extra work of multiple tenancies. These are worth factoring into any yield calculation before you commit.',
+  },
+  {
+    q: 'Can a first-time landlord get an overseas HMO mortgage?',
+    a: 'It is harder. Most lenders in this space prefer an applicant with existing landlord experience, and some require it specifically for HMO lending. A first-time landlord based overseas is likely to find the shortlist of willing lenders considerably shorter.',
+  },
+  {
+    q: 'Can an existing UK HMO be remortgaged once I move overseas?',
+    a: 'Usually yes, though not every lender that offered the original mortgage will continue lending once you become non-resident, so a remortgage at the end of the fixed term is worth planning for rather than assuming will renew automatically.',
+  },
+];
+
+const faqSchema = {
+  '@context': 'https://schema.org',
+  '@type': 'FAQPage',
+  mainEntity: faqs.map((f) => ({
+    '@type': 'Question',
+    name: f.q,
+    acceptedAnswer: { '@type': 'Answer', text: f.a },
+  })),
+};
+
+const schemas = [
+  breadcrumbSchema([
+    { name: 'Home', path: '/' },
+    { name: 'Guides', path: '/guides' },
+    { name: 'HMO Mortgages for Overseas Landlords and Expats', path: '/guides/hmo-mortgages-overseas-landlords' },
+  ]),
+  articleSchema({
+    headline: h1,
+    description,
+    datePublished: '2026-09-08',
+    dateModified: '2026-09-08',
+  }),
+];
+---
+
+<HubLayout
+  title={title}
+  description={description}
+  h1={h1}
+  subheadline={subheadline}
+  eyebrow="GUIDE · HMO MORTGAGES"
+  schemas={schemas}
+  relatedPages={relatedPages}
+>
+  <RiskWarning type="btl" />
+  <section class="hub-section">
+    <div class="hub-section-inner">
+      <p
+        class="subheadline"
+        style="max-width: 680px; margin: 0 auto 1.5rem; text-align: center;"
+      >
+        {answer}
+      </p>
+    </div>
+  </section>
+  <TerritorialScope />
+
+  <section class="hub-section">
+    <div class="hub-section-inner">
+      <h2 id="who-this-is-for">Who this page is for</h2>
+      <p>
+        If you live outside the UK and want to buy, remortgage, or add to a
+        UK house in multiple occupation, this page is for you. That covers a
+        British expat landlord building a portfolio from abroad, and a
+        foreign national investor who has never lived in the UK using an
+        HMO to generate rental income.
+      </p>
+      <p>
+        This page covers what makes HMO lending different from standard
+        buy-to-let, why living overseas narrows the lender pool further,
+        how lenders assess an overseas HMO application, and how compliance
+        and day-to-day management work when you cannot visit the property.
+        For the wider picture on expat and non-resident buy-to-let, start
+        with our <a href="/expat-mortgages/buy-to-let">expat buy-to-let hub</a>
+        or our <a href="/non-uk-resident-mortgages/buy-to-let">non-resident buy-to-let hub</a>.
+      </p>
+    </div>
+  </section>
+
+  <section class="hub-section">
+    <div class="hub-section-inner">
+      <h2 id="what-is-an-hmo-mortgage">What makes an HMO mortgage different</h2>
+      <p>
+        A house in multiple occupation is let room by room, or in shared
+        units, to tenants from more than one household. Because the rental
+        income comes from several tenancies rather than one, and because
+        the property carries licensing and safety obligations a
+        single-let does not, lenders treat an HMO as a distinct product
+        rather than a variant of standard buy-to-let.
+      </p>
+      <p>
+        Larger HMOs, and HMOs in areas with additional or selective
+        licensing schemes, need a licence from the local council. A lender
+        will usually want to see that the property is licensed, or that a
+        licence application is in hand, before it will lend.
+      </p>
+    </div>
+  </section>
+
+  <MidPageCta variant="hero" />
+
+  <section class="hub-section">
+    <div class="hub-section-inner">
+      <h2 id="why-overseas-adds-friction">Why living overseas narrows the pool further</h2>
+      <p>
+        HMO lending and overseas lending are each their own specialism, and
+        the lenders willing to do both at once are fewer still. A lender
+        comfortable with expat or non-resident applicants may not lend on
+        HMOs at all, and a lender strong in HMO lending may restrict
+        applicants to those who are UK resident. Finding the overlap is
+        the main practical challenge of this kind of application, which is
+        where a broker who places both types of case regularly earns their
+        keep.
+      </p>
+      <p>
+        Country of residence, currency of income, and whether you already
+        hold UK rental property all affect which lenders in that overlap
+        will consider you, in the same way they affect a standard expat or
+        non-resident buy-to-let application.
+      </p>
+    </div>
+  </section>
+
+  <PullQuote>
+    Finding the overlap between lenders that do HMOs and lenders that lend
+    to overseas applicants is the main practical challenge of this kind of
+    application.
+  </PullQuote>
+
+  <section class="hub-section">
+    <div class="hub-section-inner">
+      <h2 id="how-lenders-assess-you">How lenders assess an overseas HMO application</h2>
+      <p>
+        Lending is assessed primarily on the rental income the HMO is
+        expected to generate across all its rooms or units, tested through
+        an interest cover ratio (ICR) in the same way as standard
+        buy-to-let, rather than on personal salary. Where a lender also
+        sets a minimum personal income requirement to qualify at all, an
+        overseas applicant's income is treated in a similar way to any
+        other expat or non-resident buy-to-let case.
+      </p>
+      <p>
+        Beyond income, lenders look for evidence the property can be run
+        compliantly: that it is licensed where a licence is required, that
+        fire safety and other regulatory standards are met, and that
+        someone is in place to manage the property day to day. Landlord
+        experience matters more here than on a standard buy-to-let, and
+        several lenders prefer, or require, an applicant who has run rental
+        property before taking on an HMO.
+      </p>
+    </div>
+  </section>
+
+  <section class="hub-section">
+    <div class="hub-section-inner">
+      <h2 id="managing-from-a-distance">Managing an HMO you cannot visit</h2>
+      <p>
+        An HMO needs more hands-on management than a single-let property,
+        simply because there are more tenants, more tenancy changes, and
+        more compliance points to keep on top of. Almost all overseas HMO
+        landlords use a UK letting or management agent to handle
+        tenancies, safety certificates, licence renewals, and day-to-day
+        issues, and lenders generally expect to see this kind of
+        arrangement in place rather than an owner planning to manage
+        remotely without local support.
+      </p>
+      <p>
+        Valuations are carried out by a UK surveyor, and the application
+        itself, including identity, income, and deposit documents, can
+        typically be handled with documents certified and signed from
+        wherever you live, without a visit to the UK.
+      </p>
+    </div>
+  </section>
+
+  <section class="hub-section">
+    <div class="hub-section-inner">
+      <h2 id="personal-vs-company">Personal name vs limited company</h2>
+      <p>
+        The choice between buying an HMO personally or through a limited
+        company follows the same logic as standard overseas buy-to-let.
+        Company ownership is usually a tax decision, weighed against
+        higher arrangement fees and the ongoing cost of running a company,
+        and lenders that accept an overseas-based director for a company
+        buy-to-let mortgage do not always extend that to HMOs specifically.
+        See our
+        <a href="/guides/limited-company-buy-to-let-mortgages">guide to limited company buy-to-let mortgages from overseas</a>
+        for the full structure and tax trade-off, and take advice from an
+        accountant who understands your residence position before you
+        choose.
+      </p>
+    </div>
+  </section>
+
+  <section class="hub-section">
+    <div class="hub-section-inner">
+      <h2 id="what-you-will-need">What you will usually need</h2>
+      <p>
+        Requirements vary by lender, but an overseas HMO application
+        typically draws on:
+      </p>
+      <ul>
+        <li>
+          Identity and residency evidence, in the same way as a
+          personal-name expat or non-resident application.
+        </li>
+        <li>
+          Evidence of the property's licensing position, or that an
+          application for one is in hand.
+        </li>
+        <li>
+          Details of the letting or management agent who will run the
+          property.
+        </li>
+        <li>
+          Landlord experience, particularly for a larger or first HMO.
+        </li>
+        <li>
+          Deposit source documentation, including for funds contributed
+          from overseas.
+        </li>
+        <li>
+          Details of any existing portfolio held personally or through a
+          company.
+        </li>
+      </ul>
+      <p>
+        Once the property is let, register for the
+        <a href="/guides/non-resident-landlord-scheme">Non-Resident Landlord Scheme</a>
+        if you live outside the UK, so rent is not withheld unnecessarily
+        at source.
+      </p>
+    </div>
+  </section>
+
+  <section class="hub-section">
+    <div class="hub-section-inner">
+      <h2 id="how-we-help">How we help</h2>
+      <p>
+        Overseas HMO lending sits at the intersection of two specialist
+        areas, HMO lending and expat or non-resident lending, and not
+        every lender that is strong in one is also strong in the other.
+        We take your circumstances, the property, and your management
+        arrangements, and identify which current lenders will consider an
+        HMO application from wherever you live, handling the process
+        including documents signed and certified abroad.
+      </p>
+    </div>
+  </section>
+
+  <MidPageCta />
+
+  <section class="hub-section">
+    <div class="hub-section-inner">
+      <h2 id="faqs">Common questions</h2>
+      <div class="faq">
+        {faqs.map((f) => (
+          <>
+            <h3>{f.q}</h3>
+            <p>{f.a}</p>
+          </>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <script
+    type="application/ld+json"
+    is:inline
+    set:html={JSON.stringify(faqSchema)}
+  />
+</HubLayout>
