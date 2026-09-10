@@ -57,3 +57,7 @@ Work in this order on each run. 1. Add a 35 to 50 word answer block directly und
 
 ## Page builder remit (from 25 August 2026)
 Every new page must serve the buy-to-let lane. Valid topics: expat and non-UK resident buy-to-let sub-topics (limited company BTL from overseas, rental cover for overseas landlords, portfolio landlords living abroad, HMO from overseas, remortgaging a UK BTL while abroad) or link-magnet reference assets with every figure from a named public source. Do not create country pages, residential pages or specialism pages. Before drafting, check GSC top keywords for existing pages and do not build a page whose primary query an existing page already earns impressions for. Every BTL page carries the two-line BTL body risk warning under the first body paragraph, verbatim from RiskWarning.astro btl variant. Open a PR, never merge.
+
+## Site dark (holding page)
+
+The live site currently serves a holding page on every URL. Mechanism: the vercel.json buildCommand runs the full build and all guards, then scripts/holding-page.mjs reduces dist to index.html, robots.txt and the sitemap files, and a catch-all rewrite sends every path to /index.html. Do not edit vercel.json, scripts/holding-page.mjs or this section. Restoration is a single git revert of the commit that added this section.
