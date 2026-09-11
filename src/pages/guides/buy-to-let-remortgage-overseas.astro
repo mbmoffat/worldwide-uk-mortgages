@@ -1,0 +1,386 @@
+---
+import HubLayout from '../../layouts/HubLayout.astro';
+import PullQuote from '../../components/PullQuote.astro';
+import MidPageCta from '../../components/MidPageCta.astro';
+import { breadcrumbSchema, articleSchema } from '../../lib/schema';
+import RiskWarning from '../../components/RiskWarning.astro';
+import TerritorialScope from '../../components/TerritorialScope.astro';
+
+const title = 'Buy-to-Let Remortgage From Overseas';
+const description =
+  'Remortgaging a UK buy-to-let mortgage while you live abroad. Why timing matters, what changes at remortgage, and how expat and non-resident landlords are assessed.';
+const h1 = 'Buy-to-Let Remortgage From Overseas';
+const subheadline =
+  'How to remortgage a UK buy-to-let mortgage while you live outside the UK, whether you are a British expat landlord or a foreign national investor. What changes between the original application and the remortgage, why some lenders step back once you become non-resident, and how a specialist broker keeps the process on track from abroad.';
+const answer =
+  'Yes. Overseas landlords can remortgage a UK buy-to-let from abroad. The lender reassesses the property’s rental income, your residency and income evidence, and your existing portfolio. Not every lender that offered the original mortgage will still lend to a non-resident borrower at renewal, so comparing the market matters.';
+
+const relatedPages = [
+  {
+    eyebrow: 'Hub',
+    title: 'Expat Buy-to-Let Mortgages',
+    description:
+      'UK buy-to-let mortgages for British nationals living abroad. ICR, deposits, and the lender pool.',
+    href: '/expat-mortgages/buy-to-let',
+  },
+  {
+    eyebrow: 'Hub',
+    title: 'Non-Resident Buy-to-Let Mortgages',
+    description:
+      'BTL on UK property from outside the UK. Lender pool, deposits, ICR, and limited company structures.',
+    href: '/non-uk-resident-mortgages/buy-to-let',
+  },
+  {
+    eyebrow: 'Guide',
+    title: 'Expat Remortgaging',
+    description:
+      'How to remortgage a UK property when you live abroad, including the residential process and timing.',
+    href: '/expat-mortgages/remortgage',
+  },
+  {
+    eyebrow: 'Guide',
+    title: 'Consent to Let',
+    description:
+      'What consent to let is, how to apply, how long it lasts, and what to do when it runs out.',
+    href: '/guides/consent-to-let',
+  },
+  {
+    eyebrow: 'Guide',
+    title: 'Limited Company Buy-to-Let Mortgages From Overseas',
+    description:
+      'SPV structure, how lenders assess an overseas-based director, and the tax trade-off against buying personally.',
+    href: '/guides/limited-company-buy-to-let-mortgages',
+  },
+  {
+    eyebrow: 'Guide',
+    title: 'HMO Mortgages for Overseas Landlords and Expats',
+    description:
+      'Why HMO lending is narrower than standard buy-to-let, how living overseas narrows it further, and managing an HMO you cannot visit.',
+    href: '/guides/hmo-mortgages-overseas-landlords',
+  },
+  {
+    eyebrow: 'Guide',
+    title: 'Non-Resident Landlord Scheme',
+    description:
+      'How UK rental income is taxed when you live abroad, and how to register to receive rent without withholding.',
+    href: '/guides/non-resident-landlord-scheme',
+  },
+  {
+    eyebrow: 'Guide',
+    title: 'UK Rental Market and Landlord Statistics 2026',
+    description:
+      'Sourced ONS, HomeLet, UK Finance and government landlord survey statistics on UK rents, buy-to-let lending, and landlord portfolio structure.',
+    href: '/guides/uk-rental-market-statistics',
+  },
+];
+
+const faqs = [
+  {
+    q: 'Can I remortgage a UK buy-to-let mortgage while living abroad?',
+    a: 'Yes. This is a routine piece of work for a broker who places expat and non-resident cases, and it happens whenever a fixed or tracker deal is coming to an end, or when circumstances change enough to make switching worthwhile.',
+  },
+  {
+    q: 'What happens if I do nothing when my current deal ends?',
+    a: 'You move onto the lender’s standard variable rate, which is typically less competitive than a new fixed or tracker deal. Planning the remortgage well ahead of that date avoids an unplanned period on the standard variable rate.',
+  },
+  {
+    q: 'Will my existing lender still offer me a deal now that I am non-resident?',
+    a: 'Not always. Some lenders that lent to you as a UK resident will not offer a product transfer, or even a further advance, once you have become non-resident, because their non-resident lending appetite differs from their UK-resident appetite. This is worth checking early rather than assuming your existing lender will simply roll you onto a new rate.',
+  },
+  {
+    q: 'What is the difference between a product transfer and a full remortgage?',
+    a: 'A product transfer moves you onto a new rate with your existing lender, usually with a lighter application. A full remortgage means applying to a different lender, with a fresh assessment of the property, your income, and your circumstances. Where your existing lender will not offer a product transfer to a non-resident borrower, a full remortgage becomes the only route.',
+  },
+  {
+    q: 'Is my rental income reassessed when I remortgage?',
+    a: 'Yes. The lender retests the property’s rental income against its own interest cover ratio requirement, in the same way it would for a new application, rather than simply carrying over the figures from your original mortgage.',
+  },
+  {
+    q: 'Does an existing portfolio affect a buy-to-let remortgage?',
+    a: 'Yes. If you hold several mortgaged UK properties, most lenders treat you as a portfolio landlord and review the wider portfolio alongside the property being remortgaged, not just that one property in isolation. See our expat buy-to-let hub for how portfolio landlord rules work more generally.',
+  },
+  {
+    q: 'Can I remortgage a buy-to-let held through a limited company from overseas?',
+    a: 'Yes. The lender reassesses the company and its overseas-based director in broadly the same way as a personal-name remortgage, though the lender pool for company remortgages from overseas is narrower. See our guide to limited company buy-to-let mortgages from overseas for how that structure is assessed.',
+  },
+  {
+    q: 'Do I need a new valuation to remortgage?',
+    a: 'Usually, yes. The new lender needs its own view of the property’s value and rental income, so a fresh valuation is a normal part of a full remortgage even if the property has not changed since you bought it.',
+  },
+  {
+    q: 'Do I need to visit the UK to remortgage a buy-to-let?',
+    a: 'No. As with the original purchase, a UK surveyor handles the valuation, and identity, income, and deposit or equity documents can typically be certified and signed from wherever you live.',
+  },
+  {
+    q: 'How long does a buy-to-let remortgage take when you live overseas?',
+    a: 'Longer than the equivalent remortgage for a UK resident, mainly because of the extra time needed to gather and certify documents from abroad and because fewer lenders in the market accept non-resident borrowers at all. Starting well before your current deal ends gives the process room to run.',
+  },
+  {
+    q: 'What if my circumstances have changed since my original mortgage?',
+    a: 'The lender assesses your current situation, not the one you had when you first bought the property. A change of country, currency, employer, or portfolio size since then is normal and simply forms part of the new application.',
+  },
+  {
+    q: 'Can I switch a personally held buy-to-let into a limited company at remortgage?',
+    a: 'This is possible but is treated as a sale from you to the company for tax purposes, which can trigger tax costs separate from the mortgage itself. Our guide to limited company buy-to-let mortgages from overseas covers this trade-off, and it is worth discussing with an accountant before deciding.',
+  },
+];
+
+const faqSchema = {
+  '@context': 'https://schema.org',
+  '@type': 'FAQPage',
+  mainEntity: faqs.map((f) => ({
+    '@type': 'Question',
+    name: f.q,
+    acceptedAnswer: { '@type': 'Answer', text: f.a },
+  })),
+};
+
+const schemas = [
+  breadcrumbSchema([
+    { name: 'Home', path: '/' },
+    { name: 'Guides', path: '/guides' },
+    { name: 'Buy-to-Let Remortgage From Overseas', path: '/guides/buy-to-let-remortgage-overseas' },
+  ]),
+  articleSchema({
+    headline: h1,
+    description,
+    datePublished: '2026-09-11',
+    dateModified: '2026-09-11',
+  }),
+];
+---
+
+<HubLayout
+  title={title}
+  description={description}
+  h1={h1}
+  subheadline={subheadline}
+  eyebrow="GUIDE · BTL REMORTGAGE"
+  schemas={schemas}
+  relatedPages={relatedPages}
+>
+  <RiskWarning type="btl" />
+  <section class="hub-section">
+    <div class="hub-section-inner">
+      <p
+        class="subheadline"
+        style="max-width: 680px; margin: 0 auto 1.5rem; text-align: center;"
+      >
+        {answer}
+      </p>
+    </div>
+  </section>
+  <TerritorialScope />
+
+  <section class="hub-section">
+    <div class="hub-section-inner">
+      <h2 id="who-this-is-for">Who this page is for</h2>
+      <p>
+        If you live outside the UK and have a UK buy-to-let mortgage coming
+        up for renewal, this page is for you. That covers a British expat
+        landlord who bought or last remortgaged as a UK resident and has
+        since moved abroad, a foreign national investor renewing a UK
+        buy-to-let for the first time from overseas, and anyone who moved a
+        former home onto a <a href="/guides/consent-to-let">consent to let</a>
+        arrangement and is now remortgaging it as a full buy-to-let.
+      </p>
+      <p>
+        This page covers what changes between the original application and
+        the remortgage, why your existing lender may not simply carry you
+        onto a new deal once you are non-resident, and what to expect from
+        the process. For the wider picture on expat and non-resident
+        buy-to-let, start with our
+        <a href="/expat-mortgages/buy-to-let">expat buy-to-let hub</a> or our
+        <a href="/non-uk-resident-mortgages/buy-to-let">non-resident buy-to-let hub</a>.
+        If you are remortgaging a UK home you live in yourself rather than a
+        rental property, see our
+        <a href="/expat-mortgages/remortgage">expat remortgaging guide</a> instead.
+      </p>
+    </div>
+  </section>
+
+  <section class="hub-section">
+    <div class="hub-section-inner">
+      <h2 id="why-timing-matters">Why timing matters more from overseas</h2>
+      <p>
+        Every fixed or tracker buy-to-let deal ends on a set date. Do
+        nothing and the mortgage moves onto the lender’s standard variable
+        rate, which is rarely the most competitive option available. That
+        is true for any landlord, but it matters more when you live abroad,
+        because gathering and certifying documents, arranging a valuation,
+        and working through a new lender’s underwriting all take longer
+        from overseas than they do for a UK resident. Starting the process
+        well ahead of the current deal ending gives you time to compare the
+        market properly rather than accepting whatever is quickest.
+      </p>
+    </div>
+  </section>
+
+  <MidPageCta variant="hero" />
+
+  <section class="hub-section">
+    <div class="hub-section-inner">
+      <h2 id="product-transfer-vs-remortgage">Product transfer or full remortgage</h2>
+      <p>
+        There are two routes at the end of a deal. A <strong>product
+        transfer</strong> keeps you with your existing lender on a new rate,
+        usually with a lighter application than a new mortgage. A
+        <strong>full remortgage</strong> means applying to a different
+        lender, with a complete reassessment of the property, your income,
+        and your circumstances.
+      </p>
+      <p>
+        The point that catches overseas landlords out is that a product
+        transfer is not guaranteed simply because you held the mortgage
+        before. A lender’s appetite for non-resident borrowers can be
+        narrower than its appetite for UK residents, so some lenders will
+        not offer a product transfer, or even a further advance, to a
+        borrower who has become non-resident since the original mortgage
+        was taken out. Where that is the case, a full remortgage to a
+        lender that does accept your current residency status is the only
+        way forward, and it is worth knowing this before your current deal
+        ends rather than discovering it at the last minute.
+      </p>
+    </div>
+  </section>
+
+  <PullQuote>
+    A product transfer is not guaranteed simply because you held the
+    mortgage before. Some lenders step back once a borrower becomes
+    non-resident.
+  </PullQuote>
+
+  <section class="hub-section">
+    <div class="hub-section-inner">
+      <h2 id="what-changes">What changes when you remortgage from abroad</h2>
+      <p>
+        A remortgage is treated as a new lending decision, not a renewal of
+        the old one. That means the lender will typically look again at:
+      </p>
+      <ul>
+        <li>
+          <strong>Rental income.</strong> The property’s current rent is
+          tested against the lender’s own interest cover ratio
+          requirement, rather than carried over from the original
+          application.
+        </li>
+        <li>
+          <strong>Valuation.</strong> A fresh valuation establishes the
+          property’s current value and expected rental income, even where
+          nothing about the property itself has changed.
+        </li>
+        <li>
+          <strong>Residency and income evidence.</strong> Proof of where you
+          live now, your current employment or self-employment position,
+          and the currency you are paid in are all reassessed as they would
+          be on a new application.
+        </li>
+        <li>
+          <strong>Your wider portfolio.</strong> Any properties bought,
+          sold, or remortgaged since your last application need updating in
+          your portfolio schedule.
+        </li>
+      </ul>
+      <p>
+        None of this means the remortgage is harder than the original
+        purchase. It means it is assessed on its own terms, using your
+        current circumstances rather than the circumstances that applied
+        when you first bought the property.
+      </p>
+    </div>
+  </section>
+
+  <section class="hub-section">
+    <div class="hub-section-inner">
+      <h2 id="portfolio-remortgage">Remortgaging as a portfolio landlord</h2>
+      <p>
+        If you hold several mortgaged UK buy-to-let properties, most
+        lenders treat you as a portfolio landlord and look at the portfolio
+        as a whole alongside the specific property being remortgaged,
+        rather than assessing that property in isolation. The lenders
+        willing to do this from overseas are a smaller group again, and
+        portfolio cases generally take longer to underwrite than a single
+        property remortgage. Our
+        <a href="/expat-mortgages/buy-to-let">expat buy-to-let hub</a> covers
+        how portfolio landlord rules work in more detail.
+      </p>
+    </div>
+  </section>
+
+  <section class="hub-section">
+    <div class="hub-section-inner">
+      <h2 id="limited-company-remortgage">Remortgaging a limited company buy-to-let</h2>
+      <p>
+        Where the property is held through a limited company, or SPV, the
+        remortgage reassesses the company and each overseas-based director
+        broadly as it would a personal-name application, and the lender
+        pool for company remortgages from overseas is narrower than for
+        personal-name remortgages. Some overseas landlords use a
+        remortgage as the point to consider moving a personally held
+        property into a company, though this is treated as a sale for tax
+        purposes and needs advice from an accountant beforehand. Our
+        <a href="/guides/limited-company-buy-to-let-mortgages">guide to limited company buy-to-let mortgages from overseas</a>
+        covers the structure and the tax trade-off in full.
+      </p>
+    </div>
+  </section>
+
+  <section class="hub-section">
+    <div class="hub-section-inner">
+      <h2 id="what-you-need">What you will usually need</h2>
+      <p>
+        Requirements vary by lender, but an overseas buy-to-let remortgage
+        typically draws on:
+      </p>
+      <ul>
+        <li>Identity and current residency evidence.</li>
+        <li>Current income evidence, including for a change of employer, currency, or self-employment status since your last application.</li>
+        <li>Evidence of the property’s current rental income, such as a tenancy agreement.</li>
+        <li>An up-to-date schedule of any other UK rental properties you hold, personally or through a company.</li>
+        <li>Company accounts and director details, where the property is held through an SPV.</li>
+      </ul>
+      <p>
+        If you are letting the property and have not already registered,
+        the <a href="/guides/non-resident-landlord-scheme">Non-Resident
+        Landlord Scheme</a> ensures rent is not withheld unnecessarily at
+        source while you live abroad.
+      </p>
+    </div>
+  </section>
+
+  <section class="hub-section">
+    <div class="hub-section-inner">
+      <h2 id="how-we-help">How we help</h2>
+      <p>
+        Not every lender that will remortgage a UK-resident landlord will
+        do the same for a non-resident borrower, and the lenders willing to
+        do both shift over time. We take your property, your portfolio,
+        and your current circumstances, and identify which current lenders
+        will remortgage you from wherever you live, handling the process
+        including documents signed and certified abroad.
+      </p>
+    </div>
+  </section>
+
+  <MidPageCta />
+
+  <section class="hub-section">
+    <div class="hub-section-inner">
+      <h2 id="faqs">Common questions</h2>
+      <div class="faq">
+        {faqs.map((f) => (
+          <>
+            <h3>{f.q}</h3>
+            <p>{f.a}</p>
+          </>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <script
+    type="application/ld+json"
+    is:inline
+    set:html={JSON.stringify(faqSchema)}
+  />
+</HubLayout>
