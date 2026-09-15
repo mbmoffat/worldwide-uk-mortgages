@@ -1,0 +1,383 @@
+---
+import HubLayout from '../../layouts/HubLayout.astro';
+import PullQuote from '../../components/PullQuote.astro';
+import MidPageCta from '../../components/MidPageCta.astro';
+import { breadcrumbSchema, articleSchema } from '../../lib/schema';
+import RiskWarning from '../../components/RiskWarning.astro';
+import TerritorialScope from '../../components/TerritorialScope.astro';
+
+const title = 'UK Rental Yield Statistics 2026';
+const description =
+  'Sourced ONS and HM Land Registry data used to calculate gross rental yield by UK region for 2026, for overseas landlords comparing where to buy.';
+const h1 = 'UK Rental Yield by Region 2026 for Overseas Landlords';
+const subheadline =
+  'A citable data comparison showing gross rental yield across UK regions, calculated from two named public sources: the official UK House Price Index and the ONS private rent bulletin. Every underlying figure is drawn from a named public source, linked at first mention.';
+
+const relatedPages = [
+  {
+    eyebrow: 'Hub',
+    title: 'Expat Buy-to-Let Mortgages',
+    description:
+      'UK buy-to-let mortgages for British expats. ICR rules, deposit thresholds, and lender pool for non-resident landlords.',
+    href: '/expat-mortgages/buy-to-let',
+  },
+  {
+    eyebrow: 'Hub',
+    title: 'Non-Resident Buy-to-Let Mortgages',
+    description:
+      'BTL on UK property from outside the UK. Lender pool, deposits, ICR stress tests, and limited company structures.',
+    href: '/non-uk-resident-mortgages/buy-to-let',
+  },
+  {
+    eyebrow: 'Guide',
+    title: 'UK Rental Market and Landlord Statistics 2026',
+    description:
+      'Sourced ONS, HomeLet, UK Finance and government landlord survey statistics on UK rents, buy-to-let lending, and landlord portfolio structure.',
+    href: '/guides/uk-rental-market-statistics',
+  },
+  {
+    eyebrow: 'Guide',
+    title: 'UK House Price Statistics 2026',
+    description:
+      'Sourced ONS, HM Land Registry and Nationwide house price statistics. National and regional prices, growth rates, and affordability.',
+    href: '/guides/uk-house-price-statistics',
+  },
+  {
+    eyebrow: 'Guide',
+    title: 'Non-Resident Landlord Scheme',
+    description:
+      'What NRLS is, who it applies to, and how UK rental income is taxed when you live abroad.',
+    href: '/guides/non-resident-landlord-scheme',
+  },
+  {
+    eyebrow: 'Guide',
+    title: 'UK Expat and Non-Resident Property Statistics 2026',
+    description:
+      'Sourced statistics on British expats abroad, overseas buyers, non-resident stamp duty, and UK buy-to-let lending.',
+    href: '/guides/uk-expat-property-statistics',
+  },
+];
+
+const faqs = [
+  {
+    q: 'What is gross rental yield?',
+    a: 'Gross rental yield is annual rent divided by property price, expressed as a percentage. It ignores mortgage interest, management costs, void periods and tax, so it measures the income a property produces relative to its price, not what a landlord actually keeps.',
+  },
+  {
+    q: 'Which UK region has the highest calculated gross rental yield?',
+    a: 'On this calculation, Scotland comes out highest at 6.35%, followed by the North East of England at 6.22%. Both combine low average property prices with rent levels that have not fallen proportionally, according to the UK House Price Index and the ONS private rent bulletin.',
+  },
+  {
+    q: 'Which UK region has the lowest calculated gross rental yield?',
+    a: 'The North West, at 4.37%, and the South East, at 4.42%, calculate lowest among the regions covered here. London, despite its high rents, sits mid-table at 5.10% because its property prices are proportionally higher still.',
+  },
+  {
+    q: 'Is gross yield the same as the return a landlord actually gets?',
+    a: 'No. Gross yield ignores mortgage interest, letting agent fees, maintenance, void periods, insurance and tax, all of which reduce the net return. It is a starting point for comparing locations, not a forecast of what any individual property will return. Overseas landlords should also weigh how UK rental income is taxed under the Non-Resident Landlord Scheme.',
+  },
+  {
+    q: 'Why do the price and rent figures on this page carry different dates?',
+    a: 'They come from two separate ONS-linked data series that publish on different schedules: the UK House Price Index (June 2026 data for English regions; April 2026 for the devolved nations, matching our house price statistics page) and the ONS private rent and house prices bulletin (July 2026 data). We have used the most recent release of each rather than wait for them to align, and dated every figure so the gap is clear.',
+  },
+  {
+    q: 'Why are some regions missing from the comparison?',
+    a: 'The East Midlands and Northern Ireland are left out of the calculated table because we could not source a matching price and rent figure for the same release. Rather than estimate a missing number, we have omitted the region, in line with keeping every figure on this page traceable to a named public source.',
+  },
+  {
+    q: 'Where do the figures on this page come from?',
+    a: 'Every underlying figure is drawn from a named public source: the UK House Price Index, produced by the Office for National Statistics and HM Land Registry, and the ONS private rent and house prices bulletin. The yield figures themselves are calculated by UK Mortgages Worldwide from those two sources. A full list is in the Sources section below.',
+  },
+  {
+    q: 'Can I cite or link to this page?',
+    a: 'Yes. This page exists as a citable reference. Please link back to this page as your source if you use the figures elsewhere.',
+  },
+];
+
+const faqSchema = {
+  '@context': 'https://schema.org',
+  '@type': 'FAQPage',
+  mainEntity: faqs.map((f) => ({
+    '@type': 'Question',
+    name: f.q,
+    acceptedAnswer: { '@type': 'Answer', text: f.a },
+  })),
+};
+const schemas = [
+  breadcrumbSchema([
+    { name: 'Home', path: '/' },
+    { name: 'Guides', path: '/guides' },
+    { name: 'UK Rental Yield Statistics', path: '/guides/uk-rental-yield-statistics' },
+  ]),
+  articleSchema({
+    headline: h1,
+    description,
+    datePublished: '2026-09-15',
+    dateModified: '2026-09-15',
+  }),
+];
+
+const regions = [
+  { name: 'Scotland', price: 192000, rent: 1016, yield: '6.35%' },
+  { name: 'North East', price: 151100, rent: 783, yield: '6.22%' },
+  { name: 'London', price: 545000, rent: 2317, yield: '5.10%' },
+  { name: 'Yorkshire and The Humber', price: 208000, rent: 862, yield: '4.97%' },
+  { name: 'South West', price: 311500, rent: 1237, yield: '4.77%' },
+  { name: 'Wales', price: 212000, rent: 843, yield: '4.77%' },
+  { name: 'West Midlands', price: 251000, rent: 971, yield: '4.64%' },
+  { name: 'East of England', price: 338700, rent: 1281, yield: '4.54%' },
+  { name: 'South East', price: 384100, rent: 1415, yield: '4.42%' },
+  { name: 'North West', price: 264000, rent: 961, yield: '4.37%' },
+];
+---
+
+<HubLayout
+  title={title}
+  description={description}
+  h1={h1}
+  subheadline={subheadline}
+  eyebrow="GUIDE · STATISTICS 2026"
+  schemas={schemas}
+  relatedPages={relatedPages}
+>
+  <RiskWarning type="btl" />
+  <TerritorialScope />
+  <section class="hub-section">
+    <div class="hub-section-inner">
+      <h2 id="who-this-is-for">Who this page is for</h2>
+      <p>
+        This page is a reference, not a sales page. It calculates gross
+        rental yield across UK regions from two named public data series,
+        so an overseas landlord can compare where rent stretches furthest
+        relative to purchase price, without relying on unsourced
+        "best places to buy" claims.
+      </p>
+      <p>
+        It is aimed at expat and non-resident buy-to-let landlords
+        weighing up where in the UK to buy, journalists and researchers,
+        other advisers, and anyone who wants a sourced starting point
+        rather than an anecdote. Every figure links to the original data
+        it comes from. For how rental income feeds into what a lender
+        will actually advance, see our
+        <a href="/expat-mortgages/buy-to-let">expat buy-to-let</a> and
+        <a href="/non-uk-resident-mortgages/buy-to-let">non-resident buy-to-let</a> hubs.
+      </p>
+    </div>
+  </section>
+
+  <section class="hub-section">
+    <div class="hub-section-inner">
+      <h2 id="how-calculated">How this is calculated</h2>
+      <p>
+        Gross rental yield is annual rent divided by property price. We
+        have taken average property price by region from the
+        <a href="https://www.gov.uk/government/statistics/uk-house-price-index-for-june-2026/uk-house-price-index-england-june-2026" target="_blank" rel="noopener">UK House Price Index, June 2026</a>,
+        produced by the Office for National Statistics and HM Land
+        Registry, and average monthly rent by region from the
+        <a href="https://www.ons.gov.uk/economy/inflationandpriceindices/bulletins/privaterentandhousepricesuk/august2026" target="_blank" rel="noopener">ONS private rent and house prices bulletin, July 2026 data</a>.
+        Multiplying monthly rent by 12 and dividing by average price gives
+        the gross yield figure for each region below.
+      </p>
+      <p>
+        This is a regional average, not a cherry-picked city or postcode.
+        A specific street or property type within a region can yield
+        noticeably more or less than the regional figure, which is why
+        some "best UK rental yield" roundups quote higher numbers for
+        individual towns or postcodes than the regional averages here.
+        We have stuck to the regional level because it is what the named
+        public sources actually publish, rather than estimate a
+        city-level figure ourselves.
+      </p>
+    </div>
+  </section>
+
+  <PullQuote>
+    Scotland and the North East of England calculate the highest gross
+    rental yield of any UK region in 2026, at 6.35% and 6.22%, using
+    official UK House Price Index and ONS rent data.
+  </PullQuote>
+
+  <section class="hub-section">
+    <div class="hub-section-inner">
+      <h2 id="yield-by-region">Gross rental yield by region</h2>
+      <p>
+        Ranked highest to lowest calculated gross yield. Prices are the
+        official UK House Price Index for the region; rent is the ONS
+        private rent bulletin average for the region.
+      </p>
+      <div class="yield-table-wrap">
+        <table class="yield-table">
+          <thead>
+            <tr>
+              <th>Region</th>
+              <th>Average price</th>
+              <th>Average monthly rent</th>
+              <th>Gross yield</th>
+            </tr>
+          </thead>
+          <tbody>
+            {regions.map((r) => (
+              <tr>
+                <td>{r.name}</td>
+                <td>£{r.price.toLocaleString('en-GB')}</td>
+                <td>£{r.rent.toLocaleString('en-GB')}</td>
+                <td>{r.yield}</td>
+              </tr>
+            ))}
+          </tbody>
+        </table>
+      </div>
+      <p>
+        The East Midlands and Northern Ireland are not included. We have
+        a rent figure for the East Midlands (£918) but no matching
+        regional price from the same release, and a price figure for
+        Northern Ireland (£198,000, Q1 2026) but no matching rent figure.
+        Rather than estimate either, we have left them out. See our
+        <a href="/guides/uk-house-price-statistics">UK house price statistics</a>
+        and <a href="/guides/uk-rental-market-statistics">UK rental market statistics</a>
+        pages for the fuller regional price and rent picture, including
+        these two areas individually.
+      </p>
+    </div>
+  </section>
+
+  <MidPageCta variant="hero" />
+
+  <section class="hub-section">
+    <div class="hub-section-inner">
+      <h2 id="why-it-varies">Why yield varies so much by region</h2>
+      <p>
+        The pattern is consistent with the wider regional story in our
+        <a href="/guides/uk-house-price-statistics">house price statistics</a>:
+        northern and devolved-nation property has grown from a lower
+        price base, so rent represents a larger share of the purchase
+        price than in London and the South East, where prices have risen
+        furthest and rents have not kept pace proportionally. London
+        still commands the UK's highest cash rent, at £2,317 a month
+        under the same ONS data, but its very high average price pulls
+        the calculated yield back down to the middle of the table.
+      </p>
+      <p>
+        This is the same trade-off referenced in our
+        <a href="/guides/uk-rental-market-statistics">rental market statistics</a>:
+        northern cities tend to offer higher gross yields with historically
+        slower capital growth, while southern cities offer lower yields
+        with historically stronger capital growth. Neither pattern is
+        guaranteed to continue, and this page does not attempt to forecast
+        it.
+      </p>
+    </div>
+  </section>
+
+  <section class="hub-section">
+    <div class="hub-section-inner">
+      <h2 id="gross-vs-net">Gross yield is a starting point, not a return</h2>
+      <p>
+        Every figure above is a gross yield: rent as a percentage of
+        price, before any cost of owning or financing the property. A
+        buy-to-let mortgage stress-tests borrowing against rental income
+        (see how <a href="/expat-mortgages/buy-to-let">ICR works for expat BTL</a>),
+        but ICR is a lending test, not a profitability measure.
+      </p>
+      <p>
+        Net return, what a landlord actually keeps, is lower once
+        mortgage interest, letting agent or management fees, maintenance,
+        insurance, void periods between tenancies and tax are taken into
+        account. Overseas landlords have an additional layer: UK rental
+        income is taxable in the UK regardless of where you live, and the
+        <a href="/guides/non-resident-landlord-scheme">Non-Resident Landlord Scheme</a>
+        governs how that income is paid and taxed. None of the figures on
+        this page adjust for any of this, deliberately, so they stay
+        comparable and traceable to their sources.
+      </p>
+    </div>
+  </section>
+
+  <PullQuote>
+    Gross yield measures what a property earns relative to its price. It
+    does not measure what a landlord keeps once mortgage interest,
+    costs and tax are taken into account.
+  </PullQuote>
+
+  <section class="hub-section">
+    <div class="hub-section-inner">
+      <h2 id="sources">Sources</h2>
+      <ul>
+        <li>
+          <a href="https://www.gov.uk/government/statistics/uk-house-price-index-for-june-2026/uk-house-price-index-england-june-2026" target="_blank" rel="noopener">GOV.UK / ONS / HM Land Registry — UK House Price Index, England: June 2026</a>
+        </li>
+        <li>
+          <a href="https://www.gov.uk/government/statistics/uk-house-price-index-for-may-2026/uk-house-price-index-summary-may-2026" target="_blank" rel="noopener">GOV.UK / ONS / HM Land Registry — UK House Price Index summary: May 2026</a> (used for the UK-wide average and devolved nation prices, matching our house price statistics page)
+        </li>
+        <li>
+          <a href="https://www.ons.gov.uk/economy/inflationandpriceindices/bulletins/privaterentandhousepricesuk/august2026" target="_blank" rel="noopener">Office for National Statistics — Private rent and house prices, UK: August 2026 (July 2026 data)</a>
+        </li>
+      </ul>
+      <p>
+        This page is for general information only and is not financial,
+        legal, or tax advice. The underlying price and rent figures are
+        third-party data compiled by UK Mortgages Worldwide; the yield
+        figures are our own calculation from that data. We do not
+        control or guarantee the ongoing accuracy of the underlying
+        sources, and each may revise its own figures over time. Always
+        check the original source for the latest published data before
+        relying on a specific number.
+      </p>
+    </div>
+  </section>
+
+  <MidPageCta
+    heading="Talk to a specialist about a UK buy-to-let purchase"
+    ctaNote="A mortgage broker will usually respond immediately."
+  />
+
+  <section class="hub-section">
+    <div class="hub-section-inner">
+      <h2 id="faqs">Common questions</h2>
+      <div class="faq">
+        {faqs.map((f) => (
+          <>
+            <h3>{f.q}</h3>
+            <p>{f.a}</p>
+          </>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <script
+    type="application/ld+json"
+    is:inline
+    set:html={JSON.stringify(faqSchema)}
+  />
+</HubLayout>
+
+<style>
+  .yield-table-wrap {
+    overflow-x: auto;
+    margin: 1.5rem 0;
+  }
+  .yield-table {
+    width: 100%;
+    border-collapse: collapse;
+    font-family: var(--font-body);
+    font-size: 1rem;
+  }
+  .yield-table th,
+  .yield-table td {
+    text-align: left;
+    padding: 0.65rem 1rem;
+    border-bottom: 1px solid #E8E0D5;
+  }
+  .yield-table th {
+    font-weight: 700;
+    color: #1A1612;
+  }
+  .yield-table td:nth-child(2),
+  .yield-table td:nth-child(3),
+  .yield-table td:nth-child(4),
+  .yield-table th:nth-child(2),
+  .yield-table th:nth-child(3),
+  .yield-table th:nth-child(4) {
+    text-align: right;
+  }
+</style>
