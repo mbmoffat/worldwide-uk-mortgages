@@ -1,0 +1,352 @@
+---
+import HubLayout from '../../layouts/HubLayout.astro';
+import PullQuote from '../../components/PullQuote.astro';
+import MidPageCta from '../../components/MidPageCta.astro';
+import { breadcrumbSchema, articleSchema } from '../../lib/schema';
+import RiskWarning from '../../components/RiskWarning.astro';
+import TerritorialScope from '../../components/TerritorialScope.astro';
+
+const title = 'Portfolio Landlord Mortgages From Overseas';
+const description =
+  'How British expats and non-UK residents with four or more mortgaged UK buy-to-let properties are assessed as portfolio landlords, and how living abroad changes the lender pool.';
+const h1 = 'Portfolio Landlord Mortgages From Overseas';
+const subheadline =
+  'How lenders treat a portfolio landlord who lives outside the UK, whether you are a British expat who has built a portfolio over time or a foreign national investor with several UK rental properties. What portfolio landlord status means, how the wider portfolio is assessed alongside the property you are financing, and how living abroad narrows the lender pool further.';
+const answer =
+  'Yes. A number of specialist lenders will consider a portfolio landlord living outside the UK, though fewer than will consider a single-property overseas buy-to-let case. The lender looks at your whole portfolio, not just the property being financed, and living abroad narrows the shortlist of lenders willing to do this on top of the usual overseas lending restrictions.';
+
+const relatedPages = [
+  {
+    eyebrow: 'Hub',
+    title: 'Expat Buy-to-Let Mortgages',
+    description:
+      'UK buy-to-let mortgages for British nationals living abroad. ICR, deposits, and the lender pool.',
+    href: '/expat-mortgages/buy-to-let',
+  },
+  {
+    eyebrow: 'Hub',
+    title: 'Non-Resident Buy-to-Let Mortgages',
+    description:
+      'BTL on UK property from outside the UK. Lender pool, deposits, ICR, and limited company structures.',
+    href: '/non-uk-resident-mortgages/buy-to-let',
+  },
+  {
+    eyebrow: 'Guide',
+    title: 'Buy-to-Let Remortgage From Overseas',
+    description:
+      'Why some lenders will not offer a product transfer once you are non-resident, and what changes when a BTL is remortgaged from abroad.',
+    href: '/guides/buy-to-let-remortgage-overseas',
+  },
+  {
+    eyebrow: 'Guide',
+    title: 'Limited Company Buy-to-Let Mortgages From Overseas',
+    description:
+      'SPV structure, how lenders assess an overseas-based director, and the tax trade-off against buying personally.',
+    href: '/guides/limited-company-buy-to-let-mortgages',
+  },
+  {
+    eyebrow: 'Guide',
+    title: 'HMO Mortgages for Overseas Landlords and Expats',
+    description:
+      'Why HMO lending is narrower than standard buy-to-let, how living overseas narrows it further, and managing an HMO you cannot visit.',
+    href: '/guides/hmo-mortgages-overseas-landlords',
+  },
+  {
+    eyebrow: 'Guide',
+    title: 'UK Rental Market and Landlord Statistics 2026',
+    description:
+      'Sourced ONS, HomeLet, UK Finance and government landlord survey statistics on UK rents, buy-to-let lending, and landlord portfolio structure.',
+    href: '/guides/uk-rental-market-statistics',
+  },
+];
+
+const faqs = [
+  {
+    q: 'What counts as a portfolio landlord?',
+    a: 'UK lenders generally define a portfolio landlord as someone with four or more mortgaged buy-to-let properties, whether held personally or through a limited company. Below that threshold, most lenders assess each application on its own without reference to your other properties.',
+  },
+  {
+    q: 'Can a portfolio landlord get a mortgage while living overseas?',
+    a: 'Yes, though the shortlist of willing lenders is shorter than for a single-property overseas buy-to-let case. A lender comfortable with overseas applicants may not offer portfolio underwriting at all, and a lender comfortable with portfolio landlords may restrict lending to UK residents. Finding the overlap is the main practical challenge.',
+  },
+  {
+    q: 'Why do lenders treat portfolio landlords differently?',
+    a: 'Once you hold several mortgaged properties, a problem with one, a void, an unexpected repair, a tenant leaving, can affect your ability to service the others. Lenders look at the portfolio as a whole to satisfy themselves it holds together financially, not only at the single property in front of them.',
+  },
+  {
+    q: 'How is the wider portfolio assessed?',
+    a: 'Alongside the interest cover ratio (ICR) test on the property being bought or remortgaged, the lender reviews a schedule of your other mortgaged properties, their rents, mortgage balances, and lenders, and typically expects the portfolio as a whole to meet its own minimum cover requirement.',
+  },
+  {
+    q: 'Does it matter if my portfolio is held in different structures?',
+    a: 'Yes, lenders want visibility of the whole picture. A portfolio split between personal name and one or more limited companies is common for overseas landlords who have grown a portfolio over time, and you should expect to provide a schedule covering every property regardless of how it is held.',
+  },
+  {
+    q: 'Does living overseas change how the portfolio itself is assessed?',
+    a: 'Not in principle. The portfolio stress test itself is the same test a UK-resident portfolio landlord faces. What changes is the number of lenders willing to apply that test to a non-resident applicant at all, which narrows the field before the portfolio assessment is even reached.',
+  },
+  {
+    q: 'Can a first-time landlord overseas become a portfolio landlord quickly?',
+    a: 'Only by acquiring several mortgaged properties over time, since portfolio status is based on the number you hold rather than your experience. In practice most overseas portfolio landlords built their portfolio gradually, often starting as a single-property expat or non-resident buy-to-let case.',
+  },
+  {
+    q: 'Does an unencumbered property count toward portfolio status?',
+    a: 'Most lenders count only mortgaged properties toward the four-or-more threshold, though some ask about unencumbered UK property you hold for a full picture of your financial position, even where it does not count toward the threshold itself.',
+  },
+  {
+    q: 'Can I add a limited company property to a personally held portfolio?',
+    a: 'Yes. Many overseas portfolio landlords hold some properties personally and buy new ones through a limited company for tax reasons. The lender for the new purchase will still want to see your whole portfolio, personal and corporate, when assessing the application.',
+  },
+  {
+    q: 'What if a lender declines to lend to a portfolio landlord living abroad?',
+    a: 'This is common enough that it should not be treated as a sign of a weak application. Some lenders simply do not offer portfolio underwriting to non-residents as a matter of policy, whatever the portfolio looks like, so the answer is usually to approach a lender whose criteria fit rather than to restructure the portfolio.',
+  },
+];
+
+const faqSchema = {
+  '@context': 'https://schema.org',
+  '@type': 'FAQPage',
+  mainEntity: faqs.map((f) => ({
+    '@type': 'Question',
+    name: f.q,
+    acceptedAnswer: { '@type': 'Answer', text: f.a },
+  })),
+};
+
+const schemas = [
+  breadcrumbSchema([
+    { name: 'Home', path: '/' },
+    { name: 'Guides', path: '/guides' },
+    { name: 'Portfolio Landlord Mortgages From Overseas', path: '/guides/portfolio-landlord-mortgages-overseas' },
+  ]),
+  articleSchema({
+    headline: h1,
+    description,
+    datePublished: '2026-09-22',
+    dateModified: '2026-09-22',
+  }),
+];
+---
+
+<HubLayout
+  title={title}
+  description={description}
+  h1={h1}
+  subheadline={subheadline}
+  eyebrow="GUIDE · PORTFOLIO LANDLORDS"
+  schemas={schemas}
+  relatedPages={relatedPages}
+>
+  <RiskWarning type="btl" />
+  <section class="hub-section">
+    <div class="hub-section-inner">
+      <p
+        class="subheadline"
+        style="max-width: 680px; margin: 0 auto 1.5rem; text-align: center;"
+      >
+        {answer}
+      </p>
+    </div>
+  </section>
+  <TerritorialScope />
+
+  <section class="hub-section">
+    <div class="hub-section-inner">
+      <h2 id="who-this-is-for">Who this page is for</h2>
+      <p>
+        If you live outside the UK and hold four or more mortgaged UK
+        buy-to-let properties, this page is for you. That covers a British
+        expat landlord who has built a portfolio over several years, and a
+        foreign national investor who holds several UK rental properties
+        without ever having lived in the UK.
+      </p>
+      <p>
+        This page covers what counts as a portfolio landlord, how the
+        wider portfolio is assessed alongside the property you are buying
+        or remortgaging, and how living overseas narrows the lender pool
+        further. If you hold fewer than four mortgaged properties, the
+        portfolio rules on this page do not yet apply to you, and our
+        <a href="/expat-mortgages/buy-to-let">expat buy-to-let hub</a> or
+        <a href="/non-uk-resident-mortgages/buy-to-let">non-resident buy-to-let hub</a>
+        covers the standard case.
+      </p>
+    </div>
+  </section>
+
+  <section class="hub-section">
+    <div class="hub-section-inner">
+      <h2 id="what-is-a-portfolio-landlord">What counts as a portfolio landlord</h2>
+      <p>
+        Most UK lenders define a portfolio landlord as someone with four or
+        more mortgaged buy-to-let properties, whether held in your personal
+        name, through a limited company, or split across both. Below that
+        threshold, lenders generally assess a buy-to-let application on its
+        own merits, without reference to any other property you hold.
+      </p>
+      <p>
+        Reach that threshold and the assessment changes. The lender wants
+        to understand the portfolio as a whole, not only the single
+        property in front of it, because a problem affecting one property,
+        a void period, an unexpected repair, a tenant who stops paying, can
+        affect your ability to service the mortgages on the others.
+      </p>
+    </div>
+  </section>
+
+  <MidPageCta variant="hero" />
+
+  <section class="hub-section">
+    <div class="hub-section-inner">
+      <h2 id="how-the-portfolio-is-assessed">How the wider portfolio is assessed</h2>
+      <p>
+        Alongside the interest cover ratio (ICR) test on the specific
+        property being bought or remortgaged, a portfolio landlord
+        application typically includes a portfolio-wide review. The lender
+        asks for a schedule of every mortgaged property you hold, including
+        addresses, current values, mortgage balances, lenders, and monthly
+        rents, and looks at whether the portfolio as a whole meets its own
+        minimum cover requirement, not only the property in the current
+        application.
+      </p>
+      <p>
+        This means a strong new property cannot fully offset a weak
+        portfolio, and a portfolio that is already comfortably placed makes
+        the new application easier to place too. The schedule needs to be
+        complete and current. An out-of-date or incomplete portfolio
+        schedule is one of the more common reasons a portfolio application
+        takes longer than expected.
+      </p>
+    </div>
+  </section>
+
+  <PullQuote>
+    A strong new property cannot fully offset a weak portfolio. Lenders
+    look at the whole picture, not only the property in front of them.
+  </PullQuote>
+
+  <section class="hub-section">
+    <div class="hub-section-inner">
+      <h2 id="why-overseas-narrows-it">Why living overseas narrows the pool further</h2>
+      <p>
+        Portfolio lending and overseas lending are each their own
+        specialism, and the lenders willing to do both at once are fewer
+        still. A lender comfortable with expat or non-resident applicants
+        may not offer portfolio underwriting at all, restricting new
+        lending to applicants below the portfolio threshold. A lender
+        comfortable with portfolio landlords may restrict its portfolio
+        product to UK residents. Finding the overlap between the two is
+        the main practical challenge of this kind of application, and it
+        is where a broker who places both types of case regularly earns
+        their keep.
+      </p>
+      <p>
+        Where you live, the currency you are paid in, and how the
+        portfolio is structured across personal and company ownership all
+        affect which lenders in that overlap will consider you, in the
+        same way they affect a standard expat or non-resident buy-to-let
+        application.
+      </p>
+    </div>
+  </section>
+
+  <section class="hub-section">
+    <div class="hub-section-inner">
+      <h2 id="mixed-structures">Portfolios held across personal name and limited companies</h2>
+      <p>
+        It is common for an overseas portfolio landlord to hold some
+        properties personally and others through one or more limited
+        companies, often because a company structure has become more
+        tax-efficient for properties bought since the mortgage interest
+        tax relief changes. A lender assessing a new application wants
+        visibility of the whole picture regardless of structure, so expect
+        to provide a schedule covering every property you hold, personal
+        and corporate, not just the properties held in the same way as the
+        one you are financing.
+      </p>
+      <p>
+        See our
+        <a href="/guides/limited-company-buy-to-let-mortgages">guide to limited company buy-to-let mortgages from overseas</a>
+        for how lenders assess an overseas-based director and the tax
+        trade-off against holding property personally.
+      </p>
+    </div>
+  </section>
+
+  <section class="hub-section">
+    <div class="hub-section-inner">
+      <h2 id="what-you-will-need">What you will usually need</h2>
+      <p>
+        Requirements vary by lender, but an overseas portfolio landlord
+        application typically draws on:
+      </p>
+      <ul>
+        <li>
+          A full, current schedule of every mortgaged property you hold,
+          personal and corporate, with addresses, values, mortgage
+          balances, lenders, and monthly rents.
+        </li>
+        <li>
+          Identity and residency evidence, in the same way as a
+          personal-name expat or non-resident application.
+        </li>
+        <li>
+          Evidence of rental income across the portfolio, such as tenancy
+          agreements or bank statements showing rent received.
+        </li>
+        <li>
+          Company accounts and director details for any properties held
+          through a limited company.
+        </li>
+        <li>
+          Deposit source documentation for the new purchase, including for
+          funds contributed from overseas.
+        </li>
+      </ul>
+      <p>
+        If a lender declines a portfolio application from overseas, this is
+        often a matter of that lender's policy on non-resident portfolio
+        lending rather than a weakness in the portfolio itself, so
+        approaching a lender whose criteria fit is usually the right next
+        step rather than restructuring the portfolio.
+      </p>
+    </div>
+  </section>
+
+  <section class="hub-section">
+    <div class="hub-section-inner">
+      <h2 id="how-we-help">How we help</h2>
+      <p>
+        Overseas portfolio lending sits at the intersection of two
+        specialist areas, portfolio underwriting and expat or non-resident
+        lending, and not every lender that is strong in one is also strong
+        in the other. We take your portfolio, your structure, and your
+        current circumstances, and identify which current lenders will
+        underwrite a portfolio application from wherever you live,
+        handling the process including documents signed and certified
+        abroad.
+      </p>
+    </div>
+  </section>
+
+  <MidPageCta />
+
+  <section class="hub-section">
+    <div class="hub-section-inner">
+      <h2 id="faqs">Common questions</h2>
+      <div class="faq">
+        {faqs.map((f) => (
+          <>
+            <h3>{f.q}</h3>
+            <p>{f.a}</p>
+          </>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <script
+    type="application/ld+json"
+    is:inline
+    set:html={JSON.stringify(faqSchema)}
+  />
+</HubLayout>
