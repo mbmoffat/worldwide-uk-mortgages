@@ -1,0 +1,364 @@
+---
+import HubLayout from '../../layouts/HubLayout.astro';
+import PullQuote from '../../components/PullQuote.astro';
+import MidPageCta from '../../components/MidPageCta.astro';
+import { breadcrumbSchema, articleSchema } from '../../lib/schema';
+import RiskWarning from '../../components/RiskWarning.astro';
+import TerritorialScope from '../../components/TerritorialScope.astro';
+
+const title = 'Rental Cover for Overseas Buy-to-Let Landlords';
+const description =
+  'How rental cover (ICR) works on a UK buy-to-let mortgage when you live overseas. What lenders test, why the bar is set higher for expats and non-residents, and what improves your position.';
+const h1 = 'Rental Cover for Overseas Buy-to-Let Landlords';
+const subheadline =
+  'How UK buy-to-let lenders decide how much they will lend against a property, based on the rent it earns, and why that calculation is set more cautiously once the landlord lives outside the UK. What rental cover means, why living overseas raises the bar, and what improves how far your rental income stretches.';
+const answer =
+  'Rental cover, usually shown as an interest cover ratio (ICR), is the test a buy-to-let lender runs to check the rent covers the mortgage interest with a margin to spare, at a notional stressed rate rather than the actual pay rate. For an overseas landlord, lenders generally set this test more cautiously than for a UK resident, so a given rent supports a smaller loan.';
+
+const relatedPages = [
+  {
+    eyebrow: 'Hub',
+    title: 'Expat Buy-to-Let Mortgages',
+    description:
+      'UK buy-to-let mortgages for British nationals living abroad. ICR, deposits, and the lender pool.',
+    href: '/expat-mortgages/buy-to-let',
+  },
+  {
+    eyebrow: 'Hub',
+    title: 'Non-Resident Buy-to-Let Mortgages',
+    description:
+      'BTL on UK property from outside the UK. Lender pool, deposits, ICR, and limited company structures.',
+    href: '/non-uk-resident-mortgages/buy-to-let',
+  },
+  {
+    eyebrow: 'Guide',
+    title: 'Limited Company Buy-to-Let Mortgages From Overseas',
+    description:
+      'SPV structure, how lenders assess an overseas-based director, and the tax trade-off against buying personally.',
+    href: '/guides/limited-company-buy-to-let-mortgages',
+  },
+  {
+    eyebrow: 'Guide',
+    title: 'HMO Mortgages for Overseas Landlords and Expats',
+    description:
+      'Why HMO lending is narrower than standard buy-to-let, how living overseas narrows it further, and managing an HMO you cannot visit.',
+    href: '/guides/hmo-mortgages-overseas-landlords',
+  },
+  {
+    eyebrow: 'Guide',
+    title: 'Portfolio Landlord Mortgages From Overseas',
+    description:
+      'How lenders assess a portfolio of four or more mortgaged UK properties, and how living abroad narrows the lender pool further.',
+    href: '/guides/portfolio-landlord-mortgages-overseas',
+  },
+  {
+    eyebrow: 'Guide',
+    title: 'Buy-to-Let Remortgage From Overseas',
+    description:
+      'Why some lenders will not offer a product transfer once you are non-resident, and what changes when a BTL is remortgaged from abroad.',
+    href: '/guides/buy-to-let-remortgage-overseas',
+  },
+  {
+    eyebrow: 'Guide',
+    title: 'UK Rental Yield Statistics 2026',
+    description:
+      'Gross rental yield by UK region, calculated from official UK House Price Index and ONS rent data.',
+    href: '/guides/uk-rental-yield-statistics',
+  },
+  {
+    eyebrow: 'Guide',
+    title: 'UK Rental Market and Landlord Statistics 2026',
+    description:
+      'Sourced ONS, HomeLet, UK Finance and government landlord survey statistics on UK rents, buy-to-let lending, and landlord portfolio structure.',
+    href: '/guides/uk-rental-market-statistics',
+  },
+];
+
+const faqs = [
+  {
+    q: 'What is rental cover on a buy-to-let mortgage?',
+    a: 'It is the test a lender runs to check a property\'s rental income comfortably exceeds the mortgage interest, usually expressed as an interest cover ratio (ICR): rent divided by mortgage interest at a notional stressed rate. It decides how much a lender will offer against a given rent, rather than the mortgage being sized off personal income in the way a residential mortgage is.',
+  },
+  {
+    q: 'Why is rental cover set higher for overseas landlords?',
+    a: 'Lenders generally see overseas lending as carrying more risk to manage, from currency exposure on any personal income backstop to the practical friction of contacting a borrower and re-letting a property from a distance if something goes wrong. Most lenders respond by setting a more cautious rental cover requirement for expat and non-resident applicants than for an equivalent UK-resident borrower, which means the same rent supports a smaller loan.',
+  },
+  {
+    q: 'Does my personal income affect rental cover?',
+    a: 'Not directly. Rental cover is calculated from the property\'s rent, not your salary. Some lenders separately set a minimum personal income to qualify for buy-to-let lending at all, treated as a hurdle to clear rather than something that increases the loan a strong rental income already supports.',
+  },
+  {
+    q: 'What rent counts towards rental cover?',
+    a: 'The rent the property is expected to achieve, based on an independent rental valuation the lender instructs as part of the application, not a figure you supply. For a house in multiple occupation, this is usually the combined room-by-room rent rather than a single tenancy figure. See our guide to HMO mortgages for overseas landlords for how that differs.',
+  },
+  {
+    q: 'Does a bigger deposit help rental cover?',
+    a: 'Yes. A larger deposit reduces the loan needed to buy or refinance the property, which reduces the monthly interest the rent needs to cover. Where a property\'s rent is tight against the lender\'s test at one deposit level, a larger deposit is often the most direct way to make the sums work.',
+  },
+  {
+    q: 'Does buying through a limited company change rental cover?',
+    a: 'It can. Several lenders apply a less demanding rental cover test to limited company applicants than to personal-name applicants, reflecting the different tax treatment of mortgage interest. It is a factor worth weighing alongside the wider tax and cost trade-off. See our guide to limited company buy-to-let mortgages from overseas.',
+  },
+  {
+    q: 'Does rental cover vary between lenders?',
+    a: 'Considerably. Lenders set their own stressed rate and their own required cover level, and both move over time. Two lenders can offer materially different loan sizes against the same property and the same rent, which is why comparing the market rather than approaching a single familiar lender matters more for overseas buy-to-let than it does for residential borrowing.',
+  },
+  {
+    q: 'What if a property does not clear rental cover at the loan size I want?',
+    a: 'The usual options are a larger deposit, a lower loan amount, a lender with a less demanding test for your profile, or a property with a stronger rental yield relative to its price. Our guide to UK rental yield statistics compares typical gross yield by region, which is a useful starting point before you commit to a property.',
+  },
+  {
+    q: 'Is rental cover assessed differently at remortgage?',
+    a: 'The same style of test applies, run again against current rent and current rates rather than the figures from the original application. Not every lender that offered the original mortgage continues to lend once a landlord becomes non-resident, so it is worth planning ahead of the fixed term ending. See our guide to buy-to-let remortgage from overseas.',
+  },
+  {
+    q: 'Does rental cover apply the same way to a portfolio of properties?',
+    a: 'A lender looks at rental cover on the property being financed and, once a landlord holds several mortgaged properties, typically also at how the portfolio holds together as a whole. See our guide to portfolio landlord mortgages from overseas for how that wider assessment works.',
+  },
+];
+
+const faqSchema = {
+  '@context': 'https://schema.org',
+  '@type': 'FAQPage',
+  mainEntity: faqs.map((f) => ({
+    '@type': 'Question',
+    name: f.q,
+    acceptedAnswer: { '@type': 'Answer', text: f.a },
+  })),
+};
+
+const schemas = [
+  breadcrumbSchema([
+    { name: 'Home', path: '/' },
+    { name: 'Guides', path: '/guides' },
+    { name: 'Rental Cover for Overseas Buy-to-Let Landlords', path: '/guides/rental-cover-buy-to-let-overseas' },
+  ]),
+  articleSchema({
+    headline: h1,
+    description,
+    datePublished: '2026-09-25',
+    dateModified: '2026-09-25',
+  }),
+];
+---
+
+<HubLayout
+  title={title}
+  description={description}
+  h1={h1}
+  subheadline={subheadline}
+  eyebrow="GUIDE · RENTAL COVER"
+  schemas={schemas}
+  relatedPages={relatedPages}
+>
+  <RiskWarning type="btl" />
+  <section class="hub-section">
+    <div class="hub-section-inner">
+      <p
+        class="subheadline"
+        style="max-width: 680px; margin: 0 auto 1.5rem; text-align: center;"
+      >
+        {answer}
+      </p>
+    </div>
+  </section>
+  <TerritorialScope />
+
+  <section class="hub-section">
+    <div class="hub-section-inner">
+      <h2 id="who-this-is-for">Who this page is for</h2>
+      <p>
+        If you are looking at a UK buy-to-let purchase or remortgage from
+        outside the UK and want to understand how lenders decide what they
+        will lend against the rent, this page is for you. That covers a
+        British expat landlord buying or growing a portfolio from abroad,
+        and a foreign national investor buying UK rental property who has
+        never lived in the UK.
+      </p>
+      <p>
+        This page covers what rental cover means, why living overseas
+        changes the calculation, what counts as rent for the purposes of
+        the test, and what tends to improve your position. For the wider
+        picture on expat and non-resident buy-to-let, start with our
+        <a href="/expat-mortgages/buy-to-let">expat buy-to-let hub</a>
+        or our <a href="/non-uk-resident-mortgages/buy-to-let">non-resident buy-to-let hub</a>.
+      </p>
+    </div>
+  </section>
+
+  <section class="hub-section">
+    <div class="hub-section-inner">
+      <h2 id="what-is-rental-cover">What rental cover actually tests</h2>
+      <p>
+        Buy-to-let lending is assessed primarily on the income the property
+        will generate rather than on the borrower's personal salary. The
+        test that formalises this is usually called an interest cover
+        ratio, or ICR: the rent the property is expected to achieve,
+        divided by the mortgage interest calculated at a notional stressed
+        rate rather than the rate actually being charged.
+      </p>
+      <p>
+        Using a stressed rate rather than the live rate builds in a margin,
+        so the loan still looks affordable if interest rates rise or if the
+        property sits empty between tenancies for a period. The rent has to
+        clear the interest at that stressed rate by some margin, not simply
+        match it, for the loan to be offered.
+      </p>
+    </div>
+  </section>
+
+  <MidPageCta variant="hero" />
+
+  <section class="hub-section">
+    <div class="hub-section-inner">
+      <h2 id="why-overseas-raises-the-bar">Why living overseas raises the bar</h2>
+      <p>
+        The mechanics of the test are the same wherever a landlord lives.
+        What generally differs is how cautiously a lender sets the two
+        variables inside it, the stressed rate and the required level of
+        cover. Most lenders treat an overseas application as carrying more
+        risk to manage than an equivalent UK-resident case, and respond by
+        setting one or both of those variables more conservatively for
+        expat and non-resident borrowers.
+      </p>
+      <p>
+        The practical effect is that the same rent supports a smaller loan
+        for an overseas landlord than it would for a UK resident on an
+        otherwise identical property. It is the single biggest mechanical
+        difference between overseas and UK-resident buy-to-let, and the
+        main reason a property that looks comfortably affordable on a
+        UK-resident basis can be tighter once assessed on overseas terms.
+      </p>
+    </div>
+  </section>
+
+  <PullQuote>
+    The same rent supports a smaller loan for an overseas landlord than it
+    would for a UK resident on an otherwise identical property.
+  </PullQuote>
+
+  <section class="hub-section">
+    <div class="hub-section-inner">
+      <h2 id="what-counts-as-rent">What counts as rent for the test</h2>
+      <p>
+        Lenders work from an independent rental valuation carried out by a
+        surveyor they instruct, not from a figure the applicant or a
+        letting agent provides. For a standard single-let property, that is
+        a single monthly rent figure for the whole property.
+      </p>
+      <p>
+        For a <a href="/guides/hmo-mortgages-overseas-landlords">house in multiple occupation</a>,
+        it is usually the combined rent across all rooms or units, which is
+        typically higher than a single-let equivalent but comes with its
+        own licensing and management obligations. For a property let as a
+        <a href="/guides/holiday-let-mortgages">holiday let</a>, the income
+        pattern is seasonal rather than a fixed monthly figure, and lenders
+        that offer this product assess it on its own terms rather than
+        against the standard buy-to-let test.
+      </p>
+    </div>
+  </section>
+
+  <section class="hub-section">
+    <div class="hub-section-inner">
+      <h2 id="personal-income-backstop">The personal income backstop</h2>
+      <p>
+        Rental cover is calculated from the property's income, not the
+        borrower's salary. Separately, some lenders also set a minimum
+        personal income for a buy-to-let applicant to qualify at all. Where
+        that applies, it is a hurdle to clear rather than a multiplier that
+        increases the loan a strong rental income already supports, and for
+        an overseas applicant that income is generally treated in a similar
+        way to how foreign income is assessed on an expat residential case.
+      </p>
+    </div>
+  </section>
+
+  <section class="hub-section">
+    <div class="hub-section-inner">
+      <h2 id="what-improves-your-position">What tends to improve your position</h2>
+      <p>
+        A handful of factors move the outcome of a rental cover test in
+        your favour.
+      </p>
+      <ul>
+        <li>
+          <strong>A larger deposit.</strong> Reducing the loan needed to
+          buy or refinance a property reduces the interest the rent has to
+          cover, so a bigger deposit is often the most direct way to make a
+          tight case work.
+        </li>
+        <li>
+          <strong>A higher-yielding property.</strong> Rent relative to
+          price varies considerably across the UK. Our
+          <a href="/guides/uk-rental-yield-statistics">UK rental yield statistics by region</a>
+          compare typical gross yield across UK regions, which is worth
+          checking before you commit to a property.
+        </li>
+        <li>
+          <strong>Structure.</strong> Some lenders apply a less demanding
+          test to limited company applicants than to personal-name
+          applicants. See our
+          <a href="/guides/limited-company-buy-to-let-mortgages">guide to limited company buy-to-let mortgages from overseas</a>
+          for the wider structure and tax trade-off.
+        </li>
+        <li>
+          <strong>Lender choice.</strong> Rental cover requirements vary
+          between lenders and move over time, so the lender approached
+          affects the outcome as much as the property itself.
+        </li>
+      </ul>
+    </div>
+  </section>
+
+  <section class="hub-section">
+    <div class="hub-section-inner">
+      <h2 id="why-broker-matters">Why lender choice matters more here</h2>
+      <p>
+        Because rental cover requirements vary between lenders and move
+        over time, two lenders can reach different conclusions on the same
+        property and the same rent. A specialist broker who tracks how
+        lenders currently set their rental cover tests can identify which
+        lender is likely to support the loan you need, rather than
+        approaching a single familiar lender and taking whatever answer
+        comes back.
+      </p>
+    </div>
+  </section>
+
+  <section class="hub-section">
+    <div class="hub-section-inner">
+      <h2 id="how-we-help">How we help</h2>
+      <p>
+        We take the property, the expected rent, your residency, and your
+        preferred structure, personal name or limited company, and match
+        it against current lender rental cover requirements to identify
+        where the loan you want is realistic. Where a case is tight, we
+        talk through the practical options, a larger deposit, a different
+        property, or a different lender, before you commit.
+      </p>
+    </div>
+  </section>
+
+  <MidPageCta />
+
+  <section class="hub-section">
+    <div class="hub-section-inner">
+      <h2 id="faqs">Common questions</h2>
+      <div class="faq">
+        {faqs.map((f) => (
+          <>
+            <h3>{f.q}</h3>
+            <p>{f.a}</p>
+          </>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <script
+    type="application/ld+json"
+    is:inline
+    set:html={JSON.stringify(faqSchema)}
+  />
+</HubLayout>
